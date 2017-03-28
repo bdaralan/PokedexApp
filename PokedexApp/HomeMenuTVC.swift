@@ -1,16 +1,14 @@
 //
-//  PokedexTVC.swift
+//  HomeMenuTVC.swift
 //  PokedexApp
 //
-//  Created by Dara on 3/27/17.
+//  Created by Dara on 3/28/17.
 //  Copyright © 2017 iDara09. All rights reserved.
 //
 
 import UIKit
 
-class PokedexTVC: UITableViewController {
-    
-    var pokemons = POKEMONS
+class HomeMenuTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,21 +20,33 @@ class PokedexTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return pokemons.count
+        // #warning Incomplete implementation, return the number of rows
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomeMenuCell", for: indexPath) as? HomeMenuCell {
             
-            cell.configureCell(pokemon: pokemons[indexPath.row])
+            cell.textLabel?.text = "Pokedex"
             
             return cell
         }
         
-        return PokedexCell()
+        return HomeMenuCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "PokedexTVC", sender: nil)
     }
     
     /*
