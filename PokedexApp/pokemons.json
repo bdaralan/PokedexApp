@@ -12,7 +12,7 @@
         "sp-attack": 65,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Ivysaur": {
         "id": 2,
@@ -27,7 +27,7 @@
         "sp-attack": 80,
         "sp-defense": 80,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Venusaur": {
         "id": 3,
@@ -42,7 +42,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Venusaur": {
         "id": 3,
@@ -57,7 +57,7 @@
         "sp-attack": 122,
         "sp-defense": 120,
         "speed": 80,
-        "form": "FORM"
+        "form": "mega"
     },
     "Charmander": {
         "id": 4,
@@ -71,7 +71,7 @@
         "sp-attack": 60,
         "sp-defense": 50,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Charmeleon": {
         "id": 5,
@@ -85,7 +85,7 @@
         "sp-attack": 80,
         "sp-defense": 65,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Charizard": {
         "id": 6,
@@ -100,7 +100,7 @@
         "sp-attack": 109,
         "sp-defense": 85,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Charizard X": {
         "id": 6,
@@ -115,7 +115,7 @@
         "sp-attack": 130,
         "sp-defense": 85,
         "speed": 100,
-        "form": "FORM"
+        "form": "megax"
     },
     "Mega Charizard Y": {
         "id": 6,
@@ -130,7 +130,7 @@
         "sp-attack": 159,
         "sp-defense": 115,
         "speed": 100,
-        "form": "FORM"
+        "form": "megay"
     },
     "Squirtle": {
         "id": 7,
@@ -144,7 +144,7 @@
         "sp-attack": 50,
         "sp-defense": 64,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Wartortle": {
         "id": 8,
@@ -158,7 +158,7 @@
         "sp-attack": 65,
         "sp-defense": 80,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Blastoise": {
         "id": 9,
@@ -172,7 +172,7 @@
         "sp-attack": 85,
         "sp-defense": 105,
         "speed": 78,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Blastoise": {
         "id": 9,
@@ -186,7 +186,7 @@
         "sp-attack": 135,
         "sp-defense": 115,
         "speed": 78,
-        "form": "FORM"
+        "form": "mega"
     },
     "Caterpie": {
         "id": 10,
@@ -200,7 +200,7 @@
         "sp-attack": 20,
         "sp-defense": 20,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Metapod": {
         "id": 11,
@@ -214,7 +214,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Butterfree": {
         "id": 12,
@@ -229,7 +229,7 @@
         "sp-attack": 90,
         "sp-defense": 80,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Weedle": {
         "id": 13,
@@ -244,7 +244,7 @@
         "sp-attack": 20,
         "sp-defense": 20,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Kakuna": {
         "id": 14,
@@ -259,7 +259,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Beedrill": {
         "id": 15,
@@ -274,7 +274,7 @@
         "sp-attack": 45,
         "sp-defense": 80,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Beedrill": {
         "id": 15,
@@ -289,7 +289,7 @@
         "sp-attack": 15,
         "sp-defense": 80,
         "speed": 145,
-        "form": "FORM"
+        "form": "mega"
     },
     "Pidgey": {
         "id": 16,
@@ -304,7 +304,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 56,
-        "form": "FORM"
+        "form": ""
     },
     "Pidgeotto": {
         "id": 17,
@@ -319,7 +319,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 71,
-        "form": "FORM"
+        "form": ""
     },
     "Pidgeot": {
         "id": 18,
@@ -334,7 +334,7 @@
         "sp-attack": 70,
         "sp-defense": 70,
         "speed": 101,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Pidgeot": {
         "id": 18,
@@ -349,7 +349,7 @@
         "sp-attack": 135,
         "sp-defense": 80,
         "speed": 121,
-        "form": "FORM"
+        "form": "mega"
     },
     "Rattata": {
         "id": 19,
@@ -363,7 +363,7 @@
         "sp-attack": 25,
         "sp-defense": 35,
         "speed": 72,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Rattata": {
         "id": 19,
@@ -378,7 +378,7 @@
         "sp-attack": 25,
         "sp-defense": 35,
         "speed": 72,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Raticate": {
         "id": 20,
@@ -392,7 +392,7 @@
         "sp-attack": 50,
         "sp-defense": 70,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Raticate": {
         "id": 20,
@@ -407,7 +407,7 @@
         "sp-attack": 40,
         "sp-defense": 80,
         "speed": 77,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Spearow": {
         "id": 21,
@@ -422,7 +422,7 @@
         "sp-attack": 31,
         "sp-defense": 31,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Fearow": {
         "id": 22,
@@ -437,7 +437,7 @@
         "sp-attack": 61,
         "sp-defense": 61,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Ekans": {
         "id": 23,
@@ -451,7 +451,7 @@
         "sp-attack": 40,
         "sp-defense": 54,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Arbok": {
         "id": 24,
@@ -465,7 +465,7 @@
         "sp-attack": 65,
         "sp-defense": 79,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Pikachu": {
         "id": 25,
@@ -479,7 +479,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Raichu": {
         "id": 26,
@@ -493,7 +493,7 @@
         "sp-attack": 90,
         "sp-defense": 80,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Raichu": {
         "id": 26,
@@ -508,7 +508,7 @@
         "sp-attack": 95,
         "sp-defense": 85,
         "speed": 110,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Sandshrew": {
         "id": 27,
@@ -522,7 +522,7 @@
         "sp-attack": 20,
         "sp-defense": 30,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Sandshrew": {
         "id": 27,
@@ -537,7 +537,7 @@
         "sp-attack": 10,
         "sp-defense": 35,
         "speed": 40,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Sandslash": {
         "id": 28,
@@ -551,7 +551,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Sandslash": {
         "id": 28,
@@ -566,7 +566,7 @@
         "sp-attack": 25,
         "sp-defense": 65,
         "speed": 65,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Nidoran♀": {
         "id": 29,
@@ -580,7 +580,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 41,
-        "form": "FORM"
+        "form": ""
     },
     "Nidorina": {
         "id": 30,
@@ -594,7 +594,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 56,
-        "form": "FORM"
+        "form": ""
     },
     "Nidoqueen": {
         "id": 31,
@@ -609,7 +609,7 @@
         "sp-attack": 75,
         "sp-defense": 85,
         "speed": 76,
-        "form": "FORM"
+        "form": ""
     },
     "Nidoran♂": {
         "id": 32,
@@ -623,7 +623,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Nidorino": {
         "id": 33,
@@ -637,7 +637,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Nidoking": {
         "id": 34,
@@ -652,7 +652,7 @@
         "sp-attack": 85,
         "sp-defense": 75,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Clefairy": {
         "id": 35,
@@ -666,7 +666,7 @@
         "sp-attack": 60,
         "sp-defense": 65,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Clefable": {
         "id": 36,
@@ -680,7 +680,7 @@
         "sp-attack": 95,
         "sp-defense": 90,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Vulpix": {
         "id": 37,
@@ -694,7 +694,7 @@
         "sp-attack": 50,
         "sp-defense": 65,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Vulpix": {
         "id": 37,
@@ -708,7 +708,7 @@
         "sp-attack": 50,
         "sp-defense": 65,
         "speed": 65,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Ninetales": {
         "id": 38,
@@ -722,7 +722,7 @@
         "sp-attack": 81,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Ninetales": {
         "id": 38,
@@ -737,7 +737,7 @@
         "sp-attack": 81,
         "sp-defense": 100,
         "speed": 109,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Jigglypuff": {
         "id": 39,
@@ -752,7 +752,7 @@
         "sp-attack": 45,
         "sp-defense": 25,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Wigglytuff": {
         "id": 40,
@@ -767,7 +767,7 @@
         "sp-attack": 85,
         "sp-defense": 50,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Zubat": {
         "id": 41,
@@ -782,7 +782,7 @@
         "sp-attack": 30,
         "sp-defense": 40,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Golbat": {
         "id": 42,
@@ -797,7 +797,7 @@
         "sp-attack": 65,
         "sp-defense": 75,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Oddish": {
         "id": 43,
@@ -812,7 +812,7 @@
         "sp-attack": 75,
         "sp-defense": 65,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Gloom": {
         "id": 44,
@@ -827,7 +827,7 @@
         "sp-attack": 85,
         "sp-defense": 75,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Vileplume": {
         "id": 45,
@@ -842,7 +842,7 @@
         "sp-attack": 110,
         "sp-defense": 90,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Paras": {
         "id": 46,
@@ -857,7 +857,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Parasect": {
         "id": 47,
@@ -872,7 +872,7 @@
         "sp-attack": 60,
         "sp-defense": 80,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Venonat": {
         "id": 48,
@@ -887,7 +887,7 @@
         "sp-attack": 40,
         "sp-defense": 55,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Venomoth": {
         "id": 49,
@@ -902,7 +902,7 @@
         "sp-attack": 90,
         "sp-defense": 75,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Diglett": {
         "id": 50,
@@ -916,7 +916,7 @@
         "sp-attack": 35,
         "sp-defense": 45,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Diglett": {
         "id": 50,
@@ -931,7 +931,7 @@
         "sp-attack": 35,
         "sp-defense": 45,
         "speed": 90,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Dugtrio": {
         "id": 51,
@@ -945,7 +945,7 @@
         "sp-attack": 50,
         "sp-defense": 70,
         "speed": 120,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Dugtrio": {
         "id": 51,
@@ -960,7 +960,7 @@
         "sp-attack": 50,
         "sp-defense": 70,
         "speed": 110,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Meowth": {
         "id": 52,
@@ -974,7 +974,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Meowth": {
         "id": 52,
@@ -988,7 +988,7 @@
         "sp-attack": 50,
         "sp-defense": 40,
         "speed": 90,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Persian": {
         "id": 53,
@@ -1002,7 +1002,7 @@
         "sp-attack": 65,
         "sp-defense": 65,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Persian": {
         "id": 53,
@@ -1016,7 +1016,7 @@
         "sp-attack": 75,
         "sp-defense": 65,
         "speed": 115,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Psyduck": {
         "id": 54,
@@ -1030,7 +1030,7 @@
         "sp-attack": 65,
         "sp-defense": 50,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Golduck": {
         "id": 55,
@@ -1044,7 +1044,7 @@
         "sp-attack": 95,
         "sp-defense": 80,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Mankey": {
         "id": 56,
@@ -1058,7 +1058,7 @@
         "sp-attack": 35,
         "sp-defense": 45,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Primeape": {
         "id": 57,
@@ -1072,7 +1072,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Growlithe": {
         "id": 58,
@@ -1086,7 +1086,7 @@
         "sp-attack": 70,
         "sp-defense": 50,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Arcanine": {
         "id": 59,
@@ -1100,7 +1100,7 @@
         "sp-attack": 100,
         "sp-defense": 80,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Poliwag": {
         "id": 60,
@@ -1114,7 +1114,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Poliwhirl": {
         "id": 61,
@@ -1128,7 +1128,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Poliwrath": {
         "id": 62,
@@ -1143,7 +1143,7 @@
         "sp-attack": 70,
         "sp-defense": 90,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Abra": {
         "id": 63,
@@ -1157,7 +1157,7 @@
         "sp-attack": 105,
         "sp-defense": 55,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Kadabra": {
         "id": 64,
@@ -1171,7 +1171,7 @@
         "sp-attack": 120,
         "sp-defense": 70,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Alakazam": {
         "id": 65,
@@ -1185,7 +1185,7 @@
         "sp-attack": 135,
         "sp-defense": 95,
         "speed": 120,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Alakazam": {
         "id": 65,
@@ -1199,7 +1199,7 @@
         "sp-attack": 175,
         "sp-defense": 105,
         "speed": 150,
-        "form": "FORM"
+        "form": "mega"
     },
     "Machop": {
         "id": 66,
@@ -1213,7 +1213,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Machoke": {
         "id": 67,
@@ -1227,7 +1227,7 @@
         "sp-attack": 50,
         "sp-defense": 60,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Machamp": {
         "id": 68,
@@ -1241,7 +1241,7 @@
         "sp-attack": 65,
         "sp-defense": 85,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Bellsprout": {
         "id": 69,
@@ -1256,7 +1256,7 @@
         "sp-attack": 70,
         "sp-defense": 30,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Weepinbell": {
         "id": 70,
@@ -1271,7 +1271,7 @@
         "sp-attack": 85,
         "sp-defense": 45,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Victreebel": {
         "id": 71,
@@ -1286,7 +1286,7 @@
         "sp-attack": 100,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Tentacool": {
         "id": 72,
@@ -1301,7 +1301,7 @@
         "sp-attack": 50,
         "sp-defense": 100,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Tentacruel": {
         "id": 73,
@@ -1316,7 +1316,7 @@
         "sp-attack": 80,
         "sp-defense": 120,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Geodude": {
         "id": 74,
@@ -1331,7 +1331,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Geodude": {
         "id": 74,
@@ -1346,7 +1346,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 20,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Graveler": {
         "id": 75,
@@ -1361,7 +1361,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Graveler": {
         "id": 75,
@@ -1376,7 +1376,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 35,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Golem": {
         "id": 76,
@@ -1391,7 +1391,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Golem": {
         "id": 76,
@@ -1406,7 +1406,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Ponyta": {
         "id": 77,
@@ -1420,7 +1420,7 @@
         "sp-attack": 65,
         "sp-defense": 65,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Rapidash": {
         "id": 78,
@@ -1434,7 +1434,7 @@
         "sp-attack": 80,
         "sp-defense": 80,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Slowpoke": {
         "id": 79,
@@ -1449,7 +1449,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Slowbro": {
         "id": 80,
@@ -1464,7 +1464,7 @@
         "sp-attack": 100,
         "sp-defense": 80,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Slowbro": {
         "id": 80,
@@ -1479,7 +1479,7 @@
         "sp-attack": 130,
         "sp-defense": 80,
         "speed": 30,
-        "form": "FORM"
+        "form": "mega"
     },
     "Magnemite": {
         "id": 81,
@@ -1494,7 +1494,7 @@
         "sp-attack": 95,
         "sp-defense": 55,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Magneton": {
         "id": 82,
@@ -1509,7 +1509,7 @@
         "sp-attack": 120,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Farfetch'd": {
         "id": 83,
@@ -1524,7 +1524,7 @@
         "sp-attack": 58,
         "sp-defense": 62,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Doduo": {
         "id": 84,
@@ -1539,7 +1539,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Dodrio": {
         "id": 85,
@@ -1554,7 +1554,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Seel": {
         "id": 86,
@@ -1568,7 +1568,7 @@
         "sp-attack": 45,
         "sp-defense": 70,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Dewgong": {
         "id": 87,
@@ -1583,7 +1583,7 @@
         "sp-attack": 70,
         "sp-defense": 95,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Grimer": {
         "id": 88,
@@ -1597,7 +1597,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Grimer": {
         "id": 88,
@@ -1612,7 +1612,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 25,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Muk": {
         "id": 89,
@@ -1626,7 +1626,7 @@
         "sp-attack": 65,
         "sp-defense": 100,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Muk": {
         "id": 89,
@@ -1641,7 +1641,7 @@
         "sp-attack": 65,
         "sp-defense": 100,
         "speed": 50,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Shellder": {
         "id": 90,
@@ -1655,7 +1655,7 @@
         "sp-attack": 45,
         "sp-defense": 25,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Cloyster": {
         "id": 91,
@@ -1670,7 +1670,7 @@
         "sp-attack": 85,
         "sp-defense": 45,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Gastly": {
         "id": 92,
@@ -1685,7 +1685,7 @@
         "sp-attack": 100,
         "sp-defense": 35,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Haunter": {
         "id": 93,
@@ -1700,7 +1700,7 @@
         "sp-attack": 115,
         "sp-defense": 55,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Gengar": {
         "id": 94,
@@ -1715,7 +1715,7 @@
         "sp-attack": 130,
         "sp-defense": 75,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Gengar": {
         "id": 94,
@@ -1730,7 +1730,7 @@
         "sp-attack": 170,
         "sp-defense": 95,
         "speed": 130,
-        "form": "FORM"
+        "form": "mega"
     },
     "Onix": {
         "id": 95,
@@ -1745,7 +1745,7 @@
         "sp-attack": 30,
         "sp-defense": 45,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Drowzee": {
         "id": 96,
@@ -1759,7 +1759,7 @@
         "sp-attack": 43,
         "sp-defense": 90,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Hypno": {
         "id": 97,
@@ -1773,7 +1773,7 @@
         "sp-attack": 73,
         "sp-defense": 115,
         "speed": 67,
-        "form": "FORM"
+        "form": ""
     },
     "Krabby": {
         "id": 98,
@@ -1787,7 +1787,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Kingler": {
         "id": 99,
@@ -1801,7 +1801,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Voltorb": {
         "id": 100,
@@ -1815,7 +1815,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Electrode": {
         "id": 101,
@@ -1829,7 +1829,7 @@
         "sp-attack": 80,
         "sp-defense": 80,
         "speed": 150,
-        "form": "FORM"
+        "form": ""
     },
     "Exeggcute": {
         "id": 102,
@@ -1844,7 +1844,7 @@
         "sp-attack": 60,
         "sp-defense": 45,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Exeggutor": {
         "id": 103,
@@ -1859,7 +1859,7 @@
         "sp-attack": 125,
         "sp-defense": 75,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Exeggutor": {
         "id": 103,
@@ -1874,7 +1874,7 @@
         "sp-attack": 125,
         "sp-defense": 75,
         "speed": 45,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Cubone": {
         "id": 104,
@@ -1888,7 +1888,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Marowak": {
         "id": 105,
@@ -1902,7 +1902,7 @@
         "sp-attack": 50,
         "sp-defense": 80,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Alolan Marowak": {
         "id": 105,
@@ -1917,7 +1917,7 @@
         "sp-attack": 50,
         "sp-defense": 80,
         "speed": 45,
-        "form": "FORM"
+        "form": "alolan"
     },
     "Hitmonlee": {
         "id": 106,
@@ -1931,7 +1931,7 @@
         "sp-attack": 35,
         "sp-defense": 110,
         "speed": 87,
-        "form": "FORM"
+        "form": ""
     },
     "Hitmonchan": {
         "id": 107,
@@ -1945,7 +1945,7 @@
         "sp-attack": 35,
         "sp-defense": 110,
         "speed": 76,
-        "form": "FORM"
+        "form": ""
     },
     "Lickitung": {
         "id": 108,
@@ -1959,7 +1959,7 @@
         "sp-attack": 60,
         "sp-defense": 75,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Koffing": {
         "id": 109,
@@ -1973,7 +1973,7 @@
         "sp-attack": 60,
         "sp-defense": 45,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Weezing": {
         "id": 110,
@@ -1987,7 +1987,7 @@
         "sp-attack": 85,
         "sp-defense": 70,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Rhyhorn": {
         "id": 111,
@@ -2002,7 +2002,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Rhydon": {
         "id": 112,
@@ -2017,7 +2017,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Chansey": {
         "id": 113,
@@ -2031,7 +2031,7 @@
         "sp-attack": 35,
         "sp-defense": 105,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Tangela": {
         "id": 114,
@@ -2045,7 +2045,7 @@
         "sp-attack": 100,
         "sp-defense": 40,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Kangaskhan": {
         "id": 115,
@@ -2059,7 +2059,7 @@
         "sp-attack": 40,
         "sp-defense": 80,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Kangaskhan": {
         "id": 115,
@@ -2073,7 +2073,7 @@
         "sp-attack": 60,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": "mega"
     },
     "Horsea": {
         "id": 116,
@@ -2087,7 +2087,7 @@
         "sp-attack": 70,
         "sp-defense": 25,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Seadra": {
         "id": 117,
@@ -2101,7 +2101,7 @@
         "sp-attack": 95,
         "sp-defense": 45,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Goldeen": {
         "id": 118,
@@ -2115,7 +2115,7 @@
         "sp-attack": 35,
         "sp-defense": 50,
         "speed": 63,
-        "form": "FORM"
+        "form": ""
     },
     "Seaking": {
         "id": 119,
@@ -2129,7 +2129,7 @@
         "sp-attack": 65,
         "sp-defense": 80,
         "speed": 68,
-        "form": "FORM"
+        "form": ""
     },
     "Staryu": {
         "id": 120,
@@ -2143,7 +2143,7 @@
         "sp-attack": 70,
         "sp-defense": 55,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Starmie": {
         "id": 121,
@@ -2158,7 +2158,7 @@
         "sp-attack": 100,
         "sp-defense": 85,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Mr. Mime": {
         "id": 122,
@@ -2173,7 +2173,7 @@
         "sp-attack": 100,
         "sp-defense": 120,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Scyther": {
         "id": 123,
@@ -2188,7 +2188,7 @@
         "sp-attack": 55,
         "sp-defense": 80,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Jynx": {
         "id": 124,
@@ -2203,7 +2203,7 @@
         "sp-attack": 115,
         "sp-defense": 95,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Electabuzz": {
         "id": 125,
@@ -2217,7 +2217,7 @@
         "sp-attack": 95,
         "sp-defense": 85,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Magmar": {
         "id": 126,
@@ -2231,7 +2231,7 @@
         "sp-attack": 100,
         "sp-defense": 85,
         "speed": 93,
-        "form": "FORM"
+        "form": ""
     },
     "Pinsir": {
         "id": 127,
@@ -2245,7 +2245,7 @@
         "sp-attack": 55,
         "sp-defense": 70,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Pinsir": {
         "id": 127,
@@ -2260,7 +2260,7 @@
         "sp-attack": 65,
         "sp-defense": 90,
         "speed": 105,
-        "form": "FORM"
+        "form": "mega"
     },
     "Tauros": {
         "id": 128,
@@ -2274,7 +2274,7 @@
         "sp-attack": 40,
         "sp-defense": 70,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Magikarp": {
         "id": 129,
@@ -2288,7 +2288,7 @@
         "sp-attack": 15,
         "sp-defense": 20,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Gyarados": {
         "id": 130,
@@ -2303,7 +2303,7 @@
         "sp-attack": 60,
         "sp-defense": 100,
         "speed": 81,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Gyarados": {
         "id": 130,
@@ -2318,7 +2318,7 @@
         "sp-attack": 70,
         "sp-defense": 130,
         "speed": 81,
-        "form": "FORM"
+        "form": "mega"
     },
     "Lapras": {
         "id": 131,
@@ -2333,7 +2333,7 @@
         "sp-attack": 85,
         "sp-defense": 95,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Ditto": {
         "id": 132,
@@ -2347,7 +2347,7 @@
         "sp-attack": 48,
         "sp-defense": 48,
         "speed": 48,
-        "form": "FORM"
+        "form": ""
     },
     "Eevee": {
         "id": 133,
@@ -2361,7 +2361,7 @@
         "sp-attack": 45,
         "sp-defense": 65,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Vaporeon": {
         "id": 134,
@@ -2375,7 +2375,7 @@
         "sp-attack": 110,
         "sp-defense": 95,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Jolteon": {
         "id": 135,
@@ -2389,7 +2389,7 @@
         "sp-attack": 110,
         "sp-defense": 95,
         "speed": 130,
-        "form": "FORM"
+        "form": ""
     },
     "Flareon": {
         "id": 136,
@@ -2403,7 +2403,7 @@
         "sp-attack": 95,
         "sp-defense": 110,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Porygon": {
         "id": 137,
@@ -2417,7 +2417,7 @@
         "sp-attack": 85,
         "sp-defense": 75,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Omanyte": {
         "id": 138,
@@ -2432,7 +2432,7 @@
         "sp-attack": 90,
         "sp-defense": 55,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Omastar": {
         "id": 139,
@@ -2447,7 +2447,7 @@
         "sp-attack": 115,
         "sp-defense": 70,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Kabuto": {
         "id": 140,
@@ -2462,7 +2462,7 @@
         "sp-attack": 55,
         "sp-defense": 45,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Kabutops": {
         "id": 141,
@@ -2477,7 +2477,7 @@
         "sp-attack": 65,
         "sp-defense": 70,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Aerodactyl": {
         "id": 142,
@@ -2492,7 +2492,7 @@
         "sp-attack": 60,
         "sp-defense": 75,
         "speed": 130,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Aerodactyl": {
         "id": 142,
@@ -2507,7 +2507,7 @@
         "sp-attack": 70,
         "sp-defense": 95,
         "speed": 150,
-        "form": "FORM"
+        "form": "mega"
     },
     "Snorlax": {
         "id": 143,
@@ -2521,7 +2521,7 @@
         "sp-attack": 65,
         "sp-defense": 110,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Articuno": {
         "id": 144,
@@ -2536,7 +2536,7 @@
         "sp-attack": 95,
         "sp-defense": 125,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Zapdos": {
         "id": 145,
@@ -2551,7 +2551,7 @@
         "sp-attack": 125,
         "sp-defense": 90,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Moltres": {
         "id": 146,
@@ -2566,7 +2566,7 @@
         "sp-attack": 125,
         "sp-defense": 85,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Dratini": {
         "id": 147,
@@ -2580,7 +2580,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Dragonair": {
         "id": 148,
@@ -2594,7 +2594,7 @@
         "sp-attack": 70,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Dragonite": {
         "id": 149,
@@ -2609,7 +2609,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mewtwo": {
         "id": 150,
@@ -2623,7 +2623,7 @@
         "sp-attack": 154,
         "sp-defense": 90,
         "speed": 130,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Mewtwo X": {
         "id": 150,
@@ -2638,7 +2638,7 @@
         "sp-attack": 154,
         "sp-defense": 100,
         "speed": 130,
-        "form": "FORM"
+        "form": "megax"
     },
     "Mega Mewtwo Y": {
         "id": 150,
@@ -2652,7 +2652,7 @@
         "sp-attack": 194,
         "sp-defense": 120,
         "speed": 140,
-        "form": "FORM"
+        "form": "megay"
     },
     "Mew": {
         "id": 151,
@@ -2666,7 +2666,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Chikorita": {
         "id": 152,
@@ -2680,7 +2680,7 @@
         "sp-attack": 49,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Bayleef": {
         "id": 153,
@@ -2694,7 +2694,7 @@
         "sp-attack": 63,
         "sp-defense": 80,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Meganium": {
         "id": 154,
@@ -2708,7 +2708,7 @@
         "sp-attack": 83,
         "sp-defense": 100,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Cyndaquil": {
         "id": 155,
@@ -2722,7 +2722,7 @@
         "sp-attack": 60,
         "sp-defense": 50,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Quilava": {
         "id": 156,
@@ -2736,7 +2736,7 @@
         "sp-attack": 80,
         "sp-defense": 65,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Typhlosion": {
         "id": 157,
@@ -2750,7 +2750,7 @@
         "sp-attack": 109,
         "sp-defense": 85,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Totodile": {
         "id": 158,
@@ -2764,7 +2764,7 @@
         "sp-attack": 44,
         "sp-defense": 48,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Croconaw": {
         "id": 159,
@@ -2778,7 +2778,7 @@
         "sp-attack": 59,
         "sp-defense": 63,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Feraligatr": {
         "id": 160,
@@ -2792,7 +2792,7 @@
         "sp-attack": 79,
         "sp-defense": 83,
         "speed": 78,
-        "form": "FORM"
+        "form": ""
     },
     "Sentret": {
         "id": 161,
@@ -2806,7 +2806,7 @@
         "sp-attack": 35,
         "sp-defense": 45,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Furret": {
         "id": 162,
@@ -2820,7 +2820,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Hoothoot": {
         "id": 163,
@@ -2835,7 +2835,7 @@
         "sp-attack": 36,
         "sp-defense": 56,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Noctowl": {
         "id": 164,
@@ -2850,7 +2850,7 @@
         "sp-attack": 86,
         "sp-defense": 96,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Ledyba": {
         "id": 165,
@@ -2865,7 +2865,7 @@
         "sp-attack": 40,
         "sp-defense": 80,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Ledian": {
         "id": 166,
@@ -2880,7 +2880,7 @@
         "sp-attack": 55,
         "sp-defense": 110,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Spinarak": {
         "id": 167,
@@ -2895,7 +2895,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Ariados": {
         "id": 168,
@@ -2910,7 +2910,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Crobat": {
         "id": 169,
@@ -2925,7 +2925,7 @@
         "sp-attack": 70,
         "sp-defense": 80,
         "speed": 130,
-        "form": "FORM"
+        "form": ""
     },
     "Chinchou": {
         "id": 170,
@@ -2940,7 +2940,7 @@
         "sp-attack": 56,
         "sp-defense": 56,
         "speed": 67,
-        "form": "FORM"
+        "form": ""
     },
     "Lanturn": {
         "id": 171,
@@ -2955,7 +2955,7 @@
         "sp-attack": 76,
         "sp-defense": 76,
         "speed": 67,
-        "form": "FORM"
+        "form": ""
     },
     "Pichu": {
         "id": 172,
@@ -2969,7 +2969,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Cleffa": {
         "id": 173,
@@ -2983,7 +2983,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Igglybuff": {
         "id": 174,
@@ -2998,7 +2998,7 @@
         "sp-attack": 40,
         "sp-defense": 20,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Togepi": {
         "id": 175,
@@ -3012,7 +3012,7 @@
         "sp-attack": 40,
         "sp-defense": 65,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Togetic": {
         "id": 176,
@@ -3027,7 +3027,7 @@
         "sp-attack": 80,
         "sp-defense": 105,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Natu": {
         "id": 177,
@@ -3042,7 +3042,7 @@
         "sp-attack": 70,
         "sp-defense": 45,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Xatu": {
         "id": 178,
@@ -3057,7 +3057,7 @@
         "sp-attack": 95,
         "sp-defense": 70,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Mareep": {
         "id": 179,
@@ -3071,7 +3071,7 @@
         "sp-attack": 65,
         "sp-defense": 45,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Flaaffy": {
         "id": 180,
@@ -3085,7 +3085,7 @@
         "sp-attack": 80,
         "sp-defense": 60,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Ampharos": {
         "id": 181,
@@ -3099,7 +3099,7 @@
         "sp-attack": 115,
         "sp-defense": 90,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Ampharos": {
         "id": 181,
@@ -3114,7 +3114,7 @@
         "sp-attack": 165,
         "sp-defense": 110,
         "speed": 45,
-        "form": "FORM"
+        "form": "mega"
     },
     "Bellossom": {
         "id": 182,
@@ -3128,7 +3128,7 @@
         "sp-attack": 90,
         "sp-defense": 100,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Marill": {
         "id": 183,
@@ -3143,7 +3143,7 @@
         "sp-attack": 20,
         "sp-defense": 50,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Azumarill": {
         "id": 184,
@@ -3158,7 +3158,7 @@
         "sp-attack": 60,
         "sp-defense": 80,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Sudowoodo": {
         "id": 185,
@@ -3172,7 +3172,7 @@
         "sp-attack": 30,
         "sp-defense": 65,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Politoed": {
         "id": 186,
@@ -3186,7 +3186,7 @@
         "sp-attack": 90,
         "sp-defense": 100,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Hoppip": {
         "id": 187,
@@ -3201,7 +3201,7 @@
         "sp-attack": 35,
         "sp-defense": 55,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Skiploom": {
         "id": 188,
@@ -3216,7 +3216,7 @@
         "sp-attack": 45,
         "sp-defense": 65,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Jumpluff": {
         "id": 189,
@@ -3231,7 +3231,7 @@
         "sp-attack": 55,
         "sp-defense": 95,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Aipom": {
         "id": 190,
@@ -3245,7 +3245,7 @@
         "sp-attack": 40,
         "sp-defense": 55,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Sunkern": {
         "id": 191,
@@ -3259,7 +3259,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Sunflora": {
         "id": 192,
@@ -3273,7 +3273,7 @@
         "sp-attack": 105,
         "sp-defense": 85,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Yanma": {
         "id": 193,
@@ -3288,7 +3288,7 @@
         "sp-attack": 75,
         "sp-defense": 45,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Wooper": {
         "id": 194,
@@ -3303,7 +3303,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Quagsire": {
         "id": 195,
@@ -3318,7 +3318,7 @@
         "sp-attack": 65,
         "sp-defense": 65,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Espeon": {
         "id": 196,
@@ -3332,7 +3332,7 @@
         "sp-attack": 130,
         "sp-defense": 95,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Umbreon": {
         "id": 197,
@@ -3346,7 +3346,7 @@
         "sp-attack": 60,
         "sp-defense": 130,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Murkrow": {
         "id": 198,
@@ -3361,7 +3361,7 @@
         "sp-attack": 85,
         "sp-defense": 42,
         "speed": 91,
-        "form": "FORM"
+        "form": ""
     },
     "Slowking": {
         "id": 199,
@@ -3376,7 +3376,7 @@
         "sp-attack": 100,
         "sp-defense": 110,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Misdreavus": {
         "id": 200,
@@ -3390,7 +3390,7 @@
         "sp-attack": 85,
         "sp-defense": 85,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Unown": {
         "id": 201,
@@ -3404,7 +3404,7 @@
         "sp-attack": 72,
         "sp-defense": 48,
         "speed": 48,
-        "form": "FORM"
+        "form": ""
     },
     "Wobbuffet": {
         "id": 202,
@@ -3418,7 +3418,7 @@
         "sp-attack": 33,
         "sp-defense": 58,
         "speed": 33,
-        "form": "FORM"
+        "form": ""
     },
     "Girafarig": {
         "id": 203,
@@ -3433,7 +3433,7 @@
         "sp-attack": 90,
         "sp-defense": 65,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Pineco": {
         "id": 204,
@@ -3447,7 +3447,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Forretress": {
         "id": 205,
@@ -3462,7 +3462,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Dunsparce": {
         "id": 206,
@@ -3476,7 +3476,7 @@
         "sp-attack": 65,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Gligar": {
         "id": 207,
@@ -3491,7 +3491,7 @@
         "sp-attack": 35,
         "sp-defense": 65,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Steelix": {
         "id": 208,
@@ -3506,7 +3506,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Steelix": {
         "id": 208,
@@ -3521,7 +3521,7 @@
         "sp-attack": 55,
         "sp-defense": 95,
         "speed": 30,
-        "form": "FORM"
+        "form": "mega"
     },
     "Snubbull": {
         "id": 209,
@@ -3535,7 +3535,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Granbull": {
         "id": 210,
@@ -3549,7 +3549,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Qwilfish": {
         "id": 211,
@@ -3564,7 +3564,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Scizor": {
         "id": 212,
@@ -3579,7 +3579,7 @@
         "sp-attack": 55,
         "sp-defense": 80,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Scizor": {
         "id": 212,
@@ -3594,7 +3594,7 @@
         "sp-attack": 65,
         "sp-defense": 100,
         "speed": 75,
-        "form": "FORM"
+        "form": "mega"
     },
     "Shuckle": {
         "id": 213,
@@ -3609,7 +3609,7 @@
         "sp-attack": 10,
         "sp-defense": 230,
         "speed": 5,
-        "form": "FORM"
+        "form": ""
     },
     "Heracross": {
         "id": 214,
@@ -3624,7 +3624,7 @@
         "sp-attack": 40,
         "sp-defense": 95,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Heracross": {
         "id": 214,
@@ -3639,7 +3639,7 @@
         "sp-attack": 40,
         "sp-defense": 105,
         "speed": 75,
-        "form": "FORM"
+        "form": "mega"
     },
     "Sneasel": {
         "id": 215,
@@ -3654,7 +3654,7 @@
         "sp-attack": 35,
         "sp-defense": 75,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Teddiursa": {
         "id": 216,
@@ -3668,7 +3668,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Ursaring": {
         "id": 217,
@@ -3682,7 +3682,7 @@
         "sp-attack": 75,
         "sp-defense": 75,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Slugma": {
         "id": 218,
@@ -3696,7 +3696,7 @@
         "sp-attack": 70,
         "sp-defense": 40,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Magcargo": {
         "id": 219,
@@ -3711,7 +3711,7 @@
         "sp-attack": 90,
         "sp-defense": 80,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Swinub": {
         "id": 220,
@@ -3726,7 +3726,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Piloswine": {
         "id": 221,
@@ -3741,7 +3741,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Corsola": {
         "id": 222,
@@ -3756,7 +3756,7 @@
         "sp-attack": 65,
         "sp-defense": 95,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Remoraid": {
         "id": 223,
@@ -3770,7 +3770,7 @@
         "sp-attack": 65,
         "sp-defense": 35,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Octillery": {
         "id": 224,
@@ -3784,7 +3784,7 @@
         "sp-attack": 105,
         "sp-defense": 75,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Delibird": {
         "id": 225,
@@ -3799,7 +3799,7 @@
         "sp-attack": 65,
         "sp-defense": 45,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Mantine": {
         "id": 226,
@@ -3814,7 +3814,7 @@
         "sp-attack": 80,
         "sp-defense": 140,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Skarmory": {
         "id": 227,
@@ -3829,7 +3829,7 @@
         "sp-attack": 40,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Houndour": {
         "id": 228,
@@ -3844,7 +3844,7 @@
         "sp-attack": 80,
         "sp-defense": 50,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Houndoom": {
         "id": 229,
@@ -3859,7 +3859,7 @@
         "sp-attack": 110,
         "sp-defense": 80,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Houndoom": {
         "id": 229,
@@ -3874,7 +3874,7 @@
         "sp-attack": 140,
         "sp-defense": 90,
         "speed": 115,
-        "form": "FORM"
+        "form": "mega"
     },
     "Kingdra": {
         "id": 230,
@@ -3889,7 +3889,7 @@
         "sp-attack": 95,
         "sp-defense": 95,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Phanpy": {
         "id": 231,
@@ -3903,7 +3903,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Donphan": {
         "id": 232,
@@ -3917,7 +3917,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Porygon2": {
         "id": 233,
@@ -3931,7 +3931,7 @@
         "sp-attack": 105,
         "sp-defense": 95,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Stantler": {
         "id": 234,
@@ -3945,7 +3945,7 @@
         "sp-attack": 85,
         "sp-defense": 65,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Smeargle": {
         "id": 235,
@@ -3959,7 +3959,7 @@
         "sp-attack": 20,
         "sp-defense": 45,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Tyrogue": {
         "id": 236,
@@ -3973,7 +3973,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Hitmontop": {
         "id": 237,
@@ -3987,7 +3987,7 @@
         "sp-attack": 35,
         "sp-defense": 110,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Smoochum": {
         "id": 238,
@@ -4002,7 +4002,7 @@
         "sp-attack": 85,
         "sp-defense": 65,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Elekid": {
         "id": 239,
@@ -4016,7 +4016,7 @@
         "sp-attack": 65,
         "sp-defense": 55,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Magby": {
         "id": 240,
@@ -4030,7 +4030,7 @@
         "sp-attack": 70,
         "sp-defense": 55,
         "speed": 83,
-        "form": "FORM"
+        "form": ""
     },
     "Miltank": {
         "id": 241,
@@ -4044,7 +4044,7 @@
         "sp-attack": 40,
         "sp-defense": 70,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Blissey": {
         "id": 242,
@@ -4058,7 +4058,7 @@
         "sp-attack": 75,
         "sp-defense": 135,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Raikou": {
         "id": 243,
@@ -4072,7 +4072,7 @@
         "sp-attack": 115,
         "sp-defense": 100,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Entei": {
         "id": 244,
@@ -4086,7 +4086,7 @@
         "sp-attack": 90,
         "sp-defense": 75,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Suicune": {
         "id": 245,
@@ -4100,7 +4100,7 @@
         "sp-attack": 90,
         "sp-defense": 115,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Larvitar": {
         "id": 246,
@@ -4115,7 +4115,7 @@
         "sp-attack": 45,
         "sp-defense": 50,
         "speed": 41,
-        "form": "FORM"
+        "form": ""
     },
     "Pupitar": {
         "id": 247,
@@ -4130,7 +4130,7 @@
         "sp-attack": 65,
         "sp-defense": 70,
         "speed": 51,
-        "form": "FORM"
+        "form": ""
     },
     "Tyranitar": {
         "id": 248,
@@ -4145,7 +4145,7 @@
         "sp-attack": 95,
         "sp-defense": 100,
         "speed": 61,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Tyranitar": {
         "id": 248,
@@ -4160,7 +4160,7 @@
         "sp-attack": 95,
         "sp-defense": 120,
         "speed": 71,
-        "form": "FORM"
+        "form": "mega"
     },
     "Lugia": {
         "id": 249,
@@ -4175,7 +4175,7 @@
         "sp-attack": 90,
         "sp-defense": 154,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Ho-oh": {
         "id": 250,
@@ -4190,7 +4190,7 @@
         "sp-attack": 110,
         "sp-defense": 154,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Celebi": {
         "id": 251,
@@ -4205,7 +4205,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Treecko": {
         "id": 252,
@@ -4219,7 +4219,7 @@
         "sp-attack": 65,
         "sp-defense": 55,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Grovyle": {
         "id": 253,
@@ -4233,7 +4233,7 @@
         "sp-attack": 85,
         "sp-defense": 65,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Sceptile": {
         "id": 254,
@@ -4247,7 +4247,7 @@
         "sp-attack": 105,
         "sp-defense": 85,
         "speed": 120,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Sceptile": {
         "id": 254,
@@ -4262,7 +4262,7 @@
         "sp-attack": 145,
         "sp-defense": 85,
         "speed": 145,
-        "form": "FORM"
+        "form": "mega"
     },
     "Torchic": {
         "id": 255,
@@ -4276,7 +4276,7 @@
         "sp-attack": 70,
         "sp-defense": 50,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Combusken": {
         "id": 256,
@@ -4291,7 +4291,7 @@
         "sp-attack": 85,
         "sp-defense": 60,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Blaziken": {
         "id": 257,
@@ -4306,7 +4306,7 @@
         "sp-attack": 110,
         "sp-defense": 70,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Blaziken": {
         "id": 257,
@@ -4321,7 +4321,7 @@
         "sp-attack": 130,
         "sp-defense": 80,
         "speed": 100,
-        "form": "FORM"
+        "form": "mega"
     },
     "Mudkip": {
         "id": 258,
@@ -4335,7 +4335,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Marshtomp": {
         "id": 259,
@@ -4350,7 +4350,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Swampert": {
         "id": 260,
@@ -4365,7 +4365,7 @@
         "sp-attack": 85,
         "sp-defense": 90,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Swampert": {
         "id": 260,
@@ -4380,7 +4380,7 @@
         "sp-attack": 95,
         "sp-defense": 110,
         "speed": 70,
-        "form": "FORM"
+        "form": "mega"
     },
     "Poochyena": {
         "id": 261,
@@ -4394,7 +4394,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Mightyena": {
         "id": 262,
@@ -4408,7 +4408,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Zigzagoon": {
         "id": 263,
@@ -4422,7 +4422,7 @@
         "sp-attack": 30,
         "sp-defense": 41,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Linoone": {
         "id": 264,
@@ -4436,7 +4436,7 @@
         "sp-attack": 50,
         "sp-defense": 61,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Wurmple": {
         "id": 265,
@@ -4450,7 +4450,7 @@
         "sp-attack": 20,
         "sp-defense": 30,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Silcoon": {
         "id": 266,
@@ -4464,7 +4464,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Beautifly": {
         "id": 267,
@@ -4479,7 +4479,7 @@
         "sp-attack": 100,
         "sp-defense": 50,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Cascoon": {
         "id": 268,
@@ -4493,7 +4493,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Dustox": {
         "id": 269,
@@ -4508,7 +4508,7 @@
         "sp-attack": 50,
         "sp-defense": 90,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Lotad": {
         "id": 270,
@@ -4523,7 +4523,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Lombre": {
         "id": 271,
@@ -4538,7 +4538,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Ludicolo": {
         "id": 272,
@@ -4553,7 +4553,7 @@
         "sp-attack": 90,
         "sp-defense": 100,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Seedot": {
         "id": 273,
@@ -4567,7 +4567,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Nuzleaf": {
         "id": 274,
@@ -4582,7 +4582,7 @@
         "sp-attack": 60,
         "sp-defense": 40,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Shiftry": {
         "id": 275,
@@ -4597,7 +4597,7 @@
         "sp-attack": 90,
         "sp-defense": 60,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Taillow": {
         "id": 276,
@@ -4612,7 +4612,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Swellow": {
         "id": 277,
@@ -4627,7 +4627,7 @@
         "sp-attack": 75,
         "sp-defense": 50,
         "speed": 125,
-        "form": "FORM"
+        "form": ""
     },
     "Wingull": {
         "id": 278,
@@ -4642,7 +4642,7 @@
         "sp-attack": 55,
         "sp-defense": 30,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Pelipper": {
         "id": 279,
@@ -4657,7 +4657,7 @@
         "sp-attack": 95,
         "sp-defense": 70,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Ralts": {
         "id": 280,
@@ -4672,7 +4672,7 @@
         "sp-attack": 45,
         "sp-defense": 35,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Kirlia": {
         "id": 281,
@@ -4687,7 +4687,7 @@
         "sp-attack": 65,
         "sp-defense": 55,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Gardevoir": {
         "id": 282,
@@ -4702,7 +4702,7 @@
         "sp-attack": 125,
         "sp-defense": 115,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Gardevoir": {
         "id": 282,
@@ -4717,7 +4717,7 @@
         "sp-attack": 165,
         "sp-defense": 135,
         "speed": 100,
-        "form": "FORM"
+        "form": "mega"
     },
     "Surskit": {
         "id": 283,
@@ -4732,7 +4732,7 @@
         "sp-attack": 50,
         "sp-defense": 52,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Masquerain": {
         "id": 284,
@@ -4747,7 +4747,7 @@
         "sp-attack": 100,
         "sp-defense": 82,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Shroomish": {
         "id": 285,
@@ -4761,7 +4761,7 @@
         "sp-attack": 40,
         "sp-defense": 60,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Breloom": {
         "id": 286,
@@ -4776,7 +4776,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Slakoth": {
         "id": 287,
@@ -4790,7 +4790,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Vigoroth": {
         "id": 288,
@@ -4804,7 +4804,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Slaking": {
         "id": 289,
@@ -4818,7 +4818,7 @@
         "sp-attack": 95,
         "sp-defense": 65,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Nincada": {
         "id": 290,
@@ -4833,7 +4833,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Ninjask": {
         "id": 291,
@@ -4848,7 +4848,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 160,
-        "form": "FORM"
+        "form": ""
     },
     "Shedinja": {
         "id": 292,
@@ -4863,7 +4863,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Whismur": {
         "id": 293,
@@ -4877,7 +4877,7 @@
         "sp-attack": 51,
         "sp-defense": 23,
         "speed": 28,
-        "form": "FORM"
+        "form": ""
     },
     "Loudred": {
         "id": 294,
@@ -4891,7 +4891,7 @@
         "sp-attack": 71,
         "sp-defense": 43,
         "speed": 48,
-        "form": "FORM"
+        "form": ""
     },
     "Exploud": {
         "id": 295,
@@ -4905,7 +4905,7 @@
         "sp-attack": 91,
         "sp-defense": 73,
         "speed": 68,
-        "form": "FORM"
+        "form": ""
     },
     "Makuhita": {
         "id": 296,
@@ -4919,7 +4919,7 @@
         "sp-attack": 20,
         "sp-defense": 30,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Hariyama": {
         "id": 297,
@@ -4933,7 +4933,7 @@
         "sp-attack": 40,
         "sp-defense": 60,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Azurill": {
         "id": 298,
@@ -4948,7 +4948,7 @@
         "sp-attack": 20,
         "sp-defense": 40,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Nosepass": {
         "id": 299,
@@ -4962,7 +4962,7 @@
         "sp-attack": 45,
         "sp-defense": 90,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Skitty": {
         "id": 300,
@@ -4976,7 +4976,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Delcatty": {
         "id": 301,
@@ -4990,7 +4990,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Sableye": {
         "id": 302,
@@ -5005,7 +5005,7 @@
         "sp-attack": 65,
         "sp-defense": 65,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Sableye": {
         "id": 302,
@@ -5020,7 +5020,7 @@
         "sp-attack": 85,
         "sp-defense": 115,
         "speed": 20,
-        "form": "FORM"
+        "form": "mega"
     },
     "Mawile": {
         "id": 303,
@@ -5035,7 +5035,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Mawile": {
         "id": 303,
@@ -5050,7 +5050,7 @@
         "sp-attack": 55,
         "sp-defense": 95,
         "speed": 50,
-        "form": "FORM"
+        "form": "mega"
     },
     "Aron": {
         "id": 304,
@@ -5065,7 +5065,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Lairon": {
         "id": 305,
@@ -5080,7 +5080,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Aggron": {
         "id": 306,
@@ -5095,7 +5095,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Aggron": {
         "id": 306,
@@ -5109,7 +5109,7 @@
         "sp-attack": 60,
         "sp-defense": 80,
         "speed": 50,
-        "form": "FORM"
+        "form": "mega"
     },
     "Meditite": {
         "id": 307,
@@ -5124,7 +5124,7 @@
         "sp-attack": 40,
         "sp-defense": 55,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Medicham": {
         "id": 308,
@@ -5139,7 +5139,7 @@
         "sp-attack": 60,
         "sp-defense": 75,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Medicham": {
         "id": 308,
@@ -5154,7 +5154,7 @@
         "sp-attack": 80,
         "sp-defense": 85,
         "speed": 100,
-        "form": "FORM"
+        "form": "mega"
     },
     "Electrike": {
         "id": 309,
@@ -5168,7 +5168,7 @@
         "sp-attack": 65,
         "sp-defense": 40,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Manectric": {
         "id": 310,
@@ -5182,7 +5182,7 @@
         "sp-attack": 105,
         "sp-defense": 60,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Manectric": {
         "id": 310,
@@ -5196,7 +5196,7 @@
         "sp-attack": 135,
         "sp-defense": 80,
         "speed": 135,
-        "form": "FORM"
+        "form": "mega"
     },
     "Plusle": {
         "id": 311,
@@ -5210,7 +5210,7 @@
         "sp-attack": 85,
         "sp-defense": 75,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Minun": {
         "id": 312,
@@ -5224,7 +5224,7 @@
         "sp-attack": 75,
         "sp-defense": 85,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Volbeat": {
         "id": 313,
@@ -5238,7 +5238,7 @@
         "sp-attack": 47,
         "sp-defense": 85,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Illumise": {
         "id": 314,
@@ -5252,7 +5252,7 @@
         "sp-attack": 73,
         "sp-defense": 85,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Roselia": {
         "id": 315,
@@ -5267,7 +5267,7 @@
         "sp-attack": 100,
         "sp-defense": 80,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Gulpin": {
         "id": 316,
@@ -5281,7 +5281,7 @@
         "sp-attack": 43,
         "sp-defense": 53,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Swalot": {
         "id": 317,
@@ -5295,7 +5295,7 @@
         "sp-attack": 73,
         "sp-defense": 83,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Carvanha": {
         "id": 318,
@@ -5310,7 +5310,7 @@
         "sp-attack": 65,
         "sp-defense": 20,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Sharpedo": {
         "id": 319,
@@ -5325,7 +5325,7 @@
         "sp-attack": 95,
         "sp-defense": 40,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Sharpedo": {
         "id": 319,
@@ -5340,7 +5340,7 @@
         "sp-attack": 110,
         "sp-defense": 65,
         "speed": 105,
-        "form": "FORM"
+        "form": "mega"
     },
     "Wailmer": {
         "id": 320,
@@ -5354,7 +5354,7 @@
         "sp-attack": 70,
         "sp-defense": 35,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Wailord": {
         "id": 321,
@@ -5368,7 +5368,7 @@
         "sp-attack": 90,
         "sp-defense": 45,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Numel": {
         "id": 322,
@@ -5383,7 +5383,7 @@
         "sp-attack": 65,
         "sp-defense": 45,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Camerupt": {
         "id": 323,
@@ -5398,7 +5398,7 @@
         "sp-attack": 105,
         "sp-defense": 75,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Camerupt": {
         "id": 323,
@@ -5413,7 +5413,7 @@
         "sp-attack": 145,
         "sp-defense": 105,
         "speed": 20,
-        "form": "FORM"
+        "form": "mega"
     },
     "Torkoal": {
         "id": 324,
@@ -5427,7 +5427,7 @@
         "sp-attack": 85,
         "sp-defense": 70,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Spoink": {
         "id": 325,
@@ -5441,7 +5441,7 @@
         "sp-attack": 70,
         "sp-defense": 80,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Grumpig": {
         "id": 326,
@@ -5455,7 +5455,7 @@
         "sp-attack": 90,
         "sp-defense": 110,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Spinda": {
         "id": 327,
@@ -5469,7 +5469,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Trapinch": {
         "id": 328,
@@ -5483,7 +5483,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 10,
-        "form": "FORM"
+        "form": ""
     },
     "Vibrava": {
         "id": 329,
@@ -5498,7 +5498,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Flygon": {
         "id": 330,
@@ -5513,7 +5513,7 @@
         "sp-attack": 80,
         "sp-defense": 80,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Cacnea": {
         "id": 331,
@@ -5527,7 +5527,7 @@
         "sp-attack": 85,
         "sp-defense": 40,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Cacturne": {
         "id": 332,
@@ -5542,7 +5542,7 @@
         "sp-attack": 115,
         "sp-defense": 60,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Swablu": {
         "id": 333,
@@ -5557,7 +5557,7 @@
         "sp-attack": 40,
         "sp-defense": 75,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Altaria": {
         "id": 334,
@@ -5572,7 +5572,7 @@
         "sp-attack": 70,
         "sp-defense": 105,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Altaria": {
         "id": 334,
@@ -5587,7 +5587,7 @@
         "sp-attack": 110,
         "sp-defense": 105,
         "speed": 80,
-        "form": "FORM"
+        "form": "mega"
     },
     "Zangoose": {
         "id": 335,
@@ -5601,7 +5601,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Seviper": {
         "id": 336,
@@ -5615,7 +5615,7 @@
         "sp-attack": 100,
         "sp-defense": 60,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Lunatone": {
         "id": 337,
@@ -5630,7 +5630,7 @@
         "sp-attack": 95,
         "sp-defense": 85,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Solrock": {
         "id": 338,
@@ -5645,7 +5645,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Barboach": {
         "id": 339,
@@ -5660,7 +5660,7 @@
         "sp-attack": 46,
         "sp-defense": 41,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Whiscash": {
         "id": 340,
@@ -5675,7 +5675,7 @@
         "sp-attack": 76,
         "sp-defense": 71,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Corphish": {
         "id": 341,
@@ -5689,7 +5689,7 @@
         "sp-attack": 50,
         "sp-defense": 35,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Crawdaunt": {
         "id": 342,
@@ -5704,7 +5704,7 @@
         "sp-attack": 90,
         "sp-defense": 55,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Baltoy": {
         "id": 343,
@@ -5719,7 +5719,7 @@
         "sp-attack": 40,
         "sp-defense": 70,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Claydol": {
         "id": 344,
@@ -5734,7 +5734,7 @@
         "sp-attack": 70,
         "sp-defense": 120,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Lileep": {
         "id": 345,
@@ -5749,7 +5749,7 @@
         "sp-attack": 61,
         "sp-defense": 87,
         "speed": 23,
-        "form": "FORM"
+        "form": ""
     },
     "Cradily": {
         "id": 346,
@@ -5764,7 +5764,7 @@
         "sp-attack": 81,
         "sp-defense": 107,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Anorith": {
         "id": 347,
@@ -5779,7 +5779,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Armaldo": {
         "id": 348,
@@ -5794,7 +5794,7 @@
         "sp-attack": 70,
         "sp-defense": 80,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Feebas": {
         "id": 349,
@@ -5808,7 +5808,7 @@
         "sp-attack": 10,
         "sp-defense": 55,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Milotic": {
         "id": 350,
@@ -5822,7 +5822,7 @@
         "sp-attack": 100,
         "sp-defense": 125,
         "speed": 81,
-        "form": "FORM"
+        "form": ""
     },
     "Castform": {
         "id": 351,
@@ -5836,7 +5836,7 @@
         "sp-attack": 70,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Kecleon": {
         "id": 352,
@@ -5850,7 +5850,7 @@
         "sp-attack": 60,
         "sp-defense": 120,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Shuppet": {
         "id": 353,
@@ -5864,7 +5864,7 @@
         "sp-attack": 63,
         "sp-defense": 33,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Banette": {
         "id": 354,
@@ -5878,7 +5878,7 @@
         "sp-attack": 83,
         "sp-defense": 63,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Banette": {
         "id": 354,
@@ -5892,7 +5892,7 @@
         "sp-attack": 93,
         "sp-defense": 83,
         "speed": 75,
-        "form": "FORM"
+        "form": "mega"
     },
     "Duskull": {
         "id": 355,
@@ -5906,7 +5906,7 @@
         "sp-attack": 30,
         "sp-defense": 90,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Dusclops": {
         "id": 356,
@@ -5920,7 +5920,7 @@
         "sp-attack": 60,
         "sp-defense": 130,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Tropius": {
         "id": 357,
@@ -5935,7 +5935,7 @@
         "sp-attack": 72,
         "sp-defense": 87,
         "speed": 51,
-        "form": "FORM"
+        "form": ""
     },
     "Chimecho": {
         "id": 358,
@@ -5949,7 +5949,7 @@
         "sp-attack": 95,
         "sp-defense": 90,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Absol": {
         "id": 359,
@@ -5963,7 +5963,7 @@
         "sp-attack": 75,
         "sp-defense": 60,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Absol": {
         "id": 359,
@@ -5977,7 +5977,7 @@
         "sp-attack": 115,
         "sp-defense": 60,
         "speed": 115,
-        "form": "FORM"
+        "form": "mega"
     },
     "Wynaut": {
         "id": 360,
@@ -5991,7 +5991,7 @@
         "sp-attack": 23,
         "sp-defense": 48,
         "speed": 23,
-        "form": "FORM"
+        "form": ""
     },
     "Snorunt": {
         "id": 361,
@@ -6005,7 +6005,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Glalie": {
         "id": 362,
@@ -6019,7 +6019,7 @@
         "sp-attack": 80,
         "sp-defense": 80,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Glalie": {
         "id": 362,
@@ -6033,7 +6033,7 @@
         "sp-attack": 120,
         "sp-defense": 80,
         "speed": 100,
-        "form": "FORM"
+        "form": "mega"
     },
     "Spheal": {
         "id": 363,
@@ -6048,7 +6048,7 @@
         "sp-attack": 55,
         "sp-defense": 50,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Sealeo": {
         "id": 364,
@@ -6063,7 +6063,7 @@
         "sp-attack": 75,
         "sp-defense": 70,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Walrein": {
         "id": 365,
@@ -6078,7 +6078,7 @@
         "sp-attack": 95,
         "sp-defense": 90,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Clamperl": {
         "id": 366,
@@ -6092,7 +6092,7 @@
         "sp-attack": 74,
         "sp-defense": 55,
         "speed": 32,
-        "form": "FORM"
+        "form": ""
     },
     "Huntail": {
         "id": 367,
@@ -6106,7 +6106,7 @@
         "sp-attack": 94,
         "sp-defense": 75,
         "speed": 52,
-        "form": "FORM"
+        "form": ""
     },
     "Gorebyss": {
         "id": 368,
@@ -6120,7 +6120,7 @@
         "sp-attack": 114,
         "sp-defense": 75,
         "speed": 52,
-        "form": "FORM"
+        "form": ""
     },
     "Relicanth": {
         "id": 369,
@@ -6135,7 +6135,7 @@
         "sp-attack": 45,
         "sp-defense": 65,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Luvdisc": {
         "id": 370,
@@ -6149,7 +6149,7 @@
         "sp-attack": 40,
         "sp-defense": 65,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Bagon": {
         "id": 371,
@@ -6163,7 +6163,7 @@
         "sp-attack": 40,
         "sp-defense": 30,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Shelgon": {
         "id": 372,
@@ -6177,7 +6177,7 @@
         "sp-attack": 60,
         "sp-defense": 50,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Salamence": {
         "id": 373,
@@ -6192,7 +6192,7 @@
         "sp-attack": 110,
         "sp-defense": 80,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Salamence": {
         "id": 373,
@@ -6207,7 +6207,7 @@
         "sp-attack": 120,
         "sp-defense": 90,
         "speed": 120,
-        "form": "FORM"
+        "form": "mega"
     },
     "Beldum": {
         "id": 374,
@@ -6222,7 +6222,7 @@
         "sp-attack": 35,
         "sp-defense": 60,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Metang": {
         "id": 375,
@@ -6237,7 +6237,7 @@
         "sp-attack": 55,
         "sp-defense": 80,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Metagross": {
         "id": 376,
@@ -6252,7 +6252,7 @@
         "sp-attack": 95,
         "sp-defense": 90,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Metagross": {
         "id": 376,
@@ -6267,7 +6267,7 @@
         "sp-attack": 105,
         "sp-defense": 110,
         "speed": 110,
-        "form": "FORM"
+        "form": "mega"
     },
     "Regirock": {
         "id": 377,
@@ -6281,7 +6281,7 @@
         "sp-attack": 50,
         "sp-defense": 100,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Regice": {
         "id": 378,
@@ -6295,7 +6295,7 @@
         "sp-attack": 100,
         "sp-defense": 200,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Registeel": {
         "id": 379,
@@ -6309,7 +6309,7 @@
         "sp-attack": 75,
         "sp-defense": 150,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Latias": {
         "id": 380,
@@ -6324,7 +6324,7 @@
         "sp-attack": 110,
         "sp-defense": 130,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Latias": {
         "id": 380,
@@ -6339,7 +6339,7 @@
         "sp-attack": 140,
         "sp-defense": 150,
         "speed": 110,
-        "form": "FORM"
+        "form": "mega"
     },
     "Latios": {
         "id": 381,
@@ -6354,7 +6354,7 @@
         "sp-attack": 130,
         "sp-defense": 110,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Latios": {
         "id": 381,
@@ -6369,7 +6369,7 @@
         "sp-attack": 160,
         "sp-defense": 120,
         "speed": 110,
-        "form": "FORM"
+        "form": "mega"
     },
     "Kyogre": {
         "id": 382,
@@ -6383,7 +6383,7 @@
         "sp-attack": 150,
         "sp-defense": 140,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Primal Kyogre": {
         "id": 382,
@@ -6397,7 +6397,7 @@
         "sp-attack": 180,
         "sp-defense": 160,
         "speed": 90,
-        "form": "FORM"
+        "form": "primal"
     },
     "Groudon": {
         "id": 383,
@@ -6411,7 +6411,7 @@
         "sp-attack": 100,
         "sp-defense": 90,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Primal Groudon": {
         "id": 383,
@@ -6426,7 +6426,7 @@
         "sp-attack": 150,
         "sp-defense": 90,
         "speed": 90,
-        "form": "FORM"
+        "form": "primal"
     },
     "Rayquaza": {
         "id": 384,
@@ -6441,7 +6441,7 @@
         "sp-attack": 150,
         "sp-defense": 90,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Rayquaza": {
         "id": 384,
@@ -6456,7 +6456,7 @@
         "sp-attack": 180,
         "sp-defense": 100,
         "speed": 115,
-        "form": "FORM"
+        "form": "mega"
     },
     "Jirachi": {
         "id": 385,
@@ -6471,7 +6471,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Deoxys Normal Forme": {
         "id": 386,
@@ -6485,9 +6485,9 @@
         "sp-attack": 150,
         "sp-defense": 50,
         "speed": 150,
-        "form": "FORM"
+        "form": "normal"
     },
-    "Deoxys attack Forme": {
+    "Deoxys Attack Forme": {
         "id": 386,
         "type": [
             "Psychic"
@@ -6499,9 +6499,9 @@
         "sp-attack": 180,
         "sp-defense": 20,
         "speed": 150,
-        "form": "FORM"
+        "form": "attack"
     },
-    "Deoxys defense Forme": {
+    "Deoxys Defense Forme": {
         "id": 386,
         "type": [
             "Psychic"
@@ -6513,9 +6513,9 @@
         "sp-attack": 70,
         "sp-defense": 160,
         "speed": 90,
-        "form": "FORM"
+        "form": "defense"
     },
-    "Deoxys speed Forme": {
+    "Deoxys Speed Forme": {
         "id": 386,
         "type": [
             "Psychic"
@@ -6527,7 +6527,7 @@
         "sp-attack": 95,
         "sp-defense": 90,
         "speed": 180,
-        "form": "FORM"
+        "form": "speed"
     },
     "Turtwig": {
         "id": 387,
@@ -6541,7 +6541,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 31,
-        "form": "FORM"
+        "form": ""
     },
     "Grotle": {
         "id": 388,
@@ -6555,7 +6555,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 36,
-        "form": "FORM"
+        "form": ""
     },
     "Torterra": {
         "id": 389,
@@ -6570,7 +6570,7 @@
         "sp-attack": 75,
         "sp-defense": 85,
         "speed": 56,
-        "form": "FORM"
+        "form": ""
     },
     "Chimchar": {
         "id": 390,
@@ -6584,7 +6584,7 @@
         "sp-attack": 58,
         "sp-defense": 44,
         "speed": 61,
-        "form": "FORM"
+        "form": ""
     },
     "Monferno": {
         "id": 391,
@@ -6599,7 +6599,7 @@
         "sp-attack": 78,
         "sp-defense": 52,
         "speed": 81,
-        "form": "FORM"
+        "form": ""
     },
     "Infernape": {
         "id": 392,
@@ -6614,7 +6614,7 @@
         "sp-attack": 104,
         "sp-defense": 71,
         "speed": 108,
-        "form": "FORM"
+        "form": ""
     },
     "Piplup": {
         "id": 393,
@@ -6628,7 +6628,7 @@
         "sp-attack": 61,
         "sp-defense": 56,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Prinplup": {
         "id": 394,
@@ -6642,7 +6642,7 @@
         "sp-attack": 81,
         "sp-defense": 76,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Empoleon": {
         "id": 395,
@@ -6657,7 +6657,7 @@
         "sp-attack": 111,
         "sp-defense": 101,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Starly": {
         "id": 396,
@@ -6672,7 +6672,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Staravia": {
         "id": 397,
@@ -6687,7 +6687,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Staraptor": {
         "id": 398,
@@ -6702,7 +6702,7 @@
         "sp-attack": 50,
         "sp-defense": 60,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Bidoof": {
         "id": 399,
@@ -6716,7 +6716,7 @@
         "sp-attack": 35,
         "sp-defense": 40,
         "speed": 31,
-        "form": "FORM"
+        "form": ""
     },
     "Bibarel": {
         "id": 400,
@@ -6731,7 +6731,7 @@
         "sp-attack": 55,
         "sp-defense": 60,
         "speed": 71,
-        "form": "FORM"
+        "form": ""
     },
     "Kricketot": {
         "id": 401,
@@ -6745,7 +6745,7 @@
         "sp-attack": 25,
         "sp-defense": 41,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Kricketune": {
         "id": 402,
@@ -6759,7 +6759,7 @@
         "sp-attack": 55,
         "sp-defense": 51,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Shinx": {
         "id": 403,
@@ -6773,7 +6773,7 @@
         "sp-attack": 40,
         "sp-defense": 34,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Luxio": {
         "id": 404,
@@ -6787,7 +6787,7 @@
         "sp-attack": 60,
         "sp-defense": 49,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Luxray": {
         "id": 405,
@@ -6801,7 +6801,7 @@
         "sp-attack": 95,
         "sp-defense": 79,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Budew": {
         "id": 406,
@@ -6816,7 +6816,7 @@
         "sp-attack": 50,
         "sp-defense": 70,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Roserade": {
         "id": 407,
@@ -6831,7 +6831,7 @@
         "sp-attack": 125,
         "sp-defense": 105,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Cranidos": {
         "id": 408,
@@ -6845,7 +6845,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Rampardos": {
         "id": 409,
@@ -6859,7 +6859,7 @@
         "sp-attack": 65,
         "sp-defense": 50,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Shieldon": {
         "id": 410,
@@ -6874,7 +6874,7 @@
         "sp-attack": 42,
         "sp-defense": 88,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Bastiodon": {
         "id": 411,
@@ -6889,7 +6889,7 @@
         "sp-attack": 47,
         "sp-defense": 138,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Burmy": {
         "id": 412,
@@ -6903,7 +6903,7 @@
         "sp-attack": 29,
         "sp-defense": 45,
         "speed": 36,
-        "form": "FORM"
+        "form": ""
     },
     "Wormadam Plant Cloak": {
         "id": 413,
@@ -6918,7 +6918,7 @@
         "sp-attack": 79,
         "sp-defense": 105,
         "speed": 36,
-        "form": "FORM"
+        "form": "plantcloak"
     },
     "Wormadam Sandy Cloak": {
         "id": 413,
@@ -6933,7 +6933,7 @@
         "sp-attack": 59,
         "sp-defense": 85,
         "speed": 36,
-        "form": "FORM"
+        "form": "sandycloak"
     },
     "Wormadam Trash Cloak": {
         "id": 413,
@@ -6948,7 +6948,7 @@
         "sp-attack": 69,
         "sp-defense": 95,
         "speed": 36,
-        "form": "FORM"
+        "form": "trashcloak"
     },
     "Mothim": {
         "id": 414,
@@ -6963,7 +6963,7 @@
         "sp-attack": 94,
         "sp-defense": 50,
         "speed": 66,
-        "form": "FORM"
+        "form": ""
     },
     "Combee": {
         "id": 415,
@@ -6978,7 +6978,7 @@
         "sp-attack": 30,
         "sp-defense": 42,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Vespiquen": {
         "id": 416,
@@ -6993,7 +6993,7 @@
         "sp-attack": 80,
         "sp-defense": 102,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Pachirisu": {
         "id": 417,
@@ -7007,7 +7007,7 @@
         "sp-attack": 45,
         "sp-defense": 90,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Buizel": {
         "id": 418,
@@ -7021,7 +7021,7 @@
         "sp-attack": 60,
         "sp-defense": 30,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Floatzel": {
         "id": 419,
@@ -7035,7 +7035,7 @@
         "sp-attack": 85,
         "sp-defense": 50,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Cherubi": {
         "id": 420,
@@ -7049,7 +7049,7 @@
         "sp-attack": 62,
         "sp-defense": 53,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Cherrim": {
         "id": 421,
@@ -7063,7 +7063,7 @@
         "sp-attack": 87,
         "sp-defense": 78,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Shellos": {
         "id": 422,
@@ -7077,7 +7077,7 @@
         "sp-attack": 57,
         "sp-defense": 62,
         "speed": 34,
-        "form": "FORM"
+        "form": ""
     },
     "Gastrodon": {
         "id": 423,
@@ -7092,7 +7092,7 @@
         "sp-attack": 92,
         "sp-defense": 82,
         "speed": 39,
-        "form": "FORM"
+        "form": ""
     },
     "Ambipom": {
         "id": 424,
@@ -7106,7 +7106,7 @@
         "sp-attack": 60,
         "sp-defense": 66,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Drifloon": {
         "id": 425,
@@ -7121,7 +7121,7 @@
         "sp-attack": 60,
         "sp-defense": 44,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Drifblim": {
         "id": 426,
@@ -7136,7 +7136,7 @@
         "sp-attack": 90,
         "sp-defense": 54,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Buneary": {
         "id": 427,
@@ -7150,7 +7150,7 @@
         "sp-attack": 44,
         "sp-defense": 56,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Lopunny": {
         "id": 428,
@@ -7164,7 +7164,7 @@
         "sp-attack": 54,
         "sp-defense": 96,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Lopunny": {
         "id": 428,
@@ -7179,7 +7179,7 @@
         "sp-attack": 54,
         "sp-defense": 96,
         "speed": 135,
-        "form": "FORM"
+        "form": "mega"
     },
     "Mismagius": {
         "id": 429,
@@ -7193,7 +7193,7 @@
         "sp-attack": 105,
         "sp-defense": 105,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Honchkrow": {
         "id": 430,
@@ -7208,7 +7208,7 @@
         "sp-attack": 105,
         "sp-defense": 52,
         "speed": 71,
-        "form": "FORM"
+        "form": ""
     },
     "Glameow": {
         "id": 431,
@@ -7222,7 +7222,7 @@
         "sp-attack": 42,
         "sp-defense": 37,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Purugly": {
         "id": 432,
@@ -7236,7 +7236,7 @@
         "sp-attack": 64,
         "sp-defense": 59,
         "speed": 112,
-        "form": "FORM"
+        "form": ""
     },
     "Chingling": {
         "id": 433,
@@ -7250,7 +7250,7 @@
         "sp-attack": 65,
         "sp-defense": 50,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Stunky": {
         "id": 434,
@@ -7265,7 +7265,7 @@
         "sp-attack": 41,
         "sp-defense": 41,
         "speed": 74,
-        "form": "FORM"
+        "form": ""
     },
     "Skuntank": {
         "id": 435,
@@ -7280,7 +7280,7 @@
         "sp-attack": 71,
         "sp-defense": 61,
         "speed": 84,
-        "form": "FORM"
+        "form": ""
     },
     "Bronzor": {
         "id": 436,
@@ -7295,7 +7295,7 @@
         "sp-attack": 24,
         "sp-defense": 86,
         "speed": 23,
-        "form": "FORM"
+        "form": ""
     },
     "Bronzong": {
         "id": 437,
@@ -7310,7 +7310,7 @@
         "sp-attack": 79,
         "sp-defense": 116,
         "speed": 33,
-        "form": "FORM"
+        "form": ""
     },
     "Bonsly": {
         "id": 438,
@@ -7324,7 +7324,7 @@
         "sp-attack": 10,
         "sp-defense": 45,
         "speed": 10,
-        "form": "FORM"
+        "form": ""
     },
     "Mime Jr.": {
         "id": 439,
@@ -7339,7 +7339,7 @@
         "sp-attack": 70,
         "sp-defense": 90,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Happiny": {
         "id": 440,
@@ -7353,7 +7353,7 @@
         "sp-attack": 15,
         "sp-defense": 65,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Chatot": {
         "id": 441,
@@ -7368,7 +7368,7 @@
         "sp-attack": 92,
         "sp-defense": 42,
         "speed": 91,
-        "form": "FORM"
+        "form": ""
     },
     "Spiritomb": {
         "id": 442,
@@ -7383,7 +7383,7 @@
         "sp-attack": 92,
         "sp-defense": 108,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Gible": {
         "id": 443,
@@ -7398,7 +7398,7 @@
         "sp-attack": 40,
         "sp-defense": 45,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Gabite": {
         "id": 444,
@@ -7413,7 +7413,7 @@
         "sp-attack": 50,
         "sp-defense": 55,
         "speed": 82,
-        "form": "FORM"
+        "form": ""
     },
     "Garchomp": {
         "id": 445,
@@ -7428,7 +7428,7 @@
         "sp-attack": 80,
         "sp-defense": 85,
         "speed": 102,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Garchomp": {
         "id": 445,
@@ -7443,7 +7443,7 @@
         "sp-attack": 120,
         "sp-defense": 95,
         "speed": 92,
-        "form": "FORM"
+        "form": "mega"
     },
     "Munchlax": {
         "id": 446,
@@ -7457,7 +7457,7 @@
         "sp-attack": 40,
         "sp-defense": 85,
         "speed": 5,
-        "form": "FORM"
+        "form": ""
     },
     "Riolu": {
         "id": 447,
@@ -7471,7 +7471,7 @@
         "sp-attack": 35,
         "sp-defense": 40,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Lucario": {
         "id": 448,
@@ -7486,7 +7486,7 @@
         "sp-attack": 115,
         "sp-defense": 70,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Lucario": {
         "id": 448,
@@ -7501,7 +7501,7 @@
         "sp-attack": 140,
         "sp-defense": 70,
         "speed": 112,
-        "form": "FORM"
+        "form": "mega"
     },
     "Hippopotas": {
         "id": 449,
@@ -7515,7 +7515,7 @@
         "sp-attack": 38,
         "sp-defense": 42,
         "speed": 32,
-        "form": "FORM"
+        "form": ""
     },
     "Hippowdon": {
         "id": 450,
@@ -7529,7 +7529,7 @@
         "sp-attack": 68,
         "sp-defense": 72,
         "speed": 47,
-        "form": "FORM"
+        "form": ""
     },
     "Skorupi": {
         "id": 451,
@@ -7544,7 +7544,7 @@
         "sp-attack": 30,
         "sp-defense": 55,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Drapion": {
         "id": 452,
@@ -7559,7 +7559,7 @@
         "sp-attack": 60,
         "sp-defense": 75,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Croagunk": {
         "id": 453,
@@ -7574,7 +7574,7 @@
         "sp-attack": 61,
         "sp-defense": 40,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Toxicroak": {
         "id": 454,
@@ -7589,7 +7589,7 @@
         "sp-attack": 86,
         "sp-defense": 65,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Carnivine": {
         "id": 455,
@@ -7603,7 +7603,7 @@
         "sp-attack": 90,
         "sp-defense": 72,
         "speed": 46,
-        "form": "FORM"
+        "form": ""
     },
     "Finneon": {
         "id": 456,
@@ -7617,7 +7617,7 @@
         "sp-attack": 49,
         "sp-defense": 61,
         "speed": 66,
-        "form": "FORM"
+        "form": ""
     },
     "Lumineon": {
         "id": 457,
@@ -7631,7 +7631,7 @@
         "sp-attack": 69,
         "sp-defense": 86,
         "speed": 91,
-        "form": "FORM"
+        "form": ""
     },
     "Mantyke": {
         "id": 458,
@@ -7646,7 +7646,7 @@
         "sp-attack": 60,
         "sp-defense": 120,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Snover": {
         "id": 459,
@@ -7661,7 +7661,7 @@
         "sp-attack": 62,
         "sp-defense": 60,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Abomasnow": {
         "id": 460,
@@ -7676,7 +7676,7 @@
         "sp-attack": 92,
         "sp-defense": 85,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Abomasnow": {
         "id": 460,
@@ -7691,7 +7691,7 @@
         "sp-attack": 132,
         "sp-defense": 105,
         "speed": 30,
-        "form": "FORM"
+        "form": "mega"
     },
     "Weavile": {
         "id": 461,
@@ -7706,7 +7706,7 @@
         "sp-attack": 45,
         "sp-defense": 85,
         "speed": 125,
-        "form": "FORM"
+        "form": ""
     },
     "Magnezone": {
         "id": 462,
@@ -7721,7 +7721,7 @@
         "sp-attack": 130,
         "sp-defense": 90,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Lickilicky": {
         "id": 463,
@@ -7735,7 +7735,7 @@
         "sp-attack": 80,
         "sp-defense": 95,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Rhyperior": {
         "id": 464,
@@ -7750,7 +7750,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Tangrowth": {
         "id": 465,
@@ -7764,7 +7764,7 @@
         "sp-attack": 110,
         "sp-defense": 50,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Electivire": {
         "id": 466,
@@ -7778,7 +7778,7 @@
         "sp-attack": 95,
         "sp-defense": 85,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Magmortar": {
         "id": 467,
@@ -7792,7 +7792,7 @@
         "sp-attack": 125,
         "sp-defense": 95,
         "speed": 83,
-        "form": "FORM"
+        "form": ""
     },
     "Togekiss": {
         "id": 468,
@@ -7807,7 +7807,7 @@
         "sp-attack": 120,
         "sp-defense": 115,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Yanmega": {
         "id": 469,
@@ -7822,7 +7822,7 @@
         "sp-attack": 116,
         "sp-defense": 56,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Leafeon": {
         "id": 470,
@@ -7836,7 +7836,7 @@
         "sp-attack": 60,
         "sp-defense": 65,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Glaceon": {
         "id": 471,
@@ -7850,7 +7850,7 @@
         "sp-attack": 130,
         "sp-defense": 95,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Gliscor": {
         "id": 472,
@@ -7865,7 +7865,7 @@
         "sp-attack": 45,
         "sp-defense": 75,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Mamoswine": {
         "id": 473,
@@ -7880,7 +7880,7 @@
         "sp-attack": 70,
         "sp-defense": 60,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Porygon-Z": {
         "id": 474,
@@ -7894,7 +7894,7 @@
         "sp-attack": 135,
         "sp-defense": 75,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Gallade": {
         "id": 475,
@@ -7909,7 +7909,7 @@
         "sp-attack": 65,
         "sp-defense": 115,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Gallade": {
         "id": 475,
@@ -7924,7 +7924,7 @@
         "sp-attack": 65,
         "sp-defense": 115,
         "speed": 110,
-        "form": "FORM"
+        "form": "mega"
     },
     "Probopass": {
         "id": 476,
@@ -7939,7 +7939,7 @@
         "sp-attack": 75,
         "sp-defense": 150,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Dusknoir": {
         "id": 477,
@@ -7953,7 +7953,7 @@
         "sp-attack": 65,
         "sp-defense": 135,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Froslass": {
         "id": 478,
@@ -7968,7 +7968,7 @@
         "sp-attack": 80,
         "sp-defense": 70,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Rotom": {
         "id": 479,
@@ -7983,7 +7983,7 @@
         "sp-attack": 95,
         "sp-defense": 77,
         "speed": 91,
-        "form": "FORM"
+        "form": ""
     },
     "Heat Rotom": {
         "id": 479,
@@ -7998,7 +7998,7 @@
         "sp-attack": 105,
         "sp-defense": 107,
         "speed": 86,
-        "form": "FORM"
+        "form": "heat"
     },
     "Wash Rotom": {
         "id": 479,
@@ -8013,7 +8013,7 @@
         "sp-attack": 105,
         "sp-defense": 107,
         "speed": 86,
-        "form": "FORM"
+        "form": "wash"
     },
     "Frost Rotom": {
         "id": 479,
@@ -8028,7 +8028,7 @@
         "sp-attack": 105,
         "sp-defense": 107,
         "speed": 86,
-        "form": "FORM"
+        "form": "frost"
     },
     "Fan Rotom": {
         "id": 479,
@@ -8043,7 +8043,7 @@
         "sp-attack": 105,
         "sp-defense": 107,
         "speed": 86,
-        "form": "FORM"
+        "form": "fan"
     },
     "Mow Rotom": {
         "id": 479,
@@ -8058,7 +8058,7 @@
         "sp-attack": 105,
         "sp-defense": 107,
         "speed": 86,
-        "form": "FORM"
+        "form": "mow"
     },
     "Uxie": {
         "id": 480,
@@ -8072,7 +8072,7 @@
         "sp-attack": 75,
         "sp-defense": 130,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Mesprit": {
         "id": 481,
@@ -8086,7 +8086,7 @@
         "sp-attack": 105,
         "sp-defense": 105,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Azelf": {
         "id": 482,
@@ -8100,7 +8100,7 @@
         "sp-attack": 125,
         "sp-defense": 70,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Dialga": {
         "id": 483,
@@ -8115,7 +8115,7 @@
         "sp-attack": 150,
         "sp-defense": 100,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Palkia": {
         "id": 484,
@@ -8130,7 +8130,7 @@
         "sp-attack": 150,
         "sp-defense": 120,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Heatran": {
         "id": 485,
@@ -8145,7 +8145,7 @@
         "sp-attack": 130,
         "sp-defense": 106,
         "speed": 77,
-        "form": "FORM"
+        "form": ""
     },
     "Regigigas": {
         "id": 486,
@@ -8159,7 +8159,7 @@
         "sp-attack": 80,
         "sp-defense": 110,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Giratina Altered Forme": {
         "id": 487,
@@ -8174,7 +8174,7 @@
         "sp-attack": 100,
         "sp-defense": 120,
         "speed": 90,
-        "form": "FORM"
+        "form": "altered"
     },
     "Giratina Origin Forme": {
         "id": 487,
@@ -8189,7 +8189,7 @@
         "sp-attack": 120,
         "sp-defense": 100,
         "speed": 90,
-        "form": "FORM"
+        "form": "origin"
     },
     "Cresselia": {
         "id": 488,
@@ -8203,7 +8203,7 @@
         "sp-attack": 75,
         "sp-defense": 130,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Phione": {
         "id": 489,
@@ -8217,7 +8217,7 @@
         "sp-attack": 80,
         "sp-defense": 80,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Manaphy": {
         "id": 490,
@@ -8231,7 +8231,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Darkrai": {
         "id": 491,
@@ -8245,7 +8245,7 @@
         "sp-attack": 135,
         "sp-defense": 90,
         "speed": 125,
-        "form": "FORM"
+        "form": ""
     },
     "Shaymin Land Forme": {
         "id": 492,
@@ -8259,7 +8259,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": "land"
     },
     "Shaymin Sky Forme": {
         "id": 492,
@@ -8274,7 +8274,7 @@
         "sp-attack": 120,
         "sp-defense": 75,
         "speed": 127,
-        "form": "FORM"
+        "form": "sky"
     },
     "Arceus": {
         "id": 493,
@@ -8288,7 +8288,7 @@
         "sp-attack": 120,
         "sp-defense": 120,
         "speed": 120,
-        "form": "FORM"
+        "form": ""
     },
     "Victini": {
         "id": 494,
@@ -8303,7 +8303,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Snivy": {
         "id": 495,
@@ -8317,7 +8317,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 63,
-        "form": "FORM"
+        "form": ""
     },
     "Servine": {
         "id": 496,
@@ -8331,7 +8331,7 @@
         "sp-attack": 60,
         "sp-defense": 75,
         "speed": 83,
-        "form": "FORM"
+        "form": ""
     },
     "Serperior": {
         "id": 497,
@@ -8345,7 +8345,7 @@
         "sp-attack": 75,
         "sp-defense": 95,
         "speed": 113,
-        "form": "FORM"
+        "form": ""
     },
     "Tepig": {
         "id": 498,
@@ -8359,7 +8359,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Pignite": {
         "id": 499,
@@ -8374,7 +8374,7 @@
         "sp-attack": 70,
         "sp-defense": 55,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Emboar": {
         "id": 500,
@@ -8389,7 +8389,7 @@
         "sp-attack": 100,
         "sp-defense": 65,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Oshawott": {
         "id": 501,
@@ -8403,7 +8403,7 @@
         "sp-attack": 63,
         "sp-defense": 45,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Dewott": {
         "id": 502,
@@ -8417,7 +8417,7 @@
         "sp-attack": 83,
         "sp-defense": 60,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Samurott": {
         "id": 503,
@@ -8431,7 +8431,7 @@
         "sp-attack": 108,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Patrat": {
         "id": 504,
@@ -8445,7 +8445,7 @@
         "sp-attack": 35,
         "sp-defense": 39,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Watchog": {
         "id": 505,
@@ -8459,7 +8459,7 @@
         "sp-attack": 60,
         "sp-defense": 69,
         "speed": 77,
-        "form": "FORM"
+        "form": ""
     },
     "Lillipup": {
         "id": 506,
@@ -8473,7 +8473,7 @@
         "sp-attack": 25,
         "sp-defense": 45,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Herdier": {
         "id": 507,
@@ -8487,7 +8487,7 @@
         "sp-attack": 35,
         "sp-defense": 65,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Stoutland": {
         "id": 508,
@@ -8501,7 +8501,7 @@
         "sp-attack": 45,
         "sp-defense": 90,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Purrloin": {
         "id": 509,
@@ -8515,7 +8515,7 @@
         "sp-attack": 50,
         "sp-defense": 37,
         "speed": 66,
-        "form": "FORM"
+        "form": ""
     },
     "Liepard": {
         "id": 510,
@@ -8529,7 +8529,7 @@
         "sp-attack": 88,
         "sp-defense": 50,
         "speed": 106,
-        "form": "FORM"
+        "form": ""
     },
     "Pansage": {
         "id": 511,
@@ -8543,7 +8543,7 @@
         "sp-attack": 53,
         "sp-defense": 48,
         "speed": 64,
-        "form": "FORM"
+        "form": ""
     },
     "Simisage": {
         "id": 512,
@@ -8557,7 +8557,7 @@
         "sp-attack": 98,
         "sp-defense": 63,
         "speed": 101,
-        "form": "FORM"
+        "form": ""
     },
     "Pansear": {
         "id": 513,
@@ -8571,7 +8571,7 @@
         "sp-attack": 53,
         "sp-defense": 48,
         "speed": 64,
-        "form": "FORM"
+        "form": ""
     },
     "Simisear": {
         "id": 514,
@@ -8585,7 +8585,7 @@
         "sp-attack": 98,
         "sp-defense": 63,
         "speed": 101,
-        "form": "FORM"
+        "form": ""
     },
     "Panpour": {
         "id": 515,
@@ -8599,7 +8599,7 @@
         "sp-attack": 53,
         "sp-defense": 48,
         "speed": 64,
-        "form": "FORM"
+        "form": ""
     },
     "Simipour": {
         "id": 516,
@@ -8613,7 +8613,7 @@
         "sp-attack": 98,
         "sp-defense": 63,
         "speed": 101,
-        "form": "FORM"
+        "form": ""
     },
     "Munna": {
         "id": 517,
@@ -8627,7 +8627,7 @@
         "sp-attack": 67,
         "sp-defense": 55,
         "speed": 24,
-        "form": "FORM"
+        "form": ""
     },
     "Musharna": {
         "id": 518,
@@ -8641,7 +8641,7 @@
         "sp-attack": 107,
         "sp-defense": 95,
         "speed": 29,
-        "form": "FORM"
+        "form": ""
     },
     "Pidove": {
         "id": 519,
@@ -8656,7 +8656,7 @@
         "sp-attack": 36,
         "sp-defense": 30,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Tranquill": {
         "id": 520,
@@ -8671,7 +8671,7 @@
         "sp-attack": 50,
         "sp-defense": 42,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Unfezant": {
         "id": 521,
@@ -8686,7 +8686,7 @@
         "sp-attack": 65,
         "sp-defense": 55,
         "speed": 93,
-        "form": "FORM"
+        "form": ""
     },
     "Blitzle": {
         "id": 522,
@@ -8700,7 +8700,7 @@
         "sp-attack": 50,
         "sp-defense": 32,
         "speed": 76,
-        "form": "FORM"
+        "form": ""
     },
     "Zebstrika": {
         "id": 523,
@@ -8714,7 +8714,7 @@
         "sp-attack": 80,
         "sp-defense": 63,
         "speed": 116,
-        "form": "FORM"
+        "form": ""
     },
     "Roggenrola": {
         "id": 524,
@@ -8728,7 +8728,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Boldore": {
         "id": 525,
@@ -8742,7 +8742,7 @@
         "sp-attack": 50,
         "sp-defense": 40,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Gigalith": {
         "id": 526,
@@ -8756,7 +8756,7 @@
         "sp-attack": 60,
         "sp-defense": 80,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Woobat": {
         "id": 527,
@@ -8771,7 +8771,7 @@
         "sp-attack": 55,
         "sp-defense": 43,
         "speed": 72,
-        "form": "FORM"
+        "form": ""
     },
     "Swoobat": {
         "id": 528,
@@ -8786,7 +8786,7 @@
         "sp-attack": 77,
         "sp-defense": 55,
         "speed": 114,
-        "form": "FORM"
+        "form": ""
     },
     "Drilbur": {
         "id": 529,
@@ -8800,7 +8800,7 @@
         "sp-attack": 30,
         "sp-defense": 45,
         "speed": 68,
-        "form": "FORM"
+        "form": ""
     },
     "Excadrill": {
         "id": 530,
@@ -8815,7 +8815,7 @@
         "sp-attack": 50,
         "sp-defense": 65,
         "speed": 88,
-        "form": "FORM"
+        "form": ""
     },
     "Audino": {
         "id": 531,
@@ -8829,7 +8829,7 @@
         "sp-attack": 60,
         "sp-defense": 86,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Audino": {
         "id": 531,
@@ -8844,7 +8844,7 @@
         "sp-attack": 80,
         "sp-defense": 126,
         "speed": 50,
-        "form": "FORM"
+        "form": "mega"
     },
     "Timburr": {
         "id": 532,
@@ -8858,7 +8858,7 @@
         "sp-attack": 25,
         "sp-defense": 35,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Gurdurr": {
         "id": 533,
@@ -8872,7 +8872,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Conkeldurr": {
         "id": 534,
@@ -8886,7 +8886,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Tympole": {
         "id": 535,
@@ -8900,7 +8900,7 @@
         "sp-attack": 50,
         "sp-defense": 40,
         "speed": 64,
-        "form": "FORM"
+        "form": ""
     },
     "Palpitoad": {
         "id": 536,
@@ -8915,7 +8915,7 @@
         "sp-attack": 65,
         "sp-defense": 55,
         "speed": 69,
-        "form": "FORM"
+        "form": ""
     },
     "Seismitoad": {
         "id": 537,
@@ -8930,7 +8930,7 @@
         "sp-attack": 85,
         "sp-defense": 75,
         "speed": 74,
-        "form": "FORM"
+        "form": ""
     },
     "Throh": {
         "id": 538,
@@ -8944,7 +8944,7 @@
         "sp-attack": 30,
         "sp-defense": 85,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Sawk": {
         "id": 539,
@@ -8958,7 +8958,7 @@
         "sp-attack": 30,
         "sp-defense": 75,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Sewaddle": {
         "id": 540,
@@ -8973,7 +8973,7 @@
         "sp-attack": 40,
         "sp-defense": 60,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Swadloon": {
         "id": 541,
@@ -8988,7 +8988,7 @@
         "sp-attack": 50,
         "sp-defense": 80,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Leavanny": {
         "id": 542,
@@ -9003,7 +9003,7 @@
         "sp-attack": 70,
         "sp-defense": 80,
         "speed": 92,
-        "form": "FORM"
+        "form": ""
     },
     "Venipede": {
         "id": 543,
@@ -9018,7 +9018,7 @@
         "sp-attack": 30,
         "sp-defense": 39,
         "speed": 57,
-        "form": "FORM"
+        "form": ""
     },
     "Whirlipede": {
         "id": 544,
@@ -9033,7 +9033,7 @@
         "sp-attack": 40,
         "sp-defense": 79,
         "speed": 47,
-        "form": "FORM"
+        "form": ""
     },
     "Scolipede": {
         "id": 545,
@@ -9048,7 +9048,7 @@
         "sp-attack": 55,
         "sp-defense": 69,
         "speed": 112,
-        "form": "FORM"
+        "form": ""
     },
     "Cottonee": {
         "id": 546,
@@ -9063,7 +9063,7 @@
         "sp-attack": 37,
         "sp-defense": 50,
         "speed": 66,
-        "form": "FORM"
+        "form": ""
     },
     "Whimsicott": {
         "id": 547,
@@ -9078,7 +9078,7 @@
         "sp-attack": 77,
         "sp-defense": 75,
         "speed": 116,
-        "form": "FORM"
+        "form": ""
     },
     "Petilil": {
         "id": 548,
@@ -9092,7 +9092,7 @@
         "sp-attack": 70,
         "sp-defense": 50,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Lilligant": {
         "id": 549,
@@ -9106,7 +9106,7 @@
         "sp-attack": 110,
         "sp-defense": 75,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Basculin": {
         "id": 550,
@@ -9120,7 +9120,7 @@
         "sp-attack": 80,
         "sp-defense": 55,
         "speed": 98,
-        "form": "FORM"
+        "form": ""
     },
     "Sandile": {
         "id": 551,
@@ -9135,7 +9135,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Krokorok": {
         "id": 552,
@@ -9150,7 +9150,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 74,
-        "form": "FORM"
+        "form": ""
     },
     "Krookodile": {
         "id": 553,
@@ -9165,7 +9165,7 @@
         "sp-attack": 65,
         "sp-defense": 70,
         "speed": 92,
-        "form": "FORM"
+        "form": ""
     },
     "Darumaka": {
         "id": 554,
@@ -9179,7 +9179,7 @@
         "sp-attack": 15,
         "sp-defense": 45,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Darmanitan Standard Mode": {
         "id": 555,
@@ -9193,7 +9193,7 @@
         "sp-attack": 30,
         "sp-defense": 55,
         "speed": 95,
-        "form": "FORM"
+        "form": "standard"
     },
     "Darmanitan Zen Mode": {
         "id": 555,
@@ -9208,7 +9208,7 @@
         "sp-attack": 140,
         "sp-defense": 105,
         "speed": 55,
-        "form": "FORM"
+        "form": "zen"
     },
     "Maractus": {
         "id": 556,
@@ -9222,7 +9222,7 @@
         "sp-attack": 106,
         "sp-defense": 67,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Dwebble": {
         "id": 557,
@@ -9237,7 +9237,7 @@
         "sp-attack": 35,
         "sp-defense": 35,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Crustle": {
         "id": 558,
@@ -9252,7 +9252,7 @@
         "sp-attack": 65,
         "sp-defense": 75,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Scraggy": {
         "id": 559,
@@ -9267,7 +9267,7 @@
         "sp-attack": 35,
         "sp-defense": 70,
         "speed": 48,
-        "form": "FORM"
+        "form": ""
     },
     "Scrafty": {
         "id": 560,
@@ -9282,7 +9282,7 @@
         "sp-attack": 45,
         "sp-defense": 115,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Sigilyph": {
         "id": 561,
@@ -9297,7 +9297,7 @@
         "sp-attack": 103,
         "sp-defense": 80,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Yamask": {
         "id": 562,
@@ -9311,7 +9311,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Cofagrigus": {
         "id": 563,
@@ -9325,7 +9325,7 @@
         "sp-attack": 95,
         "sp-defense": 105,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Tirtouga": {
         "id": 564,
@@ -9340,7 +9340,7 @@
         "sp-attack": 53,
         "sp-defense": 45,
         "speed": 22,
-        "form": "FORM"
+        "form": ""
     },
     "Carracosta": {
         "id": 565,
@@ -9355,7 +9355,7 @@
         "sp-attack": 83,
         "sp-defense": 65,
         "speed": 32,
-        "form": "FORM"
+        "form": ""
     },
     "Archen": {
         "id": 566,
@@ -9370,7 +9370,7 @@
         "sp-attack": 74,
         "sp-defense": 45,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Archeops": {
         "id": 567,
@@ -9385,7 +9385,7 @@
         "sp-attack": 112,
         "sp-defense": 65,
         "speed": 110,
-        "form": "FORM"
+        "form": ""
     },
     "Trubbish": {
         "id": 568,
@@ -9399,7 +9399,7 @@
         "sp-attack": 40,
         "sp-defense": 62,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Garbodor": {
         "id": 569,
@@ -9413,7 +9413,7 @@
         "sp-attack": 60,
         "sp-defense": 82,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Zorua": {
         "id": 570,
@@ -9427,7 +9427,7 @@
         "sp-attack": 80,
         "sp-defense": 40,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Zoroark": {
         "id": 571,
@@ -9441,7 +9441,7 @@
         "sp-attack": 120,
         "sp-defense": 60,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Minccino": {
         "id": 572,
@@ -9455,7 +9455,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Cinccino": {
         "id": 573,
@@ -9469,7 +9469,7 @@
         "sp-attack": 65,
         "sp-defense": 60,
         "speed": 115,
-        "form": "FORM"
+        "form": ""
     },
     "Gothita": {
         "id": 574,
@@ -9483,7 +9483,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Gothorita": {
         "id": 575,
@@ -9497,7 +9497,7 @@
         "sp-attack": 75,
         "sp-defense": 85,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Gothitelle": {
         "id": 576,
@@ -9511,7 +9511,7 @@
         "sp-attack": 95,
         "sp-defense": 110,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Solosis": {
         "id": 577,
@@ -9525,7 +9525,7 @@
         "sp-attack": 105,
         "sp-defense": 50,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Duosion": {
         "id": 578,
@@ -9539,7 +9539,7 @@
         "sp-attack": 125,
         "sp-defense": 60,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Reuniclus": {
         "id": 579,
@@ -9553,7 +9553,7 @@
         "sp-attack": 125,
         "sp-defense": 85,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Ducklett": {
         "id": 580,
@@ -9568,7 +9568,7 @@
         "sp-attack": 44,
         "sp-defense": 50,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Swanna": {
         "id": 581,
@@ -9583,7 +9583,7 @@
         "sp-attack": 87,
         "sp-defense": 63,
         "speed": 98,
-        "form": "FORM"
+        "form": ""
     },
     "Vanillite": {
         "id": 582,
@@ -9597,7 +9597,7 @@
         "sp-attack": 65,
         "sp-defense": 60,
         "speed": 44,
-        "form": "FORM"
+        "form": ""
     },
     "Vanillish": {
         "id": 583,
@@ -9611,7 +9611,7 @@
         "sp-attack": 80,
         "sp-defense": 75,
         "speed": 59,
-        "form": "FORM"
+        "form": ""
     },
     "Vanilluxe": {
         "id": 584,
@@ -9625,7 +9625,7 @@
         "sp-attack": 110,
         "sp-defense": 95,
         "speed": 79,
-        "form": "FORM"
+        "form": ""
     },
     "Deerling": {
         "id": 585,
@@ -9640,7 +9640,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Sawsbuck": {
         "id": 586,
@@ -9655,7 +9655,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Emolga": {
         "id": 587,
@@ -9670,7 +9670,7 @@
         "sp-attack": 75,
         "sp-defense": 60,
         "speed": 103,
-        "form": "FORM"
+        "form": ""
     },
     "Karrablast": {
         "id": 588,
@@ -9684,7 +9684,7 @@
         "sp-attack": 40,
         "sp-defense": 45,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Escavalier": {
         "id": 589,
@@ -9699,7 +9699,7 @@
         "sp-attack": 60,
         "sp-defense": 105,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Foongus": {
         "id": 590,
@@ -9714,7 +9714,7 @@
         "sp-attack": 55,
         "sp-defense": 55,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Amoonguss": {
         "id": 591,
@@ -9729,7 +9729,7 @@
         "sp-attack": 85,
         "sp-defense": 80,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Frillish": {
         "id": 592,
@@ -9744,7 +9744,7 @@
         "sp-attack": 65,
         "sp-defense": 85,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Jellicent": {
         "id": 593,
@@ -9759,7 +9759,7 @@
         "sp-attack": 85,
         "sp-defense": 105,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Alomomola": {
         "id": 594,
@@ -9773,7 +9773,7 @@
         "sp-attack": 40,
         "sp-defense": 45,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Joltik": {
         "id": 595,
@@ -9788,7 +9788,7 @@
         "sp-attack": 57,
         "sp-defense": 50,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Galvantula": {
         "id": 596,
@@ -9803,7 +9803,7 @@
         "sp-attack": 97,
         "sp-defense": 60,
         "speed": 108,
-        "form": "FORM"
+        "form": ""
     },
     "Ferroseed": {
         "id": 597,
@@ -9818,7 +9818,7 @@
         "sp-attack": 24,
         "sp-defense": 86,
         "speed": 10,
-        "form": "FORM"
+        "form": ""
     },
     "Ferrothorn": {
         "id": 598,
@@ -9833,7 +9833,7 @@
         "sp-attack": 54,
         "sp-defense": 116,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Klink": {
         "id": 599,
@@ -9847,7 +9847,7 @@
         "sp-attack": 45,
         "sp-defense": 60,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Klang": {
         "id": 600,
@@ -9861,7 +9861,7 @@
         "sp-attack": 70,
         "sp-defense": 85,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Klinklang": {
         "id": 601,
@@ -9875,7 +9875,7 @@
         "sp-attack": 70,
         "sp-defense": 85,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Tynamo": {
         "id": 602,
@@ -9889,7 +9889,7 @@
         "sp-attack": 45,
         "sp-defense": 40,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Eelektrik": {
         "id": 603,
@@ -9903,7 +9903,7 @@
         "sp-attack": 75,
         "sp-defense": 70,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Eelektross": {
         "id": 604,
@@ -9917,7 +9917,7 @@
         "sp-attack": 105,
         "sp-defense": 80,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Elgyem": {
         "id": 605,
@@ -9931,7 +9931,7 @@
         "sp-attack": 85,
         "sp-defense": 55,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Beheeyem": {
         "id": 606,
@@ -9945,7 +9945,7 @@
         "sp-attack": 125,
         "sp-defense": 95,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Litwick": {
         "id": 607,
@@ -9960,7 +9960,7 @@
         "sp-attack": 65,
         "sp-defense": 55,
         "speed": 20,
-        "form": "FORM"
+        "form": ""
     },
     "Lampent": {
         "id": 608,
@@ -9975,7 +9975,7 @@
         "sp-attack": 95,
         "sp-defense": 60,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Chandelure": {
         "id": 609,
@@ -9990,7 +9990,7 @@
         "sp-attack": 145,
         "sp-defense": 90,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Axew": {
         "id": 610,
@@ -10004,7 +10004,7 @@
         "sp-attack": 30,
         "sp-defense": 40,
         "speed": 57,
-        "form": "FORM"
+        "form": ""
     },
     "Fraxure": {
         "id": 611,
@@ -10018,7 +10018,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 67,
-        "form": "FORM"
+        "form": ""
     },
     "Haxorus": {
         "id": 612,
@@ -10032,7 +10032,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Cubchoo": {
         "id": 613,
@@ -10046,7 +10046,7 @@
         "sp-attack": 60,
         "sp-defense": 40,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Beartic": {
         "id": 614,
@@ -10060,7 +10060,7 @@
         "sp-attack": 70,
         "sp-defense": 80,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Cryogonal": {
         "id": 615,
@@ -10074,7 +10074,7 @@
         "sp-attack": 95,
         "sp-defense": 135,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Shelmet": {
         "id": 616,
@@ -10088,7 +10088,7 @@
         "sp-attack": 40,
         "sp-defense": 65,
         "speed": 25,
-        "form": "FORM"
+        "form": ""
     },
     "Accelgor": {
         "id": 617,
@@ -10102,7 +10102,7 @@
         "sp-attack": 100,
         "sp-defense": 60,
         "speed": 145,
-        "form": "FORM"
+        "form": ""
     },
     "Stunfisk": {
         "id": 618,
@@ -10117,7 +10117,7 @@
         "sp-attack": 81,
         "sp-defense": 99,
         "speed": 32,
-        "form": "FORM"
+        "form": ""
     },
     "Mienfoo": {
         "id": 619,
@@ -10131,7 +10131,7 @@
         "sp-attack": 55,
         "sp-defense": 50,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Mienshao": {
         "id": 620,
@@ -10145,7 +10145,7 @@
         "sp-attack": 95,
         "sp-defense": 60,
         "speed": 105,
-        "form": "FORM"
+        "form": ""
     },
     "Druddigon": {
         "id": 621,
@@ -10159,7 +10159,7 @@
         "sp-attack": 60,
         "sp-defense": 90,
         "speed": 48,
-        "form": "FORM"
+        "form": ""
     },
     "Golett": {
         "id": 622,
@@ -10174,7 +10174,7 @@
         "sp-attack": 35,
         "sp-defense": 50,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Golurk": {
         "id": 623,
@@ -10189,7 +10189,7 @@
         "sp-attack": 55,
         "sp-defense": 80,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Pawniard": {
         "id": 624,
@@ -10204,7 +10204,7 @@
         "sp-attack": 40,
         "sp-defense": 40,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Bisharp": {
         "id": 625,
@@ -10219,7 +10219,7 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Bouffalant": {
         "id": 626,
@@ -10233,7 +10233,7 @@
         "sp-attack": 40,
         "sp-defense": 95,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Rufflet": {
         "id": 627,
@@ -10248,7 +10248,7 @@
         "sp-attack": 37,
         "sp-defense": 50,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Braviary": {
         "id": 628,
@@ -10263,7 +10263,7 @@
         "sp-attack": 57,
         "sp-defense": 75,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Vullaby": {
         "id": 629,
@@ -10278,7 +10278,7 @@
         "sp-attack": 45,
         "sp-defense": 65,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Mandibuzz": {
         "id": 630,
@@ -10293,7 +10293,7 @@
         "sp-attack": 55,
         "sp-defense": 95,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Heatmor": {
         "id": 631,
@@ -10307,7 +10307,7 @@
         "sp-attack": 105,
         "sp-defense": 66,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Durant": {
         "id": 632,
@@ -10322,7 +10322,7 @@
         "sp-attack": 48,
         "sp-defense": 48,
         "speed": 109,
-        "form": "FORM"
+        "form": ""
     },
     "Deino": {
         "id": 633,
@@ -10337,7 +10337,7 @@
         "sp-attack": 45,
         "sp-defense": 50,
         "speed": 38,
-        "form": "FORM"
+        "form": ""
     },
     "Zweilous": {
         "id": 634,
@@ -10352,7 +10352,7 @@
         "sp-attack": 65,
         "sp-defense": 70,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Hydreigon": {
         "id": 635,
@@ -10367,7 +10367,7 @@
         "sp-attack": 125,
         "sp-defense": 90,
         "speed": 98,
-        "form": "FORM"
+        "form": ""
     },
     "Larvesta": {
         "id": 636,
@@ -10382,7 +10382,7 @@
         "sp-attack": 50,
         "sp-defense": 55,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Volcarona": {
         "id": 637,
@@ -10397,7 +10397,7 @@
         "sp-attack": 135,
         "sp-defense": 105,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Cobalion": {
         "id": 638,
@@ -10412,7 +10412,7 @@
         "sp-attack": 90,
         "sp-defense": 72,
         "speed": 108,
-        "form": "FORM"
+        "form": ""
     },
     "Terrakion": {
         "id": 639,
@@ -10427,7 +10427,7 @@
         "sp-attack": 72,
         "sp-defense": 90,
         "speed": 108,
-        "form": "FORM"
+        "form": ""
     },
     "Virizion": {
         "id": 640,
@@ -10442,7 +10442,7 @@
         "sp-attack": 90,
         "sp-defense": 129,
         "speed": 108,
-        "form": "FORM"
+        "form": ""
     },
     "Tornadus Incarnate Forme": {
         "id": 641,
@@ -10456,7 +10456,7 @@
         "sp-attack": 125,
         "sp-defense": 80,
         "speed": 111,
-        "form": "FORM"
+        "form": "incarnate"
     },
     "Tornadus Therian Forme": {
         "id": 641,
@@ -10470,7 +10470,7 @@
         "sp-attack": 110,
         "sp-defense": 90,
         "speed": 121,
-        "form": "FORM"
+        "form": "therian"
     },
     "Thundurus Incarnate Forme": {
         "id": 642,
@@ -10485,7 +10485,7 @@
         "sp-attack": 125,
         "sp-defense": 80,
         "speed": 111,
-        "form": "FORM"
+        "form": "incarnate"
     },
     "Thundurus Therian Forme": {
         "id": 642,
@@ -10500,7 +10500,7 @@
         "sp-attack": 145,
         "sp-defense": 80,
         "speed": 101,
-        "form": "FORM"
+        "form": "therian"
     },
     "Reshiram": {
         "id": 643,
@@ -10515,7 +10515,7 @@
         "sp-attack": 150,
         "sp-defense": 120,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Zekrom": {
         "id": 644,
@@ -10530,7 +10530,7 @@
         "sp-attack": 120,
         "sp-defense": 100,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Landorus Incarnate Forme": {
         "id": 645,
@@ -10545,7 +10545,7 @@
         "sp-attack": 115,
         "sp-defense": 80,
         "speed": 101,
-        "form": "FORM"
+        "form": "incarnate"
     },
     "Landorus Therian Forme": {
         "id": 645,
@@ -10560,7 +10560,7 @@
         "sp-attack": 105,
         "sp-defense": 80,
         "speed": 91,
-        "form": "FORM"
+        "form": "therian"
     },
     "Kyurem": {
         "id": 646,
@@ -10575,7 +10575,7 @@
         "sp-attack": 130,
         "sp-defense": 90,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Black Kyurem": {
         "id": 646,
@@ -10590,7 +10590,7 @@
         "sp-attack": 120,
         "sp-defense": 90,
         "speed": 95,
-        "form": "FORM"
+        "form": "black"
     },
     "White Kyurem": {
         "id": 646,
@@ -10605,7 +10605,7 @@
         "sp-attack": 170,
         "sp-defense": 100,
         "speed": 95,
-        "form": "FORM"
+        "form": "white"
     },
     "Keldeo Ordinary Forme": {
         "id": 647,
@@ -10620,7 +10620,7 @@
         "sp-attack": 129,
         "sp-defense": 90,
         "speed": 108,
-        "form": "FORM"
+        "form": "ordinary"
     },
     "Keldeo Resolute Forme": {
         "id": 647,
@@ -10635,7 +10635,7 @@
         "sp-attack": 129,
         "sp-defense": 90,
         "speed": 108,
-        "form": "FORM"
+        "form": "resolute"
     },
     "Meloetta Aria Forme": {
         "id": 648,
@@ -10650,7 +10650,7 @@
         "sp-attack": 128,
         "sp-defense": 128,
         "speed": 90,
-        "form": "FORM"
+        "form": "aria"
     },
     "Meloetta Pirouette Forme": {
         "id": 648,
@@ -10665,7 +10665,7 @@
         "sp-attack": 77,
         "sp-defense": 77,
         "speed": 128,
-        "form": "FORM"
+        "form": "pirouette"
     },
     "Genesect": {
         "id": 649,
@@ -10680,7 +10680,7 @@
         "sp-attack": 120,
         "sp-defense": 95,
         "speed": 99,
-        "form": "FORM"
+        "form": ""
     },
     "Chespin": {
         "id": 650,
@@ -10694,7 +10694,7 @@
         "sp-attack": 48,
         "sp-defense": 45,
         "speed": 38,
-        "form": "FORM"
+        "form": ""
     },
     "Quilladin": {
         "id": 651,
@@ -10708,7 +10708,7 @@
         "sp-attack": 56,
         "sp-defense": 58,
         "speed": 57,
-        "form": "FORM"
+        "form": ""
     },
     "Chesnaught": {
         "id": 652,
@@ -10723,7 +10723,7 @@
         "sp-attack": 74,
         "sp-defense": 75,
         "speed": 64,
-        "form": "FORM"
+        "form": ""
     },
     "Fennekin": {
         "id": 653,
@@ -10737,7 +10737,7 @@
         "sp-attack": 62,
         "sp-defense": 60,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Braixen": {
         "id": 654,
@@ -10751,7 +10751,7 @@
         "sp-attack": 90,
         "sp-defense": 70,
         "speed": 73,
-        "form": "FORM"
+        "form": ""
     },
     "Delphox": {
         "id": 655,
@@ -10766,7 +10766,7 @@
         "sp-attack": 114,
         "sp-defense": 100,
         "speed": 104,
-        "form": "FORM"
+        "form": ""
     },
     "Froakie": {
         "id": 656,
@@ -10780,7 +10780,7 @@
         "sp-attack": 62,
         "sp-defense": 44,
         "speed": 71,
-        "form": "FORM"
+        "form": ""
     },
     "Frogadier": {
         "id": 657,
@@ -10794,7 +10794,7 @@
         "sp-attack": 83,
         "sp-defense": 56,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Greninja": {
         "id": 658,
@@ -10809,7 +10809,7 @@
         "sp-attack": 103,
         "sp-defense": 71,
         "speed": 122,
-        "form": "FORM"
+        "form": ""
     },
     "Ash Greninja": {
         "id": 658,
@@ -10824,7 +10824,7 @@
         "sp-attack": 153,
         "sp-defense": 71,
         "speed": 132,
-        "form": "FORM"
+        "form": "ash"
     },
     "Bunnelby": {
         "id": 659,
@@ -10838,7 +10838,7 @@
         "sp-attack": 32,
         "sp-defense": 36,
         "speed": 57,
-        "form": "FORM"
+        "form": ""
     },
     "Diggersby": {
         "id": 660,
@@ -10853,7 +10853,7 @@
         "sp-attack": 50,
         "sp-defense": 77,
         "speed": 78,
-        "form": "FORM"
+        "form": ""
     },
     "Fletchling": {
         "id": 661,
@@ -10868,7 +10868,7 @@
         "sp-attack": 40,
         "sp-defense": 38,
         "speed": 62,
-        "form": "FORM"
+        "form": ""
     },
     "Fletchinder": {
         "id": 662,
@@ -10883,7 +10883,7 @@
         "sp-attack": 56,
         "sp-defense": 52,
         "speed": 84,
-        "form": "FORM"
+        "form": ""
     },
     "Talonflame": {
         "id": 663,
@@ -10898,7 +10898,7 @@
         "sp-attack": 74,
         "sp-defense": 69,
         "speed": 126,
-        "form": "FORM"
+        "form": ""
     },
     "Scatterbug": {
         "id": 664,
@@ -10912,7 +10912,7 @@
         "sp-attack": 27,
         "sp-defense": 25,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Spewpa": {
         "id": 665,
@@ -10926,7 +10926,7 @@
         "sp-attack": 27,
         "sp-defense": 30,
         "speed": 29,
-        "form": "FORM"
+        "form": ""
     },
     "Vivillon": {
         "id": 666,
@@ -10941,7 +10941,7 @@
         "sp-attack": 90,
         "sp-defense": 50,
         "speed": 89,
-        "form": "FORM"
+        "form": ""
     },
     "Litleo": {
         "id": 667,
@@ -10956,7 +10956,7 @@
         "sp-attack": 73,
         "sp-defense": 54,
         "speed": 72,
-        "form": "FORM"
+        "form": ""
     },
     "Pyroar": {
         "id": 668,
@@ -10971,7 +10971,7 @@
         "sp-attack": 109,
         "sp-defense": 66,
         "speed": 106,
-        "form": "FORM"
+        "form": ""
     },
     "Flabebe": {
         "id": 669,
@@ -10985,7 +10985,7 @@
         "sp-attack": 61,
         "sp-defense": 79,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Floette": {
         "id": 670,
@@ -10999,7 +10999,7 @@
         "sp-attack": 75,
         "sp-defense": 98,
         "speed": 52,
-        "form": "FORM"
+        "form": ""
     },
     "Florges": {
         "id": 671,
@@ -11013,7 +11013,7 @@
         "sp-attack": 112,
         "sp-defense": 154,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Skiddo": {
         "id": 672,
@@ -11027,7 +11027,7 @@
         "sp-attack": 62,
         "sp-defense": 57,
         "speed": 52,
-        "form": "FORM"
+        "form": ""
     },
     "Gogoat": {
         "id": 673,
@@ -11041,7 +11041,7 @@
         "sp-attack": 97,
         "sp-defense": 81,
         "speed": 68,
-        "form": "FORM"
+        "form": ""
     },
     "Pancham": {
         "id": 674,
@@ -11055,7 +11055,7 @@
         "sp-attack": 46,
         "sp-defense": 48,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Pangoro": {
         "id": 675,
@@ -11070,7 +11070,7 @@
         "sp-attack": 69,
         "sp-defense": 71,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Furfrou": {
         "id": 676,
@@ -11084,7 +11084,7 @@
         "sp-attack": 65,
         "sp-defense": 90,
         "speed": 102,
-        "form": "FORM"
+        "form": ""
     },
     "Espurr": {
         "id": 677,
@@ -11098,7 +11098,7 @@
         "sp-attack": 63,
         "sp-defense": 60,
         "speed": 68,
-        "form": "FORM"
+        "form": ""
     },
     "Meowstic Male": {
         "id": 678,
@@ -11112,7 +11112,7 @@
         "sp-attack": 83,
         "sp-defense": 81,
         "speed": 104,
-        "form": "FORM"
+        "form": "male"
     },
     "Meowstic Female": {
         "id": 678,
@@ -11126,7 +11126,7 @@
         "sp-attack": 83,
         "sp-defense": 81,
         "speed": 104,
-        "form": "FORM"
+        "form": "female"
     },
     "Honedge": {
         "id": 679,
@@ -11141,7 +11141,7 @@
         "sp-attack": 35,
         "sp-defense": 37,
         "speed": 28,
-        "form": "FORM"
+        "form": ""
     },
     "Doublade": {
         "id": 680,
@@ -11156,7 +11156,7 @@
         "sp-attack": 45,
         "sp-defense": 49,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Aegislash Blade Forme": {
         "id": 681,
@@ -11171,7 +11171,7 @@
         "sp-attack": 150,
         "sp-defense": 50,
         "speed": 60,
-        "form": "FORM"
+        "form": "blade"
     },
     "Aegislash Shield Forme": {
         "id": 681,
@@ -11186,7 +11186,7 @@
         "sp-attack": 50,
         "sp-defense": 150,
         "speed": 60,
-        "form": "FORM"
+        "form": "shield"
     },
     "Spritzee": {
         "id": 682,
@@ -11200,7 +11200,7 @@
         "sp-attack": 63,
         "sp-defense": 65,
         "speed": 23,
-        "form": "FORM"
+        "form": ""
     },
     "Aromatisse": {
         "id": 683,
@@ -11214,7 +11214,7 @@
         "sp-attack": 99,
         "sp-defense": 89,
         "speed": 29,
-        "form": "FORM"
+        "form": ""
     },
     "Swirlix": {
         "id": 684,
@@ -11228,7 +11228,7 @@
         "sp-attack": 59,
         "sp-defense": 57,
         "speed": 49,
-        "form": "FORM"
+        "form": ""
     },
     "Slurpuff": {
         "id": 685,
@@ -11242,7 +11242,7 @@
         "sp-attack": 85,
         "sp-defense": 75,
         "speed": 72,
-        "form": "FORM"
+        "form": ""
     },
     "Inkay": {
         "id": 686,
@@ -11257,7 +11257,7 @@
         "sp-attack": 37,
         "sp-defense": 46,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Malamar": {
         "id": 687,
@@ -11272,7 +11272,7 @@
         "sp-attack": 68,
         "sp-defense": 75,
         "speed": 73,
-        "form": "FORM"
+        "form": ""
     },
     "Binacle": {
         "id": 688,
@@ -11287,7 +11287,7 @@
         "sp-attack": 39,
         "sp-defense": 56,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Barbaracle": {
         "id": 689,
@@ -11302,7 +11302,7 @@
         "sp-attack": 54,
         "sp-defense": 86,
         "speed": 68,
-        "form": "FORM"
+        "form": ""
     },
     "Skrelp": {
         "id": 690,
@@ -11317,7 +11317,7 @@
         "sp-attack": 60,
         "sp-defense": 60,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Dragalge": {
         "id": 691,
@@ -11332,7 +11332,7 @@
         "sp-attack": 97,
         "sp-defense": 123,
         "speed": 44,
-        "form": "FORM"
+        "form": ""
     },
     "Clauncher": {
         "id": 692,
@@ -11346,7 +11346,7 @@
         "sp-attack": 58,
         "sp-defense": 63,
         "speed": 44,
-        "form": "FORM"
+        "form": ""
     },
     "Clawitzer": {
         "id": 693,
@@ -11360,7 +11360,7 @@
         "sp-attack": 120,
         "sp-defense": 89,
         "speed": 59,
-        "form": "FORM"
+        "form": ""
     },
     "Helioptile": {
         "id": 694,
@@ -11375,7 +11375,7 @@
         "sp-attack": 61,
         "sp-defense": 43,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Heliolisk": {
         "id": 695,
@@ -11390,7 +11390,7 @@
         "sp-attack": 109,
         "sp-defense": 94,
         "speed": 109,
-        "form": "FORM"
+        "form": ""
     },
     "Tyrunt": {
         "id": 696,
@@ -11405,7 +11405,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 48,
-        "form": "FORM"
+        "form": ""
     },
     "Tyrantrum": {
         "id": 697,
@@ -11420,7 +11420,7 @@
         "sp-attack": 69,
         "sp-defense": 59,
         "speed": 71,
-        "form": "FORM"
+        "form": ""
     },
     "Amaura": {
         "id": 698,
@@ -11435,7 +11435,7 @@
         "sp-attack": 67,
         "sp-defense": 63,
         "speed": 46,
-        "form": "FORM"
+        "form": ""
     },
     "Aurorus": {
         "id": 699,
@@ -11450,7 +11450,7 @@
         "sp-attack": 99,
         "sp-defense": 92,
         "speed": 58,
-        "form": "FORM"
+        "form": ""
     },
     "Sylveon": {
         "id": 700,
@@ -11464,7 +11464,7 @@
         "sp-attack": 110,
         "sp-defense": 130,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Hawlucha": {
         "id": 701,
@@ -11479,7 +11479,7 @@
         "sp-attack": 74,
         "sp-defense": 63,
         "speed": 118,
-        "form": "FORM"
+        "form": ""
     },
     "Dedenne": {
         "id": 702,
@@ -11494,7 +11494,7 @@
         "sp-attack": 81,
         "sp-defense": 67,
         "speed": 101,
-        "form": "FORM"
+        "form": ""
     },
     "Carbink": {
         "id": 703,
@@ -11509,7 +11509,7 @@
         "sp-attack": 50,
         "sp-defense": 150,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Goomy": {
         "id": 704,
@@ -11523,7 +11523,7 @@
         "sp-attack": 55,
         "sp-defense": 75,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Sliggoo": {
         "id": 705,
@@ -11537,7 +11537,7 @@
         "sp-attack": 83,
         "sp-defense": 113,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Goodra": {
         "id": 706,
@@ -11551,7 +11551,7 @@
         "sp-attack": 110,
         "sp-defense": 150,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Klefki": {
         "id": 707,
@@ -11566,7 +11566,7 @@
         "sp-attack": 80,
         "sp-defense": 87,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Phantump": {
         "id": 708,
@@ -11581,7 +11581,7 @@
         "sp-attack": 50,
         "sp-defense": 60,
         "speed": 38,
-        "form": "FORM"
+        "form": ""
     },
     "Trevenant": {
         "id": 709,
@@ -11596,7 +11596,7 @@
         "sp-attack": 65,
         "sp-defense": 82,
         "speed": 56,
-        "form": "FORM"
+        "form": ""
     },
     "Pumpkaboo Average Size": {
         "id": 710,
@@ -11611,7 +11611,7 @@
         "sp-attack": 44,
         "sp-defense": 55,
         "speed": 51,
-        "form": "FORM"
+        "form": "average"
     },
     "Pumpkaboo Small Size": {
         "id": 710,
@@ -11626,7 +11626,7 @@
         "sp-attack": 44,
         "sp-defense": 55,
         "speed": 56,
-        "form": "FORM"
+        "form": "small"
     },
     "Pumpkaboo Large Size": {
         "id": 710,
@@ -11641,7 +11641,7 @@
         "sp-attack": 44,
         "sp-defense": 55,
         "speed": 46,
-        "form": "FORM"
+        "form": "large"
     },
     "Pumpkaboo Super Size": {
         "id": 710,
@@ -11656,7 +11656,7 @@
         "sp-attack": 44,
         "sp-defense": 55,
         "speed": 41,
-        "form": "FORM"
+        "form": "super"
     },
     "Gourgeist Average Size": {
         "id": 711,
@@ -11671,7 +11671,7 @@
         "sp-attack": 58,
         "sp-defense": 75,
         "speed": 84,
-        "form": "FORM"
+        "form": "average"
     },
     "Gourgeist Small Size": {
         "id": 711,
@@ -11686,7 +11686,7 @@
         "sp-attack": 58,
         "sp-defense": 75,
         "speed": 99,
-        "form": "FORM"
+        "form": "small"
     },
     "Gourgeist Large Size": {
         "id": 711,
@@ -11701,7 +11701,7 @@
         "sp-attack": 58,
         "sp-defense": 75,
         "speed": 69,
-        "form": "FORM"
+        "form": "large"
     },
     "Gourgeist Super Size": {
         "id": 711,
@@ -11716,7 +11716,7 @@
         "sp-attack": 58,
         "sp-defense": 75,
         "speed": 54,
-        "form": "FORM"
+        "form": "super"
     },
     "Bergmite": {
         "id": 712,
@@ -11730,7 +11730,7 @@
         "sp-attack": 32,
         "sp-defense": 35,
         "speed": 28,
-        "form": "FORM"
+        "form": ""
     },
     "Avalugg": {
         "id": 713,
@@ -11744,7 +11744,7 @@
         "sp-attack": 44,
         "sp-defense": 46,
         "speed": 28,
-        "form": "FORM"
+        "form": ""
     },
     "Noibat": {
         "id": 714,
@@ -11759,7 +11759,7 @@
         "sp-attack": 45,
         "sp-defense": 40,
         "speed": 55,
-        "form": "FORM"
+        "form": ""
     },
     "Noivern": {
         "id": 715,
@@ -11774,7 +11774,7 @@
         "sp-attack": 97,
         "sp-defense": 80,
         "speed": 123,
-        "form": "FORM"
+        "form": ""
     },
     "Xerneas": {
         "id": 716,
@@ -11788,7 +11788,7 @@
         "sp-attack": 131,
         "sp-defense": 98,
         "speed": 99,
-        "form": "FORM"
+        "form": ""
     },
     "Yveltal": {
         "id": 717,
@@ -11803,7 +11803,7 @@
         "sp-attack": 131,
         "sp-defense": 98,
         "speed": 99,
-        "form": "FORM"
+        "form": ""
     },
     "Zygarde 50% Forme": {
         "id": 718,
@@ -11818,7 +11818,7 @@
         "sp-attack": 81,
         "sp-defense": 95,
         "speed": 95,
-        "form": "FORM"
+        "form": "50percent"
     },
     "Zygarde 10% Forme": {
         "id": 718,
@@ -11833,7 +11833,7 @@
         "sp-attack": 61,
         "sp-defense": 85,
         "speed": 115,
-        "form": "FORM"
+        "form": "10percent"
     },
     "Zygarde Complete Forme": {
         "id": 718,
@@ -11848,7 +11848,7 @@
         "sp-attack": 91,
         "sp-defense": 95,
         "speed": 85,
-        "form": "FORM"
+        "form": "complete"
     },
     "Diancie": {
         "id": 719,
@@ -11863,7 +11863,7 @@
         "sp-attack": 100,
         "sp-defense": 150,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Mega Diancie": {
         "id": 719,
@@ -11878,7 +11878,7 @@
         "sp-attack": 160,
         "sp-defense": 110,
         "speed": 110,
-        "form": "FORM"
+        "form": "mega"
     },
     "Hoopa Hoopa Confined": {
         "id": 720,
@@ -11893,7 +11893,7 @@
         "sp-attack": 150,
         "sp-defense": 130,
         "speed": 70,
-        "form": "FORM"
+        "form": "confined"
     },
     "Hoopa Hoopa Unbound": {
         "id": 720,
@@ -11908,7 +11908,7 @@
         "sp-attack": 170,
         "sp-defense": 130,
         "speed": 80,
-        "form": "FORM"
+        "form": "unbound"
     },
     "Volcanion": {
         "id": 721,
@@ -11923,7 +11923,7 @@
         "sp-attack": 130,
         "sp-defense": 90,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Rowlet": {
         "id": 722,
@@ -11938,7 +11938,7 @@
         "sp-attack": 50,
         "sp-defense": 50,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Dartrix": {
         "id": 723,
@@ -11953,7 +11953,7 @@
         "sp-attack": 70,
         "sp-defense": 70,
         "speed": 52,
-        "form": "FORM"
+        "form": ""
     },
     "Decidueye": {
         "id": 724,
@@ -11968,7 +11968,7 @@
         "sp-attack": 100,
         "sp-defense": 100,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Litten": {
         "id": 725,
@@ -11982,7 +11982,7 @@
         "sp-attack": 60,
         "sp-defense": 40,
         "speed": 70,
-        "form": "FORM"
+        "form": ""
     },
     "Torracat": {
         "id": 726,
@@ -11996,7 +11996,7 @@
         "sp-attack": 80,
         "sp-defense": 50,
         "speed": 90,
-        "form": "FORM"
+        "form": ""
     },
     "Incineroar": {
         "id": 727,
@@ -12011,7 +12011,7 @@
         "sp-attack": 80,
         "sp-defense": 90,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Popplio": {
         "id": 728,
@@ -12025,7 +12025,7 @@
         "sp-attack": 66,
         "sp-defense": 56,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Brionne": {
         "id": 729,
@@ -12039,7 +12039,7 @@
         "sp-attack": 91,
         "sp-defense": 81,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Primarina": {
         "id": 730,
@@ -12054,7 +12054,7 @@
         "sp-attack": 126,
         "sp-defense": 116,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Pikipek": {
         "id": 731,
@@ -12069,7 +12069,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Trumbeak": {
         "id": 732,
@@ -12084,7 +12084,7 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Toucannon": {
         "id": 733,
@@ -12099,7 +12099,7 @@
         "sp-attack": 75,
         "sp-defense": 75,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Yungoos": {
         "id": 734,
@@ -12113,7 +12113,7 @@
         "sp-attack": 30,
         "sp-defense": 30,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Gumshoos": {
         "id": 735,
@@ -12127,7 +12127,7 @@
         "sp-attack": 55,
         "sp-defense": 60,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Grubbin": {
         "id": 736,
@@ -12141,7 +12141,7 @@
         "sp-attack": 55,
         "sp-defense": 45,
         "speed": 46,
-        "form": "FORM"
+        "form": ""
     },
     "Charjabug": {
         "id": 737,
@@ -12156,7 +12156,7 @@
         "sp-attack": 55,
         "sp-defense": 75,
         "speed": 36,
-        "form": "FORM"
+        "form": ""
     },
     "Vikavolt": {
         "id": 738,
@@ -12171,7 +12171,7 @@
         "sp-attack": 145,
         "sp-defense": 75,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Crabrawler": {
         "id": 739,
@@ -12185,7 +12185,7 @@
         "sp-attack": 42,
         "sp-defense": 47,
         "speed": 63,
-        "form": "FORM"
+        "form": ""
     },
     "Crabominable": {
         "id": 740,
@@ -12200,7 +12200,7 @@
         "sp-attack": 62,
         "sp-defense": 67,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Oricorio Baile Style": {
         "id": 741,
@@ -12215,7 +12215,7 @@
         "sp-attack": 98,
         "sp-defense": 70,
         "speed": 93,
-        "form": "FORM"
+        "form": "baile"
     },
     "Oricorio Pom Pom Style": {
         "id": 741,
@@ -12230,7 +12230,7 @@
         "sp-attack": 98,
         "sp-defense": 70,
         "speed": 93,
-        "form": "FORM"
+        "form": "pompom"
     },
     "Oricorio Pa'u Style": {
         "id": 741,
@@ -12245,7 +12245,7 @@
         "sp-attack": 98,
         "sp-defense": 70,
         "speed": 93,
-        "form": "FORM"
+        "form": "pau"
     },
     "Oricorio Sensu Style": {
         "id": 741,
@@ -12260,7 +12260,7 @@
         "sp-attack": 98,
         "sp-defense": 70,
         "speed": 93,
-        "form": "FORM"
+        "form": "sensu"
     },
     "Cutiefly": {
         "id": 742,
@@ -12275,7 +12275,7 @@
         "sp-attack": 55,
         "sp-defense": 40,
         "speed": 84,
-        "form": "FORM"
+        "form": ""
     },
     "Ribombee": {
         "id": 743,
@@ -12290,7 +12290,7 @@
         "sp-attack": 95,
         "sp-defense": 70,
         "speed": 124,
-        "form": "FORM"
+        "form": ""
     },
     "Rockruff": {
         "id": 744,
@@ -12304,7 +12304,7 @@
         "sp-attack": 30,
         "sp-defense": 40,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Lycanroc Midday Form": {
         "id": 745,
@@ -12318,7 +12318,7 @@
         "sp-attack": 55,
         "sp-defense": 65,
         "speed": 112,
-        "form": "FORM"
+        "form": "midday"
     },
     "Lycanroc Midnight Form": {
         "id": 745,
@@ -12332,7 +12332,7 @@
         "sp-attack": 55,
         "sp-defense": 75,
         "speed": 82,
-        "form": "FORM"
+        "form": "midnight"
     },
     "Wishiwashi Solo Form": {
         "id": 746,
@@ -12346,7 +12346,7 @@
         "sp-attack": 25,
         "sp-defense": 25,
         "speed": 40,
-        "form": "FORM"
+        "form": "solo"
     },
     "Wishiwashi School Form": {
         "id": 746,
@@ -12360,7 +12360,7 @@
         "sp-attack": 140,
         "sp-defense": 135,
         "speed": 30,
-        "form": "FORM"
+        "form": "school"
     },
     "Mareanie": {
         "id": 747,
@@ -12375,7 +12375,7 @@
         "sp-attack": 43,
         "sp-defense": 52,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Toxapex": {
         "id": 748,
@@ -12390,7 +12390,7 @@
         "sp-attack": 53,
         "sp-defense": 142,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Mudbray": {
         "id": 749,
@@ -12404,7 +12404,7 @@
         "sp-attack": 45,
         "sp-defense": 55,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Mudsdale": {
         "id": 750,
@@ -12418,7 +12418,7 @@
         "sp-attack": 55,
         "sp-defense": 85,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Dewpider": {
         "id": 751,
@@ -12433,7 +12433,7 @@
         "sp-attack": 40,
         "sp-defense": 72,
         "speed": 27,
-        "form": "FORM"
+        "form": ""
     },
     "Araquanid": {
         "id": 752,
@@ -12448,7 +12448,7 @@
         "sp-attack": 50,
         "sp-defense": 132,
         "speed": 42,
-        "form": "FORM"
+        "form": ""
     },
     "Fomantis": {
         "id": 753,
@@ -12462,7 +12462,7 @@
         "sp-attack": 50,
         "sp-defense": 35,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Lurantis": {
         "id": 754,
@@ -12476,7 +12476,7 @@
         "sp-attack": 80,
         "sp-defense": 90,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Morelull": {
         "id": 755,
@@ -12491,7 +12491,7 @@
         "sp-attack": 65,
         "sp-defense": 75,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Shiinotic": {
         "id": 756,
@@ -12506,7 +12506,7 @@
         "sp-attack": 90,
         "sp-defense": 100,
         "speed": 30,
-        "form": "FORM"
+        "form": ""
     },
     "Salandit": {
         "id": 757,
@@ -12521,7 +12521,7 @@
         "sp-attack": 71,
         "sp-defense": 40,
         "speed": 77,
-        "form": "FORM"
+        "form": ""
     },
     "Salazzle": {
         "id": 758,
@@ -12536,7 +12536,7 @@
         "sp-attack": 111,
         "sp-defense": 60,
         "speed": 117,
-        "form": "FORM"
+        "form": ""
     },
     "Stufful": {
         "id": 759,
@@ -12551,7 +12551,7 @@
         "sp-attack": 45,
         "sp-defense": 50,
         "speed": 50,
-        "form": "FORM"
+        "form": ""
     },
     "Bewear": {
         "id": 760,
@@ -12566,7 +12566,7 @@
         "sp-attack": 55,
         "sp-defense": 60,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Bounsweet": {
         "id": 761,
@@ -12580,7 +12580,7 @@
         "sp-attack": 30,
         "sp-defense": 38,
         "speed": 32,
-        "form": "FORM"
+        "form": ""
     },
     "Steenee": {
         "id": 762,
@@ -12594,7 +12594,7 @@
         "sp-attack": 40,
         "sp-defense": 48,
         "speed": 62,
-        "form": "FORM"
+        "form": ""
     },
     "Tsareena": {
         "id": 763,
@@ -12608,7 +12608,7 @@
         "sp-attack": 50,
         "sp-defense": 98,
         "speed": 72,
-        "form": "FORM"
+        "form": ""
     },
     "Comfey": {
         "id": 764,
@@ -12622,7 +12622,7 @@
         "sp-attack": 82,
         "sp-defense": 110,
         "speed": 100,
-        "form": "FORM"
+        "form": ""
     },
     "Oranguru": {
         "id": 765,
@@ -12637,7 +12637,7 @@
         "sp-attack": 90,
         "sp-defense": 110,
         "speed": 60,
-        "form": "FORM"
+        "form": ""
     },
     "Passimian": {
         "id": 766,
@@ -12651,7 +12651,7 @@
         "sp-attack": 40,
         "sp-defense": 60,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Wimpod": {
         "id": 767,
@@ -12666,7 +12666,7 @@
         "sp-attack": 20,
         "sp-defense": 30,
         "speed": 80,
-        "form": "FORM"
+        "form": ""
     },
     "Golisopod": {
         "id": 768,
@@ -12681,7 +12681,7 @@
         "sp-attack": 60,
         "sp-defense": 90,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Sandygast": {
         "id": 769,
@@ -12696,7 +12696,7 @@
         "sp-attack": 70,
         "sp-defense": 45,
         "speed": 15,
-        "form": "FORM"
+        "form": ""
     },
     "Palossand": {
         "id": 770,
@@ -12711,7 +12711,7 @@
         "sp-attack": 100,
         "sp-defense": 75,
         "speed": 35,
-        "form": "FORM"
+        "form": ""
     },
     "Pyukumuku": {
         "id": 771,
@@ -12725,7 +12725,7 @@
         "sp-attack": 30,
         "sp-defense": 130,
         "speed": 5,
-        "form": "FORM"
+        "form": ""
     },
     "Type: Null": {
         "id": 772,
@@ -12739,7 +12739,7 @@
         "sp-attack": 95,
         "sp-defense": 95,
         "speed": 59,
-        "form": "FORM"
+        "form": ""
     },
     "Silvally": {
         "id": 773,
@@ -12753,7 +12753,7 @@
         "sp-attack": 95,
         "sp-defense": 95,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Minior Meteor Form": {
         "id": 774,
@@ -12768,7 +12768,7 @@
         "sp-attack": 60,
         "sp-defense": 100,
         "speed": 60,
-        "form": "FORM"
+        "form": "meteor"
     },
     "Minior Core Form": {
         "id": 774,
@@ -12783,7 +12783,7 @@
         "sp-attack": 100,
         "sp-defense": 60,
         "speed": 120,
-        "form": "FORM"
+        "form": "core"
     },
     "Komala": {
         "id": 775,
@@ -12797,7 +12797,7 @@
         "sp-attack": 75,
         "sp-defense": 95,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Turtonator": {
         "id": 776,
@@ -12812,7 +12812,7 @@
         "sp-attack": 91,
         "sp-defense": 85,
         "speed": 36,
-        "form": "FORM"
+        "form": ""
     },
     "Togedemaru": {
         "id": 777,
@@ -12827,7 +12827,7 @@
         "sp-attack": 40,
         "sp-defense": 73,
         "speed": 96,
-        "form": "FORM"
+        "form": ""
     },
     "Mimikyu": {
         "id": 778,
@@ -12842,7 +12842,7 @@
         "sp-attack": 50,
         "sp-defense": 105,
         "speed": 96,
-        "form": "FORM"
+        "form": ""
     },
     "Bruxish": {
         "id": 779,
@@ -12857,7 +12857,7 @@
         "sp-attack": 70,
         "sp-defense": 70,
         "speed": 92,
-        "form": "FORM"
+        "form": ""
     },
     "Drampa": {
         "id": 780,
@@ -12872,7 +12872,7 @@
         "sp-attack": 135,
         "sp-defense": 91,
         "speed": 36,
-        "form": "FORM"
+        "form": ""
     },
     "Dhelmise": {
         "id": 781,
@@ -12887,7 +12887,7 @@
         "sp-attack": 86,
         "sp-defense": 90,
         "speed": 40,
-        "form": "FORM"
+        "form": ""
     },
     "Jangmo-o": {
         "id": 782,
@@ -12901,7 +12901,7 @@
         "sp-attack": 45,
         "sp-defense": 45,
         "speed": 45,
-        "form": "FORM"
+        "form": ""
     },
     "Hakamo-o": {
         "id": 783,
@@ -12916,7 +12916,7 @@
         "sp-attack": 65,
         "sp-defense": 70,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Kommo-o": {
         "id": 784,
@@ -12931,7 +12931,7 @@
         "sp-attack": 100,
         "sp-defense": 105,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Tapu Koko": {
         "id": 785,
@@ -12946,7 +12946,7 @@
         "sp-attack": 95,
         "sp-defense": 75,
         "speed": 130,
-        "form": "FORM"
+        "form": ""
     },
     "Tapu Lele": {
         "id": 786,
@@ -12961,7 +12961,7 @@
         "sp-attack": 130,
         "sp-defense": 115,
         "speed": 95,
-        "form": "FORM"
+        "form": ""
     },
     "Tapu Bulu": {
         "id": 787,
@@ -12976,7 +12976,7 @@
         "sp-attack": 85,
         "sp-defense": 95,
         "speed": 75,
-        "form": "FORM"
+        "form": ""
     },
     "Tapu Fini": {
         "id": 788,
@@ -12991,7 +12991,7 @@
         "sp-attack": 95,
         "sp-defense": 130,
         "speed": 85,
-        "form": "FORM"
+        "form": ""
     },
     "Cosmog": {
         "id": 789,
@@ -13005,7 +13005,7 @@
         "sp-attack": 29,
         "sp-defense": 31,
         "speed": 37,
-        "form": "FORM"
+        "form": ""
     },
     "Cosmoem": {
         "id": 790,
@@ -13019,7 +13019,7 @@
         "sp-attack": 29,
         "sp-defense": 131,
         "speed": 37,
-        "form": "FORM"
+        "form": ""
     },
     "Solgaleo": {
         "id": 791,
@@ -13034,7 +13034,7 @@
         "sp-attack": 113,
         "sp-defense": 89,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Lunala": {
         "id": 792,
@@ -13049,7 +13049,7 @@
         "sp-attack": 137,
         "sp-defense": 107,
         "speed": 97,
-        "form": "FORM"
+        "form": ""
     },
     "Nihilego": {
         "id": 793,
@@ -13064,7 +13064,7 @@
         "sp-attack": 127,
         "sp-defense": 131,
         "speed": 103,
-        "form": "FORM"
+        "form": ""
     },
     "Buzzwole": {
         "id": 794,
@@ -13079,7 +13079,7 @@
         "sp-attack": 53,
         "sp-defense": 53,
         "speed": 79,
-        "form": "FORM"
+        "form": ""
     },
     "Pheromosa": {
         "id": 795,
@@ -13094,7 +13094,7 @@
         "sp-attack": 137,
         "sp-defense": 37,
         "speed": 151,
-        "form": "FORM"
+        "form": ""
     },
     "Xurkitree": {
         "id": 796,
@@ -13108,7 +13108,7 @@
         "sp-attack": 173,
         "sp-defense": 71,
         "speed": 83,
-        "form": "FORM"
+        "form": ""
     },
     "Celesteela": {
         "id": 797,
@@ -13123,7 +13123,7 @@
         "sp-attack": 107,
         "sp-defense": 101,
         "speed": 61,
-        "form": "FORM"
+        "form": ""
     },
     "Kartana": {
         "id": 798,
@@ -13138,7 +13138,7 @@
         "sp-attack": 59,
         "sp-defense": 31,
         "speed": 109,
-        "form": "FORM"
+        "form": ""
     },
     "Guzzlord": {
         "id": 799,
@@ -13153,7 +13153,7 @@
         "sp-attack": 97,
         "sp-defense": 53,
         "speed": 43,
-        "form": "FORM"
+        "form": ""
     },
     "Necrozma": {
         "id": 800,
@@ -13167,7 +13167,7 @@
         "sp-attack": 127,
         "sp-defense": 89,
         "speed": 79,
-        "form": "FORM"
+        "form": ""
     },
     "Magearna": {
         "id": 801,
@@ -13182,7 +13182,7 @@
         "sp-attack": 130,
         "sp-defense": 115,
         "speed": 65,
-        "form": "FORM"
+        "form": ""
     },
     "Marshadow": {
         "id": 802,
@@ -13197,6 +13197,6 @@
         "sp-attack": 90,
         "sp-defense": 90,
         "speed": 125,
-        "form": "FORM"
+        "form": ""
     }
 }

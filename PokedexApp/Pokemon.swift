@@ -47,6 +47,7 @@ class Pokemon {
         
         parseStats()
         parseTypes()
+        parseForm()
     }
     
     
@@ -85,6 +86,13 @@ class Pokemon {
         } else {
             _primaryType = "Unknown"
             _secondaryType = "Unknown"
+        }
+    }
+    
+    private func parseForm() {
+        
+        if let form = POKEMON_JSON[name]?["form"] as? String {
+            _form = form
         }
     }
 }
