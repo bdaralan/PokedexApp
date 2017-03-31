@@ -11,7 +11,7 @@ import Foundation
 class LoadJSON {
     
     func loadPokemonJSON() -> DictionarySA {
-        if let path = Bundle.main.path(forResource: "pokemons", ofType: "json"), let data = NSData(contentsOfFile: path) as? Data {
+        if let path = Bundle.main.path(forResource: "pokemons", ofType: "json"), let data = NSData(contentsOfFile: path) as Data? {
             
             do {
                 

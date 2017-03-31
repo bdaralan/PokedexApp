@@ -96,3 +96,10 @@ class Pokemon {
         }
     }
 }
+
+extension Pokemon {
+    
+    var hasForm: Bool {
+        return self.form != ""
+    }
+}

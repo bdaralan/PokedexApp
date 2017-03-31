@@ -115,7 +115,7 @@
         "sp-attack": 130,
         "sp-defense": 85,
         "speed": 100,
-        "form": "megax"
+        "form": "mega-x"
     },
     "Mega Charizard Y": {
         "id": 6,
@@ -130,7 +130,7 @@
         "sp-attack": 159,
         "sp-defense": 115,
         "speed": 100,
-        "form": "megay"
+        "form": "mega-y"
     },
     "Squirtle": {
         "id": 7,
@@ -2638,7 +2638,7 @@
         "sp-attack": 154,
         "sp-defense": 100,
         "speed": 130,
-        "form": "megax"
+        "form": "mega-x"
     },
     "Mega Mewtwo Y": {
         "id": 150,
@@ -2652,7 +2652,7 @@
         "sp-attack": 194,
         "sp-defense": 120,
         "speed": 140,
-        "form": "megay"
+        "form": "mega-y"
     },
     "Mew": {
         "id": 151,
@@ -6891,7 +6891,7 @@
         "speed": 30,
         "form": ""
     },
-    "Burmy": {
+    "Burmy Plant": {
         "id": 412,
         "type": [
             "Bug"
@@ -6903,7 +6903,35 @@
         "sp-attack": 29,
         "sp-defense": 45,
         "speed": 36,
-        "form": ""
+        "form": "plant-cloak"
+    },
+    "Burmy Sandy": {
+        "id": 412,
+        "type": [
+            "Bug"
+        ],
+        "total": 224,
+        "hp": 40,
+        "attack": 29,
+        "defense": 45,
+        "sp-attack": 29,
+        "sp-defense": 45,
+        "speed": 36,
+        "form": "sandy-cloak"
+    },
+    "Burmy Trash": {
+        "id": 412,
+        "type": [
+            "Bug"
+        ],
+        "total": 224,
+        "hp": 40,
+        "attack": 29,
+        "defense": 45,
+        "sp-attack": 29,
+        "sp-defense": 45,
+        "speed": 36,
+        "form": "trash-cloak"
     },
     "Wormadam Plant Cloak": {
         "id": 413,
@@ -6918,7 +6946,7 @@
         "sp-attack": 79,
         "sp-defense": 105,
         "speed": 36,
-        "form": "plantcloak"
+        "form": "plant-cloak"
     },
     "Wormadam Sandy Cloak": {
         "id": 413,
@@ -6933,7 +6961,7 @@
         "sp-attack": 59,
         "sp-defense": 85,
         "speed": 36,
-        "form": "sandycloak"
+        "form": "sandy-cloak"
     },
     "Wormadam Trash Cloak": {
         "id": 413,
@@ -6948,7 +6976,7 @@
         "sp-attack": 69,
         "sp-defense": 95,
         "speed": 36,
-        "form": "trashcloak"
+        "form": "trash-cloak"
     },
     "Mothim": {
         "id": 414,
@@ -7051,7 +7079,7 @@
         "speed": 35,
         "form": ""
     },
-    "Cherrim": {
+    "Cherrim Overcast": {
         "id": 421,
         "type": [
             "Grass"
@@ -7063,9 +7091,23 @@
         "sp-attack": 87,
         "sp-defense": 78,
         "speed": 85,
-        "form": ""
+        "form": "overcast"
     },
-    "Shellos": {
+    "Cherrim Sunshine": {
+        "id": 421,
+        "type": [
+            "Grass"
+        ],
+        "total": 450,
+        "hp": 70,
+        "attack": 60,
+        "defense": 70,
+        "sp-attack": 87,
+        "sp-defense": 78,
+        "speed": 85,
+        "form": "sunshine"
+    },
+    "Shellos East": {
         "id": 422,
         "type": [
             "Water"
@@ -7077,9 +7119,23 @@
         "sp-attack": 57,
         "sp-defense": 62,
         "speed": 34,
-        "form": ""
+        "form": "east"
     },
-    "Gastrodon": {
+    "Shellos West": {
+        "id": 422,
+        "type": [
+            "Water"
+        ],
+        "total": 325,
+        "hp": 76,
+        "attack": 48,
+        "defense": 48,
+        "sp-attack": 57,
+        "sp-defense": 62,
+        "speed": 34,
+        "form": "west"
+    },
+    "Gastrodon East": {
         "id": 423,
         "type": [
             "Water",
@@ -7092,7 +7148,22 @@
         "sp-attack": 92,
         "sp-defense": 82,
         "speed": 39,
-        "form": ""
+        "form": "east"
+    },
+    "Gastrodon West": {
+        "id": 423,
+        "type": [
+            "Water",
+            "Ground"
+        ],
+        "total": 475,
+        "hp": 111,
+        "attack": 83,
+        "defense": 68,
+        "sp-attack": 92,
+        "sp-defense": 82,
+        "speed": 39,
+        "form": "west"
     },
     "Ambipom": {
         "id": 424,
@@ -8288,7 +8359,7 @@
         "sp-attack": 120,
         "sp-defense": 120,
         "speed": 120,
-        "form": ""
+        "form": "normal"
     },
     "Victini": {
         "id": 494,
@@ -9108,7 +9179,7 @@
         "speed": 90,
         "form": ""
     },
-    "Basculin": {
+    "Basculin Red Striped": {
         "id": 550,
         "type": [
             "Water"
@@ -9120,7 +9191,21 @@
         "sp-attack": 80,
         "sp-defense": 55,
         "speed": 98,
-        "form": ""
+        "form": "red-striped"
+    },
+    "Basculin Blue Striped": {
+        "id": 550,
+        "type": [
+            "Water"
+        ],
+        "total": 460,
+        "hp": 70,
+        "attack": 92,
+        "defense": 65,
+        "sp-attack": 80,
+        "sp-defense": 55,
+        "speed": 98,
+        "form": "blue-striped"
     },
     "Sandile": {
         "id": 551,
@@ -9627,7 +9712,7 @@
         "speed": 79,
         "form": ""
     },
-    "Deerling": {
+    "Deerling Spring": {
         "id": 585,
         "type": [
             "Normal",
@@ -9640,9 +9725,54 @@
         "sp-attack": 40,
         "sp-defense": 50,
         "speed": 75,
-        "form": ""
+        "form": "spring"
     },
-    "Sawsbuck": {
+    "Deerling Summer": {
+        "id": 585,
+        "type": [
+            "Normal",
+            "Grass"
+        ],
+        "total": 335,
+        "hp": 60,
+        "attack": 60,
+        "defense": 50,
+        "sp-attack": 40,
+        "sp-defense": 50,
+        "speed": 75,
+        "form": "summer"
+    },
+    "Deerling Autumm": {
+        "id": 585,
+        "type": [
+            "Normal",
+            "Grass"
+        ],
+        "total": 335,
+        "hp": 60,
+        "attack": 60,
+        "defense": 50,
+        "sp-attack": 40,
+        "sp-defense": 50,
+        "speed": 75,
+        "form": "autumm"
+    },
+    "Deerling Winter": {
+        "id": 585,
+        "type": [
+            "Normal",
+            "Grass"
+        ],
+        "total": 335,
+        "hp": 60,
+        "attack": 60,
+        "defense": 50,
+        "sp-attack": 40,
+        "sp-defense": 50,
+        "speed": 75,
+        "form": "winter"
+    },
+    "Sawsbuck Spring": {
         "id": 586,
         "type": [
             "Normal",
@@ -9655,7 +9785,52 @@
         "sp-attack": 60,
         "sp-defense": 70,
         "speed": 95,
-        "form": ""
+        "form": "spring"
+    },
+    "Sawsbuck Summer": {
+        "id": 586,
+        "type": [
+            "Normal",
+            "Grass"
+        ],
+        "total": 475,
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "sp-attack": 60,
+        "sp-defense": 70,
+        "speed": 95,
+        "form": "summer"
+    },
+    "Sawsbuck Autumm": {
+        "id": 586,
+        "type": [
+            "Normal",
+            "Grass"
+        ],
+        "total": 475,
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "sp-attack": 60,
+        "sp-defense": 70,
+        "speed": 95,
+        "form": "autumm"
+    },
+    "Sawsbuck Winter": {
+        "id": 586,
+        "type": [
+            "Normal",
+            "Grass"
+        ],
+        "total": 475,
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "sp-attack": 60,
+        "sp-defense": 70,
+        "speed": 95,
+        "form": "winter"
     },
     "Emolga": {
         "id": 587,
@@ -11880,7 +12055,7 @@
         "speed": 110,
         "form": "mega"
     },
-    "Hoopa Hoopa Confined": {
+    "Hoopa Confined": {
         "id": 720,
         "type": [
             "Psychic",
@@ -11895,7 +12070,7 @@
         "speed": 70,
         "form": "confined"
     },
-    "Hoopa Hoopa Unbound": {
+    "Hoopa Unbound": {
         "id": 720,
         "type": [
             "Psychic",
@@ -12230,7 +12405,7 @@
         "sp-attack": 98,
         "sp-defense": 70,
         "speed": 93,
-        "form": "pompom"
+        "form": "pom-pom"
     },
     "Oricorio Pa'u Style": {
         "id": 741,

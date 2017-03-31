@@ -27,7 +27,8 @@ class PokedexCell: UITableViewCell {
 
     func configureCell(pokemon: Pokemon) {
         
-        pokemonImg.image = UIImage(named: "\(pokemon.id)\(pokemon.form)")
+        pokemonImg.contentMode = .scaleAspectFit
+        pokemonImg.image = UIImage(named: pokemon.hasForm ? "\(pokemon.id)-\(pokemon.form)" : "\(pokemon.id)")
         pokemonName.text = pokemon.name
         pokemonID.text = pokemon.id.toPokedexID()
     }
