@@ -46,5 +46,10 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = pokemon.name
+        pokeIdLbl.text = pokemon.id.toPokedexID()
+        pokeType01Lbl.text = pokemon.primaryType
+        pokeType02Lbl.text = pokemon.secondaryType
+        pokeImgView.image = UIImage(named: pokemon.imageName)
     }
 }

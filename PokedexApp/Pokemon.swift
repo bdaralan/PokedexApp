@@ -102,4 +102,8 @@ extension Pokemon {
     var hasForm: Bool {
         return self.form != ""
     }
+    
+    var imageName: String {
+        return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
+    }
 }

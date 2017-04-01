@@ -21,7 +21,7 @@
 		53CF3DF01E8A28E30073A516 /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DEF1E8A28E30073A516 /* PokemonData.swift */; };
 		53CF3DF31E8A29580073A516 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF21E8A29580073A516 /* Constants.swift */; };
 		53CF3DF51E8A34590073A516 /* LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF41E8A34590073A516 /* LoadJSON.swift */; };
-		53CF3DF81E8A3C250073A516 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF71E8A3C250073A516 /* Extension.swift */; };
+		53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF71E8A3C250073A516 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 		53CF3DEF1E8A28E30073A516 /* PokemonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
 		53CF3DF21E8A29580073A516 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		53CF3DF41E8A34590073A516 /* LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadJSON.swift; sourceTree = "<group>"; };
-		53CF3DF71E8A3C250073A516 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		53CF3DF71E8A3C250073A516 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				53CF3DEF1E8A28E30073A516 /* PokemonData.swift */,
-				53CF3DF71E8A3C250073A516 /* Extension.swift */,
+				53CF3DF71E8A3C250073A516 /* Utilities.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */,
-				53CF3DF81E8A3C250073A516 /* Extension.swift in Sources */,
+				53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */,
 				537F1A211E8A4696009D0400 /* HomeMenuCell.swift in Sources */,
 				53CF3DED1E8A284A0073A516 /* Pokemon.swift in Sources */,
 				53CF3DF01E8A28E30073A516 /* PokemonData.swift in Sources */,

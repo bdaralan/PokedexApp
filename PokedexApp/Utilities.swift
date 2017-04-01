@@ -1,5 +1,5 @@
 //
-//  Extension.swift
+//  Utilities.swift
 //  PokedexApp
 //
 //  Created by Dara on 3/27/17.
