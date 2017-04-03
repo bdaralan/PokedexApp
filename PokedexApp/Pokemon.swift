@@ -44,16 +44,18 @@ class Pokemon {
         _name = name
         _id = id
         _form = form
-        
-        parseStats()
-        parseTypes()
-        parseForm()
     }
     
-    
-    private func parseStats() {
+    func parseAllInfo() {
         
-        if let stats = POKEMON_JSON[name], let hp = stats["hp"] as? Int, let attack = stats["attack"] as? Int, let defense = stats["defense"] as? Int, let spAttack = stats["sp-attack"] as? Int, let spDefense = stats["sp-defense"] as? Int, let speed = stats["speed"] as? Int {
+        if let pokeInfo = POKEMON_JSON[name],
+            let hp = pokeInfo["hp"] as? Int,
+            let attack = pokeInfo["attack"] as? Int,
+            let defense = pokeInfo["defense"] as? Int,
+            let spAttack = pokeInfo["sp-attack"] as? Int,
+            let spDefense = pokeInfo["sp-defense"] as? Int,
+            let speed = pokeInfo["speed"] as? Int,
+            let types = pokeInfo["type"] as? [String] {
             
             _hp = hp
             _attack = attack
@@ -61,19 +63,6 @@ class Pokemon {
             _spAttack = spAttack
             _spDefense = spDefense
             _speed = speed
-        } else {
-            _hp = 0
-            _attack = 0
-            _defense = 0
-            _spAttack = 0
-            _spDefense = 0
-            _speed = 0
-        }
-    }
-    
-    private func parseTypes() {
-        
-        if let types = POKEMON_JSON[name]?["type"] as? [String] {
             
             switch types.count {
             case 1:
@@ -84,18 +73,19 @@ class Pokemon {
                 _secondaryType = types[1]
             }
         } else {
-            _primaryType = "Unknown"
-            _secondaryType = "Unknown"
-        }
-    }
-    
-    private func parseForm() {
-        
-        if let form = POKEMON_JSON[name]?["form"] as? String {
-            _form = form
+            _hp = 0
+            _attack = 0
+            _defense = 0
+            _spAttack = 0
+            _spDefense = 0
+            _speed = 0
+            
+            _primaryType = ""
+            _secondaryType = ""
         }
     }
 }
+
 
 extension Pokemon {
     

@@ -10,8 +10,13 @@ import Foundation
 
 extension Int {
     
-    func toPokedexID() -> String {
+    func toPokedexId() -> String {
         
         return String(format: "%03d", self)
+    }
+    
+    func toProgress() -> Float {
+        
+        return (Float(exactly: self) ?? 0.0) / 200.0
     }
 }

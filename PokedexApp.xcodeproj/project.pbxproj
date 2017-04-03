@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		536C46911E917EF000FA9305 /* pokemons.json in Resources */ = {isa = PBXBuildFile; fileRef = 536C46901E917EF000FA9305 /* pokemons.json */; };
+		536C46931E917FAE00FA9305 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = 536C46921E917FAE00FA9305 /* Constants.plist */; };
 		537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */; };
 		537F1A211E8A4696009D0400 /* HomeMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F1A201E8A4696009D0400 /* HomeMenuCell.swift */; };
-		5389C2011E8F0009001594B0 /* pokemons.json in Resources */ = {isa = PBXBuildFile; fileRef = 5389C2001E8F0009001594B0 /* pokemons.json */; };
 		53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */; };
 		53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DD11E8A26E50073A516 /* AppDelegate.swift */; };
 		53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD51E8A26E50073A516 /* Main.storyboard */; };
@@ -25,9 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		536C46901E917EF000FA9305 /* pokemons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemons.json; sourceTree = "<group>"; };
+		536C46921E917FAE00FA9305 /* Constants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Constants.plist; sourceTree = "<group>"; };
 		537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuTVC.swift; sourceTree = "<group>"; };
 		537F1A201E8A4696009D0400 /* HomeMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuCell.swift; sourceTree = "<group>"; };
-		5389C2001E8F0009001594B0 /* pokemons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemons.json; sourceTree = "<group>"; };
 		53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
 		53CF3DCE1E8A26E50073A516 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CF3DD11E8A26E50073A516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,12 +57,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5389C1FD1E8EFD02001594B0 /* Data */ = {
+		5389C1FD1E8EFD02001594B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5389C2001E8F0009001594B0 /* pokemons.json */,
+				536C46901E917EF000FA9305 /* pokemons.json */,
+				536C46921E917FAE00FA9305 /* Constants.plist */,
 			);
-			name = Data;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		53CF3DC51E8A26E50073A516 = {
@@ -87,7 +90,7 @@
 				53CF3DE51E8A27090073A516 /* Controller */,
 				53CF3DEE1E8A28D10073A516 /* Utilities */,
 				53CF3DF11E8A29450073A516 /* Constants */,
-				5389C1FD1E8EFD02001594B0 /* Data */,
+				5389C1FD1E8EFD02001594B0 /* Resources */,
 				53CF3DD81E8A26E50073A516 /* Assets.xcassets */,
 				53CF3DD51E8A26E50073A516 /* Main.storyboard */,
 				53CF3DDA1E8A26E50073A516 /* LaunchScreen.storyboard */,
@@ -202,10 +205,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				536C46931E917FAE00FA9305 /* Constants.plist in Resources */,
 				53CF3DDC1E8A26E50073A516 /* LaunchScreen.storyboard in Resources */,
+				536C46911E917EF000FA9305 /* pokemons.json in Resources */,
 				53CF3DD91E8A26E50073A516 /* Assets.xcassets in Resources */,
 				53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */,
-				5389C2011E8F0009001594B0 /* pokemons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,4 +15,4 @@ let loadJSON = LoadJSON()
 let POKEMON_JSON = loadJSON.loadPokemonJSON()
 
 let pokemonData = PokemonData()
-let POKEMONS = pokemonData.allPokemon.sorted(by: {$0.id < $1.id})
+let POKEMONS = pokemonData.allPokemonById

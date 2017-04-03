@@ -30,6 +30,6 @@ class PokedexCell: UITableViewCell {
         pokemonImg.contentMode = .scaleAspectFit
         pokemonImg.image = UIImage(named: pokemon.imageName)
         pokemonName.text = pokemon.name
-        pokemonID.text = pokemon.id.toPokedexID()
+        pokemonID.text = pokemon.id.toPokedexId()
     }
 }

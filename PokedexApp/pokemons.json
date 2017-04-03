@@ -6473,7 +6473,7 @@
         "speed": 100,
         "form": ""
     },
-    "Deoxys Normal Forme": {
+    "Deoxys Normal": {
         "id": 386,
         "type": [
             "Psychic"
@@ -6487,7 +6487,7 @@
         "speed": 150,
         "form": "normal"
     },
-    "Deoxys Attack Forme": {
+    "Deoxys Attack": {
         "id": 386,
         "type": [
             "Psychic"
@@ -6501,7 +6501,7 @@
         "speed": 150,
         "form": "attack"
     },
-    "Deoxys Defense Forme": {
+    "Deoxys Defense": {
         "id": 386,
         "type": [
             "Psychic"
@@ -6515,7 +6515,7 @@
         "speed": 90,
         "form": "defense"
     },
-    "Deoxys Speed Forme": {
+    "Deoxys Speed": {
         "id": 386,
         "type": [
             "Psychic"
@@ -8232,7 +8232,7 @@
         "speed": 100,
         "form": ""
     },
-    "Giratina Altered Forme": {
+    "Giratina Altered": {
         "id": 487,
         "type": [
             "Ghost",
@@ -8247,7 +8247,7 @@
         "speed": 90,
         "form": "altered"
     },
-    "Giratina Origin Forme": {
+    "Giratina Origin": {
         "id": 487,
         "type": [
             "Ghost",
@@ -8318,7 +8318,7 @@
         "speed": 125,
         "form": ""
     },
-    "Shaymin Land Forme": {
+    "Shaymin Land": {
         "id": 492,
         "type": [
             "Grass"
@@ -8332,7 +8332,7 @@
         "speed": 100,
         "form": "land"
     },
-    "Shaymin Sky Forme": {
+    "Shaymin Sky": {
         "id": 492,
         "type": [
             "Grass",
@@ -10619,7 +10619,7 @@
         "speed": 108,
         "form": ""
     },
-    "Tornadus Incarnate Forme": {
+    "Tornadus Incarnate": {
         "id": 641,
         "type": [
             "Flying"
@@ -10633,7 +10633,7 @@
         "speed": 111,
         "form": "incarnate"
     },
-    "Tornadus Therian Forme": {
+    "Tornadus Therian": {
         "id": 641,
         "type": [
             "Flying"
@@ -10647,7 +10647,7 @@
         "speed": 121,
         "form": "therian"
     },
-    "Thundurus Incarnate Forme": {
+    "Thundurus Incarnate": {
         "id": 642,
         "type": [
             "Electric",
@@ -10662,7 +10662,7 @@
         "speed": 111,
         "form": "incarnate"
     },
-    "Thundurus Therian Forme": {
+    "Thundurus Therian": {
         "id": 642,
         "type": [
             "Electric",
@@ -10707,7 +10707,7 @@
         "speed": 90,
         "form": ""
     },
-    "Landorus Incarnate Forme": {
+    "Landorus Incarnate": {
         "id": 645,
         "type": [
             "Ground",
@@ -10722,7 +10722,7 @@
         "speed": 101,
         "form": "incarnate"
     },
-    "Landorus Therian Forme": {
+    "Landorus Therian": {
         "id": 645,
         "type": [
             "Ground",
@@ -10782,7 +10782,7 @@
         "speed": 95,
         "form": "white"
     },
-    "Keldeo Ordinary Forme": {
+    "Keldeo Ordinary": {
         "id": 647,
         "type": [
             "Water",
@@ -10797,7 +10797,7 @@
         "speed": 108,
         "form": "ordinary"
     },
-    "Keldeo Resolute Forme": {
+    "Keldeo Resolute": {
         "id": 647,
         "type": [
             "Water",
@@ -10812,7 +10812,7 @@
         "speed": 108,
         "form": "resolute"
     },
-    "Meloetta Aria Forme": {
+    "Meloetta Aria": {
         "id": 648,
         "type": [
             "Normal",
@@ -10827,7 +10827,7 @@
         "speed": 90,
         "form": "aria"
     },
-    "Meloetta Pirouette Forme": {
+    "Meloetta Pirouette": {
         "id": 648,
         "type": [
             "Normal",
@@ -11333,7 +11333,7 @@
         "speed": 35,
         "form": ""
     },
-    "Aegislash Blade Forme": {
+    "Aegislash Blade": {
         "id": 681,
         "type": [
             "Steel",
@@ -11348,7 +11348,7 @@
         "speed": 60,
         "form": "blade"
     },
-    "Aegislash Shield Forme": {
+    "Aegislash Shield": {
         "id": 681,
         "type": [
             "Steel",
@@ -11980,7 +11980,7 @@
         "speed": 99,
         "form": ""
     },
-    "Zygarde 50% Forme": {
+    "Zygarde 50%": {
         "id": 718,
         "type": [
             "Dragon",
@@ -11995,7 +11995,7 @@
         "speed": 95,
         "form": "50percent"
     },
-    "Zygarde 10% Forme": {
+    "Zygarde 10%": {
         "id": 718,
         "type": [
             "Dragon",
@@ -12010,7 +12010,7 @@
         "speed": 115,
         "form": "10percent"
     },
-    "Zygarde Complete Forme": {
+    "Zygarde Complete": {
         "id": 718,
         "type": [
             "Dragon",
@@ -12377,7 +12377,7 @@
         "speed": 43,
         "form": ""
     },
-    "Oricorio Baile Style": {
+    "Oricorio Baile": {
         "id": 741,
         "type": [
             "Fire",
@@ -12392,7 +12392,7 @@
         "speed": 93,
         "form": "baile"
     },
-    "Oricorio Pom Pom Style": {
+    "Oricorio Pom Pom": {
         "id": 741,
         "type": [
             "Electric",
@@ -12407,7 +12407,7 @@
         "speed": 93,
         "form": "pom-pom"
     },
-    "Oricorio Pa'u Style": {
+    "Oricorio Pa'u": {
         "id": 741,
         "type": [
             "Psychic",
@@ -12422,7 +12422,7 @@
         "speed": 93,
         "form": "pau"
     },
-    "Oricorio Sensu Style": {
+    "Oricorio Sensu": {
         "id": 741,
         "type": [
             "Ghost",
@@ -12481,7 +12481,7 @@
         "speed": 60,
         "form": ""
     },
-    "Lycanroc Midday Form": {
+    "Lycanroc Midday": {
         "id": 745,
         "type": [
             "Rock"
@@ -12495,7 +12495,7 @@
         "speed": 112,
         "form": "midday"
     },
-    "Lycanroc Midnight Form": {
+    "Lycanroc Midnight": {
         "id": 745,
         "type": [
             "Rock"
@@ -12509,7 +12509,7 @@
         "speed": 82,
         "form": "midnight"
     },
-    "Wishiwashi Solo Form": {
+    "Wishiwashi Solo": {
         "id": 746,
         "type": [
             "Water"
@@ -12523,7 +12523,7 @@
         "speed": 40,
         "form": "solo"
     },
-    "Wishiwashi School Form": {
+    "Wishiwashi School": {
         "id": 746,
         "type": [
             "Water"
@@ -12930,7 +12930,7 @@
         "speed": 95,
         "form": ""
     },
-    "Minior Meteor Form": {
+    "Minior Meteor": {
         "id": 774,
         "type": [
             "Rock",
@@ -12945,7 +12945,7 @@
         "speed": 60,
         "form": "meteor"
     },
-    "Minior Core Form": {
+    "Minior Core": {
         "id": 774,
         "type": [
             "Rock",

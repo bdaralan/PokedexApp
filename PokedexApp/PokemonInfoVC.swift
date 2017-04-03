@@ -47,9 +47,23 @@ class PokemonInfoVC: UIViewController {
         super.viewDidLoad()
         
         self.title = pokemon.name
-        pokeIdLbl.text = pokemon.id.toPokedexID()
+        pokeIdLbl.text = pokemon.id.toPokedexId()
         pokeType01Lbl.text = pokemon.primaryType
         pokeType02Lbl.text = pokemon.secondaryType
         pokeImgView.image = UIImage(named: pokemon.imageName)
+        
+        pokeHpLbl.text = "\(pokemon.hp)"
+        pokeAttackLbl.text = "\(pokemon.attack)"
+        pokeDefenseLbl.text = "\(pokemon.defense)"
+        pokeSpAttackLbl.text = "\(pokemon.spAttack)"
+        pokeSpDefenseLbl.text = "\(pokemon.spDefense)"
+        pokeSpeedLbl.text = "\(pokemon.speed)"
+        
+        pokeHpPV.progress = pokemon.hp.toProgress()
+        pokeAttackPV.progress = pokemon.attack.toProgress()
+        pokeDefensePV.progress = pokemon.defense.toProgress()
+        pokeSpAttackPV.progress = pokemon.spAttack.toProgress()
+        pokeSpDefensePV.progress = pokemon.spDefense.toProgress()
+        pokeSpeedPV.progress = pokemon.speed.toProgress()
     }
 }

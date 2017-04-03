@@ -50,6 +50,7 @@ class PokedexTVC: UITableViewController, UISearchBarDelegate, UISearchDisplayDel
         
         if segue.identifier == "PokemonInfo", let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
             
+            pokemon.parseAllInfo()
             pokemonInfoVC.pokemon = pokemon
         }
     }

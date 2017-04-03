@@ -10,9 +10,14 @@ import Foundation
 
 class PokemonData {
     
-    var allPokemon: [Pokemon] {
-        return parseAllPokemon()
+    var allPokemonById: [Pokemon] {
+        return parseAllPokemon().sorted(by: {"\($0.id.toPokedexId())\($0.form)" < "\($1.id.toPokedexId())\($1.form)"})
     }
+    
+    var allPokemonByName: [Pokemon] {
+        return parseAllPokemon().sorted(by: {$0.name < $1.name})
+    }
+    
     
     private func parseAllPokemon() -> [Pokemon] {
         
