@@ -8,18 +8,13 @@
 
 import UIKit
 
-class PokedexTVC: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class PokedexTVC: UITableViewController {
     
     var pokemons = POKEMONS
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,11 +53,6 @@ class PokedexTVC: UITableViewController, UISearchBarDelegate, UISearchDisplayDel
     
     // MARK: - IBActions
     @IBAction func searchBtnTapped(_ sender: Any) {
-
         
-//        let searchResult = UITableViewController(style: .plain)
-//        let searchController = UISearchController(searchResultsController: searchResult)
-//        
-//        self.present(searchController, animated: true, completion: nil)
     }
 }

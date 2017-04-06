@@ -6903,7 +6903,7 @@
         "sp-attack": 29,
         "sp-defense": 45,
         "speed": 36,
-        "form": "plant-cloak"
+        "form": "plant"
     },
     "Burmy Sandy": {
         "id": 412,
@@ -6917,7 +6917,7 @@
         "sp-attack": 29,
         "sp-defense": 45,
         "speed": 36,
-        "form": "sandy-cloak"
+        "form": "sandy"
     },
     "Burmy Trash": {
         "id": 412,
@@ -6931,9 +6931,9 @@
         "sp-attack": 29,
         "sp-defense": 45,
         "speed": 36,
-        "form": "trash-cloak"
+        "form": "trash"
     },
-    "Wormadam Plant Cloak": {
+    "Wormadam Plant": {
         "id": 413,
         "type": [
             "Bug",
@@ -6946,9 +6946,9 @@
         "sp-attack": 79,
         "sp-defense": 105,
         "speed": 36,
-        "form": "plant-cloak"
+        "form": "plant"
     },
-    "Wormadam Sandy Cloak": {
+    "Wormadam Sandy": {
         "id": 413,
         "type": [
             "Bug",
@@ -6961,9 +6961,9 @@
         "sp-attack": 59,
         "sp-defense": 85,
         "speed": 36,
-        "form": "sandy-cloak"
+        "form": "sandy"
     },
-    "Wormadam Trash Cloak": {
+    "Wormadam Trash": {
         "id": 413,
         "type": [
             "Bug",
@@ -6976,7 +6976,7 @@
         "sp-attack": 69,
         "sp-defense": 95,
         "speed": 36,
-        "form": "trash-cloak"
+        "form": "trash"
     },
     "Mothim": {
         "id": 414,

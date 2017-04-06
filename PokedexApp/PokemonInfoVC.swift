@@ -46,6 +46,11 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
+    }
+    
+    func updateUI() {
+        
         self.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
         pokeType01Lbl.text = pokemon.primaryType
