@@ -13,25 +13,12 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     var pokemons = POKEMONS
     var searchController: UISearchController!
     
-    
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureSearchController()
     }
-    
-    
-    // MARK: - Functions
-    func configureSearchController() {
-        
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
-    }
-    
     
     // MARK: - TableView
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +47,6 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
         }
     }
     
-    
     // MARK: - SearchResultUpdating
     func updateSearchResults(for searchController: UISearchController) {
         
@@ -83,12 +69,21 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
         }
     }
     
-    
     // MARK: - IBActions
     @IBAction func searchBtnTapped(_ sender: Any) {
         
         present(searchController, animated: true) {
             self.searchController.searchBar.becomeFirstResponder()
         }
+    }
+    
+    // MARK: - Functions
+    func configureSearchController() {
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
     }
 }

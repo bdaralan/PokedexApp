@@ -17,7 +17,7 @@ class PokedexCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pokemonImg.contentMode = .scaleAspectFit
+        pokemonImg.contentMode = .scaleAspectFill
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

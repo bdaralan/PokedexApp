@@ -9266,7 +9266,7 @@
         "speed": 50,
         "form": ""
     },
-    "Darmanitan Standard Mode": {
+    "Darmanitan Standard": {
         "id": 555,
         "type": [
             "Fire"
@@ -9280,7 +9280,7 @@
         "speed": 95,
         "form": "standard"
     },
-    "Darmanitan Zen Mode": {
+    "Darmanitan Zen": {
         "id": 555,
         "type": [
             "Fire",
@@ -11275,7 +11275,7 @@
         "speed": 68,
         "form": ""
     },
-    "Meowstic Male": {
+    "Meowstic♂": {
         "id": 678,
         "type": [
             "Psychic"
@@ -11289,7 +11289,7 @@
         "speed": 104,
         "form": "male"
     },
-    "Meowstic Female": {
+    "Meowstic♀": {
         "id": 678,
         "type": [
             "Psychic"

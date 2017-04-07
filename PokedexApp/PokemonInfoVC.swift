@@ -43,13 +43,14 @@ class PokemonInfoVC: UIViewController {
     
     var pokemon: Pokemon!
     
-    
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI()
     }
     
+    // MARK: - Functions
     func updateUI() {
         
         self.title = pokemon.name
