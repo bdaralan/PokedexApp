@@ -43,6 +43,7 @@ class PokemonInfoVC: UIViewController {
     
     var pokemon: Pokemon!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +55,16 @@ class PokemonInfoVC: UIViewController {
         self.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
         pokeType01Lbl.text = pokemon.primaryType
-        pokeType02Lbl.text = pokemon.secondaryType
+        pokeType01Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.primaryType)
+        
+        if pokemon.hasSecondType {
+            pokeType02Lbl.isHidden = false
+            pokeType02Lbl.text = pokemon.secondaryType
+            pokeType02Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.secondaryType)
+        } else {
+            pokeType02Lbl.isHidden = true
+        }
+        
         pokeImgView.image = UIImage(named: pokemon.imageName)
         
         pokeHpLbl.text = "\(pokemon.hp)"

@@ -12,7 +12,7 @@ extension Int {
     
     func toPokedexId() -> String {
         
-        return String(format: "%03d", self)
+        return String(format: "#%03d", self)
     }
     
     func toProgress() -> Float {

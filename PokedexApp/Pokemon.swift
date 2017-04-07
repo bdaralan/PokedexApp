@@ -89,6 +89,10 @@ class Pokemon {
 
 extension Pokemon {
     
+    var hasSecondType: Bool {
+        return self.secondaryType != ""
+    }
+    
     var hasForm: Bool {
         return self.form != ""
     }
