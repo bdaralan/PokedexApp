@@ -11,26 +11,20 @@ import UIKit
 /*-- Main Class --*/
 class Colors {
     
-    private let _pokemonType: PokeTypeColor!
-    private let _move: PokeMoveColor!
-    private let _navigationBar: UIColor!
-    private let _sectionBackground: UIColor!
-    private let _sectionText: UIColor!
+    let pokemonType: PokeTypeColor!
+    let move: PokeMoveColor!
+    let navigationBar: UIColor!
+    let sectionBackground: UIColor!
+    let sectionText: UIColor!
 
     
     init() {
-        _pokemonType = PokeTypeColor()
-        _move = PokeMoveColor()
-        _navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
-        _sectionBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
-        _sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
+        pokemonType = PokeTypeColor()
+        move = PokeMoveColor()
+        navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
+        sectionBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
+        sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
     }
-    
-    
-    var pokemonType: PokeTypeColor { return _pokemonType }
-    var navigationBar: UIColor { return _navigationBar }
-    var sectionBackground: UIColor { return _sectionBackground }
-    var sectionText: UIColor { return _sectionText }
     
     func make(fromPokemonType type: String) -> UIColor {
         
