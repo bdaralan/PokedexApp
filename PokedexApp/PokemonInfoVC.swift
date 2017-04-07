@@ -20,7 +20,7 @@ class PokemonInfoVC: UIViewController {
     
     @IBOutlet weak var pokeAbility01Lbl: UILabel!
     @IBOutlet weak var pokeAbility02Lbl: UILabel!
-    @IBOutlet weak var pokeAibilityHiddenLbl: UILabel!
+    @IBOutlet weak var pokeHiddenAibilityLbl: UILabel!
     
     @IBOutlet weak var pokeHpLbl: UILabel!
     @IBOutlet weak var pokeAttackLbl: UILabel!
@@ -53,8 +53,13 @@ class PokemonInfoVC: UIViewController {
     // MARK: - Functions
     func updateUI() {
         
+        pokemon.parseStatsTypes()
+        pokemon.parseAbilities()
+        
         self.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
+        pokeImgView.image = UIImage(named: pokemon.imageName)
+        
         pokeType01Lbl.text = pokemon.primaryType
         pokeType01Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.primaryType)
         
@@ -66,7 +71,21 @@ class PokemonInfoVC: UIViewController {
             pokeType02Lbl.isHidden = true
         }
         
-        pokeImgView.image = UIImage(named: pokemon.imageName)
+        pokeAbility01Lbl.text = pokemon.firstAbility
+        
+        if pokemon.hasSecondAbility {
+            pokeAbility02Lbl.isHidden = false
+            pokeAbility02Lbl.text = pokemon.secondAbility
+        } else {
+            pokeAbility02Lbl.isHidden = true
+        }
+        
+        if pokemon.hasHiddenAbility {
+            pokeHiddenAibilityLbl.isHidden = false
+            pokeHiddenAibilityLbl.text = pokemon.hiddenAbility
+        } else {
+            pokeHiddenAibilityLbl.isHidden = true
+        }
         
         pokeHpLbl.text = "\(pokemon.hp)"
         pokeAttackLbl.text = "\(pokemon.attack)"

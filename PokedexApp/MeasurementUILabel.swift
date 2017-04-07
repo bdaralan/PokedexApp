@@ -13,7 +13,7 @@ class MeasurementUILabel: UILabel {
     override func awakeFromNib() {
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
-        self.backgroundColor = COLORS.sectionBackground.withAlphaComponent(0.3)
+        self.backgroundColor = COLORS.sectionBackground.withAlphaComponent(0.35)
         //self.font = UIFont(name: String, size: CGFloat)
     }
 }

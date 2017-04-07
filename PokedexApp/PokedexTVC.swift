@@ -62,9 +62,8 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "PokemonInfo", let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
+        if segue.identifier == "PokemonInfo", let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
             
-            pokemon.parseAllInfo()
             pokemonInfoVC.pokemon = pokemon
         }
     }

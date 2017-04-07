@@ -24,6 +24,10 @@ class Pokemon {
     private var _primaryType: String!
     private var _secondaryType: String!
     
+    private var _firstAbility: String!
+    private var _secondAbility: String!
+    private var _hiddenAbility: String!
+    
     
     var name: String { return _name }
     var id: Int { return _id }
@@ -39,6 +43,10 @@ class Pokemon {
     var primaryType: String { return _primaryType }
     var secondaryType: String { return _secondaryType }
     
+    var firstAbility: String { return _firstAbility }
+    var secondAbility: String { return _secondAbility }
+    var hiddenAbility: String { return _hiddenAbility }
+    
     
     init(name: String, id: Int, form: String) {
         _name = name
@@ -46,7 +54,7 @@ class Pokemon {
         _form = form
     }
     
-    func parseAllInfo() {
+    func parseStatsTypes() {
         
         if let pokeInfo = POKEMON_JSON[name],
             let hp = pokeInfo["hp"] as? Int,
@@ -84,6 +92,23 @@ class Pokemon {
             _secondaryType = ""
         }
     }
+    
+    func parseAbilities() {
+        
+        if let pokeAbil = ABILITY_JSON[name],
+            let ability01 = pokeAbil["ability01"] as? String,
+            let ability02 = pokeAbil["ability02"] as? String,
+            let hiddenAbility = pokeAbil["hidden"] as? String {
+            
+            _firstAbility = ability01
+            _secondAbility = ability02
+            _hiddenAbility = hiddenAbility
+        } else {
+            _firstAbility = ""
+            _secondAbility = ""
+            _hiddenAbility = ""
+        }
+    }
 }
 
 
@@ -91,6 +116,14 @@ extension Pokemon {
     
     var hasSecondType: Bool {
         return self.secondaryType != ""
+    }
+    
+    var hasSecondAbility: Bool {
+        return self.secondAbility != ""
+    }
+    
+    var hasHiddenAbility: Bool {
+        return self.hiddenAbility != ""
     }
     
     var hasForm: Bool {
