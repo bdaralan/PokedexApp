@@ -82,7 +82,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.hasHiddenAbility {
             pokeHiddenAibilityLbl.isHidden = false
-            pokeHiddenAibilityLbl.text = pokemon.hiddenAbility
+            pokeHiddenAibilityLbl.text = "\(pokemon.hiddenAbility) (H)"
         } else {
             pokeHiddenAibilityLbl.isHidden = true
         }
