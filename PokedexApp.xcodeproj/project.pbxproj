@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		532D3AE41E982CEB0077D089 /* abilities.json in Resources */ = {isa = PBXBuildFile; fileRef = 532D3AE01E982CEB0077D089 /* abilities.json */; };
+		532D3AE51E982CEB0077D089 /* evolutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 532D3AE11E982CEB0077D089 /* evolutions.json */; };
+		532D3AE61E982CEB0077D089 /* pokemons.json in Resources */ = {isa = PBXBuildFile; fileRef = 532D3AE21E982CEB0077D089 /* pokemons.json */; };
+		532D3AE71E982CEB0077D089 /* weights.json in Resources */ = {isa = PBXBuildFile; fileRef = 532D3AE31E982CEB0077D089 /* weights.json */; };
 		536095B41E96F4CD00D2F2FC /* UnifiedSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B31E96F4CD00D2F2FC /* UnifiedSearch.swift */; };
 		536095B61E96F98900D2F2FC /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B51E96F98900D2F2FC /* Ability.swift */; };
 		536095B81E970E1B00D2F2FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B71E970E1B00D2F2FC /* Colors.swift */; };
@@ -29,12 +33,13 @@
 		53CF3DF31E8A29580073A516 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF21E8A29580073A516 /* Constants.swift */; };
 		53CF3DF51E8A34590073A516 /* LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF41E8A34590073A516 /* LoadJSON.swift */; };
 		53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF71E8A3C250073A516 /* Utilities.swift */; };
-		53FBDE111E973DD2008AD0F2 /* abilities.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FBDE0E1E973DD2008AD0F2 /* abilities.json */; };
-		53FBDE121E973DD2008AD0F2 /* evolutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FBDE0F1E973DD2008AD0F2 /* evolutions.json */; };
-		53FBDE131E973DD2008AD0F2 /* pokemons.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FBDE101E973DD2008AD0F2 /* pokemons.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		532D3AE01E982CEB0077D089 /* abilities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abilities.json; sourceTree = "<group>"; };
+		532D3AE11E982CEB0077D089 /* evolutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = evolutions.json; sourceTree = "<group>"; };
+		532D3AE21E982CEB0077D089 /* pokemons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemons.json; sourceTree = "<group>"; };
+		532D3AE31E982CEB0077D089 /* weights.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weights.json; sourceTree = "<group>"; };
 		536095B31E96F4CD00D2F2FC /* UnifiedSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedSearch.swift; sourceTree = "<group>"; };
 		536095B51E96F98900D2F2FC /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		536095B71E970E1B00D2F2FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -59,9 +64,6 @@
 		53CF3DF21E8A29580073A516 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		53CF3DF41E8A34590073A516 /* LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadJSON.swift; sourceTree = "<group>"; };
 		53CF3DF71E8A3C250073A516 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		53FBDE0E1E973DD2008AD0F2 /* abilities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abilities.json; sourceTree = "<group>"; };
-		53FBDE0F1E973DD2008AD0F2 /* evolutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = evolutions.json; sourceTree = "<group>"; };
-		53FBDE101E973DD2008AD0F2 /* pokemons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemons.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +80,10 @@
 		5389C1FD1E8EFD02001594B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				53FBDE0E1E973DD2008AD0F2 /* abilities.json */,
-				53FBDE0F1E973DD2008AD0F2 /* evolutions.json */,
-				53FBDE101E973DD2008AD0F2 /* pokemons.json */,
+				532D3AE31E982CEB0077D089 /* weights.json */,
+				532D3AE01E982CEB0077D089 /* abilities.json */,
+				532D3AE11E982CEB0077D089 /* evolutions.json */,
+				532D3AE21E982CEB0077D089 /* pokemons.json */,
 				536C46921E917FAE00FA9305 /* Constants.plist */,
 			);
 			name = Resources;
@@ -232,13 +235,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53FBDE111E973DD2008AD0F2 /* abilities.json in Resources */,
+				532D3AE41E982CEB0077D089 /* abilities.json in Resources */,
 				536C46931E917FAE00FA9305 /* Constants.plist in Resources */,
 				53CF3DDC1E8A26E50073A516 /* LaunchScreen.storyboard in Resources */,
-				53FBDE131E973DD2008AD0F2 /* pokemons.json in Resources */,
-				53FBDE121E973DD2008AD0F2 /* evolutions.json in Resources */,
+				532D3AE61E982CEB0077D089 /* pokemons.json in Resources */,
+				532D3AE51E982CEB0077D089 /* evolutions.json in Resources */,
 				53CF3DD91E8A26E50073A516 /* Assets.xcassets in Resources */,
 				53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */,
+				532D3AE71E982CEB0077D089 /* weights.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

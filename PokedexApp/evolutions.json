@@ -49,21 +49,11 @@
             "item": ""
         }
     ],
-    "Lycanroc Midday Form": [
+    "Lycanroc Midday": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Rockruff",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Arceus": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -89,31 +79,11 @@
             "item": ""
         }
     ],
-    "Dedenne": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Poliwrath": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Poliwhirl",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Landorus": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -189,7 +159,17 @@
             "item": ""
         }
     ],
-    "Darmanitan Standard Mode": [
+    "Darmanitan Standard": [
+        {
+            "method": "",
+            "condition": "",
+            "evolve-from": "Darumaka",
+            "level": "",
+            "evolve-to": "",
+            "item": ""
+        }
+    ],
+    "Darmanitan Zen": [
         {
             "method": "",
             "condition": "",
@@ -214,16 +194,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Teddiursa",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Yveltal": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -299,31 +269,11 @@
             "item": ""
         }
     ],
-    "Qwilfish": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Fearow": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Spearow",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Corsola": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -344,16 +294,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Skiddo",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Xerneas": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -439,16 +379,6 @@
             "item": "Trade with Karrablast"
         }
     ],
-    "Cobalion": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Ludicolo": [
         {
             "method": "",
@@ -469,16 +399,6 @@
             "item": ""
         }
     ],
-    "Solrock": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Voltorb": [
         {
             "method": "level-up",
@@ -496,26 +416,6 @@
             "evolve-from": "",
             "level": "42",
             "evolve-to": "Rhydon",
-            "item": ""
-        }
-    ],
-    "Pachirisu": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Sableye": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -613,7 +513,7 @@
             "condition": "",
             "evolve-from": "",
             "level": "35",
-            "evolve-to": "Darmanitan Standard Mode",
+            "evolve-to": "Darmanitan Standard",
             "item": ""
         }
     ],
@@ -634,36 +534,6 @@
             "evolve-from": "",
             "level": "33",
             "evolve-to": "Seaking",
-            "item": ""
-        }
-    ],
-    "Tornadus": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Latias": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Terrakion": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -837,16 +707,6 @@
             "item": ""
         }
     ],
-    "Chatot": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Lotad": [
         {
             "method": "level-up",
@@ -987,26 +847,6 @@
             "item": ""
         }
     ],
-    "Basculin": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Lapras": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Duosion": [
         {
             "method": "level-up",
@@ -1047,16 +887,6 @@
             "item": ""
         }
     ],
-    "Cryogonal": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Alolan Vulpix": [
         {
             "method": "stone",
@@ -1077,13 +907,43 @@
             "item": ""
         }
     ],
-    "Deerling": [
+    "Deerling Spring": [
         {
             "method": "level-up",
             "condition": "",
             "evolve-from": "",
             "level": "34",
-            "evolve-to": "Sawsbuck",
+            "evolve-to": "Sawsbuck Spring",
+            "item": ""
+        }
+    ],
+    "Deerling Summer": [
+        {
+            "method": "level-up",
+            "condition": "",
+            "evolve-from": "",
+            "level": "34",
+            "evolve-to": "Sawsbuck Summer",
+            "item": ""
+        }
+    ],
+    "Deerling Autumm": [
+        {
+            "method": "level-up",
+            "condition": "",
+            "evolve-from": "",
+            "level": "34",
+            "evolve-to": "Sawsbuck Autumm",
+            "item": ""
+        }
+    ],
+    "Deerling Winter": [
+        {
+            "method": "level-up",
+            "condition": "",
+            "evolve-from": "",
+            "level": "34",
+            "evolve-to": "Sawsbuck Winter",
             "item": ""
         }
     ],
@@ -1137,26 +997,6 @@
             "item": ""
         }
     ],
-    "Jirachi": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Diancie": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Vileplume": [
         {
             "method": "",
@@ -1207,16 +1047,6 @@
             "item": ""
         }
     ],
-    "Moltres": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Corphish": [
         {
             "method": "level-up",
@@ -1247,7 +1077,7 @@
             "item": ""
         }
     ],
-    "Aegislash Blade Forme": [
+    "Aegislash Blade": [
         {
             "method": "",
             "condition": "",
@@ -1272,16 +1102,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Hakamo-o",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Mew": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -1415,16 +1235,6 @@
             "level": "",
             "evolve-to": "Ninetales",
             "item": "Fire Stone"
-        }
-    ],
-    "Klefki": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
         }
     ],
     "Golduck": [
@@ -1665,16 +1475,6 @@
             "item": ""
         }
     ],
-    "Sigilyph": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Sealeo": [
         {
             "method": "level-up",
@@ -1702,36 +1502,6 @@
             "evolve-from": "",
             "level": "30",
             "evolve-to": "Bastiodon",
-            "item": ""
-        }
-    ],
-    "Registeel": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Entei": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Cresselia": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -1865,16 +1635,6 @@
             "item": ""
         }
     ],
-    "Aerodactyl": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Bonsly": [
         {
             "method": "various",
@@ -1890,16 +1650,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Sentret",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Rotom": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -1955,7 +1705,17 @@
             "item": "Dubious Disc"
         }
     ],
-    "Cherrim": [
+    "Cherrim Overcast": [
+        {
+            "method": "",
+            "condition": "",
+            "evolve-from": "Cherubi",
+            "level": "",
+            "evolve-to": "",
+            "item": ""
+        }
+    ],
+    "Cherrim Sunshine": [
         {
             "method": "",
             "condition": "",
@@ -2115,16 +1875,6 @@
             "item": ""
         }
     ],
-    "Groudon": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Binacle": [
         {
             "method": "level-up",
@@ -2193,31 +1943,11 @@
             "item": ""
         }
     ],
-    "Shuckle": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Tangrowth": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Tangela",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Tropius": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -2321,16 +2051,6 @@
             "item": ""
         }
     ],
-    "Dialga": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Greninja": [
         {
             "method": "",
@@ -2371,16 +2091,6 @@
             "item": ""
         }
     ],
-    "Alomomola": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Probopass": [
         {
             "method": "",
@@ -2406,16 +2116,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Zweilous",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Druddigon": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -2558,26 +2258,6 @@
             "evolve-from": "",
             "level": "32",
             "evolve-to": "Cacturne",
-            "item": ""
-        }
-    ],
-    "Unown": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Minun": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -2741,16 +2421,6 @@
             "item": ""
         }
     ],
-    "Phione": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Trapinch": [
         {
             "method": "level-up",
@@ -2771,16 +2441,6 @@
             "item": "Sun Stone"
         }
     ],
-    "Girafarig": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Armaldo": [
         {
             "method": "",
@@ -2798,26 +2458,6 @@
             "evolve-from": "",
             "level": "37",
             "evolve-to": "Beartic",
-            "item": ""
-        }
-    ],
-    "Durant": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Stunfisk": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -2851,13 +2491,23 @@
             "item": ""
         }
     ],
-    "Shellos": [
+    "Shellos East": [
         {
             "method": "level-up",
             "condition": "",
             "evolve-from": "",
             "level": "30",
-            "evolve-to": "Gastrodon",
+            "evolve-to": "Gastrodon East",
+            "item": ""
+        }
+    ],
+    "Shellos West": [
+        {
+            "method": "level-up",
+            "condition": "",
+            "evolve-from": "",
+            "level": "30",
+            "evolve-to": "Gastrodon West",
             "item": ""
         }
     ],
@@ -2928,16 +2578,6 @@
             "evolve-from": "",
             "level": "36",
             "evolve-to": "Garbodor",
-            "item": ""
-        }
-    ],
-    "Heatmor": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -3031,16 +2671,6 @@
             "item": ""
         }
     ],
-    "Suicune": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Toxapex": [
         {
             "method": "",
@@ -3069,16 +2699,6 @@
             "level": "",
             "evolve-to": "Togekiss",
             "item": "Shiny Stone"
-        }
-    ],
-    "Furfrou": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
         }
     ],
     "Karrablast": [
@@ -3421,16 +3041,6 @@
             "item": "Water Stone"
         }
     ],
-    "Ditto": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Magnezone": [
         {
             "method": "",
@@ -3446,16 +3056,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Mime Jr.",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Tauros": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -3481,16 +3081,6 @@
             "item": ""
         }
     ],
-    "Farfetch'd": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Hitmonlee": [
         {
             "method": "",
@@ -3508,16 +3098,6 @@
             "evolve-from": "Gible",
             "level": "48",
             "evolve-to": "Garchomp",
-            "item": ""
-        }
-    ],
-    "Azelf": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -3576,26 +3156,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Yanma",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Plusle": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Hoopa": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -3801,31 +3361,11 @@
             "item": ""
         }
     ],
-    "Luvdisc": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Alolan Ninetales": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Alolan Vulpix",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Maractus": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -3841,16 +3381,6 @@
             "item": ""
         }
     ],
-    "Spinda": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Mienfoo": [
         {
             "method": "level-up",
@@ -3861,26 +3391,6 @@
             "item": ""
         }
     ],
-    "Genesect": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Spiritomb": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Tirtouga": [
         {
             "method": "level-up",
@@ -3888,16 +3398,6 @@
             "evolve-from": "",
             "level": "37",
             "evolve-to": "Carracosta",
-            "item": ""
-        }
-    ],
-    "Zangoose": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -3951,31 +3451,11 @@
             "item": ""
         }
     ],
-    "Manaphy": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Froslass": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Snorunt",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Giratina": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -4069,21 +3549,11 @@
             "item": "Leaf Stone"
         }
     ],
-    "Lycanroc Midnight Form": [
+    "Lycanroc Midnight": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Rockruff",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Carbink": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -4159,16 +3629,6 @@
             "item": ""
         }
     ],
-    "Torkoal": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Starly": [
         {
             "method": "level-up",
@@ -4194,26 +3654,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Numel",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Shaymin": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Kyurem": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -4389,16 +3829,6 @@
             "item": ""
         }
     ],
-    "Zygarde": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Torterra": [
         {
             "method": "",
@@ -4424,16 +3854,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Salandit",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Miltank": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -4547,20 +3967,10 @@
             "item": "Sun Stone"
         }
     ],
-    "Lunatone": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Pancham": [
         {
             "method": "level-up",
-            "condition": "with a Dark type Pokémon in party",
+            "condition": "with a Dark type Pokemon in party",
             "evolve-from": "",
             "level": "32",
             "evolve-to": "Pangoro",
@@ -4703,16 +4113,6 @@
             "item": ""
         }
     ],
-    "Darkrai": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Woobat": [
         {
             "method": "happiness",
@@ -4720,16 +4120,6 @@
             "evolve-from": "",
             "level": "",
             "evolve-to": "Swoobat",
-            "item": ""
-        }
-    ],
-    "Zekrom": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -4753,31 +4143,11 @@
             "item": ""
         }
     ],
-    "Heracross": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Lanturn": [
         {
             "method": "",
             "condition": "",
             "evolve-from": "Chinchou",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Mewtwo": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -5058,7 +4428,7 @@
         },
         {
             "method": "various",
-            "condition": "maximum Affection in Pokémon Amie and knows a Fairy-type move",
+            "condition": "maximum Affection in Pokemon Amie and knows a Fairy-type move",
             "evolve-from": "",
             "level": "",
             "evolve-to": "Sylveon",
@@ -5165,16 +4535,6 @@
             "item": ""
         }
     ],
-    "Regirock": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Gligar": [
         {
             "method": "various",
@@ -5238,16 +4598,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Gulpin",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Celebi": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -5333,16 +4683,6 @@
             "item": ""
         }
     ],
-    "Virizion": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Azumarill": [
         {
             "method": "",
@@ -5366,18 +4706,18 @@
     "Rockruff": [
         {
             "method": "level-up",
-            "condition": "Daytime, in Pokémon Sun",
+            "condition": "Daytime, in Pokemon Sun",
             "evolve-from": "",
             "level": "25",
-            "evolve-to": "Lycanroc Midday Form",
+            "evolve-to": "Lycanroc Midday",
             "item": ""
         },
         {
             "method": "level-up",
-            "condition": "Nighttime, in Pokémon Moon",
+            "condition": "Nighttime, in Pokemon Moon",
             "evolve-from": "",
             "level": "25",
-            "evolve-to": "Lycanroc Midnight Form",
+            "evolve-to": "Lycanroc Midnight",
             "item": ""
         }
     ],
@@ -5481,26 +4821,6 @@
             "item": ""
         }
     ],
-    "Relicanth": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Stantler": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Munchlax": [
         {
             "method": "happiness",
@@ -5587,7 +4907,7 @@
             "condition": "",
             "evolve-from": "Honedge",
             "level": "",
-            "evolve-to": "Aegislash Blade Forme",
+            "evolve-to": "Aegislash Blade",
             "item": "Dusk Stone"
         }
     ],
@@ -5596,16 +4916,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Yamask",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Reshiram": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -5651,16 +4961,6 @@
             "item": ""
         }
     ],
-    "Raikou": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Shedinja": [
         {
             "method": "",
@@ -5701,36 +5001,6 @@
             "item": ""
         }
     ],
-    "Illumise": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Meloetta": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Castform": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Pidove": [
         {
             "method": "level-up",
@@ -5768,16 +5038,6 @@
             "evolve-from": "",
             "level": "34",
             "evolve-to": "Lurantis",
-            "item": ""
-        }
-    ],
-    "Victini": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -5881,11 +5141,41 @@
             "item": ""
         }
     ],
-    "Sawsbuck": [
+    "Sawsbuck Spring": [
         {
             "method": "",
             "condition": "",
-            "evolve-from": "Deerling",
+            "evolve-from": "Deerling Spring",
+            "level": "",
+            "evolve-to": "",
+            "item": ""
+        }
+    ],
+    "Sawsbuck Summer": [
+        {
+            "method": "",
+            "condition": "",
+            "evolve-from": "Deerling Summer",
+            "level": "",
+            "evolve-to": "",
+            "item": ""
+        }
+    ],
+    "Sawsbuck Autumm": [
+        {
+            "method": "",
+            "condition": "",
+            "evolve-from": "Deerling Autumm",
+            "level": "",
+            "evolve-to": "",
+            "item": ""
+        }
+    ],
+    "Sawsbuck Winter": [
+        {
+            "method": "",
+            "condition": "",
+            "evolve-from": "Deerling Winter",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -5931,16 +5221,6 @@
             "item": ""
         }
     ],
-    "Absol": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Shellder": [
         {
             "method": "stone",
@@ -5951,11 +5231,11 @@
             "item": "Water Stone"
         }
     ],
-    "Wormadam Sandy Cloak": [
+    "Wormadam Sandy": [
         {
             "method": "",
             "condition": "",
-            "evolve-from": "Burmy",
+            "evolve-from": "Burmy Sandy",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -6051,16 +5331,6 @@
             "item": ""
         }
     ],
-    "Kangaskhan": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Lickilicky": [
         {
             "method": "",
@@ -6078,26 +5348,6 @@
             "evolve-from": "",
             "level": "34",
             "evolve-to": "Cofagrigus",
-            "item": ""
-        }
-    ],
-    "Deoxys": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Carnivine": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -6171,16 +5421,6 @@
             "item": ""
         }
     ],
-    "Palkia": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Archen": [
         {
             "method": "level-up",
@@ -6216,16 +5456,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Goldeen",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Hawlucha": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -6291,16 +5521,6 @@
             "item": ""
         }
     ],
-    "Rayquaza": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Gastly": [
         {
             "method": "level-up",
@@ -6361,16 +5581,6 @@
             "item": ""
         }
     ],
-    "Thundurus": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Braixen": [
         {
             "method": "level-up",
@@ -6378,16 +5588,6 @@
             "evolve-from": "Fennekin",
             "level": "36",
             "evolve-to": "Delphox",
-            "item": ""
-        }
-    ],
-    "Mawile": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -6481,16 +5681,6 @@
             "item": ""
         }
     ],
-    "Uxie": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Glalie": [
         {
             "method": "",
@@ -6551,36 +5741,6 @@
             "item": ""
         }
     ],
-    "Emolga": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Seviper": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Latios": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Ponyta": [
         {
             "method": "level-up",
@@ -6601,7 +5761,7 @@
             "item": ""
         }
     ],
-    "Burmy": [
+    "Burmy Plant": [
         {
             "method": "level-up",
             "condition": "Male",
@@ -6615,7 +5775,17 @@
             "condition": "Female, outside",
             "evolve-from": "",
             "level": "20",
-            "evolve-to": "Wormadam Plant Cloak",
+            "evolve-to": "Wormadam Plant",
+            "item": ""
+        }
+    ],
+    "Burmy Sandy": [
+        {
+            "method": "level-up",
+            "condition": "Male",
+            "evolve-from": "",
+            "level": "20",
+            "evolve-to": "Mothim",
             "item": ""
         },
         {
@@ -6623,7 +5793,17 @@
             "condition": "Female, in caves",
             "evolve-from": "",
             "level": "20",
-            "evolve-to": "Wormadam Sandy Cloak",
+            "evolve-to": "Wormadam Sandy",
+            "item": ""
+        }
+    ],
+    "Burmy Trash": [
+        {
+            "method": "level-up",
+            "condition": "Male",
+            "evolve-from": "",
+            "level": "20",
+            "evolve-to": "Mothim",
             "item": ""
         },
         {
@@ -6631,17 +5811,7 @@
             "condition": "Female, in buildings",
             "evolve-from": "",
             "level": "20",
-            "evolve-to": "Wormadam Trash Cloak",
-            "item": ""
-        }
-    ],
-    "Ho-oh": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
+            "evolve-to": "Wormadam Trash",
             "item": ""
         }
     ],
@@ -6725,16 +5895,6 @@
             "item": ""
         }
     ],
-    "Sawk": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Gurdurr": [
         {
             "method": "trade",
@@ -6780,36 +5940,6 @@
             "evolve-from": "Starly",
             "level": "34",
             "evolve-to": "Staraptor",
-            "item": ""
-        }
-    ],
-    "Throh": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Kecleon": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Articuno": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -6953,16 +6083,6 @@
             "item": ""
         }
     ],
-    "Skarmory": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Floatzel": [
         {
             "method": "",
@@ -7023,16 +6143,6 @@
             "item": ""
         }
     ],
-    "Keldeo": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Kricketot": [
         {
             "method": "level-up",
@@ -7060,16 +6170,6 @@
             "evolve-from": "",
             "level": "30",
             "evolve-to": "Electabuzz",
-            "item": ""
-        }
-    ],
-    "Bouffalant": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -7153,16 +6253,6 @@
             "item": ""
         }
     ],
-    "Kyogre": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Dratini": [
         {
             "method": "level-up",
@@ -7198,16 +6288,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Alolan Graveler",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Delibird": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7273,16 +6353,6 @@
             "item": ""
         }
     ],
-    "Dunsparce": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Seel": [
         {
             "method": "level-up",
@@ -7323,16 +6393,6 @@
             "item": ""
         }
     ],
-    "Pinsir": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Pignite": [
         {
             "method": "level-up",
@@ -7358,16 +6418,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Panpour",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Regigigas": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7501,21 +6551,11 @@
             "item": ""
         }
     ],
-    "Volbeat": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Wormadam Trash Cloak": [
+    "Wormadam Trash": [
         {
             "method": "",
             "condition": "",
-            "evolve-from": "Burmy",
+            "evolve-from": "Burmy Trash",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7621,16 +6661,6 @@
             "item": "Dusk Stone"
         }
     ],
-    "Heatran": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Ralts": [
         {
             "method": "level-up",
@@ -7646,16 +6676,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Taillow",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Mesprit": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7731,11 +6751,21 @@
             "item": ""
         }
     ],
-    "Gastrodon": [
+    "Gastrodon East": [
         {
             "method": "",
             "condition": "",
-            "evolve-from": "Shellos",
+            "evolve-from": "Shellos East",
+            "level": "",
+            "evolve-to": "",
+            "item": ""
+        }
+    ],
+    "Gastrodon West": [
+        {
+            "method": "",
+            "condition": "",
+            "evolve-from": "Shellos West",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7746,16 +6776,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Eevee",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Audino": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7799,21 +6819,11 @@
             "item": ""
         }
     ],
-    "Wormadam Plant Cloak": [
+    "Wormadam Plant": [
         {
             "method": "",
             "condition": "",
-            "evolve-from": "Burmy",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Zapdos": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
+            "evolve-from": "Burmy Plant",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7824,16 +6834,6 @@
             "method": "",
             "condition": "",
             "evolve-from": "Tyrogue",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
-    "Lugia": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
             "level": "",
             "evolve-to": "",
             "item": ""
@@ -7866,16 +6866,6 @@
             "evolve-from": "",
             "level": "42",
             "evolve-to": "Palossand",
-            "item": ""
-        }
-    ],
-    "Regice": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
             "item": ""
         }
     ],
@@ -8079,16 +7069,6 @@
             "item": ""
         }
     ],
-    "Volcanion": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Chingling": [
         {
             "method": "happiness",
@@ -8119,16 +7099,6 @@
             "item": ""
         }
     ],
-    "Smeargle": [
-        {
-            "method": "none",
-            "condition": "",
-            "evolve-from": "",
-            "level": "",
-            "evolve-to": "",
-            "item": ""
-        }
-    ],
     "Noctowl": [
         {
             "method": "",
@@ -8142,7 +7112,7 @@
     "Cosmoem": [
         {
             "method": "level-up",
-            "condition": "in Pokémon Sun",
+            "condition": "in Pokemon Sun",
             "evolve-from": "Cosmog",
             "level": "53",
             "evolve-to": "Solgaleo",
@@ -8150,7 +7120,7 @@
         },
         {
             "method": "level-up",
-            "condition": "in Pokémon Moon",
+            "condition": "in Pokemon Moon",
             "evolve-from": "Cosmog",
             "level": "53",
             "evolve-to": "Lunala",
