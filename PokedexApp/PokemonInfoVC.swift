@@ -55,6 +55,7 @@ class PokemonInfoVC: UIViewController {
         
         pokemon.parseStatsTypes()
         pokemon.parseAbilities()
+        pokemon.parseMeasurement()
         
         self.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
@@ -88,6 +89,9 @@ class PokemonInfoVC: UIViewController {
         } else {
             pokeHiddenAibilityLbl.isHidden = true
         }
+        
+        pokeHeightLbl.text = pokemon.height(isSIUnit: false)
+        pokeWeighLblt.text = pokemon.weight(isSIUnit: false)
         
         pokeHpLbl.text = "\(pokemon.hp)"
         pokeAttackLbl.text = "\(pokemon.attack)"

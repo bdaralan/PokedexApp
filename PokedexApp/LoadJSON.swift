@@ -35,4 +35,16 @@ class LoadJSON {
         
         return DictionarySA()
     }
+    
+    func loadMeasurementJSON() -> DictionarySA {
+        if let path = Bundle.main.path(forResource: "measurements", ofType: "json"), let data = NSData(contentsOfFile: path) as Data? {
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySA {
+                    
+                    return json
+                }
+            } catch { print(error) }
+        }
+        return DictionarySA()
+    }
 }

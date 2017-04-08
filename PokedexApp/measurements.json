@@ -1,0 +1,5522 @@
+{
+    "Bulbasaur": {
+        "id": 1,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "15.2 lbs, 6.9 kg",
+        "bmi": "13.7"
+    },
+    "Ivysaur": {
+        "id": 2,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "28.7 lbs, 13.0 kg",
+        "bmi": "13.3"
+    },
+    "Venusaur": {
+        "id": 3,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "220.5 lbs, 100.0 kg",
+        "bmi": "24.8"
+    },
+    "Mega Venusaur": {
+        "id": 3,
+        "height": "7′ 10″, 2.39 m",
+        "weight": "342.8 lbs, 155.5 kg",
+        "bmi": "27.2"
+    },
+    "Charmander": {
+        "id": 4,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "22.8"
+    },
+    "Charmeleon": {
+        "id": 5,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "41.9 lbs, 19.0 kg",
+        "bmi": "16.0"
+    },
+    "Charizard": {
+        "id": 6,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "199.5 lbs, 90.5 kg",
+        "bmi": "31.3"
+    },
+    "Mega Charizard X": {
+        "id": 6,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "243.6 lbs, 110.5 kg",
+        "bmi": "38.2"
+    },
+    "Mega Charizard Y": {
+        "id": 6,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "221.6 lbs, 100.5 kg",
+        "bmi": "34.8"
+    },
+    "Squirtle": {
+        "id": 7,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "19.8 lbs, 9.0 kg",
+        "bmi": "34.6"
+    },
+    "Wartortle": {
+        "id": 8,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "49.6 lbs, 22.5 kg",
+        "bmi": "23.0"
+    },
+    "Blastoise": {
+        "id": 9,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "188.5 lbs, 85.5 kg",
+        "bmi": "33.4"
+    },
+    "Mega Blastoise": {
+        "id": 9,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "222.9 lbs, 101.1 kg",
+        "bmi": "39.5"
+    },
+    "Caterpie": {
+        "id": 10,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "6.4 lbs, 2.9 kg",
+        "bmi": "32.2"
+    },
+    "Metapod": {
+        "id": 11,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "21.8 lbs, 9.9 kg",
+        "bmi": "19.6"
+    },
+    "Butterfree": {
+        "id": 12,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "70.5 lbs, 32.0 kg",
+        "bmi": "26.9"
+    },
+    "Weedle": {
+        "id": 13,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "7.1 lbs, 3.2 kg",
+        "bmi": "35.6"
+    },
+    "Kakuna": {
+        "id": 14,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "22 lbs, 10.0 kg",
+        "bmi": "26.9"
+    },
+    "Beedrill": {
+        "id": 15,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "65 lbs, 29.5 kg",
+        "bmi": "30.1"
+    },
+    "Mega Beedrill": {
+        "id": 15,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "89.3 lbs, 40.5 kg",
+        "bmi": "20.7"
+    },
+    "Pidgey": {
+        "id": 16,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4 lbs, 1.8 kg",
+        "bmi": "20.0"
+    },
+    "Pidgeotto": {
+        "id": 17,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "25.3"
+    },
+    "Pidgeot": {
+        "id": 18,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "87.1 lbs, 39.5 kg",
+        "bmi": "17.6"
+    },
+    "Mega Pidgeot": {
+        "id": 18,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "111.3 lbs, 50.5 kg",
+        "bmi": "10.3"
+    },
+    "Rattata": {
+        "id": 19,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "7.7 lbs, 3.5 kg",
+        "bmi": "38.9"
+    },
+    "Alolan Rattata": {
+        "id": 19,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "8.4 lbs, 3.8 kg",
+        "bmi": "42.2"
+    },
+    "Raticate": {
+        "id": 20,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "40.8 lbs, 18.5 kg",
+        "bmi": "36.7"
+    },
+    "Alolan Raticate": {
+        "id": 20,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "56.2 lbs, 25.5 kg",
+        "bmi": "50.6"
+    },
+    "Spearow": {
+        "id": 21,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "22.2"
+    },
+    "Fearow": {
+        "id": 22,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "83.8 lbs, 38.0 kg",
+        "bmi": "26.8"
+    },
+    "Ekans": {
+        "id": 23,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "15.2 lbs, 6.9 kg",
+        "bmi": "1.7"
+    },
+    "Arbok": {
+        "id": 24,
+        "height": "11′ 6″, 3.51 m",
+        "weight": "143.3 lbs, 65.0 kg",
+        "bmi": "5.3"
+    },
+    "Pikachu": {
+        "id": 25,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "13.2 lbs, 6.0 kg",
+        "bmi": "35.7"
+    },
+    "Raichu": {
+        "id": 26,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "48.1"
+    },
+    "Alolan Raichu": {
+        "id": 26,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "46.3 lbs, 21.0 kg",
+        "bmi": "41.7"
+    },
+    "Sandshrew": {
+        "id": 27,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "32.2"
+    },
+    "Alolan Sandshrew": {
+        "id": 27,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "79.3"
+    },
+    "Sandslash": {
+        "id": 28,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "65 lbs, 29.5 kg",
+        "bmi": "30.1"
+    },
+    "Alolan Sandslash": {
+        "id": 28,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "38.8"
+    },
+    "Nidoran♀": {
+        "id": 29,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "15.4 lbs, 7.0 kg",
+        "bmi": "41.6"
+    },
+    "Nidorina": {
+        "id": 30,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "44.1 lbs, 20.0 kg",
+        "bmi": "32.0"
+    },
+    "Nidoqueen": {
+        "id": 31,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "132.3 lbs, 60.0 kg",
+        "bmi": "35.5"
+    },
+    "Nidoran♂": {
+        "id": 32,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "19.8 lbs, 9.0 kg",
+        "bmi": "34.6"
+    },
+    "Nidorino": {
+        "id": 33,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "24.6"
+    },
+    "Nidoking": {
+        "id": 34,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "136.7 lbs, 62.0 kg",
+        "bmi": "31.6"
+    },
+    "Clefairy": {
+        "id": 35,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "16.5 lbs, 7.5 kg",
+        "bmi": "20.2"
+    },
+    "Clefable": {
+        "id": 36,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "23.7"
+    },
+    "Vulpix": {
+        "id": 37,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "21.8 lbs, 9.9 kg",
+        "bmi": "26.6"
+    },
+    "Alolan Vulpix": {
+        "id": 37,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "21.8 lbs, 9.9 kg",
+        "bmi": "26.6"
+    },
+    "Ninetales": {
+        "id": 38,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "43.9 lbs, 19.9 kg",
+        "bmi": "16.7"
+    },
+    "Alolan Ninetales": {
+        "id": 38,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "43.9 lbs, 19.9 kg",
+        "bmi": "16.7"
+    },
+    "Jigglypuff": {
+        "id": 39,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "12.1 lbs, 5.5 kg",
+        "bmi": "21.1"
+    },
+    "Wigglytuff": {
+        "id": 40,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "12.2"
+    },
+    "Zubat": {
+        "id": 41,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "16.5 lbs, 7.5 kg",
+        "bmi": "12.0"
+    },
+    "Golbat": {
+        "id": 42,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "21.5"
+    },
+    "Oddish": {
+        "id": 43,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "11.9 lbs, 5.4 kg",
+        "bmi": "20.8"
+    },
+    "Gloom": {
+        "id": 44,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "19 lbs, 8.6 kg",
+        "bmi": "13.8"
+    },
+    "Vileplume": {
+        "id": 45,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "41 lbs, 18.6 kg",
+        "bmi": "13.1"
+    },
+    "Paras": {
+        "id": 46,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "11.9 lbs, 5.4 kg",
+        "bmi": "60.0"
+    },
+    "Parasect": {
+        "id": 47,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "65 lbs, 29.5 kg",
+        "bmi": "30.1"
+    },
+    "Venonat": {
+        "id": 48,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "30.6"
+    },
+    "Venomoth": {
+        "id": 49,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "27.6 lbs, 12.5 kg",
+        "bmi": "5.6"
+    },
+    "Diglett": {
+        "id": 50,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "1.8 lbs, 0.8 kg",
+        "bmi": "20.0"
+    },
+    "Alolan Diglett": {
+        "id": 50,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "25.0"
+    },
+    "Dugtrio": {
+        "id": 51,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "73.4 lbs, 33.3 kg",
+        "bmi": "66.1"
+    },
+    "Alolan Dugtrio": {
+        "id": 51,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "146.8 lbs, 66.6 kg",
+        "bmi": "132.1"
+    },
+    "Meowth": {
+        "id": 52,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.3 lbs, 4.2 kg",
+        "bmi": "25.0"
+    },
+    "Alolan Meowth": {
+        "id": 52,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.3 lbs, 4.2 kg",
+        "bmi": "25.0"
+    },
+    "Persian": {
+        "id": 53,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "70.5 lbs, 32.0 kg",
+        "bmi": "32.6"
+    },
+    "Alolan Persian": {
+        "id": 53,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "72.8 lbs, 33.0 kg",
+        "bmi": "27.8"
+    },
+    "Psyduck": {
+        "id": 54,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "43.2 lbs, 19.6 kg",
+        "bmi": "31.4"
+    },
+    "Golduck": {
+        "id": 55,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "168.9 lbs, 76.6 kg",
+        "bmi": "26.5"
+    },
+    "Mankey": {
+        "id": 56,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "107.7"
+    },
+    "Primeape": {
+        "id": 57,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "70.5 lbs, 32.0 kg",
+        "bmi": "32.6"
+    },
+    "Growlithe": {
+        "id": 58,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "41.9 lbs, 19.0 kg",
+        "bmi": "37.7"
+    },
+    "Arcanine": {
+        "id": 59,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "341.7 lbs, 155.0 kg",
+        "bmi": "42.5"
+    },
+    "Poliwag": {
+        "id": 60,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "27.3 lbs, 12.4 kg",
+        "bmi": "33.3"
+    },
+    "Poliwhirl": {
+        "id": 61,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "44.1 lbs, 20.0 kg",
+        "bmi": "20.4"
+    },
+    "Poliwrath": {
+        "id": 62,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "119 lbs, 54.0 kg",
+        "bmi": "32.0"
+    },
+    "Abra": {
+        "id": 63,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "24.6"
+    },
+    "Kadabra": {
+        "id": 64,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "124.6 lbs, 56.5 kg",
+        "bmi": "33.4"
+    },
+    "Alakazam": {
+        "id": 65,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "105.8 lbs, 48.0 kg",
+        "bmi": "21.3"
+    },
+    "Mega Alakazam": {
+        "id": 65,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "105.8 lbs, 48.0 kg",
+        "bmi": "33.9"
+    },
+    "Machop": {
+        "id": 66,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "31.2"
+    },
+    "Machoke": {
+        "id": 67,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "155.4 lbs, 70.5 kg",
+        "bmi": "31.3"
+    },
+    "Machamp": {
+        "id": 68,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "286.6 lbs, 130.0 kg",
+        "bmi": "50.8"
+    },
+    "Bellsprout": {
+        "id": 69,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "7.9"
+    },
+    "Weepinbell": {
+        "id": 70,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "14.1 lbs, 6.4 kg",
+        "bmi": "6.5"
+    },
+    "Victreebel": {
+        "id": 71,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "34.2 lbs, 15.5 kg",
+        "bmi": "5.4"
+    },
+    "Tentacool": {
+        "id": 72,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "100.3 lbs, 45.5 kg",
+        "bmi": "57.4"
+    },
+    "Tentacruel": {
+        "id": 73,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "21.5"
+    },
+    "Geodude": {
+        "id": 74,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "44.1 lbs, 20.0 kg",
+        "bmi": "119.0"
+    },
+    "Alolan Geodude": {
+        "id": 74,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "44.8 lbs, 20.3 kg",
+        "bmi": "120.8"
+    },
+    "Graveler": {
+        "id": 75,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "231.5 lbs, 105.0 kg",
+        "bmi": "107.1"
+    },
+    "Alolan Graveler": {
+        "id": 75,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "242.5 lbs, 110.0 kg",
+        "bmi": "112.2"
+    },
+    "Golem": {
+        "id": 76,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "661.4 lbs, 300.0 kg",
+        "bmi": "153.1"
+    },
+    "Alolan Golem": {
+        "id": 76,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "696.7 lbs, 316.0 kg",
+        "bmi": "109.3"
+    },
+    "Ponyta": {
+        "id": 77,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "30.6"
+    },
+    "Rapidash": {
+        "id": 78,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "209.4 lbs, 95.0 kg",
+        "bmi": "32.9"
+    },
+    "Slowpoke": {
+        "id": 79,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "79.4 lbs, 36.0 kg",
+        "bmi": "25.4"
+    },
+    "Slowbro": {
+        "id": 80,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "173.1 lbs, 78.5 kg",
+        "bmi": "30.7"
+    },
+    "Mega Slowbro": {
+        "id": 80,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "29.7"
+    },
+    "Magnemite": {
+        "id": 81,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "13.2 lbs, 6.0 kg",
+        "bmi": "66.7"
+    },
+    "Magneton": {
+        "id": 82,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "132.3 lbs, 60.0 kg",
+        "bmi": "61.2"
+    },
+    "Farfetch'd": {
+        "id": 83,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "24.0"
+    },
+    "Doduo": {
+        "id": 84,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "86.4 lbs, 39.2 kg",
+        "bmi": "20.0"
+    },
+    "Dodrio": {
+        "id": 85,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "187.8 lbs, 85.2 kg",
+        "bmi": "26.3"
+    },
+    "Seel": {
+        "id": 86,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "198.4 lbs, 90.0 kg",
+        "bmi": "75.8"
+    },
+    "Dewgong": {
+        "id": 87,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "41.5"
+    },
+    "Grimer": {
+        "id": 88,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "37.9"
+    },
+    "Alolan Grimer": {
+        "id": 88,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "92.6 lbs, 42.0 kg",
+        "bmi": "83.3"
+    },
+    "Muk": {
+        "id": 89,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "21.2"
+    },
+    "Alolan Muk": {
+        "id": 89,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "114.6 lbs, 52.0 kg",
+        "bmi": "53.1"
+    },
+    "Shellder": {
+        "id": 90,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "44.4"
+    },
+    "Cloyster": {
+        "id": 91,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "292.1 lbs, 132.5 kg",
+        "bmi": "58.9"
+    },
+    "Gastly": {
+        "id": 92,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "0.2 lbs, 0.1 kg",
+        "bmi": "0.1"
+    },
+    "Haunter": {
+        "id": 93,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "0.2 lbs, 0.1 kg",
+        "bmi": "0.0"
+    },
+    "Gengar": {
+        "id": 94,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "89.3 lbs, 40.5 kg",
+        "bmi": "18.0"
+    },
+    "Mega Gengar": {
+        "id": 94,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "89.3 lbs, 40.5 kg",
+        "bmi": "20.7"
+    },
+    "Onix": {
+        "id": 95,
+        "height": "28′ 10″, 8.79 m",
+        "weight": "463 lbs, 210.0 kg",
+        "bmi": "2.7"
+    },
+    "Drowzee": {
+        "id": 96,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "71.4 lbs, 32.4 kg",
+        "bmi": "33.1"
+    },
+    "Hypno": {
+        "id": 97,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "166.7 lbs, 75.6 kg",
+        "bmi": "29.5"
+    },
+    "Krabby": {
+        "id": 98,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "38.7"
+    },
+    "Kingler": {
+        "id": 99,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "132.3 lbs, 60.0 kg",
+        "bmi": "35.5"
+    },
+    "Voltorb": {
+        "id": 100,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "22.9 lbs, 10.4 kg",
+        "bmi": "40.0"
+    },
+    "Electrode": {
+        "id": 101,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "146.8 lbs, 66.6 kg",
+        "bmi": "47.0"
+    },
+    "Exeggcute": {
+        "id": 102,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "5.5 lbs, 2.5 kg",
+        "bmi": "14.9"
+    },
+    "Exeggutor": {
+        "id": 103,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "29.7"
+    },
+    "Alolan Exeggutor": {
+        "id": 103,
+        "height": "35′ 9″, 10.90 m",
+        "weight": "916.2 lbs, 415.6 kg",
+        "bmi": "3.5"
+    },
+    "Cubone": {
+        "id": 104,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "38.7"
+    },
+    "Marowak": {
+        "id": 105,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "99.2 lbs, 45.0 kg",
+        "bmi": "45.9"
+    },
+    "Alolan Marowak": {
+        "id": 105,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "75 lbs, 34.0 kg",
+        "bmi": "34.7"
+    },
+    "Hitmonlee": {
+        "id": 106,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "109.8 lbs, 49.8 kg",
+        "bmi": "22.1"
+    },
+    "Hitmonchan": {
+        "id": 107,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "110.7 lbs, 50.2 kg",
+        "bmi": "25.6"
+    },
+    "Lickitung": {
+        "id": 108,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "144.4 lbs, 65.5 kg",
+        "bmi": "46.3"
+    },
+    "Koffing": {
+        "id": 109,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "2.7"
+    },
+    "Weezing": {
+        "id": 110,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "20.9 lbs, 9.5 kg",
+        "bmi": "6.7"
+    },
+    "Rhyhorn": {
+        "id": 111,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "253.5 lbs, 115.0 kg",
+        "bmi": "117.3"
+    },
+    "Rhydon": {
+        "id": 112,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "32.9"
+    },
+    "Chansey": {
+        "id": 113,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "76.3 lbs, 34.6 kg",
+        "bmi": "29.1"
+    },
+    "Tangela": {
+        "id": 114,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "77.2 lbs, 35.0 kg",
+        "bmi": "35.7"
+    },
+    "Kangaskhan": {
+        "id": 115,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "176.4 lbs, 80.0 kg",
+        "bmi": "16.4"
+    },
+    "Mega Kangaskhan": {
+        "id": 115,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "220.5 lbs, 100.0 kg",
+        "bmi": "20.5"
+    },
+    "Horsea": {
+        "id": 116,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "17.6 lbs, 8.0 kg",
+        "bmi": "47.6"
+    },
+    "Seadra": {
+        "id": 117,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "55.1 lbs, 25.0 kg",
+        "bmi": "17.7"
+    },
+    "Goldeen": {
+        "id": 118,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "40.3"
+    },
+    "Seaking": {
+        "id": 119,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "86 lbs, 39.0 kg",
+        "bmi": "23.1"
+    },
+    "Staryu": {
+        "id": 120,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "76.1 lbs, 34.5 kg",
+        "bmi": "55.3"
+    },
+    "Starmie": {
+        "id": 121,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "176.4 lbs, 80.0 kg",
+        "bmi": "67.3"
+    },
+    "Mr. Mime": {
+        "id": 122,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "120.2 lbs, 54.5 kg",
+        "bmi": "32.2"
+    },
+    "Scyther": {
+        "id": 123,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "123.5 lbs, 56.0 kg",
+        "bmi": "24.9"
+    },
+    "Jynx": {
+        "id": 124,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "89.5 lbs, 40.6 kg",
+        "bmi": "20.7"
+    },
+    "Electabuzz": {
+        "id": 125,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "25.3"
+    },
+    "Magmar": {
+        "id": 126,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "98.1 lbs, 44.5 kg",
+        "bmi": "26.3"
+    },
+    "Pinsir": {
+        "id": 127,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "24.4"
+    },
+    "Mega Pinsir": {
+        "id": 127,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "130.1 lbs, 59.0 kg",
+        "bmi": "20.4"
+    },
+    "Tauros": {
+        "id": 128,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "194.9 lbs, 88.4 kg",
+        "bmi": "45.1"
+    },
+    "Magikarp": {
+        "id": 129,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "22 lbs, 10.0 kg",
+        "bmi": "12.6"
+    },
+    "Gyarados": {
+        "id": 130,
+        "height": "21′ 4″, 6.50 m",
+        "weight": "518.1 lbs, 235.0 kg",
+        "bmi": "5.6"
+    },
+    "Mega Gyarados": {
+        "id": 130,
+        "height": "21′ 4″, 6.50 m",
+        "weight": "672.4 lbs, 305.0 kg",
+        "bmi": "7.2"
+    },
+    "Lapras": {
+        "id": 131,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "485 lbs, 220.0 kg",
+        "bmi": "35.5"
+    },
+    "Ditto": {
+        "id": 132,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "44.4"
+    },
+    "Eevee": {
+        "id": 133,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "72.2"
+    },
+    "Vaporeon": {
+        "id": 134,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "63.9 lbs, 29.0 kg",
+        "bmi": "29.6"
+    },
+    "Jolteon": {
+        "id": 135,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "54 lbs, 24.5 kg",
+        "bmi": "39.3"
+    },
+    "Flareon": {
+        "id": 136,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "55.1 lbs, 25.0 kg",
+        "bmi": "31.6"
+    },
+    "Porygon": {
+        "id": 137,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "80.5 lbs, 36.5 kg",
+        "bmi": "58.5"
+    },
+    "Omanyte": {
+        "id": 138,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "16.5 lbs, 7.5 kg",
+        "bmi": "44.6"
+    },
+    "Omastar": {
+        "id": 139,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "77.2 lbs, 35.0 kg",
+        "bmi": "35.7"
+    },
+    "Kabuto": {
+        "id": 140,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "25.4 lbs, 11.5 kg",
+        "bmi": "44.2"
+    },
+    "Kabutops": {
+        "id": 141,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "89.3 lbs, 40.5 kg",
+        "bmi": "24.0"
+    },
+    "Aerodactyl": {
+        "id": 142,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "130.1 lbs, 59.0 kg",
+        "bmi": "18.2"
+    },
+    "Mega Aerodactyl": {
+        "id": 142,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "174.2 lbs, 79.0 kg",
+        "bmi": "17.7"
+    },
+    "Snorlax": {
+        "id": 143,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "1014.1 lbs, 460.0 kg",
+        "bmi": "103.3"
+    },
+    "Articuno": {
+        "id": 144,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "122.1 lbs, 55.4 kg",
+        "bmi": "19.2"
+    },
+    "Zapdos": {
+        "id": 145,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "116 lbs, 52.6 kg",
+        "bmi": "20.5"
+    },
+    "Moltres": {
+        "id": 146,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "132.3 lbs, 60.0 kg",
+        "bmi": "14.9"
+    },
+    "Dratini": {
+        "id": 147,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "7.3 lbs, 3.3 kg",
+        "bmi": "1.0"
+    },
+    "Dragonair": {
+        "id": 148,
+        "height": "13′ 1″, 3.99 m",
+        "weight": "36.4 lbs, 16.5 kg",
+        "bmi": "1.0"
+    },
+    "Dragonite": {
+        "id": 149,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "463 lbs, 210.0 kg",
+        "bmi": "43.0"
+    },
+    "Mewtwo": {
+        "id": 150,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "269 lbs, 122.0 kg",
+        "bmi": "30.2"
+    },
+    "Mega Mewtwo X": {
+        "id": 150,
+        "height": "7′ 7″, 2.31 m",
+        "weight": "280 lbs, 127.0 kg",
+        "bmi": "23.8"
+    },
+    "Mega Mewtwo Y": {
+        "id": 150,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "72.8 lbs, 33.0 kg",
+        "bmi": "14.7"
+    },
+    "Mew": {
+        "id": 151,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "23.8"
+    },
+    "Chikorita": {
+        "id": 152,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "14.1 lbs, 6.4 kg",
+        "bmi": "8.1"
+    },
+    "Bayleef": {
+        "id": 153,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "34.8 lbs, 15.8 kg",
+        "bmi": "11.2"
+    },
+    "Meganium": {
+        "id": 154,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "221.6 lbs, 100.5 kg",
+        "bmi": "31.0"
+    },
+    "Cyndaquil": {
+        "id": 155,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "17.4 lbs, 7.9 kg",
+        "bmi": "30.4"
+    },
+    "Quilava": {
+        "id": 156,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "41.9 lbs, 19.0 kg",
+        "bmi": "24.0"
+    },
+    "Typhlosion": {
+        "id": 157,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "175.3 lbs, 79.5 kg",
+        "bmi": "27.5"
+    },
+    "Totodile": {
+        "id": 158,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "20.9 lbs, 9.5 kg",
+        "bmi": "25.5"
+    },
+    "Croconaw": {
+        "id": 159,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "55.1 lbs, 25.0 kg",
+        "bmi": "21.0"
+    },
+    "Feraligatr": {
+        "id": 160,
+        "height": "7′ 7″, 2.31 m",
+        "weight": "195.8 lbs, 88.8 kg",
+        "bmi": "16.6"
+    },
+    "Sentret": {
+        "id": 161,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "13.2 lbs, 6.0 kg",
+        "bmi": "9.6"
+    },
+    "Furret": {
+        "id": 162,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "71.7 lbs, 32.5 kg",
+        "bmi": "10.0"
+    },
+    "Hoothoot": {
+        "id": 163,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "46.7 lbs, 21.2 kg",
+        "bmi": "42.1"
+    },
+    "Noctowl": {
+        "id": 164,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "89.9 lbs, 40.8 kg",
+        "bmi": "15.9"
+    },
+    "Ledyba": {
+        "id": 165,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "23.8 lbs, 10.8 kg",
+        "bmi": "11.0"
+    },
+    "Ledian": {
+        "id": 166,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "78.5 lbs, 35.6 kg",
+        "bmi": "18.2"
+    },
+    "Spinarak": {
+        "id": 167,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "32.7"
+    },
+    "Ariados": {
+        "id": 168,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "73.9 lbs, 33.5 kg",
+        "bmi": "28.2"
+    },
+    "Crobat": {
+        "id": 169,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "165.3 lbs, 75.0 kg",
+        "bmi": "23.1"
+    },
+    "Chinchou": {
+        "id": 170,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "46.1"
+    },
+    "Lanturn": {
+        "id": 171,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "49.6 lbs, 22.5 kg",
+        "bmi": "15.9"
+    },
+    "Pichu": {
+        "id": 172,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "22.2"
+    },
+    "Cleffa": {
+        "id": 173,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "6.6 lbs, 3.0 kg",
+        "bmi": "33.3"
+    },
+    "Igglybuff": {
+        "id": 174,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "11.1"
+    },
+    "Togepi": {
+        "id": 175,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "3.3 lbs, 1.5 kg",
+        "bmi": "16.7"
+    },
+    "Togetic": {
+        "id": 176,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "7.1 lbs, 3.2 kg",
+        "bmi": "8.6"
+    },
+    "Natu": {
+        "id": 177,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "50.0"
+    },
+    "Xatu": {
+        "id": 178,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "6.7"
+    },
+    "Mareep": {
+        "id": 179,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "17.2 lbs, 7.8 kg",
+        "bmi": "21.0"
+    },
+    "Flaaffy": {
+        "id": 180,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "29.3 lbs, 13.3 kg",
+        "bmi": "21.3"
+    },
+    "Ampharos": {
+        "id": 181,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "135.6 lbs, 61.5 kg",
+        "bmi": "31.4"
+    },
+    "Mega Ampharos": {
+        "id": 181,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "135.6 lbs, 61.5 kg",
+        "bmi": "31.4"
+    },
+    "Bellossom": {
+        "id": 182,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "12.8 lbs, 5.8 kg",
+        "bmi": "34.5"
+    },
+    "Marill": {
+        "id": 183,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "50.6"
+    },
+    "Azumarill": {
+        "id": 184,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "62.8 lbs, 28.5 kg",
+        "bmi": "45.7"
+    },
+    "Sudowoodo": {
+        "id": 185,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "83.8 lbs, 38.0 kg",
+        "bmi": "26.8"
+    },
+    "Politoed": {
+        "id": 186,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "74.7 lbs, 33.9 kg",
+        "bmi": "28.5"
+    },
+    "Hoppip": {
+        "id": 187,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "1.1 lbs, 0.5 kg",
+        "bmi": "3.0"
+    },
+    "Skiploom": {
+        "id": 188,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "2.7"
+    },
+    "Jumpluff": {
+        "id": 189,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "6.6 lbs, 3.0 kg",
+        "bmi": "4.8"
+    },
+    "Aipom": {
+        "id": 190,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "25.4 lbs, 11.5 kg",
+        "bmi": "18.4"
+    },
+    "Sunkern": {
+        "id": 191,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4 lbs, 1.8 kg",
+        "bmi": "20.0"
+    },
+    "Sunflora": {
+        "id": 192,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "13.6"
+    },
+    "Yanma": {
+        "id": 193,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "83.8 lbs, 38.0 kg",
+        "bmi": "26.8"
+    },
+    "Wooper": {
+        "id": 194,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "50.6"
+    },
+    "Quagsire": {
+        "id": 195,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "165.3 lbs, 75.0 kg",
+        "bmi": "38.3"
+    },
+    "Espeon": {
+        "id": 196,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "58.4 lbs, 26.5 kg",
+        "bmi": "33.5"
+    },
+    "Umbreon": {
+        "id": 197,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "59.5 lbs, 27.0 kg",
+        "bmi": "27.5"
+    },
+    "Murkrow": {
+        "id": 198,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "4.6 lbs, 2.1 kg",
+        "bmi": "8.1"
+    },
+    "Slowking": {
+        "id": 199,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "175.3 lbs, 79.5 kg",
+        "bmi": "19.7"
+    },
+    "Misdreavus": {
+        "id": 200,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "2.0"
+    },
+    "Unown": {
+        "id": 201,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "19.2"
+    },
+    "Wobbuffet": {
+        "id": 202,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "62.8 lbs, 28.5 kg",
+        "bmi": "16.9"
+    },
+    "Girafarig": {
+        "id": 203,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "91.5 lbs, 41.5 kg",
+        "bmi": "18.4"
+    },
+    "Pineco": {
+        "id": 204,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "15.9 lbs, 7.2 kg",
+        "bmi": "19.3"
+    },
+    "Forretress": {
+        "id": 205,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "277.3 lbs, 125.8 kg",
+        "bmi": "88.8"
+    },
+    "Dunsparce": {
+        "id": 206,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "30.9 lbs, 14.0 kg",
+        "bmi": "6.2"
+    },
+    "Gligar": {
+        "id": 207,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "142.9 lbs, 64.8 kg",
+        "bmi": "54.5"
+    },
+    "Steelix": {
+        "id": 208,
+        "height": "30′ 2″, 9.19 m",
+        "weight": "881.8 lbs, 400.0 kg",
+        "bmi": "4.7"
+    },
+    "Mega Steelix": {
+        "id": 208,
+        "height": "34′ 5″, 10.49 m",
+        "weight": "1631.4 lbs, 740.0 kg",
+        "bmi": "6.7"
+    },
+    "Snubbull": {
+        "id": 209,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "17.2 lbs, 7.8 kg",
+        "bmi": "21.0"
+    },
+    "Granbull": {
+        "id": 210,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "107.4 lbs, 48.7 kg",
+        "bmi": "24.8"
+    },
+    "Qwilfish": {
+        "id": 211,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "8.6 lbs, 3.9 kg",
+        "bmi": "15.0"
+    },
+    "Scizor": {
+        "id": 212,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "260.1 lbs, 118.0 kg",
+        "bmi": "36.4"
+    },
+    "Mega Scizor": {
+        "id": 212,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "275.6 lbs, 125.0 kg",
+        "bmi": "30.9"
+    },
+    "Shuckle": {
+        "id": 213,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "45.2 lbs, 20.5 kg",
+        "bmi": "55.1"
+    },
+    "Heracross": {
+        "id": 214,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "119 lbs, 54.0 kg",
+        "bmi": "24.0"
+    },
+    "Mega Heracross": {
+        "id": 214,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "137.8 lbs, 62.5 kg",
+        "bmi": "21.6"
+    },
+    "Sneasel": {
+        "id": 215,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "35.3"
+    },
+    "Teddiursa": {
+        "id": 216,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "19.4 lbs, 8.8 kg",
+        "bmi": "23.6"
+    },
+    "Ursaring": {
+        "id": 217,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "277.3 lbs, 125.8 kg",
+        "bmi": "38.8"
+    },
+    "Slugma": {
+        "id": 218,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "77.2 lbs, 35.0 kg",
+        "bmi": "69.4"
+    },
+    "Magcargo": {
+        "id": 219,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "88.1"
+    },
+    "Swinub": {
+        "id": 220,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "38.7"
+    },
+    "Piloswine": {
+        "id": 221,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "123 lbs, 55.8 kg",
+        "bmi": "47.0"
+    },
+    "Corsola": {
+        "id": 222,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "13.4"
+    },
+    "Remoraid": {
+        "id": 223,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "32.2"
+    },
+    "Octillery": {
+        "id": 224,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "62.8 lbs, 28.5 kg",
+        "bmi": "36.0"
+    },
+    "Delibird": {
+        "id": 225,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "35.3 lbs, 16.0 kg",
+        "bmi": "20.2"
+    },
+    "Mantine": {
+        "id": 226,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "485 lbs, 220.0 kg",
+        "bmi": "49.4"
+    },
+    "Skarmory": {
+        "id": 227,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "111.3 lbs, 50.5 kg",
+        "bmi": "17.5"
+    },
+    "Houndour": {
+        "id": 228,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "23.8 lbs, 10.8 kg",
+        "bmi": "29.0"
+    },
+    "Houndoom": {
+        "id": 229,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "77.2 lbs, 35.0 kg",
+        "bmi": "17.9"
+    },
+    "Mega Houndoom": {
+        "id": 229,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "109.1 lbs, 49.5 kg",
+        "bmi": "13.6"
+    },
+    "Kingdra": {
+        "id": 230,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "335.1 lbs, 152.0 kg",
+        "bmi": "46.9"
+    },
+    "Phanpy": {
+        "id": 231,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "73.9 lbs, 33.5 kg",
+        "bmi": "128.8"
+    },
+    "Donphan": {
+        "id": 232,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "101.0"
+    },
+    "Porygon2": {
+        "id": 233,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "71.7 lbs, 32.5 kg",
+        "bmi": "87.3"
+    },
+    "Stantler": {
+        "id": 234,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "157 lbs, 71.2 kg",
+        "bmi": "36.3"
+    },
+    "Smeargle": {
+        "id": 235,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "127.9 lbs, 58.0 kg",
+        "bmi": "41.0"
+    },
+    "Tyrogue": {
+        "id": 236,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "46.3 lbs, 21.0 kg",
+        "bmi": "41.7"
+    },
+    "Hitmontop": {
+        "id": 237,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "105.8 lbs, 48.0 kg",
+        "bmi": "24.5"
+    },
+    "Smoochum": {
+        "id": 238,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "13.2 lbs, 6.0 kg",
+        "bmi": "35.7"
+    },
+    "Elekid": {
+        "id": 239,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "51.8 lbs, 23.5 kg",
+        "bmi": "63.2"
+    },
+    "Magby": {
+        "id": 240,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "47.2 lbs, 21.4 kg",
+        "bmi": "42.5"
+    },
+    "Miltank": {
+        "id": 241,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "166.4 lbs, 75.5 kg",
+        "bmi": "53.3"
+    },
+    "Blissey": {
+        "id": 242,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "103.2 lbs, 46.8 kg",
+        "bmi": "20.8"
+    },
+    "Raikou": {
+        "id": 243,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "392.4 lbs, 178.0 kg",
+        "bmi": "48.8"
+    },
+    "Entei": {
+        "id": 244,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "436.5 lbs, 198.0 kg",
+        "bmi": "44.5"
+    },
+    "Suicune": {
+        "id": 245,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "412.3 lbs, 187.0 kg",
+        "bmi": "46.3"
+    },
+    "Larvitar": {
+        "id": 246,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "158.7 lbs, 72.0 kg",
+        "bmi": "193.5"
+    },
+    "Pupitar": {
+        "id": 247,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "335.1 lbs, 152.0 kg",
+        "bmi": "107.3"
+    },
+    "Tyranitar": {
+        "id": 248,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "445.3 lbs, 202.0 kg",
+        "bmi": "50.0"
+    },
+    "Mega Tyranitar": {
+        "id": 248,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "562.2 lbs, 255.0 kg",
+        "bmi": "41.1"
+    },
+    "Lugia": {
+        "id": 249,
+        "height": "17′ 1″, 5.21 m",
+        "weight": "476.2 lbs, 216.0 kg",
+        "bmi": "8.0"
+    },
+    "Ho-oh": {
+        "id": 250,
+        "height": "12′ 6″, 3.81 m",
+        "weight": "438.7 lbs, 199.0 kg",
+        "bmi": "13.7"
+    },
+    "Celebi": {
+        "id": 251,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "13.4"
+    },
+    "Treecko": {
+        "id": 252,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "19.2"
+    },
+    "Grovyle": {
+        "id": 253,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "47.6 lbs, 21.6 kg",
+        "bmi": "27.3"
+    },
+    "Sceptile": {
+        "id": 254,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "115.1 lbs, 52.2 kg",
+        "bmi": "18.1"
+    },
+    "Mega Sceptile": {
+        "id": 254,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "121.7 lbs, 55.2 kg",
+        "bmi": "15.1"
+    },
+    "Torchic": {
+        "id": 255,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "5.5 lbs, 2.5 kg",
+        "bmi": "14.9"
+    },
+    "Combusken": {
+        "id": 256,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "24.6"
+    },
+    "Blaziken": {
+        "id": 257,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "114.6 lbs, 52.0 kg",
+        "bmi": "14.3"
+    },
+    "Mega Blaziken": {
+        "id": 257,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "114.6 lbs, 52.0 kg",
+        "bmi": "14.3"
+    },
+    "Mudkip": {
+        "id": 258,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "16.8 lbs, 7.6 kg",
+        "bmi": "45.2"
+    },
+    "Marshtomp": {
+        "id": 259,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "55.5"
+    },
+    "Swampert": {
+        "id": 260,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "180.6 lbs, 81.9 kg",
+        "bmi": "36.4"
+    },
+    "Mega Swampert": {
+        "id": 260,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "224.9 lbs, 102.0 kg",
+        "bmi": "28.0"
+    },
+    "Poochyena": {
+        "id": 261,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "30 lbs, 13.6 kg",
+        "bmi": "52.3"
+    },
+    "Mightyena": {
+        "id": 262,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "81.6 lbs, 37.0 kg",
+        "bmi": "37.8"
+    },
+    "Zigzagoon": {
+        "id": 263,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "38.6 lbs, 17.5 kg",
+        "bmi": "104.1"
+    },
+    "Linoone": {
+        "id": 264,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "71.7 lbs, 32.5 kg",
+        "bmi": "125.0"
+    },
+    "Wurmple": {
+        "id": 265,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "7.9 lbs, 3.6 kg",
+        "bmi": "40.0"
+    },
+    "Silcoon": {
+        "id": 266,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "22 lbs, 10.0 kg",
+        "bmi": "26.9"
+    },
+    "Beautifly": {
+        "id": 267,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "62.6 lbs, 28.4 kg",
+        "bmi": "29.0"
+    },
+    "Cascoon": {
+        "id": 268,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "25.4 lbs, 11.5 kg",
+        "bmi": "22.8"
+    },
+    "Dustox": {
+        "id": 269,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "69.7 lbs, 31.6 kg",
+        "bmi": "22.3"
+    },
+    "Lotad": {
+        "id": 270,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "5.7 lbs, 2.6 kg",
+        "bmi": "10.0"
+    },
+    "Lombre": {
+        "id": 271,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "71.7 lbs, 32.5 kg",
+        "bmi": "23.0"
+    },
+    "Ludicolo": {
+        "id": 272,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "24.4"
+    },
+    "Seedot": {
+        "id": 273,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "15.4"
+    },
+    "Nuzleaf": {
+        "id": 274,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "28.6"
+    },
+    "Shiftry": {
+        "id": 275,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "131.4 lbs, 59.6 kg",
+        "bmi": "35.3"
+    },
+    "Taillow": {
+        "id": 276,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "5.1 lbs, 2.3 kg",
+        "bmi": "25.6"
+    },
+    "Swellow": {
+        "id": 277,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "43.7 lbs, 19.8 kg",
+        "bmi": "39.3"
+    },
+    "Wingull": {
+        "id": 278,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "20.9 lbs, 9.5 kg",
+        "bmi": "25.5"
+    },
+    "Pelipper": {
+        "id": 279,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "19.8"
+    },
+    "Ralts": {
+        "id": 280,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "14.6 lbs, 6.6 kg",
+        "bmi": "39.3"
+    },
+    "Kirlia": {
+        "id": 281,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "44.5 lbs, 20.2 kg",
+        "bmi": "32.4"
+    },
+    "Gardevoir": {
+        "id": 282,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "106.7 lbs, 48.4 kg",
+        "bmi": "18.9"
+    },
+    "Mega Gardevoir": {
+        "id": 282,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "106.7 lbs, 48.4 kg",
+        "bmi": "18.9"
+    },
+    "Surskit": {
+        "id": 283,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "3.7 lbs, 1.7 kg",
+        "bmi": "6.5"
+    },
+    "Masquerain": {
+        "id": 284,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "7.9 lbs, 3.6 kg",
+        "bmi": "5.8"
+    },
+    "Shroomish": {
+        "id": 285,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.9 lbs, 4.5 kg",
+        "bmi": "26.8"
+    },
+    "Breloom": {
+        "id": 286,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "86.4 lbs, 39.2 kg",
+        "bmi": "27.7"
+    },
+    "Slakoth": {
+        "id": 287,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "52.9 lbs, 24.0 kg",
+        "bmi": "38.5"
+    },
+    "Vigoroth": {
+        "id": 288,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "102.5 lbs, 46.5 kg",
+        "bmi": "23.7"
+    },
+    "Slaking": {
+        "id": 289,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "287.7 lbs, 130.5 kg",
+        "bmi": "32.3"
+    },
+    "Nincada": {
+        "id": 290,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "12.1 lbs, 5.5 kg",
+        "bmi": "21.1"
+    },
+    "Ninjask": {
+        "id": 291,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "19.2"
+    },
+    "Shedinja": {
+        "id": 292,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "2.6 lbs, 1.2 kg",
+        "bmi": "1.9"
+    },
+    "Whismur": {
+        "id": 293,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "35.9 lbs, 16.3 kg",
+        "bmi": "43.8"
+    },
+    "Loudred": {
+        "id": 294,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "89.3 lbs, 40.5 kg",
+        "bmi": "41.3"
+    },
+    "Exploud": {
+        "id": 295,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "185.2 lbs, 84.0 kg",
+        "bmi": "37.3"
+    },
+    "Makuhita": {
+        "id": 296,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "190.5 lbs, 86.4 kg",
+        "bmi": "88.2"
+    },
+    "Hariyama": {
+        "id": 297,
+        "height": "7′ 7″, 2.31 m",
+        "weight": "559.5 lbs, 253.8 kg",
+        "bmi": "47.6"
+    },
+    "Azurill": {
+        "id": 298,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "50.0"
+    },
+    "Nosepass": {
+        "id": 299,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "213.8 lbs, 97.0 kg",
+        "bmi": "99.0"
+    },
+    "Skitty": {
+        "id": 300,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "24.3 lbs, 11.0 kg",
+        "bmi": "29.6"
+    },
+    "Delcatty": {
+        "id": 301,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "71.9 lbs, 32.6 kg",
+        "bmi": "27.4"
+    },
+    "Sableye": {
+        "id": 302,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "24.3 lbs, 11.0 kg",
+        "bmi": "42.3"
+    },
+    "Mega Sableye": {
+        "id": 302,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "354.9 lbs, 161.0 kg",
+        "bmi": "619.0"
+    },
+    "Mawile": {
+        "id": 303,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "25.4 lbs, 11.5 kg",
+        "bmi": "30.9"
+    },
+    "Mega Mawile": {
+        "id": 303,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "51.8 lbs, 23.5 kg",
+        "bmi": "24.0"
+    },
+    "Aron": {
+        "id": 304,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "132.3 lbs, 60.0 kg",
+        "bmi": "356.9"
+    },
+    "Lairon": {
+        "id": 305,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "151.5"
+    },
+    "Aggron": {
+        "id": 306,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "793.7 lbs, 360.0 kg",
+        "bmi": "80.9"
+    },
+    "Mega Aggron": {
+        "id": 306,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "870.8 lbs, 395.0 kg",
+        "bmi": "80.9"
+    },
+    "Meditite": {
+        "id": 307,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "24.7 lbs, 11.2 kg",
+        "bmi": "30.1"
+    },
+    "Medicham": {
+        "id": 308,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "69.4 lbs, 31.5 kg",
+        "bmi": "18.6"
+    },
+    "Mega Medicham": {
+        "id": 308,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "69.4 lbs, 31.5 kg",
+        "bmi": "18.6"
+    },
+    "Electrike": {
+        "id": 309,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "33.5 lbs, 15.2 kg",
+        "bmi": "40.8"
+    },
+    "Manectric": {
+        "id": 310,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "88.6 lbs, 40.2 kg",
+        "bmi": "17.9"
+    },
+    "Mega Manectric": {
+        "id": 310,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "97 lbs, 44.0 kg",
+        "bmi": "13.6"
+    },
+    "Plusle": {
+        "id": 311,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.3 lbs, 4.2 kg",
+        "bmi": "25.0"
+    },
+    "Minun": {
+        "id": 312,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.3 lbs, 4.2 kg",
+        "bmi": "25.0"
+    },
+    "Volbeat": {
+        "id": 313,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "39 lbs, 17.7 kg",
+        "bmi": "35.1"
+    },
+    "Illumise": {
+        "id": 314,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "39 lbs, 17.7 kg",
+        "bmi": "47.6"
+    },
+    "Roselia": {
+        "id": 315,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "22.2"
+    },
+    "Gulpin": {
+        "id": 316,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "22.7 lbs, 10.3 kg",
+        "bmi": "61.3"
+    },
+    "Swalot": {
+        "id": 317,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "176.4 lbs, 80.0 kg",
+        "bmi": "27.7"
+    },
+    "Carvanha": {
+        "id": 318,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "45.9 lbs, 20.8 kg",
+        "bmi": "33.3"
+    },
+    "Sharpedo": {
+        "id": 319,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "195.8 lbs, 88.8 kg",
+        "bmi": "27.4"
+    },
+    "Mega Sharpedo": {
+        "id": 319,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "287.3 lbs, 130.3 kg",
+        "bmi": "21.0"
+    },
+    "Wailmer": {
+        "id": 320,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "286.6 lbs, 130.0 kg",
+        "bmi": "32.2"
+    },
+    "Wailord": {
+        "id": 321,
+        "height": "47′ 7″, 14.50 m",
+        "weight": "877.4 lbs, 398.0 kg",
+        "bmi": "1.9"
+    },
+    "Numel": {
+        "id": 322,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "52.9 lbs, 24.0 kg",
+        "bmi": "47.6"
+    },
+    "Camerupt": {
+        "id": 323,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "485 lbs, 220.0 kg",
+        "bmi": "60.3"
+    },
+    "Mega Camerupt": {
+        "id": 323,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "706.6 lbs, 320.5 kg",
+        "bmi": "51.7"
+    },
+    "Torkoal": {
+        "id": 324,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "177.3 lbs, 80.4 kg",
+        "bmi": "309.1"
+    },
+    "Spoink": {
+        "id": 325,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "67.5 lbs, 30.6 kg",
+        "bmi": "60.7"
+    },
+    "Grumpig": {
+        "id": 326,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "157.6 lbs, 71.5 kg",
+        "bmi": "90.3"
+    },
+    "Spinda": {
+        "id": 327,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "4.2"
+    },
+    "Trapinch": {
+        "id": 328,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "29.8"
+    },
+    "Vibrava": {
+        "id": 329,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "33.7 lbs, 15.3 kg",
+        "bmi": "12.9"
+    },
+    "Flygon": {
+        "id": 330,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "180.8 lbs, 82.0 kg",
+        "bmi": "20.3"
+    },
+    "Cacnea": {
+        "id": 331,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "113.1 lbs, 51.3 kg",
+        "bmi": "305.2"
+    },
+    "Cacturne": {
+        "id": 332,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "170.6 lbs, 77.4 kg",
+        "bmi": "45.8"
+    },
+    "Swablu": {
+        "id": 333,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "2.6 lbs, 1.2 kg",
+        "bmi": "7.1"
+    },
+    "Altaria": {
+        "id": 334,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "45.4 lbs, 20.6 kg",
+        "bmi": "17.3"
+    },
+    "Mega Altaria": {
+        "id": 334,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "45.4 lbs, 20.6 kg",
+        "bmi": "9.2"
+    },
+    "Zangoose": {
+        "id": 335,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "88.8 lbs, 40.3 kg",
+        "bmi": "23.8"
+    },
+    "Seviper": {
+        "id": 336,
+        "height": "8′ 10″, 2.69 m",
+        "weight": "115.7 lbs, 52.5 kg",
+        "bmi": "7.3"
+    },
+    "Lunatone": {
+        "id": 337,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "370.4 lbs, 168.0 kg",
+        "bmi": "171.4"
+    },
+    "Solrock": {
+        "id": 338,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "339.5 lbs, 154.0 kg",
+        "bmi": "108.7"
+    },
+    "Barboach": {
+        "id": 339,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "4.2 lbs, 1.9 kg",
+        "bmi": "11.3"
+    },
+    "Whiscash": {
+        "id": 340,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "52 lbs, 23.6 kg",
+        "bmi": "29.8"
+    },
+    "Corphish": {
+        "id": 341,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "25.4 lbs, 11.5 kg",
+        "bmi": "30.9"
+    },
+    "Crawdaunt": {
+        "id": 342,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "72.3 lbs, 32.8 kg",
+        "bmi": "27.6"
+    },
+    "Baltoy": {
+        "id": 343,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "47.4 lbs, 21.5 kg",
+        "bmi": "82.7"
+    },
+    "Claydol": {
+        "id": 344,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "238.1 lbs, 108.0 kg",
+        "bmi": "48.0"
+    },
+    "Lileep": {
+        "id": 345,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "52.5 lbs, 23.8 kg",
+        "bmi": "24.3"
+    },
+    "Cradily": {
+        "id": 346,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "133.2 lbs, 60.4 kg",
+        "bmi": "26.8"
+    },
+    "Anorith": {
+        "id": 347,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "27.6 lbs, 12.5 kg",
+        "bmi": "24.8"
+    },
+    "Armaldo": {
+        "id": 348,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "150.4 lbs, 68.2 kg",
+        "bmi": "30.3"
+    },
+    "Feebas": {
+        "id": 349,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "16.3 lbs, 7.4 kg",
+        "bmi": "19.9"
+    },
+    "Milotic": {
+        "id": 350,
+        "height": "20′ 4″, 6.20 m",
+        "weight": "357.1 lbs, 162.0 kg",
+        "bmi": "4.2"
+    },
+    "Castform": {
+        "id": 351,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "1.8 lbs, 0.8 kg",
+        "bmi": "8.9"
+    },
+    "Kecleon": {
+        "id": 352,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "48.5 lbs, 22.0 kg",
+        "bmi": "22.4"
+    },
+    "Shuppet": {
+        "id": 353,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "5.1 lbs, 2.3 kg",
+        "bmi": "6.2"
+    },
+    "Banette": {
+        "id": 354,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "27.6 lbs, 12.5 kg",
+        "bmi": "10.5"
+    },
+    "Mega Banette": {
+        "id": 354,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "28.7 lbs, 13.0 kg",
+        "bmi": "9.2"
+    },
+    "Duskull": {
+        "id": 355,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "24.0"
+    },
+    "Dusclops": {
+        "id": 356,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "67.5 lbs, 30.6 kg",
+        "bmi": "12.0"
+    },
+    "Tropius": {
+        "id": 357,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "220.5 lbs, 100.0 kg",
+        "bmi": "24.8"
+    },
+    "Chimecho": {
+        "id": 358,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "2.7"
+    },
+    "Absol": {
+        "id": 359,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "103.6 lbs, 47.0 kg",
+        "bmi": "33.2"
+    },
+    "Mega Absol": {
+        "id": 359,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "108 lbs, 49.0 kg",
+        "bmi": "34.6"
+    },
+    "Wynaut": {
+        "id": 360,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "30.9 lbs, 14.0 kg",
+        "bmi": "37.6"
+    },
+    "Snorunt": {
+        "id": 361,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "37 lbs, 16.8 kg",
+        "bmi": "33.3"
+    },
+    "Glalie": {
+        "id": 362,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "565.5 lbs, 256.5 kg",
+        "bmi": "114.0"
+    },
+    "Mega Glalie": {
+        "id": 362,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "772.1 lbs, 350.2 kg",
+        "bmi": "78.7"
+    },
+    "Spheal": {
+        "id": 363,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "87.1 lbs, 39.5 kg",
+        "bmi": "63.3"
+    },
+    "Sealeo": {
+        "id": 364,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "193.1 lbs, 87.6 kg",
+        "bmi": "73.7"
+    },
+    "Walrein": {
+        "id": 365,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "332 lbs, 150.6 kg",
+        "bmi": "76.8"
+    },
+    "Clamperl": {
+        "id": 366,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "115.7 lbs, 52.5 kg",
+        "bmi": "312.3"
+    },
+    "Huntail": {
+        "id": 367,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "59.5 lbs, 27.0 kg",
+        "bmi": "9.3"
+    },
+    "Gorebyss": {
+        "id": 368,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "49.8 lbs, 22.6 kg",
+        "bmi": "7.0"
+    },
+    "Relicanth": {
+        "id": 369,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "51.6 lbs, 23.4 kg",
+        "bmi": "23.9"
+    },
+    "Luvdisc": {
+        "id": 370,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "19.2 lbs, 8.7 kg",
+        "bmi": "23.4"
+    },
+    "Bagon": {
+        "id": 371,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "92.8 lbs, 42.1 kg",
+        "bmi": "113.1"
+    },
+    "Shelgon": {
+        "id": 372,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "243.6 lbs, 110.5 kg",
+        "bmi": "93.0"
+    },
+    "Salamence": {
+        "id": 373,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "226.2 lbs, 102.6 kg",
+        "bmi": "45.6"
+    },
+    "Mega Salamence": {
+        "id": 373,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "248.2 lbs, 112.6 kg",
+        "bmi": "34.8"
+    },
+    "Beldum": {
+        "id": 374,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "209.9 lbs, 95.2 kg",
+        "bmi": "255.8"
+    },
+    "Metang": {
+        "id": 375,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "446.4 lbs, 202.5 kg",
+        "bmi": "143.0"
+    },
+    "Metagross": {
+        "id": 376,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "1212.5 lbs, 550.0 kg",
+        "bmi": "214.8"
+    },
+    "Mega Metagross": {
+        "id": 376,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "2078.7 lbs, 942.9 kg",
+        "bmi": "152.1"
+    },
+    "Regirock": {
+        "id": 377,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "507.1 lbs, 230.0 kg",
+        "bmi": "79.6"
+    },
+    "Regice": {
+        "id": 378,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "385.8 lbs, 175.0 kg",
+        "bmi": "54.0"
+    },
+    "Registeel": {
+        "id": 379,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "451.9 lbs, 205.0 kg",
+        "bmi": "56.2"
+    },
+    "Latias": {
+        "id": 380,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "20.4"
+    },
+    "Mega Latias": {
+        "id": 380,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "114.6 lbs, 52.0 kg",
+        "bmi": "16.0"
+    },
+    "Latios": {
+        "id": 381,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "132.3 lbs, 60.0 kg",
+        "bmi": "14.9"
+    },
+    "Mega Latios": {
+        "id": 381,
+        "height": "7′ 7″, 2.31 m",
+        "weight": "154.3 lbs, 70.0 kg",
+        "bmi": "13.1"
+    },
+    "Kyogre": {
+        "id": 382,
+        "height": "14′ 9″, 4.50 m",
+        "weight": "776 lbs, 352.0 kg",
+        "bmi": "17.4"
+    },
+    "Primal Kyogre": {
+        "id": 382,
+        "height": "32′ 1″, 9.78 m",
+        "weight": "948 lbs, 430.0 kg",
+        "bmi": "4.5"
+    },
+    "Groudon": {
+        "id": 383,
+        "height": "11′ 6″, 3.51 m",
+        "weight": "2094.4 lbs, 950.0 kg",
+        "bmi": "77.1"
+    },
+    "Primal Groudon": {
+        "id": 383,
+        "height": "16′ 5″, 5.00 m",
+        "weight": "2204.4 lbs, 999.9 kg",
+        "bmi": "40.0"
+    },
+    "Rayquaza": {
+        "id": 384,
+        "height": "23′ 0″, 7.01 m",
+        "weight": "455.3 lbs, 206.5 kg",
+        "bmi": "4.2"
+    },
+    "Mega Rayquaza": {
+        "id": 384,
+        "height": "35′ 5″, 10.79 m",
+        "weight": "864.2 lbs, 392.0 kg",
+        "bmi": "3.4"
+    },
+    "Jirachi": {
+        "id": 385,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "2.4 lbs, 1.1 kg",
+        "bmi": "12.2"
+    },
+    "Deoxys Normal": {
+        "id": 386,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "134 lbs, 60.8 kg",
+        "bmi": "21.0"
+    },
+    "Deoxys Attack": {
+        "id": 386,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "134 lbs, 60.8 kg",
+        "bmi": "21.0"
+    },
+    "Deoxys Defense": {
+        "id": 386,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "134 lbs, 60.8 kg",
+        "bmi": "21.0"
+    },
+    "Deoxys Speed": {
+        "id": 386,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "134 lbs, 60.8 kg",
+        "bmi": "21.0"
+    },
+    "Turtwig": {
+        "id": 387,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "22.5 lbs, 10.2 kg",
+        "bmi": "60.7"
+    },
+    "Grotle": {
+        "id": 388,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "213.8 lbs, 97.0 kg",
+        "bmi": "81.6"
+    },
+    "Torterra": {
+        "id": 389,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "683.4 lbs, 310.0 kg",
+        "bmi": "63.5"
+    },
+    "Chimchar": {
+        "id": 390,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "13.7 lbs, 6.2 kg",
+        "bmi": "23.8"
+    },
+    "Monferno": {
+        "id": 391,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "48.5 lbs, 22.0 kg",
+        "bmi": "27.8"
+    },
+    "Infernape": {
+        "id": 392,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "121.3 lbs, 55.0 kg",
+        "bmi": "38.8"
+    },
+    "Piplup": {
+        "id": 393,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11.5 lbs, 5.2 kg",
+        "bmi": "30.9"
+    },
+    "Prinplup": {
+        "id": 394,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "50.7 lbs, 23.0 kg",
+        "bmi": "36.9"
+    },
+    "Empoleon": {
+        "id": 395,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "186.3 lbs, 84.5 kg",
+        "bmi": "29.2"
+    },
+    "Starly": {
+        "id": 396,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "22.2"
+    },
+    "Staravia": {
+        "id": 397,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "34.2 lbs, 15.5 kg",
+        "bmi": "41.7"
+    },
+    "Staraptor": {
+        "id": 398,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "54.9 lbs, 24.9 kg",
+        "bmi": "17.6"
+    },
+    "Bidoof": {
+        "id": 399,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "44.1 lbs, 20.0 kg",
+        "bmi": "76.9"
+    },
+    "Bibarel": {
+        "id": 400,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "69.4 lbs, 31.5 kg",
+        "bmi": "32.1"
+    },
+    "Kricketot": {
+        "id": 401,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4.9 lbs, 2.2 kg",
+        "bmi": "24.4"
+    },
+    "Kricketune": {
+        "id": 402,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "56.2 lbs, 25.5 kg",
+        "bmi": "26.0"
+    },
+    "Shinx": {
+        "id": 403,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "20.9 lbs, 9.5 kg",
+        "bmi": "36.5"
+    },
+    "Luxio": {
+        "id": 404,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "67.2 lbs, 30.5 kg",
+        "bmi": "38.5"
+    },
+    "Luxray": {
+        "id": 405,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "92.6 lbs, 42.0 kg",
+        "bmi": "21.4"
+    },
+    "Budew": {
+        "id": 406,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "2.6 lbs, 1.2 kg",
+        "bmi": "30.0"
+    },
+    "Roserade": {
+        "id": 407,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "32 lbs, 14.5 kg",
+        "bmi": "18.3"
+    },
+    "Cranidos": {
+        "id": 408,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "69.4 lbs, 31.5 kg",
+        "bmi": "39.8"
+    },
+    "Rampardos": {
+        "id": 409,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "226 lbs, 102.5 kg",
+        "bmi": "40.0"
+    },
+    "Shieldon": {
+        "id": 410,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "125.7 lbs, 57.0 kg",
+        "bmi": "219.1"
+    },
+    "Bastiodon": {
+        "id": 411,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "329.6 lbs, 149.5 kg",
+        "bmi": "88.5"
+    },
+    "Burmy Plant": {
+        "id": 412,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "85.0"
+    },
+    "Burmy Sandy": {
+        "id": 412,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "85.0"
+    },
+    "Burmy Trash": {
+        "id": 412,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "85.0"
+    },
+    "Wormadam Plant": {
+        "id": 413,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "25.0"
+    },
+    "Wormadam Sandy": {
+        "id": 413,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "25.0"
+    },
+    "Wormadam Trash": {
+        "id": 413,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "25.0"
+    },
+    "Mothim": {
+        "id": 414,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "51.4 lbs, 23.3 kg",
+        "bmi": "29.4"
+    },
+    "Combee": {
+        "id": 415,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "12.1 lbs, 5.5 kg",
+        "bmi": "61.1"
+    },
+    "Vespiquen": {
+        "id": 416,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "84.9 lbs, 38.5 kg",
+        "bmi": "27.2"
+    },
+    "Pachirisu": {
+        "id": 417,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "8.6 lbs, 3.9 kg",
+        "bmi": "23.2"
+    },
+    "Buizel": {
+        "id": 418,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "65 lbs, 29.5 kg",
+        "bmi": "58.5"
+    },
+    "Floatzel": {
+        "id": 419,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "73.9 lbs, 33.5 kg",
+        "bmi": "28.2"
+    },
+    "Cherubi": {
+        "id": 420,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "7.3 lbs, 3.3 kg",
+        "bmi": "19.6"
+    },
+    "Cherrim Overcast": {
+        "id": 421,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "20.5 lbs, 9.3 kg",
+        "bmi": "35.8"
+    },
+    "Cherrim Sunshine": {
+        "id": 421,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "20.5 lbs, 9.3 kg",
+        "bmi": "35.8"
+    },
+    "Shellos East": {
+        "id": 422,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "13.9 lbs, 6.3 kg",
+        "bmi": "70.0"
+    },
+    "Shellos West": {
+        "id": 422,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "13.9 lbs, 6.3 kg",
+        "bmi": "70.0"
+    },
+    "Gastrodon East": {
+        "id": 423,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "65.9 lbs, 29.9 kg",
+        "bmi": "37.7"
+    },
+    "Gastrodon West": {
+        "id": 423,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "65.9 lbs, 29.9 kg",
+        "bmi": "37.7"
+    },
+    "Ambipom": {
+        "id": 424,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "44.8 lbs, 20.3 kg",
+        "bmi": "14.3"
+    },
+    "Drifloon": {
+        "id": 425,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "2.6 lbs, 1.2 kg",
+        "bmi": "7.1"
+    },
+    "Drifblim": {
+        "id": 426,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "10.6"
+    },
+    "Buneary": {
+        "id": 427,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "12.1 lbs, 5.5 kg",
+        "bmi": "32.7"
+    },
+    "Lopunny": {
+        "id": 428,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "73.4 lbs, 33.3 kg",
+        "bmi": "23.5"
+    },
+    "Mega Lopunny": {
+        "id": 428,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "62.4 lbs, 28.3 kg",
+        "bmi": "16.7"
+    },
+    "Mismagius": {
+        "id": 429,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "9.7 lbs, 4.4 kg",
+        "bmi": "5.6"
+    },
+    "Honchkrow": {
+        "id": 430,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "60.2 lbs, 27.3 kg",
+        "bmi": "34.5"
+    },
+    "Glameow": {
+        "id": 431,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "8.6 lbs, 3.9 kg",
+        "bmi": "15.0"
+    },
+    "Purugly": {
+        "id": 432,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "96.6 lbs, 43.8 kg",
+        "bmi": "44.7"
+    },
+    "Chingling": {
+        "id": 433,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "1.3 lbs, 0.6 kg",
+        "bmi": "15.0"
+    },
+    "Stunky": {
+        "id": 434,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "42.3 lbs, 19.2 kg",
+        "bmi": "114.2"
+    },
+    "Skuntank": {
+        "id": 435,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "83.8 lbs, 38.0 kg",
+        "bmi": "38.8"
+    },
+    "Bronzor": {
+        "id": 436,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "133.4 lbs, 60.5 kg",
+        "bmi": "232.6"
+    },
+    "Bronzong": {
+        "id": 437,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "412.3 lbs, 187.0 kg",
+        "bmi": "110.7"
+    },
+    "Bonsly": {
+        "id": 438,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "57.7"
+    },
+    "Mime Jr.": {
+        "id": 439,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "28.7 lbs, 13.0 kg",
+        "bmi": "34.9"
+    },
+    "Happiny": {
+        "id": 440,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "53.8 lbs, 24.4 kg",
+        "bmi": "65.6"
+    },
+    "Chatot": {
+        "id": 441,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "4.2 lbs, 1.9 kg",
+        "bmi": "7.3"
+    },
+    "Spiritomb": {
+        "id": 442,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "238.1 lbs, 108.0 kg",
+        "bmi": "110.2"
+    },
+    "Gible": {
+        "id": 443,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "45.2 lbs, 20.5 kg",
+        "bmi": "40.7"
+    },
+    "Gabite": {
+        "id": 444,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "123.5 lbs, 56.0 kg",
+        "bmi": "28.6"
+    },
+    "Garchomp": {
+        "id": 445,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "209.4 lbs, 95.0 kg",
+        "bmi": "26.0"
+    },
+    "Mega Garchomp": {
+        "id": 445,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "209.4 lbs, 95.0 kg",
+        "bmi": "26.0"
+    },
+    "Munchlax": {
+        "id": 446,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "231.5 lbs, 105.0 kg",
+        "bmi": "282.2"
+    },
+    "Riolu": {
+        "id": 447,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "44.5 lbs, 20.2 kg",
+        "bmi": "40.1"
+    },
+    "Lucario": {
+        "id": 448,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "119 lbs, 54.0 kg",
+        "bmi": "38.1"
+    },
+    "Mega Lucario": {
+        "id": 448,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "126.8 lbs, 57.5 kg",
+        "bmi": "34.0"
+    },
+    "Hippopotas": {
+        "id": 449,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "109.1 lbs, 49.5 kg",
+        "bmi": "79.3"
+    },
+    "Hippowdon": {
+        "id": 450,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "661.4 lbs, 300.0 kg",
+        "bmi": "74.3"
+    },
+    "Skorupi": {
+        "id": 451,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "19.2"
+    },
+    "Drapion": {
+        "id": 452,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "135.6 lbs, 61.5 kg",
+        "bmi": "36.4"
+    },
+    "Croagunk": {
+        "id": 453,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "50.7 lbs, 23.0 kg",
+        "bmi": "45.6"
+    },
+    "Toxicroak": {
+        "id": 454,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "97.9 lbs, 44.4 kg",
+        "bmi": "26.3"
+    },
+    "Carnivine": {
+        "id": 455,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "59.5 lbs, 27.0 kg",
+        "bmi": "13.8"
+    },
+    "Finneon": {
+        "id": 456,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "15.4 lbs, 7.0 kg",
+        "bmi": "41.6"
+    },
+    "Lumineon": {
+        "id": 457,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "52.9 lbs, 24.0 kg",
+        "bmi": "16.9"
+    },
+    "Mantyke": {
+        "id": 458,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "143.3 lbs, 65.0 kg",
+        "bmi": "66.3"
+    },
+    "Snover": {
+        "id": 459,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "111.3 lbs, 50.5 kg",
+        "bmi": "51.5"
+    },
+    "Abomasnow": {
+        "id": 460,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "298.7 lbs, 135.5 kg",
+        "bmi": "27.7"
+    },
+    "Mega Abomasnow": {
+        "id": 460,
+        "height": "8′ 10″, 2.69 m",
+        "weight": "407.8 lbs, 185.0 kg",
+        "bmi": "25.6"
+    },
+    "Weavile": {
+        "id": 461,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "75 lbs, 34.0 kg",
+        "bmi": "28.6"
+    },
+    "Magnezone": {
+        "id": 462,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "396.8 lbs, 180.0 kg",
+        "bmi": "127.1"
+    },
+    "Lickilicky": {
+        "id": 463,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "308.6 lbs, 140.0 kg",
+        "bmi": "48.4"
+    },
+    "Rhyperior": {
+        "id": 464,
+        "height": "7′ 10″, 2.39 m",
+        "weight": "623.5 lbs, 282.8 kg",
+        "bmi": "49.5"
+    },
+    "Tangrowth": {
+        "id": 465,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "283.5 lbs, 128.6 kg",
+        "bmi": "31.8"
+    },
+    "Electivire": {
+        "id": 466,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "305.6 lbs, 138.6 kg",
+        "bmi": "42.8"
+    },
+    "Magmortar": {
+        "id": 467,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "149.9 lbs, 68.0 kg",
+        "bmi": "26.6"
+    },
+    "Togekiss": {
+        "id": 468,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "83.8 lbs, 38.0 kg",
+        "bmi": "16.9"
+    },
+    "Yanmega": {
+        "id": 469,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "113.5 lbs, 51.5 kg",
+        "bmi": "14.1"
+    },
+    "Leafeon": {
+        "id": 470,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "56.2 lbs, 25.5 kg",
+        "bmi": "26.0"
+    },
+    "Glaceon": {
+        "id": 471,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "57.1 lbs, 25.9 kg",
+        "bmi": "41.5"
+    },
+    "Gliscor": {
+        "id": 472,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "93.7 lbs, 42.5 kg",
+        "bmi": "10.5"
+    },
+    "Mamoswine": {
+        "id": 473,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "641.5 lbs, 291.0 kg",
+        "bmi": "46.9"
+    },
+    "Porygon-Z": {
+        "id": 474,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "75 lbs, 34.0 kg",
+        "bmi": "42.9"
+    },
+    "Gallade": {
+        "id": 475,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "114.6 lbs, 52.0 kg",
+        "bmi": "20.3"
+    },
+    "Mega Gallade": {
+        "id": 475,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "124.3 lbs, 56.4 kg",
+        "bmi": "22.0"
+    },
+    "Probopass": {
+        "id": 476,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "749.6 lbs, 340.0 kg",
+        "bmi": "173.5"
+    },
+    "Dusknoir": {
+        "id": 477,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "235 lbs, 106.6 kg",
+        "bmi": "21.8"
+    },
+    "Froslass": {
+        "id": 478,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "58.6 lbs, 26.6 kg",
+        "bmi": "15.7"
+    },
+    "Rotom": {
+        "id": 479,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Heat Rotom": {
+        "id": 479,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Wash Rotom": {
+        "id": 479,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Frost Rotom": {
+        "id": 479,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Fan Rotom": {
+        "id": 479,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Mow Rotom": {
+        "id": 479,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Uxie": {
+        "id": 480,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Mesprit": {
+        "id": 481,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Azelf": {
+        "id": 482,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Dialga": {
+        "id": 483,
+        "height": "17′ 9″, 5.41 m",
+        "weight": "1505.8 lbs, 683.0 kg",
+        "bmi": "23.3"
+    },
+    "Palkia": {
+        "id": 484,
+        "height": "13′ 9″, 4.19 m",
+        "weight": "740.8 lbs, 336.0 kg",
+        "bmi": "19.1"
+    },
+    "Heatran": {
+        "id": 485,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "948 lbs, 430.0 kg",
+        "bmi": "148.8"
+    },
+    "Regigigas": {
+        "id": 486,
+        "height": "12′ 2″, 3.71 m",
+        "weight": "925.9 lbs, 420.0 kg",
+        "bmi": "30.5"
+    },
+    "Giratina Altered": {
+        "id": 487,
+        "height": "14′ 9″, 4.50 m",
+        "weight": "1653.5 lbs, 750.0 kg",
+        "bmi": "37.0"
+    },
+    "Giratina Origin": {
+        "id": 487,
+        "height": "22′ 8″, 6.91 m",
+        "weight": "1433 lbs, 650.0 kg",
+        "bmi": "13.6"
+    },
+    "Cresselia": {
+        "id": 488,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "188.7 lbs, 85.6 kg",
+        "bmi": "38.0"
+    },
+    "Phione": {
+        "id": 489,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "6.8 lbs, 3.1 kg",
+        "bmi": "18.4"
+    },
+    "Manaphy": {
+        "id": 490,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "3.1 lbs, 1.4 kg",
+        "bmi": "15.6"
+    },
+    "Darkrai": {
+        "id": 491,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "111.3 lbs, 50.5 kg",
+        "bmi": "22.4"
+    },
+    "Shaymin Land": {
+        "id": 492,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "4.6 lbs, 2.1 kg",
+        "bmi": "52.5"
+    },
+    "Shaymin Sky": {
+        "id": 492,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11.5 lbs, 5.2 kg",
+        "bmi": "30.9"
+    },
+    "Arceus": {
+        "id": 493,
+        "height": "10′ 6″, 3.20 m",
+        "weight": "705.5 lbs, 320.0 kg",
+        "bmi": "31.3"
+    },
+    "Victini": {
+        "id": 494,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "23.8"
+    },
+    "Snivy": {
+        "id": 495,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "17.9 lbs, 8.1 kg",
+        "bmi": "21.8"
+    },
+    "Servine": {
+        "id": 496,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "35.3 lbs, 16.0 kg",
+        "bmi": "25.6"
+    },
+    "Serperior": {
+        "id": 497,
+        "height": "10′ 10″, 3.30 m",
+        "weight": "138.9 lbs, 63.0 kg",
+        "bmi": "5.8"
+    },
+    "Tepig": {
+        "id": 498,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "21.8 lbs, 9.9 kg",
+        "bmi": "38.1"
+    },
+    "Pignite": {
+        "id": 499,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "122.4 lbs, 55.5 kg",
+        "bmi": "56.6"
+    },
+    "Emboar": {
+        "id": 500,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "330.7 lbs, 150.0 kg",
+        "bmi": "58.6"
+    },
+    "Oshawott": {
+        "id": 501,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "13 lbs, 5.9 kg",
+        "bmi": "22.7"
+    },
+    "Dewott": {
+        "id": 502,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "54 lbs, 24.5 kg",
+        "bmi": "39.3"
+    },
+    "Samurott": {
+        "id": 503,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "208.6 lbs, 94.6 kg",
+        "bmi": "42.0"
+    },
+    "Patrat": {
+        "id": 504,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "25.6 lbs, 11.6 kg",
+        "bmi": "44.6"
+    },
+    "Watchog": {
+        "id": 505,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "59.5 lbs, 27.0 kg",
+        "bmi": "22.7"
+    },
+    "Lillipup": {
+        "id": 506,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9 lbs, 4.1 kg",
+        "bmi": "24.4"
+    },
+    "Herdier": {
+        "id": 507,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "32.4 lbs, 14.7 kg",
+        "bmi": "18.6"
+    },
+    "Stoutland": {
+        "id": 508,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "134.5 lbs, 61.0 kg",
+        "bmi": "43.1"
+    },
+    "Purrloin": {
+        "id": 509,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "22.3 lbs, 10.1 kg",
+        "bmi": "60.1"
+    },
+    "Liepard": {
+        "id": 510,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "82.7 lbs, 37.5 kg",
+        "bmi": "31.6"
+    },
+    "Pansage": {
+        "id": 511,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "23.1 lbs, 10.5 kg",
+        "bmi": "28.2"
+    },
+    "Simisage": {
+        "id": 512,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "67.2 lbs, 30.5 kg",
+        "bmi": "25.7"
+    },
+    "Pansear": {
+        "id": 513,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "24.3 lbs, 11.0 kg",
+        "bmi": "29.6"
+    },
+    "Simisear": {
+        "id": 514,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "28.6"
+    },
+    "Panpour": {
+        "id": 515,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "29.8 lbs, 13.5 kg",
+        "bmi": "36.3"
+    },
+    "Simipour": {
+        "id": 516,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "63.9 lbs, 29.0 kg",
+        "bmi": "29.6"
+    },
+    "Munna": {
+        "id": 517,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "51.4 lbs, 23.3 kg",
+        "bmi": "62.6"
+    },
+    "Musharna": {
+        "id": 518,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "133.4 lbs, 60.5 kg",
+        "bmi": "50.9"
+    },
+    "Pidove": {
+        "id": 519,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "4.6 lbs, 2.1 kg",
+        "bmi": "23.3"
+    },
+    "Tranquill": {
+        "id": 520,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "33.1 lbs, 15.0 kg",
+        "bmi": "40.3"
+    },
+    "Unfezant": {
+        "id": 521,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "63.9 lbs, 29.0 kg",
+        "bmi": "20.5"
+    },
+    "Blitzle": {
+        "id": 522,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "65.7 lbs, 29.8 kg",
+        "bmi": "47.7"
+    },
+    "Zebstrika": {
+        "id": 523,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "175.3 lbs, 79.5 kg",
+        "bmi": "31.1"
+    },
+    "Roggenrola": {
+        "id": 524,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "39.7 lbs, 18.0 kg",
+        "bmi": "107.1"
+    },
+    "Boldore": {
+        "id": 525,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "224.9 lbs, 102.0 kg",
+        "bmi": "128.8"
+    },
+    "Gigalith": {
+        "id": 526,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "573.2 lbs, 260.0 kg",
+        "bmi": "90.0"
+    },
+    "Woobat": {
+        "id": 527,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "4.6 lbs, 2.1 kg",
+        "bmi": "12.5"
+    },
+    "Swoobat": {
+        "id": 528,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "23.1 lbs, 10.5 kg",
+        "bmi": "13.3"
+    },
+    "Drilbur": {
+        "id": 529,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "94.4"
+    },
+    "Excadrill": {
+        "id": 530,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "89.1 lbs, 40.4 kg",
+        "bmi": "80.1"
+    },
+    "Audino": {
+        "id": 531,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "68.3 lbs, 31.0 kg",
+        "bmi": "26.1"
+    },
+    "Mega Audino": {
+        "id": 531,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "70.5 lbs, 32.0 kg",
+        "bmi": "14.2"
+    },
+    "Timburr": {
+        "id": 532,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "27.6 lbs, 12.5 kg",
+        "bmi": "33.6"
+    },
+    "Gurdurr": {
+        "id": 533,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "28.2"
+    },
+    "Conkeldurr": {
+        "id": 534,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "191.8 lbs, 87.0 kg",
+        "bmi": "44.4"
+    },
+    "Tympole": {
+        "id": 535,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "9.9 lbs, 4.5 kg",
+        "bmi": "17.3"
+    },
+    "Palpitoad": {
+        "id": 536,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "37.5 lbs, 17.0 kg",
+        "bmi": "27.2"
+    },
+    "Seismitoad": {
+        "id": 537,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "136.7 lbs, 62.0 kg",
+        "bmi": "27.6"
+    },
+    "Throh": {
+        "id": 538,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "122.4 lbs, 55.5 kg",
+        "bmi": "32.8"
+    },
+    "Sawk": {
+        "id": 539,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "112.4 lbs, 51.0 kg",
+        "bmi": "26.0"
+    },
+    "Sewaddle": {
+        "id": 540,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "5.5 lbs, 2.5 kg",
+        "bmi": "27.8"
+    },
+    "Swadloon": {
+        "id": 541,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "16.1 lbs, 7.3 kg",
+        "bmi": "28.1"
+    },
+    "Leavanny": {
+        "id": 542,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "45.2 lbs, 20.5 kg",
+        "bmi": "14.5"
+    },
+    "Venipede": {
+        "id": 543,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11.7 lbs, 5.3 kg",
+        "bmi": "31.5"
+    },
+    "Whirlipede": {
+        "id": 544,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "129 lbs, 58.5 kg",
+        "bmi": "41.3"
+    },
+    "Scolipede": {
+        "id": 545,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "442 lbs, 200.5 kg",
+        "bmi": "32.3"
+    },
+    "Cottonee": {
+        "id": 546,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "1.3 lbs, 0.6 kg",
+        "bmi": "6.7"
+    },
+    "Whimsicott": {
+        "id": 547,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "14.6 lbs, 6.6 kg",
+        "bmi": "13.1"
+    },
+    "Petilil": {
+        "id": 548,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "14.6 lbs, 6.6 kg",
+        "bmi": "25.4"
+    },
+    "Lilligant": {
+        "id": 549,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "35.9 lbs, 16.3 kg",
+        "bmi": "13.7"
+    },
+    "Basculin Red Striped": {
+        "id": 550,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "39.7 lbs, 18.0 kg",
+        "bmi": "18.4"
+    },
+    "Basculin Blue Striped": {
+        "id": 550,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "39.7 lbs, 18.0 kg",
+        "bmi": "18.4"
+    },
+    "Sandile": {
+        "id": 551,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "33.5 lbs, 15.2 kg",
+        "bmi": "30.2"
+    },
+    "Krokorok": {
+        "id": 552,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "73.6 lbs, 33.4 kg",
+        "bmi": "34.1"
+    },
+    "Krookodile": {
+        "id": 553,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "212.3 lbs, 96.3 kg",
+        "bmi": "42.8"
+    },
+    "Darumaka": {
+        "id": 554,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "82.7 lbs, 37.5 kg",
+        "bmi": "100.8"
+    },
+    "Darmanitan Standard": {
+        "id": 555,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "204.8 lbs, 92.9 kg",
+        "bmi": "55.0"
+    },
+    "Darmanitan Zen": {
+        "id": 555,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "204.8 lbs, 92.9 kg",
+        "bmi": "55.0"
+    },
+    "Maractus": {
+        "id": 556,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "28.6"
+    },
+    "Dwebble": {
+        "id": 557,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "32 lbs, 14.5 kg",
+        "bmi": "161.1"
+    },
+    "Crustle": {
+        "id": 558,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "440.9 lbs, 200.0 kg",
+        "bmi": "102.0"
+    },
+    "Scraggy": {
+        "id": 559,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "26 lbs, 11.8 kg",
+        "bmi": "31.7"
+    },
+    "Scrafty": {
+        "id": 560,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "66.1 lbs, 30.0 kg",
+        "bmi": "25.3"
+    },
+    "Sigilyph": {
+        "id": 561,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "30.9 lbs, 14.0 kg",
+        "bmi": "7.1"
+    },
+    "Yamask": {
+        "id": 562,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "3.3 lbs, 1.5 kg",
+        "bmi": "5.8"
+    },
+    "Cofagrigus": {
+        "id": 563,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "168.7 lbs, 76.5 kg",
+        "bmi": "26.5"
+    },
+    "Tirtouga": {
+        "id": 564,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "36.4 lbs, 16.5 kg",
+        "bmi": "32.7"
+    },
+    "Carracosta": {
+        "id": 565,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "178.6 lbs, 81.0 kg",
+        "bmi": "57.2"
+    },
+    "Archen": {
+        "id": 566,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "20.9 lbs, 9.5 kg",
+        "bmi": "36.5"
+    },
+    "Archeops": {
+        "id": 567,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "70.5 lbs, 32.0 kg",
+        "bmi": "16.3"
+    },
+    "Trubbish": {
+        "id": 568,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "68.3 lbs, 31.0 kg",
+        "bmi": "83.3"
+    },
+    "Garbodor": {
+        "id": 569,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "236.6 lbs, 107.3 kg",
+        "bmi": "29.4"
+    },
+    "Zorua": {
+        "id": 570,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "27.6 lbs, 12.5 kg",
+        "bmi": "24.8"
+    },
+    "Zoroark": {
+        "id": 571,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "178.8 lbs, 81.1 kg",
+        "bmi": "31.7"
+    },
+    "Minccino": {
+        "id": 572,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "12.8 lbs, 5.8 kg",
+        "bmi": "34.5"
+    },
+    "Cinccino": {
+        "id": 573,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "16.5 lbs, 7.5 kg",
+        "bmi": "28.8"
+    },
+    "Gothita": {
+        "id": 574,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "12.8 lbs, 5.8 kg",
+        "bmi": "34.5"
+    },
+    "Gothorita": {
+        "id": 575,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "39.7 lbs, 18.0 kg",
+        "bmi": "35.7"
+    },
+    "Gothitelle": {
+        "id": 576,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "97 lbs, 44.0 kg",
+        "bmi": "19.6"
+    },
+    "Solosis": {
+        "id": 577,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "11.1"
+    },
+    "Duosion": {
+        "id": 578,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "17.6 lbs, 8.0 kg",
+        "bmi": "21.5"
+    },
+    "Reuniclus": {
+        "id": 579,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "44.3 lbs, 20.1 kg",
+        "bmi": "20.5"
+    },
+    "Ducklett": {
+        "id": 580,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "12.1 lbs, 5.5 kg",
+        "bmi": "21.1"
+    },
+    "Swanna": {
+        "id": 581,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "53.4 lbs, 24.2 kg",
+        "bmi": "14.3"
+    },
+    "Vanillite": {
+        "id": 582,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "12.6 lbs, 5.7 kg",
+        "bmi": "33.9"
+    },
+    "Vanillish": {
+        "id": 583,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "90.4 lbs, 41.0 kg",
+        "bmi": "34.5"
+    },
+    "Vanilluxe": {
+        "id": 584,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "126.8 lbs, 57.5 kg",
+        "bmi": "34.0"
+    },
+    "Deerling Spring": {
+        "id": 585,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "52.4"
+    },
+    "Deerling Summer": {
+        "id": 585,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "52.4"
+    },
+    "Deerling Autumm": {
+        "id": 585,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "52.4"
+    },
+    "Deerling Winter": {
+        "id": 585,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "43 lbs, 19.5 kg",
+        "bmi": "52.4"
+    },
+    "Sawsbuck Spring": {
+        "id": 586,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "203.9 lbs, 92.5 kg",
+        "bmi": "25.4"
+    },
+    "Sawsbuck Summer": {
+        "id": 586,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "203.9 lbs, 92.5 kg",
+        "bmi": "25.4"
+    },
+    "Sawsbuck Autumm": {
+        "id": 586,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "203.9 lbs, 92.5 kg",
+        "bmi": "25.4"
+    },
+    "Sawsbuck Winter": {
+        "id": 586,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "203.9 lbs, 92.5 kg",
+        "bmi": "25.4"
+    },
+    "Emolga": {
+        "id": 587,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "29.7"
+    },
+    "Karrablast": {
+        "id": 588,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "13 lbs, 5.9 kg",
+        "bmi": "22.7"
+    },
+    "Escavalier": {
+        "id": 589,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "72.8 lbs, 33.0 kg",
+        "bmi": "33.7"
+    },
+    "Foongus": {
+        "id": 590,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "2.2 lbs, 1.0 kg",
+        "bmi": "25.0"
+    },
+    "Amoonguss": {
+        "id": 591,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "23.1 lbs, 10.5 kg",
+        "bmi": "28.2"
+    },
+    "Frillish": {
+        "id": 592,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "72.8 lbs, 33.0 kg",
+        "bmi": "23.3"
+    },
+    "Jellicent": {
+        "id": 593,
+        "height": "7′ 3″, 2.21 m",
+        "weight": "297.6 lbs, 135.0 kg",
+        "bmi": "27.6"
+    },
+    "Alomomola": {
+        "id": 594,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "69.7 lbs, 31.6 kg",
+        "bmi": "22.3"
+    },
+    "Joltik": {
+        "id": 595,
+        "height": "0′ 4″, 0.10 m",
+        "weight": "1.3 lbs, 0.6 kg",
+        "bmi": "60.0"
+    },
+    "Galvantula": {
+        "id": 596,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "31.5 lbs, 14.3 kg",
+        "bmi": "22.9"
+    },
+    "Ferroseed": {
+        "id": 597,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "41.4 lbs, 18.8 kg",
+        "bmi": "50.5"
+    },
+    "Ferrothorn": {
+        "id": 598,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "242.5 lbs, 110.0 kg",
+        "bmi": "112.2"
+    },
+    "Klink": {
+        "id": 599,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "46.3 lbs, 21.0 kg",
+        "bmi": "233.3"
+    },
+    "Klang": {
+        "id": 600,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "112.4 lbs, 51.0 kg",
+        "bmi": "137.1"
+    },
+    "Klinklang": {
+        "id": 601,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "178.6 lbs, 81.0 kg",
+        "bmi": "217.7"
+    },
+    "Tynamo": {
+        "id": 602,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "7.5"
+    },
+    "Eelektrik": {
+        "id": 603,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "48.5 lbs, 22.0 kg",
+        "bmi": "15.5"
+    },
+    "Eelektross": {
+        "id": 604,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "177.5 lbs, 80.5 kg",
+        "bmi": "18.1"
+    },
+    "Elgyem": {
+        "id": 605,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "19.8 lbs, 9.0 kg",
+        "bmi": "34.6"
+    },
+    "Beheeyem": {
+        "id": 606,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "76.1 lbs, 34.5 kg",
+        "bmi": "35.2"
+    },
+    "Litwick": {
+        "id": 607,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "6.8 lbs, 3.1 kg",
+        "bmi": "34.4"
+    },
+    "Lampent": {
+        "id": 608,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "28.7 lbs, 13.0 kg",
+        "bmi": "34.9"
+    },
+    "Chandelure": {
+        "id": 609,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "75.6 lbs, 34.3 kg",
+        "bmi": "35.0"
+    },
+    "Axew": {
+        "id": 610,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "39.7 lbs, 18.0 kg",
+        "bmi": "48.4"
+    },
+    "Fraxure": {
+        "id": 611,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "79.4 lbs, 36.0 kg",
+        "bmi": "36.7"
+    },
+    "Haxorus": {
+        "id": 612,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "232.6 lbs, 105.5 kg",
+        "bmi": "32.6"
+    },
+    "Cubchoo": {
+        "id": 613,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "32.7"
+    },
+    "Beartic": {
+        "id": 614,
+        "height": "8′ 6″, 2.59 m",
+        "weight": "573.2 lbs, 260.0 kg",
+        "bmi": "38.8"
+    },
+    "Cryogonal": {
+        "id": 615,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "326.3 lbs, 148.0 kg",
+        "bmi": "124.6"
+    },
+    "Shelmet": {
+        "id": 616,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "17 lbs, 7.7 kg",
+        "bmi": "45.8"
+    },
+    "Accelgor": {
+        "id": 617,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "55.8 lbs, 25.3 kg",
+        "bmi": "40.5"
+    },
+    "Stunfisk": {
+        "id": 618,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "24.3 lbs, 11.0 kg",
+        "bmi": "21.8"
+    },
+    "Mienfoo": {
+        "id": 619,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "44.1 lbs, 20.0 kg",
+        "bmi": "25.2"
+    },
+    "Mienshao": {
+        "id": 620,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "78.3 lbs, 35.5 kg",
+        "bmi": "18.1"
+    },
+    "Druddigon": {
+        "id": 621,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "306.4 lbs, 139.0 kg",
+        "bmi": "54.3"
+    },
+    "Golett": {
+        "id": 622,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "202.8 lbs, 92.0 kg",
+        "bmi": "93.9"
+    },
+    "Golurk": {
+        "id": 623,
+        "height": "9′ 2″, 2.79 m",
+        "weight": "727.5 lbs, 330.0 kg",
+        "bmi": "42.4"
+    },
+    "Pawniard": {
+        "id": 624,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "22.5 lbs, 10.2 kg",
+        "bmi": "39.2"
+    },
+    "Bisharp": {
+        "id": 625,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "154.3 lbs, 70.0 kg",
+        "bmi": "27.3"
+    },
+    "Bouffalant": {
+        "id": 626,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "208.6 lbs, 94.6 kg",
+        "bmi": "37.0"
+    },
+    "Rufflet": {
+        "id": 627,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "23.1 lbs, 10.5 kg",
+        "bmi": "40.4"
+    },
+    "Braviary": {
+        "id": 628,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "90.4 lbs, 41.0 kg",
+        "bmi": "18.2"
+    },
+    "Vullaby": {
+        "id": 629,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "19.8 lbs, 9.0 kg",
+        "bmi": "34.6"
+    },
+    "Mandibuzz": {
+        "id": 630,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "87.1 lbs, 39.5 kg",
+        "bmi": "27.9"
+    },
+    "Heatmor": {
+        "id": 631,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "127.9 lbs, 58.0 kg",
+        "bmi": "29.6"
+    },
+    "Durant": {
+        "id": 632,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "72.8 lbs, 33.0 kg",
+        "bmi": "366.7"
+    },
+    "Deino": {
+        "id": 633,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "38.1 lbs, 17.3 kg",
+        "bmi": "27.7"
+    },
+    "Zweilous": {
+        "id": 634,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "110.2 lbs, 50.0 kg",
+        "bmi": "25.5"
+    },
+    "Hydreigon": {
+        "id": 635,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "352.7 lbs, 160.0 kg",
+        "bmi": "49.4"
+    },
+    "Larvesta": {
+        "id": 636,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "63.5 lbs, 28.8 kg",
+        "bmi": "24.2"
+    },
+    "Volcarona": {
+        "id": 637,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "101.4 lbs, 46.0 kg",
+        "bmi": "18.0"
+    },
+    "Cobalion": {
+        "id": 638,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "551.2 lbs, 250.0 kg",
+        "bmi": "56.2"
+    },
+    "Terrakion": {
+        "id": 639,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "573.2 lbs, 260.0 kg",
+        "bmi": "71.3"
+    },
+    "Virizion": {
+        "id": 640,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "440.9 lbs, 200.0 kg",
+        "bmi": "49.5"
+    },
+    "Tornadus Incarnate": {
+        "id": 641,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "138.9 lbs, 63.0 kg",
+        "bmi": "28.0"
+    },
+    "Tornadus Therian": {
+        "id": 641,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "138.9 lbs, 63.0 kg",
+        "bmi": "32.1"
+    },
+    "Thundurus Incarnate": {
+        "id": 642,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "134.5 lbs, 61.0 kg",
+        "bmi": "27.1"
+    },
+    "Thundurus Therian": {
+        "id": 642,
+        "height": "9′ 10″, 3.00 m",
+        "weight": "134.5 lbs, 61.0 kg",
+        "bmi": "6.8"
+    },
+    "Reshiram": {
+        "id": 643,
+        "height": "10′ 6″, 3.20 m",
+        "weight": "727.5 lbs, 330.0 kg",
+        "bmi": "32.2"
+    },
+    "Zekrom": {
+        "id": 644,
+        "height": "9′ 6″, 2.90 m",
+        "weight": "760.6 lbs, 345.0 kg",
+        "bmi": "41.0"
+    },
+    "Landorus Incarnate": {
+        "id": 645,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "149.9 lbs, 68.0 kg",
+        "bmi": "30.2"
+    },
+    "Landorus Therian": {
+        "id": 645,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "149.9 lbs, 68.0 kg",
+        "bmi": "40.2"
+    },
+    "Kyurem": {
+        "id": 646,
+        "height": "9′ 10″, 3.00 m",
+        "weight": "716.5 lbs, 325.0 kg",
+        "bmi": "36.1"
+    },
+    "Black Kyurem": {
+        "id": 646,
+        "height": "10′ 10″, 3.30 m",
+        "weight": "716.5 lbs, 325.0 kg",
+        "bmi": "29.8"
+    },
+    "White Kyurem": {
+        "id": 646,
+        "height": "11′ 10″, 3.61 m",
+        "weight": "716.5 lbs, 325.0 kg",
+        "bmi": "24.9"
+    },
+    "Keldeo Ordinary": {
+        "id": 647,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "106.9 lbs, 48.5 kg",
+        "bmi": "24.7"
+    },
+    "Keldeo Resolute": {
+        "id": 647,
+        "height": "4′ 7″, 1.40 m",
+        "weight": "106.9 lbs, 48.5 kg",
+        "bmi": "24.7"
+    },
+    "Meloetta Aria": {
+        "id": 648,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "17.5"
+    },
+    "Meloetta Pirouette": {
+        "id": 648,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "14.3 lbs, 6.5 kg",
+        "bmi": "17.5"
+    },
+    "Genesect": {
+        "id": 649,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "181.9 lbs, 82.5 kg",
+        "bmi": "36.7"
+    },
+    "Chespin": {
+        "id": 650,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "19.8 lbs, 9.0 kg",
+        "bmi": "53.5"
+    },
+    "Quilladin": {
+        "id": 651,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "63.9 lbs, 29.0 kg",
+        "bmi": "57.5"
+    },
+    "Chesnaught": {
+        "id": 652,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "198.4 lbs, 90.0 kg",
+        "bmi": "35.2"
+    },
+    "Fennekin": {
+        "id": 653,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "20.7 lbs, 9.4 kg",
+        "bmi": "55.9"
+    },
+    "Braixen": {
+        "id": 654,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "32 lbs, 14.5 kg",
+        "bmi": "14.8"
+    },
+    "Delphox": {
+        "id": 655,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "86 lbs, 39.0 kg",
+        "bmi": "17.3"
+    },
+    "Froakie": {
+        "id": 656,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "15.4 lbs, 7.0 kg",
+        "bmi": "77.8"
+    },
+    "Frogadier": {
+        "id": 657,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "24 lbs, 10.9 kg",
+        "bmi": "29.3"
+    },
+    "Greninja": {
+        "id": 658,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "17.8"
+    },
+    "Ash Greninja": {
+        "id": 658,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "17.8"
+    },
+    "Bunnelby": {
+        "id": 659,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "29.7"
+    },
+    "Diggersby": {
+        "id": 660,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "93.5 lbs, 42.4 kg",
+        "bmi": "43.3"
+    },
+    "Fletchling": {
+        "id": 661,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "3.7 lbs, 1.7 kg",
+        "bmi": "18.9"
+    },
+    "Fletchinder": {
+        "id": 662,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "35.3 lbs, 16.0 kg",
+        "bmi": "31.7"
+    },
+    "Talonflame": {
+        "id": 663,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "54 lbs, 24.5 kg",
+        "bmi": "17.3"
+    },
+    "Scatterbug": {
+        "id": 664,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "5.5 lbs, 2.5 kg",
+        "bmi": "27.8"
+    },
+    "Spewpa": {
+        "id": 665,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "18.5 lbs, 8.4 kg",
+        "bmi": "93.3"
+    },
+    "Vivillon": {
+        "id": 666,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "37.5 lbs, 17.0 kg",
+        "bmi": "12.0"
+    },
+    "Litleo": {
+        "id": 667,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "29.8 lbs, 13.5 kg",
+        "bmi": "36.3"
+    },
+    "Pyroar": {
+        "id": 668,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "179.7 lbs, 81.5 kg",
+        "bmi": "36.2"
+    },
+    "Flabebe": {
+        "id": 669,
+        "height": "0′ 4″, 0.10 m",
+        "weight": "0.2 lbs, 0.1 kg",
+        "bmi": "10.0"
+    },
+    "Floette": {
+        "id": 670,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "2 lbs, 0.9 kg",
+        "bmi": "22.5"
+    },
+    "Florges": {
+        "id": 671,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "22 lbs, 10.0 kg",
+        "bmi": "8.4"
+    },
+    "Skiddo": {
+        "id": 672,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "68.3 lbs, 31.0 kg",
+        "bmi": "39.1"
+    },
+    "Gogoat": {
+        "id": 673,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "200.6 lbs, 91.0 kg",
+        "bmi": "31.5"
+    },
+    "Pancham": {
+        "id": 674,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "17.6 lbs, 8.0 kg",
+        "bmi": "21.5"
+    },
+    "Pangoro": {
+        "id": 675,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "299.8 lbs, 136.0 kg",
+        "bmi": "30.5"
+    },
+    "Furfrou": {
+        "id": 676,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "61.7 lbs, 28.0 kg",
+        "bmi": "19.8"
+    },
+    "Espurr": {
+        "id": 677,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "7.7 lbs, 3.5 kg",
+        "bmi": "38.9"
+    },
+    "Meowstic♂": {
+        "id": 678,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "22.8"
+    },
+    "Meowstic♀": {
+        "id": 678,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "18.7 lbs, 8.5 kg",
+        "bmi": "22.8"
+    },
+    "Honedge": {
+        "id": 679,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "4.4 lbs, 2.0 kg",
+        "bmi": "3.2"
+    },
+    "Doublade": {
+        "id": 680,
+        "height": "2′ 9″, 0.84 m",
+        "weight": "9.9 lbs, 4.5 kg",
+        "bmi": "6.4"
+    },
+    "Aegislash Blade": {
+        "id": 681,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "116.8 lbs, 53.0 kg",
+        "bmi": "18.3"
+    },
+    "Aegislash Shield": {
+        "id": 681,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "116.8 lbs, 53.0 kg",
+        "bmi": "18.3"
+    },
+    "Spritzee": {
+        "id": 682,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "1.1 lbs, 0.5 kg",
+        "bmi": "12.5"
+    },
+    "Aromatisse": {
+        "id": 683,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "34.2 lbs, 15.5 kg",
+        "bmi": "24.8"
+    },
+    "Swirlix": {
+        "id": 684,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "7.7 lbs, 3.5 kg",
+        "bmi": "20.8"
+    },
+    "Slurpuff": {
+        "id": 685,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "8.0"
+    },
+    "Inkay": {
+        "id": 686,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "7.7 lbs, 3.5 kg",
+        "bmi": "20.8"
+    },
+    "Malamar": {
+        "id": 687,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "103.6 lbs, 47.0 kg",
+        "bmi": "20.9"
+    },
+    "Binacle": {
+        "id": 688,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "68.3 lbs, 31.0 kg",
+        "bmi": "119.2"
+    },
+    "Barbaracle": {
+        "id": 689,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "211.6 lbs, 96.0 kg",
+        "bmi": "56.8"
+    },
+    "Skrelp": {
+        "id": 690,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "16.1 lbs, 7.3 kg",
+        "bmi": "28.1"
+    },
+    "Dragalge": {
+        "id": 691,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "179.7 lbs, 81.5 kg",
+        "bmi": "25.2"
+    },
+    "Clauncher": {
+        "id": 692,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "18.3 lbs, 8.3 kg",
+        "bmi": "31.9"
+    },
+    "Clawitzer": {
+        "id": 693,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "77.8 lbs, 35.3 kg",
+        "bmi": "20.9"
+    },
+    "Helioptile": {
+        "id": 694,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "13.2 lbs, 6.0 kg",
+        "bmi": "23.1"
+    },
+    "Heliolisk": {
+        "id": 695,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "46.3 lbs, 21.0 kg",
+        "bmi": "21.4"
+    },
+    "Tyrunt": {
+        "id": 696,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "57.3 lbs, 26.0 kg",
+        "bmi": "41.7"
+    },
+    "Tyrantrum": {
+        "id": 697,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "595.2 lbs, 270.0 kg",
+        "bmi": "43.5"
+    },
+    "Amaura": {
+        "id": 698,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "55.6 lbs, 25.2 kg",
+        "bmi": "14.9"
+    },
+    "Aurorus": {
+        "id": 699,
+        "height": "8′ 10″, 2.69 m",
+        "weight": "496 lbs, 225.0 kg",
+        "bmi": "31.1"
+    },
+    "Sylveon": {
+        "id": 700,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "51.8 lbs, 23.5 kg",
+        "bmi": "24.0"
+    },
+    "Hawlucha": {
+        "id": 701,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "47.4 lbs, 21.5 kg",
+        "bmi": "34.4"
+    },
+    "Dedenne": {
+        "id": 702,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "4.9 lbs, 2.2 kg",
+        "bmi": "55.0"
+    },
+    "Carbink": {
+        "id": 703,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "12.6 lbs, 5.7 kg",
+        "bmi": "63.3"
+    },
+    "Goomy": {
+        "id": 704,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "6.2 lbs, 2.8 kg",
+        "bmi": "31.1"
+    },
+    "Sliggoo": {
+        "id": 705,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "38.6 lbs, 17.5 kg",
+        "bmi": "28.0"
+    },
+    "Goodra": {
+        "id": 706,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "331.8 lbs, 150.5 kg",
+        "bmi": "37.3"
+    },
+    "Klefki": {
+        "id": 707,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "6.6 lbs, 3.0 kg",
+        "bmi": "75.0"
+    },
+    "Phantump": {
+        "id": 708,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "15.4 lbs, 7.0 kg",
+        "bmi": "41.6"
+    },
+    "Trevenant": {
+        "id": 709,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "156.5 lbs, 71.0 kg",
+        "bmi": "31.6"
+    },
+    "Pumpkaboo Average Size": {
+        "id": 710,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "29.7"
+    },
+    "Pumpkaboo Small Size": {
+        "id": 710,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "29.7"
+    },
+    "Pumpkaboo Large Size": {
+        "id": 710,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "29.7"
+    },
+    "Pumpkaboo Super Size": {
+        "id": 710,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "11 lbs, 5.0 kg",
+        "bmi": "29.7"
+    },
+    "Gourgeist Average Size": {
+        "id": 711,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "86 lbs, 39.0 kg",
+        "bmi": "13.5"
+    },
+    "Gourgeist Small Size": {
+        "id": 711,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "86 lbs, 39.0 kg",
+        "bmi": "13.5"
+    },
+    "Gourgeist Large Size": {
+        "id": 711,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "86 lbs, 39.0 kg",
+        "bmi": "13.5"
+    },
+    "Gourgeist Super Size": {
+        "id": 711,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "86 lbs, 39.0 kg",
+        "bmi": "13.5"
+    },
+    "Bergmite": {
+        "id": 712,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "219.4 lbs, 99.5 kg",
+        "bmi": "101.5"
+    },
+    "Avalugg": {
+        "id": 713,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "1113.3 lbs, 505.0 kg",
+        "bmi": "125.0"
+    },
+    "Noibat": {
+        "id": 714,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "17.6 lbs, 8.0 kg",
+        "bmi": "30.8"
+    },
+    "Noivern": {
+        "id": 715,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "187.4 lbs, 85.0 kg",
+        "bmi": "37.8"
+    },
+    "Xerneas": {
+        "id": 716,
+        "height": "9′ 10″, 3.00 m",
+        "weight": "474 lbs, 215.0 kg",
+        "bmi": "23.9"
+    },
+    "Yveltal": {
+        "id": 717,
+        "height": "19′ 0″, 5.79 m",
+        "weight": "447.5 lbs, 203.0 kg",
+        "bmi": "6.1"
+    },
+    "Zygarde 50%": {
+        "id": 718,
+        "height": "16′ 5″, 5.00 m",
+        "weight": "672.4 lbs, 305.0 kg",
+        "bmi": "12.2"
+    },
+    "Zygarde 10%": {
+        "id": 718,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "73.9 lbs, 33.5 kg",
+        "bmi": "23.7"
+    },
+    "Zygarde Complete": {
+        "id": 718,
+        "height": "14′ 9″, 4.50 m",
+        "weight": "1344.8 lbs, 610.0 kg",
+        "bmi": "30.1"
+    },
+    "Diancie": {
+        "id": 719,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "19.4 lbs, 8.8 kg",
+        "bmi": "17.5"
+    },
+    "Mega Diancie": {
+        "id": 719,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "61.3 lbs, 27.8 kg",
+        "bmi": "23.4"
+    },
+    "Hoopa Confined": {
+        "id": 720,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "19.8 lbs, 9.0 kg",
+        "bmi": "34.6"
+    },
+    "Hoopa Unbound": {
+        "id": 720,
+        "height": "21′ 4″, 6.50 m",
+        "weight": "1080.3 lbs, 490.0 kg",
+        "bmi": "11.6"
+    },
+    "Volcanion": {
+        "id": 721,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "429.9 lbs, 195.0 kg",
+        "bmi": "67.5"
+    },
+    "Rowlet": {
+        "id": 722,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "3.3 lbs, 1.5 kg",
+        "bmi": "16.7"
+    },
+    "Dartrix": {
+        "id": 723,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "35.3 lbs, 16.0 kg",
+        "bmi": "31.7"
+    },
+    "Decidueye": {
+        "id": 724,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "80.7 lbs, 36.6 kg",
+        "bmi": "14.3"
+    },
+    "Litten": {
+        "id": 725,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.5 lbs, 4.3 kg",
+        "bmi": "25.6"
+    },
+    "Torracat": {
+        "id": 726,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "55.1 lbs, 25.0 kg",
+        "bmi": "49.6"
+    },
+    "Incineroar": {
+        "id": 727,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "183 lbs, 83.0 kg",
+        "bmi": "25.6"
+    },
+    "Popplio": {
+        "id": 728,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "16.5 lbs, 7.5 kg",
+        "bmi": "44.6"
+    },
+    "Brionne": {
+        "id": 729,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "38.6 lbs, 17.5 kg",
+        "bmi": "47.0"
+    },
+    "Primarina": {
+        "id": 730,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "97 lbs, 44.0 kg",
+        "bmi": "13.6"
+    },
+    "Pikipek": {
+        "id": 731,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "2.6 lbs, 1.2 kg",
+        "bmi": "13.3"
+    },
+    "Trumbeak": {
+        "id": 732,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "32.6 lbs, 14.8 kg",
+        "bmi": "39.8"
+    },
+    "Toucannon": {
+        "id": 733,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "57.3 lbs, 26.0 kg",
+        "bmi": "21.9"
+    },
+    "Yungoos": {
+        "id": 734,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "13.2 lbs, 6.0 kg",
+        "bmi": "35.7"
+    },
+    "Gumshoos": {
+        "id": 735,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "31.3 lbs, 14.2 kg",
+        "bmi": "28.2"
+    },
+    "Grubbin": {
+        "id": 736,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "9.7 lbs, 4.4 kg",
+        "bmi": "26.2"
+    },
+    "Charjabug": {
+        "id": 737,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "23.1 lbs, 10.5 kg",
+        "bmi": "40.4"
+    },
+    "Vikavolt": {
+        "id": 738,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "99.2 lbs, 45.0 kg",
+        "bmi": "20.0"
+    },
+    "Crabrawler": {
+        "id": 739,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "15.4 lbs, 7.0 kg",
+        "bmi": "18.8"
+    },
+    "Crabominable": {
+        "id": 740,
+        "height": "5′ 7″, 1.70 m",
+        "weight": "396.8 lbs, 180.0 kg",
+        "bmi": "62.3"
+    },
+    "Oricorio Baile": {
+        "id": 741,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "9.1"
+    },
+    "Oricorio Pom Pom": {
+        "id": 741,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "9.1"
+    },
+    "Oricorio Pa'u": {
+        "id": 741,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "9.1"
+    },
+    "Oricorio Sensu": {
+        "id": 741,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "7.5 lbs, 3.4 kg",
+        "bmi": "9.1"
+    },
+    "Cutiefly": {
+        "id": 742,
+        "height": "0′ 4″, 0.10 m",
+        "weight": "0.4 lbs, 0.2 kg",
+        "bmi": "20.0"
+    },
+    "Ribombee": {
+        "id": 743,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "1.1 lbs, 0.5 kg",
+        "bmi": "12.5"
+    },
+    "Rockruff": {
+        "id": 744,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "20.3 lbs, 9.2 kg",
+        "bmi": "35.4"
+    },
+    "Lycanroc Midday": {
+        "id": 745,
+        "height": "2′ 7″, 0.79 m",
+        "weight": "55.2 lbs, 25.0 kg",
+        "bmi": "40.1"
+    },
+    "Lycanroc Midnight": {
+        "id": 745,
+        "height": "3′ 7″, 1.09 m",
+        "weight": "55.1 lbs, 25.0 kg",
+        "bmi": "21.0"
+    },
+    "Wishiwashi Solo": {
+        "id": 746,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "7.5"
+    },
+    "Wishiwashi School": {
+        "id": 746,
+        "height": "26′ 11″, 8.20 m",
+        "weight": "173.3 lbs, 78.6 kg",
+        "bmi": "1.2"
+    },
+    "Mareanie": {
+        "id": 747,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "17.6 lbs, 8.0 kg",
+        "bmi": "47.6"
+    },
+    "Toxapex": {
+        "id": 748,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "32 lbs, 14.5 kg",
+        "bmi": "28.8"
+    },
+    "Mudbray": {
+        "id": 749,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "242.5 lbs, 110.0 kg",
+        "bmi": "112.2"
+    },
+    "Mudsdale": {
+        "id": 750,
+        "height": "8′ 2″, 2.49 m",
+        "weight": "2028.3 lbs, 920.0 kg",
+        "bmi": "148.4"
+    },
+    "Dewpider": {
+        "id": 751,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "8.8 lbs, 4.0 kg",
+        "bmi": "44.4"
+    },
+    "Araquanid": {
+        "id": 752,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "180.8 lbs, 82.0 kg",
+        "bmi": "25.3"
+    },
+    "Fomantis": {
+        "id": 753,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "3.3 lbs, 1.5 kg",
+        "bmi": "16.7"
+    },
+    "Lurantis": {
+        "id": 754,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "40.8 lbs, 18.5 kg",
+        "bmi": "23.4"
+    },
+    "Morelull": {
+        "id": 755,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "3.3 lbs, 1.5 kg",
+        "bmi": "37.5"
+    },
+    "Shiinotic": {
+        "id": 756,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "25.4 lbs, 11.5 kg",
+        "bmi": "11.7"
+    },
+    "Salandit": {
+        "id": 757,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "10.6 lbs, 4.8 kg",
+        "bmi": "12.9"
+    },
+    "Salazzle": {
+        "id": 758,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "48.9 lbs, 22.2 kg",
+        "bmi": "15.7"
+    },
+    "Stufful": {
+        "id": 759,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "15 lbs, 6.8 kg",
+        "bmi": "26.1"
+    },
+    "Bewear": {
+        "id": 760,
+        "height": "6′ 11″, 2.11 m",
+        "weight": "297.6 lbs, 135.0 kg",
+        "bmi": "30.3"
+    },
+    "Bounsweet": {
+        "id": 761,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "7.1 lbs, 3.2 kg",
+        "bmi": "35.6"
+    },
+    "Steenee": {
+        "id": 762,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "18.1 lbs, 8.2 kg",
+        "bmi": "16.3"
+    },
+    "Tsareena": {
+        "id": 763,
+        "height": "3′ 9″, 1.14 m",
+        "weight": "47.2 lbs, 21.4 kg",
+        "bmi": "16.5"
+    },
+    "Comfey": {
+        "id": 764,
+        "height": "0′ 4″, 0.10 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "30.0"
+    },
+    "Oranguru": {
+        "id": 765,
+        "height": "4′ 11″, 1.50 m",
+        "weight": "167.6 lbs, 76.0 kg",
+        "bmi": "33.8"
+    },
+    "Passimian": {
+        "id": 766,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "182.5 lbs, 82.8 kg",
+        "bmi": "20.5"
+    },
+    "Wimpod": {
+        "id": 767,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "26.5 lbs, 12.0 kg",
+        "bmi": "46.1"
+    },
+    "Golisopod": {
+        "id": 768,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "238.1 lbs, 108.0 kg",
+        "bmi": "26.7"
+    },
+    "Sandygast": {
+        "id": 769,
+        "height": "1′ 8″, 0.51 m",
+        "weight": "154.3 lbs, 70.0 kg",
+        "bmi": "269.1"
+    },
+    "Palossand": {
+        "id": 770,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "551.2 lbs, 250.0 kg",
+        "bmi": "147.9"
+    },
+    "Pyukumuku": {
+        "id": 771,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "2.6 lbs, 1.2 kg",
+        "bmi": "13.3"
+    },
+    "Type: Null": {
+        "id": 772,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "265.7 lbs, 120.5 kg",
+        "bmi": "33.0"
+    },
+    "Silvally": {
+        "id": 773,
+        "height": "7′ 7″, 2.31 m",
+        "weight": "221.6 lbs, 100.5 kg",
+        "bmi": "18.8"
+    },
+    "Minior Meteor": {
+        "id": 774,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "88.2 lbs, 40.0 kg",
+        "bmi": "444.4"
+    },
+    "Minior Core": {
+        "id": 774,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.7 lbs, 0.3 kg",
+        "bmi": "3.3"
+    },
+    "Komala": {
+        "id": 775,
+        "height": "1′ 4″, 0.41 m",
+        "weight": "43.9 lbs, 19.9 kg",
+        "bmi": "118.4"
+    },
+    "Turtonator": {
+        "id": 776,
+        "height": "6′ 7″, 2.01 m",
+        "weight": "467.4 lbs, 212.0 kg",
+        "bmi": "52.5"
+    },
+    "Togedemaru": {
+        "id": 777,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "7.3 lbs, 3.3 kg",
+        "bmi": "36.7"
+    },
+    "Mimikyu": {
+        "id": 778,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "1.5 lbs, 0.7 kg",
+        "bmi": "17.5"
+    },
+    "Bruxish": {
+        "id": 779,
+        "height": "2′ 11″, 0.89 m",
+        "weight": "41.9 lbs, 19.0 kg",
+        "bmi": "24.0"
+    },
+    "Drampa": {
+        "id": 780,
+        "height": "9′ 10″, 3.00 m",
+        "weight": "407.9 lbs, 185.0 kg",
+        "bmi": "20.6"
+    },
+    "Dhelmise": {
+        "id": 781,
+        "height": "12′ 10″, 3.91 m",
+        "weight": "463 lbs, 210.0 kg",
+        "bmi": "13.7"
+    },
+    "Jangmo-o": {
+        "id": 782,
+        "height": "2′ 0″, 0.61 m",
+        "weight": "65.5 lbs, 29.7 kg",
+        "bmi": "79.8"
+    },
+    "Hakamo-o": {
+        "id": 783,
+        "height": "3′ 9″, 1.14 m",
+        "weight": "103.6 lbs, 47.0 kg",
+        "bmi": "36.2"
+    },
+    "Kommo-o": {
+        "id": 784,
+        "height": "5′ 3″, 1.60 m",
+        "weight": "172.4 lbs, 78.2 kg",
+        "bmi": "30.5"
+    },
+    "Tapu Koko": {
+        "id": 785,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "45.2 lbs, 20.5 kg",
+        "bmi": "6.3"
+    },
+    "Tapu Lele": {
+        "id": 786,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "41 lbs, 18.6 kg",
+        "bmi": "13.1"
+    },
+    "Tapu Bulu": {
+        "id": 787,
+        "height": "6′ 3″, 1.91 m",
+        "weight": "100.3 lbs, 45.5 kg",
+        "bmi": "12.5"
+    },
+    "Tapu Fini": {
+        "id": 788,
+        "height": "4′ 3″, 1.30 m",
+        "weight": "46.7 lbs, 21.2 kg",
+        "bmi": "12.5"
+    },
+    "Cosmog": {
+        "id": 789,
+        "height": "0′ 8″, 0.20 m",
+        "weight": "0.2 lbs, 0.1 kg",
+        "bmi": "2.5"
+    },
+    "Cosmoem": {
+        "id": 790,
+        "height": "0′ 4″, 0.10 m",
+        "weight": "2204.4 lbs, 999.9 kg",
+        "bmi": "99,990.0"
+    },
+    "Solgaleo": {
+        "id": 791,
+        "height": "11′ 2″, 3.40 m",
+        "weight": "507.1 lbs, 230.0 kg",
+        "bmi": "19.9"
+    },
+    "Lunala": {
+        "id": 792,
+        "height": "13′ 1″, 3.99 m",
+        "weight": "264.6 lbs, 120.0 kg",
+        "bmi": "7.5"
+    },
+    "Nihilego": {
+        "id": 793,
+        "height": "3′ 11″, 1.19 m",
+        "weight": "122.4 lbs, 55.5 kg",
+        "bmi": "39.2"
+    },
+    "Buzzwole": {
+        "id": 794,
+        "height": "7′ 10″, 2.39 m",
+        "weight": "735.5 lbs, 333.6 kg",
+        "bmi": "58.4"
+    },
+    "Pheromosa": {
+        "id": 795,
+        "height": "5′ 11″, 1.80 m",
+        "weight": "55.1 lbs, 25.0 kg",
+        "bmi": "7.7"
+    },
+    "Xurkitree": {
+        "id": 796,
+        "height": "12′ 6″, 3.81 m",
+        "weight": "220.5 lbs, 100.0 kg",
+        "bmi": "6.9"
+    },
+    "Celesteela": {
+        "id": 797,
+        "height": "30′ 2″, 9.19 m",
+        "weight": "2204.4 lbs, 999.9 kg",
+        "bmi": "11.8"
+    },
+    "Kartana": {
+        "id": 798,
+        "height": "1′ 0″, 0.30 m",
+        "weight": "0.2 lbs, 0.1 kg",
+        "bmi": "1.1"
+    },
+    "Guzzlord": {
+        "id": 799,
+        "height": "18′ 1″, 5.51 m",
+        "weight": "1957.7 lbs, 888.0 kg",
+        "bmi": "29.2"
+    },
+    "Necrozma": {
+        "id": 800,
+        "height": "7′ 10″, 2.39 m",
+        "weight": "507.1 lbs, 230.0 kg",
+        "bmi": "40.3"
+    },
+    "Magearna": {
+        "id": 801,
+        "height": "3′ 3″, 0.99 m",
+        "weight": "177.5 lbs, 80.5 kg",
+        "bmi": "82.1"
+    },
+    "Marshadow": {
+        "id": 802,
+        "height": "2′ 4″, 0.71 m",
+        "weight": "48.9 lbs, 22.2 kg",
+        "bmi": "44.0"
+    }
+}

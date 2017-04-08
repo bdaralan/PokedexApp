@@ -28,6 +28,9 @@ class Pokemon {
     private var _secondAbility: String!
     private var _hiddenAbility: String!
     
+    private var _height: [String]!
+    private var _weight: [String]!
+    
     
     var name: String { return _name }
     var id: Int { return _id }
@@ -46,6 +49,9 @@ class Pokemon {
     var firstAbility: String { return _firstAbility }
     var secondAbility: String { return _secondAbility }
     var hiddenAbility: String { return _hiddenAbility }
+    
+    func height(isSIUnit: Bool) -> String { return isSIUnit ? _height[1] : _height[0] }
+    func weight(isSIUnit: Bool) -> String { return isSIUnit ? _weight[1] : _weight[0] }
     
     
     init(name: String, id: Int, form: String) {
@@ -95,10 +101,10 @@ class Pokemon {
     
     func parseAbilities() {
         
-        if let pokeAbil = ABILITY_JSON[name],
-            let ability01 = pokeAbil["ability01"] as? String,
-            let ability02 = pokeAbil["ability02"] as? String,
-            let hiddenAbility = pokeAbil["hidden"] as? String {
+        if let abilities = ABILITY_JSON[name],
+            let ability01 = abilities["ability01"] as? String,
+            let ability02 = abilities["ability02"] as? String,
+            let hiddenAbility = abilities["hidden"] as? String {
             
             _firstAbility = ability01
             _secondAbility = ability02
@@ -107,6 +113,17 @@ class Pokemon {
             _firstAbility = ""
             _secondAbility = ""
             _hiddenAbility = ""
+        }
+    }
+    
+    func parseMeasurement() {
+        
+        if let measurements = MEASUREMENT_JSON[name],
+            let height = measurements["height"] as? String,
+            let weight = measurements["weight"] as? String {
+            
+            _height = height.components(separatedBy: ", ")
+            _weight = weight.components(separatedBy: ", ")
         }
     }
 }

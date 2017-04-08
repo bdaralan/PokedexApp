@@ -16,6 +16,7 @@ let COLORS = Colors()
 let loadJSON = LoadJSON()
 let POKEMON_JSON = loadJSON.loadPokemonJSON()
 let ABILITY_JSON = loadJSON.loadAbilityJSON()
+let MEASUREMENT_JSON = loadJSON.loadMeasurementJSON()
 
 let pokemonData = PokemonData()
 let POKEMONS = pokemonData.allPokemonById
