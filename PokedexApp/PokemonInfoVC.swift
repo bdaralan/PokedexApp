@@ -38,10 +38,14 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokeEvolution01Img: UIImageView!
     @IBOutlet weak var pokeEvolution02Img: UIImageView!
     @IBOutlet weak var pokeEvolution03Img: UIImageView!
+    @IBOutlet weak var pokeEvolution04Img: UIImageView!
+    @IBOutlet weak var pokeEvolution05Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr01Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr02Img: UIImageView!
+    @IBOutlet weak var pokeEvolutionArr03Img: UIImageView!
     
     var pokemon: Pokemon!
+    
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
