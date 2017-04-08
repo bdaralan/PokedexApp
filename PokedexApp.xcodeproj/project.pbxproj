@@ -65,7 +65,7 @@
 		53CF3DF21E8A29580073A516 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		53CF3DF41E8A34590073A516 /* LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadJSON.swift; sourceTree = "<group>"; };
 		53CF3DF71E8A3C250073A516 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		53FE756F1E9890D700CE2D1D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		53FE756F1E9890D700CE2D1D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = ../Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,6 @@
 		53CF3DC51E8A26E50073A516 = {
 			isa = PBXGroup;
 			children = (
-				53FE756F1E9890D700CE2D1D /* Extension.swift */,
 				53CF3DD01E8A26E50073A516 /* PokedexApp */,
 				53CF3DCF1E8A26E50073A516 /* Products */,
 			);
@@ -161,8 +160,9 @@
 		53CF3DEE1E8A28D10073A516 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				53CF3DEF1E8A28E30073A516 /* PokemonData.swift */,
 				53CF3DF71E8A3C250073A516 /* Utilities.swift */,
+				53FE756F1E9890D700CE2D1D /* Extension.swift */,
+				53CF3DEF1E8A28E30073A516 /* PokemonData.swift */,
 				536095B31E96F4CD00D2F2FC /* UnifiedSearch.swift */,
 			);
 			name = Utilities;

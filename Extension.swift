@@ -15,8 +15,8 @@ extension UILabel {
         self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width + length + space, height: self.frame.height)
     }
     
-    func setLength(equalTo label: UILabel) {
+    func setLength(to length: CGFloat) {
         
-        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: label.frame.width, height: self.frame.height)
+        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: length, height: self.frame.height)
     }
 }

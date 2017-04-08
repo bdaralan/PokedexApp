@@ -67,7 +67,7 @@ class PokemonInfoVC: UIViewController {
             pokeType02Lbl.isHidden = false
             pokeType02Lbl.text = pokemon.secondaryType
             pokeType02Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.secondaryType)
-            pokeType01Lbl.setLength(equalTo: pokeType02Lbl)
+            pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width)
         } else {
             pokeType02Lbl.isHidden = true
             pokeType01Lbl.extend(length: pokeType02Lbl.frame.width, hasSpacing: 5)
@@ -96,11 +96,11 @@ class PokemonInfoVC: UIViewController {
         pokeSpDefenseLbl.text = "\(pokemon.spDefense)"
         pokeSpeedLbl.text = "\(pokemon.speed)"
         
-        pokeHpPV.progress = pokemon.hp.toProgress()
-        pokeAttackPV.progress = pokemon.attack.toProgress()
-        pokeDefensePV.progress = pokemon.defense.toProgress()
-        pokeSpAttackPV.progress = pokemon.spAttack.toProgress()
-        pokeSpDefensePV.progress = pokemon.spDefense.toProgress()
-        pokeSpeedPV.progress = pokemon.speed.toProgress()
+        pokeHpPV.setProgress(pokemon.hp.toProgress(), animated: true)
+        pokeAttackPV.setProgress(pokemon.attack.toProgress(), animated: true)
+        pokeDefensePV.setProgress(pokemon.defense.toProgress(), animated: true)
+        pokeSpAttackPV.setProgress(pokemon.spAttack.toProgress(), animated: true)
+        pokeSpDefensePV.setProgress(pokemon.spDefense.toProgress(), animated: true)
+        pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
     }
 }
