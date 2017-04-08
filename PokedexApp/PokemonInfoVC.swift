@@ -67,15 +67,17 @@ class PokemonInfoVC: UIViewController {
             pokeType02Lbl.isHidden = false
             pokeType02Lbl.text = pokemon.secondaryType
             pokeType02Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.secondaryType)
+            pokeType01Lbl.setLength(equalTo: pokeType02Lbl)
         } else {
             pokeType02Lbl.isHidden = true
+            pokeType01Lbl.extend(length: pokeType02Lbl.frame.width, hasSpacing: 5)
         }
         
         pokeAbility01Lbl.text = pokemon.firstAbility
         
         if pokemon.hasSecondAbility {
-            pokeAbility02Lbl.isHidden = false
             pokeAbility02Lbl.text = pokemon.secondAbility
+            pokeAbility02Lbl.isHidden = false
         } else {
             pokeAbility02Lbl.isHidden = true
         }

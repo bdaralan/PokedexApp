@@ -33,6 +33,7 @@
 		53CF3DF31E8A29580073A516 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF21E8A29580073A516 /* Constants.swift */; };
 		53CF3DF51E8A34590073A516 /* LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF41E8A34590073A516 /* LoadJSON.swift */; };
 		53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF71E8A3C250073A516 /* Utilities.swift */; };
+		53FE75701E9890D700CE2D1D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE756F1E9890D700CE2D1D /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		53CF3DF21E8A29580073A516 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		53CF3DF41E8A34590073A516 /* LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadJSON.swift; sourceTree = "<group>"; };
 		53CF3DF71E8A3C250073A516 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		53FE756F1E9890D700CE2D1D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		53CF3DC51E8A26E50073A516 = {
 			isa = PBXGroup;
 			children = (
+				53FE756F1E9890D700CE2D1D /* Extension.swift */,
 				53CF3DD01E8A26E50073A516 /* PokedexApp */,
 				53CF3DCF1E8A26E50073A516 /* Products */,
 			);
@@ -266,6 +269,7 @@
 				53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */,
 				53CF3DF51E8A34590073A516 /* LoadJSON.swift in Sources */,
 				53CF3DF31E8A29580073A516 /* Constants.swift in Sources */,
+				53FE75701E9890D700CE2D1D /* Extension.swift in Sources */,
 				536095B41E96F4CD00D2F2FC /* UnifiedSearch.swift in Sources */,
 				536095C01E9715D700D2F2FC /* MeasurementUILabel.swift in Sources */,
 				53CF3DE71E8A27760073A516 /* PokedexTVC.swift in Sources */,
