@@ -371,7 +371,7 @@
                                 <rect key="frame" x="309" y="594" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yR-rc-PGc" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pokedex Entery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yR-rc-PGc" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
                                 <rect key="frame" x="194" y="275" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -441,6 +441,8 @@
                         <outlet property="pokeType01Lbl" destination="2bN-jP-9Xh" id="2kl-lh-TwB"/>
                         <outlet property="pokeType02Lbl" destination="sSY-eg-GQ6" id="Lp0-YG-Uwk"/>
                         <outlet property="pokeWeighLblt" destination="Ygv-tF-L6n" id="4Ji-pJ-cwX"/>
+                        <outlet property="pokedexEnteryLbl" destination="6yR-rc-PGc" id="qeW-Np-Zoq"/>
+                        <outlet property="weaknessesLbl" destination="Rx8-dz-0ng" id="ijC-4F-OHl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTO-Tr-Rzw" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,6 +22,9 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokeAbility02Lbl: UILabel!
     @IBOutlet weak var pokeHiddenAibilityLbl: UILabel!
     
+    @IBOutlet weak var pokedexEnteryLbl: UILabel!
+    @IBOutlet weak var weaknessesLbl: UILabel!
+    
     @IBOutlet weak var pokeHpLbl: UILabel!
     @IBOutlet weak var pokeAttackLbl: UILabel!
     @IBOutlet weak var pokeDefenseLbl: UILabel!
@@ -52,6 +55,7 @@ class PokemonInfoVC: UIViewController {
         super.viewDidLoad()
         
         updateUI()
+        configureTappedGestures()
     }
     
     // MARK: - Functions
@@ -110,5 +114,27 @@ class PokemonInfoVC: UIViewController {
         pokeSpAttackPV.setProgress(pokemon.spAttack.toProgress(), animated: true)
         pokeSpDefensePV.setProgress(pokemon.spDefense.toProgress(), animated: true)
         pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
+    }
+    
+    func configureTappedGestures() {
+        
+        let pokedexEnteryTG = UITapGestureRecognizer(target: self, action: #selector(pokedexEnteryLblTapped))
+        pokedexEnteryLbl.addGestureRecognizer(pokedexEnteryTG)
+        pokedexEnteryLbl.isUserInteractionEnabled = true
+        
+        let weaknessesTG = UITapGestureRecognizer(target: self, action: #selector(weaknessesLblTapped))
+        weaknessesLbl.addGestureRecognizer(weaknessesTG)
+        weaknessesLbl.isUserInteractionEnabled = true
+    }
+    
+    // TODO: - Add Slide-in Menu showing pokedex entery and weaknesses
+    func pokedexEnteryLblTapped() {
+        
+        print("entery tapped")
+    }
+    
+    func weaknessesLblTapped() {
+        
+        print("weaknesses tapped")
     }
 }
