@@ -136,5 +136,7 @@ class PokemonInfoVC: UIViewController {
     func weaknessesLblTapped() {
         
         print("weaknesses tapped")
+        let viewLauncher = ViewLauncher()
+        viewLauncher.presentWeakness(of: pokemon, in: view)
     }
 }
