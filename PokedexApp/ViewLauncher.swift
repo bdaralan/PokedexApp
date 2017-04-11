@@ -10,45 +10,54 @@ import UIKit
 
 class ViewLauncher: NSObject {
     
-    override init() {
-        super.init()
-    }
+    private var parentView: UIViewController!
+    private var navigationBar: UINavigationBar!
+    private var presentingCoordinate: CGRect!
     
-    let blackView: UIView = {
+    private var blackView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0, alpha: 0.2)
         view.alpha = 0
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
-        view.addGestureRecognizer(tapGesture)
-        view.isUserInteractionEnabled = true
         return view
     }()
     
-    let weaknessesView: UIView = {
+    private var weaknessesView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        return view
+    }()
+    
+    private var pokedexEnteryView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.gray
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
-        view.addGestureRecognizer(tapGesture)
-        view.isUserInteractionEnabled = true
         return view
     }()
     
-    func presentWeakness(of pokemon: Pokemon, in parentView: UIView) {
+    
+    init(parentView: UIViewController) {
+        self.parentView = parentView
+        self.navigationBar = parentView.navigationController?.navigationBar
         
-        blackView.frame = parentView.frame
-        
-        let height: CGFloat = 200
-        let y = parentView.frame.origin.y - height
-        weaknessesView.frame = CGRect(x: 0, y: y, width: parentView.frame.width, height: height)
-        
-        parentView.addSubview(blackView)
-        parentView.addSubview(weaknessesView)
+        if let window = UIApplication.shared.keyWindow {
+            let height = UIApplication.shared.statusBarFrame.height + navigationBar.frame.height
+            self.presentingCoordinate = CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: height)
+        }
+    }
+    
+    
+    func presentWeakness(of pokemon: Pokemon) {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 1
-            self.weaknessesView.frame.origin.y = parentView.frame.origin.y
+            self.weaknessesView.frame.origin.y = self.presentingCoordinate.size.height
+        }, completion: nil)
+    }
+    
+    func presentPokedexEntery(of pokemon: Pokemon) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.blackView.alpha = 1
+            self.pokedexEnteryView.frame.origin.y = self.presentingCoordinate.size.height
         }, completion: nil)
     }
     
@@ -56,7 +65,28 @@ class ViewLauncher: NSObject {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.blackView.alpha = 0
-            self.weaknessesView.frame.origin.y = self.weaknessesView.frame.origin.y - self.weaknessesView.frame.height
+            
+            if self.weaknessesView.frame.origin.y == self.presentingCoordinate.size.height {
+                self.weaknessesView.frame.origin.y = self.presentingCoordinate.origin.y - self.weaknessesView.frame.height
+            } else {
+                self.pokedexEnteryView.frame.origin.y = self.presentingCoordinate.origin.y - self.pokedexEnteryView.frame.height
+            }
         }, completion: nil)
+    }
+    
+    func configureViews() {
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
+        blackView.addGestureRecognizer(tapGesture)
+        blackView.frame = parentView.view.frame
+        
+        let height: CGFloat = 200 //currently used for weaknessesView's and pokedexEnteryView's height
+        let y = self.presentingCoordinate.origin.y - height
+        weaknessesView.frame = CGRect(x: 0, y: y, width: presentingCoordinate.size.width, height: height)
+        pokedexEnteryView.frame = CGRect(x: 0, y: y, width: presentingCoordinate.size.width, height: height)
+        
+        parentView.view.addSubview(blackView)
+        parentView.view.addSubview(weaknessesView)
+        parentView.view.addSubview(pokedexEnteryView)
     }
 }

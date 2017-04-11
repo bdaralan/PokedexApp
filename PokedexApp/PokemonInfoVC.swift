@@ -48,14 +48,15 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokeEvolutionArr03Img: UIImageView!
     
     var pokemon: Pokemon!
-    
+    var viewLauncher: ViewLauncher!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
+        configureViewLauncher()
         configureTappedGestures()
+        updateUI()
     }
     
     // MARK: - Functions
@@ -127,16 +128,20 @@ class PokemonInfoVC: UIViewController {
         weaknessesLbl.isUserInteractionEnabled = true
     }
     
+    func configureViewLauncher() {
+        
+        viewLauncher = ViewLauncher(parentView: self)
+        viewLauncher.configureViews()
+    }
+    
     // TODO: - Add Slide-in Menu showing pokedex entery and weaknesses
     func pokedexEnteryLblTapped() {
         
-        print("entery tapped")
+        viewLauncher.presentPokedexEntery(of: pokemon)
     }
     
     func weaknessesLblTapped() {
         
-        print("weaknesses tapped")
-        let viewLauncher = ViewLauncher()
-        viewLauncher.presentWeakness(of: pokemon, in: view)
+        viewLauncher.presentWeakness(of: pokemon)
     }
 }
