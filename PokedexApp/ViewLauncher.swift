@@ -18,12 +18,20 @@ class ViewLauncher: NSObject {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0, alpha: 0.2)
         view.alpha = 0
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
         return view
     }()
     
     let weaknessesView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.gray
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -38,13 +46,7 @@ class ViewLauncher: NSObject {
         parentView.addSubview(blackView)
         parentView.addSubview(weaknessesView)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
-        blackView.addGestureRecognizer(tapGesture)
-        blackView.isUserInteractionEnabled = true
-        weaknessesView.addGestureRecognizer(tapGesture)
-        weaknessesView.isUserInteractionEnabled = true
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 1
             self.weaknessesView.frame.origin.y = parentView.frame.origin.y
         }, completion: nil)
@@ -52,8 +54,7 @@ class ViewLauncher: NSObject {
     
     func dismissViews() {
         
-        print("dismessView")
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: { 
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.blackView.alpha = 0
             self.weaknessesView.frame.origin.y = self.weaknessesView.frame.origin.y - self.weaknessesView.frame.height
         }, completion: nil)
