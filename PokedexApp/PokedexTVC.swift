@@ -82,6 +82,7 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.loadViewIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
     }
