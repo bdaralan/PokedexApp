@@ -50,15 +50,16 @@ class Pokemon {
     var secondAbility: String { return _secondAbility }
     var hiddenAbility: String { return _hiddenAbility }
     
-    func height(isSIUnit: Bool) -> String { return isSIUnit ? _height[1] : _height[0] }
-    func weight(isSIUnit: Bool) -> String { return isSIUnit ? _weight[1] : _weight[0] }
-    
+    func getHeight(as unit: Unit) -> String { return _height[unit.rawValue] }
+    func getWeight(as unit: Unit) -> String { return _weight[unit.rawValue] }
+
     
     init(name: String, id: Int, form: String) {
         _name = name
         _id = id
         _form = form
     }
+
     
     func parseStatsTypes() {
         
@@ -130,6 +131,11 @@ class Pokemon {
 
 
 extension Pokemon {
+    
+    enum Unit: Int {
+        case USCustomaryUnits
+        case SIUnits
+    }
     
     var hasSecondType: Bool {
         return self.secondaryType != ""

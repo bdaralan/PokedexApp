@@ -14,9 +14,11 @@ typealias DictionarySS = Dictionary<String, String>
 let COLORS = Colors()
 
 let loadJSON = LoadJSON()
-let POKEMON_JSON = loadJSON.loadPokemonJSON()
-let ABILITY_JSON = loadJSON.loadAbilityJSON()
-let MEASUREMENT_JSON = loadJSON.loadMeasurementJSON()
+let POKEMON_JSON = loadJSON.pokemons()
+let ABILITY_JSON = loadJSON.abilities()
+let MEASUREMENT_JSON = loadJSON.measurements()
+let WEAKNESSESS_JSON = loadJSON.weaknesses()
+let POKEDEX_ENTERIES_JSON = loadJSON.pokedexEnteries()
 
 let pokemonData = PokemonData()
 let POKEMONS = pokemonData.allPokemonById

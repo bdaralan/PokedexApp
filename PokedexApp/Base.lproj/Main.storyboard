@@ -412,6 +412,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="PokemonInfo" id="VqK-65-sSa"/>
                     <connections>
+                        <outlet property="measurementSectionLbl" destination="hhg-QI-IA8" id="yBa-wY-ahu"/>
                         <outlet property="pokeAbility01Lbl" destination="Snr-jG-dfM" id="jZ3-dr-4rQ"/>
                         <outlet property="pokeAbility02Lbl" destination="PTV-r8-0Ch" id="TcX-xT-hPV"/>
                         <outlet property="pokeAttackLbl" destination="bAv-X5-XGi" id="sYY-XV-CD9"/>
@@ -441,8 +442,8 @@
                         <outlet property="pokeType01Lbl" destination="2bN-jP-9Xh" id="2kl-lh-TwB"/>
                         <outlet property="pokeType02Lbl" destination="sSY-eg-GQ6" id="Lp0-YG-Uwk"/>
                         <outlet property="pokeWeighLblt" destination="Ygv-tF-L6n" id="4Ji-pJ-cwX"/>
-                        <outlet property="pokedexEnteryLbl" destination="6yR-rc-PGc" id="qeW-Np-Zoq"/>
-                        <outlet property="weaknessesLbl" destination="Rx8-dz-0ng" id="ijC-4F-OHl"/>
+                        <outlet property="pokedexEnterySectionLbl" destination="6yR-rc-PGc" id="AJB-mJ-2uO"/>
+                        <outlet property="weaknessesSectionLbl" destination="Rx8-dz-0ng" id="La7-ti-uAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTO-Tr-Rzw" userLabel="First Responder" sceneMemberID="firstResponder"/>

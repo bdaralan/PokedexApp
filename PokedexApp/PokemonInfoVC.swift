@@ -9,7 +9,7 @@
 import UIKit
 
 class PokemonInfoVC: UIViewController {
-
+    
     @IBOutlet weak var pokeIdLbl: UILabel!
     @IBOutlet weak var pokeImgView: UIImageView!
     
@@ -22,8 +22,9 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokeAbility02Lbl: UILabel!
     @IBOutlet weak var pokeHiddenAibilityLbl: UILabel!
     
-    @IBOutlet weak var pokedexEnteryLbl: UILabel!
-    @IBOutlet weak var weaknessesLbl: UILabel!
+    @IBOutlet weak var measurementSectionLbl: UILabel!
+    @IBOutlet weak var pokedexEnterySectionLbl: UILabel!
+    @IBOutlet weak var weaknessesSectionLbl: UILabel!
     
     @IBOutlet weak var pokeHpLbl: UILabel!
     @IBOutlet weak var pokeAttackLbl: UILabel!
@@ -49,11 +50,13 @@ class PokemonInfoVC: UIViewController {
     
     var pokemon: Pokemon!
     var viewLauncher: ViewLauncher!
+    var measurementDidSetToSIUnits: Bool!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        measurementDidSetToSIUnits = false // TODO: - shoulde be getting value from UserDefaults
         configureViewLauncher()
         configureTappedGestures()
         updateUI()
@@ -99,8 +102,8 @@ class PokemonInfoVC: UIViewController {
             pokeHiddenAibilityLbl.isHidden = true
         }
         
-        pokeHeightLbl.text = pokemon.height(isSIUnit: false)
-        pokeWeighLblt.text = pokemon.weight(isSIUnit: false)
+        pokeHeightLbl.text = pokemon.getHeight(as: .USCustomaryUnits)
+        pokeWeighLblt.text = pokemon.getWeight(as: .USCustomaryUnits)
         
         pokeHpLbl.text = "\(pokemon.hp)"
         pokeAttackLbl.text = "\(pokemon.attack)"
@@ -119,13 +122,17 @@ class PokemonInfoVC: UIViewController {
     
     func configureTappedGestures() {
         
-        let pokedexEnteryTG = UITapGestureRecognizer(target: self, action: #selector(pokedexEnteryLblTapped))
-        pokedexEnteryLbl.addGestureRecognizer(pokedexEnteryTG)
-        pokedexEnteryLbl.isUserInteractionEnabled = true
+        let measurmentTG = UITapGestureRecognizer(target: self, action: #selector(measurementSectionLblTapped))
+        measurementSectionLbl.addGestureRecognizer(measurmentTG)
+        measurementSectionLbl.isUserInteractionEnabled = true
         
-        let weaknessesTG = UITapGestureRecognizer(target: self, action: #selector(weaknessesLblTapped))
-        weaknessesLbl.addGestureRecognizer(weaknessesTG)
-        weaknessesLbl.isUserInteractionEnabled = true
+        let pokedexEnteryTG = UITapGestureRecognizer(target: self, action: #selector(pokedexEnterySectionLblTapped))
+        pokedexEnterySectionLbl.addGestureRecognizer(pokedexEnteryTG)
+        pokedexEnterySectionLbl.isUserInteractionEnabled = true
+        
+        let weaknessesTG = UITapGestureRecognizer(target: self, action: #selector(weaknessesSectionLblTapped))
+        weaknessesSectionLbl.addGestureRecognizer(weaknessesTG)
+        weaknessesSectionLbl.isUserInteractionEnabled = true
     }
     
     func configureViewLauncher() {
@@ -134,14 +141,48 @@ class PokemonInfoVC: UIViewController {
         viewLauncher.configureViews()
     }
     
-    // TODO: - Add Slide-in Menu showing pokedex entery and weaknesses
-    func pokedexEnteryLblTapped() {
+    func toggleMeasurement() {
+        
+        if measurementDidSetToSIUnits {
+            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomaryUnits)
+            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomaryUnits)
+        } else {
+            pokeHeightLbl.text = pokemon.getHeight(as: .SIUnits)
+            pokeWeighLblt.text = pokemon.getWeight(as: .SIUnits)
+        }
+        
+        measurementDidSetToSIUnits = !measurementDidSetToSIUnits
+    }
+    
+    func measurementSectionLblTapped() {
+        
+        let originalPositionY = pokeHeightLbl.frame.origin.y
+        let animateToPositionY = measurementSectionLbl.frame.origin.y
+        let animatedDuration: TimeInterval = 0.25
+        
+        UIView.animate(withDuration: animatedDuration, animations: {
+            self.pokeHeightLbl.frame.origin.y = animateToPositionY
+            self.pokeHeightLbl.alpha = 0
+            self.pokeWeighLblt.frame.origin.y = animateToPositionY
+            self.pokeWeighLblt.alpha = 0
+        }) { (Bool) in
+            self.toggleMeasurement()
+            UIView.animate(withDuration: animatedDuration, animations: {
+                self.pokeHeightLbl.frame.origin.y = originalPositionY
+                self.pokeHeightLbl.alpha = 1
+                self.pokeWeighLblt.frame.origin.y = originalPositionY
+                self.pokeWeighLblt.alpha = 1
+            })
+        }
+    }
+    
+    func pokedexEnterySectionLblTapped() {
         
         viewLauncher.presentPokedexEntery(of: pokemon)
     }
     
-    func weaknessesLblTapped() {
+    func weaknessesSectionLblTapped() {
         
-        viewLauncher.presentWeakness(of: pokemon)
+        viewLauncher.presentWeaknesses(of: pokemon)
     }
 }

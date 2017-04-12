@@ -10,8 +10,34 @@ import Foundation
 
 class LoadJSON {
     
-    func loadPokemonJSON() -> DictionarySA {
-        if let path = Bundle.main.path(forResource: "pokemons", ofType: "json"), let data = NSData(contentsOfFile: path) as Data? {
+    func pokemons() -> DictionarySA {
+        
+        return loadDataFromFile(name: "pokemons")
+    }
+    
+    func abilities() -> DictionarySA {
+        
+        return loadDataFromFile(name: "abilities")
+    }
+    
+    func measurements() -> DictionarySA {
+        
+        return loadDataFromFile(name: "measurements")
+    }
+    
+    func weaknesses() -> DictionarySA {
+        
+        return loadDataFromFile(name: "weaknesses")
+    }
+    
+    func pokedexEnteries() -> DictionarySA {
+        
+        return loadDataFromFile(name: "pokedex-enteries")
+    }
+    
+    private func loadDataFromFile(name: String) -> DictionarySA {
+        
+        if let path = Bundle.main.path(forResource: name, ofType: "json"), let data = NSData(contentsOfFile: path) as Data? {
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySA {
                     
@@ -20,31 +46,6 @@ class LoadJSON {
             } catch { print(error) }
         }
         
-        return DictionarySA()
-    }
-    
-    func loadAbilityJSON() -> DictionarySA {
-        if let path = Bundle.main.path(forResource: "abilities", ofType: "json"), let data = NSData(contentsOfFile: path) as Data? {
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySA {
-                    
-                    return json
-                }
-            } catch { print(error) }
-        }
-        
-        return DictionarySA()
-    }
-    
-    func loadMeasurementJSON() -> DictionarySA {
-        if let path = Bundle.main.path(forResource: "measurements", ofType: "json"), let data = NSData(contentsOfFile: path) as Data? {
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySA {
-                    
-                    return json
-                }
-            } catch { print(error) }
-        }
         return DictionarySA()
     }
 }
