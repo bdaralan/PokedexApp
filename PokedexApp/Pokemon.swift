@@ -52,14 +52,14 @@ class Pokemon {
     
     func getHeight(as unit: Unit) -> String { return _height[unit.rawValue] }
     func getWeight(as unit: Unit) -> String { return _weight[unit.rawValue] }
-
+    
     
     init(name: String, id: Int, form: String) {
         _name = name
         _id = id
         _form = form
     }
-
+    
     
     func parseStatsTypes() {
         
@@ -126,6 +126,21 @@ class Pokemon {
             _height = height.components(separatedBy: ", ")
             _weight = weight.components(separatedBy: ", ")
         }
+    }
+    
+    func getWeaknesses() -> DictionarySS {
+        
+        var weaknessesDict = DictionarySS()
+        
+        if primaryType != "" {
+            if let weaknesses = WEAKNESSESS_JSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
+                for (type, effective) in weaknesses where effective != "" {
+                    weaknessesDict.updateValue(effective, forKey: type)
+                }
+            }
+        }
+        
+        return weaknessesDict
     }
 }
 

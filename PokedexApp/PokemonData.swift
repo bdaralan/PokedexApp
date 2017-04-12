@@ -22,7 +22,7 @@ class PokemonData {
     private func parseAllPokemon() -> [Pokemon] {
         
         var pokemons = [Pokemon]()
-        let json = loadJSON.pokemons()
+        let json = loadData.pokemonsJSON()
         let names = json.keys
         
         for name in names {

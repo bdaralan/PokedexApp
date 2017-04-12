@@ -95,42 +95,6 @@ class ViewLauncher: NSObject {
         })
     }
     
-    func addWeaknessLabels(for pokemon: Pokemon) {
-        
-        let height: CGFloat = 21
-        let width: CGFloat = weaknessesView.frame.width
-        let spacing: CGFloat = 8
-        let x: CGFloat = 20
-        var y: CGFloat = 8
-        
-        if let weaknessesInfo = WEAKNESSESS_JSON["\(pokemon.primaryType)\(pokemon.secondaryType)"] as? DictionarySS {
-            for (type, damage) in weaknessesInfo where damage != "" {
-                let label = UILabel()
-                label.contentMode = .left
-                label.frame = CGRect(x: x, y: y, width: width, height: 21)
-                label.text = "\(type): \(damage)x"
-                weaknessesView.addSubview(label)
-                y = y + height + spacing
-            }
-        }
-    }
-    
-    func addPokedexEnteryLabels(for pokemon: Pokemon) {
-        
-        let x: CGFloat = 20
-        let y: CGFloat = 8
-        let height: CGFloat = 200 // TODO: - should be dynamic
-        let width: CGFloat = pokedexEnteryView.frame.width - (x * 2)
-        let textView = UITextView(frame: CGRect(x: x, y: y, width: width, height: height))
-        
-        if let pokedexEntery = POKEDEX_ENTERIES_JSON["\(pokemon.id)"] as? DictionarySS {
-            if let omegaEntery = pokedexEntery["omega"], let alphaEntery = pokedexEntery["alpha"] {
-                textView.text = "\(omegaEntery)\n\n\(alphaEntery)"
-                pokedexEnteryView.addSubview(textView)
-            }
-        }
-    }
-    
     func configureViews() {
         
         if let navigationBar = parentView.navigationController?.navigationBar {
@@ -153,6 +117,42 @@ class ViewLauncher: NSObject {
             parentView.view.addSubview(blackView)
             parentView.view.addSubview(weaknessesView)
             parentView.view.addSubview(pokedexEnteryView)
+        }
+    }
+    
+    private func addWeaknessLabels(for pokemon: Pokemon) {
+        
+        let width: CGFloat = weaknessesView.frame.width
+        let height: CGFloat = 21
+        let spacing: CGFloat = 8
+        let x: CGFloat = 20
+        var y: CGFloat = 8
+        
+        let weaknesses = pokemon.getWeaknesses()
+        
+        for (type, effective) in weaknesses {
+            let label = UILabel()
+            label.contentMode = .left
+            label.frame = CGRect(x: x, y: y, width: width, height: 21)
+            label.text = "\(type): \(effective)x"
+            weaknessesView.addSubview(label)
+            y = y + height + spacing
+        }
+    }
+    
+    private func addPokedexEnteryLabels(for pokemon: Pokemon) {
+        
+        let x: CGFloat = 20
+        let y: CGFloat = 8
+        let height: CGFloat = 200 // TODO: - should be dynamic
+        let width: CGFloat = pokedexEnteryView.frame.width - (x * 2)
+        let textView = UITextView(frame: CGRect(x: x, y: y, width: width, height: height))
+        
+        if let pokedexEntery = POKEDEX_ENTERIES_JSON["\(pokemon.id)"] as? DictionarySS {
+            if let omegaEntery = pokedexEntery["omega"], let alphaEntery = pokedexEntery["alpha"] {
+                textView.text = "\(omegaEntery)\n\n\(alphaEntery)"
+                pokedexEnteryView.addSubview(textView)
+            }
         }
     }
     

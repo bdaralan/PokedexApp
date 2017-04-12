@@ -14,20 +14,9 @@ class PokedexCell: UITableViewCell {
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonID: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        pokemonImg.contentMode = .scaleAspectFill
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     func configureCell(pokemon: Pokemon) {
         
+        pokemonImg.contentMode = .scaleAspectFill
         pokemonImg.image = UIImage(named: pokemon.imageName)
         pokemonName.text = pokemon.name
         pokemonID.text = pokemon.id.toPokedexId()

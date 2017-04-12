@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HomeMenu</key>
+	<dict>
+		<key>Sections</key>
+		<array>
+			<string>POKEMON</string>
+			<string>BAG</string>
+		</array>
+		<key>RowsInSections</key>
+		<array>
+			<array>
+				<string>Pokedex</string>
+				<string>Types</string>
+				<string>Moves</string>
+				<string>Abilities</string>
+			</array>
+			<array>
+				<string>TMs</string>
+				<string>Items</string>
+				<string>Berries</string>
+			</array>
+		</array>
+	</dict>
+</dict>
+</plist>
