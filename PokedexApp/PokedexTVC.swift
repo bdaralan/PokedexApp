@@ -12,6 +12,7 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     
     var pokemons = POKEMONS
     var searchController: UISearchController!
+    var tableViewLastVisibleRow: IndexPath!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - SearchResultUpdating
     func updateSearchResults(for searchController: UISearchController) {
         
+        // TODO: - Remember where the row is, scroll to that position when search ended
         if let searchText = searchController.searchBar.text, searchText != "" {
             pokemons = POKEMONS.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
         } else {

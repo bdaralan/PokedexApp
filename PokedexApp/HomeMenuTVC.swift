@@ -15,6 +15,16 @@ class HomeMenuTVC: UITableViewController {
         case BAG
     }
     
+    private enum HomeMenuCell: String {
+        case Pokedex = "00"
+        case Types = "01"
+        case Moves = "02"
+        case Abilities = "03"
+        case TMs = "10"
+        case Items = "11"
+        case Berries = "12"
+    }
+    
     private var homeMenuSections = loadData.homeMenuSections()
     private var homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     
@@ -59,6 +69,26 @@ class HomeMenuTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "PokedexTVC", sender: nil)
+        var segueIdentifier = ""
+        if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
+            switch selectedCell {
+            case .Pokedex:
+                segueIdentifier = "PokedexTVC"
+            case .Types:
+                segueIdentifier = "PokedexTVC"
+            case .Moves:
+                segueIdentifier = "PokedexTVC"
+            case .Abilities:
+                segueIdentifier = "PokedexTVC"
+            case .TMs:
+                segueIdentifier = "PokedexTVC"
+            case .Items:
+                segueIdentifier = "PokedexTVC"
+            case .Berries:
+                segueIdentifier = "PokedexTVC"
+            }
+        }
+        
+        performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
 }
