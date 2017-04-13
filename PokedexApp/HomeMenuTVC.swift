@@ -71,29 +71,26 @@ class HomeMenuTVC: UITableViewController {
 
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0, indexPath.row == 0 {
-            performSegue(withIdentifier: "PokedexTVC", sender: nil)
+        var segueIdentifier = ""
+        if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
+            switch selectedCell {
+            case .Pokedex:
+                segueIdentifier = "PokedexTVC"
+            case .Types:
+                segueIdentifier = "PokedexTVC"
+            case .Moves:
+                segueIdentifier = "MovesTVC"
+            case .Abilities:
+                segueIdentifier = "PokedexTVC"
+            case .TMs:
+                segueIdentifier = "PokedexTVC"
+            case .Items:
+                segueIdentifier = "PokedexTVC"
+            case .Berries:
+                segueIdentifier = "PokedexTVC"
+            }
         }
-//        var segueIdentifier = ""
-//        if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
-//            switch selectedCell {
-//            case .Pokedex:
-//                segueIdentifier = "PokedexTVC"
-//            case .Types:
-//                segueIdentifier = "PokedexTVC"
-//            case .Moves:
-//                segueIdentifier = "PokedexTVC"
-//            case .Abilities:
-//                segueIdentifier = "PokedexTVC"
-//            case .TMs:
-//                segueIdentifier = "PokedexTVC"
-//            case .Items:
-//                segueIdentifier = "PokedexTVC"
-//            case .Berries:
-//                segueIdentifier = "PokedexTVC"
-//            }
-//        }
-//        
-//        performSegue(withIdentifier: segueIdentifier, sender: nil)
+        
+        performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
 }

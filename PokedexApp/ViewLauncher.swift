@@ -138,7 +138,7 @@ class ViewLauncher: NSObject {
         let weaknesses = pokemon.getWeaknesses()
         
         var y: CGFloat = 8
-        let x: CGFloat = 20
+        let x: CGFloat = 16
         let width: CGFloat = 80
         let height: CGFloat = 21
         let spacing: CGFloat = 8
