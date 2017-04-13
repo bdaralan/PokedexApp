@@ -138,16 +138,16 @@ class ViewLauncher: NSObject {
         let weaknesses = pokemon.getWeaknesses()
         
         var y: CGFloat = 8
-        let x: CGFloat = 16
         let width: CGFloat = 80
         let height: CGFloat = 21
+        let margin: CGFloat = 16
         let spacing: CGFloat = 8
         
         for (type, effective) in weaknesses {
             let backgroundColor = COLORS.make(fromPokemonType: type)
             
             let typeLbl: TypeUILabel = {
-                let label = TypeUILabel(frame: CGRect(x: x, y: y, width: width, height: height))
+                let label = TypeUILabel(frame: CGRect(x: margin, y: y, width: width, height: height))
                 label.awakeFromNib()
                 label.backgroundColor = backgroundColor
                 label.text = type
@@ -155,9 +155,10 @@ class ViewLauncher: NSObject {
             }()
             
             let effectiveLbl: TypeUILabel = {
-                let x = x + width + spacing
+                let x = margin + width + spacing //x position after typeLbl
                 var width = height //starting width
                 
+                // MARK: - Pokemon's weaknesses effective width
                 if effective == "1/4" {
                     width = width * 2
                 } else if effective == "1/2" {
@@ -165,7 +166,7 @@ class ViewLauncher: NSObject {
                 } else if effective == "2" {
                     width = width * 8
                 } else if effective == "4" {
-                    width = parentView.view.frame.width - x - spacing
+                    width = parentView.view.frame.width - x - margin
                 } else if effective == "0" { // "0"
                     width = width * 2
                 }
