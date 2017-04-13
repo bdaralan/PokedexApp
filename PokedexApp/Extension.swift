@@ -20,3 +20,10 @@ extension UILabel {
         self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: length, height: self.frame.height)
     }
 }
+
+extension Int {
+    
+    var cgFloat: CGFloat {
+        return CGFloat(self)
+    }
+}

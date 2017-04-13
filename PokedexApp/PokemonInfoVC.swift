@@ -138,7 +138,7 @@ class PokemonInfoVC: UIViewController {
     func configureViewLauncher() {
         
         viewLauncher = ViewLauncher(parentView: self)
-        viewLauncher.configureViews()
+        viewLauncher.configureLauncher()
     }
     
     func toggleMeasurement() {

@@ -14,6 +14,7 @@ class TypeUILabel: UILabel {
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.textColor = UIColor.white
+        self.textAlignment = .center
         //self.font = UIFont(name: String, size: CGFloat)
     }
 }
