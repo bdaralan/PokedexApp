@@ -68,27 +68,32 @@ class HomeMenuTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        var segueIdentifier = ""
-        if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
-            switch selectedCell {
-            case .Pokedex:
-                segueIdentifier = "PokedexTVC"
-            case .Types:
-                segueIdentifier = "PokedexTVC"
-            case .Moves:
-                segueIdentifier = "PokedexTVC"
-            case .Abilities:
-                segueIdentifier = "PokedexTVC"
-            case .TMs:
-                segueIdentifier = "PokedexTVC"
-            case .Items:
-                segueIdentifier = "PokedexTVC"
-            case .Berries:
-                segueIdentifier = "PokedexTVC"
-            }
+        if indexPath.section == 0, indexPath.row == 0 {
+            performSegue(withIdentifier: "PokedexTVC", sender: nil)
         }
-        
-        performSegue(withIdentifier: segueIdentifier, sender: nil)
+//        var segueIdentifier = ""
+//        if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
+//            switch selectedCell {
+//            case .Pokedex:
+//                segueIdentifier = "PokedexTVC"
+//            case .Types:
+//                segueIdentifier = "PokedexTVC"
+//            case .Moves:
+//                segueIdentifier = "PokedexTVC"
+//            case .Abilities:
+//                segueIdentifier = "PokedexTVC"
+//            case .TMs:
+//                segueIdentifier = "PokedexTVC"
+//            case .Items:
+//                segueIdentifier = "PokedexTVC"
+//            case .Berries:
+//                segueIdentifier = "PokedexTVC"
+//            }
+//        }
+//        
+//        performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
 }

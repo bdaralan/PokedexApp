@@ -10,6 +10,7 @@ import Foundation
 
 typealias DictionarySA = Dictionary<String, AnyObject>
 typealias DictionarySS = Dictionary<String, String>
+typealias DidFinishAnimation = Bool
 
 let COLORS = Colors()
 

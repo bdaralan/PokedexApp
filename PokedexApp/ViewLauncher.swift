@@ -15,6 +15,7 @@ class ViewLauncher: NSObject {
     private var presentingPositionY: CGFloat!
     private var dismissPositionY: CGFloat!
     private var animatedDuration: TimeInterval!
+    private var isIdle: Bool!
     
     private var blackView: UIView = {
         
@@ -38,61 +39,70 @@ class ViewLauncher: NSObject {
         return view
     }()
     
-    private var weaknessesViewDidPresent: Bool {
-        
-        if self.weaknessesView.frame.origin.y == self.presentingPositionY {
-            return true
-        }
-        return false
-    }
-    
     
     // Initializer
     init(parentView: UIViewController) {
         
         self.parentView = parentView
         self.animatedDuration = 0.5
+        self.isIdle = true
     }
     
+    
+    // Functions
     func presentWeaknesses(of pokemon: Pokemon) {
         
-        addWeaknessLabels(for: pokemon)
-        
-        UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.blackView.alpha = 1
-            self.weaknessesView.frame.origin.y = self.presentingPositionY
-        }, completion: nil)
+        if isIdle {
+            isIdle = false
+            addWeaknessLabels(for: pokemon)
+            
+            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.blackView.alpha = 1
+                self.weaknessesView.frame.origin.y = self.presentingPositionY
+            }, completion: { (Bool) in
+                self.isIdle = true
+            })
+        }
     }
     
     func presentPokedexEntery(of pokemon: Pokemon) {
         
-        addPokedexEnteryLabels(for: pokemon)
-        
-        UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.blackView.alpha = 1
-            self.pokedexEnteryView.frame.origin.y = self.presentingPositionY
-        }, completion: nil)
+        if isIdle {
+            isIdle = false
+            addPokedexEnteryLabels(for: pokemon)
+            
+            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.blackView.alpha = 1
+                self.pokedexEnteryView.frame.origin.y = self.presentingPositionY
+            }) { (Bool) in
+                self.isIdle = true
+            }
+        }
     }
     
     func dismissViews() {
         
-        let weaknessesViewDidPresent = self.weaknessesViewDidPresent
-        
-        UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            self.blackView.alpha = 0
+        if isIdle {
+            isIdle = false
+            let weaknessViewDidPresent = (weaknessesView.frame.origin.y == presentingPositionY)
             
-            if weaknessesViewDidPresent {
-                self.weaknessesView.frame.origin.y = self.dismissPositionY
-            } else {
-                self.pokedexEnteryView.frame.origin.y = self.dismissPositionY
-            }
-        }, completion: {(Bool) in
-            if weaknessesViewDidPresent {
-                self.removeAllSubView(from: self.weaknessesView)
-            } else {
-                self.removeAllSubView(from: self.pokedexEnteryView)
-            }
-        })
+            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+                self.blackView.alpha = 0
+                
+                if weaknessViewDidPresent {
+                    self.weaknessesView.frame.origin.y = self.dismissPositionY
+                } else {
+                    self.pokedexEnteryView.frame.origin.y = self.dismissPositionY
+                }
+            }, completion: { (Bool) in
+                if weaknessViewDidPresent {
+                    self.removeAllSubView(from: self.weaknessesView)
+                } else {
+                    self.removeAllSubView(from: self.pokedexEnteryView)
+                }
+                self.isIdle = true
+            })
+        }
     }
     
     func configureViews() {
