@@ -9,53 +9,54 @@
 import UIKit
 
 class MovesTVC: UITableViewController {
-
-    var moveJSON: [DictionarySS]!
+    
+    var moveJSON: DictionarySA!
+    var moves: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        moveJSON = loadData.movesJSON()
+        prepareMoveJSON()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return moveJSON.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath)
-        let move = moveJSON[indexPath.row]
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "MoveCell")
         
-        if let name = move["name"],
-            let type = move["type"],
-            let category = move["category"],
-            let power = move["power"],
-            let accuracy = move["accuracy"],
-            let pp = move["pp"],
-            let tm = move["tm"],
-            let effect = move["effect"],
-            let prob = move["prob"] {
-            
-            cell.textLabel?.text = name
-            cell.detailTextLabel?.text = category
-            
-            // TODO: - Display these to tableViewCell
-            print("name: \(name)")
-            print("Type: \(type)")
-            print("Category: \(category)")
-            print("Power: \(power)")
-            print("Accuracy: \(accuracy)")
-            print("PP: \(pp)")
-            print("TM: \(tm)")
-            print("Effect: \(effect)")
-            print("Prob: \(prob)\n\n")
+        if let move = moveJSON[moves[indexPath.row]] as? DictionarySS { // TODO: - Use NSCache
+            if let type = move["type"],
+                let category = move["category"],
+                let power = move["power"],
+                let accuracy = move["accuracy"],
+                let pp = move["pp"],
+                let tm = move["tm"],
+                let effect = move["effect"],
+                let prob = move["prob"] {
+                
+                cell.textLabel?.text = moves[indexPath.row]
+                cell.detailTextLabel?.textColor = UIColor.lightGray
+                cell.detailTextLabel?.text = "\(category) | \(type) | \(power) | \(accuracy) | \(pp) | \(tm) | \(effect) | \(prob)"
+            }
         }
         
         return cell
+    }
+    
+    func prepareMoveJSON() {
+        
+        moveJSON = loadData.movesJSON()
+        let names = moveJSON.keys.sorted()
+        self.moves = [String]()
+        for name in names {
+            moves.append(name)
+        }
     }
 }

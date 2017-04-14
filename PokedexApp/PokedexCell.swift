@@ -17,7 +17,7 @@ class PokedexCell: UITableViewCell {
     func configureCell(pokemon: Pokemon) {
         
         pokemonImg.contentMode = .scaleAspectFill
-        pokemonImg.image = UIImage(named: pokemon.imageName)
+        pokemonImg.image = UIImage(named: pokemon.imageName) // TODO: - Use NSCache
         pokemonName.text = pokemon.name
         pokemonID.text = pokemon.id.toPokedexId()
     }

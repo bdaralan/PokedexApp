@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5328222D1EA0960400F0B547 /* moves.json in Resources */ = {isa = PBXBuildFile; fileRef = 5328222C1EA0960400F0B547 /* moves.json */; };
 		5338FA311E9DD0BE0068281C /* weaknesses.json in Resources */ = {isa = PBXBuildFile; fileRef = 5338FA301E9DD0BE0068281C /* weaknesses.json */; };
-		533A78801E9FD9E100554F7F /* moves.json in Resources */ = {isa = PBXBuildFile; fileRef = 533A787F1E9FD9E100554F7F /* moves.json */; };
 		533A78821E9FDA6100554F7F /* MovesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* MovesTVC.swift */; };
 		536095B41E96F4CD00D2F2FC /* UnifiedSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B31E96F4CD00D2F2FC /* UnifiedSearch.swift */; };
 		536095B61E96F98900D2F2FC /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B51E96F98900D2F2FC /* Ability.swift */; };
@@ -42,8 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5328222C1EA0960400F0B547 /* moves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moves.json; sourceTree = "<group>"; };
 		5338FA301E9DD0BE0068281C /* weaknesses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weaknesses.json; sourceTree = "<group>"; };
-		533A787F1E9FD9E100554F7F /* moves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moves.json; sourceTree = "<group>"; };
 		533A78811E9FDA6100554F7F /* MovesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovesTVC.swift; sourceTree = "<group>"; };
 		536095B31E96F4CD00D2F2FC /* UnifiedSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedSearch.swift; sourceTree = "<group>"; };
 		536095B51E96F98900D2F2FC /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		5389C1FD1E8EFD02001594B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				533A787F1E9FD9E100554F7F /* moves.json */,
+				5328222C1EA0960400F0B547 /* moves.json */,
 				53B4037E1E9B344500D64ABB /* abilities.json */,
 				53B4037F1E9B344500D64ABB /* evolutions.json */,
 				53B403801E9B344500D64ABB /* measurements.json */,
@@ -259,7 +259,7 @@
 				53CF3DDC1E8A26E50073A516 /* LaunchScreen.storyboard in Resources */,
 				53B403851E9B344500D64ABB /* measurements.json in Resources */,
 				53B403841E9B344500D64ABB /* evolutions.json in Resources */,
-				533A78801E9FD9E100554F7F /* moves.json in Resources */,
+				5328222D1EA0960400F0B547 /* moves.json in Resources */,
 				53B403871E9B344500D64ABB /* pokemons.json in Resources */,
 				53CF3DD91E8A26E50073A516 /* Assets.xcassets in Resources */,
 				5338FA311E9DD0BE0068281C /* weaknesses.json in Resources */,

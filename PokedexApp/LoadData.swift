@@ -35,18 +35,9 @@ class LoadData {
         return loadDataFromFile(name: "pokedex-enteries", ofType: "json")
     }
     
-    func movesJSON() -> [DictionarySS] {
+    func movesJSON() -> DictionarySA {
         
-        if let path = Bundle.main.path(forResource: "moves", ofType: "json"), let data = NSData(contentsOfFile: path) as Data?  {
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [DictionarySS] {
-                    
-                    return json
-                }
-            } catch { print(error) }
-        }
-        
-        return [DictionarySS]()
+        return loadDataFromFile(name: "moves", ofType: "json")
     }
     
     func homeMenuSections() -> [String] {
