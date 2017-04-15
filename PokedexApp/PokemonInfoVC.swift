@@ -159,21 +159,21 @@ class PokemonInfoVC: UIViewController {
     func measurementSectionLblTapped() {
         
         measurementSectionLbl.isUserInteractionEnabled = false
-        let originalPositionY = pokeHeightLbl.frame.origin.y
-        let animateToPositionY = measurementSectionLbl.frame.origin.y
+        let originalOriginY = pokeHeightLbl.frame.origin.y
+        let animateToOriginY = measurementSectionLbl.frame.origin.y
         let animatedDuration: TimeInterval = 0.25
         
         UIView.animate(withDuration: animatedDuration, animations: {
-            self.pokeHeightLbl.frame.origin.y = animateToPositionY
+            self.pokeHeightLbl.frame.origin.y = animateToOriginY
             self.pokeHeightLbl.alpha = 0
-            self.pokeWeighLblt.frame.origin.y = animateToPositionY
+            self.pokeWeighLblt.frame.origin.y = animateToOriginY
             self.pokeWeighLblt.alpha = 0
         }) { (Bool) in
             self.toggleMeasurement()
             UIView.animate(withDuration: animatedDuration, animations: {
-                self.pokeHeightLbl.frame.origin.y = originalPositionY
+                self.pokeHeightLbl.frame.origin.y = originalOriginY
                 self.pokeHeightLbl.alpha = 1
-                self.pokeWeighLblt.frame.origin.y = originalPositionY
+                self.pokeWeighLblt.frame.origin.y = originalOriginY
                 self.pokeWeighLblt.alpha = 1
             }) { (Bool) in
                 self.measurementSectionLbl.isUserInteractionEnabled = true
