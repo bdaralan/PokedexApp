@@ -11,6 +11,9 @@ import UIKit
 class TypeUILabel: UILabel {
     
     override func awakeFromNib() {
+        
+        self.frame.size.width = 80
+        self.frame.size.height = 21
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.textColor = UIColor.white

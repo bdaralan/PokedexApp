@@ -57,9 +57,14 @@ class PokemonInfoVC: UIViewController {
         super.viewDidLoad()
         
         measurementDidSetToSIUnits = false // TODO: - shoulde be getting value from UserDefaults
-        configureViewLauncher()
+        viewLauncher = ViewLauncher(parentView: self)
         configureTappedGestures()
         updateUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        updatePokemonStatsProgressViews()
     }
     
     // MARK: - Functions
@@ -111,6 +116,9 @@ class PokemonInfoVC: UIViewController {
         pokeSpAttackLbl.text = "\(pokemon.spAttack)"
         pokeSpDefenseLbl.text = "\(pokemon.spDefense)"
         pokeSpeedLbl.text = "\(pokemon.speed)"
+    }
+    
+    func updatePokemonStatsProgressViews() {
         
         pokeHpPV.setProgress(pokemon.hp.toProgress(), animated: true)
         pokeAttackPV.setProgress(pokemon.attack.toProgress(), animated: true)
@@ -133,12 +141,6 @@ class PokemonInfoVC: UIViewController {
         let weaknessesTG = UITapGestureRecognizer(target: self, action: #selector(weaknessesSectionLblTapped))
         weaknessesSectionLbl.addGestureRecognizer(weaknessesTG)
         weaknessesSectionLbl.isUserInteractionEnabled = true
-    }
-    
-    func configureViewLauncher() {
-        
-        viewLauncher = ViewLauncher(parentView: self)
-        viewLauncher.configureLauncher()
     }
     
     func toggleMeasurement() {
@@ -181,7 +183,7 @@ class PokemonInfoVC: UIViewController {
     
     func pokedexEnterySectionLblTapped() {
         
-        viewLauncher.presentPokedexEntery(of: pokemon)
+        viewLauncher.presentPokedexEntry(of: pokemon)
     }
     
     func weaknessesSectionLblTapped() {

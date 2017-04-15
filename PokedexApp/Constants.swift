@@ -25,3 +25,5 @@ let pokemonData = PokemonData()
 let POKEMONS = pokemonData.allPokemonById
 
 let ABILITIES = [Ability]()
+
+var globalCache = NSCache<AnyObject, AnyObject>() //considered as constatns

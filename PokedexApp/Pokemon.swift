@@ -142,6 +142,21 @@ class Pokemon {
         
         return weaknessesDict
     }
+    
+    func getPokedexEntry() -> String {
+        
+        if let pokedexEntry = POKEDEX_ENTERIES_JSON["\(self.id)"] as? DictionarySS {
+            if let omegaEntry = pokedexEntry["omega"], let alphaEntry = pokedexEntry["alpha"] {
+                if omegaEntry != alphaEntry {
+                    return "OR:\n\(omegaEntry)\n\nAS:\n\(alphaEntry)"
+                } else {
+                    return "ORAS:\n\(omegaEntry)"
+                }
+            }
+        }
+        
+        return "\(self.name)..."
+    }
 }
 
 
