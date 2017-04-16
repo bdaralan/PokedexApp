@@ -98,6 +98,25 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch currentGenericCell {
+        case .PokedexCell:
+            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        case .TypeCell: ()
+        case .MoveCell: ()
+        case .AbilityCell: ()
+        case .TMCell: ()
+        case .ItemCell: ()
+        case .BerryCell: ()
+        }
+    }
+    
+    // MARK: - Preapre segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
+            pokemonInfoVC.pokemon = pokemon
+        }
     }
     
     // MARK: - Search
@@ -124,7 +143,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             case .PokedexCell:
                 pokemons = CONSTANTS.allPokemons
             case .TypeCell: ()
-                types = CONSTANTS.allTypes
+            types = CONSTANTS.allTypes
             case .MoveCell:
                 moves = CONSTANTS.allMoves
             case .AbilityCell:
@@ -147,7 +166,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         searchResultController.dimsBackgroundDuringPresentation = false
         
         definesPresentationContext = true
-    
+        
         tableView.tableHeaderView = searchResultController.searchBar
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(presentSearch))

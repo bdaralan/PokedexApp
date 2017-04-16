@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -154,89 +153,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="03h-C6-gMD"/>
                     <connections>
-                        <segue destination="FPV-Lh-Ix0" kind="show" identifier="PokedexTVC" id="ZLC-Wu-Yyh"/>
                         <segue destination="fHR-yM-Frj" kind="show" identifier="GenericTVC" id="Vb5-B3-9H9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSh-TE-zb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="104.7976011994003"/>
-        </scene>
-        <!--Pokedex-->
-        <scene sceneID="Rfz-Mn-fRD">
-            <objects>
-                <tableViewController id="FPV-Lh-Ix0" customClass="PokedexTVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="9b7-Qd-jB2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokedexCell" rowHeight="50" id="IIT-D9-U99" customClass="PokedexCell" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IIT-D9-U99" id="PeF-TH-7en">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgL-AB-p8R">
-                                            <rect key="frame" x="297" y="15" width="60" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jox-pG-R9w">
-                                            <rect key="frame" x="76" y="15" width="213" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sYW-5H-P9O">
-                                            <rect key="frame" x="13" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <inset key="separatorInset" minX="76" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="pokemonID" destination="TgL-AB-p8R" id="SWN-L2-ml7"/>
-                                    <outlet property="pokemonImg" destination="sYW-5H-P9O" id="hj1-Cl-LAb"/>
-                                    <outlet property="pokemonName" destination="jox-pG-R9w" id="lL7-iw-glD"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="FPV-Lh-Ix0" id="RhM-Wm-Fw4"/>
-                            <outlet property="delegate" destination="FPV-Lh-Ix0" id="BbW-t0-Lx0"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Pokedex" id="LpT-OW-65g">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="search" id="cA0-sy-0bE">
-                                <connections>
-                                    <action selector="searchBtnTapped:" destination="FPV-Lh-Ix0" id="VYo-cj-Uza"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem id="MbD-28-m3V">
-                                <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="o9R-i5-ef0">
-                                    <rect key="frame" x="239" y="7" width="83" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <segments>
-                                        <segment title="First"/>
-                                        <segment title="Second"/>
-                                    </segments>
-                                </segmentedControl>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfo" id="HYH-DK-vyH"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LJu-x0-w14" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1193" y="105"/>
         </scene>
         <!--GenericTVC-->
         <scene sceneID="qxz-zJ-Peo">
@@ -380,10 +302,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="GenericTVC" id="bgW-D2-2dC"/>
+                    <connections>
+                        <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="hBg-BA-g37"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mla-5D-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="836.13193403298362"/>
+            <point key="canvasLocation" x="1164" y="105"/>
         </scene>
         <!--PokemonInfo-->
         <scene sceneID="4Wp-Im-GFA">
