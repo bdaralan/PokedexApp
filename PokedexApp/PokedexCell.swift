@@ -30,7 +30,7 @@ class PokedexCell: UITableViewCell {
             pokemonImg.image = image
         } else {
             if let image = UIImage(named: pokemon.imageName) {
-                pokemonImg.image = image
+                self.pokemonImg.image = image
                 globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
             }
         }

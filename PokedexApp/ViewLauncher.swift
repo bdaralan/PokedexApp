@@ -52,8 +52,10 @@ class ViewLauncher: NSObject {
         
         if isViewLauncherIdle {
             isViewLauncherIdle = false
+            
             addWeaknessLabels(for: pokemon)
             
+            launchView.frame.origin = launchView.dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
                 self.launchView.frame.origin = self.launchView.presentOrigin
@@ -68,8 +70,10 @@ class ViewLauncher: NSObject {
         
         if isViewLauncherIdle {
             isViewLauncherIdle = false
+            
             addPokedexEntryLabels(for: pokemon)
             
+            launchView.frame.origin = launchView.dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
                 self.launchView.frame.origin = self.launchView.presentOrigin
@@ -96,8 +100,6 @@ class ViewLauncher: NSObject {
     }
     
     private func addWeaknessLabels(for pokemon: Pokemon) {
-        
-        launchView.frame.origin = launchView.dismissOrigin
         
         let weaknesses = pokemon.getWeaknesses()
         var y: CGFloat = spacing
@@ -154,12 +156,12 @@ class ViewLauncher: NSObject {
         }
         
         launchView.frame.size = CGSize(width: parentView.view.frame.width, height: y) // MARK: - lauchView size for weaknesses
-        launchView.dismissOrigin = launchView.frame.origin
+        launchView.updateDismisOrigin()
     }
     
     private func addPokedexEntryLabels(for pokemon: Pokemon) {
         
-        launchView.frame.origin = launchView.dismissOrigin
+        //launchView.frame.origin = launchView.dismissOrigin
         
         let textView: UITextView = {
             let textView = UITextView(frame: CGRect(x: margin, y: 0, width: 0, height: 0))
@@ -174,9 +176,9 @@ class ViewLauncher: NSObject {
         textView.sizeToFit()
         textView.frame.size.width = width
         textView.frame.size.height = textView.contentSize.height
-        launchView.frame.size = CGSize(width: parentView.view.frame.width, height: textView.frame.height) // MARK: - lauchView size for pokedex entry
-        
         launchView.addSubview(textView)
+        launchView.frame.size = CGSize(width: parentView.view.frame.width, height: textView.frame.height) // MARK: - lauchView size for pokedex entry
+        launchView.updateDismisOrigin()
     }
     
     private func configureLauncher() { // MARK: - Configure Launcher
@@ -231,16 +233,6 @@ private class LaunchView: UIView {
         
         set { self._dismissOrigin = newValue }
         get { return self._dismissOrigin }
-    }
-    
-    var isPresented: Bool {
-        
-        return self.frame.origin == self._presentOrigin
-    }
-    
-    var isDismissed: Bool {
-        
-        return self.frame.origin == self._dismissOrigin
     }
     
     func updateDismisOrigin() {

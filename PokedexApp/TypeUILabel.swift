@@ -11,6 +11,7 @@ import UIKit
 class TypeUILabel: UILabel {
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         
         self.frame.size.width = 80
         self.frame.size.height = 21

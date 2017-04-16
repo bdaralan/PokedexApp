@@ -11,6 +11,8 @@ import UIKit
 class AbilityUILabel: UILabel {
 
     override func awakeFromNib() {
+        super.awakeFromNib()
+        
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.backgroundColor = COLORS.sectionBackground.withAlphaComponent(0.35)

@@ -10,10 +10,7 @@ import UIKit
 
 class HomeMenuTVC: UITableViewController {
     
-//    private enum HomeMenuSection: Int {
-//        case POKEMON
-//        case BAG
-//    }
+    @IBOutlet weak var settingBtn: UIButton!
     
     var homeMenuSections: [String]!
     var homeMenuRowsInSections: [[String]]!
@@ -66,5 +63,11 @@ class HomeMenuTVC: UITableViewController {
             genericTVC.genericCell = genericCell
             genericTVC.title = genericTVCTitle
         }
+    }
+    
+    // MARK: - IBActions
+    @IBAction func settingBtnPressed() {
+        
+        performSegue(withIdentifier: "Setting", sender: nil)
     }
 }

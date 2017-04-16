@@ -1,5 +1,5 @@
 //
-//  Constants.swift
+//  Global.swift
 //  PokedexApp
 //
 //  Created by Dara on 3/27/17.
@@ -12,7 +12,7 @@ typealias DictionarySA = Dictionary<String, AnyObject>
 typealias DictionarySS = Dictionary<String, String>
 typealias DidFinishAnimation = Bool
 
-var globalCache = NSCache<AnyObject, AnyObject>() //considered as constatns
+var globalCache = NSCache<AnyObject, AnyObject>()
 
 let COLORS = Colors()
 let CONSTANTS = Constants()
