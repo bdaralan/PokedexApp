@@ -103,7 +103,7 @@ class ViewLauncher: NSObject {
         var y: CGFloat = spacing
         
         for (type, effective) in weaknesses {
-            let backgroundColor = COLORS.make(fromPokemonType: type)
+            let backgroundColor = COLORS.make(from: type)
             
             let typeLbl: TypeUILabel = {
                 let label = TypeUILabel()

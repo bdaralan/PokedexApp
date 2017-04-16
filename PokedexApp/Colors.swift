@@ -16,9 +16,11 @@ class Colors {
     let navigationBar: UIColor!
     let sectionBackground: UIColor!
     let sectionText: UIColor!
-
+    let clear: UIColor!
+    
     
     init() {
+        clear = UIColor.clear
         pokemonType = PokeTypeColor()
         move = PokeMoveColor()
         navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
@@ -26,9 +28,9 @@ class Colors {
         sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
     }
     
-    func make(fromPokemonType type: String) -> UIColor {
+    func make(from string: String) -> UIColor {
         
-        switch type {
+        switch string {
         case "Normal": return pokemonType.Normal
         case "Fighting": return pokemonType.Fighting
         case "Flying": return pokemonType.Flying
@@ -47,7 +49,12 @@ class Colors {
         case "Dragon": return pokemonType.Dragon
         case "Dark": return pokemonType.Dark
         case "Fairy": return pokemonType.Fairy
-        default: return pokemonType.Unknown
+            
+        case "Physical": return move.physical
+        case "Special": return move.special
+        case "Status": return move.status
+        
+        default: return clear
         }
     }
 }

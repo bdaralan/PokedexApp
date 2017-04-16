@@ -8,6 +8,16 @@
 
 import Foundation
 
+enum PokemonSortedOption {
+    case id
+    case name
+}
+
+enum TypesSortedOption {
+    case name
+    case category
+}
+
 class LoadData {
     
     func pokemonsJSON() -> DictionarySA {
@@ -17,7 +27,12 @@ class LoadData {
     
     func abilitiesJSON() -> DictionarySA {
         
-        return loadDataFromFile(name: "abilities", ofType: "json")
+        return loadDataFromFile(name: "abilites", ofType: "json")
+    }
+    
+    func pokemonAbilitiesJSON() -> DictionarySA {
+        
+        return loadDataFromFile(name: "pokemon-abilities", ofType: "json")
     }
     
     func measurementsJSON() -> DictionarySA {
@@ -40,6 +55,61 @@ class LoadData {
         return loadDataFromFile(name: "moves", ofType: "json")
     }
     
+    func allPokemons(by option: PokemonSortedOption) -> [Pokemon] {
+        
+        var pokemons = [Pokemon]()
+        let json = pokemonsJSON()
+        let names = json.keys
+        
+        for name in names {
+            if let pokemonInfo = json[name] as? DictionarySA, let id = pokemonInfo["id"] as? Int, let form = pokemonInfo["form"] as? String {
+                pokemons.append(Pokemon(name: name, id: id, form: form))
+            }
+        }
+        
+        switch option {
+        case .id:
+            pokemons = pokemons.sorted(by: {"\($0.id.toPokedexId())\($0.form)" < "\($1.id.toPokedexId())\($1.form)"})
+        case .name:
+            pokemons = pokemons.sorted(by: {$0.name < $1.name})
+        }
+        
+        return pokemons
+    }
+    
+    func allMoves() -> [Move] {
+        
+        let moveJSON = movesJSON()
+        var moves = [Move]()
+        
+        for name in moveJSON.keys.sorted() {
+            if let moveDict = moveJSON[name] as? DictionarySS,
+                let type = moveDict["type"],
+                let category = moveDict["category"] {
+                
+                moves.append(Move(name: name, type: type, category: category))
+            }
+        }
+        
+        return moves
+    }
+    
+    func allAbilities(by option: TypesSortedOption) -> [Ability] {
+        
+        return [Ability]()
+    }
+    
+    func allType() -> [String] {
+        
+        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        if let types = plist["PokemonTypes"] as? [String] {
+            
+            return types
+        }
+        
+        return [String]()
+    }
+    
     func homeMenuSections() -> [String] {
         
         let plist = loadDataFromFile(name: "constants", ofType: "plist")
@@ -60,6 +130,17 @@ class LoadData {
         }
         
         return [[""]]
+    }
+    
+    func pokemonTypes() -> [String] {
+        
+        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        if let types = plist["PokemonTypes"] as? [String] {
+            
+            return types
+        }
+        
+        return [String]()
     }
     
     private func loadDataFromFile(name: String, ofType type: String) -> DictionarySA {

@@ -72,25 +72,37 @@ class HomeMenuTVC: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         var segueIdentifier = ""
+        var genericCell: GenericCell!
+        
         if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
             switch selectedCell {
             case .Pokedex:
                 segueIdentifier = "PokedexTVC"
             case .Types:
-                segueIdentifier = "PokedexTVC"
+                segueIdentifier = "GenericTVC"
+                genericCell = GenericCell.TypeCell
             case .Moves:
-                segueIdentifier = "MovesTVC"
+                segueIdentifier = "GenericTVC"
+                genericCell = GenericCell.MoveCell
             case .Abilities:
-                segueIdentifier = "PokedexTVC"
+                segueIdentifier = "GenericTVC"
+                genericCell = GenericCell.AbilityCell
             case .TMs:
-                segueIdentifier = "PokedexTVC"
+                segueIdentifier = "GenericTVC"
             case .Items:
-                segueIdentifier = "PokedexTVC"
+                segueIdentifier = "GenericTVC"
             case .Berries:
-                segueIdentifier = "PokedexTVC"
+                segueIdentifier = "GenericTVC"
             }
         }
         
-        performSegue(withIdentifier: segueIdentifier, sender: nil)
+        performSegue(withIdentifier: segueIdentifier, sender: genericCell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GenericTVC", let genericCell = sender as? GenericCell, let genericTVC = segue.destination as? GenericTVC {
+            genericTVC.genericCell = genericCell
+        }
     }
 }

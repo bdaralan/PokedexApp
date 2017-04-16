@@ -71,7 +71,7 @@ class PokemonInfoVC: UIViewController {
     func updateUI() {
         
         pokemon.parseStatsTypes()
-        pokemon.parseAbilities()
+        pokemon.parsePokemonAbilities()
         pokemon.parseMeasurement()
         
         self.title = pokemon.name
@@ -79,12 +79,12 @@ class PokemonInfoVC: UIViewController {
         pokeImgView.image = UIImage(named: pokemon.imageName)
         
         pokeType01Lbl.text = pokemon.primaryType
-        pokeType01Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.primaryType)
+        pokeType01Lbl.backgroundColor = COLORS.make(from: pokemon.primaryType)
         
         if pokemon.hasSecondType {
             pokeType02Lbl.isHidden = false
             pokeType02Lbl.text = pokemon.secondaryType
-            pokeType02Lbl.backgroundColor = COLORS.make(fromPokemonType: pokemon.secondaryType)
+            pokeType02Lbl.backgroundColor = COLORS.make(from: pokemon.secondaryType)
             pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width)
         } else {
             pokeType02Lbl.isHidden = true

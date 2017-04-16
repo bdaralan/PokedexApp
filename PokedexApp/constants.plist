@@ -24,5 +24,26 @@
 			</array>
 		</array>
 	</dict>
+	<key>PokemonTypes</key>
+	<array>
+		<string>Normal</string>
+		<string>Fighting</string>
+		<string>Flying</string>
+		<string>Poison</string>
+		<string>Ground</string>
+		<string>Rock</string>
+		<string>Bug</string>
+		<string>Ghost</string>
+		<string>Steel</string>
+		<string>Fire</string>
+		<string>Water</string>
+		<string>Grass</string>
+		<string>Electric</string>
+		<string>Psychic</string>
+		<string>Ice</string>
+		<string>Dragon</string>
+		<string>Dark</string>
+		<string>Fairy</string>
+	</array>
 </dict>
 </plist>

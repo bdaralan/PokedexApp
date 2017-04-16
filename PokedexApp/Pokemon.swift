@@ -100,9 +100,9 @@ class Pokemon {
         }
     }
     
-    func parseAbilities() {
+    func parsePokemonAbilities() {
         
-        if let abilities = ABILITY_JSON[name],
+        if let abilities = POKEMON_ABILITY_JSON[name],
             let ability01 = abilities["ability01"] as? String,
             let ability02 = abilities["ability02"] as? String,
             let hiddenAbility = abilities["hidden"] as? String {
