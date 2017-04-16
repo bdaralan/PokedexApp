@@ -19,7 +19,7 @@ enum GenericCell: String {
 }
 
 
-class GenericTVC: UITableViewController {
+class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     var genericCell: GenericCell! // will be assigned when perform segue
     
@@ -28,20 +28,16 @@ class GenericTVC: UITableViewController {
     var moves: [Move]!
     var abilities: [Ability]!
     
+    var searchResultController: UISearchController!
+    
     var currentGenericCell: GenericCell { return genericCell }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch currentGenericCell {
-        case .PokedexCell: pokemons = loadData.allPokemons(by: .id)
-        case .TypeCell: types = loadData.allType()
-        case .MoveCell: moves = loadData.allMoves()
-        case .AbilityCell: abilities = loadData.allAbilities(by: .name)
-        case .TMCell: ()
-        case .ItemCell: ()
-        case .BerryCell: ()
-        }
+        prepareNecessaryData()
+        configureSearchController()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,5 +98,78 @@ class GenericTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Search
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if searchController.isActive, let searchText = searchController.searchBar.text, searchText != "" {
+            
+            switch currentGenericCell {
+            case .PokedexCell:
+                pokemons = CONSTANTS.allPokemons.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+            case .TypeCell:
+                types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
+            case .MoveCell:
+                moves = CONSTANTS.allMoves.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+            case .AbilityCell:
+                abilities = CONSTANTS.allAbilities.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+            case .TMCell: ()
+            case .ItemCell: ()
+            case .BerryCell: ()
+            }
+        } else {
+            
+            switch currentGenericCell {
+            case .PokedexCell:
+                pokemons = CONSTANTS.allPokemons
+            case .TypeCell: ()
+                types = CONSTANTS.allTypes
+            case .MoveCell:
+                moves = CONSTANTS.allMoves
+            case .AbilityCell:
+                abilities = CONSTANTS.allAbilities
+            case .TMCell: ()
+            case .ItemCell: ()
+            case .BerryCell: ()
+            }
+        }
+        
+        tableView.reloadData()
+    }
+    
+    // MARK: - Functions
+    func configureSearchController() {
+        
+        searchResultController = UISearchController(searchResultsController: nil)
+        searchResultController.loadViewIfNeeded()
+        searchResultController.searchResultsUpdater = self
+        searchResultController.dimsBackgroundDuringPresentation = false
+        
+        definesPresentationContext = true
+    
+        tableView.tableHeaderView = searchResultController.searchBar
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(presentSearch))
+    }
+    
+    func presentSearch() {
+        
+        present(searchResultController, animated: true, completion: {
+            self.searchResultController.searchBar.becomeFirstResponder()
+        })
+    }
+    
+    func prepareNecessaryData() {
+        
+        switch currentGenericCell {
+        case .PokedexCell: pokemons = CONSTANTS.allPokemons
+        case .TypeCell: types = CONSTANTS.allTypes
+        case .MoveCell: moves = CONSTANTS.allMoves
+        case .AbilityCell: abilities = CONSTANTS.allAbilities
+        case .TMCell: ()
+        case .ItemCell: ()
+        case .BerryCell: ()
+        }
     }
 }

@@ -20,18 +20,17 @@ class Ability {
     var description: String { return _description }
     var generation: String { return _generation }
     
-    init(name: String) {
+    init(name: String, pokemon: String) {
         _name = name
+        _pokemon = pokemon
     }
     
     func parseCompletedInfo() {
         
-        if let info = ABILITIES_JSON[_name] as? DictionarySS,
-            let pokemon = info["pokemon"],
+        if let info = CONSTANTS.abilitiesJSON[_name] as? DictionarySS,
             let description = info["description"],
             let generation = info["generation"] {
             
-            _pokemon = pokemon
             _description = description
             _generation = generation
         }

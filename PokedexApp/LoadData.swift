@@ -27,7 +27,7 @@ class LoadData {
     
     func abilitiesJSON() -> DictionarySA {
         
-        return loadDataFromFile(name: "abilites", ofType: "json")
+        return loadDataFromFile(name: "abilities", ofType: "json")
     }
     
     func pokemonAbilitiesJSON() -> DictionarySA {
@@ -45,7 +45,7 @@ class LoadData {
         return loadDataFromFile(name: "weaknesses", ofType: "json")
     }
     
-    func pokedexEnteriesJSON() -> DictionarySA {
+    func pokedexEntriesJSON() -> DictionarySA {
         
         return loadDataFromFile(name: "pokedex-enteries", ofType: "json")
     }
@@ -79,11 +79,11 @@ class LoadData {
     
     func allMoves() -> [Move] {
         
-        let moveJSON = movesJSON()
+        let movesJSON = self.movesJSON()
         var moves = [Move]()
         
-        for name in moveJSON.keys.sorted() {
-            if let moveDict = moveJSON[name] as? DictionarySS,
+        for name in movesJSON.keys.sorted() {
+            if let moveDict = movesJSON[name] as? DictionarySS,
                 let type = moveDict["type"],
                 let category = moveDict["category"] {
                 
@@ -94,12 +94,23 @@ class LoadData {
         return moves
     }
     
-    func allAbilities(by option: TypesSortedOption) -> [Ability] {
+    func allAbilities() -> [Ability] {
         
-        return [Ability]()
+        let abilitiesJSON = self.abilitiesJSON()
+        var abilities = [Ability]()
+        
+        for name in abilitiesJSON.keys.sorted() {
+            if let abilityDict = abilitiesJSON[name] as? DictionarySS,
+                let pokemon = abilityDict["pokemon"] {
+                
+                abilities.append(Ability(name: name, pokemon: pokemon))
+            }
+        }
+        
+        return abilities
     }
     
-    func allType() -> [String] {
+    func allTypes() -> [String] {
         
         let plist = loadDataFromFile(name: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {

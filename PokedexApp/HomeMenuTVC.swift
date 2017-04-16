@@ -10,19 +10,22 @@ import UIKit
 
 class HomeMenuTVC: UITableViewController {
     
-    private enum HomeMenuSection: Int {
-        case POKEMON
-        case BAG
-    }
+//    private enum HomeMenuSection: Int {
+//        case POKEMON
+//        case BAG
+//    }
     
-    var homeMenuSections = loadData.homeMenuSections()
-    var homeMenuRowsInSections = loadData.homeMenuRowsInSections()
+    var homeMenuSections: [String]!
+    var homeMenuRowsInSections: [[String]]!
     
     var genericCell: GenericCell!
     var genericTVCTitle: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        homeMenuSections = loadData.homeMenuSections()
+        homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     }
     
     // MARK: - Table view data source
@@ -33,31 +36,18 @@ class HomeMenuTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let homeMenuSection = HomeMenuSection(rawValue: section) {
-            switch homeMenuSection {
-            case .POKEMON:
-                return homeMenuRowsInSections[section].count
-            case .BAG:
-                return homeMenuRowsInSections[section].count
-            }
-        }
-        
-        return 0
+        return homeMenuRowsInSections[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
-        if let homeMenuSection = HomeMenuSection(rawValue: indexPath.section) {
-            switch homeMenuSection {
-            case .POKEMON:
-                cell.textLabel?.text = homeMenuRowsInSections[indexPath.section][indexPath.row]
-            case .BAG:
-                cell.textLabel?.text = homeMenuRowsInSections[indexPath.section][indexPath.row]
-            }
+        if let cell = UITableViewCell(style: .default, reuseIdentifier: "HomeMenuCell") as UITableViewCell? {
+            cell.textLabel?.text = homeMenuRowsInSections[indexPath.section][indexPath.row]
+            
+            return cell
         }
-        
-        return cell
+
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

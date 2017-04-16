@@ -38,7 +38,7 @@ class Move {
     
     func parseCompletedInfo() {
         
-        if let move = MOVES_JSON[self.name] as? DictionarySS,
+        if let move = CONSTANTS.movesJSON[self.name] as? DictionarySS,
             let power = move["power"],
             let accuracy = move["accuracy"],
             let pp = move["pp"],

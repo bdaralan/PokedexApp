@@ -19,20 +19,20 @@ class UnifiedSearch {
             switch searchDomain {
                 
             case .Pokemon:
-                result = POKEMONS.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                result = CONSTANTS.allPokemons.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
                 
             case .Ability:
-                result = ABILITIES.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                result = CONSTANTS.allAbilities.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             }
         } else {
             
             switch searchDomain {
                 
             case .Pokemon:
-                result = POKEMONS
+                result = CONSTANTS.allPokemons
                 
             case .Ability:
-                result = ABILITIES
+                result = CONSTANTS.allAbilities
             }
         }
         

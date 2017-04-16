@@ -12,18 +12,25 @@ typealias DictionarySA = Dictionary<String, AnyObject>
 typealias DictionarySS = Dictionary<String, String>
 typealias DidFinishAnimation = Bool
 
-let COLORS = Colors()
-
-let loadData = LoadData()
-let MOVES_JSON = loadData.movesJSON()
-let POKEMONS_JSON = loadData.pokemonsJSON()
-let ABILITIES_JSON = loadData.abilitiesJSON()
-let POKEMON_ABILITIES_JSON = loadData.pokemonAbilitiesJSON()
-let MEASUREMENTS_JSON = loadData.measurementsJSON()
-let WEAKNESSESS_JSON = loadData.weaknessesJSON()
-let POKEDEX_ENTERIES_JSON = loadData.pokedexEnteriesJSON()
-
-let POKEMONS = loadData.allPokemons(by: .id)
-let ABILITIES = loadData.allAbilities(by: .name)
-
 var globalCache = NSCache<AnyObject, AnyObject>() //considered as constatns
+
+let COLORS = Colors()
+let CONSTANTS = Constants()
+let loadData = LoadData()
+
+
+struct Constants {
+    
+    let movesJSON = loadData.movesJSON()
+    let pokemonsJSON = loadData.pokemonsJSON()
+    let abilitiesJSON = loadData.abilitiesJSON()
+    let pokemonAbilitiesJSON = loadData.pokemonAbilitiesJSON()
+    let measurementsJSON = loadData.measurementsJSON()
+    let weaknessesJSON = loadData.weaknessesJSON()
+    let pokedexEntriesJSON = loadData.pokedexEntriesJSON()
+    
+    let allPokemons = loadData.allPokemons(by: .id)
+    let allAbilities = loadData.allAbilities()
+    let allTypes = loadData.allTypes()
+    let allMoves = loadData.allMoves()
+}
