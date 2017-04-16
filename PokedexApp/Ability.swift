@@ -26,7 +26,7 @@ class Ability {
     
     func parseCompletedInfo() {
         
-        if let info = ABILITY_JSON[_name] as? DictionarySS,
+        if let info = ABILITIES_JSON[_name] as? DictionarySS,
             let pokemon = info["pokemon"],
             let description = info["description"],
             let generation = info["generation"] {

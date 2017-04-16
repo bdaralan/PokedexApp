@@ -15,18 +15,11 @@ class HomeMenuTVC: UITableViewController {
         case BAG
     }
     
-    private enum HomeMenuCell: String {
-        case Pokedex = "00"
-        case Types = "01"
-        case Moves = "02"
-        case Abilities = "03"
-        case TMs = "10"
-        case Items = "11"
-        case Berries = "12"
-    }
+    var homeMenuSections = loadData.homeMenuSections()
+    var homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     
-    private var homeMenuSections = loadData.homeMenuSections()
-    private var homeMenuRowsInSections = loadData.homeMenuRowsInSections()
+    var genericCell: GenericCell!
+    var genericTVCTitle: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,41 +61,20 @@ class HomeMenuTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        var segueIdentifier = ""
-        var genericCell: GenericCell!
+        genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
+        genericTVCTitle = homeMenuRowsInSections[indexPath.section][indexPath.row]
         
-        if let selectedCell = HomeMenuCell(rawValue: "\(indexPath.section)\(indexPath.row)") {
-            switch selectedCell {
-            case .Pokedex:
-                segueIdentifier = "PokedexTVC"
-            case .Types:
-                segueIdentifier = "GenericTVC"
-                genericCell = GenericCell.TypeCell
-            case .Moves:
-                segueIdentifier = "GenericTVC"
-                genericCell = GenericCell.MoveCell
-            case .Abilities:
-                segueIdentifier = "GenericTVC"
-                genericCell = GenericCell.AbilityCell
-            case .TMs:
-                segueIdentifier = "GenericTVC"
-            case .Items:
-                segueIdentifier = "GenericTVC"
-            case .Berries:
-                segueIdentifier = "GenericTVC"
-            }
-        }
-        
-        performSegue(withIdentifier: segueIdentifier, sender: genericCell)
+        performSegue(withIdentifier: "GenericTVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "GenericTVC", let genericCell = sender as? GenericCell, let genericTVC = segue.destination as? GenericTVC {
+        if segue.identifier == "GenericTVC", let genericTVC = segue.destination as? GenericTVC {
             genericTVC.genericCell = genericCell
+            genericTVC.title = genericTVCTitle
         }
     }
 }

@@ -63,7 +63,7 @@ class Pokemon {
     
     func parseStatsTypes() {
         
-        if let pokeInfo = POKEMON_JSON[name],
+        if let pokeInfo = POKEMONS_JSON[name],
             let hp = pokeInfo["hp"] as? Int,
             let attack = pokeInfo["attack"] as? Int,
             let defense = pokeInfo["defense"] as? Int,
@@ -102,7 +102,7 @@ class Pokemon {
     
     func parsePokemonAbilities() {
         
-        if let abilities = POKEMON_ABILITY_JSON[name],
+        if let abilities = POKEMON_ABILITIES_JSON[name],
             let ability01 = abilities["ability01"] as? String,
             let ability02 = abilities["ability02"] as? String,
             let hiddenAbility = abilities["hidden"] as? String {
@@ -119,7 +119,7 @@ class Pokemon {
     
     func parseMeasurement() {
         
-        if let measurements = MEASUREMENT_JSON[name],
+        if let measurements = MEASUREMENTS_JSON[name],
             let height = measurements["height"] as? String,
             let weight = measurements["weight"] as? String {
             
