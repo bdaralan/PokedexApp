@@ -8,40 +8,55 @@
 
 import UIKit
 
+enum Unit: Int {
+    case USCustomary
+    case SI
+}
+
+
 class SettingTVC: UITableViewController {
+    
+    @IBOutlet weak var measurementSC: UISegmentedControl!
+    
+    private var settingSections: [String]!
+    private var settingRowsInSections: [[String]]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        settingSections = loadData.settingSections()
+        settingRowsInSections = loadData.settingRowsInSections()
+        
+        loadSettingsFromUserDefault()
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+
+        return settingSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return settingRowsInSections[section].count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func loadSettingsFromUserDefault() {
+        
+        print(UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit))
+        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit)
+    }
+    
+    // MARK: - IBActions
+    @IBAction func measurementSCValueChanged(_ sender: Any) {
+        
+        if let userSelectedUnit = Unit(rawValue: measurementSC.selectedSegmentIndex) {
+            UserDefaults.standard.set(userSelectedUnit.rawValue, forKey: KEYS.Setting.measurementUnit)
+        }
     }
 }

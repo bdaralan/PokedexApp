@@ -2,6 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SettingMenu</key>
+	<dict>
+		<key>Sections</key>
+		<array>
+			<string>UNITS</string>
+			<string>---</string>
+			<string>DEVELOPER</string>
+		</array>
+		<key>RowsInSections</key>
+		<array>
+			<array>
+				<string>Pokemon Measurment</string>
+			</array>
+			<array>
+				<string>---</string>
+				<string>---</string>
+			</array>
+			<array>
+				<string>Github @iDara09</string>
+				<string>Source Code</string>
+				<string>Disclaimer</string>
+				<string>Credits</string>
+			</array>
+		</array>
+	</dict>
 	<key>HomeMenu</key>
 	<dict>
 		<key>Sections</key>

@@ -162,11 +162,6 @@ class Pokemon {
 
 extension Pokemon {
     
-    enum Unit: Int {
-        case USCustomaryUnits
-        case SIUnits
-    }
-    
     var hasSecondType: Bool {
         return self.secondaryType != ""
     }

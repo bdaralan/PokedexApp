@@ -50,14 +50,16 @@ class PokemonInfoVC: UIViewController {
     
     var pokemon: Pokemon!
     var viewLauncher: ViewLauncher!
-    var measurementDidSetToSIUnits: Bool!
+    var userSelectedUnit: Unit!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        measurementDidSetToSIUnits = false // TODO: - shoulde be getting value from UserDefaults
+        userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit))
+        
         viewLauncher = ViewLauncher(parentView: self)
+        
         configureTappedGestures()
         updateUI()
     }
@@ -107,8 +109,8 @@ class PokemonInfoVC: UIViewController {
             pokeHiddenAibilityLbl.isHidden = true
         }
         
-        pokeHeightLbl.text = pokemon.getHeight(as: .USCustomaryUnits)
-        pokeWeighLblt.text = pokemon.getWeight(as: .USCustomaryUnits)
+        pokeHeightLbl.text = pokemon.getHeight(as: userSelectedUnit)
+        pokeWeighLblt.text = pokemon.getWeight(as: userSelectedUnit)
         
         pokeHpLbl.text = "\(pokemon.hp)"
         pokeAttackLbl.text = "\(pokemon.attack)"
@@ -145,15 +147,15 @@ class PokemonInfoVC: UIViewController {
     
     func toggleMeasurement() {
         
-        if measurementDidSetToSIUnits {
-            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomaryUnits)
-            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomaryUnits)
+        if userSelectedUnit == Unit.SI {
+            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
+            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
+            userSelectedUnit = Unit.USCustomary
         } else {
-            pokeHeightLbl.text = pokemon.getHeight(as: .SIUnits)
-            pokeWeighLblt.text = pokemon.getWeight(as: .SIUnits)
+            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
+            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
+            userSelectedUnit = Unit.SI
         }
-        
-        measurementDidSetToSIUnits = !measurementDidSetToSIUnits
     }
     
     func measurementSectionLblTapped() {

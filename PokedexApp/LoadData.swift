@@ -129,7 +129,7 @@ class LoadData {
             return sections
         }
         
-        return [""]
+        return [String]()
     }
     
     func homeMenuRowsInSections() -> [[String]] {
@@ -140,7 +140,29 @@ class LoadData {
             return rowsInSection
         }
         
-        return [[""]]
+        return [[String]]()
+    }
+    
+    func settingSections() -> [String] {
+        
+        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        if let settingMenu = plist["SettingMenu"] as? DictionarySA, let sections = settingMenu["Sections"] as? [String] {
+            
+            return sections
+        }
+        
+        return [String]()
+    }
+    
+    func settingRowsInSections() -> [[String]] {
+     
+        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        if let settingMenu = plist["SettingMenu"] as? DictionarySA, let rowsInSections = settingMenu["RowsInSections"] as? [[String]] {
+            
+            return rowsInSections
+        }
+        
+        return [[String]]()
     }
     
     func pokemonTypes() -> [String] {

@@ -18,6 +18,8 @@ let COLORS = Colors()
 let CONSTANTS = Constants()
 let loadData = LoadData()
 
+let KEYS = Keys()
+
 
 struct Constants {
     
@@ -33,4 +35,13 @@ struct Constants {
     let allAbilities = loadData.allAbilities()
     let allTypes = loadData.allTypes()
     let allMoves = loadData.allMoves()
+}
+
+struct Keys {
+    
+    let Setting = SettingKey()
+    
+    struct SettingKey {
+        let measurementUnit = "SettingMeasurementUnit"
+    }
 }

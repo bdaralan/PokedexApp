@@ -10,8 +10,6 @@ import UIKit
 
 class HomeMenuTVC: UITableViewController {
     
-    @IBOutlet weak var settingBtn: UIButton!
-    
     var homeMenuSections: [String]!
     var homeMenuRowsInSections: [[String]]!
     
@@ -22,7 +20,7 @@ class HomeMenuTVC: UITableViewController {
         super.viewDidLoad()
         
         homeMenuSections = loadData.homeMenuSections()
-        homeMenuRowsInSections = loadData.homeMenuRowsInSections()
+        homeMenuRowsInSections = loadData.homeMenuRowsInSections()        
     }
     
     // MARK: - Table view data source
@@ -34,17 +32,6 @@ class HomeMenuTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return homeMenuRowsInSections[section].count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = UITableViewCell(style: .default, reuseIdentifier: "HomeMenuCell") as UITableViewCell? {
-            cell.textLabel?.text = homeMenuRowsInSections[indexPath.section][indexPath.row]
-            
-            return cell
-        }
-
-        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -66,8 +53,8 @@ class HomeMenuTVC: UITableViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func settingBtnPressed() {
+    @IBAction func settingBtnPressed(_ sender: Any) {
         
-        performSegue(withIdentifier: "Setting", sender: nil)
+        performSegue(withIdentifier: "SettingTVC", sender: nil)
     }
 }

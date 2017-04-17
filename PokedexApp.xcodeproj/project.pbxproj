@@ -182,10 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */,
+				538F963A1EA3D7C0005E63FB /* SettingTVC.swift */,
 				533A78811E9FDA6100554F7F /* GenericTVC.swift */,
 				53CF3DE61E8A27760073A516 /* PokedexTVC.swift */,
 				53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */,
-				538F963A1EA3D7C0005E63FB /* SettingTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
