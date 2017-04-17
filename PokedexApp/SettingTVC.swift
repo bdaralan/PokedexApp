@@ -20,14 +20,21 @@ class SettingTVC: UITableViewController {
     
     private var settingSections: [String]!
     private var settingRowsInSections: [[String]]!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         settingSections = loadData.settingSections()
         settingRowsInSections = loadData.settingRowsInSections()
         
-        loadSettingsFromUserDefault()
+        // MARK: - Load settings from UserDefauls
+        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        // MARK: - Save settings to UserDefauls
+        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: KEYS.Setting.measurementUnit)
     }
 
     // MARK: - Table view data source
@@ -44,19 +51,5 @@ class SettingTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func loadSettingsFromUserDefault() {
-        
-        print(UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit))
-        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit)
-    }
-    
-    // MARK: - IBActions
-    @IBAction func measurementSCValueChanged(_ sender: Any) {
-        
-        if let userSelectedUnit = Unit(rawValue: measurementSC.selectedSegmentIndex) {
-            UserDefaults.standard.set(userSelectedUnit.rawValue, forKey: KEYS.Setting.measurementUnit)
-        }
     }
 }

@@ -12,17 +12,22 @@ class TypeCell: UITableViewCell {
     
     @IBOutlet weak var typeTextLbl: UILabel!
     @IBOutlet weak var typeLbl: TypeUILabel!
-    
-    private var typeLblBackgroundColor: UIColor!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
+        let typeLblBackgroundColor = typeLbl.backgroundColor
+        
         super.setSelected(selected, animated: animated)
 
+        typeLbl.backgroundColor = typeLblBackgroundColor
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        
+        let typeLblBackgroundColor = typeLbl.backgroundColor
+        
+        super.setHighlighted(highlighted, animated: animated)
+        
         typeLbl.backgroundColor = typeLblBackgroundColor
     }
 
@@ -30,8 +35,7 @@ class TypeCell: UITableViewCell {
         
         typeTextLbl.text = type
         
-        typeLblBackgroundColor = COLORS.make(from: type)
-        typeLbl.backgroundColor = typeLblBackgroundColor
+        typeLbl.backgroundColor = COLORS.make(from: type)
         typeLbl.text = type
     }
 }

@@ -10,31 +10,40 @@ import UIKit
 
 class AbilityCell: UITableViewCell {
 
-    @IBOutlet weak var ability: UILabel!
-    @IBOutlet weak var pokemon: UILabel!
-    
-    private var pokemonBackgroundColor: UIColor!
+    @IBOutlet weak var abilityLbl: UILabel!
+    @IBOutlet weak var pokemonLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pokemonBackgroundColor = UIColor.black
-        pokemon.backgroundColor = pokemonBackgroundColor
-        pokemon.textColor = UIColor.white
-        pokemon.font = UIFont(name: "GillSans", size: 15)
-        pokemon.layer.cornerRadius = pokemon.frame.height / 2
-        pokemon.clipsToBounds = true
+        pokemonLbl.backgroundColor = UIColor.black
+        pokemonLbl.textColor = UIColor.white
+        pokemonLbl.font = UIFont(name: "GillSans", size: 15)
+        pokemonLbl.layer.cornerRadius = pokemonLbl.frame.height / 2
+        pokemonLbl.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
+        let pokemonBackgroundColor = pokemonLbl.backgroundColor
+        
         super.setSelected(selected, animated: animated)
 
-        pokemon.backgroundColor = pokemonBackgroundColor
+        pokemonLbl.backgroundColor = pokemonBackgroundColor
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        
+        let pokemonBackgroundColor = pokemonLbl.backgroundColor
+        
+        super.setHighlighted(highlighted, animated: animated)
+        
+        pokemonLbl.backgroundColor = pokemonBackgroundColor
     }
 
     func configureCell(ability: Ability) {
         
-        self.ability.text = ability.name
-        self.pokemon.text = ability.pokemon
+        abilityLbl.text = ability.name
+        pokemonLbl.text = ability.pokemon
     }
 }

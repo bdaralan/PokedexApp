@@ -40,10 +40,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         configureSearchController()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        globalCache.removeAllObjects()
-    }
-    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

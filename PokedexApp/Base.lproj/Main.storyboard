@@ -20,7 +20,7 @@
                         <sections>
                             <tableViewSection headerTitle="Pokemon" id="DrA-wX-zzs">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="s1O-hK-zPU" style="IBUITableViewCellStyleDefault" id="4tn-jq-fUE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="s1O-hK-zPU" style="IBUITableViewCellStyleDefault" id="4tn-jq-fUE">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tn-jq-fUE" id="ZuS-Y0-dTZ">
@@ -37,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="9Yj-iO-d5x" style="IBUITableViewCellStyleDefault" id="2Vh-Uk-gxQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9Yj-iO-d5x" style="IBUITableViewCellStyleDefault" id="2Vh-Uk-gxQ">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Vh-Uk-gxQ" id="Qck-F0-WkG">
@@ -54,7 +54,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="IEU-fN-LeW" style="IBUITableViewCellStyleDefault" id="rhX-vP-nPS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="IEU-fN-LeW" style="IBUITableViewCellStyleDefault" id="rhX-vP-nPS">
                                         <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rhX-vP-nPS" id="xeG-yv-psG">
@@ -71,7 +71,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="xP9-wr-jYc" style="IBUITableViewCellStyleDefault" id="XYM-91-o2O">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xP9-wr-jYc" style="IBUITableViewCellStyleDefault" id="XYM-91-o2O">
                                         <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XYM-91-o2O" id="2dQ-bz-MDI">
@@ -92,7 +92,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Bag" id="og6-gF-27Q">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="iUW-nK-55d" style="IBUITableViewCellStyleDefault" id="aAc-dl-bvr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iUW-nK-55d" style="IBUITableViewCellStyleDefault" id="aAc-dl-bvr">
                                         <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aAc-dl-bvr" id="Y2H-x8-w3R">
@@ -109,7 +109,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="UIb-xd-wMC" style="IBUITableViewCellStyleDefault" id="KQT-78-O27">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UIb-xd-wMC" style="IBUITableViewCellStyleDefault" id="KQT-78-O27">
                                         <rect key="frame" x="0.0" y="331.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KQT-78-O27" id="Jrf-XY-J5Q">
@@ -126,7 +126,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMenuCell" textLabel="YQR-Fg-68i" style="IBUITableViewCellStyleDefault" id="wd0-29-bOf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YQR-Fg-68i" style="IBUITableViewCellStyleDefault" id="wd0-29-bOf">
                                         <rect key="frame" x="0.0" y="375.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wd0-29-bOf" id="RoN-Jk-8uK">
@@ -166,7 +166,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="fHR-yM-Frj" kind="show" identifier="GenericTVC" id="Vb5-B3-9H9"/>
-                        <segue destination="y9o-ty-hlV" kind="show" identifier="SettingTVC" id="VhL-p6-HBq"/>
+                        <segue destination="y9o-ty-hlV" kind="show" identifier="SettingTVC" id="uEs-ap-nRp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSh-TE-zb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,16 +198,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jjc-gO-uaB">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jjc-gO-uaB" customClass="DBUISegmentedControl" customModule="PokedexApp" customModuleProvider="target">
                                                     <rect key="frame" x="239" y="7" width="121" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="US"/>
                                                         <segment title="SI"/>
                                                     </segments>
-                                                    <connections>
-                                                        <action selector="measurementSCValueChanged:" destination="y9o-ty-hlV" eventType="valueChanged" id="shz-go-Pzv"/>
-                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -330,7 +327,7 @@
                             <outlet property="delegate" destination="y9o-ty-hlV" id="9d0-Pa-cYe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="8yo-Tt-smX"/>
+                    <navigationItem key="navigationItem" title="Settings" id="nRm-aV-cmo"/>
                     <connections>
                         <outlet property="measurementSC" destination="jjc-gO-uaB" id="EXy-n7-I4w"/>
                     </connections>
@@ -470,8 +467,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ability" destination="SlQ-C2-pLR" id="bwA-8w-ka8"/>
-                                    <outlet property="pokemon" destination="Emc-Hp-Dnn" id="NZw-4C-oRp"/>
+                                    <outlet property="abilityLbl" destination="SlQ-C2-pLR" id="wOD-54-jw2"/>
+                                    <outlet property="pokemonLbl" destination="Emc-Hp-Dnn" id="NQz-Lo-eO7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

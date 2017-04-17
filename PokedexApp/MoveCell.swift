@@ -14,9 +14,6 @@ class MoveCell: UITableViewCell {
     @IBOutlet weak var moveCategory: UILabel!
     @IBOutlet weak var moveType: TypeUILabel!
     
-    private var moveCategoryBackgroundColor: UIColor!
-    private var moveTypeBackgroundColor: UIColor!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,7 +22,22 @@ class MoveCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
+        let moveCategoryBackgroundColor = moveCategory.backgroundColor
+        let moveTypeBackgroundColor = moveType.backgroundColor
+        
         super.setSelected(selected, animated: animated)
+        
+        moveCategory.backgroundColor = moveCategoryBackgroundColor
+        moveType.backgroundColor = moveTypeBackgroundColor
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        
+        let moveCategoryBackgroundColor = moveCategory.backgroundColor
+        let moveTypeBackgroundColor = moveType.backgroundColor
+        
+        super.setHighlighted(highlighted, animated: animated)
         
         moveCategory.backgroundColor = moveCategoryBackgroundColor
         moveType.backgroundColor = moveTypeBackgroundColor
@@ -35,8 +47,7 @@ class MoveCell: UITableViewCell {
         
         moveName.text = move.name
         
-        moveCategoryBackgroundColor = COLORS.make(from: move.category)
-        moveCategory.backgroundColor = moveCategoryBackgroundColor
+        moveCategory.backgroundColor = COLORS.make(from: move.category)
         moveCategory.textColor = UIColor.white
         
         switch move.category {
@@ -48,8 +59,7 @@ class MoveCell: UITableViewCell {
             moveCategory.textColor = UIColor.black
         }
         
-        moveTypeBackgroundColor = COLORS.make(from: move.type)
-        moveType.backgroundColor = moveTypeBackgroundColor
+        moveType.backgroundColor = COLORS.make(from: move.type)
         moveType.text = move.type
     }
 }
