@@ -1,12 +1,12 @@
 //
-//  Global.swift
+//  GlobalConstants.swift
 //  PokedexApp
 //
 //  Created by Dara on 3/27/17.
 //  Copyright © 2017 iDara09. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 typealias DictionarySA = Dictionary<String, AnyObject>
 typealias DictionarySS = Dictionary<String, String>
@@ -14,14 +14,12 @@ typealias DidFinishAnimation = Bool
 
 var globalCache = NSCache<AnyObject, AnyObject>()
 
+let KEYS = Key()
 let COLORS = Colors()
-let CONSTANTS = Constants()
 let loadData = LoadData()
+let CONSTANTS = Constant()
 
-let KEYS = Keys()
-
-
-struct Constants {
+struct Constant {
     
     let movesJSON = loadData.movesJSON()
     let pokemonsJSON = loadData.pokemonsJSON()
@@ -35,13 +33,21 @@ struct Constants {
     let allAbilities = loadData.allAbilities()
     let allTypes = loadData.allTypes()
     let allMoves = loadData.allMoves()
+    
+    let constrain = Constrain()
 }
 
-struct Keys {
-    
-    let Setting = SettingKey()
+struct Key {
     
     struct SettingKey {
         let measurementUnit = "SettingMeasurementUnit"
     }
+    
+    let Setting = SettingKey()
+}
+
+struct Constrain {
+    
+    let margin: CGFloat = 16
+    let spacing: CGFloat = 8
 }

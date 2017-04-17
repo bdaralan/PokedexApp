@@ -14,12 +14,13 @@ class ViewLauncher: NSObject {
     
     private var blackView: LaunchView!
     private var launchView: LaunchView! //its frame is vary by how many weaknesses a pokemon has
+    private var textView: UITextView!
     
     private var animatedDuration: TimeInterval! //use for every view, unless otherwise
     private var isViewLauncherIdle: Bool!
     
-    private let margin: CGFloat = 16
-    private let spacing: CGFloat = 8
+    private let margin = CONSTANTS.constrain.margin
+    private let spacing = CONSTANTS.constrain.spacing
     
     
     // Initializer
@@ -29,19 +30,6 @@ class ViewLauncher: NSObject {
         self.parentView = parentView
         self.animatedDuration = 0.5
         self.isViewLauncherIdle = true
-        
-        blackView = {
-            let view = LaunchView()
-            view.backgroundColor = UIColor(white: 0, alpha: 0.25)
-            view.alpha = 0
-            return view
-        }()
-        
-        launchView = {
-            let view = LaunchView()
-            view.backgroundColor = UIColor.white
-            return view
-        }()
         
         configureLauncher()
     }
@@ -55,12 +43,12 @@ class ViewLauncher: NSObject {
             
             addWeaknessLabels(for: pokemon)
             
+            launchView.updateDismissOrigin()
             launchView.frame.origin = launchView.dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
-                self.launchView.frame.origin = self.launchView.presentOrigin
+                self.launchView.frame.origin = self.launchView.launchOrigin
             }, completion: { (Bool) in
-                self.launchView.updateDismisOrigin()
                 self.isViewLauncherIdle = true
             })
         }
@@ -73,12 +61,12 @@ class ViewLauncher: NSObject {
             
             addPokedexEntryLabels(for: pokemon)
             
+            launchView.updateDismissOrigin()
             launchView.frame.origin = launchView.dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
-                self.launchView.frame.origin = self.launchView.presentOrigin
+                self.launchView.frame.origin = self.launchView.launchOrigin
             }) { (Bool) in
-                self.launchView.updateDismisOrigin()
                 self.isViewLauncherIdle = true
             }
         }
@@ -102,7 +90,7 @@ class ViewLauncher: NSObject {
     private func addWeaknessLabels(for pokemon: Pokemon) {
         
         let weaknesses = pokemon.getWeaknesses()
-        var y: CGFloat = spacing
+        var y: CGFloat = spacing //will keep increasing as more weakness labels are added
         
         for (type, effective) in weaknesses {
             let backgroundColor = COLORS.make(from: type)
@@ -110,7 +98,8 @@ class ViewLauncher: NSObject {
             let typeLbl: TypeUILabel = {
                 let label = TypeUILabel()
                 label.awakeFromNib()
-                label.frame.origin = CGPoint(x: margin, y: y)
+                label.frame.origin.x = margin
+                label.frame.origin.y = y
                 label.backgroundColor = backgroundColor
                 label.text = type
                 return label
@@ -119,7 +108,8 @@ class ViewLauncher: NSObject {
             let effectiveLbl: TypeUILabel = {
                 let label = TypeUILabel()
                 label.awakeFromNib()
-                label.frame.origin = CGPoint(x: margin + label.frame.width + spacing, y: y)
+                label.frame.origin.x = margin + label.frame.width + spacing
+                label.frame.origin.y = y
                 
                 // MARK: - Pokemon's weaknesses effective width
                 if effective == "1/4" {
@@ -134,7 +124,6 @@ class ViewLauncher: NSObject {
                     label.frame.size.width = label.frame.height * 2
                 }
                 
-                label.adjustsFontSizeToFitWidth = true
                 label.text = "\(effective)x"
                 
                 if effective == "0" {
@@ -155,49 +144,63 @@ class ViewLauncher: NSObject {
             y = y + effectiveLbl.frame.height + spacing
         }
         
-        launchView.frame.size = CGSize(width: parentView.view.frame.width, height: y) // MARK: - lauchView size for weaknesses
-        launchView.updateDismisOrigin()
+        // MARK: - lauchView height for pokemon's weaknesses
+        launchView.frame.size.height = y
     }
     
     private func addPokedexEntryLabels(for pokemon: Pokemon) {
         
-        //launchView.frame.origin = launchView.dismissOrigin
-        
-        let textView: UITextView = {
-            let textView = UITextView(frame: CGRect(x: margin, y: 0, width: 0, height: 0))
-            textView.isEditable = false
-            textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
-            return textView
-        }()
-        
         textView.text = pokemon.getPokedexEntry()
-        
-        let width: CGFloat = parentView.view.frame.width - (margin * 2)
         textView.sizeToFit()
-        textView.frame.size.width = width
-        textView.frame.size.height = textView.contentSize.height
+        
+        // MARK: - lauchView height for pokemon's pokedex entry
+        launchView.frame.size.height = textView.frame.height
         launchView.addSubview(textView)
-        launchView.frame.size = CGSize(width: parentView.view.frame.width, height: textView.frame.height) // MARK: - lauchView size for pokedex entry
-        launchView.updateDismisOrigin()
     }
     
-    private func configureLauncher() { // MARK: - Configure Launcher
+    private func configureLauncher() {
         
         if let navigationBar = parentView.navigationController?.navigationBar {
-            let presentOrigin = CGPoint(x: 0, y: UIApplication.shared.statusBarFrame.height + navigationBar.frame.height)
-            blackView.presentOrigin = presentOrigin
-            launchView.presentOrigin = presentOrigin
+            let launchOrigin = CGPoint(x: 0, y: UIApplication.shared.statusBarFrame.height + navigationBar.frame.height)
+            let x = launchOrigin.x
+            let y = launchOrigin.y
+            let width = parentView.view.frame.width
+            let height = parentView.view.frame.height - y
             
-            let width: CGFloat = navigationBar.frame.width
-            let height = parentView.view.frame.height - presentOrigin.y
-            blackView.frame = CGRect(x: 0, y: presentOrigin.y, width: width, height: height)
+            blackView = {
+                let view = LaunchView()
+                view.launchOrigin = launchOrigin
+                view.frame = CGRect(x: x, y: y, width: width, height: height)
+                view.backgroundColor = UIColor(white: 0, alpha: 0.25)
+                view.alpha = 0
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
+                view.addGestureRecognizer(tapGesture)
+                
+                return view
+            }()
             
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
-            blackView.addGestureRecognizer(tapGesture)
+            launchView = {
+                let view = LaunchView()
+                view.launchOrigin = launchOrigin
+                view.frame.size.width = width
+                view.backgroundColor = UIColor.white
+                
+                let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissViews))
+                swipeUpGesture.direction = .up
+                view.addGestureRecognizer(swipeUpGesture)
+                
+                return view
+            }()
             
-            let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissViews))
-            swipeUpGesture.direction = .up
-            launchView.addGestureRecognizer(swipeUpGesture)
+            textView = {
+                let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width - (margin * 2), height: 0))
+                textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+                textView.isScrollEnabled = false
+                textView.isEditable = false
+                
+                return textView
+            }()
             
             parentView.view.addSubview(blackView)
             parentView.view.addSubview(launchView)
@@ -207,14 +210,14 @@ class ViewLauncher: NSObject {
 
 private class LaunchView: UIView {
     
-    private var _presentOrigin: CGPoint!
+    private var _launchOrigin: CGPoint!
     private var _dismissOrigin: CGPoint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         if let window = UIApplication.shared.keyWindow {
-            _presentOrigin = CGPoint(x: 0, y: 0)
+            _launchOrigin = CGPoint(x: 0, y: 0)
             _dismissOrigin = CGPoint(x: 0, y: -(window.frame.height))
         }
     }
@@ -223,10 +226,10 @@ private class LaunchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var presentOrigin: CGPoint {
+    var launchOrigin: CGPoint {
         
-        set { self._presentOrigin = newValue }
-        get { return self._presentOrigin }
+        set { self._launchOrigin = newValue }
+        get { return self._launchOrigin }
     }
     
     var dismissOrigin: CGPoint {
@@ -235,13 +238,13 @@ private class LaunchView: UIView {
         get { return self._dismissOrigin }
     }
     
-    func updateDismisOrigin() {
+    func updateDismissOrigin() {
         
-        self._dismissOrigin.y = -(self.presentOrigin.y + self.frame.height)
+        self._dismissOrigin.y = -(self.launchOrigin.y + self.frame.height)
     }
     
     func removeAllSubViews() {
-    
+        
         for subView in self.subviews {
             subView.removeFromSuperview()
         }
