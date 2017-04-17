@@ -194,7 +194,9 @@ class ViewLauncher: NSObject {
             }()
             
             textView = {
-                let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width - (margin * 2), height: 0))
+                let width = width - (margin * 2)
+                let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
+                textView.contentSize = textView.frame.size
                 textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
                 textView.isScrollEnabled = false
                 textView.isEditable = false
