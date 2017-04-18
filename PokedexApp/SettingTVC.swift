@@ -18,38 +18,30 @@ class SettingTVC: UITableViewController {
     
     @IBOutlet weak var measurementSC: UISegmentedControl!
     
-    private var settingSections: [String]!
-    private var settingRowsInSections: [[String]]!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingSections = loadData.settingSections()
-        settingRowsInSections = loadData.settingRowsInSections()
-        
-        // MARK: - Load settings from UserDefauls
-        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementUnit)
+        loadSettingFromUserDefaults()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        // MARK: - Save settings to UserDefauls
-        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: KEYS.Setting.measurementUnit)
+        saveSettingToUserDefaults()
     }
 
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-
-        return settingSections.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return settingRowsInSections[section].count
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func loadSettingFromUserDefaults() {
+        
+        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex)
+    }
+    
+    func saveSettingToUserDefaults() {
+        
+        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: KEYS.Setting.measurementSCSelectedIndex)
     }
 }

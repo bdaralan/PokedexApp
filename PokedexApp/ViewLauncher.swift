@@ -81,7 +81,7 @@ class ViewLauncher: NSObject {
                 self.blackView.alpha = 0
                 self.launchView.frame.origin = self.launchView.dismissOrigin
             }, completion: { (Bool) in
-                self.launchView.removeAllSubViews()
+                //self.launchView.removeAllSubViews()
                 self.isViewLauncherIdle = true
             })
         }
@@ -90,62 +90,62 @@ class ViewLauncher: NSObject {
     private func addWeaknessLabels(for pokemon: Pokemon) {
         
         let weaknesses = pokemon.getWeaknesses()
-        var y: CGFloat = spacing //will keep increasing as more weakness labels are added
-        
-        for (type, effective) in weaknesses {
-            let backgroundColor = COLORS.make(from: type)
+            var y: CGFloat = spacing //will keep increasing as more weakness labels are added
             
-            let typeLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.awakeFromNib()
-                label.frame.origin.x = margin
-                label.frame.origin.y = y
-                label.backgroundColor = backgroundColor
-                label.text = type
-                return label
-            }()
-            
-            let effectiveLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.awakeFromNib()
-                label.frame.origin.x = margin + label.frame.width + spacing
-                label.frame.origin.y = y
+            for (type, effective) in weaknesses {
+                let backgroundColor = COLORS.make(from: type)
                 
-                // MARK: - Pokemon's weaknesses effective width
-                if effective == "1/4" {
-                    label.frame.size.width = label.frame.height * 2
-                } else if effective == "1/2" {
-                    label.frame.size.width = label.frame.height * 4
-                } else if effective == "2" {
-                    label.frame.size.width = label.frame.height * 8
-                } else if effective == "4" {
-                    label.frame.size.width = parentView.view.frame.width - label.frame.width - spacing - (margin * 2)
-                } else if effective == "0" { // "0"
-                    label.frame.size.width = label.frame.height * 2
-                }
-                
-                label.text = "\(effective)x"
-                
-                if effective == "0" {
-                    label.textAlignment = .left
-                    label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
-                    label.textColor = backgroundColor
-                    label.backgroundColor = UIColor.white
-                } else {
+                let typeLbl: TypeUILabel = {
+                    let label = TypeUILabel()
+                    label.awakeFromNib()
+                    label.frame.origin.x = margin
+                    label.frame.origin.y = y
                     label.backgroundColor = backgroundColor
-                }
+                    label.text = type
+                    return label
+                }()
                 
-                return label
-            }()
+                let effectiveLbl: TypeUILabel = {
+                    let label = TypeUILabel()
+                    label.awakeFromNib()
+                    label.frame.origin.x = margin + label.frame.width + spacing
+                    label.frame.origin.y = y
+                    
+                    // MARK: - Pokemon's weaknesses effective width
+                    if effective == "1/4" {
+                        label.frame.size.width = label.frame.height * 2
+                    } else if effective == "1/2" {
+                        label.frame.size.width = label.frame.height * 4
+                    } else if effective == "2" {
+                        label.frame.size.width = label.frame.height * 8
+                    } else if effective == "4" {
+                        label.frame.size.width = parentView.view.frame.width - label.frame.width - spacing - (margin * 2)
+                    } else if effective == "0" { // "0"
+                        label.frame.size.width = label.frame.height * 2
+                    }
+                    
+                    label.text = "\(effective)x"
+                    
+                    if effective == "0" {
+                        label.textAlignment = .left
+                        label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
+                        label.textColor = backgroundColor
+                        label.backgroundColor = UIColor.white
+                    } else {
+                        label.backgroundColor = backgroundColor
+                    }
+                    
+                    return label
+                }()
+                
+                launchView.addSubview(typeLbl)
+                launchView.addSubview(effectiveLbl)
+                
+                y = y + effectiveLbl.frame.height + spacing
+            }
             
-            launchView.addSubview(typeLbl)
-            launchView.addSubview(effectiveLbl)
-            
-            y = y + effectiveLbl.frame.height + spacing
-        }
-        
-        // MARK: - lauchView height for pokemon's weaknesses
-        launchView.frame.size.height = y
+            // MARK: - lauchView height for pokemon's weaknesses
+            launchView.frame.size.height = y
     }
     
     private func addPokedexEntryLabels(for pokemon: Pokemon) {

@@ -40,7 +40,7 @@ struct Constant {
 struct Key {
     
     struct SettingKey {
-        let measurementUnit = "SettingMeasurementUnit"
+        let measurementSCSelectedIndex = "SettingMeasurementUnit"
     }
     
     let Setting = SettingKey()
