@@ -152,16 +152,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="03h-C6-gMD">
-                        <barButtonItem key="leftBarButtonItem" id="Dc6-Ca-Cll">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfG-RO-z8O">
-                                <rect key="frame" x="16" y="0.0" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="klang"/>
-                                <connections>
-                                    <action selector="settingBtnPressed:" destination="ZnF-qc-jU6" eventType="touchUpInside" id="NZr-g5-xnw"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="setting-icon" id="Xm2-tr-KbB">
+                            <connections>
+                                <action selector="settingBtnPressed:" destination="ZnF-qc-jU6" id="iEd-eh-jM7"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -770,7 +764,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="PokemonInfo" id="VqK-65-sSa">
-                        <barButtonItem key="rightBarButtonItem" image="pokemon-cry" id="Jht-zG-9sh"/>
+                        <barButtonItem key="rightBarButtonItem" image="cry-icon" id="Jht-zG-9sh"/>
                     </navigationItem>
                     <connections>
                         <outlet property="measurementSectionLbl" destination="hhg-QI-IA8" id="yBa-wY-ahu"/>
@@ -831,7 +825,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="klang" width="66" height="66"/>
-        <image name="pokemon-cry" width="30" height="22"/>
+        <image name="cry-icon" width="30" height="22"/>
+        <image name="setting-icon" width="22" height="22"/>
     </resources>
 </document>
