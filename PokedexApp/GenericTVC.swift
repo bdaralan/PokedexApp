@@ -99,7 +99,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .PokedexCell:
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
         case .TypeCell: ()
-        case .MoveCell: ()
+        case .MoveCell:
+            performSegue(withIdentifier: "MoveVC", sender: (moves[indexPath.row], tableView.visibleCells[indexPath.row]))
         case .AbilityCell: ()
         case .TMCell: ()
         case .ItemCell: ()
@@ -112,6 +113,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         if let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
             pokemonInfoVC.pokemon = pokemon
+        } else if let (move, cell) = sender as? (Move, UITableViewCell), let moveVC = segue.destination as? MoveVC {
+            moveVC.move = move
+            moveVC.cell = cell
         }
     }
     

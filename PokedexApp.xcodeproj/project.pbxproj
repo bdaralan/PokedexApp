@@ -35,6 +35,8 @@
 		53CF3DF31E8A29580073A516 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF21E8A29580073A516 /* GlobalConstants.swift */; };
 		53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF41E8A34590073A516 /* LoadData.swift */; };
 		53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF71E8A3C250073A516 /* Utilities.swift */; };
+		53D74A131EA9349900A6D591 /* MoveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A121EA9349900A6D591 /* MoveVC.swift */; };
+		53D74A151EA943D500A6D591 /* CircleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A141EA943D500A6D591 /* CircleUILabel.swift */; };
 		53ECA7071EA1EA3100964977 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7061EA1EA3100964977 /* Move.swift */; };
 		53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA70A1EA2719600964977 /* MoveCell.swift */; };
 		53ECA70F1EA2F2B400964977 /* moves.json in Resources */ = {isa = PBXBuildFile; fileRef = 53ECA70E1EA2F2B400964977 /* moves.json */; };
@@ -76,6 +78,8 @@
 		53CF3DF21E8A29580073A516 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		53CF3DF41E8A34590073A516 /* LoadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		53CF3DF71E8A3C250073A516 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		53D74A121EA9349900A6D591 /* MoveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveVC.swift; sourceTree = "<group>"; };
+		53D74A141EA943D500A6D591 /* CircleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleUILabel.swift; sourceTree = "<group>"; };
 		53ECA7061EA1EA3100964977 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		53ECA70A1EA2719600964977 /* MoveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCell.swift; sourceTree = "<group>"; };
 		53ECA70E1EA2F2B400964977 /* moves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moves.json; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				53ECA70A1EA2719600964977 /* MoveCell.swift */,
 				53ECA7141EA2FA2E00964977 /* AbilityCell.swift */,
 				536095B91E970E9000D2F2FC /* SectionUILabel.swift */,
+				53D74A141EA943D500A6D591 /* CircleUILabel.swift */,
 				536095BB1E9711AD00D2F2FC /* TypeUILabel.swift */,
 				536095BF1E9715D700D2F2FC /* MeasurementUILabel.swift */,
 				536095C11E97160500D2F2FC /* AbilityUILabel.swift */,
@@ -183,6 +188,7 @@
 				533A78811E9FDA6100554F7F /* GenericTVC.swift */,
 				53CF3DE61E8A27760073A516 /* PokedexTVC.swift */,
 				53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */,
+				53D74A121EA9349900A6D591 /* MoveVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -287,9 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D74A151EA943D500A6D591 /* CircleUILabel.swift in Sources */,
 				53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */,
 				53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */,
 				53F8F6E61E9CA70500D6AAAF /* ViewLauncher.swift in Sources */,
+				53D74A131EA9349900A6D591 /* MoveVC.swift in Sources */,
 				536095B81E970E1B00D2F2FC /* Colors.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,

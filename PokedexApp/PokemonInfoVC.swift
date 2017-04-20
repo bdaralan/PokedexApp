@@ -76,7 +76,7 @@ class PokemonInfoVC: UIViewController {
         pokemon.parsePokemonAbilities()
         pokemon.parseMeasurement()
         
-        self.title = pokemon.name
+        self.navigationItem.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
         pokeImgView.image = UIImage(named: pokemon.imageName)
         
