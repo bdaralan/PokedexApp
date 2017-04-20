@@ -26,13 +26,15 @@ class PokedexCell: UITableViewCell {
         pokemonName.text = pokemon.name
         pokemonID.text = pokemon.id.toPokedexId()
         
-        if let image = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
-            pokemonImg.image = image
+        if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
+            pokemonImg.image = cachedImage
         } else {
-            if let image = UIImage(named: pokemon.imageName) {
-                self.pokemonImg.image = image
-                globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
-            }
+            DispatchQueue.main.async(execute: { 
+                if let image = UIImage(named: pokemon.imageName) {
+                    self.pokemonImg.image = image
+                    globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
+                }
+            })
         }
     }
 }
