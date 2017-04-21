@@ -72,22 +72,7 @@ class ViewLauncher: NSObject {
         }
     }
     
-    func dismissViews() {
-        
-        if isViewLauncherIdle {
-            isViewLauncherIdle = false
-            
-            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-                self.blackView.alpha = 0
-                self.launchView.frame.origin = self.launchView.dismissOrigin
-            }, completion: { (Bool) in
-                self.launchView.removeAllSubViews()
-                self.isViewLauncherIdle = true
-            })
-        }
-    }
-    
-    private func addWeaknessLabels(for pokemon: Pokemon) {
+    func addWeaknessLabels(for pokemon: Pokemon) {
         
         let weaknesses = pokemon.getWeaknesses()
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
@@ -148,7 +133,7 @@ class ViewLauncher: NSObject {
         launchView.frame.size.height = y
     }
     
-    private func addPokedexEntryLabels(for pokemon: Pokemon) {
+    func addPokedexEntryLabels(for pokemon: Pokemon) {
         
         textView.text = pokemon.getPokedexEntry()
         textView.sizeToFit()
@@ -158,7 +143,22 @@ class ViewLauncher: NSObject {
         launchView.addSubview(textView)
     }
     
-    private func configureLauncher() {
+    func dismissViews() {
+        
+        if isViewLauncherIdle {
+            isViewLauncherIdle = false
+            
+            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+                self.blackView.alpha = 0
+                self.launchView.frame.origin = self.launchView.dismissOrigin
+            }, completion: { (Bool) in
+                self.launchView.removeAllSubViews()
+                self.isViewLauncherIdle = true
+            })
+        }
+    }
+    
+    func configureLauncher() {
         
         if let navigationBar = parentView.navigationController?.navigationBar {
             let launchOrigin = CGPoint(x: 0, y: UIApplication.shared.statusBarFrame.height + navigationBar.frame.height)
@@ -210,7 +210,7 @@ class ViewLauncher: NSObject {
     }
 }
 
-private class LaunchView: UIView {
+class LaunchView: UIView {
     
     private var _launchOrigin: CGPoint!
     private var _dismissOrigin: CGPoint!
