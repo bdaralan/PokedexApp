@@ -15,8 +15,8 @@ class PokemonInfoVC: UIViewController {
     
     @IBOutlet weak var pokeHeightLbl: UILabel!
     @IBOutlet weak var pokeWeighLblt: UILabel!
-    @IBOutlet weak var pokeType01Lbl: UILabel!
-    @IBOutlet weak var pokeType02Lbl: UILabel!
+    @IBOutlet weak var pokeType01Lbl: TypeUILabel!
+    @IBOutlet weak var pokeType02Lbl: TypeUILabel!
     
     @IBOutlet weak var pokeAbility01Lbl: UILabel!
     @IBOutlet weak var pokeAbility02Lbl: UILabel!
@@ -56,6 +56,8 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.blue///
+        
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex))
         
         viewLauncher = ViewLauncher(parentView: self)
@@ -90,7 +92,7 @@ class PokemonInfoVC: UIViewController {
             pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width)
         } else {
             pokeType02Lbl.isHidden = true
-            pokeType01Lbl.extend(length: pokeType02Lbl.frame.width, hasSpacing: 5)
+            pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width * 2 + 5)
         }
         
         pokeAbility01Lbl.text = pokemon.firstAbility
@@ -122,12 +124,14 @@ class PokemonInfoVC: UIViewController {
     
     func updatePokemonStatsProgressViews() {
         
-        pokeHpPV.setProgress(pokemon.hp.toProgress(), animated: true)
-        pokeAttackPV.setProgress(pokemon.attack.toProgress(), animated: true)
-        pokeDefensePV.setProgress(pokemon.defense.toProgress(), animated: true)
-        pokeSpAttackPV.setProgress(pokemon.spAttack.toProgress(), animated: true)
-        pokeSpDefensePV.setProgress(pokemon.spDefense.toProgress(), animated: true)
-        pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
+        DispatchQueue.main.async {
+            self.pokeHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
+            self.pokeAttackPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
+            self.pokeDefensePV.setProgress(self.pokemon.defense.toProgress(), animated: true)
+            self.pokeSpAttackPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
+            self.pokeSpDefensePV.setProgress(self.pokemon.spDefense.toProgress(), animated: true)
+            self.pokeSpeedPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
+        }
     }
     
     func configureTappedGestures() {
@@ -183,13 +187,13 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
-    func pokedexEnterySectionLblTapped() {
-        
-        viewLauncher.presentPokedexEntry(of: pokemon)
-    }
-    
     func weaknessesSectionLblTapped() {
         
-        viewLauncher.presentWeaknesses(of: pokemon)
+        viewLauncher.presentWeaknessesView(of: pokemon)
+    }
+    
+    func pokedexEnterySectionLblTapped() {
+        
+        viewLauncher.presentPokedexEntryView(of: pokemon)
     }
 }

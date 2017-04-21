@@ -10,11 +10,6 @@ import UIKit
 
 extension UILabel {
     
-    func extend(length: CGFloat, hasSpacing space: CGFloat = 0) {
-        
-        self.frame.size.width = self.frame.size.width + length + space
-    }
-    
     func setLength(to length: CGFloat) {
         
         self.frame.size.width = length

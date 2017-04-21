@@ -17,7 +17,6 @@ class ViewLauncher: NSObject {
     
     private var blackView: UIView!
     
-    private var animatedDuration: TimeInterval! //use for every view, unless otherwise
     private var isViewLauncherIdle: Bool!
     
     private let margin = CONSTANTS.constrain.margin
@@ -29,7 +28,6 @@ class ViewLauncher: NSObject {
         super.init()
         
         self.parentView = parentView
-        self.animatedDuration = 0.5
         self.isViewLauncherIdle = true
         
         configureLauncher()
@@ -37,31 +35,27 @@ class ViewLauncher: NSObject {
     
     
     // MARK: - Functions
-    func presentWeaknesses(of pokemon: Pokemon) {
+    func presentWeaknessesView(of pokemon: Pokemon) {
         
         if isViewLauncherIdle {
             isViewLauncherIdle = false
             
             addWeaknessLabels(for: pokemon)
-            
-            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.blackView.alpha = 1
-                ///self.launchView.frame.origin = self.launchView.launchOrigin
-            }, completion: { (Bool) in
-                self.isViewLauncherIdle = true
-            })
         }
     }
     
-    func presentPokedexEntry(of pokemon: Pokemon) {
+    func presentPokedexEntryView(of pokemon: Pokemon) {
         
-        let launchView = LaunchView(frame: parentView.view.frame)
-        
-        addPokedexEntryTextView(of: pokemon, to: launchView)
-        
-        parentView.view.addSubview(launchView)
-        
-        launchView.launch()
+        if let cachedLaunchView = globalCache.object(forKey: "cachedLaunchView" as AnyObject) as? LaunchView {
+            parentView.view.addSubview(cachedLaunchView)
+            cachedLaunchView.launch()
+        } else {
+            let launchView = LaunchView(frame: blackView.frame)
+            addPokedexEntry(of: pokemon, to: launchView)
+            globalCache.setObject(launchView, forKey: "cachedLaunchView" as AnyObject)
+            parentView.view.addSubview(launchView)
+            launchView.launch()
+        }
     }
     
     func addWeaknessLabels(for pokemon: Pokemon) {
@@ -125,7 +119,7 @@ class ViewLauncher: NSObject {
         ///launchView.frame.size.height = y
     }
     
-    func addPokedexEntryTextView(of pokemon: Pokemon, to launchView: LaunchView) {
+    func addPokedexEntry(of pokemon: Pokemon, to launchView: LaunchView) {
         
         let textView: UITextView = {
             let width = parentView.view.frame.width - (margin * 2)
@@ -141,23 +135,7 @@ class ViewLauncher: NSObject {
         textView.sizeToFit()
         launchView.addSubview(textView)
         launchView.frame.size.height = textView.frame.height + spacing * 2
-        launchView.updateLaunchOrigin(to: launchOrigin)
-        launchView.updateDismissOrigin()
-    }
-    
-    func dismissViews() {
-        
-        if isViewLauncherIdle {
-            isViewLauncherIdle = false
-            
-            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-                self.blackView.alpha = 0
-                ///self.launchView.frame.origin = self.launchView.dismissOrigin
-            }, completion: { (Bool) in
-                ////self.launchView.removeAllSubViews()
-                self.isViewLauncherIdle = true
-            })
-        }
+        launchView.setLaunchOrigin(to: launchOrigin)
     }
     
     func configureLauncher() {
@@ -177,10 +155,7 @@ class ViewLauncher: NSObject {
                 let view = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
                 view.backgroundColor = UIColor(white: 0, alpha: 0.25)
                 view.alpha = 0
-                
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViews))
-                view.addGestureRecognizer(tapGesture)
-                
+
                 return view
             }()
             
@@ -215,24 +190,27 @@ class LaunchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func launch() {
-        
-        animate(to: _launchOrigin)
-    }
-    
-    func dismiss() {
-        
-        animate(to: _dismissOrigin)
-    }
-    
-    func updateLaunchOrigin(to launchOrigin: CGPoint) {
+    func setLaunchOrigin(to launchOrigin: CGPoint) {
         
         self._launchOrigin = launchOrigin
+        self._dismissOrigin.y = -(self._launchOrigin.y + self.frame.height)
+        self.frame.origin = self._dismissOrigin
     }
     
-    func updateDismissOrigin() {
+    func launch() {
         
-        self._dismissOrigin.y = -(self._launchOrigin.y + self.frame.height)
+        UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.frame.origin = self._launchOrigin
+        }, completion: nil)
+    }
+    
+    func dismiss() { //will also remove self from superview
+        
+        UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.frame.origin = self._dismissOrigin
+        }) { (Bool) in
+            self.removeFromSuperview()
+        }
     }
     
     func removeAllSubViews() {
@@ -240,11 +218,5 @@ class LaunchView: UIView {
         for subView in self.subviews {
             subView.removeFromSuperview()
         }
-    }
-    
-    private func animate(to origin: CGPoint) {
-        UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.frame.origin = origin
-        }, completion: nil)
     }
 }
