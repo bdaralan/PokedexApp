@@ -55,9 +55,7 @@ class PokemonInfoVC: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.blue///
-        
+                
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex))
         
         viewLauncher = ViewLauncher(parentView: self)
@@ -68,7 +66,9 @@ class PokemonInfoVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        updatePokemonStatsProgressViews()
+        DispatchQueue.main.async {
+            self.updatePokemonStatsProgressViews()
+        }
     }
     
     // MARK: - Functions
@@ -124,14 +124,12 @@ class PokemonInfoVC: UIViewController {
     
     func updatePokemonStatsProgressViews() {
         
-        DispatchQueue.main.async {
-            self.pokeHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
-            self.pokeAttackPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
-            self.pokeDefensePV.setProgress(self.pokemon.defense.toProgress(), animated: true)
-            self.pokeSpAttackPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
-            self.pokeSpDefensePV.setProgress(self.pokemon.spDefense.toProgress(), animated: true)
-            self.pokeSpeedPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
-        }
+        pokeHpPV.setProgress(pokemon.hp.toProgress(), animated: true)
+        pokeAttackPV.setProgress(pokemon.attack.toProgress(), animated: true)
+        pokeDefensePV.setProgress(pokemon.defense.toProgress(), animated: true)
+        pokeSpAttackPV.setProgress(pokemon.spAttack.toProgress(), animated: true)
+        pokeSpDefensePV.setProgress(pokemon.spDefense.toProgress(), animated: true)
+        pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
     }
     
     func configureTappedGestures() {

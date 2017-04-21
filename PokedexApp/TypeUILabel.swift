@@ -13,16 +13,11 @@ class TypeUILabel: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
     
+        self.frame.size.width = 80
+        self.frame.size.height = 21
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.textColor = UIColor.white
         self.textAlignment = .center
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        self.frame.size.width = 80
-        self.frame.size.height = 21
-    }
+    }    
 }

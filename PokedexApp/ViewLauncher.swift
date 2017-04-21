@@ -14,8 +14,7 @@ class ViewLauncher: NSObject {
     private var statusBarFrame: CGRect!
     private var navigationBarFrame: CGRect!
     private var launchOrigin: CGPoint!
-    
-    private var blackView: UIView!
+    private var dimView: UIView!
     
     private var isViewLauncherIdle: Bool!
     
@@ -23,7 +22,6 @@ class ViewLauncher: NSObject {
     private let spacing = CONSTANTS.constrain.spacing
     
     
-    // Initializer
     init(parentView: UIViewController) {
         super.init()
         
@@ -34,7 +32,6 @@ class ViewLauncher: NSObject {
     }
     
     
-    // MARK: - Functions
     func presentWeaknessesView(of pokemon: Pokemon) {
         
         if isViewLauncherIdle {
@@ -46,13 +43,13 @@ class ViewLauncher: NSObject {
     
     func presentPokedexEntryView(of pokemon: Pokemon) {
         
-        if let cachedLaunchView = globalCache.object(forKey: "cachedLaunchView" as AnyObject) as? LaunchView {
+        if let cachedLaunchView = globalCache.object(forKey: "\(pokemon.name)launchView" as AnyObject) as? LaunchView {
             parentView.view.addSubview(cachedLaunchView)
             cachedLaunchView.launch()
         } else {
-            let launchView = LaunchView(frame: blackView.frame)
+            let launchView = LaunchView(frame: dimView.frame)
             addPokedexEntry(of: pokemon, to: launchView)
-            globalCache.setObject(launchView, forKey: "cachedLaunchView" as AnyObject)
+            globalCache.setObject(launchView, forKey: "\(pokemon.name)launchView" as AnyObject)
             parentView.view.addSubview(launchView)
             launchView.launch()
         }
@@ -60,63 +57,63 @@ class ViewLauncher: NSObject {
     
     func addWeaknessLabels(for pokemon: Pokemon) {
         
-        let weaknesses = pokemon.getWeaknesses()
-        var y: CGFloat = spacing //will keep increasing as more weakness labels are added
-        
-        for (type, effective) in weaknesses {
-            let backgroundColor = COLORS.make(from: type)
-            
-            let typeLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.awakeFromNib()
-                label.frame.origin.x = margin
-                label.frame.origin.y = y
-                label.backgroundColor = backgroundColor
-                label.text = type
-                return label
-            }()
-            
-            let effectiveLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.awakeFromNib()
-                label.frame.origin.x = margin + label.frame.width + spacing
-                label.frame.origin.y = y
-                
-                // MARK: - Pokemon's weaknesses effective width
-                if effective == "1/4" {
-                    label.frame.size.width = label.frame.height * 2
-                } else if effective == "1/2" {
-                    label.frame.size.width = label.frame.height * 4
-                } else if effective == "2" {
-                    label.frame.size.width = label.frame.height * 8
-                } else if effective == "4" {
-                    label.frame.size.width = parentView.view.frame.width - label.frame.width - spacing - (margin * 2)
-                } else if effective == "0" { // "0"
-                    label.frame.size.width = label.frame.height * 2
-                }
-                
-                label.text = "\(effective)x"
-                
-                if effective == "0" {
-                    label.textAlignment = .left
-                    label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
-                    label.textColor = backgroundColor
-                    label.backgroundColor = UIColor.white
-                } else {
-                    label.backgroundColor = backgroundColor
-                }
-                
-                return label
-            }()
-            
-            ///launchView.addSubview(typeLbl)
-            ///launchView.addSubview(effectiveLbl)
-            
-            y = y + effectiveLbl.frame.height + spacing
-        }
-        
-        // MARK: - lauchView height for pokemon's weaknesses
-        ///launchView.frame.size.height = y
+//        let weaknesses = pokemon.getWeaknesses()
+//        var y: CGFloat = spacing //will keep increasing as more weakness labels are added
+//        
+//        for (type, effective) in weaknesses {
+//            let backgroundColor = COLORS.make(from: type)
+//            
+//            let typeLbl: TypeUILabel = {
+//                let label = TypeUILabel()
+//                label.awakeFromNib()
+//                label.frame.origin.x = margin
+//                label.frame.origin.y = y
+//                label.backgroundColor = backgroundColor
+//                label.text = type
+//                return label
+//            }()
+//            
+//            let effectiveLbl: TypeUILabel = {
+//                let label = TypeUILabel()
+//                label.awakeFromNib()
+//                label.frame.origin.x = margin + label.frame.width + spacing
+//                label.frame.origin.y = y
+//                
+//                // MARK: - Pokemon's weaknesses effective width
+//                if effective == "1/4" {
+//                    label.frame.size.width = label.frame.height * 2
+//                } else if effective == "1/2" {
+//                    label.frame.size.width = label.frame.height * 4
+//                } else if effective == "2" {
+//                    label.frame.size.width = label.frame.height * 8
+//                } else if effective == "4" {
+//                    label.frame.size.width = parentView.view.frame.width - label.frame.width - spacing - (margin * 2)
+//                } else if effective == "0" { // "0"
+//                    label.frame.size.width = label.frame.height * 2
+//                }
+//                
+//                label.text = "\(effective)x"
+//                
+//                if effective == "0" {
+//                    label.textAlignment = .left
+//                    label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
+//                    label.textColor = backgroundColor
+//                    label.backgroundColor = UIColor.white
+//                } else {
+//                    label.backgroundColor = backgroundColor
+//                }
+//                
+//                return label
+//            }()
+//            
+//            ///launchView.addSubview(typeLbl)
+//            ///launchView.addSubview(effectiveLbl)
+//            
+//            y = y + effectiveLbl.frame.height + spacing
+//        }
+//        
+//        // MARK: - lauchView height for pokemon's weaknesses
+//        ///launchView.frame.size.height = y
     }
     
     func addPokedexEntry(of pokemon: Pokemon, to launchView: LaunchView) {
@@ -151,7 +148,7 @@ class ViewLauncher: NSObject {
             
             self.launchOrigin = CGPoint(x: x, y: y)
             
-            blackView = {
+            dimView = {
                 let view = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
                 view.backgroundColor = UIColor(white: 0, alpha: 0.25)
                 view.alpha = 0
@@ -159,13 +156,15 @@ class ViewLauncher: NSObject {
                 return view
             }()
             
-            parentView.view.addSubview(blackView)
+            parentView.view.addSubview(dimView)
         }
     }
 }
 
-class LaunchView: UIView {
+
+class LaunchView: UIView { // MARK: - LaunchView Class
     
+    private var parentView: UIViewController!
     private var _launchOrigin: CGPoint!
     private var _dismissOrigin: CGPoint!
     

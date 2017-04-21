@@ -13,16 +13,11 @@ class CircleUILabel: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.frame.size.width = self.frame.height
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.textColor = UIColor.white
         self.textAlignment = .center
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        self.frame.size.width = self.frame.height
     }
     
     func setRadius(to radius: CGFloat) {
