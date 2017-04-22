@@ -35,7 +35,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         prepareNecessaryData()
         configureNavigationBar()
     }
@@ -174,13 +174,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         tableView.tableHeaderView = searchResultController.searchBar
         
         if currentGenericCell == .PokedexCell {
-            let segmentControll: UISegmentedControl = {
-                let segmentControll = DBUISegmentedControl(items: ["0-9", "A-Z"])
-                segmentControll.awakeFromNib()
-                segmentControll.selectedSegmentIndex = 0
-                segmentControll.addTarget(self, action: #selector(segmentControllValueChanged), for: UIControlEvents.valueChanged)
+            let segmentControll: DBUISegmentedControl = {
+                let sc = DBUISegmentedControl(items: ["0-9", "A-Z"])
+                sc.awakeFromNib()
+                sc.selectedSegmentIndex = 0
+                sc.addTarget(self, action: #selector(segmentControllValueChanged), for: .valueChanged)
                 
-                return segmentControll
+                return sc
             }()
             
             navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
