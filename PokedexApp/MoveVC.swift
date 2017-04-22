@@ -19,7 +19,7 @@ class MoveVC: UIViewController {
     @IBOutlet weak var ppLbl: UILabel!
     @IBOutlet weak var tmLbl: UILabel!
     //@IBOutlet weak var effectLbl: UILabel!
-    @IBOutlet weak var effctTextView: UITextView!
+    @IBOutlet weak var effectTextView: UITextView!
     
     var move: Move! //will be assigned during segue
     var cell: UITableViewCell! //will be assigned during segue
@@ -32,18 +32,19 @@ class MoveVC: UIViewController {
     
     func updateUI() {
         
-        self.navigationItem.title = move.name
-        
+        move.parseCompletedInfo()
+                
         nameLbl.text = move.name
         categoryLbl.text = move.category
         categoryLbl.applyMoveCategoryStyle()
+        
         typeLbl.text = move.type
         typeLbl.backgroundColor = COLORS.make(from: move.type)
-        powerLbl.text = move.power
-        probLbl.text = move.prob
-        accuracyLbl.text = move.accuracy
-        ppLbl.text = move.pp
-        tmLbl.text = move.tm
-        effctTextView.text = move.effect
+        powerLbl.text = move.power.isEmpty ? "–" : move.power
+        probLbl.text = move.prob.isEmpty ? "–" : move.prob
+        accuracyLbl.text = move.accuracy.isEmpty ? "–" : move.accuracy
+        ppLbl.text = move.pp.isEmpty ? "–" : move.pp
+        tmLbl.text = move.tm.isEmpty ? "–" : move.tm
+        effectTextView.text = move.effect.isEmpty ? "–" : move.effect
     }
 }
