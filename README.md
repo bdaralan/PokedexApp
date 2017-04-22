@@ -11,7 +11,6 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 * Storyboard is set for iPhone 6s/7.
 
 ## Preview:
-Old screenshot from [PokemonApp](https://github.com/iDara09/PokemonApp). Will add new screenshots when available.
 <div>
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokemon-info.png" alt="Pokemon Info" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokedex.png" alt="Pokedex" height="360px">
