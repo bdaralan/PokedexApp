@@ -18,8 +18,8 @@ Old screenshot from [PokemonApp](https://github.com/iDara09/PokemonApp). Will ad
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokedex-search.png" alt="Pokedex Search" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/types.png" alt="Types" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves.png" alt="Moves" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves-search.png" alt="Moves Search" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves-detial.png" alt="Moves Detail" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/move-search.png" alt="Moves Search" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/move-detial.png" alt="Moves Detail" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/abilities.png" alt="Abilites" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/home-menu.png" alt="Home Menu" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/setting.png" alt="Setting" height="360px">
