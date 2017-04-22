@@ -608,7 +608,13 @@
                             <outlet property="delegate" destination="fHR-yM-Frj" id="Ee7-er-D1n"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="GenericTVC" id="bgW-D2-2dC"/>
+                    <navigationItem key="navigationItem" title="GenericTVC" id="bgW-D2-2dC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="TBW-rL-k2C">
+                            <connections>
+                                <action selector="searchBtnTapped:" destination="fHR-yM-Frj" id="GGx-Qw-FfJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="hBg-BA-g37"/>
                         <segue destination="T4B-Xs-RGo" kind="show" identifier="MoveVC" id="niM-lp-2Wm"/>

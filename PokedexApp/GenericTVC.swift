@@ -29,7 +29,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     var abilities: [Ability]!
     
     var searchResultController: UISearchController!
-    
+    var segmentControllSelectedIndex: Int?
     var currentGenericCell: GenericCell { return genericCell }
     
     
@@ -37,7 +37,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         super.viewDidLoad()
         
         prepareNecessaryData()
-        configureSearchController()
+        configureNavigationBar()
     }
     
     // MARK: - Table view data source
@@ -141,9 +141,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             
             switch currentGenericCell {
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemons
+                if segmentControllSelectedIndex == 0 {
+                    pokemons = CONSTANTS.allPokemons
+                } else {
+                    pokemons = CONSTANTS.allPokemons.sortByAlphabet()
+                }
             case .TypeCell: ()
-            types = CONSTANTS.allTypes
+                types = CONSTANTS.allTypes
             case .MoveCell:
                 moves = CONSTANTS.allMoves
             case .AbilityCell:
@@ -158,7 +162,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     }
     
     // MARK: - Functions
-    func configureSearchController() {
+    func configureNavigationBar() {
         
         searchResultController = UISearchController(searchResultsController: nil)
         searchResultController.loadViewIfNeeded()
@@ -169,14 +173,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         tableView.tableHeaderView = searchResultController.searchBar
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(presentSearch))
-    }
-    
-    func presentSearch() {
-        
-        present(searchResultController, animated: true, completion: {
-            self.searchResultController.searchBar.becomeFirstResponder()
-        })
+        if currentGenericCell == .PokedexCell {
+            let segmentControll: UISegmentedControl = {
+                let segmentControll = DBUISegmentedControl(items: ["0-9", "A-Z"])
+                segmentControll.awakeFromNib()
+                segmentControll.selectedSegmentIndex = 0
+                segmentControll.addTarget(self, action: #selector(segmentControllValueChanged), for: UIControlEvents.valueChanged)
+                
+                return segmentControll
+            }()
+            
+            navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
+            self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
+        }
     }
     
     func prepareNecessaryData() {
@@ -190,5 +199,26 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .ItemCell: ()
         case .BerryCell: ()
         }
+    }
+    
+    func segmentControllValueChanged(_ sender: UISegmentedControl) {
+        
+        self.segmentControllSelectedIndex = sender.selectedSegmentIndex
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            pokemons = CONSTANTS.allPokemons
+        case 1:
+            pokemons = pokemons.sortByAlphabet()
+        default: ()
+        }
+        
+        tableView.reloadData()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func searchBtnTapped(_ sender: Any) {
+        
+        searchResultController.searchBar.becomeFirstResponder()
     }
 }

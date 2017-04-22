@@ -182,3 +182,16 @@ extension Pokemon {
         return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
     }
 }
+
+extension Array where Element: Pokemon {
+    
+    func sortById() -> [Pokemon] {
+        
+        return self.sorted(by: {"\($0.id.toPokedexId())\($0.form)" < "\($1.id.toPokedexId())\($1.form)"})
+    }
+    
+    func sortByAlphabet() -> [Pokemon] {
+        
+        return self.sorted(by: {$0.name < $1.name})
+    }
+}
