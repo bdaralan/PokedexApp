@@ -55,7 +55,7 @@ class PokemonInfoVC: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex))
         
         viewLauncher = ViewLauncher(parentView: self)

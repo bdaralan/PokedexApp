@@ -35,7 +35,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         prepareNecessaryData()
         configureNavigationBar()
     }
@@ -100,7 +100,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
         case .TypeCell: ()
         case .MoveCell:
-            performSegue(withIdentifier: "MoveVC", sender: (moves[indexPath.row], tableView.cellForRow(at: indexPath)))
+            performSegue(withIdentifier: "MoveVC", sender: moves[indexPath.row])
         case .AbilityCell: ()
         case .TMCell: ()
         case .ItemCell: ()
@@ -113,9 +113,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         if let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
             pokemonInfoVC.pokemon = pokemon
-        } else if let (move, cell) = sender as? (Move, UITableViewCell), let moveVC = segue.destination as? MoveVC {
+        } else if let move = sender as? Move, let moveVC = segue.destination as? MoveVC {
             moveVC.move = move
-            moveVC.cell = cell
         }
     }
     
@@ -147,7 +146,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                     pokemons = CONSTANTS.allPokemons.sortByAlphabet()
                 }
             case .TypeCell: ()
-                types = CONSTANTS.allTypes
+            types = CONSTANTS.allTypes
             case .MoveCell:
                 moves = CONSTANTS.allMoves
             case .AbilityCell:
@@ -219,6 +218,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - IBActions
     @IBAction func searchBtnTapped(_ sender: Any) {
         
-        searchResultController.searchBar.becomeFirstResponder()
+        self.searchResultController.searchBar.becomeFirstResponder()
     }
 }

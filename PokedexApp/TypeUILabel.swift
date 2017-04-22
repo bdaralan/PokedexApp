@@ -19,5 +19,6 @@ class TypeUILabel: UILabel {
         self.clipsToBounds = true
         self.textColor = UIColor.white
         self.textAlignment = .center
+        self.baselineAdjustment = .alignCenters
     }    
 }

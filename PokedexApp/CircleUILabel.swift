@@ -18,6 +18,7 @@ class CircleUILabel: UILabel {
         self.clipsToBounds = true
         self.textColor = UIColor.white
         self.textAlignment = .center
+        self.baselineAdjustment = .alignCenters
     }
     
     func setRadius(to radius: CGFloat) {
@@ -36,9 +37,10 @@ class CircleUILabel: UILabel {
             case "Physical": self.text = "P"
             case "Special": self.text = "S"
             case "Status": self.text = "S"
-            default:
+            case "":
                 self.text = "–"
                 self.textColor = UIColor.black
+            default:()
             }
         }
     }
