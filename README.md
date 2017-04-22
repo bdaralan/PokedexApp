@@ -13,15 +13,17 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 ## Preview:
 Old screenshot from [PokemonApp](https://github.com/iDara09/PokemonApp). Will add new screenshots when available.
 <div>
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/pokemon-view.png" alt="Pokemon Info" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/pokedex-view.png" alt="Pokedex" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/search-view.png" alt="Search" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/home-view.png" alt="Home" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/types-view.png" alt="Types" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/abilities-view.png" alt="Abilites" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/moves-view.png" alt="Moves" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/setting.png" alt="Setting" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/app-icon.png" alt="App Icon" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokemon-info.png" alt="Pokemon Info" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokedex.png" alt="Pokedex" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokedex-search.png" alt="Pokedex Search" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/types.png" alt="Types" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves.png" alt="Moves" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves-search.png" alt="Moves Search" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves-detial.png" alt="Moves Detail" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/abilities.png" alt="Abilites" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/home-menu.png" alt="Home Menu" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/setting.png" alt="Setting" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/app-icon.png" alt="App Icon" height="360px">
 </div>
 
 ## Usage:
