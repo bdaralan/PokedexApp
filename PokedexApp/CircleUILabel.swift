@@ -30,7 +30,7 @@ class CircleUILabel: UILabel {
     func applyMoveCategoryStyle() {
         
         if let moveCategory = self.text {
-            self.backgroundColor = COLORS.make(from: moveCategory)
+            self.backgroundColor = COLORS.get(from: moveCategory)
             self.textColor = UIColor.white
             
             switch moveCategory {

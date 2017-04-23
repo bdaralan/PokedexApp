@@ -36,7 +36,6 @@ class ViewLauncher: NSObject {
         }
     }
     
-    
     func presentWeaknessesView(of pokemon: Pokemon) {
         
         if let cachedLaunchView = caches.object(forKey: "launchView\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) {
@@ -67,7 +66,7 @@ class ViewLauncher: NSObject {
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
         
         for (type, effective) in weaknesses {
-            let backgroundColor = COLORS.make(from: type)
+            let backgroundColor = COLORS.get(from: type)
             
             let typeLbl: TypeUILabel = {
                 let label = TypeUILabel()

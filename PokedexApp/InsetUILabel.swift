@@ -9,9 +9,17 @@
 import UIKit
 
 class InsetUILabel: UILabel {
-
+    
     private var spacing: CGFloat = 3 //default spacing between the inset label and the outter label
-    private var radius: CGFloat!
+    private var didAwakeFromNib = false
+    
+    private var radius: CGFloat {
+        return self.frame.height - spacing * 2
+    }
+    
+    private var innerLabelOriginX: CGFloat {
+        return self.frame.width - radius - spacing
+    }
     
     var innerLable: UILabel!
     
@@ -25,55 +33,43 @@ class InsetUILabel: UILabel {
         self.baselineAdjustment = .alignCenters
         self.adjustsFontSizeToFitWidth = true
         
-        self.updateLayout()
+        self.configureLayout()
         
-        self.addSubview(innerLable)
+        innerLable.backgroundColor = UIColor.white
+        innerLable.textColor = UIColor.black
+        innerLable.clipsToBounds = true
+        innerLable.adjustsFontSizeToFitWidth = true
+        innerLable.textAlignment = .center
+        innerLable.baselineAdjustment = .alignCenters
+        
+        didAwakeFromNib = true
     }
     
     override var frame: CGRect {
         didSet {
-            updateLayout()
+            if didAwakeFromNib {
+                self.configureLayout()
+            } else {
+                self.innerLable = UILabel(frame: CGRect(x: innerLabelOriginX, y: spacing, width: radius, height: radius))
+                self.addSubview(innerLable)
+            }
         }
     }
     
     func setSpacing(to spacing: CGFloat) {
         
         self.spacing = spacing
-        self.updateRadius(forNewSpacing: spacing)
+        self.configureLayout()
+    }
+    
+    private func configureLayout() {
         
+        innerLable.frame.origin.x = innerLabelOriginX
         innerLable.frame.origin.y = spacing
         innerLable.frame.size.width = radius
         innerLable.frame.size.height = radius
-        innerLable.layer.cornerRadius = radius / 2
-    }
-    
-    private func updateLayout() {
         
         self.layer.cornerRadius = self.frame.height / 2
-        self.updateRadius(forNewSpacing: spacing)
-        
-        let x = self.frame.width - radius - spacing
-        
-        if innerLable == nil {
-            innerLable = UILabel(frame: CGRect(x: x, y: spacing, width: radius, height: radius))
-            innerLable.backgroundColor = UIColor.white
-            innerLable.textColor = UIColor.black
-            innerLable.clipsToBounds = true
-            innerLable.adjustsFontSizeToFitWidth = true
-            innerLable.textAlignment = .center
-            innerLable.baselineAdjustment = .alignCenters
-        } else {
-            innerLable.frame.origin.x = x
-            innerLable.frame.origin.y = spacing
-            innerLable.frame.size.width = radius
-            innerLable.frame.size.height = radius
-        }
-  
-        innerLable.layer.cornerRadius = radius / 2
-    }
-    
-    private func updateRadius(forNewSpacing newSpacing: CGFloat) {
-        
-        self.radius = self.frame.height - newSpacing * 2
+        self.innerLable.layer.cornerRadius = radius / 2
     }
 }

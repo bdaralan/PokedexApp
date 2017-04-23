@@ -23,11 +23,8 @@ class MoveVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.async {
-            self.updateUI()
-        }
-        //updateUI()
+        
+        updateUI()
     }
     
     func updateUI() {
@@ -35,13 +32,18 @@ class MoveVC: UIViewController {
         move.parseCompletedInfo()
                 
         nameLbl.text = move.name
-        nameLbl.backgroundColor = COLORS.make(from: move.type)
+        nameLbl.backgroundColor = COLORS.get(from: move.type)
+        
         if let category = move.category.characters.first {
-            let category = "\(category)"
-            nameLbl.innerLable.text = category.isEmpty ? "–" : category
+            nameLbl.innerLable.text = "\(category)"
             nameLbl.innerLable.textColor = UIColor.white
-            nameLbl.innerLable.backgroundColor = COLORS.make(from: move.category)
+            nameLbl.innerLable.backgroundColor = COLORS.get(from: move.category)
+        } else {
+            nameLbl.innerLable.text = "–"
+            nameLbl.innerLable.textColor = UIColor.black
+            nameLbl.innerLable.backgroundColor = UIColor.white
         }
+        
         
         typeLbl.text = move.type
         typeLbl.backgroundColor = nameLbl.backgroundColor

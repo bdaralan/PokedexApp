@@ -28,7 +28,7 @@ class Colors {
         sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
     }
     
-    func make(from string: String) -> UIColor {
+    func get(from string: String) -> UIColor {
         
         switch string {
         case "Normal": return pokemonType.Normal

@@ -35,7 +35,7 @@ class TypeCell: UITableViewCell {
         
         typeTextLbl.text = type
         
-        typeLbl.backgroundColor = COLORS.make(from: type)
+        typeLbl.backgroundColor = COLORS.get(from: type)
         typeLbl.text = type
     }
 }

@@ -218,6 +218,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     // MARK: - IBActions
     @IBAction func searchBtnTapped(_ sender: Any) {
         
-        self.searchResultController.searchBar.becomeFirstResponder()
+        present(searchResultController, animated: true) { 
+            self.searchResultController.searchBar.becomeFirstResponder()
+        }
     }
 }
