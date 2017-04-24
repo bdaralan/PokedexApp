@@ -28,7 +28,7 @@ class ViewLauncher: NSObject {
         
         self.parentView = parentView.view
         
-        // TODO: - write and else case where parentView is not a UIViewController 
+        // TODO: - write and else case where parentView is not a UIViewController
         if let navigationBarFrame = parentView.navigationController?.navigationBar.frame {
             self.navigationBarFrame = navigationBarFrame
             self.statusBarFrame = UIApplication.shared.statusBarFrame
@@ -80,101 +80,123 @@ class ViewLauncher: NSObject {
     
     func presentPokedexEntryView(of pokemon: Pokemon) {
         
-        if let cachedPokedexEntryView = globalCache.object(forKey: "launchView\(pokemon.id)" as AnyObject) as? UIView {
-            launchView.addSubview(cachedPokedexEntryView)
-            launchView.launch()
-        } else {
-            let pokedexEntryView = getPokedexEntryView(of: pokemon)
-            self.launchView.addSubview(pokedexEntryView)
-            self.launchView.frame.size.height = pokedexEntryView.frame.height
-            self.launchView.launch()
-            self.dimView.alpha = 1
-            //globalCache.setObject(pokedexEntryView.copy() as AnyObject, forKey: "launchView\(pokemon.id)" as AnyObject)
-        }
+        let pokedexEntryView = getPokedexEntryView(of: pokemon)
+        launchView.addSubview(pokedexEntryView)
+        launchView.frame.size.height = pokedexEntryView.frame.height
+        launchView.launch()
+        dimView.alpha = 1
     }
     
     func getPokedexEntryView(of pokemon: Pokemon) -> UIView {
         
-        let textView: UITextView = {
-            let width = launchView.frame.width - (margin * 2)
-            let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
-            textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
-            textView.isScrollEnabled = false
-            textView.isEditable = false
+        let textView: UITextView!
+        
+        if let cachedTextView = globalCache.object(forKey: "pokedexEntry\(pokemon.id)" as AnyObject) as? UITextView {
+            textView = cachedTextView
+        } else {
+            textView = {
+                let width = launchView.frame.width - (margin * 2)
+                let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
+                textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+                textView.isScrollEnabled = false
+                textView.isEditable = false
+                
+                return textView
+            }()
             
-            return textView
-        }()
+            textView.text = pokemon.getPokedexEntry()
+            textView.sizeToFit()
+            textView.frame.size.width = launchView.frame.width - margin * 2
+            
+            globalCache.setObject(textView, forKey: "pokedexEntry\(pokemon.id)" as AnyObject)
+        }
         
-        textView.text = pokemon.getPokedexEntry()
-        textView.sizeToFit()
-        textView.frame.size.width = launchView.frame.width - margin * 2
+        let pokedexEntryView = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: textView.frame.height))
+        pokedexEntryView.addSubview(textView)
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: textView.frame.height))
-        view.addSubview(textView)
-        
-        return view
+        return pokedexEntryView
     }
     
     func getWeaknessView(of pokemon: Pokemon) -> UIView {
         
-        let weaknesses = pokemon.getWeaknesses()
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
+        
+        let weaknessesView = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: y))
         var weaknessLabels = [UILabel]()
         
-        
-        for (type, effective) in weaknesses {
-            let backgroundColor = COLORS.get(from: type)
+        // TODO: - fix this repeated calculation when caching
+        if let cachedWeaknessLabels = globalCache.object(forKey: "weaknessLabelsForType\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) as? [UILabel] {
+            weaknessLabels = cachedWeaknessLabels
             
-            let typeLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.awakeFromNib()
-                label.frame.origin.x = margin
-                label.frame.origin.y = y
-                label.backgroundColor = backgroundColor
-                label.text = type
-                return label
-            }()
+            for i in 0 ..< weaknessLabels.count / 2 {
+                y = y + weaknessLabels[i].frame.height + spacing
+            }
+        } else if let cachedWeaknessLabels = globalCache.object(forKey: "weaknessLabelsForType\(pokemon.secondaryType)\(pokemon.primaryType)" as AnyObject) as? [UILabel] {
+            weaknessLabels = cachedWeaknessLabels
             
-            let effectiveLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.awakeFromNib()
-                label.frame.origin.x = margin + label.frame.width + spacing
-                label.frame.origin.y = y
-                label.backgroundColor = backgroundColor
-                label.text = "\(effective)x"
+            for i in 0 ..< weaknessLabels.count / 2 {
+                y = y + weaknessLabels[i].frame.height + spacing
+            }
+        } else {
+            let weaknesses = pokemon.getWeaknesses()
+            
+            for (type, effective) in weaknesses {
+                let backgroundColor = COLORS.get(from: type)
                 
-                // MARK: - Pokemon's weaknesses effective width
-                if effective == "1/4" {
-                    label.frame.size.width = label.frame.height * 2
-                } else if effective == "1/2" {
-                    label.frame.size.width = label.frame.height * 4
-                } else if effective == "2" {
-                    label.frame.size.width = label.frame.height * 8
-                } else if effective == "4" {
-                    label.frame.size.width = parentView.frame.width - label.frame.width - spacing - (margin * 2)
-                } else if effective == "0" { // "0"
-                    label.frame.size.width = label.frame.height * 2
-                    label.textAlignment = .left
-                    label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
-                    label.textColor = backgroundColor
-                    label.backgroundColor = UIColor.white
-                }
+                let typeLbl: TypeUILabel = {
+                    let label = TypeUILabel()
+                    label.awakeFromNib()
+                    label.frame.origin.x = margin
+                    label.frame.origin.y = y
+                    label.backgroundColor = backgroundColor
+                    label.text = type
+                    return label
+                }()
                 
-                return label
-            }()
+                let effectiveLbl: TypeUILabel = {
+                    let label = TypeUILabel()
+                    label.awakeFromNib()
+                    label.frame.origin.x = margin + label.frame.width + spacing
+                    label.frame.origin.y = y
+                    label.backgroundColor = backgroundColor
+                    label.text = "\(effective)x"
+                    
+                    // MARK: - Pokemon's weaknesses effective width
+                    if effective == "1/4" {
+                        label.frame.size.width = label.frame.height * 2
+                    } else if effective == "1/2" {
+                        label.frame.size.width = label.frame.height * 4
+                    } else if effective == "2" {
+                        label.frame.size.width = label.frame.height * 8
+                    } else if effective == "4" {
+                        label.frame.size.width = parentView.frame.width - label.frame.width - spacing - (margin * 2)
+                    } else if effective == "0" { // "0"
+                        label.frame.size.width = label.frame.height * 2
+                        label.textAlignment = .left
+                        label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
+                        label.textColor = backgroundColor
+                        label.backgroundColor = UIColor.white
+                    }
+                    
+                    return label
+                }()
+                
+                weaknessLabels.append(typeLbl)
+                weaknessLabels.append(effectiveLbl)
+                
+                y = y + typeLbl.frame.height + spacing
+            }
             
-            weaknessLabels.append(typeLbl)
-            weaknessLabels.append(effectiveLbl)
-            
-            y = y + typeLbl.frame.height + spacing
+            globalCache.setObject(weaknessLabels as AnyObject, forKey: "weaknessLabelsForType\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject)
         }
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: y))
+        weaknessesView.frame.size.height = y
+        
         for weakness in weaknessLabels {
-            view.addSubview(weakness)
+            weaknessesView.addSubview(weakness)
         }
         
-        return view
+        return weaknessesView
     }
 }
 
@@ -212,16 +234,16 @@ class LaunchView: UIView {
     
     func launch() {
         
-            if self.isIdle {
-                self.isIdle = false
-                self.frame.origin = self.dismissOrigin
-                
-                UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                    self.frame.origin = self.launchOrigin
-                }) { (Bool) in
-                    self.isIdle = true
-                }
+        if self.isIdle {
+            self.isIdle = false
+            self.frame.origin = self.dismissOrigin
+            
+            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.frame.origin = self.launchOrigin
+            }) { (Bool) in
+                self.isIdle = true
             }
+        }
     }
     
     func dismiss() {
