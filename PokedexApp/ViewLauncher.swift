@@ -28,6 +28,7 @@ class ViewLauncher: NSObject {
         
         self.parentView = parentView.view
         
+        // TODO: - write and else case where parentView is not a UIViewController 
         if let navigationBarFrame = parentView.navigationController?.navigationBar.frame {
             self.navigationBarFrame = navigationBarFrame
             self.statusBarFrame = UIApplication.shared.statusBarFrame
@@ -36,6 +37,17 @@ class ViewLauncher: NSObject {
             let x = parentViewFrame.origin.x
             let y = statusBarFrame.height + navigationBarFrame.height
             
+            self.dimView = {
+                let view = UIView(frame: parentViewFrame)
+                view.backgroundColor = UIColor(white: 0, alpha: 0.25)
+                view.alpha = 0
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
+                view.addGestureRecognizer(tapGesture)
+                
+                return view
+            }()
+            
             self.launchView = {
                 let view = LaunchView(frame: CGRect(x: x, y: -(y + parentViewFrame.height), width: parentViewFrame.width, height: parentViewFrame.height))
                 view.setLaunchOrigin(to: CGPoint(x: x, y: y))
@@ -43,23 +55,27 @@ class ViewLauncher: NSObject {
                 
                 return view
             }()
-            
-            self.dimView = {
-                let view = UIView(frame: parentViewFrame)
-                view.backgroundColor = UIColor(white: 0, alpha: 0.25)
-                view.alpha = 0
-                
-                return view
-            }()
         }
         
-        self.parentView.addSubview(launchView)
         self.parentView.addSubview(dimView)
+        self.parentView.addSubview(launchView)
+    }
+    
+    func handleDismiss() {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.launchView.dismiss()
+            self.dimView.alpha = 0
+        }
     }
     
     func presentWeaknessesView(of pokemon: Pokemon) {
         
-        
+        let weaknessesView = getWeaknessView(of: pokemon)
+        launchView.addSubview(weaknessesView)
+        launchView.frame.size.height = weaknessesView.frame.height
+        launchView.launch()
+        dimView.alpha = 1
     }
     
     func presentPokedexEntryView(of pokemon: Pokemon) {
@@ -70,8 +86,10 @@ class ViewLauncher: NSObject {
         } else {
             let pokedexEntryView = getPokedexEntryView(of: pokemon)
             self.launchView.addSubview(pokedexEntryView)
+            self.launchView.frame.size.height = pokedexEntryView.frame.height
             self.launchView.launch()
-            globalCache.setObject(pokedexEntryView.copy() as AnyObject, forKey: "launchView\(pokemon.id)" as AnyObject)
+            self.dimView.alpha = 1
+            //globalCache.setObject(pokedexEntryView.copy() as AnyObject, forKey: "launchView\(pokemon.id)" as AnyObject)
         }
     }
     
@@ -97,10 +115,12 @@ class ViewLauncher: NSObject {
         return view
     }
     
-    func addWeaknessLabels(of pokemon: Pokemon, into launchView: LaunchView) {
+    func getWeaknessView(of pokemon: Pokemon) -> UIView {
         
         let weaknesses = pokemon.getWeaknesses()
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
+        var weaknessLabels = [UILabel]()
+        
         
         for (type, effective) in weaknesses {
             let backgroundColor = COLORS.get(from: type)
@@ -143,13 +163,18 @@ class ViewLauncher: NSObject {
                 return label
             }()
             
-            launchView.addSubview(typeLbl)
-            launchView.addSubview(effectiveLbl)
+            weaknessLabels.append(typeLbl)
+            weaknessLabels.append(effectiveLbl)
             
             y = y + typeLbl.frame.height + spacing
         }
         
-        launchView.frame.size.height = y //update height to occupy its subviews
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: y))
+        for weakness in weaknessLabels {
+            view.addSubview(weakness)
+        }
+        
+        return view
     }
 }
 
@@ -169,7 +194,6 @@ class LaunchView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(self.subviews.count)
         self.isIdle = true
         
         let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
@@ -177,14 +201,8 @@ class LaunchView: UIView {
         self.addGestureRecognizer(swipeUpGesture)
     }
     
-    override func addSubview(_ view: UIView) {
-        super.addSubview(view)
-        
-        self.frame.size.height = view.frame.height
-    }
-    
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     func setLaunchOrigin(to launchOrigin: CGPoint) {
@@ -194,16 +212,16 @@ class LaunchView: UIView {
     
     func launch() {
         
-        if self.isIdle {
-            self.isIdle = false
-            self.frame.origin = self.dismissOrigin
-            
-            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.frame.origin = self.launchOrigin
-            }) { (Bool) in
-                self.isIdle = true
+            if self.isIdle {
+                self.isIdle = false
+                self.frame.origin = self.dismissOrigin
+                
+                UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.frame.origin = self.launchOrigin
+                }) { (Bool) in
+                    self.isIdle = true
+                }
             }
-        }
     }
     
     func dismiss() {
