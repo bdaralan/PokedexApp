@@ -21,6 +21,7 @@
 		537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */; };
 		538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963A1EA3D7C0005E63FB /* SettingTVC.swift */; };
 		538F963F1EA479AE005E63FB /* DBUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */; };
+		5391B8551EAD77CD0090634F /* RoundOutsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */; };
 		53B4037D1E9B33FB00D64ABB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B4037C1E9B33FB00D64ABB /* Extension.swift */; };
 		53B403841E9B344500D64ABB /* evolutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B4037F1E9B344500D64ABB /* evolutions.json */; };
 		53B403861E9B344500D64ABB /* pokedex-enteries.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B403811E9B344500D64ABB /* pokedex-enteries.json */; };
@@ -37,7 +38,7 @@
 		53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF41E8A34590073A516 /* LoadData.swift */; };
 		53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF71E8A3C250073A516 /* Utilities.swift */; };
 		53D440411EABB4CB00A11365 /* InsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D440401EABB4CB00A11365 /* InsetUILabel.swift */; };
-		53D74A131EA9349900A6D591 /* MoveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A121EA9349900A6D591 /* MoveVC.swift */; };
+		53D74A131EA9349900A6D591 /* MoveDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A121EA9349900A6D591 /* MoveDetailVC.swift */; };
 		53D74A151EA943D500A6D591 /* CircleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A141EA943D500A6D591 /* CircleUILabel.swift */; };
 		53ECA7071EA1EA3100964977 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7061EA1EA3100964977 /* Move.swift */; };
 		53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA70A1EA2719600964977 /* MoveCell.swift */; };
@@ -64,6 +65,7 @@
 		537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuTVC.swift; sourceTree = "<group>"; };
 		538F963A1EA3D7C0005E63FB /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUISegmentedControl.swift; sourceTree = "<group>"; };
+		5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundOutsetUILabel.swift; sourceTree = "<group>"; };
 		53B4037C1E9B33FB00D64ABB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		53B4037F1E9B344500D64ABB /* evolutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = evolutions.json; sourceTree = "<group>"; };
 		53B403811E9B344500D64ABB /* pokedex-enteries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokedex-enteries.json"; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 		53CF3DF41E8A34590073A516 /* LoadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		53CF3DF71E8A3C250073A516 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		53D440401EABB4CB00A11365 /* InsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetUILabel.swift; sourceTree = "<group>"; };
-		53D74A121EA9349900A6D591 /* MoveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveVC.swift; sourceTree = "<group>"; };
+		53D74A121EA9349900A6D591 /* MoveDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveDetailVC.swift; sourceTree = "<group>"; };
 		53D74A141EA943D500A6D591 /* CircleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleUILabel.swift; sourceTree = "<group>"; };
 		53ECA7061EA1EA3100964977 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		53ECA70A1EA2719600964977 /* MoveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCell.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */,
 				532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */,
 				53D440401EABB4CB00A11365 /* InsetUILabel.swift */,
+				5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -194,7 +197,7 @@
 				533A78811E9FDA6100554F7F /* GenericTVC.swift */,
 				53CF3DE61E8A27760073A516 /* PokedexTVC.swift */,
 				53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */,
-				53D74A121EA9349900A6D591 /* MoveVC.swift */,
+				53D74A121EA9349900A6D591 /* MoveDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -299,11 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5391B8551EAD77CD0090634F /* RoundOutsetUILabel.swift in Sources */,
 				53D74A151EA943D500A6D591 /* CircleUILabel.swift in Sources */,
 				53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */,
 				53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */,
 				53F8F6E61E9CA70500D6AAAF /* ViewLauncher.swift in Sources */,
-				53D74A131EA9349900A6D591 /* MoveVC.swift in Sources */,
+				53D74A131EA9349900A6D591 /* MoveDetailVC.swift in Sources */,
 				536095B81E970E1B00D2F2FC /* Colors.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,

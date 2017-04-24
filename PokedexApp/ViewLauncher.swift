@@ -11,9 +11,11 @@ import UIKit
 class ViewLauncher: NSObject {
     
     private var parentView: UIView!
+    private var parentViewFrame: CGRect!
     private var statusBarFrame: CGRect!
     private var navigationBarFrame: CGRect!
-    private var launchOrigin: CGPoint!
+    
+    private var launchView: LaunchView!
     private var dimView: UIView!
     
     private let margin = CONSTANTS.constrain.margin
@@ -29,35 +31,70 @@ class ViewLauncher: NSObject {
         if let navigationBarFrame = parentView.navigationController?.navigationBar.frame {
             self.navigationBarFrame = navigationBarFrame
             self.statusBarFrame = UIApplication.shared.statusBarFrame
+            self.parentViewFrame = parentView.view.frame
             
-            let x = parentView.view.frame.origin.x
+            let x = parentViewFrame.origin.x
             let y = statusBarFrame.height + navigationBarFrame.height
-            self.launchOrigin = CGPoint(x: x, y: y)
+            
+            self.launchView = {
+                let view = LaunchView(frame: CGRect(x: x, y: -(y + parentViewFrame.height), width: parentViewFrame.width, height: parentViewFrame.height))
+                view.setLaunchOrigin(to: CGPoint(x: x, y: y))
+                view.backgroundColor = UIColor.white
+                
+                return view
+            }()
+            
+            self.dimView = {
+                let view = UIView(frame: parentViewFrame)
+                view.backgroundColor = UIColor(white: 0, alpha: 0.25)
+                view.alpha = 0
+                
+                return view
+            }()
         }
+        
+        self.parentView.addSubview(launchView)
+        self.parentView.addSubview(dimView)
     }
     
     func presentWeaknessesView(of pokemon: Pokemon) {
         
-        if let cachedLaunchView = caches.object(forKey: "launchView\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) {
-            cachedLaunchView.launch()
-        } else {
-            let launchView = LaunchView(parentView: parentView)
-            addWeaknessLabels(of: pokemon, into: launchView)
-            caches.setObject(launchView, forKey: "launchView\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject)
-            launchView.launch()
-        }
+        
     }
     
     func presentPokedexEntryView(of pokemon: Pokemon) {
         
-        if let cachedLaunchView = caches.object(forKey: "launchView\(pokemon.name)" as AnyObject) as? LaunchView {
-            cachedLaunchView.launch()
-        } else {
-            let launchView = LaunchView(parentView: parentView)
-            addPokedexEntry(of: pokemon, into: launchView)
-            caches.setObject(launchView as AnyObject, forKey: "launchView\(pokemon.name)" as AnyObject)
+        if let cachedPokedexEntryView = globalCache.object(forKey: "launchView\(pokemon.id)" as AnyObject) as? UIView {
+            launchView.addSubview(cachedPokedexEntryView)
             launchView.launch()
+        } else {
+            let pokedexEntryView = getPokedexEntryView(of: pokemon)
+            self.launchView.addSubview(pokedexEntryView)
+            self.launchView.launch()
+            globalCache.setObject(pokedexEntryView.copy() as AnyObject, forKey: "launchView\(pokemon.id)" as AnyObject)
         }
+    }
+    
+    func getPokedexEntryView(of pokemon: Pokemon) -> UIView {
+        
+        let textView: UITextView = {
+            let width = launchView.frame.width - (margin * 2)
+            let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
+            textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+            textView.isScrollEnabled = false
+            textView.isEditable = false
+            
+            return textView
+        }()
+        
+        textView.text = pokemon.getPokedexEntry()
+        textView.sizeToFit()
+        textView.frame.size.width = launchView.frame.width - margin * 2
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: textView.frame.height))
+        view.addSubview(textView)
+        
+        return view
     }
     
     func addWeaknessLabels(of pokemon: Pokemon, into launchView: LaunchView) {
@@ -113,26 +150,6 @@ class ViewLauncher: NSObject {
         }
         
         launchView.frame.size.height = y //update height to occupy its subviews
-        launchView.setLaunchOrigin(to: launchOrigin)
-    }
-    
-    func addPokedexEntry(of pokemon: Pokemon, into launchView: LaunchView) {
-        
-        let textView: UITextView = {
-            let width = launchView.frame.width - (margin * 2)
-            let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
-            textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
-            textView.isScrollEnabled = false
-            textView.isEditable = false
-            
-            return textView
-        }()
-        
-        textView.text = pokemon.getPokedexEntry()
-        textView.sizeToFit()
-        launchView.frame.size.height = textView.frame.height
-        launchView.setLaunchOrigin(to: launchOrigin)
-        launchView.addSubview(textView)
     }
 }
 
@@ -140,58 +157,39 @@ class ViewLauncher: NSObject {
 // MARK: - LaunchView Class
 class LaunchView: UIView {
     
-    private var parentView: UIView!
-    private var dimView: UIView!
-    private var launchOrigin: CGPoint!
-    private var dismissOrigin: CGPoint!
     private var isIdle: Bool!
+    private var launchOrigin: CGPoint!
+    
+    private var dismissOrigin: CGPoint {
+        
+        return CGPoint(x: launchOrigin.x, y: -(launchOrigin.y + self.frame.height))
+    }
     
     var animatedDuration = 0.5
     
-    
-    init(parentView: UIView) {
-        super.init(frame: parentView.frame)
-        
-        self.parentView = parentView
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        print(self.subviews.count)
         self.isIdle = true
-        
-        // setup dimView
-        self.dimView = UIView(frame: parentView.frame)
-        self.dimView.backgroundColor = UIColor.black.withAlphaComponent(0.25)
-        self.dimView.alpha = 0
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
-        self.dimView.addGestureRecognizer(tapGesture)
-        
-        //setup self, LaunchView
-        self.backgroundColor = UIColor.white
         
         let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
         swipeUpGesture.direction = .up
         self.addGestureRecognizer(swipeUpGesture)
+    }
+    
+    override func addSubview(_ view: UIView) {
+        super.addSubview(view)
         
-        if let window = UIApplication.shared.keyWindow {
-            launchOrigin = window.frame.origin
-            dismissOrigin = CGPoint(x: window.frame.origin.x, y: -window.frame.height)
-        }
-        
-        self.parentView.addSubview(self.dimView)
-        self.parentView.addSubview(self)
+        self.frame.size.height = view.frame.height
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func setLaunchOrigin(to launchOrigin: CGPoint) {
         
         self.launchOrigin = launchOrigin
-        
-        //update _dismissOrigin and _dimView
-        self.dismissOrigin.y = -(launchOrigin.y + self.frame.height)
-        self.dimView.frame.origin.y = launchOrigin.y
-        self.dimView.frame.size.height = parentView.frame.height - launchOrigin.y
     }
     
     func launch() {
@@ -201,7 +199,6 @@ class LaunchView: UIView {
             self.frame.origin = self.dismissOrigin
             
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.dimView.alpha = 1
                 self.frame.origin = self.launchOrigin
             }) { (Bool) in
                 self.isIdle = true
@@ -212,8 +209,11 @@ class LaunchView: UIView {
     func dismiss() {
         
         UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.dimView.alpha = 0
             self.frame.origin = self.dismissOrigin
-        }, completion: nil)
+        }) { (Bool) in
+            for subview in self.subviews {
+                subview.removeFromSuperview()
+            }
+        }
     }
 }

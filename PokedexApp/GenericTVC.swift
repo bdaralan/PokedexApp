@@ -113,7 +113,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         if let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
             pokemonInfoVC.pokemon = pokemon
-        } else if let move = sender as? Move, let moveVC = segue.destination as? MoveVC {
+        } else if let move = sender as? Move, let moveVC = segue.destination as? MoveDetailVC {
             moveVC.move = move
         }
     }
