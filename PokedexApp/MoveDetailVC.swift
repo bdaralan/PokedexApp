@@ -68,11 +68,6 @@ class MoveDetailVC: UIViewController {
         tmLbl.text = "TM"
         tmLbl.roundLabel.text = move.tm.isEmpty ? "–" : move.tm
         
-        //tmLbl.increaseRadius(by: 10); print(tmLbl.roundLabel.frame.height)
-        //tmLbl.frame.size.height = 29
-        tmLbl.roundLabel.frame.size.height = 40
-        tmLbl.alignLayoutIfNotInPosition()
-        
         effectTextView.text = move.effect.isEmpty ? "–" : move.effect
         effectTextView.frame.size.height = effectTextView.contentSize.height
         effectTextView.layer.cornerRadius = effectTextView.frame.height / 2

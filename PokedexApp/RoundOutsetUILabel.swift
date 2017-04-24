@@ -10,24 +10,32 @@ import UIKit
 
 class RoundOutsetUILabel: UILabel {
     
-    private var _roundLabel: UILabel!
-    private var _addedToRadius: CGFloat = 10
+    /// The round label at the right size of `self`, the main label.
+    var roundLabel: UILabel!
     
+    /// Check if the `roundLabel` is vertically centered with the main label, `self`.
+    var isRoundLabelVerticallyCentered: Bool {
+        return roundLabel.frame.origin.y == roundLabelOriginY
+    }
+    
+    /// Check if the `roundLabel` is at the end, its defaulf x position, of the main label.
+    var isRoundLabelHorizontallyEnd: Bool {
+        return roundLabel.frame.origin.x == roundLabelOriginX
+    }
+    
+    /// The default x position where the `roundLabel` should be
     private var roundLabelOriginX: CGFloat {
-        return self.frame.origin.x + (self.frame.width - radius)
+        return self.frame.origin.x + (self.frame.width - self.roundLabel.frame.width)
     }
     
+    /// The default y position where the `roundLabel` should be
     private var roundLabelOriginY: CGFloat {
-        return self.frame.origin.y - (radius - self.frame.height) / 2
+        return self.frame.origin.y - (self.roundLabel.frame.height - self.frame.height) / 2
     }
     
+    /// The radius of the `roundLabel`. In most cases, its height is hightly prefered
     private var radius: CGFloat {
-        return self.frame.height + _addedToRadius
-    }
-    
-    var roundLabel: UILabel {
-        set { self._roundLabel = newValue }
-        get { return self._roundLabel }
+        return self.roundLabel.frame.height
     }
     
     override func awakeFromNib() {
@@ -54,14 +62,15 @@ class RoundOutsetUILabel: UILabel {
     
     override var frame: CGRect {
         didSet {
-            if self._roundLabel == nil {
-                self.roundLabel = UILabel(frame: CGRect(x: roundLabelOriginX, y: roundLabelOriginY, width: radius, height: radius))
+            if self.roundLabel == nil {
+                // MARK: - +12 to make sure initially roundLabel is larger than main label
+                let radius = self.frame.height + 12
+                let x = self.frame.origin.x + (self.frame.width - radius)
+                let y = self.frame.origin.y - (radius - self.frame.height) / 2
+                self.roundLabel = UILabel(frame: CGRect(x: x, y: y, width: radius, height: radius))
             } else {
                 self.roundLabel.frame.origin.x = roundLabelOriginX
                 self.roundLabel.frame.origin.y = roundLabelOriginY
-                self.roundLabel.frame.size.width = radius
-                self.roundLabel.frame.size.height = radius
-                self.roundLabel.layer.cornerRadius = radius / 2
                 self.layer.cornerRadius = self.frame.height / 2
             }
         }
@@ -95,25 +104,28 @@ class RoundOutsetUILabel: UILabel {
         self.roundLabel.layer.borderWidth = 1.5
     }
     
-    /// - note: The roundLabel's radius should not be less than its main label's height
-    func increaseRadius(by addedToRadius: CGFloat = 0) {
+    /** 
+     Use this to grow the `roundLabel` size. The passed in value will be use on both width and height.
+     - parameter value: Pass in a negative number to shrink.
+     */
+    func growRoundLabelSize(by value: CGFloat) {
         
-        let newRadius = radius + addedToRadius
-        
-        if newRadius >= self.frame.height {
-            self._addedToRadius = self._addedToRadius + addedToRadius
-            self.roundLabel.frame.size.width = newRadius
-            self.roundLabel.frame.size.height = newRadius
-            self.roundLabel.layer.cornerRadius = newRadius / 2
+        self.roundLabel.frame.size.width = self.roundLabel.frame.size.width + value
+        self.roundLabel.frame.size.height = self.roundLabel.frame.size.height + value
+        if self.roundLabel.frame.height > self.roundLabel.frame.width {
+            self.roundLabel.layer.cornerRadius = self.roundLabel.frame.width / 2
         } else {
-            print("RoundOutsetUILabel Reminder: roundLabel's radius cannot be less than its main label's height (previous value is unchanged)")
+            self.roundLabel.layer.cornerRadius = self.roundLabel.frame.height / 2
         }
     }
     
-    /// Use to re-align the roundLabel's position if it is out of position
-    func alignLayoutIfNotInPosition() {
+    /**
+     Check and align if the `roundLabel` is not vertically centered at the end of the main label, its default position. This behavior usually happens when directly resize `roundLabel` using `roundLabel.frame.size`.
+     - note: To avoid miss position, use `growRoundLabelSize(by: CGFloat)` to increase or decrease its size.
+     */
+    func realignIfNotVerticallyCentered() {
         
-        if roundLabel.frame.origin.x != roundLabelOriginY || roundLabel.frame.origin.y != roundLabelOriginY {
+        if !isRoundLabelVerticallyCentered || !isRoundLabelHorizontallyEnd {
             roundLabel.frame.origin.x = roundLabelOriginX
             roundLabel.frame.origin.y = roundLabelOriginY
         }
