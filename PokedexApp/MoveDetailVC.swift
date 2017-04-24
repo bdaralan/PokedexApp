@@ -10,13 +10,13 @@ import UIKit
 
 class MoveDetailVC: UIViewController {
     
-    @IBOutlet weak var nameLbl: RoundOutsetUILabel!
+    @IBOutlet weak var nameLbl: RIOUILabel!
     @IBOutlet weak var typeLbl: TypeUILabel!
-    @IBOutlet weak var powerLbl: RoundOutsetUILabel!
-    @IBOutlet weak var probLbl: RoundOutsetUILabel!
-    @IBOutlet weak var accuracyLbl: RoundOutsetUILabel!
-    @IBOutlet weak var ppLbl: RoundOutsetUILabel!
-    @IBOutlet weak var tmLbl: RoundOutsetUILabel!
+    @IBOutlet weak var powerLbl: RIOUILabel!
+    @IBOutlet weak var probLbl: RIOUILabel!
+    @IBOutlet weak var accuracyLbl: RIOUILabel!
+    @IBOutlet weak var ppLbl: RIOUILabel!
+    @IBOutlet weak var tmLbl: RIOUILabel!
     @IBOutlet weak var effectTextView: UITextView!
     
     var move: Move! //will be assigned during segue

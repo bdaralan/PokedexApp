@@ -22,6 +22,7 @@
 		538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963A1EA3D7C0005E63FB /* SettingTVC.swift */; };
 		538F963F1EA479AE005E63FB /* DBUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */; };
 		5391B8551EAD77CD0090634F /* RoundOutsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */; };
+		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53B4037D1E9B33FB00D64ABB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B4037C1E9B33FB00D64ABB /* Extension.swift */; };
 		53B403841E9B344500D64ABB /* evolutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B4037F1E9B344500D64ABB /* evolutions.json */; };
 		53B403861E9B344500D64ABB /* pokedex-enteries.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B403811E9B344500D64ABB /* pokedex-enteries.json */; };
@@ -66,6 +67,7 @@
 		538F963A1EA3D7C0005E63FB /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUISegmentedControl.swift; sourceTree = "<group>"; };
 		5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundOutsetUILabel.swift; sourceTree = "<group>"; };
+		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
 		53B4037C1E9B33FB00D64ABB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		53B4037F1E9B344500D64ABB /* evolutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = evolutions.json; sourceTree = "<group>"; };
 		53B403811E9B344500D64ABB /* pokedex-enteries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokedex-enteries.json"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */,
 				53D440401EABB4CB00A11365 /* InsetUILabel.swift */,
 				5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */,
+				5391B8561EADB1A40090634F /* RIOUILabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */,
 				53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */,
 				53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */,
+				5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */,
 				53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */,
 				53CF3DF31E8A29580073A516 /* GlobalConstants.swift in Sources */,
 				53B4037D1E9B33FB00D64ABB /* Extension.swift in Sources */,
