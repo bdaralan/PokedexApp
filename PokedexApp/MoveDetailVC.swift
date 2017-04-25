@@ -48,6 +48,7 @@ class MoveDetailVC: UIViewController {
             category = "–"
             nameLbl.roundLabel.textColor = UIColor.black
             nameLbl.roundLabel.backgroundColor = UIColor.white
+            nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
         }
         
         nameLbl.roundLabel.text = category
