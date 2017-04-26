@@ -25,8 +25,8 @@
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53B4037D1E9B33FB00D64ABB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B4037C1E9B33FB00D64ABB /* Extension.swift */; };
 		53B403841E9B344500D64ABB /* evolutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B4037F1E9B344500D64ABB /* evolutions.json */; };
-		53B403861E9B344500D64ABB /* pokedex-enteries.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B403811E9B344500D64ABB /* pokedex-enteries.json */; };
 		53B403871E9B344500D64ABB /* pokemons.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B403821E9B344500D64ABB /* pokemons.json */; };
+		53BA2A061EB13BCC00F33096 /* pokedex-enteries.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BA2A051EB13BCC00F33096 /* pokedex-enteries.json */; };
 		53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */; };
 		53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DD11E8A26E50073A516 /* AppDelegate.swift */; };
 		53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD51E8A26E50073A516 /* Main.storyboard */; };
@@ -70,8 +70,8 @@
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
 		53B4037C1E9B33FB00D64ABB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		53B4037F1E9B344500D64ABB /* evolutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = evolutions.json; sourceTree = "<group>"; };
-		53B403811E9B344500D64ABB /* pokedex-enteries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokedex-enteries.json"; sourceTree = "<group>"; };
 		53B403821E9B344500D64ABB /* pokemons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemons.json; sourceTree = "<group>"; };
+		53BA2A051EB13BCC00F33096 /* pokedex-enteries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokedex-enteries.json"; sourceTree = "<group>"; };
 		53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
 		53CF3DCE1E8A26E50073A516 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CF3DD11E8A26E50073A516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				53B4037F1E9B344500D64ABB /* evolutions.json */,
 				53B403821E9B344500D64ABB /* pokemons.json */,
 				532826E41EAB17D000BC8CCE /* measurements.json */,
-				53B403811E9B344500D64ABB /* pokedex-enteries.json */,
+				53BA2A051EB13BCC00F33096 /* pokedex-enteries.json */,
 				53ECA7111EA2F5A300964977 /* pokemon-abilities.json */,
 				5338FA301E9DD0BE0068281C /* weaknesses.json */,
 				536C46921E917FAE00FA9305 /* constants.plist */,
@@ -284,11 +284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				53ECA7121EA2F5A300964977 /* abilities.json in Resources */,
-				53B403861E9B344500D64ABB /* pokedex-enteries.json in Resources */,
 				536C46931E917FAE00FA9305 /* constants.plist in Resources */,
 				53CF3DDC1E8A26E50073A516 /* LaunchScreen.storyboard in Resources */,
 				53B403841E9B344500D64ABB /* evolutions.json in Resources */,
 				53ECA7131EA2F5A300964977 /* pokemon-abilities.json in Resources */,
+				53BA2A061EB13BCC00F33096 /* pokedex-enteries.json in Resources */,
 				532826E51EAB17D000BC8CCE /* measurements.json in Resources */,
 				53ECA70F1EA2F2B400964977 /* moves.json in Resources */,
 				53B403871E9B344500D64ABB /* pokemons.json in Resources */,

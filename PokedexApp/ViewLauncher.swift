@@ -8,26 +8,31 @@
 
 import UIKit
 
-protocol ViewLauncherDelegate {
+@objc protocol ViewLauncherDelegate {
     
-    func viewLauncherDidLaunch()
+    @objc optional func viewLauncher(willLaunchAt origin: CGPoint)
+    @objc optional func viewlauncher(didLaunchAt origin: CGPoint)
+    @objc optional func viewLauncher(WillDismissTo origin: CGPoint)
+    @objc optional func viewLauncher(DidDismissTo origin: CGPoint)
 }
 
 class ViewLauncher: NSObject {
     
-    var delegate: ViewLauncherDelegate! = nil
+    var delegate: ViewLauncherDelegate? = nil
     
     var launchView: UIView!
     var dimView: UIView!
     
     var animatedDuration: TimeInterval = 0.5
-    var launchOrigin: CGPoint!
+    var removeSubviewsAfterDimissed: Bool = true
     
-    var dismissOrigin: CGPoint {
+    private var launchOrigin: CGPoint!
+    
+    private var dismissOrigin: CGPoint {
         return CGPoint(x: launchOrigin.x, y: -(launchOrigin.y + launchView.frame.height))
     }
     
-    var isIdle: Bool {
+    private var isIdle: Bool {
         return launchView.frame.origin == launchOrigin || launchView.frame.origin == dismissOrigin
     }
     
@@ -67,30 +72,43 @@ class ViewLauncher: NSObject {
         
         if self.isIdle {
             if height > 0 { self.launchView.frame.size.height = height }
+            if self.delegate != nil { self.delegate?.viewLauncher!(willLaunchAt: self.launchOrigin) }
+            
             self.launchView.frame.origin = dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 1
                 self.launchView.frame.origin = self.launchOrigin
-            }, completion: nil)
+            }) { (Bool) in
+                if self.delegate != nil { self.delegate?.viewlauncher!(didLaunchAt: self.launchOrigin)
+                }
+            }
         }
     }
     
     func dismiss() {
         
         if self.isIdle {
+            if delegate != nil { self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin) }
+            
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 0
                 self.launchView.frame.origin = self.dismissOrigin
             }) { (Bool) in
-                for subview in self.launchView.subviews {
-                    subview.removeFromSuperview()
+                if self.removeSubviewsAfterDimissed {
+                    for subview in self.launchView.subviews {
+                        subview.removeFromSuperview()
+                    }
                 }
+                
+                if self.delegate != nil { self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin) }
             }
         }
     }
 }
 
 
+
+// MARK: - ViewLauncher Extention
 extension ViewLauncher {
     
     func getWeaknessView(of pokemon: Pokemon) -> UIView {
@@ -99,13 +117,13 @@ extension ViewLauncher {
         let margin = CONSTANTS.constrain.margin
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
         
-        let weaknessesView = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: y))
+        let weaknessesView = UIView(frame: CGRect(x: 0, y: 0, width: self.launchView.frame.width, height: y))
         var weaknessLabels = [UILabel]()
         
         // TODO: - fix this repeated calculation when caching
         if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) as? [UILabel] {
             weaknessLabels = cachedWeaknessLabels
-
+            
             for i in 0 ..< weaknessLabels.count / 2 {
                 y = y + weaknessLabels[i].frame.height + spacing
             }
@@ -147,7 +165,7 @@ extension ViewLauncher {
                     } else if effective == "2" {
                         label.frame.size.width = label.frame.height * 8
                     } else if effective == "4" {
-                        label.frame.size.width = launchView.frame.width - label.frame.width - spacing - (margin * 2)
+                        label.frame.size.width = self.launchView.frame.width - label.frame.width - spacing - (margin * 2)
                     } else if effective == "0" { // "0"
                         label.frame.size.width = label.frame.height * 2
                         label.textAlignment = .left
@@ -181,13 +199,13 @@ extension ViewLauncher {
         
         let textView: UITextView!
         
-        if let cachedTextView = globalCache.object(forKey: "pokedexEntry\(pokemon.id)" as AnyObject) as? UITextView {
+        if let cachedTextView = globalCache.object(forKey: "cachedTextView\(pokemon.id)" as AnyObject) as? UITextView {
             textView = cachedTextView
         } else {
             let margin = CONSTANTS.constrain.margin
             
             textView = {
-                let width = launchView.frame.width - (margin * 2)
+                let width = self.launchView.frame.width - (margin * 2)
                 let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
                 textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
                 textView.isScrollEnabled = false
@@ -198,12 +216,12 @@ extension ViewLauncher {
             
             textView.text = pokemon.getPokedexEntry()
             textView.sizeToFit()
-            textView.frame.size.width = launchView.frame.width - margin * 2
+            textView.frame.size.width = self.launchView.frame.width - margin * 2
             
-            globalCache.setObject(textView, forKey: "pokedexEntry\(pokemon.id)" as AnyObject)
+            globalCache.setObject(textView, forKey: "cachedTextView\(pokemon.id)" as AnyObject)
         }
         
-        let pokedexEntryView = UIView(frame: CGRect(x: 0, y: 0, width: launchView.frame.width, height: textView.frame.height))
+        let pokedexEntryView = UIView(frame: CGRect(x: 0, y: 0, width: self.launchView.frame.width, height: textView.frame.height))
         pokedexEntryView.addSubview(textView)
         
         return pokedexEntryView
