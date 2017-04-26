@@ -55,12 +55,11 @@ class PokemonInfoVC: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex))
         
-        viewLauncher = ViewLauncher(parentView: self)
-        
         configureTappedGestures()
+        configureViewLauncher()
         updateUI()
     }
     
@@ -185,13 +184,35 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
+    func configureViewLauncher() {
+        
+        if let navigationBarFrame = self.navigationController?.navigationBar.frame {
+            let statusBarFrame = UIApplication.shared.statusBarFrame
+            let x = navigationBarFrame.origin.x
+            let y = statusBarFrame.height + navigationBarFrame.height
+            let width = self.view.frame.width
+            let height = self.view.frame.height
+            let launchViewFrame = CGRect(x: x, y: y, width: width, height: height - y)
+            let dimViewFrame = CGRect(x: 0, y: 0, width: width, height: height)
+            
+            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame)
+            
+            self.view.addSubview(viewLauncher.dimView)
+            self.view.addSubview(viewLauncher.launchView)
+        }
+    }
+    
     func weaknessesSectionLblTapped() {
         
-        viewLauncher.presentWeaknessesView(of: pokemon)
+        let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
+        viewLauncher.launchView.addSubview(weaknessesView)
+        viewLauncher.launch(withHeight: weaknessesView.frame.height)
     }
     
     func pokedexEnterySectionLblTapped() {
         
-        viewLauncher.presentPokedexEntryView(of: pokemon)
+        let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
+        viewLauncher.launchView.addSubview(pokedexEntryView)
+        viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
     }
 }
