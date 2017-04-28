@@ -10,27 +10,31 @@ import Foundation
 
 class Pokemon {
     
-    private var _name: String
-    private var _id: Int
-    private var _form: String
+    private var _name: String = ""
+    private var _id: Int = 0
+    private var _form: String = ""
     
-    private var _hp: Int!
-    private var _attack: Int!
-    private var _defense: Int!
-    private var _spAttack: Int!
-    private var _spDefense: Int!
-    private var _speed: Int!
+    private var _hp: Int = 0
+    private var _attack: Int = 0
+    private var _defense: Int = 0
+    private var _spAttack: Int = 0
+    private var _spDefense: Int = 0
+    private var _speed: Int = 0
     
-    private var _primaryType: String!
-    private var _secondaryType: String!
+    private var _primaryType: String = ""
+    private var _secondaryType: String = ""
     
-    private var _firstAbility: String!
-    private var _secondAbility: String!
-    private var _hiddenAbility: String!
+    private var _firstAbility: String = ""
+    private var _secondAbility: String = ""
+    private var _hiddenAbility: String = ""
     
-    private var _height: [String]!
-    private var _weight: [String]!
+    private var _height: [String] = []
+    private var _weight: [String] = []
     
+    private var _evolveFrom: String = ""
+    private var _evolveTo: String = ""
+    
+    var hasCompletedInfo: Bool = false //true if parseCompletedInfo() is called once
     
     var name: String { return _name }
     var id: Int { return _id }
@@ -50,6 +54,9 @@ class Pokemon {
     var secondAbility: String { return _secondAbility }
     var hiddenAbility: String { return _hiddenAbility }
     
+    var evolveFrom: String { return _evolveFrom }
+    var evolveTo: String { return _evolveTo }
+    
     func getHeight(as unit: Unit) -> String { return _height[unit.rawValue] }
     func getWeight(as unit: Unit) -> String { return _weight[unit.rawValue] }
     
@@ -61,7 +68,17 @@ class Pokemon {
     }
     
     
-    func parseStatsTypes() {
+    func parseCompletedInfo() {
+        
+        parseStatsTypes()
+        parseAbilities()
+        parseMeasurement()
+        parseEvolution()
+        
+        hasCompletedInfo = true
+    }
+    
+    private func parseStatsTypes() {
         
         if let pokeInfo = CONSTANTS.pokemonsJSON[name],
             let hp = pokeInfo["hp"] as? Int,
@@ -82,25 +99,14 @@ class Pokemon {
             switch types.count {
             case 1:
                 _primaryType = types[0]
-                _secondaryType = ""
             default:
                 _primaryType = types[0]
                 _secondaryType = types[1]
             }
-        } else {
-            _hp = 0
-            _attack = 0
-            _defense = 0
-            _spAttack = 0
-            _spDefense = 0
-            _speed = 0
-            
-            _primaryType = ""
-            _secondaryType = ""
         }
     }
     
-    func parsePokemonAbilities() {
+    private func parseAbilities() {
         
         if let abilities = CONSTANTS.pokemonAbilitiesJSON[name],
             let ability01 = abilities["ability01"] as? String,
@@ -110,14 +116,10 @@ class Pokemon {
             _firstAbility = ability01
             _secondAbility = ability02
             _hiddenAbility = hiddenAbility
-        } else {
-            _firstAbility = ""
-            _secondAbility = ""
-            _hiddenAbility = ""
         }
     }
     
-    func parseMeasurement() {
+    private func parseMeasurement() {
         
         if let measurements = CONSTANTS.measurementsJSON[name],
             let height = measurements["height"] as? String,
@@ -126,6 +128,70 @@ class Pokemon {
             _height = height.components(separatedBy: ", ")
             _weight = weight.components(separatedBy: ", ")
         }
+    }
+    
+    private func parseEvolution() {
+        
+        var name = self.name
+        
+        if self.hasForm {
+            if let noFormPokemon = CONSTANTS.allPokemons.filter({$0.id == self.id}).first {
+                name = noFormPokemon.name
+            }
+        }
+        
+        if let evolutions = CONSTANTS.evolutionJSON[name] as? [DictionarySS] {
+            if let evolution = evolutions.first,
+                let evolveFrom = evolution["evolve-from"],
+                let evolveTo = evolution["evolve-to"] {
+                
+                _evolveFrom = evolveFrom
+                _evolveTo = evolveTo
+            }
+        }
+        
+        // TODO: - case where pokemon is a mega evolution, other forms, or not in json
+    }
+}
+
+
+// MARK: - Extension for Pokemon
+extension Pokemon {
+    
+    var hasSecondType: Bool {
+        return self.secondaryType != ""
+    }
+    
+    var hasSecondAbility: Bool {
+        return self.secondAbility != ""
+    }
+    
+    var hasHiddenAbility: Bool {
+        return self.hiddenAbility != ""
+    }
+    
+    var hasForm: Bool {
+        return self.form != ""
+    }
+    
+    var hasNoEvolution: Bool {
+        return self.evolveFrom == "" && self.evolveTo == ""
+    }
+    
+    var isBaseEvolution: Bool {
+        return self.evolveFrom == "" && self.evolveTo != ""
+    }
+    
+    var isMidEvolution: Bool {
+        return self.evolveFrom != "" && self.evolveTo != ""
+    }
+    
+    var isLastEvolution: Bool {
+        return self.evolveFrom != "" && self.evolveTo == ""
+    }
+    
+    var imageName: String {
+        return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
     }
     
     func getWeaknesses() -> DictionarySS {
@@ -157,32 +223,49 @@ class Pokemon {
         
         return "\(self.name)..."
     }
+    
+    func getEvolutions() -> [String] {
+        
+        var evolutions = [String]()
+        
+        if self.isBaseEvolution {
+            if let evolveToPokemon = CONSTANTS.allPokemons.filter({$0.name == self.evolveTo}).first {
+                if !evolveToPokemon.hasCompletedInfo {
+                    evolveToPokemon.parseCompletedInfo()
+                }
+                
+                if evolveToPokemon.evolveTo == "" {
+                    evolutions = [self.name, self.evolveTo]
+                } else {
+                    evolutions = [self.name, self.evolveTo, evolveToPokemon.evolveTo]
+                }
+            }
+        } else if self.isMidEvolution {
+            if !self.hasCompletedInfo {
+                self.parseCompletedInfo()
+            }
+            
+            evolutions = [self.evolveFrom, self.name, self.evolveTo]
+        } else if self.isLastEvolution {
+            if let evolveFromPokemon = CONSTANTS.allPokemons.filter({$0.name == self.evolveFrom}).first {
+                if !evolveFromPokemon.hasCompletedInfo {
+                    evolveFromPokemon.parseCompletedInfo()
+                }
+                
+                if evolveFromPokemon.isBaseEvolution {
+                    evolutions = [evolveFromPokemon.name, self.name]
+                } else { //must be mid pokemon
+                    evolutions = [evolveFromPokemon.evolveFrom, evolveFromPokemon.name, evolveFromPokemon.evolveTo]
+                }
+            }
+        }
+        
+        return evolutions //return empty array if no evolution
+    }
 }
 
 
-extension Pokemon {
-    
-    var hasSecondType: Bool {
-        return self.secondaryType != ""
-    }
-    
-    var hasSecondAbility: Bool {
-        return self.secondAbility != ""
-    }
-    
-    var hasHiddenAbility: Bool {
-        return self.hiddenAbility != ""
-    }
-    
-    var hasForm: Bool {
-        return self.form != ""
-    }
-    
-    var imageName: String {
-        return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
-    }
-}
-
+// MARK: - Extension for [Pokemon]
 extension Array where Element: Pokemon {
     
     func sortById() -> [Pokemon] {

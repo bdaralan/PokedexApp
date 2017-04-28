@@ -55,6 +55,11 @@ class LoadData {
         return loadDataFromFile(name: "moves", ofType: "json")
     }
     
+    func evolutionJSON() -> DictionarySA {
+        
+        return loadDataFromFile(name: "evolutions", ofType: "json")
+    }
+    
     func allPokemons(by option: PokemonSortedOption) -> [Pokemon] {
         
         var pokemons = [Pokemon]()

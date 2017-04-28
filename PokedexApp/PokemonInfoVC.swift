@@ -61,6 +61,10 @@ class PokemonInfoVC: UIViewController {
         configureTappedGestures()
         configureViewLauncher()
         updateUI()
+        
+        pokemon.parseCompletedInfo()
+        let evolution = pokemon.getEvolutions()
+        print(evolution)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,9 +77,7 @@ class PokemonInfoVC: UIViewController {
     // MARK: - Functions
     func updateUI() {
         
-        pokemon.parseStatsTypes()
-        pokemon.parsePokemonAbilities()
-        pokemon.parseMeasurement()
+        pokemon.parseCompletedInfo()
         
         self.navigationItem.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()

@@ -28,6 +28,7 @@ struct Constant {
     let measurementsJSON = loadData.measurementsJSON()
     let weaknessesJSON = loadData.weaknessesJSON()
     let pokedexEntriesJSON = loadData.pokedexEntriesJSON()
+    let evolutionJSON = loadData.evolutionJSON()
     
     let allPokemons = loadData.allPokemons(by: .id)
     let allAbilities = loadData.allAbilities()
