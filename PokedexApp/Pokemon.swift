@@ -135,8 +135,8 @@ class Pokemon {
         var name = self.name
         
         if self.hasForm {
-            if let noFormPokemon = CONSTANTS.allPokemons.filter({$0.id == self.id}).first {
-                name = noFormPokemon.name
+            if let selfNoForm = CONSTANTS.allPokemons.filter({$0.id == self.id}).first {
+                name = selfNoForm.name
             }
         }
         
@@ -227,35 +227,46 @@ extension Pokemon {
     func getEvolutions() -> [String] {
         
         var evolutions = [String]()
+        var selfNoForm = self
         
-        if self.isBaseEvolution {
-            if let evolveToPokemon = CONSTANTS.allPokemons.filter({$0.name == self.evolveTo}).first {
+        if self.hasForm {
+            if let noFormPokemon = CONSTANTS.allPokemons.filter({$0.id == self.id}).first {
+                selfNoForm = noFormPokemon
+            }
+        }
+        
+        if !selfNoForm.hasCompletedInfo {
+            selfNoForm.parseCompletedInfo()
+        }
+        
+        if selfNoForm.isBaseEvolution {
+            if let evolveToPokemon = CONSTANTS.allPokemons.filter({$0.name == selfNoForm.evolveTo}).first {
                 if !evolveToPokemon.hasCompletedInfo {
                     evolveToPokemon.parseCompletedInfo()
                 }
                 
                 if evolveToPokemon.evolveTo == "" {
-                    evolutions = [self.name, self.evolveTo]
+                    evolutions = [selfNoForm.name, selfNoForm.evolveTo]
                 } else {
-                    evolutions = [self.name, self.evolveTo, evolveToPokemon.evolveTo]
+                    evolutions = [selfNoForm.name, selfNoForm.evolveTo, evolveToPokemon.evolveTo]
                 }
             }
-        } else if self.isMidEvolution {
+        } else if selfNoForm.isMidEvolution {
             if !self.hasCompletedInfo {
                 self.parseCompletedInfo()
             }
             
-            evolutions = [self.evolveFrom, self.name, self.evolveTo]
-        } else if self.isLastEvolution {
-            if let evolveFromPokemon = CONSTANTS.allPokemons.filter({$0.name == self.evolveFrom}).first {
+            evolutions = [selfNoForm.evolveFrom, selfNoForm.name, selfNoForm.evolveTo]
+        } else if selfNoForm.isLastEvolution {
+            if let evolveFromPokemon = CONSTANTS.allPokemons.filter({$0.name == selfNoForm.evolveFrom}).first {
                 if !evolveFromPokemon.hasCompletedInfo {
                     evolveFromPokemon.parseCompletedInfo()
                 }
                 
                 if evolveFromPokemon.isBaseEvolution {
-                    evolutions = [evolveFromPokemon.name, self.name]
+                    evolutions = [evolveFromPokemon.name, selfNoForm.name]
                 } else { //must be mid pokemon
-                    evolutions = [evolveFromPokemon.evolveFrom, evolveFromPokemon.name, evolveFromPokemon.evolveTo]
+                    evolutions = [evolveFromPokemon.evolveFrom, evolveFromPokemon.name, selfNoForm.name]
                 }
             }
         }
