@@ -133,55 +133,26 @@ class PokemonInfoVC: UIViewController {
     
     func configureTappedGestures() {
         
-        let measurmentTG = UITapGestureRecognizer(target: self, action: #selector(measurementSectionLblTapped))
-        measurementSectionLbl.addGestureRecognizer(measurmentTG)
+        let measurementLongPress = UILongPressGestureRecognizer(target: self, action: #selector(measurementSectionLblPressed))
+        measurementLongPress.minimumPressDuration = 0
+        measurementSectionLbl.addGestureRecognizer(measurementLongPress)
         measurementSectionLbl.isUserInteractionEnabled = true
+        measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
+        measurementSectionLbl.layer.borderWidth = 2
         
-        let pokedexEnteryTG = UITapGestureRecognizer(target: self, action: #selector(pokedexEnterySectionLblTapped))
-        pokedexEnterySectionLbl.addGestureRecognizer(pokedexEnteryTG)
+        let pokedexEntryLongPress = UILongPressGestureRecognizer(target: self, action: #selector(pokedexEnterySectionLblPressed))
+        pokedexEntryLongPress.minimumPressDuration = 0
+        pokedexEnterySectionLbl.addGestureRecognizer(pokedexEntryLongPress)
         pokedexEnterySectionLbl.isUserInteractionEnabled = true
+        pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
+        pokedexEnterySectionLbl.layer.borderWidth = 2
         
-        let weaknessesTG = UITapGestureRecognizer(target: self, action: #selector(weaknessesSectionLblTapped))
-        weaknessesSectionLbl.addGestureRecognizer(weaknessesTG)
+        let weaknessesLongPress = UILongPressGestureRecognizer(target: self, action: #selector(weaknessesSectionLblPressed))
+        weaknessesLongPress.minimumPressDuration = 0
+        weaknessesSectionLbl.addGestureRecognizer(weaknessesLongPress)
         weaknessesSectionLbl.isUserInteractionEnabled = true
-    }
-    
-    func toggleMeasurement() {
-        
-        if userSelectedUnit == Unit.SI {
-            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
-            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
-            userSelectedUnit = Unit.USCustomary
-        } else {
-            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
-            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
-            userSelectedUnit = Unit.SI
-        }
-    }
-    
-    func measurementSectionLblTapped() {
-        
-        measurementSectionLbl.isUserInteractionEnabled = false
-        let originalOriginY = pokeHeightLbl.frame.origin.y
-        let animateToOriginY = measurementSectionLbl.frame.origin.y
-        let animatedDuration: TimeInterval = 0.25
-        
-        UIView.animate(withDuration: animatedDuration, animations: {
-            self.pokeHeightLbl.frame.origin.y = animateToOriginY
-            self.pokeHeightLbl.alpha = 0
-            self.pokeWeighLblt.frame.origin.y = animateToOriginY
-            self.pokeWeighLblt.alpha = 0
-        }) { (Bool) in
-            self.toggleMeasurement()
-            UIView.animate(withDuration: animatedDuration, animations: {
-                self.pokeHeightLbl.frame.origin.y = originalOriginY
-                self.pokeHeightLbl.alpha = 1
-                self.pokeWeighLblt.frame.origin.y = originalOriginY
-                self.pokeWeighLblt.alpha = 1
-            }) { (Bool) in
-                self.measurementSectionLbl.isUserInteractionEnabled = true
-            }
-        }
+        weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
+        weaknessesSectionLbl.layer.borderWidth = 2
     }
     
     func configureViewLauncher() {
@@ -202,17 +173,75 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
-    func weaknessesSectionLblTapped() {
+    func toggleMeasurement() {
         
-        let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
-        viewLauncher.launchView.addSubview(weaknessesView)
-        viewLauncher.launch(withHeight: weaknessesView.frame.height)
+        if userSelectedUnit == Unit.SI {
+            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
+            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
+            userSelectedUnit = Unit.USCustomary
+        } else {
+            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
+            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
+            userSelectedUnit = Unit.SI
+        }
     }
     
-    func pokedexEnterySectionLblTapped() {
+    func measurementSectionLblPressed(_ sender: UILongPressGestureRecognizer) {
         
-        let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
-        viewLauncher.launchView.addSubview(pokedexEntryView)
-        viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
+        if sender.state == .began {
+            measurementSectionLbl.isUserInteractionEnabled = false
+            measurementSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+        } else if sender.state == .ended {
+            self.measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
+            
+            let originalOriginY = pokeHeightLbl.frame.origin.y
+            let animateToOriginY = measurementSectionLbl.frame.origin.y
+            let animatedDuration: TimeInterval = 0.25
+            
+            UIView.animate(withDuration: animatedDuration, animations: {
+                self.pokeHeightLbl.frame.origin.y = animateToOriginY
+                self.pokeHeightLbl.alpha = 0
+                self.pokeWeighLblt.frame.origin.y = animateToOriginY
+                self.pokeWeighLblt.alpha = 0
+            }) { (Bool) in
+                self.toggleMeasurement()
+                UIView.animate(withDuration: animatedDuration, animations: {
+                    self.pokeHeightLbl.frame.origin.y = originalOriginY
+                    self.pokeHeightLbl.alpha = 1
+                    self.pokeWeighLblt.frame.origin.y = originalOriginY
+                    self.pokeWeighLblt.alpha = 1
+                }) { (Bool) in
+                    self.measurementSectionLbl.isUserInteractionEnabled = true
+                }
+            }
+        }
+    }
+    
+    func weaknessesSectionLblPressed(_ sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == .began {
+            weaknessesSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+        } else if sender.state == .ended {
+            weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
+            if viewLauncher.isIdle {
+                let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
+                viewLauncher.launchView.addSubview(weaknessesView)
+                viewLauncher.launch(withHeight: weaknessesView.frame.height)
+            }
+        }
+    }
+    
+    func pokedexEnterySectionLblPressed(_ sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == .began {
+            pokedexEnterySectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+        } else if sender.state == .ended  {
+            pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
+            if viewLauncher.isIdle {
+                let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
+                viewLauncher.launchView.addSubview(pokedexEntryView)
+                viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
+            }
+        }
     }
 }

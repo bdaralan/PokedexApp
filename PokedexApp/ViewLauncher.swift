@@ -32,9 +32,7 @@ class ViewLauncher: NSObject {
         return CGPoint(x: launchOrigin.x, y: -(launchOrigin.y + launchView.frame.height))
     }
     
-    private var isIdle: Bool {
-        return launchView.frame.origin == launchOrigin || launchView.frame.origin == dismissOrigin
-    }
+    var isIdle: Bool = true
     
     
     init(launchViewFrame: CGRect, dimViewFrame: CGRect) {
@@ -71,16 +69,21 @@ class ViewLauncher: NSObject {
     func launch(withHeight height: CGFloat = 0) {
         
         if self.isIdle {
+            self.isIdle = false
             if height > 0 { self.launchView.frame.size.height = height }
-            if self.delegate != nil { self.delegate?.viewLauncher!(willLaunchAt: self.launchOrigin) }
+            if self.delegate != nil {
+                self.delegate?.viewLauncher!(willLaunchAt: self.launchOrigin)
+            }
             
             self.launchView.frame.origin = dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 1
                 self.launchView.frame.origin = self.launchOrigin
             }) { (Bool) in
-                if self.delegate != nil { self.delegate?.viewlauncher!(didLaunchAt: self.launchOrigin)
+                if self.delegate != nil {
+                    self.delegate?.viewlauncher!(didLaunchAt: self.launchOrigin)
                 }
+                self.isIdle = true
             }
         }
     }
@@ -88,7 +91,10 @@ class ViewLauncher: NSObject {
     func dismiss() {
         
         if self.isIdle {
-            if delegate != nil { self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin) }
+            self.isIdle = false
+            if delegate != nil {
+                self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin)
+            }
             
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 0
@@ -100,7 +106,11 @@ class ViewLauncher: NSObject {
                     }
                 }
                 
-                if self.delegate != nil { self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin) }
+                if self.delegate != nil {
+                    self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin)
+                }
+                
+                self.isIdle = true
             }
         }
     }
