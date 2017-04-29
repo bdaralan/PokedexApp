@@ -42,13 +42,11 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokeEvolution01Img: UIImageView!
     @IBOutlet weak var pokeEvolution02Img: UIImageView!
     @IBOutlet weak var pokeEvolution03Img: UIImageView!
-    @IBOutlet weak var pokeEvolution04Img: UIImageView!
-    @IBOutlet weak var pokeEvolution05Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr01Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr02Img: UIImageView!
-    @IBOutlet weak var pokeEvolutionArr03Img: UIImageView!
     
     var pokemon: Pokemon!
+    var evolutions: [Pokemon]!
     var viewLauncher: ViewLauncher!
     var userSelectedUnit: Unit!
     
@@ -61,10 +59,6 @@ class PokemonInfoVC: UIViewController {
         configureTappedGestures()
         configureViewLauncher()
         updateUI()
-        
-        pokemon.parseCompletedInfo()
-        let evolution = pokemon.getEvolutions()
-        print(evolution)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,6 +72,10 @@ class PokemonInfoVC: UIViewController {
     func updateUI() {
         
         pokemon.parseCompletedInfo()
+        
+        DispatchQueue.main.async {
+            self.updateEvolutionUI()
+        }
         
         self.navigationItem.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
@@ -123,6 +121,52 @@ class PokemonInfoVC: UIViewController {
         pokeSpeedLbl.text = "\(pokemon.speed)"
     }
     
+    func updateEvolutionUI() {
+        
+        if let cachedEvolutions = globalCache.object(forKey: "cachedEvolutions\(pokemon.name)" as AnyObject) as? [Pokemon] {
+            evolutions = cachedEvolutions
+        } else {
+            evolutions = pokemon.getEvolutions()
+            globalCache.setObject(evolutions as AnyObject, forKey: "cachedEvolutions\(pokemon.name)" as AnyObject)
+        }
+        
+        switch evolutions.count {
+        case 0:
+            pokeEvolution01Img.image = UIImage(named: pokemon.imageName)
+            pokeEvolution01Img.isHidden = false
+        case 1:
+            pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
+            pokeEvolution01Img.isHidden = false
+            pokeEvolution01Img.isUserInteractionEnabled = true
+        case 2:
+            pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
+            pokeEvolution01Img.isHidden = false
+            pokeEvolution01Img.isUserInteractionEnabled = true
+            
+            pokeEvolution02Img.image = UIImage(named: evolutions[1].imageName)
+            pokeEvolution02Img.isHidden = false
+            pokeEvolution02Img.isUserInteractionEnabled = true
+            
+            pokeEvolutionArr01Img.isHidden = false
+        case 3:
+            pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
+            pokeEvolution01Img.isHidden = false
+            pokeEvolution01Img.isUserInteractionEnabled = true
+            
+            pokeEvolution02Img.image = UIImage(named: evolutions[1].imageName)
+            pokeEvolution02Img.isHidden = false
+            pokeEvolution02Img.isUserInteractionEnabled = true
+            
+            pokeEvolution03Img.image = UIImage(named: evolutions[2].imageName)
+            pokeEvolution03Img.isHidden = false
+            pokeEvolution03Img.isUserInteractionEnabled = true
+            
+            pokeEvolutionArr01Img.isHidden = false
+            pokeEvolutionArr02Img.isHidden = false
+        default: () //0
+        }
+    }
+    
     func updatePokemonStatsProgressViews() {
         
         pokeHpPV.setProgress(pokemon.hp.toProgress(), animated: true)
@@ -135,26 +179,39 @@ class PokemonInfoVC: UIViewController {
     
     func configureTappedGestures() {
         
-        let measurementLongPress = UILongPressGestureRecognizer(target: self, action: #selector(measurementSectionLblPressed))
-        measurementLongPress.minimumPressDuration = 0
-        measurementSectionLbl.addGestureRecognizer(measurementLongPress)
+        configureLongPressGesture(for: measurementSectionLbl, action: #selector(handleSectionLblPress))
         measurementSectionLbl.isUserInteractionEnabled = true
         measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
         measurementSectionLbl.layer.borderWidth = 2
         
-        let pokedexEntryLongPress = UILongPressGestureRecognizer(target: self, action: #selector(pokedexEnterySectionLblPressed))
-        pokedexEntryLongPress.minimumPressDuration = 0
-        pokedexEnterySectionLbl.addGestureRecognizer(pokedexEntryLongPress)
+        configureLongPressGesture(for: pokedexEnterySectionLbl, action: #selector(handleSectionLblPress))
         pokedexEnterySectionLbl.isUserInteractionEnabled = true
         pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
         pokedexEnterySectionLbl.layer.borderWidth = 2
         
-        let weaknessesLongPress = UILongPressGestureRecognizer(target: self, action: #selector(weaknessesSectionLblPressed))
-        weaknessesLongPress.minimumPressDuration = 0
-        weaknessesSectionLbl.addGestureRecognizer(weaknessesLongPress)
+        configureLongPressGesture(for: weaknessesSectionLbl, action: #selector(handleSectionLblPress))
         weaknessesSectionLbl.isUserInteractionEnabled = true
         weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
         weaknessesSectionLbl.layer.borderWidth = 2
+        
+        configureTapGesture(for: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
+        configureTapGesture(for: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))
+        configureTapGesture(for: pokeEvolution03Img, action: #selector(handleEvolutionPress(_:)))
+    }
+    
+    func configureLongPressGesture(for view: UIView, action: Selector) {
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: action)
+        longPress.minimumPressDuration = 0
+        
+        view.addGestureRecognizer(longPress)
+    }
+    
+    func configureTapGesture(for view: UIView, action: Selector) {
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: action)
+        
+        view.addGestureRecognizer(tapGesture)
     }
     
     func configureViewLauncher() {
@@ -188,61 +245,96 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
-    func measurementSectionLblPressed(_ sender: UILongPressGestureRecognizer) {
+    func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
         
-        if sender.state == .began {
-            measurementSectionLbl.isUserInteractionEnabled = false
-            measurementSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
-        } else if sender.state == .ended {
-            self.measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
+        if let senderView = sender.view {
             
-            let originalOriginY = pokeHeightLbl.frame.origin.y
-            let animateToOriginY = measurementSectionLbl.frame.origin.y
-            let animatedDuration: TimeInterval = 0.25
-            
-            UIView.animate(withDuration: animatedDuration, animations: {
-                self.pokeHeightLbl.frame.origin.y = animateToOriginY
-                self.pokeHeightLbl.alpha = 0
-                self.pokeWeighLblt.frame.origin.y = animateToOriginY
-                self.pokeWeighLblt.alpha = 0
-            }) { (Bool) in
-                self.toggleMeasurement()
-                UIView.animate(withDuration: animatedDuration, animations: {
-                    self.pokeHeightLbl.frame.origin.y = originalOriginY
-                    self.pokeHeightLbl.alpha = 1
-                    self.pokeWeighLblt.frame.origin.y = originalOriginY
-                    self.pokeWeighLblt.alpha = 1
-                }) { (Bool) in
-                    self.measurementSectionLbl.isUserInteractionEnabled = true
+            switch senderView {
+            case measurementSectionLbl:
+                if sender.state == .began {
+                    measurementSectionLbl.isUserInteractionEnabled = false
+                    measurementSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+                } else if sender.state == .ended {
+                    self.measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
+                    
+                    let originalOriginY = pokeHeightLbl.frame.origin.y
+                    let animateToOriginY = measurementSectionLbl.frame.origin.y
+                    let animatedDuration: TimeInterval = 0.25
+                    
+                    UIView.animate(withDuration: animatedDuration, animations: {
+                        self.pokeHeightLbl.frame.origin.y = animateToOriginY
+                        self.pokeHeightLbl.alpha = 0
+                        self.pokeWeighLblt.frame.origin.y = animateToOriginY
+                        self.pokeWeighLblt.alpha = 0
+                    }) { (Bool) in
+                        self.toggleMeasurement()
+                        UIView.animate(withDuration: animatedDuration, animations: {
+                            self.pokeHeightLbl.frame.origin.y = originalOriginY
+                            self.pokeHeightLbl.alpha = 1
+                            self.pokeWeighLblt.frame.origin.y = originalOriginY
+                            self.pokeWeighLblt.alpha = 1
+                        }) { (Bool) in
+                            self.measurementSectionLbl.isUserInteractionEnabled = true
+                        }
+                    }
                 }
+                
+            case weaknessesSectionLbl:
+                if sender.state == .began {
+                    weaknessesSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+                } else if sender.state == .ended {
+                    weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
+                    if viewLauncher.isIdle {
+                        let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
+                        viewLauncher.launchView.addSubview(weaknessesView)
+                        viewLauncher.launch(withHeight: weaknessesView.frame.height)
+                    }
+                }
+                
+            case pokedexEnterySectionLbl:
+                if sender.state == .began {
+                    pokedexEnterySectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+                } else if sender.state == .ended  {
+                    pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
+                    if viewLauncher.isIdle {
+                        let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
+                        viewLauncher.launchView.addSubview(pokedexEntryView)
+                        viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
+                    }
+                }
+                
+            default: ()
             }
         }
     }
     
-    func weaknessesSectionLblPressed(_ sender: UILongPressGestureRecognizer) {
+    func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
         
-        if sender.state == .began {
-            weaknessesSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
-        } else if sender.state == .ended {
-            weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
-            if viewLauncher.isIdle {
-                let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
-                viewLauncher.launchView.addSubview(weaknessesView)
-                viewLauncher.launch(withHeight: weaknessesView.frame.height)
+        var shouldUpdateUI = false
+        
+        if let senderView = sender.view {
+            switch senderView {
+            case pokeEvolution01Img:
+                if pokemon.name != evolutions[0].name {
+                    pokemon = evolutions[0]
+                    shouldUpdateUI = true
+                }
+            case pokeEvolution02Img:
+                if pokemon.name != evolutions[1].name {
+                    pokemon = evolutions[1]
+                    shouldUpdateUI = true
+                }
+            case pokeEvolution03Img:
+                if pokemon.name != evolutions[2].name {
+                    pokemon = evolutions[2]
+                    shouldUpdateUI = true
+                }
+            default: ()
             }
-        }
-    }
-    
-    func pokedexEnterySectionLblPressed(_ sender: UILongPressGestureRecognizer) {
-        
-        if sender.state == .began {
-            pokedexEnterySectionLbl.layer.borderColor = COLORS.sectionText.cgColor
-        } else if sender.state == .ended  {
-            pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
-            if viewLauncher.isIdle {
-                let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
-                viewLauncher.launchView.addSubview(pokedexEntryView)
-                viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
+            
+            if shouldUpdateUI {
+                updateUI()
+                updatePokemonStatsProgressViews()
             }
         }
     }

@@ -762,28 +762,16 @@
                                 <rect key="frame" x="16" y="536" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-cv-IMs">
-                                <rect key="frame" x="89" y="536" width="50" height="50"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="evolution-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-cv-IMs">
+                                <rect key="frame" x="99" y="546" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zF7-KT-S3e">
-                                <rect key="frame" x="162" y="536" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKJ-OR-nOd">
-                                <rect key="frame" x="162" y="594" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-HY-ZVa">
-                                <rect key="frame" x="235" y="536" width="50" height="50"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="evolution-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-HY-ZVa">
+                                <rect key="frame" x="246" y="546" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-Kr-7zN">
                                 <rect key="frame" x="309" y="536" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FHh-2s-ko3">
-                                <rect key="frame" x="309" y="594" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pokedex Entery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yR-rc-PGc" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
@@ -818,10 +806,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cc-de-Zhz">
-                                <rect key="frame" x="235" y="594" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type 01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-i7-KA9" customClass="TypeUILabel" customModule="PokedexApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="275" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -854,6 +838,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zF7-KT-S3e">
+                                <rect key="frame" x="162" y="536" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -871,11 +859,8 @@
                         <outlet property="pokeEvolution01Img" destination="ihG-cB-XSq" id="f18-rs-phO"/>
                         <outlet property="pokeEvolution02Img" destination="zF7-KT-S3e" id="dzj-oZ-ziL"/>
                         <outlet property="pokeEvolution03Img" destination="rwv-Kr-7zN" id="bfK-Lb-ixN"/>
-                        <outlet property="pokeEvolution04Img" destination="jKJ-OR-nOd" id="jx1-tI-69G"/>
-                        <outlet property="pokeEvolution05Img" destination="FHh-2s-ko3" id="v2e-c7-hl1"/>
                         <outlet property="pokeEvolutionArr01Img" destination="hG2-cv-IMs" id="pnu-nJ-UMP"/>
                         <outlet property="pokeEvolutionArr02Img" destination="QLF-HY-ZVa" id="mDd-6F-22I"/>
-                        <outlet property="pokeEvolutionArr03Img" destination="8cc-de-Zhz" id="34E-sg-dtE"/>
                         <outlet property="pokeHeightLbl" destination="j1t-un-DA1" id="85M-kT-u8H"/>
                         <outlet property="pokeHiddenAibilityLbl" destination="ccD-Xy-jZq" id="SuR-kN-Fx8"/>
                         <outlet property="pokeHpLbl" destination="c3t-M8-gch" id="cdA-rs-cz0"/>
@@ -920,6 +905,7 @@
     </scenes>
     <resources>
         <image name="cry-icon" width="30" height="22"/>
+        <image name="evolution-arrow" width="44" height="44"/>
         <image name="setting-icon" width="22" height="22"/>
     </resources>
 </document>
