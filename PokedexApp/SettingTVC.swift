@@ -23,6 +23,8 @@ enum SettingRow: String {
     case credits = "23"
 }
 
+// TODO: - remove hard code links and revampe viewLauncher
+
 class SettingTVC: UITableViewController {
     
     @IBOutlet weak var measurementSC: UISegmentedControl!
@@ -40,11 +42,15 @@ class SettingTVC: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         
         saveSettingToUserDefaults()
+        
+        viewLauncher.launchView.alpha = 0
+        viewLauncher.dimView.alpha = 0
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         
-        viewLauncher.dismiss()
+        viewLauncher.launchView.removeFromSuperview()
+        viewLauncher.dimView.removeFromSuperview()
     }
 
     // MARK: - Table view data source
@@ -80,6 +86,9 @@ class SettingTVC: UITableViewController {
                 
             case .credits:
                 textView.text = "Credits:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site"
+                textView.sizeToFit()
+                textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
+                textView.frame.size.height = textView.contentSize.height
                 viewLauncher.launch(withHeight: textView.frame.height)
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#data-resources") {
 //                    UIApplication.shared.open(url)
