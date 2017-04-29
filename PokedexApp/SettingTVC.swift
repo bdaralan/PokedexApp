@@ -41,6 +41,11 @@ class SettingTVC: UITableViewController {
         
         saveSettingToUserDefaults()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        viewLauncher.dismiss()
+    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -57,20 +62,24 @@ class SettingTVC: UITableViewController {
                 if let url = URL(string: "https://github.com/iDara09") {
                     UIApplication.shared.open(url)
                 }
+                
             case .sourceCode:
                 if let url = URL(string: "https://github.com/iDara09/PokedexApp") {
                     UIApplication.shared.open(url)
                 }
+                
             case.disclaimer:
                 textView.text = "Disclaimer:\n- This is for practice and learning purposes only.\n- All contents, arts, assets, and data belong to their respective owners."
+                textView.sizeToFit()
+                textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
                 textView.frame.size.height = textView.contentSize.height
                 viewLauncher.launch(withHeight: textView.frame.height)
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#disclaimer") {
 //                    UIApplication.shared.open(url)
 //                }
+                
             case .credits:
                 textView.text = "Credits:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site"
-                textView.frame.size.height = textView.contentSize.height
                 viewLauncher.launch(withHeight: textView.frame.height)
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#data-resources") {
 //                    UIApplication.shared.open(url)
@@ -113,6 +122,8 @@ class SettingTVC: UITableViewController {
         
         textView = UITextView(frame: CGRect(x: margin, y: 0, width: viewLauncher.launchView.frame.width - (margin * 2), height: 21))
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+        textView.isScrollEnabled = false
+        textView.isEditable = false
         viewLauncher.launchView.addSubview(textView)
     }
 }

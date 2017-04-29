@@ -19,6 +19,8 @@ class HomeMenuTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        clearsSelectionOnViewWillAppear = true
+        
         homeMenuSections = loadData.homeMenuSections()
         homeMenuRowsInSections = loadData.homeMenuRowsInSections()        
     }
@@ -35,8 +37,6 @@ class HomeMenuTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
         
         genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
         genericTVCTitle = homeMenuRowsInSections[indexPath.section][indexPath.row]

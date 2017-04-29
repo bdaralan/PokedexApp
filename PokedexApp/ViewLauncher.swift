@@ -8,12 +8,13 @@
 
 import UIKit
 
-@objc protocol ViewLauncherDelegate {
+@objc protocol ViewLauncherDelegate: NSObjectProtocol {
     
     @objc optional func viewLauncher(willLaunchAt origin: CGPoint)
     @objc optional func viewlauncher(didLaunchAt origin: CGPoint)
     @objc optional func viewLauncher(WillDismissTo origin: CGPoint)
     @objc optional func viewLauncher(DidDismissTo origin: CGPoint)
+    @objc optional func viewLaucher(shouldUpdate height: CGFloat) -> CGFloat
 }
 
 class ViewLauncher: NSObject {
@@ -83,7 +84,9 @@ class ViewLauncher: NSObject {
         
         if self.isIdle {
             self.isIdle = false
+            
             if height > 0 { self.launchView.frame.size.height = height }
+            
             if self.delegate != nil {
                 self.delegate?.viewLauncher!(willLaunchAt: self._launchOrigin)
             }
