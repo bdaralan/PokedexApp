@@ -30,7 +30,7 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 
 ## Disclaimer:
 * This is for practice and learning purposes only.
-* All contents, arts, assets, and data are belong to their respective owners.
+* All contents, arts, assets, and data belong to their respective owners.
 * If you clone this, please give them credits.
 
 ## Data Resources:

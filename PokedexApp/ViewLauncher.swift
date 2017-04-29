@@ -25,27 +25,40 @@ class ViewLauncher: NSObject {
     
     var animatedDuration: TimeInterval = 0.5
     var removeSubviewsAfterDimissed: Bool = true
-    
-    private var launchOrigin: CGPoint!
-    
-    private var dismissOrigin: CGPoint {
-        return CGPoint(x: launchOrigin.x, y: -(launchOrigin.y + launchView.frame.height))
-    }
-    
+    var isUseDefaultDismissOrigin = true
     var isIdle: Bool = true
     
+    private var _launchOrigin: CGPoint!
+    private var _dimissOrigin: CGPoint!
     
-    init(launchViewFrame: CGRect, dimViewFrame: CGRect) {
+    var dismissOrigin: CGPoint {
+        set {
+            if !isUseDefaultDismissOrigin {
+                _dimissOrigin = newValue
+            }
+        }
+        get {
+            if isUseDefaultDismissOrigin {
+                _dimissOrigin = CGPoint(x: _launchOrigin.x, y: -(_launchOrigin.y + launchView.frame.height))
+                return _dimissOrigin
+            } else {
+                return _dimissOrigin
+            }
+        }
+    }
+    
+    
+    init(launchViewFrame: CGRect, dimViewFrame: CGRect, swipeToDismissDirection: UISwipeGestureRecognizerDirection) {
         super.init()
         
-        self.launchOrigin = launchViewFrame.origin
+        self._launchOrigin = launchViewFrame.origin
         
         self.launchView = {
             let view = UIView(frame: launchViewFrame)
             view.backgroundColor = UIColor.white
             
             let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
-            swipeUpGesture.direction = .up
+            swipeUpGesture.direction = swipeToDismissDirection
             view.addGestureRecognizer(swipeUpGesture)
             
             return view
@@ -72,16 +85,16 @@ class ViewLauncher: NSObject {
             self.isIdle = false
             if height > 0 { self.launchView.frame.size.height = height }
             if self.delegate != nil {
-                self.delegate?.viewLauncher!(willLaunchAt: self.launchOrigin)
+                self.delegate?.viewLauncher!(willLaunchAt: self._launchOrigin)
             }
             
             self.launchView.frame.origin = dismissOrigin
             UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 1
-                self.launchView.frame.origin = self.launchOrigin
+                self.launchView.frame.origin = self._launchOrigin
             }) { (Bool) in
                 if self.delegate != nil {
-                    self.delegate?.viewlauncher!(didLaunchAt: self.launchOrigin)
+                    self.delegate?.viewlauncher!(didLaunchAt: self._launchOrigin)
                 }
                 self.isIdle = true
             }

@@ -178,7 +178,7 @@
                         <sections>
                             <tableViewSection headerTitle="Views" footerTitle="Selected units will always display first. When view, tap on the Measurement label to toggle." id="PGs-6Z-bpW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="maP-I9-qHw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="maP-I9-qHw" userLabel="View">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="maP-I9-qHw" id="DlM-lz-YyR">
@@ -245,14 +245,14 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Developer" id="oje-SW-dVB">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="AJM-Rs-YvW" style="IBUITableViewCellStyleDefault" id="hAd-fY-YyG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="AJM-Rs-YvW" style="IBUITableViewCellStyleDefault" id="hAd-fY-YyG" userLabel="GitHub @iDara09">
                                         <rect key="frame" x="0.0" y="307.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAd-fY-YyG" id="zpJ-75-X41">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Github @iDara09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AJM-Rs-YvW">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="GitHub @iDara09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AJM-Rs-YvW">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -262,7 +262,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="n16-nu-BBy" style="IBUITableViewCellStyleDefault" id="nSu-1X-7qH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="n16-nu-BBy" style="IBUITableViewCellStyleDefault" id="nSu-1X-7qH" userLabel="Source Code">
                                         <rect key="frame" x="0.0" y="351.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nSu-1X-7qH" id="o2w-7e-eRJ">
@@ -279,7 +279,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="bJ1-Hg-tXr" style="IBUITableViewCellStyleDefault" id="aSq-tU-qv8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="bJ1-Hg-tXr" style="IBUITableViewCellStyleDefault" id="aSq-tU-qv8" userLabel="Disclaimer">
                                         <rect key="frame" x="0.0" y="395.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aSq-tU-qv8" id="n9x-0l-xsB">
@@ -296,7 +296,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="1MN-4r-EoM" style="IBUITableViewCellStyleDefault" id="BzK-oV-UBK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="1MN-4r-EoM" style="IBUITableViewCellStyleDefault" id="BzK-oV-UBK" userLabel="Credits">
                                         <rect key="frame" x="0.0" y="439.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BzK-oV-UBK" id="RCO-fx-npd">

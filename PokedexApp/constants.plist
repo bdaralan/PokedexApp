@@ -6,21 +6,21 @@
 	<dict>
 		<key>Sections</key>
 		<array>
-			<string>UNITS</string>
-			<string>---</string>
+			<string>VIEWS</string>
+			<string></string>
 			<string>DEVELOPER</string>
 		</array>
 		<key>RowsInSections</key>
 		<array>
 			<array>
-				<string>Pokemon Measurment</string>
+				<string>Measurment Units</string>
 			</array>
 			<array>
 				<string>---</string>
 				<string>---</string>
 			</array>
 			<array>
-				<string>Github @iDara09</string>
+				<string>GitHub @iDara09</string>
 				<string>Source Code</string>
 				<string>Disclaimer</string>
 				<string>Credits</string>

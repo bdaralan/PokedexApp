@@ -18,6 +18,8 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        clearsSelectionOnViewWillAppear = true
+        
         configureSearchController()
     }
     
@@ -41,7 +43,6 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "PokemonInfo", sender: pokemons[indexPath.row])
         if searchController.searchBar.isFirstResponder {
             searchController.searchBar.resignFirstResponder()

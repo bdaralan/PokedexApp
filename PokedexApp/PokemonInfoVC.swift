@@ -225,7 +225,7 @@ class PokemonInfoVC: UIViewController {
             let launchViewFrame = CGRect(x: x, y: y, width: width, height: height - y)
             let dimViewFrame = CGRect(x: 0, y: 0, width: width, height: height)
             
-            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame)
+            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .up)
             
             self.view.addSubview(viewLauncher.dimView)
             self.view.addSubview(viewLauncher.launchView)

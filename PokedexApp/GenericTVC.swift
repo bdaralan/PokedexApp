@@ -36,6 +36,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        clearsSelectionOnViewWillAppear = true
+        
         prepareNecessaryData()
         configureNavigationBar()
     }
@@ -92,9 +94,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
+                
         switch currentGenericCell {
         case .PokedexCell:
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
