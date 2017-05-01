@@ -30,7 +30,11 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     var items: [Item]!
     
     var searchResultController: UISearchController!
+    
     var segmentControllSelectedIndex: Int?
+    var viewLauncher: ViewLauncher?
+    var textView: UITextView?
+    
     var currentGenericCell: GenericCell { return genericCell }
     
     
@@ -41,6 +45,15 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         prepareNecessaryData()
         configureNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if viewLauncher != nil {
+            viewLauncher?.launchView.removeFromSuperview()
+            viewLauncher?.dimView.removeFromSuperview()
+        }
     }
     
     // MARK: - Table view data source
@@ -108,7 +121,21 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
         case .AbilityCell: ()
         case .TMCell: ()
-        case .ItemCell: ()
+        case .ItemCell:
+            if !items[indexPath.row].hasCompletedInfo {
+                items[indexPath.row].parseCompletedInfo()
+            }
+            
+            if let textView = textView, let viewLauncher = viewLauncher {
+                textView.text = items[indexPath.row].effect
+                textView.sizeToFit()
+                textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
+                textView.frame.size.height = textView.contentSize.height
+                
+                viewLauncher.launchView.frame.size.height = textView.contentSize.height
+            }
+            
+            viewLauncher?.launch()
         case .BerryCell: ()
         }
     }
@@ -168,8 +195,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             case .BerryCell: ()
             }
         }
-        
-        tableView.reloadData()
     }
     
     // MARK: - Functions
@@ -189,7 +214,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                 let sc = DBUISegmentedControl(items: ["0-9", "A-Z"])
                 sc.awakeFromNib()
                 sc.selectedSegmentIndex = 0
-                sc.addTarget(self, action: #selector(segmentControllValueChanged), for: .valueChanged)
+                sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
                 
                 return sc
             }()
@@ -202,7 +227,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                 let sc = DBUISegmentedControl(items: ["A-Z", "Cat"])
                 sc.awakeFromNib()
                 sc.selectedSegmentIndex = 0
-                sc.addTarget(self, action: #selector(segmentControllValueChanged), for: .valueChanged)
+                sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
                 
                 return sc
             }()
@@ -215,37 +240,73 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     func prepareNecessaryData() {
         
         switch currentGenericCell {
-        case .PokedexCell: pokemons = CONSTANTS.allPokemonsSortedById
-        case .TypeCell: types = CONSTANTS.allTypes
-        case .MoveCell: moves = CONSTANTS.allMoves
-        case .AbilityCell: abilities = CONSTANTS.allAbilities
+        case .PokedexCell:
+            pokemons = CONSTANTS.allPokemonsSortedById
+        case .TypeCell:
+            types = CONSTANTS.allTypes
+        case .MoveCell:
+            moves = CONSTANTS.allMoves
+        case .AbilityCell:
+            abilities = CONSTANTS.allAbilities
         case .TMCell: ()
-        case .ItemCell: items = CONSTANTS.allItems
+        case .ItemCell:
+            items = CONSTANTS.allItems
+            
+            if let navigationBarFrame = self.navigationController?.navigationBar.frame {
+                let y = UIApplication.shared.statusBarFrame.height + navigationBarFrame.height + 0.5
+                let width = self.view.frame.width
+                let launchViewFrame = CGRect(x: 0, y: y, width: width, height: 50)
+                let dimViewFrame = CGRect(x: 0, y: 0, width: width, height: self.view.frame.height)
+                
+                viewLauncher = {
+                    let vlauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
+                   
+                    vlauncher.removeSubviewsAfterDimissed = false
+                    vlauncher.isUseDefaultDismissOrigin = false
+                    vlauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
+                    
+                    self.navigationController?.view.addSubview(vlauncher.dimView)
+                    self.navigationController?.view.addSubview(vlauncher.launchView)
+                    
+                    return vlauncher
+                }()
+                
+                textView = {
+                    let x = CONSTANTS.constrain.margin
+                    let width = launchViewFrame.width - (x * 2)
+                    let height = launchViewFrame.height
+                    
+                    let tv = UITextView(frame: CGRect(x: x, y: 0, width: width, height:height))
+                    tv.isScrollEnabled = false
+                    tv.isEditable = false
+                    tv.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+                    
+                    return tv
+                }()
+                
+                viewLauncher?.launchView.addSubview(textView!)
+            }
         case .BerryCell: ()
         }
     }
     
-    func segmentControllValueChanged(_ sender: UISegmentedControl) {
+    func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
         
         self.segmentControllSelectedIndex = sender.selectedSegmentIndex
         
         switch  currentGenericCell {
         case .PokedexCell:
-            switch sender.selectedSegmentIndex {
-            case 0:
+            if segmentControllSelectedIndex == 0 {
                 pokemons = CONSTANTS.allPokemonsSortedById
-            case 1:
+            } else { //must be 1
                 pokemons = pokemons.sortByAlphabet()
-            default: ()
             }
             
         case .ItemCell:
-            switch sender.selectedSegmentIndex {
-            case 0:
+            if segmentControllSelectedIndex == 0 {
                 items = CONSTANTS.allItems
-            case 1:
+            } else { //must be 1
                 items = CONSTANTS.allItems.sorted(by: {$0.category < $1.category})
-            default: ()
             }
         default: ()
         }

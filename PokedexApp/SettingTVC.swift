@@ -40,6 +40,7 @@ class SettingTVC: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         viewLauncher.launchView.removeFromSuperview()
         viewLauncher.dimView.removeFromSuperview()
