@@ -26,12 +26,12 @@
                   moduleName = "PokedexApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/Item.swift"
-                  timestampString = "515317792.819251"
+                  timestampString = "515317860.936841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
                   endingLineNumber = "31"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "PokedexApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/Item.swift"
-                  timestampString = "515317792.823441"
+                  timestampString = "515317860.938424"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
                   endingLineNumber = "31"
-                  offsetFromSymbolStart = "451">
+                  offsetFromSymbolStart = "348">
                </Location>
             </Locations>
          </BreakpointContent>
