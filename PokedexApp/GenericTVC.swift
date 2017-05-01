@@ -125,7 +125,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             
             switch currentGenericCell {
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemons.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                pokemons = CONSTANTS.allPokemonsSortedById.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             case .TypeCell:
                 types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
             case .MoveCell:
@@ -141,9 +141,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             switch currentGenericCell {
             case .PokedexCell:
                 if segmentControllSelectedIndex == 0 {
-                    pokemons = CONSTANTS.allPokemons
+                    pokemons = CONSTANTS.allPokemonsSortedById
                 } else {
-                    pokemons = CONSTANTS.allPokemons.sortByAlphabet()
+                    pokemons = CONSTANTS.allPokemonsSortedById.sortByAlphabet()
                 }
             case .TypeCell: ()
             types = CONSTANTS.allTypes
@@ -190,7 +190,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     func prepareNecessaryData() {
         
         switch currentGenericCell {
-        case .PokedexCell: pokemons = CONSTANTS.allPokemons
+        case .PokedexCell: pokemons = CONSTANTS.allPokemonsSortedById
         case .TypeCell: types = CONSTANTS.allTypes
         case .MoveCell: moves = CONSTANTS.allMoves
         case .AbilityCell: abilities = CONSTANTS.allAbilities
@@ -206,7 +206,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            pokemons = CONSTANTS.allPokemons
+            pokemons = CONSTANTS.allPokemonsSortedById
         case 1:
             pokemons = pokemons.sortByAlphabet()
         default: ()

@@ -10,7 +10,7 @@ import UIKit
 
 class PokedexTVC: UITableViewController, UISearchResultsUpdating {
     
-    var pokemons = CONSTANTS.allPokemons
+    var pokemons = CONSTANTS.allPokemonsSortedById
     var searchController: UISearchController!
     var tableViewLastVisibleRow: IndexPath!
     
@@ -54,9 +54,9 @@ class PokedexTVC: UITableViewController, UISearchResultsUpdating {
         
         // TODO: - Remember where the row is, scroll to that position when search ended
         if let searchText = searchController.searchBar.text, searchText != "" {
-            pokemons = CONSTANTS.allPokemons.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+            pokemons = CONSTANTS.allPokemonsSortedById.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
         } else {
-            pokemons = CONSTANTS.allPokemons
+            pokemons = CONSTANTS.allPokemonsSortedById
         }
         
         tableView.reloadData()

@@ -34,7 +34,9 @@ class Pokemon {
     private var _evolveFrom: String = ""
     private var _evolveTo: String = ""
     
-    var hasCompletedInfo: Bool = false //true if parseCompletedInfo() is called once
+    private var _hasCompletedInfo: Bool = false //true if parseCompletedInfo() is called once
+    
+    var hasCompletedInfo: Bool { return _hasCompletedInfo }
     
     var name: String { return _name }
     var id: Int { return _id }
@@ -61,10 +63,11 @@ class Pokemon {
     func getWeight(as unit: Unit) -> String { return _weight[unit.rawValue] }
     
     
-    init(name: String, id: Int, form: String) {
+    init(name: String, id: Int, form: String, hasCompletedInfo: Bool = false) {
         _name = name
         _id = id
         _form = form
+        _hasCompletedInfo = hasCompletedInfo
     }
     
     
@@ -75,7 +78,7 @@ class Pokemon {
         parseMeasurement()
         parseEvolution()
         
-        hasCompletedInfo = true
+        _hasCompletedInfo = true
     }
     
     private func parseStatsTypes() {
@@ -135,7 +138,7 @@ class Pokemon {
         var name = self.name
         
         if self.hasForm {
-            if !self.form.contains("alolan"), let selfNoForm = CONSTANTS.allPokemons.filter({$0.id == self.id}).first {
+            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = CONSTANTS.allPokemonsSortedById.filter({$0.id == self.id}).first {
                 name = selfNoForm.name
             }
         }
@@ -231,7 +234,8 @@ extension Pokemon {
         
         // TODO: condition for mega✓, alolan✓
         if self.hasForm {
-            if !self.form.contains("alolan"), let noFormPokemon = CONSTANTS.allPokemons.filter({$0.id == self.id}).first {
+            if self.form.contains("mega") || self.form.contains("primal"),
+                let noFormPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.id == self.id}).first {
                 selfNoForm = noFormPokemon
             }
         }
@@ -240,8 +244,10 @@ extension Pokemon {
             selfNoForm.parseCompletedInfo()
         }
         
+        evolutions = [selfNoForm]
+        
         if selfNoForm.isBaseEvolution { // MARK: - isBaseEvolution
-            if let evolveToPokemon = CONSTANTS.allPokemons.filter({$0.name == selfNoForm.evolveTo}).first {
+            if let evolveToPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveTo}).first {
                 if !evolveToPokemon.hasCompletedInfo {
                     evolveToPokemon.parseCompletedInfo()
                 }
@@ -249,7 +255,7 @@ extension Pokemon {
                 if evolveToPokemon.isLastEvolution {
                     evolutions = [selfNoForm, evolveToPokemon]
                 } else { //isMidEvolution
-                    if let lastEvolution = CONSTANTS.allPokemons.filter({$0.name == evolveToPokemon.evolveTo}).first {
+                    if let lastEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == evolveToPokemon.evolveTo}).first {
                         evolutions = [selfNoForm, evolveToPokemon, lastEvolution]
                     }
                 }
@@ -259,11 +265,11 @@ extension Pokemon {
                 self.parseCompletedInfo()
             }
             
-            if let baseEvolution = CONSTANTS.allPokemons.filter({$0.name == selfNoForm.evolveFrom}).first, let lastEvolution = CONSTANTS.allPokemons.filter({$0.name == selfNoForm.evolveTo}).first {
+            if let baseEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveFrom}).first, let lastEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveTo}).first {
                 evolutions = [baseEvolution, selfNoForm, lastEvolution]
             }
         } else if selfNoForm.isLastEvolution { // MARK: - isLastEvolution
-            if let evolveFromPokemon = CONSTANTS.allPokemons.filter({$0.name == selfNoForm.evolveFrom}).first {
+            if let evolveFromPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveFrom}).first {
                 if !evolveFromPokemon.hasCompletedInfo {
                     evolveFromPokemon.parseCompletedInfo()
                 }
@@ -271,7 +277,7 @@ extension Pokemon {
                 if evolveFromPokemon.isBaseEvolution {
                     evolutions = [evolveFromPokemon, selfNoForm]
                 } else { //isMidEvollution
-                    if let baseEvolution = CONSTANTS.allPokemons.filter({$0.name == evolveFromPokemon.evolveFrom}).first {
+                    if let baseEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == evolveFromPokemon.evolveFrom}).first {
                         evolutions = [baseEvolution, evolveFromPokemon, selfNoForm]
                     }
                 }

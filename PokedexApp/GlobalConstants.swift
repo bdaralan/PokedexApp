@@ -30,7 +30,7 @@ struct Constant {
     let pokedexEntriesJSON = loadData.pokedexEntriesJSON()
     let evolutionJSON = loadData.evolutionJSON()
     
-    let allPokemons = loadData.allPokemons(by: .id)
+    let allPokemonsSortedById = loadData.allPokemons(by: .id)
     let allAbilities = loadData.allAbilities()
     let allTypes = loadData.allTypes()
     let allMoves = loadData.allMoves()

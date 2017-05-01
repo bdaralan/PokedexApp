@@ -56,6 +56,10 @@ class PokemonInfoVC: UIViewController {
         
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex))
         
+        DispatchQueue.main.async {
+            self.updateEvolutionUI()
+        }
+        
         configureTappedGestures()
         configureViewLauncher()
         updateUI()
@@ -71,10 +75,8 @@ class PokemonInfoVC: UIViewController {
     // MARK: - Functions
     func updateUI() {
         
-        pokemon.parseCompletedInfo()
-        
-        DispatchQueue.main.async {
-            self.updateEvolutionUI()
+        if !pokemon.hasCompletedInfo {
+            pokemon.parseCompletedInfo()
         }
         
         self.navigationItem.title = pokemon.name
@@ -131,9 +133,6 @@ class PokemonInfoVC: UIViewController {
         }
         
         switch evolutions.count {
-        case 0:
-            pokeEvolution01Img.image = UIImage(named: pokemon.imageName)
-            pokeEvolution01Img.isHidden = false
         case 1:
             pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
             pokeEvolution01Img.isHidden = false
