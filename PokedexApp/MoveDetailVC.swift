@@ -33,8 +33,7 @@ class MoveDetailVC: UIViewController {
                 
         nameLbl.text = move.name
         nameLbl.backgroundColor = COLORS.get(from: move.type)
-        nameLbl.roundLabel.layer.borderColor = UIColor.white.cgColor
-        nameLbl.roundLabel.layer.borderWidth = 3
+        nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
         
         var category = move.category
         nameLbl.roundLabel.backgroundColor = COLORS.get(from: category)
@@ -48,7 +47,6 @@ class MoveDetailVC: UIViewController {
             category = "–"
             nameLbl.roundLabel.textColor = UIColor.black
             nameLbl.roundLabel.backgroundColor = UIColor.white
-            nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
         }
         
         nameLbl.roundLabel.text = category

@@ -41,16 +41,10 @@ class SettingTVC: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        saveSettingToUserDefaults()
-        
-        viewLauncher.launchView.alpha = 0
-        viewLauncher.dimView.alpha = 0
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        
         viewLauncher.launchView.removeFromSuperview()
         viewLauncher.dimView.removeFromSuperview()
+
+        saveSettingToUserDefaults()
     }
 
     // MARK: - Table view data source
@@ -85,7 +79,7 @@ class SettingTVC: UITableViewController {
 //                }
                 
             case .credits:
-                textView.text = "Credits:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site"
+                textView.text = "Data Resources:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site"
                 textView.sizeToFit()
                 textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
                 textView.frame.size.height = textView.contentSize.height
@@ -118,10 +112,10 @@ class SettingTVC: UITableViewController {
             let launchViewFrame = CGRect(x: x, y: y, width: width, height: height - y)
             let dimViewFrame = CGRect(x: x, y: y, width: width, height: height)
             
-            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .left)
+            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
             viewLauncher.isUseDefaultDismissOrigin = false
             viewLauncher.removeSubviewsAfterDimissed = false
-            viewLauncher.dismissOrigin = CGPoint(x: -launchViewFrame.width, y: launchViewFrame.origin.y)
+            viewLauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
             
             navController.view.addSubview(viewLauncher.dimView)
             navController.view.addSubview(viewLauncher.launchView)

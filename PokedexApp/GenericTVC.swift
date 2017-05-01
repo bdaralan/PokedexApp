@@ -27,6 +27,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     var types: [String]!
     var moves: [Move]!
     var abilities: [Ability]!
+    var items: [Item]!
     
     var searchResultController: UISearchController!
     var segmentControllSelectedIndex: Int?
@@ -51,7 +52,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .MoveCell: return moves.count
         case .AbilityCell: return abilities.count
         case .TMCell: return 0
-        case .ItemCell: return 0
+        case .ItemCell: return items.count
         case .BerryCell: return 0
         }
     }
@@ -86,7 +87,10 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             }
             
         case .TMCell: return cell
-        case .ItemCell: return cell
+        case .ItemCell:
+            if let cell = cell as? SimpleCell {
+                cell.configureCell(item: items[indexPath.row])
+            }
         case .BerryCell: return cell
         }
         
@@ -98,9 +102,10 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         switch currentGenericCell {
         case .PokedexCell:
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-        case .TypeCell: ()
+        case .TypeCell:
+            performSegue(withIdentifier: "TypeDetailVC", sender: nil)
         case .MoveCell:
-            performSegue(withIdentifier: "MoveVC", sender: moves[indexPath.row])
+            performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
         case .AbilityCell: ()
         case .TMCell: ()
         case .ItemCell: ()
@@ -195,7 +200,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .MoveCell: moves = CONSTANTS.allMoves
         case .AbilityCell: abilities = CONSTANTS.allAbilities
         case .TMCell: ()
-        case .ItemCell: ()
+        case .ItemCell: items = CONSTANTS.allItems
         case .BerryCell: ()
         }
     }

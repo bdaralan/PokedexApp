@@ -28,12 +28,14 @@ struct Constant {
     let measurementsJSON = loadData.measurementsJSON()
     let weaknessesJSON = loadData.weaknessesJSON()
     let pokedexEntriesJSON = loadData.pokedexEntriesJSON()
-    let evolutionJSON = loadData.evolutionJSON()
+    let evolutionsJSON = loadData.evolutionJSON()
+    let itemsJSON = loadData.itemJSON()
     
     let allPokemonsSortedById = loadData.allPokemons(by: .id)
     let allAbilities = loadData.allAbilities()
     let allTypes = loadData.allTypes()
     let allMoves = loadData.allMoves()
+    let allItems = loadData.allItems()
     
     let constrain = Constrain()
 }

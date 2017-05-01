@@ -60,6 +60,11 @@ class LoadData {
         return loadDataFromFile(name: "evolutions", ofType: "json")
     }
     
+    func itemJSON() -> DictionarySA {
+        
+        return loadDataFromFile(name: "items", ofType: "json")
+    }
+    
     func allPokemons(by option: PokemonSortedOption) -> [Pokemon] {
         
         var pokemons = [Pokemon]()
@@ -113,6 +118,22 @@ class LoadData {
         }
         
         return abilities
+    }
+    
+    func allItems() -> [Item] {
+        
+        let itemsJSON = self.itemJSON()
+        var items = [Item]()
+        
+        for item in itemJSON().keys {
+            if let itemDict = itemsJSON[item] as? DictionarySS {
+                if let category = itemDict["category"] {
+                    items.append(Item(name: item, category: category))
+                }
+            }
+        }
+        
+        return items
     }
     
     func allTypes() -> [String] {

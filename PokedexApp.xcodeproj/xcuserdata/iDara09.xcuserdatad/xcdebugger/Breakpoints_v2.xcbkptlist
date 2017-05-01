@@ -6,176 +6,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PokedexApp/ViewLauncher.swift"
-            timestampString = "515311305.944659"
+            filePath = "PokedexApp/Item.swift"
+            timestampString = "515317315.761401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "ViewLauncher"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PokedexApp.ViewLauncher.delegate.getter : Swift.Optional&lt;PokedexApp.ViewLauncherDelegate&gt;"
-                  moduleName = "PokedexApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/ViewLauncher.swift"
-                  timestampString = "515311870.259063"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PokedexApp.ViewLauncher.delegate.setter : Swift.Optional&lt;PokedexApp.ViewLauncherDelegate&gt;"
-                  moduleName = "PokedexApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/ViewLauncher.swift"
-                  timestampString = "515311870.261276"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PokedexApp.ViewLauncher.init (launchViewFrame : __C.CGRect, dimViewFrame : __C.CGRect, swipeToDismissDirection : __C.UISwipeGestureRecognizerDirection) -&gt; PokedexApp.ViewLauncher"
-                  moduleName = "PokedexApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/ViewLauncher.swift"
-                  timestampString = "515311870.262802"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "168">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokedexApp/ViewLauncher.swift"
-            timestampString = "515311316.191612"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "launch(withHeight:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "parseCompletedInfo()"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PokedexApp.ViewLauncher.launch (withHeight : CoreGraphics.CGFloat) -&gt; ()"
+                  symbolName = "PokedexApp.Item.parseCompletedInfo () -&gt; ()"
                   moduleName = "PokedexApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/ViewLauncher.swift"
-                  timestampString = "515311870.267947"
+                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/Item.swift"
+                  timestampString = "515317792.819251"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "15">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PokedexApp.ViewLauncher.(launch (withHeight : CoreGraphics.CGFloat) -&gt; ()).(default argument 0)"
+                  symbolName = "PokedexApp.Item.parseCompletedInfo () -&gt; ()"
                   moduleName = "PokedexApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/ViewLauncher.swift"
-                  timestampString = "515311870.269271"
+                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/Item.swift"
+                  timestampString = "515317792.823441"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "4">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "451">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokedexApp/ViewLauncher.swift"
-            timestampString = "515311318.060642"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "dismiss()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokedexApp/ViewLauncher.swift"
-            timestampString = "515311320.943618"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "getWeaknessView(of:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokedexApp/ViewLauncher.swift"
-            timestampString = "515311413.182312"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "getWeaknessView(of:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokedexApp/ViewLauncher.swift"
-            timestampString = "515311439.177982"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "getWeaknessView(of:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

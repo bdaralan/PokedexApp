@@ -143,7 +143,7 @@ class Pokemon {
             }
         }
         
-        if let evolutions = CONSTANTS.evolutionJSON[name] as? [DictionarySS] {
+        if let evolutions = CONSTANTS.evolutionsJSON[name] as? [DictionarySS] {
             if let evolution = evolutions.first,
                 let evolveFrom = evolution["evolve-from"],
                 let evolveTo = evolution["evolve-to"] {

@@ -81,7 +81,7 @@ class RIOUILabel: UILabel {
         self.roundLabel.baselineAdjustment = .alignCenters
         self.roundLabel.textColor = UIColor.black
         self.roundLabel.backgroundColor = UIColor.white
-        self.roundLabel.layer.borderWidth = 1.5
+        self.roundLabel.layer.borderWidth = 3
     }
 }
 
