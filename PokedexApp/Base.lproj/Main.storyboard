@@ -420,7 +420,6 @@
         <!--Type Details-->
         <scene sceneID="a56-fg-daU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1He-NH-OQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GeS-AS-NPY" customClass="TypeDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NuP-mY-KNY"/>
@@ -498,6 +497,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Type Details" id="PRG-4s-zj9"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1He-NH-OQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2013.5999999999999" y="859.52023988005999"/>
         </scene>

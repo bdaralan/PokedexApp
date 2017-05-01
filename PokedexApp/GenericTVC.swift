@@ -138,7 +138,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             case .TMCell: ()
-            case .ItemCell: ()
+            case .ItemCell:
+                items = CONSTANTS.allItems.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             case .BerryCell: ()
             }
         } else {
@@ -151,13 +152,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                     pokemons = CONSTANTS.allPokemonsSortedById.sortByAlphabet()
                 }
             case .TypeCell: ()
-            types = CONSTANTS.allTypes
+                types = CONSTANTS.allTypes
             case .MoveCell:
                 moves = CONSTANTS.allMoves
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities
             case .TMCell: ()
-            case .ItemCell: ()
+            case .ItemCell:
+                if segmentControllSelectedIndex == 0 {
+                    items = CONSTANTS.allItems
+                } else {
+                    items = CONSTANTS.allItems.sorted(by: {$0.category < $1.category})
+                }
+                
             case .BerryCell: ()
             }
         }
@@ -189,6 +196,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             
             navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
             self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
+            
+        } else if currentGenericCell == .ItemCell {
+            let segmentControll: DBUISegmentedControl = {
+                let sc = DBUISegmentedControl(items: ["A-Z", "Cat"])
+                sc.awakeFromNib()
+                sc.selectedSegmentIndex = 0
+                sc.addTarget(self, action: #selector(segmentControllValueChanged), for: .valueChanged)
+                
+                return sc
+            }()
+            
+            navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
+            self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
         }
     }
     
@@ -209,11 +229,24 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         self.segmentControllSelectedIndex = sender.selectedSegmentIndex
         
-        switch sender.selectedSegmentIndex {
-        case 0:
-            pokemons = CONSTANTS.allPokemonsSortedById
-        case 1:
-            pokemons = pokemons.sortByAlphabet()
+        switch  currentGenericCell {
+        case .PokedexCell:
+            switch sender.selectedSegmentIndex {
+            case 0:
+                pokemons = CONSTANTS.allPokemonsSortedById
+            case 1:
+                pokemons = pokemons.sortByAlphabet()
+            default: ()
+            }
+            
+        case .ItemCell:
+            switch sender.selectedSegmentIndex {
+            case 0:
+                items = CONSTANTS.allItems
+            case 1:
+                items = CONSTANTS.allItems.sorted(by: {$0.category < $1.category})
+            default: ()
+            }
         default: ()
         }
         

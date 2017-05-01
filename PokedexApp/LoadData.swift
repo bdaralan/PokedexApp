@@ -125,7 +125,7 @@ class LoadData {
         let itemsJSON = self.itemJSON()
         var items = [Item]()
         
-        for item in itemJSON().keys {
+        for item in itemJSON().keys.sorted() {
             if let itemDict = itemsJSON[item] as? DictionarySS {
                 if let category = itemDict["category"] {
                     items.append(Item(name: item, category: category))
