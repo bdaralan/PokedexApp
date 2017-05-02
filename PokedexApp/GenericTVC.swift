@@ -18,6 +18,7 @@ enum GenericCell: String {
     case BerryCell = "12"
 }
 
+// TODO: - Fix viewLauncher goes behind navigationController after search ended
 
 class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
@@ -195,6 +196,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             case .BerryCell: ()
             }
         }
+        
+        tableView.reloadData()
     }
     
     // MARK: - Functions
