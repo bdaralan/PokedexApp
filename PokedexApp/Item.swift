@@ -48,8 +48,8 @@ extension Array where Element: Item {
         return self.filter({$0.category != "Machines" && $0.category != "Berries"}).sorted(by: {$0.category < $1.category})
     }
     
-    func filter(for searchText: String) -> [Item] {
+    func filter(for searchText: String, options: String.CompareOptions) -> [Item] {
         
-        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+        return self.filter({$0.name.range(of: searchText, options: options) != nil})
     }
 }

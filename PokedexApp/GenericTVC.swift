@@ -60,13 +60,27 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch currentGenericCell {
-        case .PokedexCell: return pokemons.count
-        case .TypeCell: return types.count
-        case .MoveCell: return moves.count
-        case .AbilityCell: return abilities.count
-        case .TMCell: return items.count
-        case .ItemCell: return items.count
-        case .BerryCell: return items.count
+        
+        case .PokedexCell:
+            return pokemons.count
+        
+        case .TypeCell:
+            return types.count
+        
+        case .MoveCell:
+            return moves.count
+        
+        case .AbilityCell:
+            return abilities.count
+        
+        case .TMCell:
+            return items.count
+        
+        case .ItemCell:
+            return items.count
+        
+        case .BerryCell:
+            return items.count
         }
     }
     
@@ -75,6 +89,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(currentGenericCell)", for: indexPath)
         
         switch currentGenericCell {
+        
         case .PokedexCell:
             if let cell = cell as? PokedexCell {
                 cell.configureCell(pokemon: pokemons[indexPath.row])
@@ -103,10 +118,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             if let cell = cell as? ItemCell {
                 cell.configureCell(tm: items[indexPath.row])
             }
+        
         case .ItemCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(item: items[indexPath.row])
             }
+        
         case .BerryCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(berry: items[indexPath.row])
@@ -119,19 +136,26 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 
         switch currentGenericCell {
+        
         case .PokedexCell:
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        
         case .TypeCell:
             performSegue(withIdentifier: "TypeDetailVC", sender: nil)
+        
         case .MoveCell:
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
+        
         case .AbilityCell: ()
+        
         case .TMCell:
             tableView.deselectRow(at: indexPath, animated: true)
             handleItemCell(selectedRow: indexPath.row)
+        
         case .ItemCell:
             tableView.deselectRow(at: indexPath, animated: true)
             handleItemCell(selectedRow: indexPath.row)
+        
         case .BerryCell:
             tableView.deselectRow(at: indexPath, animated: true)
             handleItemCell(selectedRow: indexPath.row)
@@ -154,38 +178,51 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         if searchController.isActive, let searchText = searchController.searchBar.text, searchText != "" {
             
             switch currentGenericCell {
+            
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText)
+                pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
+                
             case .TypeCell:
                 types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
+            
             case .MoveCell:
-                moves = CONSTANTS.allMoves.filter(for: searchText)
+                moves = CONSTANTS.allMoves.filter(for: searchText, options: .caseInsensitive)
+            
             case .AbilityCell:
-                abilities = CONSTANTS.allAbilities.filter(for: searchText)
+                abilities = CONSTANTS.allAbilities.filter(for: searchText, options: .caseInsensitive)
+            
             case .TMCell:
-                items = CONSTANTS.allItems.machines.filter(for: searchText)
+                items = CONSTANTS.allItems.machines.filter(for: searchText, options: .caseInsensitive)
+            
             case .ItemCell:
-                items = CONSTANTS.allItems.excludeBerriesMachines.filter(for: searchText)
+                items = CONSTANTS.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
+            
             case .BerryCell:
-                items = CONSTANTS.allItems.berries.filter(for: searchText)
+                items = CONSTANTS.allItems.berries.filter(for: searchText, options: .caseInsensitive)
             }
         } else {
             
             switch currentGenericCell {
+            
             case .PokedexCell:
                 if segmentControllSelectedIndex == 0 {
                     pokemons = CONSTANTS.allPokemonsSortedById
                 } else {
                     pokemons = CONSTANTS.allPokemonsSortedById.sortByAlphabet()
                 }
+            
             case .TypeCell: ()
                 types = CONSTANTS.allTypes
+            
             case .MoveCell:
                 moves = CONSTANTS.allMoves
+            
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities
+            
             case .TMCell:
                 items = CONSTANTS.allItems.machines
+            
             case .ItemCell:
                 if segmentControllSelectedIndex == 0 {
                     items = CONSTANTS.allItems.excludeBerriesMachines
@@ -213,20 +250,27 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     func prepareNecessaryData() {
         
         switch currentGenericCell {
+        
         case .PokedexCell:
             pokemons = CONSTANTS.allPokemonsSortedById
+        
         case .TypeCell:
             types = CONSTANTS.allTypes
+        
         case .MoveCell:
             moves = CONSTANTS.allMoves
+        
         case .AbilityCell:
             abilities = CONSTANTS.allAbilities
+        
         case .TMCell:
             items = CONSTANTS.allItems.machines
             configureItemCellTextView()
+        
         case .ItemCell:
             items = CONSTANTS.allItems.excludeBerriesMachines
             configureItemCellTextView()
+        
         case .BerryCell:
             items = CONSTANTS.allItems.berries
             configureItemCellTextView()
@@ -238,6 +282,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         self.segmentControllSelectedIndex = sender.selectedSegmentIndex
         
         switch  currentGenericCell {
+        
         case .PokedexCell:
             if segmentControllSelectedIndex == 0 {
                 pokemons = CONSTANTS.allPokemonsSortedById
@@ -251,6 +296,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             } else { //must be 1
                 items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
             }
+        
         default: ()
         }
         

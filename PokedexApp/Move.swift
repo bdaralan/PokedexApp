@@ -59,8 +59,8 @@ class Move {
 
 extension Array where Element: Move {
     
-    func filter(for searchText: String) -> [Move] {
+    func filter(for searchText: String, options: String.CompareOptions) -> [Move] {
         
-        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+        return self.filter({$0.name.range(of: searchText, options: options) != nil})
     }
 }

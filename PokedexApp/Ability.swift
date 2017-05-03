@@ -40,8 +40,8 @@ class Ability {
 
 extension Array where Element: Ability {
     
-    func filter(for searchText: String) -> [Ability] {
+    func filter(for searchText: String, options: String.CompareOptions) -> [Ability] {
         
-        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+        return self.filter({$0.name.range(of: searchText, options: options) != nil})
     }
 }
