@@ -55,3 +55,12 @@ class Move {
         }
     }
 }
+
+
+extension Array where Element: Move {
+    
+    func filter(for searchText: String) -> [Move] {
+        
+        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+    }
+}

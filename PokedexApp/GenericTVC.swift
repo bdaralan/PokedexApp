@@ -155,19 +155,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             
             switch currentGenericCell {
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemonsSortedById.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText)
             case .TypeCell:
                 types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
             case .MoveCell:
-                moves = CONSTANTS.allMoves.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                moves = CONSTANTS.allMoves.filter(for: searchText)
             case .AbilityCell:
-                abilities = CONSTANTS.allAbilities.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                abilities = CONSTANTS.allAbilities.filter(for: searchText)
             case .TMCell:
-                items = CONSTANTS.allItems.machines.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                items = CONSTANTS.allItems.machines.filter(for: searchText)
             case .ItemCell:
-                items = CONSTANTS.allItems.excludeBerriesMachines.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                items = CONSTANTS.allItems.excludeBerriesMachines.filter(for: searchText)
             case .BerryCell:
-                items = CONSTANTS.allItems.berries.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                items = CONSTANTS.allItems.berries.filter(for: searchText)
             }
         } else {
             
@@ -190,7 +190,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                 if segmentControllSelectedIndex == 0 {
                     items = CONSTANTS.allItems.excludeBerriesMachines
                 } else {
-                    items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
+                    items = CONSTANTS.allItems.excludeBerriesMachines
                 }
                 
             case .BerryCell:

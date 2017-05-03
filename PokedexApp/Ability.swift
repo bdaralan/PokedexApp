@@ -36,3 +36,12 @@ class Ability {
         }
     }
 }
+
+
+extension Array where Element: Ability {
+    
+    func filter(for searchText: String) -> [Ability] {
+        
+        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+    }
+}

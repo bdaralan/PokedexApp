@@ -37,6 +37,8 @@ class Constant {
     lazy var allMoves = loadData.allMoves()
     lazy var allItems = loadData.allItems()
     
+    lazy var evolutionSpecialCaseForm = loadData.evolutionSpecialCaseForm()
+    
     lazy var constrain = Constrain()
 }
 

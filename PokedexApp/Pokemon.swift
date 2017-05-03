@@ -234,7 +234,7 @@ extension Pokemon {
         
         // TODO: condition for mega✓, alolan✓
         if self.hasForm {
-            if self.form.contains("mega") || self.form.contains("primal"),
+            if CONSTANTS.evolutionSpecialCaseForm.contains(self.form),
                 let noFormPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.id == self.id}).first {
                 selfNoForm = noFormPokemon
             }
@@ -300,5 +300,10 @@ extension Array where Element: Pokemon {
     func sortByAlphabet() -> [Pokemon] {
         
         return self.sorted(by: {$0.name < $1.name})
+    }
+    
+    func filter(for searchText: String) -> [Pokemon] {
+        
+        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
     }
 }

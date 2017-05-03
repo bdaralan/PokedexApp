@@ -202,6 +202,17 @@ class LoadData {
         return [String]()
     }
     
+    func evolutionSpecialCaseForm() -> [String] {
+        
+        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        if let specialCaseForm = plist["EvolutionSpecialCaseForm"] as? [String] {
+            
+            return specialCaseForm
+        }
+        
+        return [String]()
+    }
+    
     private func loadDataFromFile(name: String, ofType type: String) -> DictionarySA {
         
         if let path = Bundle.main.path(forResource: name, ofType: type), let data = NSData(contentsOfFile: path) as Data? {

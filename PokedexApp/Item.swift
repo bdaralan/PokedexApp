@@ -45,6 +45,11 @@ extension Array where Element: Item {
     }
     
     var excludeBerriesMachines: [Item] {
-        return self.filter({$0.category != "Machines" && $0.category != "Berries"})
+        return self.filter({$0.category != "Machines" && $0.category != "Berries"}).sorted(by: {$0.category < $1.category})
+    }
+    
+    func filter(for searchText: String) -> [Item] {
+        
+        return self.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
     }
 }

@@ -70,5 +70,13 @@
 		<string>Dark</string>
 		<string>Fairy</string>
 	</array>
+	<key>EvolutionSpecialCaseForm</key>
+	<array>
+		<string>mega</string>
+		<string>mega-x</string>
+		<string>mega-y</string>
+		<string>primal</string>
+		<string>ash</string>
+	</array>
 </dict>
 </plist>
