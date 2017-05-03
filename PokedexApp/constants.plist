@@ -79,5 +79,210 @@
 		<string>ash</string>
 		<string>shield</string>
 	</array>
+	<key>CrySoundSpecialCaseName</key>
+	<dict>
+		<key>Mega Venusaur</key>
+		<string>Venusaur</string>
+		<key>Mega Charizard X</key>
+		<string>Charizard</string>
+		<key>Mega Charizard Y</key>
+		<string>Charizard</string>
+		<key>Mega Blastoise</key>
+		<string>Blastoise</string>
+		<key>Mega Beedrill</key>
+		<string>Beedrill</string>
+		<key>Mega Pidgeot</key>
+		<string>Pidgeot</string>
+		<key>Alolan Rattata</key>
+		<string>Rattata</string>
+		<key>Alolan Raticate</key>
+		<string>Raticate</string>
+		<key>Alolan Raichu</key>
+		<string>Raichu</string>
+		<key>Alolan Sandshrew</key>
+		<string>Sandshrew</string>
+		<key>Alolan Sandslash</key>
+		<string>Sandslash</string>
+		<key>Alolan Vulpix</key>
+		<string>Vulpix</string>
+		<key>Alolan Ninetales</key>
+		<string>Ninetales</string>
+		<key>Alolan Diglett</key>
+		<string>Diglett</string>
+		<key>Alolan Dugtrio</key>
+		<string>Dugtrio</string>
+		<key>Alolan Meowth</key>
+		<string>Meowth</string>
+		<key>Alolan Persian</key>
+		<string>Persian</string>
+		<key>Mega Alakazam</key>
+		<string>Alakazam</string>
+		<key>Alolan Geodude</key>
+		<string>Geodude</string>
+		<key>Alolan Graveler</key>
+		<string>Graveler</string>
+		<key>Alolan Golem</key>
+		<string>Golem</string>
+		<key>Mega Slowbro</key>
+		<string>Slowbro</string>
+		<key>Alolan Grimer</key>
+		<string>Grimer</string>
+		<key>Alolan Muk</key>
+		<string>Muk</string>
+		<key>Mega Gengar</key>
+		<string>Gengar</string>
+		<key>Alolan Exeggutor</key>
+		<string>Exeggutor</string>
+		<key>Alolan Marowak</key>
+		<string>Marowak</string>
+		<key>Mega Kangaskhan</key>
+		<string>Kangaskhan</string>
+		<key>Mega Pinsir</key>
+		<string>Pinsir</string>
+		<key>Mega Gyarados</key>
+		<string>Gyarados</string>
+		<key>Mega Aerodactyl</key>
+		<string>Aerodactyl</string>
+		<key>Mega Ampharos</key>
+		<string>Ampharos</string>
+		<key>Mega Steelix</key>
+		<string>Steelix</string>
+		<key>Mega Scizor</key>
+		<string>Scizor</string>
+		<key>Mega Heracross</key>
+		<string>Heracross</string>
+		<key>Mega Houndoom</key>
+		<string>Houndoom</string>
+		<key>Mega Tyranitar</key>
+		<string>Tyranitar</string>
+		<key>Mega Sceptile</key>
+		<string>Sceptile</string>
+		<key>Mega Blaziken</key>
+		<string>Blaziken</string>
+		<key>Mega Swampert</key>
+		<string>Swampert</string>
+		<key>Mega Gardevoir</key>
+		<string>Gardevoir</string>
+		<key>Mega Sableye</key>
+		<string>Sableye</string>
+		<key>Mega Mawile</key>
+		<string>Mawile</string>
+		<key>Mega Aggron</key>
+		<string>Aggron</string>
+		<key>Mega Medicham</key>
+		<string>Medicham</string>
+		<key>Mega Manectric</key>
+		<string>Manectric</string>
+		<key>Mega Sharpedo</key>
+		<string>Sharpedo</string>
+		<key>Mega Camerupt</key>
+		<string>Camerupt</string>
+		<key>Mega Altaria</key>
+		<string>Altaria</string>
+		<key>Mega Banette</key>
+		<string>Banette</string>
+		<key>Mega Absol</key>
+		<string>Absol</string>
+		<key>Mega Glalie</key>
+		<string>Glalie</string>
+		<key>Mega Salamence</key>
+		<string>Salamence</string>
+		<key>Mega Metagross</key>
+		<string>Metagross</string>
+		<key>Mega Latias</key>
+		<string>Latias</string>
+		<key>Mega Latios</key>
+		<string>Latios</string>
+		<key>Primal Kyogre</key>
+		<string>Kyogre</string>
+		<key>Primal Groudon</key>
+		<string>Groudon</string>
+		<key>Mega Rayquaza</key>
+		<string>Rayquaza</string>
+		<key>Burmy Plant</key>
+		<string>Burmy</string>
+		<key>Burmy Sandy</key>
+		<string>Burmy</string>
+		<key>Burmy Trash</key>
+		<string>Burmy</string>
+		<key>Wormadam Plant</key>
+		<string>Wormadam</string>
+		<key>Wormadam Sandy</key>
+		<string>Wormadam</string>
+		<key>Wormadam Trash</key>
+		<string>Wormadam</string>
+		<key>Cherrim Overcast</key>
+		<string>Cherrim</string>
+		<key>Cherrim Sunshine</key>
+		<string>Cherrim</string>
+		<key>Shellos East</key>
+		<string>Shellos</string>
+		<key>Shellos West</key>
+		<string>Shellos</string>
+		<key>Gastrodon East</key>
+		<string>Gastrodon</string>
+		<key>Gastrodon West</key>
+		<string>Gastrodon</string>
+		<key>Mega Lopunny</key>
+		<string>Lopunny</string>
+		<key>Mega Garchomp</key>
+		<string>Garchomp</string>
+		<key>Mega Lucario</key>
+		<string>Lucario</string>
+		<key>Mega Abomasnow</key>
+		<string>Abomasnow</string>
+		<key>Mega Gallade</key>
+		<string>Gallade</string>
+		<key>Mega Audino</key>
+		<string>Audino</string>
+		<key>Darmanitan Standard</key>
+		<string>Darmanitan</string>
+		<key>Darmanitan Zen</key>
+		<string>Darmanitan</string>
+		<key>Deerling Autumm</key>
+		<string>Deerling</string>
+		<key>Deerling Spring</key>
+		<string>Deerling</string>
+		<key>Deerling Summer</key>
+		<string>Deerling</string>
+		<key>Deerling Winter</key>
+		<string>Deerling</string>
+		<key>Sawsbuck Autumm</key>
+		<string>Sawsbuck</string>
+		<key>Sawsbuck Spring</key>
+		<string>Sawsbuck</string>
+		<key>Sawsbuck Summer</key>
+		<string>Sawsbuck</string>
+		<key>Sawsbuck Winter</key>
+		<string>Sawsbuck</string>
+		<key>Keldeo Ordinary</key>
+		<string>Keldeo</string>
+		<key>Keldeo Resolute</key>
+		<string>Keldeo</string>
+		<key>Ash Greninja</key>
+		<string>Greninja</string>
+		<key>Aegislash Blade</key>
+		<string>Aegislash</string>
+		<key>Aegislash Shield</key>
+		<string>Aegislash</string>
+		<key>Pumpkaboo Average Size</key>
+		<string>Pumpkaboo</string>
+		<key>Pumpkaboo Large Size</key>
+		<string>Pumpkaboo</string>
+		<key>Pumpkaboo Small Size</key>
+		<string>Pumpkaboo</string>
+		<key>Pumpkaboo Super Size</key>
+		<string>Pumpkaboo</string>
+		<key>Gourgeist Average Size</key>
+		<string>Gourgeist</string>
+		<key>Gourgeist Large Size</key>
+		<string>Gourgeist</string>
+		<key>Gourgeist Small Size</key>
+		<string>Gourgeist</string>
+		<key>Gourgeist Super Size</key>
+		<string>Gourgeist</string>
+		<key>Mega Diancie</key>
+		<string>Diancie</string>
+	</dict>
 </dict>
 </plist>

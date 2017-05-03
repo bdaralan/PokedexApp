@@ -197,6 +197,31 @@ extension Pokemon {
         return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
     }
     
+    var cryName: String {
+        var name = "error-sound"
+        
+        if self.name == "Type: Null" {
+            name = "Type: Null"
+        } else if self.name.contains("Mega") {
+            let replaces = ["Mega", "Mega X", "Mega Y", " "]
+            for replace in replaces {
+                name = name.replacingOccurrences(of: replace, with: "")
+            }
+        } else if self.name.contains("Primal") {
+            let replaces = ["Primal", " "]
+            for replace in replaces {
+                name = name.replacingOccurrences(of: replace, with: "")
+            }
+        } else if self.name.contains("Alolan") {
+            let replaces = ["Alolan", " "]
+            for replace in replaces {
+                name = name.replacingOccurrences(of: replace, with: "")
+            }
+        }
+        
+        return "\(self.id)-\(name)"
+    }
+    
     func getWeaknesses() -> DictionarySS {
         
         var weaknessesDict = DictionarySS()
