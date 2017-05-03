@@ -42,10 +42,14 @@ class SettingTVC: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewLauncher.launchView.removeFromSuperview()
-        viewLauncher.dimView.removeFromSuperview()
-
+        viewLauncher.dismiss()
         saveSettingToUserDefaults()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        viewLauncher.removeFromSuperview()
     }
 
     // MARK: - Table view data source
@@ -71,9 +75,7 @@ class SettingTVC: UITableViewController {
                 
             case.disclaimer:
                 textView.text = "Disclaimer:\n- This is for practice and learning purposes only.\n- All contents, arts, assets, and data belong to their respective owners."
-                textView.sizeToFit()
-                textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
-                textView.frame.size.height = textView.contentSize.height
+                viewLauncher.addSubview(textView)
                 viewLauncher.launch(withHeight: textView.frame.height)
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#disclaimer") {
 //                    UIApplication.shared.open(url)
@@ -81,9 +83,7 @@ class SettingTVC: UITableViewController {
                 
             case .credits:
                 textView.text = "Data Resources:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site"
-                textView.sizeToFit()
-                textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
-                textView.frame.size.height = textView.contentSize.height
+                viewLauncher.addSubview(textView)
                 viewLauncher.launch(withHeight: textView.frame.height)
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#data-resources") {
 //                    UIApplication.shared.open(url)
@@ -110,16 +110,17 @@ class SettingTVC: UITableViewController {
             let width = navController.view.frame.width
             let height = navController.view.frame.height
             
-            let launchViewFrame = CGRect(x: x, y: y, width: width, height: height - y)
+            let launchViewFrame = CGRect(x: x, y: y, width: width, height: height)
             let dimViewFrame = CGRect(x: x, y: y, width: width, height: height)
             
             viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
-            viewLauncher.isUseDefaultDismissOrigin = false
-            viewLauncher.removeSubviewsAfterDimissed = false
+            viewLauncher.isRemoveSubviewsAfterDimissed = false
             viewLauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
             
-            navController.view.addSubview(viewLauncher.dimView)
-            navController.view.addSubview(viewLauncher.launchView)
+            if let keyWindow = UIApplication.shared.keyWindow {
+                viewLauncher.setSuperview(keyWindow)
+            }
+        
         }
         
         let margin = CONSTANTS.constrain.margin
@@ -128,6 +129,5 @@ class SettingTVC: UITableViewController {
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
         textView.isScrollEnabled = false
         textView.isEditable = false
-        viewLauncher.launchView.addSubview(textView)
     }
 }

@@ -33,3 +33,18 @@ class Item {
         }
     }
 }
+
+extension Array where Element: Item {
+    
+    var machines: [Item] {
+        return self.filter({$0.category == "Machines"})
+    }
+    
+    var berries: [Item] {
+        return self.filter({$0.category == "Berries"})
+    }
+    
+    var excludeBerriesMachines: [Item] {
+        return self.filter({$0.category != "Machines" && $0.category != "Berries"})
+    }
+}

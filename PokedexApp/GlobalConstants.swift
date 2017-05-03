@@ -19,25 +19,25 @@ let COLORS = Colors()
 let loadData = LoadData()
 let CONSTANTS = Constant()
 
-struct Constant {
+class Constant {
     
-    let movesJSON = loadData.movesJSON()
-    let pokemonsJSON = loadData.pokemonsJSON()
-    let abilitiesJSON = loadData.abilitiesJSON()
-    let pokemonAbilitiesJSON = loadData.pokemonAbilitiesJSON()
-    let measurementsJSON = loadData.measurementsJSON()
-    let weaknessesJSON = loadData.weaknessesJSON()
-    let pokedexEntriesJSON = loadData.pokedexEntriesJSON()
-    let evolutionsJSON = loadData.evolutionJSON()
-    let itemsJSON = loadData.itemJSON()
+    lazy var movesJSON = loadData.movesJSON()
+    lazy var pokemonsJSON = loadData.pokemonsJSON()
+    lazy var abilitiesJSON = loadData.abilitiesJSON()
+    lazy var pokemonAbilitiesJSON = loadData.pokemonAbilitiesJSON()
+    lazy var measurementsJSON = loadData.measurementsJSON()
+    lazy var weaknessesJSON = loadData.weaknessesJSON()
+    lazy var pokedexEntriesJSON = loadData.pokedexEntriesJSON()
+    lazy var evolutionsJSON = loadData.evolutionJSON()
+    lazy var itemsJSON = loadData.itemJSON()
     
-    let allPokemonsSortedById = loadData.allPokemons(by: .id)
-    let allAbilities = loadData.allAbilities()
-    let allTypes = loadData.allTypes()
-    let allMoves = loadData.allMoves()
-    let allItems = loadData.allItems()
+    lazy var allPokemonsSortedById = loadData.allPokemons(by: .id)
+    lazy var allAbilities = loadData.allAbilities()
+    lazy var allTypes = loadData.allTypes()
+    lazy var allMoves = loadData.allMoves()
+    lazy var allItems = loadData.allItems()
     
-    let constrain = Constrain()
+    lazy var constrain = Constrain()
 }
 
 struct Key {

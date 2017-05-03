@@ -66,6 +66,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         DispatchQueue.main.async {
             self.updatePokemonStatsProgressViews()
@@ -225,8 +226,7 @@ class PokemonInfoVC: UIViewController {
             
             viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .up)
             
-            self.view.addSubview(viewLauncher.dimView)
-            self.view.addSubview(viewLauncher.launchView)
+            viewLauncher.setSuperview(self.view)
         }
     }
     
@@ -284,7 +284,7 @@ class PokemonInfoVC: UIViewController {
                     weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
                     if viewLauncher.isIdle {
                         let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
-                        viewLauncher.launchView.addSubview(weaknessesView)
+                        viewLauncher.addSubview(weaknessesView)
                         viewLauncher.launch(withHeight: weaknessesView.frame.height)
                     }
                 }
@@ -296,7 +296,7 @@ class PokemonInfoVC: UIViewController {
                     pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
                     if viewLauncher.isIdle {
                         let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
-                        viewLauncher.launchView.addSubview(pokedexEntryView)
+                        viewLauncher.addSubview(pokedexEntryView)
                         viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
                     }
                 }

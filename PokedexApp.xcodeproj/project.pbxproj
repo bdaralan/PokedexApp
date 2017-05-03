@@ -52,7 +52,7 @@
 		53FD91F81EB711EB00C7EC86 /* TypeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD91F71EB711EB00C7EC86 /* TypeDetailVC.swift */; };
 		53FD91FA1EB7157C00C7EC86 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FD91F91EB7157C00C7EC86 /* items.json */; };
 		53FD91FC1EB715BD00C7EC86 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD91FB1EB715BD00C7EC86 /* Item.swift */; };
-		53FD91FE1EB71B3400C7EC86 /* SimpleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD91FD1EB71B3400C7EC86 /* SimpleCell.swift */; };
+		53FD91FE1EB71B3400C7EC86 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,7 +103,7 @@
 		53FD91F71EB711EB00C7EC86 /* TypeDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeDetailVC.swift; sourceTree = "<group>"; };
 		53FD91F91EB7157C00C7EC86 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		53FD91FB1EB715BD00C7EC86 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		53FD91FD1EB71B3400C7EC86 /* SimpleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCell.swift; sourceTree = "<group>"; };
+		53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 		53CF3DE41E8A27050073A516 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				53FD91FD1EB71B3400C7EC86 /* SimpleCell.swift */,
+				53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */,
 				53CF3DEA1E8A28340073A516 /* PokedexCell.swift */,
 				53ECA7161EA2FA8000964977 /* TypeCell.swift */,
 				53ECA70A1EA2719600964977 /* MoveCell.swift */,
@@ -346,7 +346,7 @@
 				532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */,
 				53D440411EABB4CB00A11365 /* InsetUILabel.swift in Sources */,
 				53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */,
-				53FD91FE1EB71B3400C7EC86 /* SimpleCell.swift in Sources */,
+				53FD91FE1EB71B3400C7EC86 /* ItemCell.swift in Sources */,
 				536095C01E9715D700D2F2FC /* MeasurementUILabel.swift in Sources */,
 				53CF3DE71E8A27760073A516 /* PokedexTVC.swift in Sources */,
 				53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  SimpleCell.swift
+//  ItemCell.swift
 //  PokedexApp
 //
 //  Created by Dara on 5/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SimpleCell: UITableViewCell {
+class ItemCell: UITableViewCell {
 
     @IBOutlet weak var rhsLbl: UILabel!
     @IBOutlet weak var lhsLbl: UILabel!
@@ -18,5 +18,14 @@ class SimpleCell: UITableViewCell {
         rhsLbl.text = item.name
         lhsLbl.text = item.category
     }
-
+    
+    func configureCell(tm: Item) {
+        rhsLbl.text = tm.name
+        lhsLbl.isHidden = true
+    }
+    
+    func configureCell(berry: Item) {
+        rhsLbl.text = berry.name
+        lhsLbl.isHidden = true
+    }
 }

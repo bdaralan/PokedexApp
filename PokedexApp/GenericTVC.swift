@@ -52,8 +52,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         super.viewWillDisappear(animated)
         
         if viewLauncher != nil {
-            viewLauncher?.launchView.removeFromSuperview()
-            viewLauncher?.dimView.removeFromSuperview()
+            viewLauncher?.dismiss()
         }
     }
     
@@ -65,9 +64,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .TypeCell: return types.count
         case .MoveCell: return moves.count
         case .AbilityCell: return abilities.count
-        case .TMCell: return 0
+        case .TMCell: return items.count
         case .ItemCell: return items.count
-        case .BerryCell: return 0
+        case .BerryCell: return items.count
         }
     }
     
@@ -100,12 +99,18 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                 return cell
             }
             
-        case .TMCell: return cell
+        case .TMCell:
+            if let cell = cell as? ItemCell {
+                cell.configureCell(tm: items[indexPath.row])
+            }
         case .ItemCell:
-            if let cell = cell as? SimpleCell {
+            if let cell = cell as? ItemCell {
                 cell.configureCell(item: items[indexPath.row])
             }
-        case .BerryCell: return cell
+        case .BerryCell:
+            if let cell = cell as? ItemCell {
+                cell.configureCell(berry: items[indexPath.row])
+            }
         }
         
         return cell //should never reach this line
@@ -121,23 +126,15 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .MoveCell:
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
         case .AbilityCell: ()
-        case .TMCell: ()
+        case .TMCell:
+            tableView.deselectRow(at: indexPath, animated: true)
+            handleItemCell(selectedRow: indexPath.row)
         case .ItemCell:
-            if !items[indexPath.row].hasCompletedInfo {
-                items[indexPath.row].parseCompletedInfo()
-            }
-            
-            if let textView = textView, let viewLauncher = viewLauncher {
-                textView.text = items[indexPath.row].effect
-                textView.sizeToFit()
-                textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
-                textView.frame.size.height = textView.contentSize.height
-                
-                viewLauncher.launchView.frame.size.height = textView.contentSize.height
-            }
-            
-            viewLauncher?.launch()
-        case .BerryCell: ()
+            tableView.deselectRow(at: indexPath, animated: true)
+            handleItemCell(selectedRow: indexPath.row)
+        case .BerryCell:
+            tableView.deselectRow(at: indexPath, animated: true)
+            handleItemCell(selectedRow: indexPath.row)
         }
     }
     
@@ -165,10 +162,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                 moves = CONSTANTS.allMoves.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
-            case .TMCell: ()
+            case .TMCell:
+                items = CONSTANTS.allItems.machines.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             case .ItemCell:
-                items = CONSTANTS.allItems.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
-            case .BerryCell: ()
+                items = CONSTANTS.allItems.excludeBerriesMachines.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+            case .BerryCell:
+                items = CONSTANTS.allItems.berries.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
             }
         } else {
             
@@ -185,22 +184,96 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
                 moves = CONSTANTS.allMoves
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities
-            case .TMCell: ()
+            case .TMCell:
+                items = CONSTANTS.allItems.machines
             case .ItemCell:
                 if segmentControllSelectedIndex == 0 {
-                    items = CONSTANTS.allItems
+                    items = CONSTANTS.allItems.excludeBerriesMachines
                 } else {
-                    items = CONSTANTS.allItems.sorted(by: {$0.category < $1.category})
+                    items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
                 }
                 
-            case .BerryCell: ()
+            case .BerryCell:
+                items = CONSTANTS.allItems.berries
             }
         }
         
         tableView.reloadData()
     }
     
+    // MARK: - IBActions
+    @IBAction func searchBtnTapped(_ sender: Any) {
+        
+        present(searchResultController, animated: true) {
+            self.searchResultController.searchBar.becomeFirstResponder()
+        }
+    }
+    
     // MARK: - Functions
+    func prepareNecessaryData() {
+        
+        switch currentGenericCell {
+        case .PokedexCell:
+            pokemons = CONSTANTS.allPokemonsSortedById
+        case .TypeCell:
+            types = CONSTANTS.allTypes
+        case .MoveCell:
+            moves = CONSTANTS.allMoves
+        case .AbilityCell:
+            abilities = CONSTANTS.allAbilities
+        case .TMCell:
+            items = CONSTANTS.allItems.machines
+            configureItemCellTextView()
+        case .ItemCell:
+            items = CONSTANTS.allItems.excludeBerriesMachines
+            configureItemCellTextView()
+        case .BerryCell:
+            items = CONSTANTS.allItems.berries
+            configureItemCellTextView()
+        }
+    }
+    
+    func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
+        
+        self.segmentControllSelectedIndex = sender.selectedSegmentIndex
+        
+        switch  currentGenericCell {
+        case .PokedexCell:
+            if segmentControllSelectedIndex == 0 {
+                pokemons = CONSTANTS.allPokemonsSortedById
+            } else { //must be 1
+                pokemons = pokemons.sortByAlphabet()
+            }
+            
+        case .ItemCell:
+            if segmentControllSelectedIndex == 0 {
+                items = CONSTANTS.allItems.excludeBerriesMachines
+            } else { //must be 1
+                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
+            }
+        default: ()
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func handleItemCell(selectedRow: Int) {
+        
+        if !items[selectedRow].hasCompletedInfo {
+            items[selectedRow].parseCompletedInfo()
+        }
+        
+        if let textView = textView, let viewLauncher = viewLauncher {
+            textView.text = items[selectedRow].effect
+            textView.sizeToFit()
+            textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
+            textView.frame.size.height = textView.contentSize.height
+            
+            viewLauncher.launchView.frame.size.height = textView.contentSize.height
+            viewLauncher.launch()
+        }
+    }
+    
     func configureNavigationBar() {
         
         searchResultController = UISearchController(searchResultsController: nil)
@@ -240,88 +313,41 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         }
     }
     
-    func prepareNecessaryData() {
+    func configureItemCellTextView() {
         
-        switch currentGenericCell {
-        case .PokedexCell:
-            pokemons = CONSTANTS.allPokemonsSortedById
-        case .TypeCell:
-            types = CONSTANTS.allTypes
-        case .MoveCell:
-            moves = CONSTANTS.allMoves
-        case .AbilityCell:
-            abilities = CONSTANTS.allAbilities
-        case .TMCell: ()
-        case .ItemCell:
-            items = CONSTANTS.allItems
+        if let navigationBarFrame = self.navigationController?.navigationBar.frame {
+            let y = UIApplication.shared.statusBarFrame.height + navigationBarFrame.height + 0.5
+            let width = self.view.frame.width
+            let launchViewFrame = CGRect(x: 0, y: y, width: width, height: 50)
+            let dimViewFrame = CGRect(x: 0, y: y, width: width, height: self.view.frame.height - y)
             
-            if let navigationBarFrame = self.navigationController?.navigationBar.frame {
-                let y = UIApplication.shared.statusBarFrame.height + navigationBarFrame.height + 0.5
-                let width = self.view.frame.width
-                let launchViewFrame = CGRect(x: 0, y: y, width: width, height: 50)
-                let dimViewFrame = CGRect(x: 0, y: 0, width: width, height: self.view.frame.height)
+            viewLauncher = {
+                let vlauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
                 
-                viewLauncher = {
-                    let vlauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
-                   
-                    vlauncher.removeSubviewsAfterDimissed = false
-                    vlauncher.isUseDefaultDismissOrigin = false
-                    vlauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
-                    
-                    self.navigationController?.view.addSubview(vlauncher.dimView)
-                    self.navigationController?.view.addSubview(vlauncher.launchView)
-                    
-                    return vlauncher
-                }()
+                vlauncher.isRemoveSubviewsAfterDimissed = false
+                vlauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
                 
-                textView = {
-                    let x = CONSTANTS.constrain.margin
-                    let width = launchViewFrame.width - (x * 2)
-                    let height = launchViewFrame.height
-                    
-                    let tv = UITextView(frame: CGRect(x: x, y: 0, width: width, height:height))
-                    tv.isScrollEnabled = false
-                    tv.isEditable = false
-                    tv.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
-                    
-                    return tv
-                }()
+                if let keyWindow = UIApplication.shared.keyWindow {
+                    vlauncher.setSuperview(keyWindow)
+                }
                 
-                viewLauncher?.launchView.addSubview(textView!)
-            }
-        case .BerryCell: ()
-        }
-    }
-    
-    func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
-        
-        self.segmentControllSelectedIndex = sender.selectedSegmentIndex
-        
-        switch  currentGenericCell {
-        case .PokedexCell:
-            if segmentControllSelectedIndex == 0 {
-                pokemons = CONSTANTS.allPokemonsSortedById
-            } else { //must be 1
-                pokemons = pokemons.sortByAlphabet()
-            }
+                return vlauncher
+            }()
             
-        case .ItemCell:
-            if segmentControllSelectedIndex == 0 {
-                items = CONSTANTS.allItems
-            } else { //must be 1
-                items = CONSTANTS.allItems.sorted(by: {$0.category < $1.category})
-            }
-        default: ()
-        }
-        
-        tableView.reloadData()
-    }
-    
-    // MARK: - IBActions
-    @IBAction func searchBtnTapped(_ sender: Any) {
-        
-        present(searchResultController, animated: true) { 
-            self.searchResultController.searchBar.becomeFirstResponder()
+            textView = {
+                let x = CONSTANTS.constrain.margin
+                let width = launchViewFrame.width - (x * 2)
+                let height = launchViewFrame.height
+                
+                let tv = UITextView(frame: CGRect(x: x, y: 0, width: width, height:height))
+                tv.isScrollEnabled = false
+                tv.isEditable = false
+                tv.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+                
+                return tv
+            }()
+            
+            viewLauncher?.launchView.addSubview(textView!)
         }
     }
 }

@@ -25,26 +25,19 @@ class ViewLauncher: NSObject {
     var dimView: UIView!
     
     var animatedDuration: TimeInterval = 0.5
-    var removeSubviewsAfterDimissed: Bool = true
-    var isUseDefaultDismissOrigin = true
+    var isRemoveSubviewsAfterDimissed: Bool = true
     var isIdle: Bool = true
     
     private var _launchOrigin: CGPoint!
     private var _dimissOrigin: CGPoint!
+    private var _swipeToDismissDirection: UISwipeGestureRecognizerDirection!
     
     var dismissOrigin: CGPoint {
         set {
-            if !isUseDefaultDismissOrigin {
-                _dimissOrigin = newValue
-            }
+            _dimissOrigin = newValue
         }
         get {
-            if isUseDefaultDismissOrigin {
-                _dimissOrigin = CGPoint(x: _launchOrigin.x, y: -(_launchOrigin.y + launchView.frame.height))
-                return _dimissOrigin
-            } else {
-                return _dimissOrigin
-            }
+            return _dimissOrigin
         }
     }
     
@@ -52,13 +45,15 @@ class ViewLauncher: NSObject {
     init(launchViewFrame: CGRect, dimViewFrame: CGRect, swipeToDismissDirection: UISwipeGestureRecognizerDirection) {
         super.init()
         
+        self._swipeToDismissDirection = swipeToDismissDirection
         self._launchOrigin = launchViewFrame.origin
+        self._dimissOrigin = CGPoint(x: launchViewFrame.origin.x, y: -(launchViewFrame.origin.y + launchViewFrame.height))
         
         self.launchView = {
             let view = UIView(frame: launchViewFrame)
             view.backgroundColor = UIColor.white
             
-            let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
+            let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(withDuration:)))
             swipeUpGesture.direction = swipeToDismissDirection
             view.addGestureRecognizer(swipeUpGesture)
             
@@ -72,15 +67,36 @@ class ViewLauncher: NSObject {
             view.backgroundColor = UIColor(white: 0, alpha: 0.3)
             view.alpha = 0
             
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss(withDuration:)))
             view.addGestureRecognizer(tapGesture)
             
             return view
         }()
     }
     
+    func setSuperview(_ superview: UIView) {
+        
+        superview.addSubview(self.dimView)
+        superview.addSubview(self.launchView)
+    }
     
-    func launch(withHeight height: CGFloat = 0) {
+    func removeFromSuperview() {
+        
+        self.dimView.removeFromSuperview()
+        self.launchView.removeFromSuperview()
+    }
+    
+    func addSubview(_ subview: UIView) {
+        
+        subview.sizeToFit()
+        subview.frame.size.width = launchView.frame.width - (subview.frame.origin.x * 2)
+        
+        launchView.frame.size.height = subview.frame.height
+        
+        launchView.addSubview(subview)
+    }
+    
+    func launch(withDuration duration: TimeInterval = 0, withHeight height: CGFloat = 0) {
         
         if self.isIdle {
             self.isIdle = false
@@ -91,8 +107,11 @@ class ViewLauncher: NSObject {
                 self.delegate?.viewLauncher!(willLaunchAt: self._launchOrigin)
             }
             
+            var duration = duration
+            if duration == 0 { duration = animatedDuration }
+            
             self.launchView.frame.origin = dismissOrigin
-            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 1
                 self.launchView.frame.origin = self._launchOrigin
             }) { (Bool) in
@@ -104,7 +123,7 @@ class ViewLauncher: NSObject {
         }
     }
     
-    func dismiss() {
+    func dismiss(withDuration duration: TimeInterval = 0) {
         
         if self.isIdle {
             self.isIdle = false
@@ -112,11 +131,14 @@ class ViewLauncher: NSObject {
                 self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin)
             }
             
-            UIView.animate(withDuration: animatedDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            var duration = duration
+            if duration == 0 { duration = animatedDuration }
+            
+            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.dimView.alpha = 0
                 self.launchView.frame.origin = self.dismissOrigin
             }) { (Bool) in
-                if self.removeSubviewsAfterDimissed {
+                if self.isRemoveSubviewsAfterDimissed {
                     for subview in self.launchView.subviews {
                         subview.removeFromSuperview()
                     }
