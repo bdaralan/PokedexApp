@@ -23,32 +23,36 @@ class AudioPlayer {
     
     func play(audio: String, ofType type: String = "m4a", forcePlay: Bool = false) {
         
-        if forcePlay || soundEffectIsOn {
-            if let path = Bundle.main.path(forResource: audio, ofType: type) {
-                do {
-                    player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                } catch { print(error) }
-                
-                player.prepareToPlay()
-                player.play()
-                
-            } else {
-                self.play(audio: .error)
+        DispatchQueue.main.async {
+            if forcePlay || self.soundEffectIsOn {
+                if let path = Bundle.main.path(forResource: audio, ofType: type) {
+                    do {
+                        self.player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                    } catch { print(error) }
+                    
+                    self.player.prepareToPlay()
+                    self.player.play()
+                    
+                } else {
+                    self.play(audio: .error)
+                }
             }
         }
     }
     
     func play(audio: AudioFile, forcePlay: Bool = false) {
         
-        if forcePlay || soundEffectIsOn {
-            if let path = Bundle.main.path(forResource: audio.rawValue, ofType: "m4a") {
-                do {
-                    player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                } catch { print(error) }
+        DispatchQueue.main.async {
+            if forcePlay || self.soundEffectIsOn {
+                if let path = Bundle.main.path(forResource: audio.rawValue, ofType: "m4a") {
+                    do {
+                        self.player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                    } catch { print(error) }
+                }
+                
+                self.player.prepareToPlay()
+                self.player.play()
             }
-            
-            player.prepareToPlay()
-            player.play()
         }
     }
 }

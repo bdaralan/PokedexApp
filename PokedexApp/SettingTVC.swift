@@ -76,6 +76,7 @@ class SettingTVC: UITableViewController {
                 }
                 
             case.disclaimer:
+                audioPlayer.play(audio: .select)
                 textView.text = "Disclaimer:\n- This is for practice and learning purposes only.\n- All contents, arts, assets, and data belong to their respective owners."
                 viewLauncher.addSubview(textView)
                 viewLauncher.launch(withHeight: textView.frame.height)
@@ -84,6 +85,7 @@ class SettingTVC: UITableViewController {
 //                }
                 
             case .credits:
+                audioPlayer.play(audio: .select)
                 textView.text = "Data Resources:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site\n- Phasma\n- Veekun"
                 viewLauncher.addSubview(textView)
                 viewLauncher.launch(withHeight: textView.frame.height)
@@ -110,7 +112,7 @@ class SettingTVC: UITableViewController {
         
         if let navController = self.navigationController {
             let x = navController.view.frame.origin.x
-            let y = navController.navigationBar.frame.origin.y + navController.navigationBar.frame.height + 0.5
+            let y = navController.navigationBar.frame.origin.y + navController.navigationBar.frame.height + 0.3
             let width = navController.view.frame.width
             let height = navController.view.frame.height
             

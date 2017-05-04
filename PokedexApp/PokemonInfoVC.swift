@@ -263,6 +263,7 @@ class PokemonInfoVC: UIViewController {
                     measurementSectionLbl.isUserInteractionEnabled = false
                     measurementSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
                 } else if sender.state == .ended {
+                    audioPlayer.play(audio: .select)
                     self.measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
                     
                     let originalOriginY = pokeHeightLbl.frame.origin.y
@@ -291,6 +292,7 @@ class PokemonInfoVC: UIViewController {
                 if sender.state == .began {
                     weaknessesSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
                 } else if sender.state == .ended {
+                    audioPlayer.play(audio: .select)
                     weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
                     if viewLauncher.isIdle {
                         let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
@@ -303,6 +305,7 @@ class PokemonInfoVC: UIViewController {
                 if sender.state == .began {
                     pokedexEnterySectionLbl.layer.borderColor = COLORS.sectionText.cgColor
                 } else if sender.state == .ended  {
+                    audioPlayer.play(audio: .select)
                     pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
                     if viewLauncher.isIdle {
                         let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
@@ -345,6 +348,7 @@ class PokemonInfoVC: UIViewController {
             }
             
             if shouldUpdateUI {
+                audioPlayer.play(audio: .select)
                 updateUI()
                 updatePokemonStatsProgressViews()
             }

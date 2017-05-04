@@ -178,7 +178,7 @@
                         <sections>
                             <tableViewSection headerTitle="Views" footerTitle="Selected units will always display first. When view, tap on the Measurement label to toggle." id="PGs-6Z-bpW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="maP-I9-qHw" userLabel="View">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="maP-I9-qHw" userLabel="Measurement Units">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="maP-I9-qHw" id="DlM-lz-YyR">
@@ -207,7 +207,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Sounds" id="LUi-91-R30" userLabel="Sounds">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="Dvg-eh-ROX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="Dvg-eh-ROX" userLabel="Sound Effects">
                                         <rect key="frame" x="0.0" y="183.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dvg-eh-ROX" id="9eo-WT-a3q">
@@ -228,7 +228,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="jRT-b5-q3q" style="IBUITableViewCellStyleDefault" id="MJh-v9-Pz5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="jRT-b5-q3q" style="IBUITableViewCellStyleDefault" id="MJh-v9-Pz5" userLabel="---">
                                         <rect key="frame" x="0.0" y="227.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MJh-v9-Pz5" id="yOY-NG-ou0">

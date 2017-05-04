@@ -12,13 +12,17 @@ class Ability {
     
     private var _name: String!
     private var _pokemon: String!
-    private var _description: String!
-    private var _generation: String!
+    private var _description: String = ""
+    private var _generation: String = ""
     
     var name: String { return _name }
     var pokemon: String { return _pokemon }
     var description: String { return _description }
     var generation: String { return _generation }
+    
+    var hasCompletedInfo: Bool {
+        return _description != "" && _generation != ""
+    }
     
     init(name: String, pokemon: String) {
         _name = name

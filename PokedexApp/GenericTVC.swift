@@ -147,19 +147,21 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         case .MoveCell:
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
         
-        case .AbilityCell: ()
+        case .AbilityCell:
+            tableView.deselectRow(at: indexPath, animated: true)
+            handleSelectedAbilityItemCell(sender: abilities[indexPath.row])
         
         case .TMCell:
             tableView.deselectRow(at: indexPath, animated: true)
-            handleItemCell(selectedRow: indexPath.row)
+            handleSelectedAbilityItemCell(sender: items[indexPath.row])
         
         case .ItemCell:
             tableView.deselectRow(at: indexPath, animated: true)
-            handleItemCell(selectedRow: indexPath.row)
+            handleSelectedAbilityItemCell(sender: items[indexPath.row])
         
         case .BerryCell:
             tableView.deselectRow(at: indexPath, animated: true)
-            handleItemCell(selectedRow: indexPath.row)
+            handleSelectedAbilityItemCell(sender: items[indexPath.row])
         }
     }
     
@@ -263,6 +265,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         case .AbilityCell:
             abilities = CONSTANTS.allAbilities
+            configureItemCellTextView()
         
         case .TMCell:
             items = CONSTANTS.allItems.machines
@@ -304,14 +307,21 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData()
     }
     
-    func handleItemCell(selectedRow: Int) {
+    func handleSelectedAbilityItemCell(sender: Any) {
         
-        if !items[selectedRow].hasCompletedInfo {
-            items[selectedRow].parseCompletedInfo()
+        if let ability = sender as? Ability {
+            if !ability.hasCompletedInfo {
+                ability.parseCompletedInfo()
+            }
+            textView?.text = ability.description
+        } else if let item = sender as? Item {
+            if !item.hasCompletedInfo {
+                item.parseCompletedInfo()
+            }
+            textView?.text = item.effect
         }
         
         if let textView = textView, let viewLauncher = viewLauncher {
-            textView.text = items[selectedRow].effect
             textView.sizeToFit()
             textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
             textView.frame.size.height = textView.contentSize.height
@@ -363,7 +373,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     func configureItemCellTextView() {
         
         if let navigationBarFrame = self.navigationController?.navigationBar.frame {
-            let y = UIApplication.shared.statusBarFrame.height + navigationBarFrame.height + 0.5
+            let y = UIApplication.shared.statusBarFrame.height + navigationBarFrame.height + 0.3
             let width = self.view.frame.width
             let launchViewFrame = CGRect(x: 0, y: y, width: width, height: 50)
             let dimViewFrame = CGRect(x: 0, y: y, width: width, height: self.view.frame.height - y)
