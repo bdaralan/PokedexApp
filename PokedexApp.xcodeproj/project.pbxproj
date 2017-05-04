@@ -833,6 +833,7 @@
 		536E03C81EBAE659003020D7 /* open-pc.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 536E03C41EBAE659003020D7 /* open-pc.m4a */; };
 		536E03CA1EBAE659003020D7 /* select.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 536E03C61EBAE659003020D7 /* select.m4a */; };
 		536E03CC1EBAE6BB003020D7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E03CB1EBAE6BB003020D7 /* AudioPlayer.swift */; };
+		536E03CF1EBAF9C7003020D7 /* save.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 536E03CE1EBAF9C7003020D7 /* save.m4a */; };
 		537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */; };
 		538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963A1EA3D7C0005E63FB /* SettingTVC.swift */; };
 		538F963F1EA479AE005E63FB /* DBUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */; };
@@ -844,7 +845,6 @@
 		53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD51E8A26E50073A516 /* Main.storyboard */; };
 		53CF3DD91E8A26E50073A516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD81E8A26E50073A516 /* Assets.xcassets */; };
 		53CF3DDC1E8A26E50073A516 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DDA1E8A26E50073A516 /* LaunchScreen.storyboard */; };
-		53CF3DE71E8A27760073A516 /* PokedexTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DE61E8A27760073A516 /* PokedexTVC.swift */; };
 		53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DEA1E8A28340073A516 /* PokedexCell.swift */; };
 		53CF3DED1E8A284A0073A516 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DEC1E8A284A0073A516 /* Pokemon.swift */; };
 		53CF3DF31E8A29580073A516 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DF21E8A29580073A516 /* GlobalConstants.swift */; };
@@ -1039,7 +1039,7 @@
 		536E03C41EBAE659003020D7 /* open-pc.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "open-pc.m4a"; sourceTree = "<group>"; };
 		536E03C61EBAE659003020D7 /* select.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = select.m4a; sourceTree = "<group>"; };
 		536E03CB1EBAE6BB003020D7 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		536E03CD1EBAF89E003020D7 /* save.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = save.m4a; sourceTree = "<group>"; };
+		536E03CE1EBAF9C7003020D7 /* save.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = save.m4a; sourceTree = "<group>"; };
 		536EFD701EBAD65B003020D7 /* 001-Bulbasaur.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "001-Bulbasaur.m4a"; sourceTree = "<group>"; };
 		536EFD711EBAD65B003020D7 /* 002-Ivysaur.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "002-Ivysaur.m4a"; sourceTree = "<group>"; };
 		536EFD721EBAD65B003020D7 /* 003-Venusaur.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "003-Venusaur.m4a"; sourceTree = "<group>"; };
@@ -1709,7 +1709,6 @@
 		53CF3DD81E8A26E50073A516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53CF3DDB1E8A26E50073A516 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53CF3DDD1E8A26E50073A516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53CF3DE61E8A27760073A516 /* PokedexTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexTVC.swift; sourceTree = "<group>"; };
 		53CF3DEA1E8A28340073A516 /* PokedexCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexCell.swift; sourceTree = "<group>"; };
 		53CF3DEC1E8A284A0073A516 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		53CF3DF21E8A29580073A516 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
@@ -1748,7 +1747,7 @@
 			isa = PBXGroup;
 			children = (
 				536E03C31EBAE659003020D7 /* error.m4a */,
-				536E03CD1EBAF89E003020D7 /* save.m4a */,
+				536E03CE1EBAF9C7003020D7 /* save.m4a */,
 				536E03C61EBAE659003020D7 /* select.m4a */,
 				536E03C41EBAE659003020D7 /* open-pc.m4a */,
 			);
@@ -2666,7 +2665,6 @@
 				538F963A1EA3D7C0005E63FB /* SettingTVC.swift */,
 				537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */,
 				533A78811E9FDA6100554F7F /* GenericTVC.swift */,
-				53CF3DE61E8A27760073A516 /* PokedexTVC.swift */,
 				53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */,
 				53D74A121EA9349900A6D591 /* MoveDetailVC.swift */,
 				53FD91F71EB711EB00C7EC86 /* TypeDetailVC.swift */,
@@ -2940,6 +2938,7 @@
 				536E021A1EBAD662003020D7 /* 386-Deoxys.m4a in Resources */,
 				536E02F01EBAD662003020D7 /* 600-Klang.m4a in Resources */,
 				536E039B1EBAD663003020D7 /* 764-Comfey.m4a in Resources */,
+				536E03CF1EBAF9C7003020D7 /* save.m4a in Resources */,
 				536E02431EBAD662003020D7 /* 427-Buneary.m4a in Resources */,
 				536E02CA1EBAD662003020D7 /* 562-Yamask.m4a in Resources */,
 				536E00A51EBAD662003020D7 /* 013-Weedle.m4a in Resources */,
@@ -3619,7 +3618,6 @@
 				53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */,
 				53FD91FE1EB71B3400C7EC86 /* ItemCell.swift in Sources */,
 				536095C01E9715D700D2F2FC /* MeasurementUILabel.swift in Sources */,
-				53CF3DE71E8A27760073A516 /* PokedexTVC.swift in Sources */,
 				53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */,
 				536095B61E96F98900D2F2FC /* Ability.swift in Sources */,
 			);

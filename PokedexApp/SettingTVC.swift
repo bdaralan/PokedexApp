@@ -28,6 +28,7 @@ enum SettingRow: String {
 class SettingTVC: UITableViewController {
     
     @IBOutlet weak var measurementSC: UISegmentedControl!
+    @IBOutlet weak var soundEffectSwitch: UISwitch!
     
     var viewLauncher: ViewLauncher!
     var textView: UITextView!
@@ -96,11 +97,13 @@ class SettingTVC: UITableViewController {
     func loadSettingFromUserDefaults() {
         
         measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex)
+        soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: KEYS.Setting.soundEffectSwitchState)
     }
     
     func saveSettingToUserDefaults() {
         
         UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: KEYS.Setting.measurementSCSelectedIndex)
+        UserDefaults.standard.set(soundEffectSwitch.isOn, forKey: KEYS.Setting.soundEffectSwitchState)
     }
     
     func configureViewLauncher() {

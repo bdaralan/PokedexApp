@@ -76,7 +76,6 @@ class PokemonInfoVC: UIViewController {
     @IBAction func cryBarBtnPressed(_ sender: Any) {
         
         audioPlayer.play(audio: pokemon.crySound)
-        print(pokemon.crySound)
     }
     
     // MARK: - Functions

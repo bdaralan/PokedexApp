@@ -49,6 +49,7 @@ struct Key {
     
     struct SettingKey {
         let measurementSCSelectedIndex = "SettingMeasurementUnit"
+        let soundEffectSwitchState = "SettingSoundEffectState"
     }
     
     let Setting = SettingKey()

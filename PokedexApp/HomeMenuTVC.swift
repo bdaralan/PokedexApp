@@ -15,7 +15,7 @@ class HomeMenuTVC: UITableViewController {
     
     var genericCell: GenericCell!
     var genericTVCTitle: String!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +37,8 @@ class HomeMenuTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        audioPlayer.play(audio: .select)
         
         genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
         genericTVCTitle = homeMenuRowsInSections[indexPath.section][indexPath.row]

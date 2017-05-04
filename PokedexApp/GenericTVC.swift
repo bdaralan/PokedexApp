@@ -38,7 +38,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     var currentGenericCell: GenericCell { return genericCell }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,7 +133,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                
+        
+        audioPlayer.play(audio: .select)
+        
         switch currentGenericCell {
         
         case .PokedexCell:
