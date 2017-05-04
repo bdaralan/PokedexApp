@@ -77,18 +77,20 @@ class SettingTVC: UITableViewController {
                 
             case.disclaimer:
                 audioPlayer.play(audio: .select)
-                textView.text = "Disclaimer:\n- This is for practice and learning purposes only.\n- All contents, arts, assets, and data belong to their respective owners."
+                let text = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
+                let textView = viewLauncher.makeTextView(withText: text)
                 viewLauncher.addSubview(textView)
-                viewLauncher.launch(withHeight: textView.frame.height)
+                viewLauncher.launch()
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#disclaimer") {
 //                    UIApplication.shared.open(url)
 //                }
                 
             case .credits:
                 audioPlayer.play(audio: .select)
-                textView.text = "Data Resources:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site\n- Phasma\n- Veekun"
+                let text = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
+                let textView = viewLauncher.makeTextView(withText: text)
                 viewLauncher.addSubview(textView)
-                viewLauncher.launch(withHeight: textView.frame.height)
+                viewLauncher.launch()
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#data-resources") {
 //                    UIApplication.shared.open(url)
 //                }
@@ -110,30 +112,20 @@ class SettingTVC: UITableViewController {
     
     func configureViewLauncher() {
         
-        if let navController = self.navigationController {
-            let x = navController.view.frame.origin.x
-            let y = navController.navigationBar.frame.origin.y + navController.navigationBar.frame.height + 0.3
-            let width = navController.view.frame.width
-            let height = navController.view.frame.height
-            
-            let launchViewFrame = CGRect(x: x, y: y, width: width, height: height)
-            let dimViewFrame = CGRect(x: x, y: y, width: width, height: height)
-            
-            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
-            viewLauncher.isRemoveSubviewsAfterDimissed = false
-            viewLauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
-            
-            if let keyWindow = UIApplication.shared.keyWindow {
-                viewLauncher.setSuperview(keyWindow)
-            }
+        let statusBarFrame = UIApplication.shared.statusBarFrame
+        let navBarFrame = UINavigationController().navigationBar.frame
         
+        let y = statusBarFrame.height + navBarFrame.height + 0.25
+        let width = self.view.frame.width
+        let height = navBarFrame.height
+        
+        let launchViewFrame = CGRect(x: 0, y: y, width: width, height: height)
+        let dimViewFrame = CGRect(x: 0, y: y, width: width, height: self.view.frame.height - y)
+        
+        viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
+        
+        if let window = UIApplication.shared.keyWindow {
+            viewLauncher?.setSuperview(window)
         }
-        
-        let margin = CONSTANTS.constrain.margin
-        
-        textView = UITextView(frame: CGRect(x: margin, y: 0, width: viewLauncher.launchView.frame.width - (margin * 2), height: 21))
-        textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
-        textView.isScrollEnabled = false
-        textView.isEditable = false
     }
 }

@@ -297,7 +297,7 @@ class PokemonInfoVC: UIViewController {
                     if viewLauncher.isIdle {
                         let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
                         viewLauncher.addSubview(weaknessesView)
-                        viewLauncher.launch(withHeight: weaknessesView.frame.height)
+                        viewLauncher.launch()
                     }
                 }
                 
@@ -308,9 +308,9 @@ class PokemonInfoVC: UIViewController {
                     audioPlayer.play(audio: .select)
                     pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
                     if viewLauncher.isIdle {
-                        let pokedexEntryView = viewLauncher.getPokedexEntryView(of: pokemon)
-                        viewLauncher.addSubview(pokedexEntryView)
-                        viewLauncher.launch(withHeight: pokedexEntryView.frame.height)
+                        let pokedexEntryTextView = viewLauncher.makeTextView(withText: pokemon.getPokedexEntry())
+                        viewLauncher.addSubview(pokedexEntryTextView)
+                        viewLauncher.launch()
                     }
                 }
                 

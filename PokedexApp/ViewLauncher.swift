@@ -17,6 +17,8 @@ import UIKit
     @objc optional func viewLaucher(shouldUpdate height: CGFloat) -> CGFloat
 }
 
+// TODO: - Allow launcView to be size to any width, beside keyWindow width
+
 class ViewLauncher: NSObject {
     
     var delegate: ViewLauncherDelegate? = nil
@@ -29,15 +31,20 @@ class ViewLauncher: NSObject {
     var isIdle: Bool = true
     
     private var _launchOrigin: CGPoint!
-    private var _dimissOrigin: CGPoint!
     private var _swipeToDismissDirection: UISwipeGestureRecognizerDirection!
     
     var dismissOrigin: CGPoint {
-        set {
-            _dimissOrigin = newValue
-        }
-        get {
-            return _dimissOrigin
+        if _swipeToDismissDirection == .up {
+            return CGPoint(x: _launchOrigin.x, y: -(_launchOrigin.y + launchView.frame.height))
+            
+        } else if _swipeToDismissDirection == .right {
+            return CGPoint(x: _launchOrigin.x + launchView.frame.width, y: _launchOrigin.y)
+            
+        } else if _swipeToDismissDirection == .left {
+            return CGPoint(x: -(_launchOrigin.x + launchView.frame.width), y: _launchOrigin.y)
+            
+        } else { // .down
+            return CGPoint(x: _launchOrigin.x, y: (_launchOrigin.y + launchView.frame.height))
         }
     }
     
@@ -47,7 +54,6 @@ class ViewLauncher: NSObject {
         
         self._swipeToDismissDirection = swipeToDismissDirection
         self._launchOrigin = launchViewFrame.origin
-        self._dimissOrigin = CGPoint(x: launchViewFrame.origin.x, y: -(launchViewFrame.origin.y + launchViewFrame.height))
         
         self.launchView = {
             let view = UIView(frame: launchViewFrame)
@@ -88,10 +94,8 @@ class ViewLauncher: NSObject {
     
     func addSubview(_ subview: UIView) {
         
-        subview.sizeToFit()
-        subview.frame.size.width = launchView.frame.width - (subview.frame.origin.x * 2)
-        
-        launchView.frame.size.height = subview.frame.height
+        let spacing = subview.frame.origin.y
+        launchView.frame.size.height = subview.frame.height + spacing * 2
         
         launchView.addSubview(subview)
     }
@@ -161,15 +165,17 @@ extension ViewLauncher {
     
     func getWeaknessView(of pokemon: Pokemon) -> UIView {
         
+        let cachedWeaknessLabels = "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)"
+        
         let spacing = CONSTANTS.constrain.spacing
         let margin = CONSTANTS.constrain.margin
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
         
-        let weaknessesView = UIView(frame: CGRect(x: 0, y: 0, width: self.launchView.frame.width, height: y))
+        let weaknessesView = UIView(frame: CGRect(x: 0, y: spacing, width: self.launchView.frame.width, height: y))
         var weaknessLabels = [UILabel]()
         
         // TODO: - fix this repeated calculation when caching
-        if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) as? [UILabel] {
+        if let cachedWeaknessLabels = globalCache.object(forKey: cachedWeaknessLabels as AnyObject) as? [UILabel] {
             weaknessLabels = cachedWeaknessLabels
             
             for i in 0 ..< weaknessLabels.count / 2 {
@@ -219,7 +225,7 @@ extension ViewLauncher {
                         label.textAlignment = .left
                         label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
                         label.textColor = backgroundColor
-                        label.backgroundColor = UIColor.white
+                        label.backgroundColor = UIColor.clear
                     }
                     
                     return label
@@ -231,7 +237,7 @@ extension ViewLauncher {
                 y = y + typeLbl.frame.height + spacing
             }
             
-            globalCache.setObject(weaknessLabels as AnyObject, forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject)
+            globalCache.setObject(weaknessLabels as AnyObject, forKey: cachedWeaknessLabels as AnyObject)
         }
         
         weaknessesView.frame.size.height = y
@@ -243,18 +249,21 @@ extension ViewLauncher {
         return weaknessesView
     }
     
-    func getPokedexEntryView(of pokemon: Pokemon) -> UIView {
+    func makeTextView(withText text: String) -> UITextView {
         
         let textView: UITextView!
         
-        if let cachedTextView = globalCache.object(forKey: "cachedTextView\(pokemon.id)" as AnyObject) as? UITextView {
+        let cachedTextView = "cachedLaunchViewTextView"
+        
+        let margin = CONSTANTS.constrain.margin
+        let width = self.launchView.frame.width - (margin * 2)
+        
+        if let cachedTextView = globalCache.object(forKey: cachedTextView as AnyObject) as? UITextView {
             textView = cachedTextView
+            textView.text = text
         } else {
-            let margin = CONSTANTS.constrain.margin
-            
             textView = {
-                let width = self.launchView.frame.width - (margin * 2)
-                let textView = UITextView(frame: CGRect(x: margin, y: 0, width: width, height: 31))
+                let textView = UITextView(frame: CGRect(x: margin, y: 8, width: width, height: 31))
                 textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
                 textView.isScrollEnabled = false
                 textView.isEditable = false
@@ -262,16 +271,13 @@ extension ViewLauncher {
                 return textView
             }()
             
-            textView.text = pokemon.getPokedexEntry()
-            textView.sizeToFit()
-            textView.frame.size.width = self.launchView.frame.width - margin * 2
-            
-            globalCache.setObject(textView, forKey: "cachedTextView\(pokemon.id)" as AnyObject)
+            globalCache.setObject(textView, forKey: cachedTextView as AnyObject)
         }
         
-        let pokedexEntryView = UIView(frame: CGRect(x: 0, y: 0, width: self.launchView.frame.width, height: textView.frame.height))
-        pokedexEntryView.addSubview(textView)
+        textView.text = text
+        textView.sizeToFit()
+        textView.frame.size.width = width
         
-        return pokedexEntryView
+        return textView
     }
 }

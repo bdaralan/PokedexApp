@@ -18,7 +18,6 @@ enum GenericCell: String {
     case BerryCell = "12"
 }
 
-// TODO: - Fix viewLauncher goes behind navigationController after search ended
 
 class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
@@ -34,7 +33,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     var segmentControllSelectedIndex: Int?
     var viewLauncher: ViewLauncher?
-    var textView: UITextView?
     
     var currentGenericCell: GenericCell { return genericCell }
     
@@ -265,19 +263,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         case .AbilityCell:
             abilities = CONSTANTS.allAbilities
-            configureItemCellTextView()
+            configureViewLauncher()
         
         case .TMCell:
             items = CONSTANTS.allItems.machines
-            configureItemCellTextView()
+            configureViewLauncher()
         
         case .ItemCell:
             items = CONSTANTS.allItems.excludeBerriesMachines
-            configureItemCellTextView()
+            configureViewLauncher()
         
         case .BerryCell:
             items = CONSTANTS.allItems.berries
-            configureItemCellTextView()
+            configureViewLauncher()
         }
     }
     
@@ -309,26 +307,18 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     func handleSelectedAbilityItemCell(sender: Any) {
         
-        if let ability = sender as? Ability {
-            if !ability.hasCompletedInfo {
-                ability.parseCompletedInfo()
-            }
-            textView?.text = ability.description
-        } else if let item = sender as? Item {
-            if !item.hasCompletedInfo {
-                item.parseCompletedInfo()
-            }
-            textView?.text = item.effect
+        if let ability = sender as? Ability, let viewLauncher = viewLauncher {
+            if !ability.hasCompletedInfo { ability.parseCompletedInfo() }
+            let textView = viewLauncher.makeTextView(withText: ability.description)
+            viewLauncher.addSubview(textView)
+        
+        } else if let item = sender as? Item, let viewLauncher = viewLauncher {
+            if !item.hasCompletedInfo { item.parseCompletedInfo() }
+            let textView = viewLauncher.makeTextView(withText: item.effect)
+            viewLauncher.addSubview(textView)
         }
         
-        if let textView = textView, let viewLauncher = viewLauncher {
-            textView.sizeToFit()
-            textView.frame.size.width = viewLauncher.launchView.frame.width - (CONSTANTS.constrain.margin * 2)
-            textView.frame.size.height = textView.contentSize.height
-            
-            viewLauncher.launchView.frame.size.height = textView.contentSize.height
-            viewLauncher.launch()
-        }
+        viewLauncher?.launch()
     }
     
     func configureNavigationBar() {
@@ -370,41 +360,22 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         }
     }
     
-    func configureItemCellTextView() {
+    func configureViewLauncher() {
         
-        if let navigationBarFrame = self.navigationController?.navigationBar.frame {
-            let y = UIApplication.shared.statusBarFrame.height + navigationBarFrame.height + 0.3
-            let width = self.view.frame.width
-            let launchViewFrame = CGRect(x: 0, y: y, width: width, height: 50)
-            let dimViewFrame = CGRect(x: 0, y: y, width: width, height: self.view.frame.height - y)
-            
-            viewLauncher = {
-                let vlauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
-                
-                vlauncher.isRemoveSubviewsAfterDimissed = false
-                vlauncher.dismissOrigin = CGPoint(x: launchViewFrame.width, y: launchViewFrame.origin.y)
-                
-                if let keyWindow = UIApplication.shared.keyWindow {
-                    vlauncher.setSuperview(keyWindow)
-                }
-                
-                return vlauncher
-            }()
-            
-            textView = {
-                let x = CONSTANTS.constrain.margin
-                let width = launchViewFrame.width - (x * 2)
-                let height = launchViewFrame.height
-                
-                let tv = UITextView(frame: CGRect(x: x, y: 0, width: width, height:height))
-                tv.isScrollEnabled = false
-                tv.isEditable = false
-                tv.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
-                
-                return tv
-            }()
-            
-            viewLauncher?.launchView.addSubview(textView!)
+        let statusBarFrame = UIApplication.shared.statusBarFrame
+        let navBarFrame = UINavigationController().navigationBar.frame
+        
+        let y = statusBarFrame.height + navBarFrame.height + 0.25
+        let width = self.view.frame.width
+        let height = navBarFrame.height
+        
+        let launchViewFrame = CGRect(x: 0, y: y, width: width, height: height)
+        let dimViewFrame = CGRect(x: 0, y: y, width: width, height: self.view.frame.height - y)
+        
+        viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
+        
+        if let window = UIApplication.shared.keyWindow {
+            viewLauncher?.setSuperview(window)
         }
     }
 }
