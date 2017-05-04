@@ -162,64 +162,62 @@ class Pokemon {
 extension Pokemon {
     
     var hasSecondType: Bool {
+        
         return self.secondaryType != ""
     }
     
     var hasSecondAbility: Bool {
+        
         return self.secondAbility != ""
     }
     
     var hasHiddenAbility: Bool {
+        
         return self.hiddenAbility != ""
     }
     
     var hasForm: Bool {
+        
         return self.form != ""
     }
     
     var hasNoEvolution: Bool {
+        
         return self.evolveFrom == "" && self.evolveTo == ""
     }
     
     var isBaseEvolution: Bool {
+        
         return self.evolveFrom == "" && self.evolveTo != ""
     }
     
     var isMidEvolution: Bool {
+        
         return self.evolveFrom != "" && self.evolveTo != ""
     }
     
     var isLastEvolution: Bool {
+        
         return self.evolveFrom != "" && self.evolveTo == ""
     }
     
     var imageName: String {
+        
         return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
     }
     
-    var cryName: String {
-        var name = "error-sound"
+    var crySound: String {
         
-        if self.name == "Type: Null" {
-            name = "Type: Null"
-        } else if self.name.contains("Mega") {
-            let replaces = ["Mega", "Mega X", "Mega Y", " "]
-            for replace in replaces {
-                name = name.replacingOccurrences(of: replace, with: "")
-            }
-        } else if self.name.contains("Primal") {
-            let replaces = ["Primal", " "]
-            for replace in replaces {
-                name = name.replacingOccurrences(of: replace, with: "")
-            }
-        } else if self.name.contains("Alolan") {
-            let replaces = ["Alolan", " "]
-            for replace in replaces {
-                name = name.replacingOccurrences(of: replace, with: "")
-            }
+        let id = String(format: "%03d-", self.id)
+        var crySound = self.name
+        
+        if CONSTANTS.crySoundSepcialCaseName.keys.contains(crySound),
+            let name = CONSTANTS.crySoundSepcialCaseName[crySound] {
+            
+            crySound = name
         }
         
-        return "\(self.id)-\(name)"
+        return "\(id)\(crySound)"
     }
     
     func getWeaknesses() -> DictionarySS {

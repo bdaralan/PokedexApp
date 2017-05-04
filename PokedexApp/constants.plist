@@ -283,6 +283,8 @@
 		<string>Gourgeist</string>
 		<key>Mega Diancie</key>
 		<string>Diancie</string>
+		<key>Type: Null</key>
+		<string>Type Null</string>
 	</dict>
 </dict>
 </plist>

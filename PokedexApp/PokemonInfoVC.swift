@@ -73,6 +73,12 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
+    @IBAction func cryBarBtnPressed(_ sender: Any) {
+        
+        audioPlayer.play(audio: pokemon.crySound)
+        print(pokemon.crySound)
+    }
+    
     // MARK: - Functions
     func updateUI() {
         
@@ -134,10 +140,12 @@ class PokemonInfoVC: UIViewController {
         }
         
         switch evolutions.count {
+            
         case 1:
             pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
             pokeEvolution01Img.isHidden = false
             pokeEvolution01Img.isUserInteractionEnabled = true
+            
         case 2:
             pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
             pokeEvolution01Img.isHidden = false
@@ -148,6 +156,7 @@ class PokemonInfoVC: UIViewController {
             pokeEvolution02Img.isUserInteractionEnabled = true
             
             pokeEvolutionArr01Img.isHidden = false
+            
         case 3:
             pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
             pokeEvolution01Img.isHidden = false
@@ -163,6 +172,7 @@ class PokemonInfoVC: UIViewController {
             
             pokeEvolutionArr01Img.isHidden = false
             pokeEvolutionArr02Img.isHidden = false
+            
         default: () //0
         }
     }
@@ -248,6 +258,7 @@ class PokemonInfoVC: UIViewController {
         if let senderView = sender.view {
             
             switch senderView {
+                
             case measurementSectionLbl:
                 if sender.state == .began {
                     measurementSectionLbl.isUserInteractionEnabled = false
@@ -312,21 +323,25 @@ class PokemonInfoVC: UIViewController {
         
         if let senderView = sender.view {
             switch senderView {
+                
             case pokeEvolution01Img:
                 if pokemon.name != evolutions[0].name {
                     pokemon = evolutions[0]
                     shouldUpdateUI = true
                 }
+                
             case pokeEvolution02Img:
                 if pokemon.name != evolutions[1].name {
                     pokemon = evolutions[1]
                     shouldUpdateUI = true
                 }
+                
             case pokeEvolution03Img:
                 if pokemon.name != evolutions[2].name {
                     pokemon = evolutions[2]
                     shouldUpdateUI = true
                 }
+                
             default: ()
             }
             

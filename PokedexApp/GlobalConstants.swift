@@ -14,6 +14,8 @@ typealias DidFinishAnimation = Bool
 
 var globalCache = NSCache<AnyObject, AnyObject>()
 
+let audioPlayer = AudioPlayer()
+
 let KEYS = Key()
 let COLORS = Colors()
 let loadData = LoadData()
@@ -38,6 +40,7 @@ class Constant {
     lazy var allItems = loadData.allItems()
     
     lazy var evolutionSpecialCaseForm = loadData.evolutionSpecialCaseForm()
+    lazy var crySoundSepcialCaseName = loadData.crySoundSpecialCaseName()
     
     lazy var constrain = Constrain()
 }

@@ -213,6 +213,17 @@ class LoadData {
         return [String]()
     }
     
+    func crySoundSpecialCaseName() -> DictionarySS {
+        
+        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        if let specialCaseName = plist["CrySoundSpecialCaseName"] as? DictionarySS {
+            
+            return specialCaseName
+        }
+        
+        return DictionarySS()
+    }
+    
     private func loadDataFromFile(name: String, ofType type: String) -> DictionarySA {
         
         if let path = Bundle.main.path(forResource: name, ofType: type), let data = NSData(contentsOfFile: path) as Data? {

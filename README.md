@@ -39,3 +39,5 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 * [Bulbapedia](http://bulbapedia.bulbagarden.net)
 * [PokemonDB](https://pokemondb.net/)
 * [Official Pokemon Site](http://pokemon.com/us/)
+* [Phasma](https://www.pokecommunity.com/showthread.php?p=9501022#post9501022)
+* [Veekun](https://veekun.com/dex/downloads)

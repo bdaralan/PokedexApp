@@ -56,5 +56,6 @@ class HomeMenuTVC: UITableViewController {
     @IBAction func settingBtnPressed(_ sender: Any) {
         
         performSegue(withIdentifier: "SettingTVC", sender: nil)
+        audioPlayer.play(audio: .openPC)
     }
 }

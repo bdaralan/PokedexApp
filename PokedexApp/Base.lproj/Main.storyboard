@@ -1015,7 +1015,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="PokemonInfo" id="VqK-65-sSa">
-                        <barButtonItem key="rightBarButtonItem" image="cry-icon" id="Jht-zG-9sh"/>
+                        <barButtonItem key="rightBarButtonItem" image="cry-icon" id="Jht-zG-9sh">
+                            <connections>
+                                <action selector="cryBarBtnPressed:" destination="blO-wq-vwT" id="kK4-cA-6ff"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="measurementSectionLbl" destination="hhg-QI-IA8" id="yBa-wY-ahu"/>

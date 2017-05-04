@@ -49,6 +49,7 @@ class SettingTVC: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        audioPlayer.play(audio: .save)
         viewLauncher.removeFromSuperview()
     }
 
@@ -82,7 +83,7 @@ class SettingTVC: UITableViewController {
 //                }
                 
             case .credits:
-                textView.text = "Data Resources:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site"
+                textView.text = "Data Resources:\n- Bulbapedia\n- PokemonDB\n- Official Pokemon Site\n- Phasma\n- Veekun"
                 viewLauncher.addSubview(textView)
                 viewLauncher.launch(withHeight: textView.frame.height)
 //                if let url = URL(string: "https://github.com/iDara09/PokedexApp#data-resources") {
