@@ -32,11 +32,11 @@ class MoveDetailVC: UIViewController {
         move.parseCompletedInfo()
                 
         nameLbl.text = move.name
-        nameLbl.backgroundColor = COLORS.get(from: move.type)
+        nameLbl.backgroundColor = UIColor.myColor.get(from: move.type)
         nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
         
         var category = move.category
-        nameLbl.roundLabel.backgroundColor = COLORS.get(from: category)
+        nameLbl.roundLabel.backgroundColor = UIColor.myColor.get(from: category)
         nameLbl.roundLabel.textColor = UIColor.white
         
         switch category {

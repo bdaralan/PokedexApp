@@ -29,7 +29,7 @@ class PokedexCell: UITableViewCell {
         if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
             pokemonImg.image = cachedImage
         } else {
-            DispatchQueue.main.async(execute: { 
+            DispatchQueue.main.async(execute: {
                 if let image = UIImage(named: pokemon.imageName) {
                     self.pokemonImg.image = image
                     globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)

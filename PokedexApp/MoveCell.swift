@@ -47,7 +47,7 @@ class MoveCell: UITableViewCell {
         
         moveName.text = move.name
         
-        moveCategory.backgroundColor = COLORS.get(from: move.category)
+        moveCategory.backgroundColor = UIColor.myColor.get(from: move.category)
         moveCategory.textColor = UIColor.white
         
         switch move.category {
@@ -59,7 +59,7 @@ class MoveCell: UITableViewCell {
             moveCategory.textColor = UIColor.black
         }
         
-        moveType.backgroundColor = COLORS.get(from: move.type)
+        moveType.backgroundColor = UIColor.myColor.get(from: move.type)
         moveType.text = move.type
     }
 }

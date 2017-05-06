@@ -12,8 +12,10 @@ class AudioPlayer {
     
     private var player = AVAudioPlayer()
     
+    private let cache = NSCache<AnyObject, AnyObject>()
+    
     private var soundEffectIsOn: Bool {
-        return UserDefaults.standard.bool(forKey: KEYS.Setting.soundEffectSwitchState)
+        return UserDefaults.standard.bool(forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
     }
     
     var setting: AVAudioPlayer {
@@ -21,20 +23,37 @@ class AudioPlayer {
         get { return player }
     }
     
+    
+    init() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
+        } catch { print(error) }
+    }
+    
+    
     func play(audio: String, ofType type: String = "m4a", forcePlay: Bool = false) {
         
+        let cacheKey = "\(audio).\(type)"
+        
         DispatchQueue.main.async {
-            if forcePlay || self.soundEffectIsOn {
-                if let path = Bundle.main.path(forResource: audio, ofType: type) {
-                    do {
-                        self.player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                    } catch { print(error) }
-                    
+            if self.soundEffectIsOn || forcePlay {
+                if let cachedPlayer = self.cache.object(forKey: cacheKey as AnyObject) as? AVAudioPlayer {
+                    self.player = cachedPlayer
                     self.player.prepareToPlay()
                     self.player.play()
-                    
                 } else {
-                    self.play(audio: .error)
+                    if let path = Bundle.main.path(forResource: audio, ofType: type) {
+                        do {
+                            self.player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                        } catch { print(error) }
+                        
+                        self.player.prepareToPlay()
+                        self.player.play()
+                        
+                    } else {
+                        self.play(audio: .error)
+                    }
                 }
             }
         }
@@ -42,11 +61,17 @@ class AudioPlayer {
     
     func play(audio: AudioFile, forcePlay: Bool = false) {
         
+        let cacheKey = "\(audio.rawValue).m4a"
+        
         DispatchQueue.main.async {
-            if forcePlay || self.soundEffectIsOn {
-                if let path = Bundle.main.path(forResource: audio.rawValue, ofType: "m4a") {
+            if self.soundEffectIsOn || forcePlay {
+                if let cachedAudio = self.cache.object(forKey: cacheKey as AnyObject) as? AVAudioPlayer {
+                    self.player = cachedAudio
+                } else if let path = Bundle.main.path(forResource: audio.rawValue, ofType: "m4a") {
                     do {
-                        self.player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                        let player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                        self.cache.setObject(player, forKey: audio.rawValue as AnyObject)
+                        self.player = player
                     } catch { print(error) }
                 }
                 

@@ -54,7 +54,7 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex))
+        userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex))
         
         DispatchQueue.main.async {
             self.updateEvolutionUI()
@@ -90,12 +90,12 @@ class PokemonInfoVC: UIViewController {
         pokeImgView.image = UIImage(named: pokemon.imageName)
         
         pokeType01Lbl.text = pokemon.primaryType
-        pokeType01Lbl.backgroundColor = COLORS.get(from: pokemon.primaryType)
+        pokeType01Lbl.backgroundColor = UIColor.myColor.get(from: pokemon.primaryType)
         
         if pokemon.hasSecondType {
             pokeType02Lbl.isHidden = false
             pokeType02Lbl.text = pokemon.secondaryType
-            pokeType02Lbl.backgroundColor = COLORS.get(from: pokemon.secondaryType)
+            pokeType02Lbl.backgroundColor = UIColor.myColor.get(from: pokemon.secondaryType)
             pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width)
         } else {
             pokeType02Lbl.isHidden = true
@@ -134,7 +134,7 @@ class PokemonInfoVC: UIViewController {
         if let cachedEvolutions = globalCache.object(forKey: "cachedEvolutions\(pokemon.name)" as AnyObject) as? [Pokemon] {
             evolutions = cachedEvolutions
         } else {
-            evolutions = pokemon.getEvolutions()
+            evolutions = pokemon.evolutions
             globalCache.setObject(evolutions as AnyObject, forKey: "cachedEvolutions\(pokemon.name)" as AnyObject)
         }
         
@@ -190,17 +190,17 @@ class PokemonInfoVC: UIViewController {
         
         configureLongPressGesture(for: measurementSectionLbl, action: #selector(handleSectionLblPress))
         measurementSectionLbl.isUserInteractionEnabled = true
-        measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
+        measurementSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
         measurementSectionLbl.layer.borderWidth = 2
         
         configureLongPressGesture(for: pokedexEnterySectionLbl, action: #selector(handleSectionLblPress))
         pokedexEnterySectionLbl.isUserInteractionEnabled = true
-        pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
+        pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
         pokedexEnterySectionLbl.layer.borderWidth = 2
         
         configureLongPressGesture(for: weaknessesSectionLbl, action: #selector(handleSectionLblPress))
         weaknessesSectionLbl.isUserInteractionEnabled = true
-        weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
+        weaknessesSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
         weaknessesSectionLbl.layer.borderWidth = 2
         
         configureTapGesture(for: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
@@ -261,10 +261,10 @@ class PokemonInfoVC: UIViewController {
             case measurementSectionLbl:
                 if sender.state == .began {
                     measurementSectionLbl.isUserInteractionEnabled = false
-                    measurementSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+                    measurementSectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
                 } else if sender.state == .ended {
                     audioPlayer.play(audio: .select)
-                    self.measurementSectionLbl.layer.borderColor = COLORS.clear.cgColor
+                    self.measurementSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
                     
                     let originalOriginY = pokeHeightLbl.frame.origin.y
                     let animateToOriginY = measurementSectionLbl.frame.origin.y
@@ -290,10 +290,10 @@ class PokemonInfoVC: UIViewController {
                 
             case weaknessesSectionLbl:
                 if sender.state == .began {
-                    weaknessesSectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+                    weaknessesSectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
                 } else if sender.state == .ended {
                     audioPlayer.play(audio: .select)
-                    weaknessesSectionLbl.layer.borderColor = COLORS.clear.cgColor
+                    weaknessesSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
                     if viewLauncher.isIdle {
                         let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
                         viewLauncher.addSubview(weaknessesView)
@@ -303,10 +303,10 @@ class PokemonInfoVC: UIViewController {
                 
             case pokedexEnterySectionLbl:
                 if sender.state == .began {
-                    pokedexEnterySectionLbl.layer.borderColor = COLORS.sectionText.cgColor
+                    pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
                 } else if sender.state == .ended  {
                     audioPlayer.play(audio: .select)
-                    pokedexEnterySectionLbl.layer.borderColor = COLORS.clear.cgColor
+                    pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
                     if viewLauncher.isIdle {
                         let pokedexEntryTextView = viewLauncher.makeTextView(withText: pokemon.getPokedexEntry())
                         viewLauncher.addSubview(pokedexEntryTextView)

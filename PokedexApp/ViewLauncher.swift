@@ -191,7 +191,7 @@ extension ViewLauncher {
             let weaknesses = pokemon.getWeaknesses()
             
             for (type, effective) in weaknesses {
-                let backgroundColor = COLORS.get(from: type)
+                let backgroundColor = UIColor.myColor.get(from: type)
                 
                 let typeLbl: TypeUILabel = {
                     let label = TypeUILabel()

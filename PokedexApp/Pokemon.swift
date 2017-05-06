@@ -220,37 +220,8 @@ extension Pokemon {
         return "\(id)\(crySound)"
     }
     
-    func getWeaknesses() -> DictionarySS {
-        
-        var weaknessesDict = DictionarySS()
-        
-        if primaryType != "" {
-            if let weaknesses = CONSTANTS.weaknessesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
-                for (type, effective) in weaknesses where effective != "" {
-                    weaknessesDict.updateValue(effective, forKey: type)
-                }
-            }
-        }
-        
-        return weaknessesDict
-    }
     
-    func getPokedexEntry() -> String {
-        
-        if let pokedexEntry = CONSTANTS.pokedexEntriesJSON["\(self.id)"] as? DictionarySS {
-            if let omegaEntry = pokedexEntry["omega"], let alphaEntry = pokedexEntry["alpha"] {
-                if omegaEntry != alphaEntry {
-                    return "OR:\n\(omegaEntry)\n\nAS:\n\(alphaEntry)"
-                } else {
-                    return "ORAS:\n\(omegaEntry)"
-                }
-            }
-        }
-        
-        return "\(self.name)..."
-    }
-    
-    func getEvolutions() -> [Pokemon] {
+    var evolutions: [Pokemon] {
         
         var evolutions = [Pokemon]()
         var selfNoForm = self
@@ -308,6 +279,36 @@ extension Pokemon {
         }
         
         return evolutions //return empty array if no evolution
+    }
+    
+    func getWeaknesses() -> DictionarySS {
+        
+        var weaknessesDict = DictionarySS()
+        
+        if primaryType != "" {
+            if let weaknesses = CONSTANTS.weaknessesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
+                for (type, effective) in weaknesses where effective != "" {
+                    weaknessesDict.updateValue(effective, forKey: type)
+                }
+            }
+        }
+        
+        return weaknessesDict
+    }
+    
+    func getPokedexEntry() -> String {
+        
+        if let pokedexEntry = CONSTANTS.pokedexEntriesJSON["\(self.id)"] as? DictionarySS {
+            if let omegaEntry = pokedexEntry["omega"], let alphaEntry = pokedexEntry["alpha"] {
+                if omegaEntry != alphaEntry {
+                    return "OR:\n\(omegaEntry)\n\nAS:\n\(alphaEntry)"
+                } else {
+                    return "ORAS:\n\(omegaEntry)"
+                }
+            }
+        }
+        
+        return "\(self.name)..."
     }
 }
 

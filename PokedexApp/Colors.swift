@@ -8,6 +8,17 @@
 
 import UIKit
 
+
+let colors = Colors()
+
+extension UIColor {
+    
+    class var myColor: Colors {
+        return colors
+    }
+}
+
+
 /*-- Main Class --*/
 class Colors {
     
@@ -17,7 +28,6 @@ class Colors {
     let sectionBackground: UIColor!
     let sectionText: UIColor!
     let clear: UIColor!
-    
     
     init() {
         clear = UIColor.clear

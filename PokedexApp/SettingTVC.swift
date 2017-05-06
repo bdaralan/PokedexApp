@@ -98,16 +98,23 @@ class SettingTVC: UITableViewController {
         }
     }
     
+    @IBAction func soundEffectSwitchToggled(_ sender: UISwitch) {
+        
+        UserDefaults.standard.set(sender.isOn, forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
+        if sender.isOn { audioPlayer.play(audio: .select) }
+    }
+    
+    
     func loadSettingFromUserDefaults() {
         
-        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: KEYS.Setting.measurementSCSelectedIndex)
-        soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: KEYS.Setting.soundEffectSwitchState)
+        measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex)
+        soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
     }
     
     func saveSettingToUserDefaults() {
         
-        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: KEYS.Setting.measurementSCSelectedIndex)
-        UserDefaults.standard.set(soundEffectSwitch.isOn, forKey: KEYS.Setting.soundEffectSwitchState)
+        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex)
+        UserDefaults.standard.set(soundEffectSwitch.isOn, forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
     }
     
     func configureViewLauncher() {

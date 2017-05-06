@@ -22,7 +22,7 @@ class HomeMenuTVC: UITableViewController {
         clearsSelectionOnViewWillAppear = true
         
         homeMenuSections = loadData.homeMenuSections()
-        homeMenuRowsInSections = loadData.homeMenuRowsInSections()        
+        homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     }
     
     // MARK: - Table view data source

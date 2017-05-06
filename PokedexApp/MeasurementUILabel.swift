@@ -15,6 +15,6 @@ class MeasurementUILabel: UILabel {
         
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
-        self.backgroundColor = COLORS.sectionBackground.withAlphaComponent(0.35)
+        self.backgroundColor = UIColor.myColor.sectionBackground.withAlphaComponent(0.35)
     }
 }
