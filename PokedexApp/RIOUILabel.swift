@@ -111,6 +111,7 @@ extension RIOUILabel {
     /**
      Use this to grow the `roundLabel` size. The passed in value will be use on both width and height.
      - parameter value: Pass in a negative number to shrink.
+     - parameter realignAfter: RIOLabel will make sure the round label is in the correct position
      */
     func growRoundLabelSize(by value: CGFloat, realignAfter: Bool = false) {
         

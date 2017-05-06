@@ -23,28 +23,33 @@ class ViewLauncher: NSObject {
     
     var delegate: ViewLauncherDelegate? = nil
     
-    var launchView: UIView!
-    var dimView: UIView!
+    private var _launchView: UIView!
+    private var _dimView: UIView!
+    
+    private var _launchOrigin: CGPoint!
+    private var _swipeToDismissDirection: UISwipeGestureRecognizerDirection!
     
     var animatedDuration: TimeInterval = 0.5
     var isRemoveSubviewsAfterDimissed: Bool = true
     var isIdle: Bool = true
     
-    private var _launchOrigin: CGPoint!
-    private var _swipeToDismissDirection: UISwipeGestureRecognizerDirection!
+    var frame: CGRect {
+        set { _launchView.frame = newValue }
+        get { return _launchView.frame }
+    }
     
     var dismissOrigin: CGPoint {
         if _swipeToDismissDirection == .up {
-            return CGPoint(x: _launchOrigin.x, y: -(_launchOrigin.y + launchView.frame.height))
+            return CGPoint(x: _launchOrigin.x, y: -(_launchOrigin.y + _launchView.frame.height))
             
         } else if _swipeToDismissDirection == .right {
-            return CGPoint(x: _launchOrigin.x + launchView.frame.width, y: _launchOrigin.y)
+            return CGPoint(x: _launchOrigin.x + _launchView.frame.width, y: _launchOrigin.y)
             
         } else if _swipeToDismissDirection == .left {
-            return CGPoint(x: -(_launchOrigin.x + launchView.frame.width), y: _launchOrigin.y)
+            return CGPoint(x: -(_launchOrigin.x + _launchView.frame.width), y: _launchOrigin.y)
             
         } else { // .down
-            return CGPoint(x: _launchOrigin.x, y: (_launchOrigin.y + launchView.frame.height))
+            return CGPoint(x: _launchOrigin.x, y: (_launchOrigin.y + _launchView.frame.height))
         }
     }
     
@@ -55,7 +60,7 @@ class ViewLauncher: NSObject {
         self._swipeToDismissDirection = swipeToDismissDirection
         self._launchOrigin = launchViewFrame.origin
         
-        self.launchView = {
+        self._launchView = {
             let view = UIView(frame: launchViewFrame)
             view.backgroundColor = UIColor.white
             
@@ -66,9 +71,9 @@ class ViewLauncher: NSObject {
             return view
         }()
         
-        self.launchView.frame.origin = self.dismissOrigin
+        self._launchView.frame.origin = self.dismissOrigin
         
-        self.dimView = {
+        self._dimView = {
             let view = UIView(frame: dimViewFrame)
             view.backgroundColor = UIColor(white: 0, alpha: 0.3)
             view.alpha = 0
@@ -80,24 +85,45 @@ class ViewLauncher: NSObject {
         }()
     }
     
+    
+    /** Convenience init.
+        Use this to quickly initialize ViewLauncer when there is a NavigationController
+     */
+    convenience init(swipeToDismissDirection: UISwipeGestureRecognizerDirection) {
+        
+        let statusBarFrame = UIApplication.shared.statusBarFrame
+        let navBarFrame = UINavigationController().navigationBar.frame
+        let window = UIWindow()
+        
+        let y = statusBarFrame.height + navBarFrame.height
+        let width = window.frame.width
+        let height = window.frame.height - y
+        
+        let launchViewFrame = CGRect(x: 0, y: y + 0.5, width: width, height: height)
+        let dimViewFrame = CGRect(x: 0, y: y, width: width, height: window.frame.height)
+        
+        self.init(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: swipeToDismissDirection)
+    }
+    
+    
     func setSuperview(_ superview: UIView) {
         
-        superview.addSubview(self.dimView)
-        superview.addSubview(self.launchView)
+        superview.addSubview(self._dimView)
+        superview.addSubview(self._launchView)
     }
     
     func removeFromSuperview() {
         
-        self.dimView.removeFromSuperview()
-        self.launchView.removeFromSuperview()
+        self._dimView.removeFromSuperview()
+        self._launchView.removeFromSuperview()
     }
     
     func addSubview(_ subview: UIView) {
         
         let spacing = subview.frame.origin.y
-        launchView.frame.size.height = subview.frame.height + spacing * 2
+        _launchView.frame.size.height = subview.frame.height + spacing * 2
         
-        launchView.addSubview(subview)
+        _launchView.addSubview(subview)
     }
     
     func launch(withDuration duration: TimeInterval = 0, withHeight height: CGFloat = 0) {
@@ -105,7 +131,7 @@ class ViewLauncher: NSObject {
         if self.isIdle {
             self.isIdle = false
             
-            if height > 0 { self.launchView.frame.size.height = height }
+            if height > 0 { self._launchView.frame.size.height = height }
             
             if self.delegate != nil {
                 self.delegate?.viewLauncher!(willLaunchAt: self._launchOrigin)
@@ -114,10 +140,10 @@ class ViewLauncher: NSObject {
             var duration = duration
             if duration == 0 { duration = animatedDuration }
             
-            self.launchView.frame.origin = dismissOrigin
+            self._launchView.frame.origin = dismissOrigin
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.dimView.alpha = 1
-                self.launchView.frame.origin = self._launchOrigin
+                self._dimView.alpha = 1
+                self._launchView.frame.origin = self._launchOrigin
             }) { (Bool) in
                 if self.delegate != nil {
                     self.delegate?.viewlauncher!(didLaunchAt: self._launchOrigin)
@@ -139,11 +165,11 @@ class ViewLauncher: NSObject {
             if duration == 0 { duration = animatedDuration }
             
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.dimView.alpha = 0
-                self.launchView.frame.origin = self.dismissOrigin
+                self._dimView.alpha = 0
+                self._launchView.frame.origin = self.dismissOrigin
             }) { (Bool) in
                 if self.isRemoveSubviewsAfterDimissed {
-                    for subview in self.launchView.subviews {
+                    for subview in self._launchView.subviews {
                         subview.removeFromSuperview()
                     }
                 }
@@ -171,7 +197,7 @@ extension ViewLauncher {
         let margin = CONSTANTS.constrain.margin
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
         
-        let weaknessesView = UIView(frame: CGRect(x: 0, y: spacing, width: self.launchView.frame.width, height: y))
+        let weaknessesView = UIView(frame: CGRect(x: 0, y: spacing, width: self.frame.width, height: y))
         var weaknessLabels = [UILabel]()
         
         // TODO: - fix this repeated calculation when caching
@@ -219,7 +245,7 @@ extension ViewLauncher {
                     } else if effective == "2" {
                         label.frame.size.width = label.frame.height * 8
                     } else if effective == "4" {
-                        label.frame.size.width = self.launchView.frame.width - label.frame.width - spacing - (margin * 2)
+                        label.frame.size.width = self.frame.width - label.frame.width - spacing - (margin * 2)
                     } else if effective == "0" { // "0"
                         label.frame.size.width = label.frame.height * 2
                         label.textAlignment = .left
@@ -256,7 +282,7 @@ extension ViewLauncher {
         let cachedTextView = "cachedLaunchViewTextView"
         
         let margin = CONSTANTS.constrain.margin
-        let width = self.launchView.frame.width - (margin * 2)
+        let width = self.frame.width - (margin * 2)
         
         if let cachedTextView = globalCache.object(forKey: cachedTextView as AnyObject) as? UITextView {
             textView = cachedTextView

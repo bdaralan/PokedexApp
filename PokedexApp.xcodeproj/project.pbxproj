@@ -840,6 +840,7 @@
 		5391B8551EAD77CD0090634F /* RoundOutsetUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */; };
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53B4037D1E9B33FB00D64ABB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B4037C1E9B33FB00D64ABB /* Extension.swift */; };
+		53C2E9901EBDA11B0043A3F1 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2E98F1EBDA11B0043A3F1 /* ExtensionUIView.swift */; };
 		53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */; };
 		53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DD11E8A26E50073A516 /* AppDelegate.swift */; };
 		53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD51E8A26E50073A516 /* Main.storyboard */; };
@@ -1702,6 +1703,7 @@
 		5391B8541EAD77CD0090634F /* RoundOutsetUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundOutsetUILabel.swift; sourceTree = "<group>"; };
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
 		53B4037C1E9B33FB00D64ABB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		53C2E98F1EBDA11B0043A3F1 /* ExtensionUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUIView.swift; path = ../ExtensionUIView.swift; sourceTree = "<group>"; };
 		53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
 		53CF3DCE1E8A26E50073A516 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CF3DD11E8A26E50073A516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2679,6 +2681,7 @@
 				53CF3DF41E8A34590073A516 /* LoadData.swift */,
 				53B4037C1E9B33FB00D64ABB /* Extension.swift */,
 				536E03CB1EBAE6BB003020D7 /* AudioPlayer.swift */,
+				53C2E98F1EBDA11B0043A3F1 /* ExtensionUIView.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -3593,6 +3596,7 @@
 				53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */,
 				53F8F6E61E9CA70500D6AAAF /* ViewLauncher.swift in Sources */,
 				53D74A131EA9349900A6D591 /* MoveDetailVC.swift in Sources */,
+				53C2E9901EBDA11B0043A3F1 /* ExtensionUIView.swift in Sources */,
 				536095B81E970E1B00D2F2FC /* Colors.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,

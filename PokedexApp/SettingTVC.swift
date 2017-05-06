@@ -51,7 +51,6 @@ class SettingTVC: UITableViewController {
         super.viewDidDisappear(animated)
         
         audioPlayer.play(audio: .save)
-        viewLauncher.removeFromSuperview()
     }
 
     // MARK: - Table view data source
@@ -119,17 +118,7 @@ class SettingTVC: UITableViewController {
     
     func configureViewLauncher() {
         
-        let statusBarFrame = UIApplication.shared.statusBarFrame
-        let navBarFrame = UINavigationController().navigationBar.frame
-        
-        let y = statusBarFrame.height + navBarFrame.height + 0.25
-        let width = self.view.frame.width
-        let height = navBarFrame.height
-        
-        let launchViewFrame = CGRect(x: 0, y: y, width: width, height: height)
-        let dimViewFrame = CGRect(x: 0, y: y, width: width, height: self.view.frame.height - y)
-        
-        viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .right)
+        viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
         
         if let window = UIApplication.shared.keyWindow {
             viewLauncher?.setSuperview(window)

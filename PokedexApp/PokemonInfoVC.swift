@@ -225,18 +225,8 @@ class PokemonInfoVC: UIViewController {
     
     func configureViewLauncher() {
         
-        if let navigationBarFrame = self.navigationController?.navigationBar.frame {
-            let statusBarFrame = UIApplication.shared.statusBarFrame
-            let y = statusBarFrame.height + navigationBarFrame.height
-            let width = self.view.frame.width
-            let height = self.view.frame.height
-            let launchViewFrame = CGRect(x: 0, y: y, width: width, height: height - y)
-            let dimViewFrame = CGRect(x: 0, y: 0, width: width, height: height)
-            
-            viewLauncher = ViewLauncher(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: .up)
-            
-            viewLauncher.setSuperview(self.view)
-        }
+        viewLauncher = ViewLauncher(swipeToDismissDirection: .up)
+        viewLauncher.setSuperview(self.view)
     }
     
     func toggleMeasurement() {
