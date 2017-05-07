@@ -199,6 +199,9 @@
                                                         <segment title="US"/>
                                                         <segment title="SI"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="measurementSCValueChanged:" destination="y9o-ty-hlV" eventType="valueChanged" id="VQM-FV-509"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>

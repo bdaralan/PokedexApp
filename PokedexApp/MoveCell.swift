@@ -51,11 +51,18 @@ class MoveCell: UITableViewCell {
         moveCategory.textColor = UIColor.white
         
         switch move.category {
-        case "Physical": moveCategory.text = "P"
-        case "Special": moveCategory.text = "S"
-        case "Status": moveCategory.text = "S"
+            
+        case "Physical":
+            moveCategory.text = "P"
+            
+        case "Special":
+            moveCategory.text = "S"
+            
+        case "Status":
+            moveCategory.text = "S"
+            
         default:
-            moveCategory.text = "–"
+            moveCategory.text = "-"
             moveCategory.textColor = UIColor.black
         }
         

@@ -19,7 +19,7 @@ enum GenericCell: String {
 }
 
 
-class GenericTVC: UITableViewController, UISearchResultsUpdating {
+class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDelegate {
     
     var genericCell: GenericCell! // will be assigned when perform segue
     
@@ -28,6 +28,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     var moves: [Move]!
     var abilities: [Ability]!
     var items: [Item]!
+    var indexPath: IndexPath! //use to deselect row on viewLauncher dismissed
     
     var searchResultController: UISearchController!
     
@@ -48,9 +49,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if viewLauncher != nil {
-            viewLauncher?.dismiss()
-        }
+        viewLauncher?.dismiss()
     }
     
     // MARK: - Table view data source
@@ -146,19 +145,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
         
         case .AbilityCell:
-            tableView.deselectRow(at: indexPath, animated: true)
+            self.indexPath = indexPath
             handleSelectedAbilityItemCell(sender: abilities[indexPath.row])
         
         case .TMCell:
-            tableView.deselectRow(at: indexPath, animated: true)
+            self.indexPath = indexPath
             handleSelectedAbilityItemCell(sender: items[indexPath.row])
         
         case .ItemCell:
-            tableView.deselectRow(at: indexPath, animated: true)
+            self.indexPath = indexPath
             handleSelectedAbilityItemCell(sender: items[indexPath.row])
         
         case .BerryCell:
-            tableView.deselectRow(at: indexPath, animated: true)
+            self.indexPath = indexPath
             handleSelectedAbilityItemCell(sender: items[indexPath.row])
         }
     }
@@ -168,6 +167,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         if let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
             pokemonInfoVC.pokemon = pokemon
+            
         } else if let move = sender as? Move, let moveVC = segue.destination as? MoveDetailVC {
             moveVC.move = move
         }
@@ -239,6 +239,16 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData()
     }
     
+    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently, only with AbilityCell, TMCell, and ItemCell
+        
+        deselectTableViewRow()
+    }
+    
+    func deselectTableViewRow() {
+        
+        tableView.deselectRow(at: self.indexPath, animated: true)
+    }
+    
     // MARK: - IBActions
     @IBAction func searchBtnTapped(_ sender: Any) {
         
@@ -293,9 +303,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             }
             
         case .ItemCell:
-            if segmentControllSelectedIndex == 0 {
-                items = CONSTANTS.allItems.excludeBerriesMachines
-            } else { //must be 1
+            if segmentControllSelectedIndex == 0 { //A-Z
+                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
+            } else { //must be 1, Cat.
                 items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
             }
         
@@ -309,11 +319,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         
         if let ability = sender as? Ability, let viewLauncher = viewLauncher {
             if !ability.hasCompletedInfo { ability.parseCompletedInfo() }
+            
             let textView = viewLauncher.makeTextView(withText: ability.description)
             viewLauncher.addSubview(textView)
         
         } else if let item = sender as? Item, let viewLauncher = viewLauncher {
             if !item.hasCompletedInfo { item.parseCompletedInfo() }
+            
             let textView = viewLauncher.makeTextView(withText: item.effect)
             viewLauncher.addSubview(textView)
         }
@@ -335,7 +347,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         if currentGenericCell == .PokedexCell {
             let segmentControll: DBUISegmentedControl = {
                 let sc = DBUISegmentedControl(items: ["0-9", "A-Z"])
-                sc.awakeFromNib()
                 sc.selectedSegmentIndex = 0
                 sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
                 
@@ -348,7 +359,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         } else if currentGenericCell == .ItemCell {
             let segmentControll: DBUISegmentedControl = {
                 let sc = DBUISegmentedControl(items: ["A-Z", "Cat"])
-                sc.awakeFromNib()
                 sc.selectedSegmentIndex = 0
                 sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
                 
@@ -363,6 +373,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     func configureViewLauncher() {
         
         viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
+        viewLauncher?.delegate = self
         
         if let window = UIApplication.shared.keyWindow {
             viewLauncher?.setSuperview(window)

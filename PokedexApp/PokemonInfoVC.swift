@@ -298,7 +298,7 @@ class PokemonInfoVC: UIViewController {
                     audioPlayer.play(audio: .select)
                     pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
                     if viewLauncher.isIdle {
-                        let pokedexEntryTextView = viewLauncher.makeTextView(withText: pokemon.getPokedexEntry())
+                        let pokedexEntryTextView = viewLauncher.makeTextView(withText: pokemon.pokedexEntry)
                         viewLauncher.addSubview(pokedexEntryTextView)
                         viewLauncher.launch()
                     }

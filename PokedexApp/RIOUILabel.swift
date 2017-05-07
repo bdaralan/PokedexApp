@@ -110,13 +110,13 @@ extension RIOUILabel {
     
     /**
      Use this to grow the `roundLabel` size. The passed in value will be use on both width and height.
-     - parameter value: Pass in a negative number to shrink.
+     - parameter dr: Pass in a negative number to shrink.
      - parameter realignAfter: RIOLabel will make sure the round label is in the correct position
      */
-    func growRoundLabelSize(by value: CGFloat, realignAfter: Bool = false) {
+    func resizeRoundLabel(dr: CGFloat, realignAfter: Bool = false) {
         
-        self.roundLabel.frame.size.width = self.roundLabel.frame.size.width + value
-        self.roundLabel.frame.size.height = self.roundLabel.frame.size.height + value
+        self.roundLabel.frame.size.width = self.roundLabel.frame.size.width + dr
+        self.roundLabel.frame.size.height = self.roundLabel.frame.size.height + dr
         if self.roundLabel.frame.height > self.roundLabel.frame.width {
             self.roundLabel.layer.cornerRadius = self.roundLabel.frame.width / 2
         } else {

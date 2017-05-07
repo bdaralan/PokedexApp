@@ -18,4 +18,18 @@ class DBUISegmentedControl: UISegmentedControl {
         self.layer.borderWidth = 1
         self.layer.borderColor = self.tintColor.cgColor
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    override init(items: [Any]?) {
+        super.init(items: items)
+        
+        self.awakeFromNib()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

@@ -8,20 +8,11 @@
 
 import UIKit
 
-@objc protocol ViewLauncherDelegate: NSObjectProtocol {
-    
-    @objc optional func viewLauncher(willLaunchAt origin: CGPoint)
-    @objc optional func viewlauncher(didLaunchAt origin: CGPoint)
-    @objc optional func viewLauncher(WillDismissTo origin: CGPoint)
-    @objc optional func viewLauncher(DidDismissTo origin: CGPoint)
-    @objc optional func viewLaucher(shouldUpdate height: CGFloat) -> CGFloat
-}
 
 // TODO: - Allow launcView to be size to any width, beside keyWindow width
-
 class ViewLauncher: NSObject {
     
-    var delegate: ViewLauncherDelegate? = nil
+    var delegate: ViewLauncherDelegate?
     
     private var _launchView: UIView!
     private var _dimView: UIView!
@@ -133,22 +124,18 @@ class ViewLauncher: NSObject {
             
             if height > 0 { self._launchView.frame.size.height = height }
             
-            if self.delegate != nil {
-                self.delegate?.viewLauncher!(willLaunchAt: self._launchOrigin)
-            }
-            
             var duration = duration
             if duration == 0 { duration = animatedDuration }
+            
+            self.delegate?.viewLauncher?(didLaunch: self._launchOrigin)
             
             self._launchView.frame.origin = dismissOrigin
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self._dimView.alpha = 1
                 self._launchView.frame.origin = self._launchOrigin
             }) { (Bool) in
-                if self.delegate != nil {
-                    self.delegate?.viewlauncher!(didLaunchAt: self._launchOrigin)
-                }
                 self.isIdle = true
+                self.delegate?.viewLauncher?(didLaunch: self._launchOrigin)
             }
         }
     }
@@ -157,12 +144,11 @@ class ViewLauncher: NSObject {
         
         if self.isIdle {
             self.isIdle = false
-            if delegate != nil {
-                self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin)
-            }
             
             var duration = duration
             if duration == 0 { duration = animatedDuration }
+            
+            self.delegate?.viewLauncher?(willDismiss: self.dismissOrigin)
             
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self._dimView.alpha = 0
@@ -173,12 +159,9 @@ class ViewLauncher: NSObject {
                         subview.removeFromSuperview()
                     }
                 }
-                
-                if self.delegate != nil {
-                    self.delegate?.viewLauncher!(WillDismissTo: self.dismissOrigin)
-                }
-                
+
                 self.isIdle = true
+                self.delegate?.viewLauncher?(didDismiss: self.dismissOrigin)
             }
         }
     }
@@ -214,7 +197,7 @@ extension ViewLauncher {
                 y = y + weaknessLabels[i].frame.height + spacing
             }
         } else {
-            let weaknesses = pokemon.getWeaknesses()
+            let weaknesses = pokemon.weaknesses
             
             for (type, effective) in weaknesses {
                 let backgroundColor = UIColor.myColor.get(from: type)

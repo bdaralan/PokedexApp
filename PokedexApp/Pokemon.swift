@@ -226,7 +226,6 @@ extension Pokemon {
         var evolutions = [Pokemon]()
         var selfNoForm = self
         
-        // TODO: condition for mega✓, alolan✓
         if self.hasForm {
             if CONSTANTS.evolutionSpecialCaseForm.contains(self.form),
                 let noFormPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.id == self.id}).first {
@@ -277,11 +276,11 @@ extension Pokemon {
                 }
             }
         }
-        
-        return evolutions //return empty array if no evolution
+
+        return evolutions //return an array with one element which is itself
     }
     
-    func getWeaknesses() -> DictionarySS {
+    var weaknesses: DictionarySS {
         
         var weaknessesDict = DictionarySS()
         
@@ -296,7 +295,7 @@ extension Pokemon {
         return weaknessesDict
     }
     
-    func getPokedexEntry() -> String {
+    var pokedexEntry: String {
         
         if let pokedexEntry = CONSTANTS.pokedexEntriesJSON["\(self.id)"] as? DictionarySS {
             if let omegaEntry = pokedexEntry["omega"], let alphaEntry = pokedexEntry["alpha"] {

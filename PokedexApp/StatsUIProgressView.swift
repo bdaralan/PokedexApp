@@ -18,5 +18,4 @@ class StatsUIProgressView: UIProgressView {
         self.layer.cornerRadius = self.layer.frame.height / 2
         self.clipsToBounds = true
     }
-
 }

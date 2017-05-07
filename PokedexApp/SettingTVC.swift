@@ -44,13 +44,12 @@ class SettingTVC: UITableViewController {
         super.viewWillDisappear(animated)
         
         viewLauncher.dismiss()
-        saveSettingToUserDefaults()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        audioPlayer.play(audio: .save)
+        audioPlayer.play(audio: .save, forcePlay: true)
     }
 
     // MARK: - Table view data source
@@ -61,9 +60,7 @@ class SettingTVC: UITableViewController {
         if let selectedRow = SettingRow(rawValue: "\(indexPath.section)\(indexPath.row)") {
             
             switch selectedRow {
-            case .measurementUnit: ()
-            case .section10: ()
-            case .section11: ()
+                
             case .iDara09GitHub:
                 if let url = URL(string: "https://github.com/iDara09") {
                     UIApplication.shared.open(url)
@@ -80,9 +77,6 @@ class SettingTVC: UITableViewController {
                 let textView = viewLauncher.makeTextView(withText: text)
                 viewLauncher.addSubview(textView)
                 viewLauncher.launch()
-//                if let url = URL(string: "https://github.com/iDara09/PokedexApp#disclaimer") {
-//                    UIApplication.shared.open(url)
-//                }
                 
             case .credits:
                 audioPlayer.play(audio: .select)
@@ -90,11 +84,16 @@ class SettingTVC: UITableViewController {
                 let textView = viewLauncher.makeTextView(withText: text)
                 viewLauncher.addSubview(textView)
                 viewLauncher.launch()
-//                if let url = URL(string: "https://github.com/iDara09/PokedexApp#data-resources") {
-//                    UIApplication.shared.open(url)
-//                }
+                
+            default: ()
             }
         }
+    }
+    
+    @IBAction func measurementSCValueChanged(_ sender: UISegmentedControl) {
+        
+        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex)
+        audioPlayer.play(audio: .select)
     }
     
     @IBAction func soundEffectSwitchToggled(_ sender: UISwitch) {
@@ -110,18 +109,12 @@ class SettingTVC: UITableViewController {
         soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
     }
     
-    func saveSettingToUserDefaults() {
-        
-        UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex)
-        UserDefaults.standard.set(soundEffectSwitch.isOn, forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
-    }
-    
     func configureViewLauncher() {
         
         viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
         
         if let window = UIApplication.shared.keyWindow {
-            viewLauncher?.setSuperview(window)
+            viewLauncher.setSuperview(window)
         }
     }
 }
