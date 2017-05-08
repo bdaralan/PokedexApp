@@ -24,6 +24,7 @@ class Colors {
     
     let pokemonType: PokeTypeColor!
     let move: PokeMoveColor!
+    let ability: UIColor!
     let navigationBar: UIColor!
     let sectionBackground: UIColor!
     let sectionText: UIColor!
@@ -36,6 +37,7 @@ class Colors {
         navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
         sectionBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
         sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
+        ability = sectionBackground.withAlphaComponent(0.35)
     }
     
     func get(from string: String) -> UIColor {
