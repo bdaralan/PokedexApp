@@ -28,11 +28,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     var moves: [Move]!
     var abilities: [Ability]!
     var items: [Item]!
-    var indexPath: IndexPath! //use to deselect row on viewLauncher dismissed
     
     var searchResultController: UISearchController!
     
+    var indexPath: IndexPath? //use to deselect row on viewLauncher dismissed
     var segmentControllSelectedIndex: Int?
+    
     var viewLauncher: ViewLauncher?
     
     var currentGenericCell: GenericCell { return genericCell }
@@ -246,7 +247,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     func deselectTableViewRow() {
         
-        tableView.deselectRow(at: self.indexPath, animated: true)
+        if let indexPath = self.indexPath {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     // MARK: - IBActions

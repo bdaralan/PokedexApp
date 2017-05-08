@@ -93,7 +93,6 @@ class SettingTVC: UITableViewController {
     @IBAction func measurementSCValueChanged(_ sender: UISegmentedControl) {
         
         UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex)
-        audioPlayer.play(audio: .select)
     }
     
     @IBAction func soundEffectSwitchToggled(_ sender: UISwitch) {

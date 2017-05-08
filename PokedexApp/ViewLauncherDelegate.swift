@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @objc protocol ViewLauncherDelegate: NSObjectProtocol {
     
     @objc optional func viewLauncher(willLaunch launchOrigin: CGPoint)
