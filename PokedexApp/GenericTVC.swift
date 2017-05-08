@@ -140,7 +140,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
         
         case .TypeCell:
-            performSegue(withIdentifier: "TypeDetailVC", sender: nil)
+            performSegue(withIdentifier: "TypeDetailVC", sender: types[indexPath.row])
         
         case .MoveCell:
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
@@ -166,11 +166,24 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     // MARK: - Preapre segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let pokemon = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
-            pokemonInfoVC.pokemon = pokemon
+        switch sender {
             
-        } else if let move = sender as? Move, let moveVC = segue.destination as? MoveDetailVC {
-            moveVC.move = move
+        case is Pokemon:
+            if let pokemonInfoVC = segue.destination as? PokemonInfoVC {
+                pokemonInfoVC.pokemon = sender as? Pokemon
+            }
+            
+        case is String: // type
+            if let typeDetailVC = segue.destination as? TypeDetailVC {
+                typeDetailVC.type = sender as? String
+            }
+            
+        case is Move:
+            if let moveDetailVC = segue.destination as? MoveDetailVC {
+                moveDetailVC.move = sender as? Move
+            }
+            
+        default: ()
         }
     }
     

@@ -19,4 +19,15 @@ class SectionUILabel: UILabel {
         self.textColor = UIColor.myColor.sectionText
         self.font = UIFont(name: "GillSans-SemiBold", size: 17)
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        awakeFromNib()
+        print("initfromeframe")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

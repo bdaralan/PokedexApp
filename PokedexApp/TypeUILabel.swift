@@ -20,5 +20,15 @@ class TypeUILabel: UILabel {
         self.textColor = UIColor.white
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
-    }    
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        awakeFromNib()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }
