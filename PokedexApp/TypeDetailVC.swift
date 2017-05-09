@@ -10,16 +10,19 @@ import UIKit
 
 class TypeDetailVC: UIViewController {
     
+    @IBOutlet weak var strongAgainstSectionLbl: SectionUILabel!
     @IBOutlet weak var weakToSectionLbl: SectionUILabel!
     @IBOutlet weak var resistToSectionLbl: SectionUILabel!
     @IBOutlet weak var immuneToSectionLbl: SectionUILabel!
     
+    @IBOutlet weak var strongAgainstView: UIView!
     @IBOutlet weak var weakToView: UIView!
     @IBOutlet weak var resistToView: UIView!
     @IBOutlet weak var immuneToView: UIView!
     
-    
     var type: String! //will be assigned by segue
+    
+    var strongAgainstTypes = [String]()
     var weakToTypes = [String]()
     var resistToTypes = [String]()
     var immuneToTypes = [String]()
@@ -28,14 +31,15 @@ class TypeDetailVC: UIViewController {
     private let spacing: CGFloat = 8
     
     private let cache = NSCache<AnyObject, AnyObject>()
-    private var allTypeLabels = [[TypeUILabel](), [TypeUILabel](), [TypeUILabel]()]
+    private var allTypeLabels = [[TypeUILabel](), [TypeUILabel](), [TypeUILabel](), [TypeUILabel]()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weakToView.tag = 0
-        resistToView.tag = 1
-        immuneToView.tag = 2
+        strongAgainstView.tag = 0
+        weakToView.tag = 1
+        resistToView.tag = 2
+        immuneToView.tag = 3
         
         updateUI()
         
@@ -52,6 +56,43 @@ class TypeDetailVC: UIViewController {
     
     func getWeaknesses() {
         
+        if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+            for (type, effective) in weaknessesDict {
+                switch effective {
+                    
+                case "2": //weak against
+                    weakToTypes.append(type)
+                    
+                case "1/2": //strong against
+                    resistToTypes.append(type)
+                    
+                case "0": //immune against
+                    immuneToTypes.append(type)
+                    
+                default: () // value = ""
+                }
+            }
+        }
+    }
+    
+    func getStrongness(from types: [String]) {
+        
+        for type in types {
+            if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+                if let effective = typeDict[self.type], effective == "2" {
+                    strongAgainstTypes.append(type)
+                }
+            }
+        }
+    }
+    
+    func updateUI() {
+        
+        self.title = type
+        
+        setDefaultState()
+        
+        // Get weakness
         if let cachedWeakToTypes = cache.object(forKey: "weakToTypes\(type)" as AnyObject) as? [String],
             let cachedResistToTypes = cache.object(forKey: "resisToTypes\(type)" as AnyObject) as? [String],
             let cachedImmuneToTypes = cache.object(forKey: "immuneToTypes\(type)" as AnyObject) as? [String] {
@@ -61,61 +102,58 @@ class TypeDetailVC: UIViewController {
             immuneToTypes = cachedImmuneToTypes
             
         } else {
-            if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
-                for (type, effective) in weaknessesDict {
-                    switch effective {
-                        
-                    case "2": //weak against
-                        weakToTypes.append(type)
-                        
-                    case "1/2": //strong against
-                        resistToTypes.append(type)
-                        
-                    case "0": //immune against
-                        immuneToTypes.append(type)
-                        
-                    default: () // value = ""
-                    }
-                }
-            }
-            
-            self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
-            self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
-            self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
+            getWeaknesses()
         }
-    }
-    
-    func updateUI() {
         
-        self.title = type
+        // Get strongness
+        if let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypes\(type)" as AnyObject) as? [String] {
+            strongAgainstTypes = cachedStrongAgainstTypes
+            
+        } else {
+            getStrongness(from: weakToTypes)
+            getStrongness(from: resistToTypes)
+            getStrongness(from: immuneToTypes)
+        }
         
-        setDefaultState()
-        getWeaknesses()
         
-        configureTypeLbls(for: weakToView, withTypes: weakToTypes)
+        add(typeLbls: strongAgainstTypes, to: strongAgainstView)
+        strongAgainstView.setOriginBelow(strongAgainstSectionLbl)
+        strongAgainstView.sizeToContent()
+        
+        weakToSectionLbl.setOriginBelow(strongAgainstView, spacing: 29)
+        
+        add(typeLbls: weakToTypes, to: weakToView)
+        weakToView.setOriginBelow(weakToSectionLbl)
         weakToView.sizeToContent()
         
         resistToSectionLbl.setOriginBelow(weakToView, spacing: 29)
         
-        configureTypeLbls(for: resistToView, withTypes: resistToTypes)
+        add(typeLbls: resistToTypes, to: resistToView)
         resistToView.setOriginBelow(resistToSectionLbl)
         resistToView.sizeToContent()
         
         immuneToSectionLbl.setOriginBelow(resistToView, spacing: 29)
         
-        configureTypeLbls(for: immuneToView, withTypes: immuneToTypes)
+        add(typeLbls: immuneToTypes, to: immuneToView)
         immuneToView.setOriginBelow(immuneToSectionLbl)
         immuneToView.sizeToContent()
         
+        // Caching
+        self.cache.setObject(strongAgainstTypes as AnyObject, forKey: "strongAgainstTypes\(type)" as AnyObject)
+        self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
+        self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
+        self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
         self.cache.setObject(allTypeLabels as AnyObject, forKey: "allTypeLabels\(type)" as AnyObject)
     }
     
     func setDefaultState() {
         
+        strongAgainstView.removeAllSubviews()
         weakToView.removeAllSubviews()
         resistToView.removeAllSubviews()
         immuneToView.removeAllSubviews()
         
+        strongAgainstTypes.removeAll()
         weakToTypes.removeAll()
         resistToTypes.removeAll()
         immuneToTypes.removeAll()
@@ -125,7 +163,7 @@ class TypeDetailVC: UIViewController {
         }
     }
     
-    func configureTypeLbls(for view: UIView, withTypes types: [String]) {
+    func add(typeLbls: [String], to view: UIView) {
         
         if let cachedAllTypeLabels = cache.object(forKey: "allTypeLabels\(type)" as AnyObject) as? [[TypeUILabel]] {
             allTypeLabels = cachedAllTypeLabels
@@ -137,9 +175,9 @@ class TypeDetailVC: UIViewController {
             var x: CGFloat = margin
             var y: CGFloat = 0
             
-            if types.count > 0 {
+            if typeLbls.count > 0 {
                 
-                for type in types {
+                for type in typeLbls {
                     let typeLbl: TypeUILabel = {
                         let label = TypeUILabel()
                         label.text = type
