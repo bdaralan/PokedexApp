@@ -10,11 +10,20 @@ import UIKit
 
 class AbilityDetailVC: UIViewController {
 
-    var ability: Ability!
+    var ability: Ability! //will be assigned by segue
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     
+        updateUI()
+    }
+    
+    func updateUI() {
+        
+        if !ability.hasCompletedInfo {
+            ability.parseCompletedInfo()
+        }
+        
+        self.title = ability.name
     }
 }

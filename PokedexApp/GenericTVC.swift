@@ -147,13 +147,11 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         
         case .AbilityCell:
             self.indexPath = indexPath
-            performSegue(withIdentifier: "AbilityDetailVC", sender: nil)
-//            handleSelectedAbilityItemCell(sender: abilities[indexPath.row])
+            performSegue(withIdentifier: "AbilityDetailVC", sender: abilities[indexPath.row])
         
         case .TMCell:
             self.indexPath = indexPath
-            performSegue(withIdentifier: "TMDetailVC", sender: nil)
-//            handleSelectedAbilityItemCell(sender: items[indexPath.row])
+            performSegue(withIdentifier: "TMDetailVC", sender: items[indexPath.row])
         
         case .ItemCell:
             self.indexPath = indexPath
@@ -171,23 +169,29 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         switch sender {
             
         case is Pokemon:
-            if let pokemonInfoVC = segue.destination as? PokemonInfoVC {
-                pokemonInfoVC.pokemon = sender as? Pokemon
+            if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
+                pokemonInfoVC.pokemon = pokemon
             }
             
         case is String: // type
-            if let typeDetailVC = segue.destination as? TypeDetailVC {
-                typeDetailVC.type = sender as? String
+            if let typeDetailVC = segue.destination as? TypeDetailVC, let type = sender as? String {
+                typeDetailVC.type = type
             }
             
         case is Move:
-            if let moveDetailVC = segue.destination as? MoveDetailVC {
-                moveDetailVC.move = sender as? Move
+            if let moveDetailVC = segue.destination as? MoveDetailVC, let move = sender as? Move {
+                moveDetailVC.move = move
             }
             
-        case is Ability: ()
+        case is Ability:
+            if let abilityDetailVC = segue.destination as? AbilityDetailVC, let ability = sender as? Ability {
+                abilityDetailVC.ability = ability
+            }
             
-        case is Item: ()
+        case is Item:
+            if let tmDetailVC = segue.destination as? TMDetailVC, let tm = sender as? Item {
+                tmDetailVC.tm = tm
+            }
             
         default: ()
         }
