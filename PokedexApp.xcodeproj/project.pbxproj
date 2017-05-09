@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */; };
 		533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* GenericTVC.swift */; };
-		5342EE981EBF9E8B0028FBDF /* ViewLauncherDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342EE971EBF9E8B0028FBDF /* ViewLauncherDelegate.swift */; };
 		536095B61E96F98900D2F2FC /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B51E96F98900D2F2FC /* Ability.swift */; };
 		536095B81E970E1B00D2F2FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B71E970E1B00D2F2FC /* Colors.swift */; };
 		536095BA1E970E9000D2F2FC /* SectionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B91E970E9000D2F2FC /* SectionUILabel.swift */; };
@@ -873,7 +872,6 @@
 /* Begin PBXFileReference section */
 		532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsUIProgressView.swift; sourceTree = "<group>"; };
 		533A78811E9FDA6100554F7F /* GenericTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTVC.swift; sourceTree = "<group>"; };
-		5342EE971EBF9E8B0028FBDF /* ViewLauncherDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLauncherDelegate.swift; sourceTree = "<group>"; };
 		536095B51E96F98900D2F2FC /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		536095B71E970E1B00D2F2FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		536095B91E970E9000D2F2FC /* SectionUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionUILabel.swift; sourceTree = "<group>"; };
@@ -1764,14 +1762,6 @@
 			name = data;
 			sourceTree = "<group>";
 		};
-		5342EE9B1EBFA87D0028FBDF /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				5342EE971EBF9E8B0028FBDF /* ViewLauncherDelegate.swift */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
 		536E03C21EBAE659003020D7 /* sound-effect */ = {
 			isa = PBXGroup;
 			children = (
@@ -2632,7 +2622,6 @@
 				53CF3DE41E8A27050073A516 /* View */,
 				53CF3DE31E8A27000073A516 /* Model */,
 				53CF3DE51E8A27090073A516 /* Controller */,
-				5342EE9B1EBFA87D0028FBDF /* Protocol */,
 				53CF3DEE1E8A28D10073A516 /* Utilities */,
 				53DD46B41EC19D71002FA5C5 /* Extensions */,
 				53CF3DF11E8A29450073A516 /* Constants */,
@@ -3639,7 +3628,6 @@
 				53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */,
 				53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */,
 				53FD91FC1EB715BD00C7EC86 /* Item.swift in Sources */,
-				5342EE981EBF9E8B0028FBDF /* ViewLauncherDelegate.swift in Sources */,
 				5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */,
 				53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */,
 				53CF3DF31E8A29580073A516 /* GlobalConstants.swift in Sources */,

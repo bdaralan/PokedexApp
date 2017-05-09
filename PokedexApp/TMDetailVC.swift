@@ -10,6 +10,8 @@ import UIKit
 
 class TMDetailVC: UIViewController {
 
+    var tm: Item!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -726,8 +726,8 @@
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="hBg-BA-g37"/>
                         <segue destination="T4B-Xs-RGo" kind="show" identifier="MoveDetailVC" id="niM-lp-2Wm"/>
                         <segue destination="GeS-AS-NPY" kind="show" identifier="TypeDetailVC" id="PwO-SZ-aTn"/>
-                        <segue destination="c34-xz-D97" kind="show" id="tBt-IF-6wh"/>
-                        <segue destination="K7W-JF-qE0" kind="show" id="kQE-e2-M1w"/>
+                        <segue destination="c34-xz-D97" kind="show" identifier="AbilityDetailVC" id="tBt-IF-6wh"/>
+                        <segue destination="K7W-JF-qE0" kind="show" identifier="TMDetailVC" id="kQE-e2-M1w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mla-5D-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>

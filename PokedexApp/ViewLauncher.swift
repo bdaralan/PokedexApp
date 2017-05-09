@@ -9,6 +9,18 @@
 import UIKit
 
 
+@objc protocol ViewLauncherDelegate: NSObjectProtocol {
+    
+    @objc optional func viewLauncher(willLaunch launchOrigin: CGPoint)
+    
+    @objc optional func viewLauncher(didLaunch launchOrigin: CGPoint)
+    
+    @objc optional func viewLauncher(willDismiss dismissOrigin: CGPoint)
+    
+    @objc optional func viewLauncher(didDismiss dismissOrigin: CGPoint)
+}
+
+
 // TODO: - Allow launcView to be size to any width, beside keyWindow width
 class ViewLauncher: NSObject {
     

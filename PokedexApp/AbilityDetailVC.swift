@@ -10,6 +10,8 @@ import UIKit
 
 class AbilityDetailVC: UIViewController {
 
+    var ability: Ability!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
