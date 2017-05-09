@@ -59,7 +59,7 @@ class AudioPlayer {
         }
     }
     
-    func play(audio: AudioFile, forcePlay: Bool = false) {
+    func play(audio: ResourceAudioFile, forcePlay: Bool = false) {
         
         let cacheKey = "\(audio.rawValue).m4a"
         
@@ -83,7 +83,7 @@ class AudioPlayer {
 }
 
 
-enum AudioFile: String {
+enum ResourceAudioFile: String {
     case error = "error"
     case openPC = "open-pc"
     case save = "save"

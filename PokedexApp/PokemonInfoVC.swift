@@ -73,6 +73,14 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let typeDetailVC = segue.destination as? TypeDetailVC, let type = sender as? String {
+            typeDetailVC.type = type
+            audioPlayer.play(audio: .select)
+        }
+    }
+    
     @IBAction func cryBarBtnPressed(_ sender: Any) {
         
         audioPlayer.play(audio: pokemon.crySound)
@@ -91,14 +99,17 @@ class PokemonInfoVC: UIViewController {
         
         pokeType01Lbl.text = pokemon.primaryType
         pokeType01Lbl.backgroundColor = UIColor.myColor.get(from: pokemon.primaryType)
+        pokeType01Lbl.isUserInteractionEnabled = true
         
         if pokemon.hasSecondType {
             pokeType02Lbl.isHidden = false
+            pokeType02Lbl.isUserInteractionEnabled = true
             pokeType02Lbl.text = pokemon.secondaryType
             pokeType02Lbl.backgroundColor = UIColor.myColor.get(from: pokemon.secondaryType)
             pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width)
         } else {
             pokeType02Lbl.isHidden = true
+            pokeType02Lbl.isUserInteractionEnabled = false
             pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width * 2 + 5)
         }
         
@@ -206,6 +217,9 @@ class PokemonInfoVC: UIViewController {
         configureTapGesture(for: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
         configureTapGesture(for: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))
         configureTapGesture(for: pokeEvolution03Img, action: #selector(handleEvolutionPress(_:)))
+        
+        configureTapGesture(for: pokeType01Lbl, action: #selector(handleTypeLblPress(_:)))
+        configureTapGesture(for: pokeType02Lbl, action: #selector(handleTypeLblPress(_:)))
     }
     
     func configureLongPressGesture(for view: UIView, action: Selector) {
@@ -341,6 +355,22 @@ class PokemonInfoVC: UIViewController {
                 audioPlayer.play(audio: .select)
                 updateUI()
                 updatePokemonStatsProgressViews()
+            }
+        }
+    }
+    
+    func handleTypeLblPress(_ sender: UITapGestureRecognizer) {
+        
+        if let label = sender.view as? TypeUILabel {
+            switch label {
+                
+            case pokeType01Lbl: print("perform")
+                performSegue(withIdentifier: "TypeDetailVC", sender: pokeType01Lbl.text)
+                
+            case pokeType02Lbl:
+                performSegue(withIdentifier: "TypeDetailVC", sender: pokeType02Lbl.text)
+                
+            default: ()
             }
         }
     }

@@ -1093,6 +1093,7 @@
                         <outlet property="pokeWeighLblt" destination="Ygv-tF-L6n" id="4Ji-pJ-cwX"/>
                         <outlet property="pokedexEnterySectionLbl" destination="6yR-rc-PGc" id="AJB-mJ-2uO"/>
                         <outlet property="weaknessesSectionLbl" destination="Rx8-dz-0ng" id="La7-ti-uAE"/>
+                        <segue destination="GeS-AS-NPY" kind="show" identifier="TypeDetailVC" id="vs3-YC-JPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTO-Tr-Rzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1104,7 +1105,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6AJ-gX-XXw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ToV-0h-9rc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ToV-0h-9rc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1123,4 +1124,7 @@
         <image name="evolution-arrow" width="44" height="44"/>
         <image name="setting-icon" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vs3-YC-JPa"/>
+    </inferredMetricsTieBreakers>
 </document>

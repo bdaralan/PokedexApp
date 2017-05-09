@@ -42,47 +42,14 @@ class TypeDetailVC: UIViewController {
         immuneToView.tag = 3
         
         updateUI()
-        
-        cache.setObject(type as AnyObject, forKey: type as AnyObject)
     }
     
     func handleTypeLblTapped(_ sender: UITapGestureRecognizer) {
         
         if let typeLbl = sender.view as? TypeUILabel, self.title != typeLbl.text {
+            audioPlayer.play(audio: .select)
             self.type = typeLbl.text
             self.updateUI()
-        }
-    }
-    
-    func getWeaknesses() {
-        
-        if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
-            for (type, effective) in weaknessesDict {
-                switch effective {
-                    
-                case "2": //weak against
-                    weakToTypes.append(type)
-                    
-                case "1/2": //strong against
-                    resistToTypes.append(type)
-                    
-                case "0": //immune against
-                    immuneToTypes.append(type)
-                    
-                default: () // value = ""
-                }
-            }
-        }
-    }
-    
-    func getStrongness(from types: [String]) {
-        
-        for type in types {
-            if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
-                if let effective = typeDict[self.type], effective == "2" {
-                    strongAgainstTypes.append(type)
-                }
-            }
         }
     }
     
@@ -137,6 +104,7 @@ class TypeDetailVC: UIViewController {
         immuneToView.sizeToContent()
         
         // Caching
+        self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
         self.cache.setObject(strongAgainstTypes as AnyObject, forKey: "strongAgainstTypes\(type)" as AnyObject)
         self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
         self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
@@ -158,6 +126,38 @@ class TypeDetailVC: UIViewController {
         
         for i in 0 ..< allTypeLabels.count {
             allTypeLabels[i].removeAll()
+        }
+    }
+    
+    func getWeaknesses() {
+        
+        if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+            for (type, effective) in weaknessesDict {
+                switch effective {
+                    
+                case "2": //weak against
+                    weakToTypes.append(type)
+                    
+                case "1/2": //strong against
+                    resistToTypes.append(type)
+                    
+                case "0": //immune against
+                    immuneToTypes.append(type)
+                    
+                default: () // value = ""
+                }
+            }
+        }
+    }
+    
+    func getStrongness(from types: [String]) {
+        
+        for type in types {
+            if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+                if let effective = typeDict[self.type], effective == "2" {
+                    strongAgainstTypes.append(type)
+                }
+            }
         }
     }
     
