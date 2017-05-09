@@ -726,11 +726,51 @@
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="hBg-BA-g37"/>
                         <segue destination="T4B-Xs-RGo" kind="show" identifier="MoveDetailVC" id="niM-lp-2Wm"/>
                         <segue destination="GeS-AS-NPY" kind="show" identifier="TypeDetailVC" id="PwO-SZ-aTn"/>
+                        <segue destination="c34-xz-D97" kind="show" id="tBt-IF-6wh"/>
+                        <segue destination="K7W-JF-qE0" kind="show" id="kQE-e2-M1w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mla-5D-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="104.7976011994003"/>
+        </scene>
+        <!--Ability Details-->
+        <scene sceneID="h7g-Fa-3iu">
+            <objects>
+                <viewController id="c34-xz-D97" customClass="AbilityDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hnT-gf-99Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="JzY-FV-pfa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xtK-5C-bra">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ability Details" id="5lU-cr-hYb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHu-bd-Iz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3559" y="860"/>
+        </scene>
+        <!--TM Details-->
+        <scene sceneID="2pE-2a-IBX">
+            <objects>
+                <viewController id="K7W-JF-qE0" customClass="TMDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j6j-wx-Iqy"/>
+                        <viewControllerLayoutGuide type="bottom" id="GDQ-4R-WPw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ddC-56-uoi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TM Details" id="2K7-b9-atz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kze-Ow-cWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4350" y="860"/>
         </scene>
         <!--PokemonInfo-->
         <scene sceneID="4Wp-Im-GFA">
@@ -1051,7 +1091,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6AJ-gX-XXw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ToV-0h-9rc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ToV-0h-9rc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
