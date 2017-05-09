@@ -110,31 +110,29 @@ class TypeDetailVC: UIViewController {
             strongAgainstTypes = cachedStrongAgainstTypes
             
         } else {
-            getStrongness(from: weakToTypes)
-            getStrongness(from: resistToTypes)
-            getStrongness(from: immuneToTypes)
+            getStrongness(from: CONSTANTS.allTypes)
         }
         
         
-        add(typeLbls: strongAgainstTypes, to: strongAgainstView)
+        add(typeLbls: strongAgainstTypes.sorted(), to: strongAgainstView)
         strongAgainstView.setOriginBelow(strongAgainstSectionLbl)
         strongAgainstView.sizeToContent()
         
         weakToSectionLbl.setOriginBelow(strongAgainstView, spacing: 29)
         
-        add(typeLbls: weakToTypes, to: weakToView)
+        add(typeLbls: weakToTypes.sorted(), to: weakToView)
         weakToView.setOriginBelow(weakToSectionLbl)
         weakToView.sizeToContent()
         
         resistToSectionLbl.setOriginBelow(weakToView, spacing: 29)
         
-        add(typeLbls: resistToTypes, to: resistToView)
+        add(typeLbls: resistToTypes.sorted(), to: resistToView)
         resistToView.setOriginBelow(resistToSectionLbl)
         resistToView.sizeToContent()
         
         immuneToSectionLbl.setOriginBelow(resistToView, spacing: 29)
         
-        add(typeLbls: immuneToTypes, to: immuneToView)
+        add(typeLbls: immuneToTypes.sorted(), to: immuneToView)
         immuneToView.setOriginBelow(immuneToSectionLbl)
         immuneToView.sizeToContent()
         
