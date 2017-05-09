@@ -840,7 +840,7 @@
 		538F963F1EA479AE005E63FB /* DBUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */; };
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53B4037D1E9B33FB00D64ABB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B4037C1E9B33FB00D64ABB /* Extension.swift */; };
-		53C2E9901EBDA11B0043A3F1 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2E98F1EBDA11B0043A3F1 /* ExtensionUIView.swift */; };
+		53C2E9901EBDA11B0043A3F1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2E98F1EBDA11B0043A3F1 /* UIViewExtension.swift */; };
 		53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */; };
 		53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DD11E8A26E50073A516 /* AppDelegate.swift */; };
 		53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD51E8A26E50073A516 /* Main.storyboard */; };
@@ -1702,7 +1702,7 @@
 		538F963E1EA479AE005E63FB /* DBUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUISegmentedControl.swift; sourceTree = "<group>"; };
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
 		53B4037C1E9B33FB00D64ABB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		53C2E98F1EBDA11B0043A3F1 /* ExtensionUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUIView.swift; path = ../ExtensionUIView.swift; sourceTree = "<group>"; };
+		53C2E98F1EBDA11B0043A3F1 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../UIViewExtension.swift; sourceTree = "<group>"; };
 		53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
 		53CF3DCE1E8A26E50073A516 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CF3DD11E8A26E50073A516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2630,6 +2630,7 @@
 				53CF3DE51E8A27090073A516 /* Controller */,
 				5342EE9B1EBFA87D0028FBDF /* Protocol */,
 				53CF3DEE1E8A28D10073A516 /* Utilities */,
+				53DD46B41EC19D71002FA5C5 /* Extensions */,
 				53CF3DF11E8A29450073A516 /* Constants */,
 				5389C1FD1E8EFD02001594B0 /* Resources */,
 				53CF3DD81E8A26E50073A516 /* Assets.xcassets */,
@@ -2692,9 +2693,7 @@
 			children = (
 				53CF3DF71E8A3C250073A516 /* Utilities.swift */,
 				53CF3DF41E8A34590073A516 /* LoadData.swift */,
-				53B4037C1E9B33FB00D64ABB /* Extension.swift */,
 				536E03CB1EBAE6BB003020D7 /* AudioPlayer.swift */,
-				53C2E98F1EBDA11B0043A3F1 /* ExtensionUIView.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -2705,6 +2704,15 @@
 				53CF3DF21E8A29580073A516 /* GlobalConstants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		53DD46B41EC19D71002FA5C5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53B4037C1E9B33FB00D64ABB /* Extension.swift */,
+				53C2E98F1EBDA11B0043A3F1 /* UIViewExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3608,7 +3616,7 @@
 				53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */,
 				53F8F6E61E9CA70500D6AAAF /* ViewLauncher.swift in Sources */,
 				53D74A131EA9349900A6D591 /* MoveDetailVC.swift in Sources */,
-				53C2E9901EBDA11B0043A3F1 /* ExtensionUIView.swift in Sources */,
+				53C2E9901EBDA11B0043A3F1 /* UIViewExtension.swift in Sources */,
 				536095B81E970E1B00D2F2FC /* Colors.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,

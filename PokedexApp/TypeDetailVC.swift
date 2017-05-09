@@ -10,29 +10,41 @@ import UIKit
 
 class TypeDetailVC: UIViewController {
     
-    @IBOutlet weak var weakAgainstSectionLbl: SectionUILabel!
-    @IBOutlet weak var resistAgainstSectionLbl: SectionUILabel!
-    @IBOutlet weak var immuneAgainstSectionLbl: SectionUILabel!
+    @IBOutlet weak var weakToSectionLbl: SectionUILabel!
+    @IBOutlet weak var resistToSectionLbl: SectionUILabel!
+    @IBOutlet weak var immuneToSectionLbl: SectionUILabel!
+    
+    @IBOutlet weak var weakToView: UIView!
+    @IBOutlet weak var resistToView: UIView!
+    @IBOutlet weak var immuneToView: UIView!
     
     
     var type: String! //will be assigned by segue
-    var weakAgainst = [String]()
-    var resistAgainst = [String]()
-    var immuneAgainst = [String]()
+    var weakToTypes = [String]()
+    var resistToTypes = [String]()
+    var immuneToTypes = [String]()
     
     private let margin: CGFloat = 16
     private let spacing: CGFloat = 8
     
+    private let cache = NSCache<AnyObject, AnyObject>()
+    private var allTypeLabels = [[TypeUILabel](), [TypeUILabel](), [TypeUILabel]()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        weakToView.tag = 0
+        resistToView.tag = 1
+        immuneToView.tag = 2
+        
         updateUI()
+        
+        cache.setObject(type as AnyObject, forKey: type as AnyObject)
     }
     
     func handleTypeLblTapped(_ sender: UITapGestureRecognizer) {
         
-        if let typeLbl = sender.view as? TypeUILabel {
+        if let typeLbl = sender.view as? TypeUILabel, self.title != typeLbl.text {
             self.type = typeLbl.text
             self.updateUI()
         }
@@ -40,22 +52,36 @@ class TypeDetailVC: UIViewController {
     
     func getWeaknesses() {
         
-        if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
-            for (type, effective) in weaknessesDict {
-                switch effective {
-                    
-                case "2": //weak against
-                    weakAgainst.append(type)
-                    
-                case "1/2": () //strong against
-                    resistAgainst.append(type)
-                    
-                case "0": () //immune against
-                    immuneAgainst.append(type)
-                    
-                default: () // value = ""
+        if let cachedWeakToTypes = cache.object(forKey: "weakToTypes\(type)" as AnyObject) as? [String],
+            let cachedResistToTypes = cache.object(forKey: "resisToTypes\(type)" as AnyObject) as? [String],
+            let cachedImmuneToTypes = cache.object(forKey: "immuneToTypes\(type)" as AnyObject) as? [String] {
+            
+            weakToTypes = cachedWeakToTypes
+            resistToTypes = cachedResistToTypes
+            immuneToTypes = cachedImmuneToTypes
+            
+        } else {
+            if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+                for (type, effective) in weaknessesDict {
+                    switch effective {
+                        
+                    case "2": //weak against
+                        weakToTypes.append(type)
+                        
+                    case "1/2": //strong against
+                        resistToTypes.append(type)
+                        
+                    case "0": //immune against
+                        immuneToTypes.append(type)
+                        
+                    default: () // value = ""
+                    }
                 }
             }
+            
+            self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
+            self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
+            self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
         }
     }
     
@@ -63,62 +89,99 @@ class TypeDetailVC: UIViewController {
         
         self.title = type
         
+        setDefaultState()
         getWeaknesses()
         
-        configureTypeLbls(for: weakAgainstSectionLbl, withTypes: weakAgainst)
-        configureTypeLbls(for: resistAgainstSectionLbl, withTypes: resistAgainst)
-        configureTypeLbls(for: immuneAgainstSectionLbl, withTypes: immuneAgainst)
+        configureTypeLbls(for: weakToView, withTypes: weakToTypes)
+        weakToView.sizeToContent()
+        
+        resistToSectionLbl.setOriginBelow(weakToView, spacing: 29)
+        
+        configureTypeLbls(for: resistToView, withTypes: resistToTypes)
+        resistToView.setOriginBelow(resistToSectionLbl)
+        resistToView.sizeToContent()
+        
+        immuneToSectionLbl.setOriginBelow(resistToView, spacing: 29)
+        
+        configureTypeLbls(for: immuneToView, withTypes: immuneToTypes)
+        immuneToView.setOriginBelow(immuneToSectionLbl)
+        immuneToView.sizeToContent()
+        
+        self.cache.setObject(allTypeLabels as AnyObject, forKey: "allTypeLabels\(type)" as AnyObject)
     }
     
-    func configureTypeLbls(for sectionLbl: SectionUILabel, withTypes types: [String]) {
+    func setDefaultState() {
         
-        var x: CGFloat = margin
-        var y: CGFloat = sectionLbl.frame.origin.y + sectionLbl.frame.height + spacing
+        weakToView.removeAllSubviews()
+        resistToView.removeAllSubviews()
+        immuneToView.removeAllSubviews()
         
-        if types.count > 0 {
+        weakToTypes.removeAll()
+        resistToTypes.removeAll()
+        immuneToTypes.removeAll()
+        
+        for i in 0 ..< allTypeLabels.count {
+            allTypeLabels[i].removeAll()
+        }
+    }
+    
+    func configureTypeLbls(for view: UIView, withTypes types: [String]) {
+        
+        if let cachedAllTypeLabels = cache.object(forKey: "allTypeLabels\(type)" as AnyObject) as? [[TypeUILabel]] {
+            allTypeLabels = cachedAllTypeLabels
+            for label in allTypeLabels[view.tag] {
+                view.addSubview(label)
+            }
             
-            for type in types {
-                let typeLbl: TypeUILabel = {
+        } else {
+            var x: CGFloat = margin
+            var y: CGFloat = 0
+            
+            if types.count > 0 {
+                
+                for type in types {
+                    let typeLbl: TypeUILabel = {
+                        let label = TypeUILabel()
+                        label.text = type
+                        label.backgroundColor = UIColor.myColor.get(from: type)
+                        label.frame.origin.x = x
+                        label.frame.origin.y = y
+                        
+                        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTypeLblTapped(_:)))
+                        label.addGestureRecognizer(tapGesture)
+                        label.isUserInteractionEnabled = true
+                        
+                        return label
+                    }()
+                    
+                    view.addSubview(typeLbl)
+                    
+                    allTypeLabels[view.tag].append(typeLbl)
+                    
+                    x = x + typeLbl.frame.width + spacing
+                    
+                    if x + typeLbl.frame.width + spacing > view.frame.width - spacing {
+                        x = margin
+                        y = y + typeLbl.frame.height + spacing
+                    }
+                }
+                
+            } else {
+                let noneLbl: TypeUILabel = {
                     let label = TypeUILabel()
-                    label.text = type
-                    label.backgroundColor = UIColor.myColor.get(from: type)
+                    label.text = "None"
+                    label.textColor = UIColor.myColor.sectionText
+                    label.backgroundColor = UIColor.myColor.ability
                     label.frame.origin.x = x
                     label.frame.origin.y = y
-                    
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTypeLblTapped(_:)))
-                    label.addGestureRecognizer(tapGesture)
-                    label.isUserInteractionEnabled = true
                     
                     return label
                 }()
                 
-                sectionLbl.superview?.addSubview(typeLbl)
+                view.addSubview(noneLbl)
                 
-                x = x + typeLbl.frame.width + spacing
-                
-                if x + typeLbl.frame.width + spacing > sectionLbl.frame.width {
-                    x = margin
-                    y = y + typeLbl.frame.height + spacing
-                }
+                allTypeLabels[view.tag].append(noneLbl)
             }
-            
-        } else {
-            let noneLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.text = "None"
-                label.textColor = UIColor.myColor.sectionText
-                label.backgroundColor = UIColor.myColor.ability
-                label.frame.origin.x = x
-                label.frame.origin.y = y
-                
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTypeLblTapped(_:)))
-                label.addGestureRecognizer(tapGesture)
-                label.isUserInteractionEnabled = true
-                
-                return label
-            }()
-            
-            sectionLbl.superview?.addSubview(noneLbl)
         }
     }
 }
