@@ -17,7 +17,7 @@ class MoveDetailVC: UIViewController {
     @IBOutlet weak var accuracyLbl: RIOUILabel!
     @IBOutlet weak var ppLbl: RIOUILabel!
     @IBOutlet weak var tmLbl: RIOUILabel!
-    @IBOutlet weak var effectTextView: UITextView!
+    @IBOutlet weak var effectTextView: MoveDetailUITextView!
     
     var move: Move! //will be assigned during segue
 
@@ -28,6 +28,8 @@ class MoveDetailVC: UIViewController {
     }
     
     func updateUI() {
+        
+        self.title = move.name
         
         move.parseCompletedInfo()
                 
@@ -70,11 +72,6 @@ class MoveDetailVC: UIViewController {
         tmLbl.roundLabel.text = move.tm.isEmpty ? "–" : move.tm
         
         effectTextView.text = move.effect.isEmpty ? "–" : move.effect
-        effectTextView.frame.size.height = effectTextView.contentSize.height
-        effectTextView.layer.cornerRadius = effectTextView.frame.height / 2
-        effectTextView.layer.borderWidth = 1.0
-        effectTextView.layer.borderColor = UIColor.black.cgColor
-        effectTextView.clipsToBounds = true
-        effectTextView.textAlignment = .center
+        effectTextView.applyStyle()
     }
 }

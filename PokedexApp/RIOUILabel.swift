@@ -11,7 +11,7 @@ import UIKit
 class RIOUILabel: UILabel {
     
     /// The round label at the right size of `self`, the main label.
-    var roundLabel: UILabel!
+    var roundLabel: RoundUILabel!
     
     /// The radius of the `roundLabel`. In most cases, its height is hightly prefered
     private var radius: CGFloat {
@@ -21,7 +21,24 @@ class RIOUILabel: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.configureLabels()
+        //configure self
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
+        self.adjustsFontSizeToFitWidth = true
+        self.textAlignment = .center
+        self.baselineAdjustment = .alignCenters
+        self.textColor = UIColor.white
+        self.backgroundColor = UIColor.black
+        
+        //configure roundLabel
+        self.roundLabel.layer.cornerRadius = radius / 2
+        self.roundLabel.clipsToBounds = true
+        self.roundLabel.adjustsFontSizeToFitWidth = true
+        self.roundLabel.textAlignment = .center
+        self.roundLabel.baselineAdjustment = .alignCenters
+        self.roundLabel.textColor = UIColor.black
+        self.roundLabel.backgroundColor = UIColor.white
+        self.roundLabel.layer.borderWidth = 3
     }
     
     override init(frame: CGRect) {
@@ -47,7 +64,7 @@ class RIOUILabel: UILabel {
                 let radius = self.frame.height + 12
                 let x = self.frame.origin.x + (self.frame.width - radius)
                 let y = self.frame.origin.y - (radius - self.frame.height) / 2
-                self.roundLabel = UILabel(frame: CGRect(x: x, y: y, width: radius, height: radius))
+                self.roundLabel = RoundUILabel(frame: CGRect(x: x, y: y, width: radius, height: radius))
             } else {
                 self.roundLabel.frame.origin.x = roundLabelOriginX
                 self.roundLabel.frame.origin.y = roundLabelOriginY
@@ -62,26 +79,8 @@ class RIOUILabel: UILabel {
         }
     }
     
-    private func configureLabels() {
-        
-        //configure self
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-        self.adjustsFontSizeToFitWidth = true
-        self.textAlignment = .center
-        self.baselineAdjustment = .alignCenters
-        self.textColor = UIColor.white
-        self.backgroundColor = UIColor.black
-        
-        //configure roundLabel
-        self.roundLabel.layer.cornerRadius = radius / 2
-        self.roundLabel.clipsToBounds = true
-        self.roundLabel.adjustsFontSizeToFitWidth = true
-        self.roundLabel.textAlignment = .center
-        self.roundLabel.baselineAdjustment = .alignCenters
-        self.roundLabel.textColor = UIColor.black
-        self.roundLabel.backgroundColor = UIColor.white
-        self.roundLabel.layer.borderWidth = 3
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 24 - radius / 2, height: rect.height)) //width = rect.width - (x * 2) - (radius / 2) - x
     }
 }
 
@@ -115,8 +114,8 @@ extension RIOUILabel {
      */
     func resizeRoundLabel(dr: CGFloat, realignAfter: Bool = false) {
         
-        self.roundLabel.frame.size.width = self.roundLabel.frame.size.width + dr
-        self.roundLabel.frame.size.height = self.roundLabel.frame.size.height + dr
+        self.roundLabel.frame.size.width += dr
+        self.roundLabel.frame.size.height += dr
         if self.roundLabel.frame.height > self.roundLabel.frame.width {
             self.roundLabel.layer.cornerRadius = self.roundLabel.frame.width / 2
         } else {
@@ -140,3 +139,13 @@ extension RIOUILabel {
         }
     }
 }
+
+
+// MARK: - RoundUILabel
+class RoundUILabel: UILabel {
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 16, height: rect.height))
+    }
+}
+

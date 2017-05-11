@@ -12,6 +12,7 @@ typealias DictionarySA = Dictionary<String, AnyObject>
 typealias DictionarySS = Dictionary<String, String>
 typealias DidFinishAnimation = Bool
 
+
 let globalCache = NSCache<AnyObject, AnyObject>()
 
 let audioPlayer = AudioPlayer()

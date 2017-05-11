@@ -402,7 +402,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Pikachu-exclusive Z-Move." translatesAutoresizingMaskIntoConstraints="NO" id="HxI-wY-q7D">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Pikachu-exclusive Z-Move." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HxI-wY-q7D" customClass="MoveDetailUITextView" customModule="PokedexApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="236" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

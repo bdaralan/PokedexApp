@@ -66,8 +66,12 @@ class ViewLauncher: NSObject {
         self._launchView = {
             let view = UIView(frame: launchViewFrame)
             view.backgroundColor = UIColor.white
+            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowOffset = CGSize(width: 0, height: 3)
+            view.layer.shadowOpacity = 0.3
+            view.layer.shadowRadius = 3
             
-            let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(withDuration:)))
+            let swipeUpGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(duration:)))
             swipeUpGesture.direction = swipeToDismissDirection
             view.addGestureRecognizer(swipeUpGesture)
             
@@ -78,10 +82,10 @@ class ViewLauncher: NSObject {
         
         self._dimView = {
             let view = UIView(frame: dimViewFrame)
-            view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+            view.backgroundColor = UIColor(white: 0, alpha: 0.1)
             view.alpha = 0
             
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss(withDuration:)))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss(duration:)))
             view.addGestureRecognizer(tapGesture)
             
             return view
@@ -129,7 +133,7 @@ class ViewLauncher: NSObject {
         _launchView.addSubview(subview)
     }
     
-    func launch(withDuration duration: TimeInterval = 0, withHeight height: CGFloat = 0) {
+    func launch(duration: TimeInterval = 0, withHeight height: CGFloat = 0) {
         
         if self.isIdle {
             self.isIdle = false
@@ -139,9 +143,10 @@ class ViewLauncher: NSObject {
             var duration = duration
             if duration == 0 { duration = animatedDuration }
             
-            self.delegate?.viewLauncher?(didLaunch: self._launchOrigin)
+            self.delegate?.viewLauncher?(willLaunch: self._launchOrigin)
             
             self._launchView.frame.origin = dismissOrigin
+            
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self._dimView.alpha = 1
                 self._launchView.frame.origin = self._launchOrigin
@@ -152,7 +157,7 @@ class ViewLauncher: NSObject {
         }
     }
     
-    func dismiss(withDuration duration: TimeInterval = 0) {
+    func dismiss(duration: TimeInterval = 0) {
         
         if self.isIdle {
             self.isIdle = false

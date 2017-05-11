@@ -16,5 +16,11 @@ class AbilityUILabel: UILabel {
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.backgroundColor = UIColor.myColor.ability
+        self.textAlignment = .center
+        self.baselineAdjustment = .alignCenters
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 16, height: rect.height))
     }
 }

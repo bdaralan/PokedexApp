@@ -141,10 +141,11 @@ class LoadData {
         let plist = loadDataFromFile(name: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {
             
-            return types
+            return types.sorted()
         }
         
-        return [String]()
+        // Safegaurd return
+        return ["Bug", "Dark", "Dragon", "Electric", "Fairy", "Fighting", "Fire", "Flying", "Ghost", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock", "Steel", "Water"]
     }
     
     func homeMenuSections() -> [String] {
