@@ -2745,7 +2745,7 @@
 				TargetAttributes = {
 					53CF3DCD1E8A26E50073A516 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = J58QF9TXDQ;
+						DevelopmentTeam = TSM4QUAH7H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3766,10 +3766,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J58QF9TXDQ;
+				DEVELOPMENT_TEAM = TSM4QUAH7H;
 				INFOPLIST_FILE = PokedexApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.idara09.PokedexApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bdaradev.PokedexApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -3779,10 +3779,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J58QF9TXDQ;
+				DEVELOPMENT_TEAM = TSM4QUAH7H;
 				INFOPLIST_FILE = PokedexApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.idara09.PokedexApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bdaradev.PokedexApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

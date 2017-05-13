@@ -324,8 +324,13 @@ extension Array where Element: Pokemon {
         return self.sorted(by: {$0.name < $1.name})
     }
     
-    func filter(for searchText: String, options: String.CompareOptions) -> [Pokemon] {
+    func filter(forName name: String, options: String.CompareOptions) -> [Pokemon] {
         
-        return self.filter({$0.name.range(of: searchText, options: options) != nil})
+        return self.filter({$0.name.range(of: name, options: options) != nil})
+    }
+    
+    func filter(forType type: String) -> [Pokemon] {
+        
+        return self.filter({$0.primaryType == type || $0.secondaryType == type})
     }
 }

@@ -205,13 +205,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             switch currentGenericCell {
             
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
+                pokemons = CONSTANTS.allPokemonsSortedById.filter(forName: searchText, options: .caseInsensitive)
                 
             case .TypeCell:
                 types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
             
             case .MoveCell:
-                moves = CONSTANTS.allMoves.filter(for: searchText, options: .caseInsensitive)
+                moves = CONSTANTS.allMoves.filter(forName: searchText, options: .caseInsensitive)
             
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities.filter(for: searchText, options: .caseInsensitive)

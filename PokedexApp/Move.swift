@@ -59,8 +59,13 @@ class Move {
 
 extension Array where Element: Move {
     
-    func filter(for searchText: String, options: String.CompareOptions) -> [Move] {
+    func filter(forName name: String, options: String.CompareOptions) -> [Move] {
         
-        return self.filter({$0.name.range(of: searchText, options: options) != nil})
+        return self.filter({$0.name.range(of: name, options: options) != nil})
+    }
+    
+    func filter(forType type: String) -> [Move] {
+        
+        return self.filter({$0.type == type})
     }
 }

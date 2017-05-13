@@ -31,14 +31,14 @@ class TypeDetailTVC: UITableViewController {
     var resistToTypes = [String]()
     var immuneToTypes = [String]()
     
-    private let margin: CGFloat = 16
-    private let spacing: CGFloat = 8
+    let margin: CGFloat = 16
+    let spacing: CGFloat = 8
     
-    private let pokemonSegIndex = 0
-    private let moveSegIndex = 1
+    let pokemonSegIndex = 0
+    let moveSegIndex = 1
     
-    private let cache = NSCache<AnyObject, AnyObject>()
-    private var allTypeLabels = [[TypeUILabel](), [TypeUILabel](), [TypeUILabel](), [TypeUILabel]()]
+    let cache = NSCache<AnyObject, AnyObject>()
+    var allTypeLabels = [[TypeUILabel](), [TypeUILabel](), [TypeUILabel](), [TypeUILabel]()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,9 @@ class TypeDetailTVC: UITableViewController {
         weakToView.tag = 1
         resistToView.tag = 2
         immuneToView.tag = 3
+        
+        pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
+        moves = CONSTANTS.allMoves.filter(forType: type)
         
         configureSegmentControl()
         updateUI()
@@ -98,7 +101,6 @@ class TypeDetailTVC: UITableViewController {
         let sectionHeaderView: UIView = {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
             view.backgroundColor = UIColor.myColor.sectionBackground
-            view.isOpaque = true
             
             return view
         }()
@@ -139,6 +141,7 @@ class TypeDetailTVC: UITableViewController {
     
     func segmentControlValueChanged(_ sender: UISegmentedControl) {
         
+        // ReloadData and scroll to top
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
     }
@@ -147,10 +150,21 @@ class TypeDetailTVC: UITableViewController {
         
         self.title = type
         
-        pokemons = CONSTANTS.allPokemonsSortedById.filter({$0.primaryType == type || $0.secondaryType == type})
-        moves = CONSTANTS.allMoves.filter({$0.type == type})
-        
         setDefaultState()
+        
+        // Get pokemons
+        if let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [Pokemon] {
+            pokemons = cachedPokemons
+        } else {
+            pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
+        }
+        
+        // Get moves
+        if let cachedMoves = cache.object(forKey: "cachedMoves\(type)" as AnyObject) as? [Move] {
+            moves = cachedMoves
+        } else {
+            moves = CONSTANTS.allMoves.filter(forType: type)
+        }
         
         // Get weakness
         if let cachedWeakToTypes = cache.object(forKey: "weakToTypes\(type)" as AnyObject) as? [String],
@@ -196,6 +210,9 @@ class TypeDetailTVC: UITableViewController {
         immuneToView.setOriginBelow(immuneToSectionLbl)
         immuneToView.sizeToContent()
         
+        segmentControl.tintColor = UIColor.myColor.get(from: type)
+        segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
+        
         tableView.tableHeaderView?.frame.size.height = immuneToView.frame.origin.y + immuneToView.frame.height + spacing * 3
         tableView.reloadData()
         
@@ -206,6 +223,8 @@ class TypeDetailTVC: UITableViewController {
         self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
         self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
         self.cache.setObject(allTypeLabels as AnyObject, forKey: "allTypeLabels\(type)" as AnyObject)
+        self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
+        self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
     }
     
     func setDefaultState() {
@@ -227,11 +246,22 @@ class TypeDetailTVC: UITableViewController {
     
     func configureSegmentControl() {
         
-        segmentControl = RoundUISegmentedControl(items: ["Pokemon", "Move"])
-        segmentControl.frame.origin = CGPoint(x: spacing, y: spacing)
-        segmentControl.selectedSegmentIndex = pokemonSegIndex
+        segmentControl = {
+            let sg = RoundUISegmentedControl(items: ["Pokemon", "Move"])
+            sg.frame.origin = CGPoint(x: spacing, y: spacing)
+            sg.backgroundColor = UIColor(white: 1, alpha: 0.7)
+            sg.selectedSegmentIndex = pokemonSegIndex
+            
+            return sg
+        }()
+        
         segmentControl.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
     }
+}
+
+
+// MARK: - Extension: handle adding more view
+extension TypeDetailTVC {
     
     func getWeaknesses() {
         
