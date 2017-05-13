@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */; };
+		5334E2921EC7AF2100F77861 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334E2911EC7AF2000F77861 /* UIViewExtension.swift */; };
 		533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* GenericTVC.swift */; };
 		536095B61E96F98900D2F2FC /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B51E96F98900D2F2FC /* Ability.swift */; };
 		536095B81E970E1B00D2F2FC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B71E970E1B00D2F2FC /* Colors.swift */; };
@@ -840,7 +841,6 @@
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53B877341EC2232C009F0540 /* AbilityDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B877331EC2232C009F0540 /* AbilityDetailVC.swift */; };
 		53B877361EC2238F009F0540 /* TMDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B877351EC2238F009F0540 /* TMDetailVC.swift */; };
-		53C2E9901EBDA11B0043A3F1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2E98F1EBDA11B0043A3F1 /* UIViewExtension.swift */; };
 		53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */; };
 		53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CF3DD11E8A26E50073A516 /* AppDelegate.swift */; };
 		53CF3DD71E8A26E50073A516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CF3DD51E8A26E50073A516 /* Main.storyboard */; };
@@ -872,6 +872,7 @@
 
 /* Begin PBXFileReference section */
 		532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsUIProgressView.swift; sourceTree = "<group>"; };
+		5334E2911EC7AF2000F77861 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		533A78811E9FDA6100554F7F /* GenericTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTVC.swift; sourceTree = "<group>"; };
 		536095B51E96F98900D2F2FC /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		536095B71E970E1B00D2F2FC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -1704,7 +1705,6 @@
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
 		53B877331EC2232C009F0540 /* AbilityDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityDetailVC.swift; sourceTree = "<group>"; };
 		53B877351EC2238F009F0540 /* TMDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDetailVC.swift; sourceTree = "<group>"; };
-		53C2E98F1EBDA11B0043A3F1 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../UIViewExtension.swift; sourceTree = "<group>"; };
 		53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
 		53CF3DCE1E8A26E50073A516 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CF3DD11E8A26E50073A516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2707,7 +2707,7 @@
 		53DD46B41EC19D71002FA5C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				53C2E98F1EBDA11B0043A3F1 /* UIViewExtension.swift */,
+				5334E2911EC7AF2000F77861 /* UIViewExtension.swift */,
 				53D2367E1EC433EB00BF9504 /* UILabelExtension.swift */,
 			);
 			name = Extensions;
@@ -3615,7 +3615,6 @@
 				53CF3DF81E8A3C250073A516 /* Utilities.swift in Sources */,
 				53F8F6E61E9CA70500D6AAAF /* ViewLauncher.swift in Sources */,
 				53D74A131EA9349900A6D591 /* MoveDetailVC.swift in Sources */,
-				53C2E9901EBDA11B0043A3F1 /* UIViewExtension.swift in Sources */,
 				536095B81E970E1B00D2F2FC /* Colors.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,
@@ -3635,6 +3634,7 @@
 				5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */,
 				53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */,
 				53CF3DF31E8A29580073A516 /* GlobalConstants.swift in Sources */,
+				5334E2921EC7AF2100F77861 /* UIViewExtension.swift in Sources */,
 				532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */,
 				536E03CC1EBAE6BB003020D7 /* AudioPlayer.swift in Sources */,
 				53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */,
