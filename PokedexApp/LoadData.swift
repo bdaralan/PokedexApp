@@ -72,8 +72,9 @@ class LoadData {
         let names = json.keys
         
         for name in names {
-            if let pokemonInfo = json[name] as? DictionarySA, let id = pokemonInfo["id"] as? Int, let form = pokemonInfo["form"] as? String {
-                pokemons.append(Pokemon(name: name, id: id, form: form))
+            if let pokemonInfo = json[name] as? DictionarySA, let id = pokemonInfo["id"] as? Int, let form = pokemonInfo["form"] as? String,
+                let types = pokemonInfo["type"] as? [String] {
+                pokemons.append(Pokemon(name: name, id: id, form: form, types: types))
             }
         }
         

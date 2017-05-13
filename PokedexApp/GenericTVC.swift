@@ -140,7 +140,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
         
         case .TypeCell:
-            performSegue(withIdentifier: "TypeDetailVC", sender: types[indexPath.row])
+            performSegue(withIdentifier: "TypeDetailTVC", sender: types[indexPath.row])
         
         case .MoveCell:
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
@@ -174,8 +174,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             }
             
         case is String: // type
-            if let typeDetailVC = segue.destination as? TypeDetailVC, let type = sender as? String {
-                typeDetailVC.type = type
+            if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
+                typeDetailTVC.type = type
             }
             
         case is Move:
@@ -371,8 +371,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         tableView.tableHeaderView = searchResultController.searchBar
         
         if currentGenericCell == .PokedexCell {
-            let segmentControll: DBUISegmentedControl = {
-                let sc = DBUISegmentedControl(items: ["0-9", "A-Z"])
+            let segmentControll: RoundUISegmentedControl = {
+                let sc = RoundUISegmentedControl(items: ["0-9", "A-Z"])
                 sc.selectedSegmentIndex = 0
                 sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
                 
@@ -383,8 +383,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
             
         } else if currentGenericCell == .ItemCell {
-            let segmentControll: DBUISegmentedControl = {
-                let sc = DBUISegmentedControl(items: ["A-Z", "Cat"])
+            let segmentControll: RoundUISegmentedControl = {
+                let sc = RoundUISegmentedControl(items: ["A-Z", "Cat"])
                 sc.selectedSegmentIndex = 0
                 sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
                 

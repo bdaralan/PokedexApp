@@ -1,5 +1,5 @@
 //
-//  DBUISegmentedControl.swift
+//  RoundUISegmentedControl.swift
 //  PokedexApp
 //
 //  Created by Dara on 4/16/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DBUISegmentedControl: UISegmentedControl {
+class RoundUISegmentedControl: UISegmentedControl {
 
     override func awakeFromNib() {
         super.awakeFromNib()

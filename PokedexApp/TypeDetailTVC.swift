@@ -1,5 +1,5 @@
 //
-//  TypeDetailVC.swift
+//  TypeDetailTVC.swift
 //  PokedexApp
 //
 //  Created by Dara on 4/30/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TypeDetailVC: UIViewController {
+class TypeDetailTVC: UITableViewController {
     
     @IBOutlet weak var strongAgainstSectionLbl: SectionUILabel!
     @IBOutlet weak var weakToSectionLbl: SectionUILabel!
@@ -20,7 +20,11 @@ class TypeDetailVC: UIViewController {
     @IBOutlet weak var resistToView: UIView!
     @IBOutlet weak var immuneToView: UIView!
     
+    var segmentControl: RoundUISegmentedControl!
+    
     var type: String! //will be assigned by segue
+    var pokemons: [Pokemon]!
+    var moves: [Move]!
     
     var strongAgainstTypes = [String]()
     var weakToTypes = [String]()
@@ -29,6 +33,9 @@ class TypeDetailVC: UIViewController {
     
     private let margin: CGFloat = 16
     private let spacing: CGFloat = 8
+    
+    private let pokemonSegIndex = 0
+    private let moveSegIndex = 1
     
     private let cache = NSCache<AnyObject, AnyObject>()
     private var allTypeLabels = [[TypeUILabel](), [TypeUILabel](), [TypeUILabel](), [TypeUILabel]()]
@@ -41,7 +48,84 @@ class TypeDetailVC: UIViewController {
         resistToView.tag = 2
         immuneToView.tag = 3
         
+        configureSegmentControl()
         updateUI()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        switch segmentControl.selectedSegmentIndex {
+        
+        case pokemonSegIndex:
+            return pokemons.count
+            
+        case moveSegIndex:
+            return moves.count
+            
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if segmentControl.selectedSegmentIndex == pokemonSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell") as? PokedexCell {
+            cell.configureCell(pokemon: pokemons[indexPath.row])
+            
+            return cell
+            
+        } else if segmentControl.selectedSegmentIndex == moveSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell") as? MoveCell {
+            cell.configureCell(for: moves[indexPath.row])
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        return segmentControl.frame.height + 16
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let width = tableView.frame.width
+        let height = segmentControl.frame.height + 16
+        
+        segmentControl.frame.size.width = width - 16
+        
+        let sectionHeaderView: UIView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+            view.backgroundColor = UIColor.myColor.sectionBackground
+            view.isOpaque = true
+            
+            return view
+        }()
+        
+        sectionHeaderView.addSubview(segmentControl)
+        
+        return sectionHeaderView
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if segmentControl.selectedSegmentIndex == pokemonSegIndex {
+            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        
+        } else { //must be moveSegIndex, because only have these two options
+            performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
+            pokemonInfoVC.pokemon = pokemon
+            
+        } else if let moveDetailVC = segue.destination as? MoveDetailVC, let move = sender as? Move {
+            moveDetailVC.move = move
+        }
     }
     
     func handleTypeLblTapped(_ sender: UITapGestureRecognizer) {
@@ -53,9 +137,18 @@ class TypeDetailVC: UIViewController {
         }
     }
     
+    func segmentControlValueChanged(_ sender: UISegmentedControl) {
+        
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+    }
+    
     func updateUI() {
         
         self.title = type
+        
+        pokemons = CONSTANTS.allPokemonsSortedById.filter({$0.primaryType == type || $0.secondaryType == type})
+        moves = CONSTANTS.allMoves.filter({$0.type == type})
         
         setDefaultState()
         
@@ -85,23 +178,26 @@ class TypeDetailVC: UIViewController {
         strongAgainstView.setOriginBelow(strongAgainstSectionLbl)
         strongAgainstView.sizeToContent()
         
-        weakToSectionLbl.setOriginBelow(strongAgainstView, spacing: 29)
+        weakToSectionLbl.setOriginBelow(strongAgainstView, spacing: spacing * 3)
         
         add(typeLbls: weakToTypes.sorted(), to: weakToView)
         weakToView.setOriginBelow(weakToSectionLbl)
         weakToView.sizeToContent()
         
-        resistToSectionLbl.setOriginBelow(weakToView, spacing: 29)
+        resistToSectionLbl.setOriginBelow(weakToView, spacing: spacing * 3)
         
         add(typeLbls: resistToTypes.sorted(), to: resistToView)
         resistToView.setOriginBelow(resistToSectionLbl)
         resistToView.sizeToContent()
         
-        immuneToSectionLbl.setOriginBelow(resistToView, spacing: 29)
+        immuneToSectionLbl.setOriginBelow(resistToView, spacing: spacing * 3)
         
         add(typeLbls: immuneToTypes.sorted(), to: immuneToView)
         immuneToView.setOriginBelow(immuneToSectionLbl)
         immuneToView.sizeToContent()
+        
+        tableView.tableHeaderView?.frame.size.height = immuneToView.frame.origin.y + immuneToView.frame.height + spacing * 3
+        tableView.reloadData()
         
         // Caching
         self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
@@ -127,6 +223,14 @@ class TypeDetailVC: UIViewController {
         for i in 0 ..< allTypeLabels.count {
             allTypeLabels[i].removeAll()
         }
+    }
+    
+    func configureSegmentControl() {
+        
+        segmentControl = RoundUISegmentedControl(items: ["Pokemon", "Move"])
+        segmentControl.frame.origin = CGPoint(x: spacing, y: spacing)
+        segmentControl.selectedSegmentIndex = pokemonSegIndex
+        segmentControl.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
     }
     
     func getWeaknesses() {

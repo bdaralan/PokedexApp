@@ -75,8 +75,8 @@ class PokemonInfoVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let typeDetailVC = segue.destination as? TypeDetailVC, let type = sender as? String {
-            typeDetailVC.type = type
+        if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
+            typeDetailTVC.type = type
             audioPlayer.play(audio: .select)
         }
     }
@@ -365,10 +365,10 @@ class PokemonInfoVC: UIViewController {
             switch label {
                 
             case pokeType01Lbl: print("perform")
-                performSegue(withIdentifier: "TypeDetailVC", sender: pokeType01Lbl.text)
+                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
                 
             case pokeType02Lbl:
-                performSegue(withIdentifier: "TypeDetailVC", sender: pokeType02Lbl.text)
+                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType02Lbl.text)
                 
             default: ()
             }

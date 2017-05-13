@@ -63,11 +63,19 @@ class Pokemon {
     func getWeight(as unit: Unit) -> String { return _weight[unit.rawValue] }
     
     
-    init(name: String, id: Int, form: String, hasCompletedInfo: Bool = false) {
+    init(name: String, id: Int, form: String, types: [String], hasCompletedInfo: Bool = false) {
         _name = name
         _id = id
         _form = form
         _hasCompletedInfo = hasCompletedInfo
+        
+        switch types.count {
+        case 1:
+            _primaryType = types[0]
+        default:
+            _primaryType = types[0]
+            _secondaryType = types[1]
+        }
     }
     
     
@@ -89,8 +97,7 @@ class Pokemon {
             let defense = pokeInfo["defense"] as? Int,
             let spAttack = pokeInfo["sp-attack"] as? Int,
             let spDefense = pokeInfo["sp-defense"] as? Int,
-            let speed = pokeInfo["speed"] as? Int,
-            let types = pokeInfo["type"] as? [String] {
+            let speed = pokeInfo["speed"] as? Int {
             
             _hp = hp
             _attack = attack
@@ -98,14 +105,6 @@ class Pokemon {
             _spAttack = spAttack
             _spDefense = spDefense
             _speed = speed
-            
-            switch types.count {
-            case 1:
-                _primaryType = types[0]
-            default:
-                _primaryType = types[0]
-                _secondaryType = types[1]
-            }
         }
     }
     
