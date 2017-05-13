@@ -19,10 +19,10 @@ let audioPlayer = AudioPlayer()
 
 let loadData = LoadData()
 
-let CONSTANTS = Constant() ///: Constants use throughout the app
+let CONSTANTS = Constant() // Constants use throughout the app
 
 
-///: Strct for all Constants
+// Strct for all Constants
 struct Constant {
     
     let movesJSON = loadData.movesJSON()

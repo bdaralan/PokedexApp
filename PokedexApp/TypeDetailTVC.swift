@@ -58,7 +58,7 @@ class TypeDetailTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch segmentControl.selectedSegmentIndex {
-        
+            
         case pokemonSegIndex:
             return pokemons.count
             
@@ -87,7 +87,7 @@ class TypeDetailTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
+        
         return segmentControl.frame.height + 16
     }
     
@@ -114,7 +114,7 @@ class TypeDetailTVC: UITableViewController {
         
         if segmentControl.selectedSegmentIndex == pokemonSegIndex {
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-        
+            
         } else { //must be moveSegIndex, because only have these two options
             performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
         }
@@ -152,41 +152,27 @@ class TypeDetailTVC: UITableViewController {
         
         setDefaultState()
         
-        // Get pokemons
-        if let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [Pokemon] {
-            pokemons = cachedPokemons
-        } else {
-            pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
-        }
-        
-        // Get moves
-        if let cachedMoves = cache.object(forKey: "cachedMoves\(type)" as AnyObject) as? [Move] {
-            moves = cachedMoves
-        } else {
-            moves = CONSTANTS.allMoves.filter(forType: type)
-        }
-        
-        // Get weakness
-        if let cachedWeakToTypes = cache.object(forKey: "weakToTypes\(type)" as AnyObject) as? [String],
+        if let _ = cache.object(forKey: type as AnyObject) as? String,
+            let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [Pokemon],
+            let cachedMoves = cache.object(forKey: "cachedMoves\(type)" as AnyObject) as? [Move],
+            let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypes\(type)" as AnyObject) as? [String],
+            let cachedWeakToTypes = cache.object(forKey: "weakToTypes\(type)" as AnyObject) as? [String],
             let cachedResistToTypes = cache.object(forKey: "resisToTypes\(type)" as AnyObject) as? [String],
             let cachedImmuneToTypes = cache.object(forKey: "immuneToTypes\(type)" as AnyObject) as? [String] {
             
+            pokemons = cachedPokemons
+            moves = cachedMoves
+            strongAgainstTypes = cachedStrongAgainstTypes
             weakToTypes = cachedWeakToTypes
             resistToTypes = cachedResistToTypes
             immuneToTypes = cachedImmuneToTypes
             
         } else {
+            pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
+            moves = CONSTANTS.allMoves.filter(forType: type)
+            getStrongness(from: CONSTANTS.allTypes)
             getWeaknesses()
         }
-        
-        // Get strongness
-        if let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypes\(type)" as AnyObject) as? [String] {
-            strongAgainstTypes = cachedStrongAgainstTypes
-            
-        } else {
-            getStrongness(from: CONSTANTS.allTypes)
-        }
-        
         
         add(typeLbls: strongAgainstTypes.sorted(), to: strongAgainstView)
         strongAgainstView.setOriginBelow(strongAgainstSectionLbl)
@@ -216,15 +202,9 @@ class TypeDetailTVC: UITableViewController {
         tableView.tableHeaderView?.frame.size.height = immuneToView.frame.origin.y + immuneToView.frame.height + spacing * 3
         tableView.reloadData()
         
-        // Caching
-        self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
-        self.cache.setObject(strongAgainstTypes as AnyObject, forKey: "strongAgainstTypes\(type)" as AnyObject)
-        self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
-        self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
-        self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
-        self.cache.setObject(allTypeLabels as AnyObject, forKey: "allTypeLabels\(type)" as AnyObject)
-        self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
-        self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
+        DispatchQueue.main.async {
+            self.cacheNecessaryData()
+        }
     }
     
     func setDefaultState() {
@@ -244,6 +224,18 @@ class TypeDetailTVC: UITableViewController {
         }
     }
     
+    func cacheNecessaryData() {
+        
+        self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
+        self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
+        self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
+        self.cache.setObject(strongAgainstTypes as AnyObject, forKey: "strongAgainstTypes\(type)" as AnyObject)
+        self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
+        self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
+        self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
+        self.cache.setObject(allTypeLabels as AnyObject, forKey: "allTypeLabels\(type)" as AnyObject)
+    }
+    
     func configureSegmentControl() {
         
         segmentControl = {
@@ -260,8 +252,19 @@ class TypeDetailTVC: UITableViewController {
 }
 
 
-// MARK: - Extension: handle adding more view
+// MARK: - computing for strongness and weaknesses
 extension TypeDetailTVC {
+    
+    func getStrongness(from types: [String]) {
+        
+        for type in types {
+            if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+                if let effective = typeDict[self.type], effective == "2" {
+                    strongAgainstTypes.append(type)
+                }
+            }
+        }
+    }
     
     func getWeaknesses() {
         
@@ -283,17 +286,11 @@ extension TypeDetailTVC {
             }
         }
     }
-    
-    func getStrongness(from types: [String]) {
-        
-        for type in types {
-            if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
-                if let effective = typeDict[self.type], effective == "2" {
-                    strongAgainstTypes.append(type)
-                }
-            }
-        }
-    }
+}
+
+
+// MARK: - generate type labels and add to views
+extension TypeDetailTVC {
     
     func add(typeLbls: [String], to view: UIView) {
         
