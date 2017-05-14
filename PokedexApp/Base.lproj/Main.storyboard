@@ -718,57 +718,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="IdC-pQ-Gjw">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Strong Against" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-p6-JkY" userLabel="Strong Against Section Lbl" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="8" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="th3-0V-bOL" userLabel="Strong Against View">
-                                    <rect key="frame" x="16" y="37" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weak To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ai-2U-wNg" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="66" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bZ-VM-yXy" userLabel="Weak To View">
-                                    <rect key="frame" x="16" y="95" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resist To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-W4-BN9" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="124" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZO-gI-Xvf" userLabel="Resist To View">
-                                    <rect key="frame" x="16" y="153" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Immune To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bm8-Kh-id7" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="182" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJs-S0-IAJ" userLabel="Immune To View">
-                                    <rect key="frame" x="16" y="211" width="343" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </view>
-                            </subviews>
-                        </view>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OffensiveDefensiveCell" rowHeight="240" id="CSf-QA-A7K" userLabel="OffensiveDefensiveCell" customClass="OffensiveDefensiveCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="240"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CSf-QA-A7K" id="640-LE-D9F">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Strong Against" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-p6-JkY" userLabel="Strong Against Section Lbl" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="th3-0V-bOL" userLabel="Strong Against View">
+                                            <rect key="frame" x="8" y="37" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weak To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ai-2U-wNg" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="66" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bZ-VM-yXy" userLabel="Weak To View">
+                                            <rect key="frame" x="8" y="95" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resist To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-W4-BN9" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="124" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZO-gI-Xvf" userLabel="Resist To View">
+                                            <rect key="frame" x="8" y="153" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Immune To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bm8-Kh-id7" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="182" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJs-S0-IAJ" userLabel="Immune To View">
+                                            <rect key="frame" x="8" y="211" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="immuneToSecLbl" destination="bm8-Kh-id7" id="h6x-Rj-f89"/>
+                                    <outlet property="immuneToView" destination="ZJs-S0-IAJ" id="d2B-Xc-G8v"/>
+                                    <outlet property="resistToSecLbl" destination="D4n-W4-BN9" id="fkU-Ud-Uqa"/>
+                                    <outlet property="resistToView" destination="kZO-gI-Xvf" id="ZpC-sa-kun"/>
+                                    <outlet property="strongAgainstSecLbl" destination="v6L-p6-JkY" id="uyz-6f-FUt"/>
+                                    <outlet property="strongAgainstView" destination="th3-0V-bOL" id="2ad-gi-UgL"/>
+                                    <outlet property="weakToSecLbl" destination="3Ai-2U-wNg" id="Uca-gt-bPf"/>
+                                    <outlet property="weakToView" destination="4bZ-VM-yXy" id="QR9-0d-e9V"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokedexCell" id="qzV-t9-yUd" customClass="PokedexCell" customModule="PokedexApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="268" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -847,21 +861,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Type Detials" id="yJf-e0-282"/>
                     <connections>
-                        <outlet property="immuneToSectionLbl" destination="bm8-Kh-id7" id="mPt-or-K6i"/>
-                        <outlet property="immuneToView" destination="ZJs-S0-IAJ" id="6pw-cf-xAu"/>
-                        <outlet property="resistToSectionLbl" destination="D4n-W4-BN9" id="gxL-sr-m1C"/>
-                        <outlet property="resistToView" destination="kZO-gI-Xvf" id="a0E-R2-v0E"/>
-                        <outlet property="strongAgainstSectionLbl" destination="v6L-p6-JkY" id="FvE-tD-2ob"/>
-                        <outlet property="strongAgainstView" destination="th3-0V-bOL" id="8zk-Bt-hE5"/>
-                        <outlet property="weakToSectionLbl" destination="3Ai-2U-wNg" id="uwP-UU-Pmb"/>
-                        <outlet property="weakToView" destination="4bZ-VM-yXy" id="mFg-jK-gyA"/>
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="ft2-ZN-vRI"/>
                         <segue destination="T4B-Xs-RGo" kind="show" identifier="MoveDetailVC" id="qU5-OR-CKK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbI-a9-C9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="860"/>
+            <point key="canvasLocation" x="2029.5999999999999" y="859.52023988005999"/>
         </scene>
         <!--PokemonInfo-->
         <scene sceneID="4Wp-Im-GFA">

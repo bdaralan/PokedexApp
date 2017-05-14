@@ -89,7 +89,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         
         case .PokedexCell:
             if let cell = cell as? PokedexCell {
-                cell.configureCell(pokemon: pokemons[indexPath.row])
+                cell.configureCell(for: pokemons[indexPath.row])
                 return cell
             }
             
