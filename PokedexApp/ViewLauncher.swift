@@ -217,14 +217,11 @@ extension ViewLauncher {
             let weaknesses = pokemon.weaknesses
             
             for (type, effective) in weaknesses {
-                let backgroundColor = UIColor.myColor.get(from: type)
                 
                 let typeLbl: TypeUILabel = {
                     let label = TypeUILabel()
-                    label.awakeFromNib()
                     label.frame.origin.x = margin
                     label.frame.origin.y = y
-                    label.backgroundColor = backgroundColor
                     label.text = type
                     return label
                 }()
@@ -234,8 +231,8 @@ extension ViewLauncher {
                     label.awakeFromNib()
                     label.frame.origin.x = margin + label.frame.width + spacing
                     label.frame.origin.y = y
-                    label.backgroundColor = backgroundColor
                     label.text = "\(effective)x"
+                    label.backgroundColor = typeLbl.backgroundColor
                     
                     // MARK: - Pokemon's weaknesses effective width
                     if effective == "1/4" {
@@ -250,7 +247,7 @@ extension ViewLauncher {
                         label.frame.size.width = label.frame.height * 2
                         label.textAlignment = .left
                         label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
-                        label.textColor = backgroundColor
+                        label.textColor = typeLbl.backgroundColor
                         label.backgroundColor = UIColor.clear
                     }
                     

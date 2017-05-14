@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokedexApp/TypeDetailTVC.swift"
+            timestampString = "516431952.74578"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "updateUI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokedexApp.TypeDetailTVC.updateUI () -&gt; ()"
+                  moduleName = "PokedexApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/TypeDetailTVC.swift"
+                  timestampString = "516431962.111218"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PokedexApp.TypeDetailTVC.updateUI () -&gt; ()"
+                  moduleName = "PokedexApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iDara09/Documents/iDara09/XcodeProject/PokedexApp/PokedexApp/TypeDetailTVC.swift"
+                  timestampString = "516431962.114806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "892">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

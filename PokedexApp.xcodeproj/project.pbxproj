@@ -839,7 +839,7 @@
 		538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963A1EA3D7C0005E63FB /* SettingTVC.swift */; };
 		538F963F1EA479AE005E63FB /* RoundUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */; };
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
-		53A9C3851EC7E26D00420A7D /* OffensiveDefensiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A9C3841EC7E26D00420A7D /* OffensiveDefensiveCell.swift */; };
+		53A9C3851EC7E26D00420A7D /* OffenseDefenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A9C3841EC7E26D00420A7D /* OffenseDefenseCell.swift */; };
 		53B877341EC2232C009F0540 /* AbilityDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B877331EC2232C009F0540 /* AbilityDetailVC.swift */; };
 		53B877361EC2238F009F0540 /* TMDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B877351EC2238F009F0540 /* TMDetailVC.swift */; };
 		53C691891E8F5EEE00143AA6 /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */; };
@@ -1704,7 +1704,7 @@
 		538F963A1EA3D7C0005E63FB /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundUISegmentedControl.swift; sourceTree = "<group>"; };
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
-		53A9C3841EC7E26D00420A7D /* OffensiveDefensiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffensiveDefensiveCell.swift; sourceTree = "<group>"; };
+		53A9C3841EC7E26D00420A7D /* OffenseDefenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffenseDefenseCell.swift; sourceTree = "<group>"; };
 		53B877331EC2232C009F0540 /* AbilityDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityDetailVC.swift; sourceTree = "<group>"; };
 		53B877351EC2238F009F0540 /* TMDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDetailVC.swift; sourceTree = "<group>"; };
 		53C691881E8F5EEE00143AA6 /* PokemonInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
@@ -2668,7 +2668,7 @@
 				532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */,
 				5391B8561EADB1A40090634F /* RIOUILabel.swift */,
 				53D236861EC4447800BF9504 /* MoveDetailUITextView.swift */,
-				53A9C3841EC7E26D00420A7D /* OffensiveDefensiveCell.swift */,
+				53A9C3841EC7E26D00420A7D /* OffenseDefenseCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3633,7 +3633,7 @@
 				533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */,
 				53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */,
 				53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */,
-				53A9C3851EC7E26D00420A7D /* OffensiveDefensiveCell.swift in Sources */,
+				53A9C3851EC7E26D00420A7D /* OffenseDefenseCell.swift in Sources */,
 				53FD91FC1EB715BD00C7EC86 /* Item.swift in Sources */,
 				5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */,
 				53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */,

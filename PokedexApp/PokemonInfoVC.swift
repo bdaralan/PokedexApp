@@ -98,14 +98,12 @@ class PokemonInfoVC: UIViewController {
         pokeImgView.image = UIImage(named: pokemon.imageName)
         
         pokeType01Lbl.text = pokemon.primaryType
-        pokeType01Lbl.backgroundColor = UIColor.myColor.get(from: pokemon.primaryType)
         pokeType01Lbl.isUserInteractionEnabled = true
         
         if pokemon.hasSecondType {
             pokeType02Lbl.isHidden = false
             pokeType02Lbl.isUserInteractionEnabled = true
             pokeType02Lbl.text = pokemon.secondaryType
-            pokeType02Lbl.backgroundColor = UIColor.myColor.get(from: pokemon.secondaryType)
             pokeType01Lbl.setLength(to: pokeType02Lbl.frame.width)
         } else {
             pokeType02Lbl.isHidden = true

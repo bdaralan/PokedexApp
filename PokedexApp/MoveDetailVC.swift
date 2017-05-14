@@ -54,7 +54,6 @@ class MoveDetailVC: UIViewController {
         nameLbl.roundLabel.text = category
         
         typeLbl.text = move.type
-        typeLbl.backgroundColor = nameLbl.backgroundColor
         
         powerLbl.text = "Power"
         powerLbl.roundLabel.text = move.power.isEmpty ? "–" : move.power
