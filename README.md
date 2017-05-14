@@ -29,6 +29,51 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 
 ## Usage:
 * You can use this for studying purposes or as a reference guide. *Happy learning Swift. :)*
+### Project MVC Files
+* View
+    + ItemCell.swift
+    + PokedexCell.swfit
+    + TypeCell.swfit
+    + MoveCell.swift
+    + AbilityCell.swift
+    + SectionUILabel.swift
+    + CircleUILabel.swift
+    + TypeUILabel.swift
+    + AbilityUILabel.swift
+    + MeasurementUILabel.swift
+    + RoundUISegmentedControl.swift
+    + StatsUIProgressView.swift
+    + RIOUILabel.swfit
+    + MoveDetailUITextView.swift
+    + OffenseDefenseCell.swift
+* Model
+    + AppDelegate.swift
+    + ViewLauncher.swift
+    + Pokemon.swift
+    + Ability.swift
+    + Move.swift
+    + Item.swift
+* Controller
+    + SettingTVC.swift
+    + HomeMenuTVC.swift
+    + GenericTVC.swift
+    + PokemonInfoVC.swift
+    + MoveDetailVC.swift
+    + TypeDetailTVC.swift
+    + AbilityDetailVC.swift
+    + TMDetailVC.swift
+* Utilities
+    + Colors.swift
+    + Utilities.swift
+    + LoadData.swift
+    + AudioPlayer.swift
+* Extensions
+    + UIViewExtension.swift
+    + UILabelExtension.swift
+* Constants
+    + GlobalConstants.swift
+* Resources
+    + ...
 
 ## Disclaimer:
 * This is for practice and learning purposes only.
