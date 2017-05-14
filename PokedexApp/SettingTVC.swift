@@ -100,7 +100,11 @@ class SettingTVC: UITableViewController {
         UserDefaults.standard.set(sender.isOn, forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
         if sender.isOn { audioPlayer.play(audio: .select) }
     }
-    
+}
+
+
+// MARK: - Initializer and Handler
+extension SettingTVC {
     
     func loadSettingFromUserDefaults() {
         

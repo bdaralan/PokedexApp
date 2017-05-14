@@ -25,7 +25,6 @@ class HomeMenuTVC: UITableViewController {
         homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     }
     
-    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return homeMenuSections.count
@@ -54,7 +53,6 @@ class HomeMenuTVC: UITableViewController {
         }
     }
     
-    // MARK: - IBActions
     @IBAction func settingBtnPressed(_ sender: Any) {
         
         performSegue(withIdentifier: "SettingTVC", sender: nil)

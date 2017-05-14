@@ -86,11 +86,10 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
-        print("pokemoninfovc typeuilabel tapped")
         if let label = tapGesture.view as? TypeUILabel {
             switch label {
                 
-            case pokeType01Lbl: print("perform")
+            case pokeType01Lbl:
             performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
                 
             case pokeType02Lbl:
@@ -105,8 +104,12 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         
         audioPlayer.play(audio: pokemon.crySound)
     }
+}
+
+
+// MARK: - Updater 
+extension PokemonInfoVC {
     
-    // MARK: - Functions
     func updateUI() {
         
         if !pokemon.hasCompletedInfo {
@@ -214,6 +217,11 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         pokeSpDefensePV.setProgress(pokemon.spDefense.toProgress(), animated: true)
         pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
     }
+}
+
+
+// MARK: - Initializer and Handler
+extension PokemonInfoVC {
     
     func configureTappedGestures() {
         
@@ -258,16 +266,39 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         viewLauncher.setSuperview(self.view)
     }
     
-    func toggleMeasurement() {
+    func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
         
-        if userSelectedUnit == Unit.SI {
-            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
-            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
-            userSelectedUnit = Unit.USCustomary
-        } else {
-            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
-            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
-            userSelectedUnit = Unit.SI
+        var shouldUpdateUI = false
+        
+        if let senderView = sender.view {
+            switch senderView {
+                
+            case pokeEvolution01Img:
+                if pokemon.name != evolutions[0].name {
+                    pokemon = evolutions[0]
+                    shouldUpdateUI = true
+                }
+                
+            case pokeEvolution02Img:
+                if pokemon.name != evolutions[1].name {
+                    pokemon = evolutions[1]
+                    shouldUpdateUI = true
+                }
+                
+            case pokeEvolution03Img:
+                if pokemon.name != evolutions[2].name {
+                    pokemon = evolutions[2]
+                    shouldUpdateUI = true
+                }
+                
+            default: ()
+            }
+            
+            if shouldUpdateUI {
+                audioPlayer.play(audio: .select)
+                updateUI()
+                updatePokemonStatsProgressViews()
+            }
         }
     }
     
@@ -338,39 +369,16 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
-    func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
+    func toggleMeasurement() {
         
-        var shouldUpdateUI = false
-        
-        if let senderView = sender.view {
-            switch senderView {
-                
-            case pokeEvolution01Img:
-                if pokemon.name != evolutions[0].name {
-                    pokemon = evolutions[0]
-                    shouldUpdateUI = true
-                }
-                
-            case pokeEvolution02Img:
-                if pokemon.name != evolutions[1].name {
-                    pokemon = evolutions[1]
-                    shouldUpdateUI = true
-                }
-                
-            case pokeEvolution03Img:
-                if pokemon.name != evolutions[2].name {
-                    pokemon = evolutions[2]
-                    shouldUpdateUI = true
-                }
-                
-            default: ()
-            }
-            
-            if shouldUpdateUI {
-                audioPlayer.play(audio: .select)
-                updateUI()
-                updatePokemonStatsProgressViews()
-            }
+        if userSelectedUnit == Unit.SI {
+            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
+            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
+            userSelectedUnit = Unit.USCustomary
+        } else {
+            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
+            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
+            userSelectedUnit = Unit.SI
         }
     }
 }

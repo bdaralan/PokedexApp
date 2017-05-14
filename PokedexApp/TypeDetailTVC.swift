@@ -155,6 +155,24 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             moveDetailVC.move = move
         }
     }
+}
+
+
+// MARK: - Computed Property
+extension TypeDetailTVC {
+    
+    var headerViewWidth: CGFloat {
+        return tableView.frame.width
+    }
+    
+    var headerViewHeight: CGFloat {
+        return segmentControl.frame.height + 16
+    }
+}
+
+
+// MARK: - Protocol
+extension TypeDetailTVC {
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
@@ -164,12 +182,11 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             self.updateUI()
         }
     }
-    
-    func segmentControlValueChanged(_ sender: UISegmentedControl) {
-        
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
-    }
+}
+
+
+// MARK: - Updater
+extension TypeDetailTVC {
     
     func updateUI() {
         
@@ -183,7 +200,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
             let cachedWeakToTypes = cache.object(forKey: "weakToTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
             let cachedResistToTypes = cache.object(forKey: "resisToTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
-            let cachedImmuneToTypes = cache.object(forKey: "immuneToTypeLbls\(type)" as AnyObject) as? [TypeUILabel] {print("cached")
+            let cachedImmuneToTypes = cache.object(forKey: "immuneToTypeLbls\(type)" as AnyObject) as? [TypeUILabel] {
             
             pokemons = cachedPokemons
             moves = cachedMoves
@@ -220,16 +237,16 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         immuneToTypeLbls.removeAll()
     }
     
-    func cacheNecessaryData() {
+    func segmentControlValueChanged(_ sender: UISegmentedControl) {
         
-        self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
-        self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
-        self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
-        self.cache.setObject(strongAgainstTypeLbls as AnyObject, forKey: "strongAgainstTypeLbls\(type)" as AnyObject)
-        self.cache.setObject(weakToTypeLbls as AnyObject, forKey: "weakToTypeLbls\(type)" as AnyObject)
-        self.cache.setObject(resistToTypeLbls as AnyObject, forKey: "resisToTypeLbls\(type)" as AnyObject)
-        self.cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
     }
+}
+
+
+// MARK: - Initilizer and Handler
+extension TypeDetailTVC {
     
     func prepareHeaderViews() {
         
@@ -262,23 +279,21 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             return label
         }()
     }
-}
-
-
-// MARK: - computed property
-extension TypeDetailTVC {
     
-    var headerViewWidth: CGFloat {
-        return tableView.frame.width
-    }
-    
-    var headerViewHeight: CGFloat {
-        return segmentControl.frame.height + 16
+    func cacheNecessaryData() {
+        
+        self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
+        self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
+        self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
+        self.cache.setObject(strongAgainstTypeLbls as AnyObject, forKey: "strongAgainstTypeLbls\(type)" as AnyObject)
+        self.cache.setObject(weakToTypeLbls as AnyObject, forKey: "weakToTypeLbls\(type)" as AnyObject)
+        self.cache.setObject(resistToTypeLbls as AnyObject, forKey: "resisToTypeLbls\(type)" as AnyObject)
+        self.cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
     }
 }
 
 
-// MARK: - computing for strongness and weaknesses
+// MARK: - Make TypeUILabel
 extension TypeDetailTVC {
     
     func getOffensiveTypes() -> [String] {
@@ -317,29 +332,24 @@ extension TypeDetailTVC {
         
         if types.count > 0 {
             for type in types {
-                if let cachedTypeLabel = globalCache.object(forKey: "PokemonType\(type)" as AnyObject) as? TypeUILabel {
-                    print(cachedTypeLabel)
-                    
-                } else {
-                    let typeLabel: TypeUILabel = {
-                        let label = TypeUILabel()
-                        label.frame.origin = CGPoint(x: x, y: y)
-                        label.text = type
-                        return label
-                    }()
-                    
-                    typeLabel.delegate = self
-                    typeLabel.isUserInteractionEnabled = true
-                    
-                    x = x + typeLabel.frame.width + spacing
-                    
-                    if x + typeLabel.frame.width + spacing > view.frame.width + spacing {
-                        x = 8
-                        y = y + typeLabel.frame.height + spacing
-                    }
-                    
-                    strongAgainstTypeLbls.append(typeLabel)
+                let typeLabel: TypeUILabel = {
+                    let label = TypeUILabel()
+                    label.frame.origin = CGPoint(x: x, y: y)
+                    label.text = type
+                    return label
+                }()
+                
+                typeLabel.delegate = self
+                typeLabel.isUserInteractionEnabled = true
+                
+                x = x + typeLabel.frame.width + spacing
+                
+                if x + typeLabel.frame.width + spacing > view.frame.width + spacing {
+                    x = 8
+                    y = y + typeLabel.frame.height + spacing
                 }
+                
+                strongAgainstTypeLbls.append(typeLabel)
             }
             
         } else {

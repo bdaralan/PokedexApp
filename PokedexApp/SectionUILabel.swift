@@ -24,7 +24,6 @@ class SectionUILabel: UILabel {
         super.init(frame: frame)
         
         awakeFromNib()
-        print("initfromeframe")
     }
     
     required init?(coder aDecoder: NSCoder) {

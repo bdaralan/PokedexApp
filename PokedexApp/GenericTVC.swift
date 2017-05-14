@@ -53,7 +53,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         viewLauncher?.dismiss()
     }
     
-    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch currentGenericCell {
@@ -163,7 +162,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         }
     }
     
-    // MARK: - Preapre segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch sender {
@@ -197,57 +195,79 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         }
     }
     
-    // MARK: - Search
+
+    @IBAction func searchBtnTapped(_ sender: Any) {
+        
+        present(searchResultController, animated: true) {
+            self.searchResultController.searchBar.becomeFirstResponder()
+        }
+    }
+}
+
+
+// MARK: - Protocol
+extension GenericTVC {
+    
+    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently, only with AbilityCell, TMCell, and ItemCell
+        
+        deselectTableViewRow()
+    }
+}
+
+
+// MARK: - Search
+extension GenericTVC {
+    
     func updateSearchResults(for searchController: UISearchController) {
         
         if searchController.isActive, let searchText = searchController.searchBar.text, searchText != "" {
             
             switch currentGenericCell {
-            
+                
             case .PokedexCell:
                 pokemons = CONSTANTS.allPokemonsSortedById.filter(forName: searchText, options: .caseInsensitive)
                 
             case .TypeCell:
                 types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
-            
+                
             case .MoveCell:
                 moves = CONSTANTS.allMoves.filter(forName: searchText, options: .caseInsensitive)
-            
+                
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities.filter(for: searchText, options: .caseInsensitive)
-            
+                
             case .TMCell:
                 items = CONSTANTS.allItems.machines.filter(for: searchText, options: .caseInsensitive)
-            
+                
             case .ItemCell:
                 items = CONSTANTS.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
-            
+                
             case .BerryCell:
                 items = CONSTANTS.allItems.berries.filter(for: searchText, options: .caseInsensitive)
             }
         } else {
             
             switch currentGenericCell {
-            
+                
             case .PokedexCell:
                 if segmentControllSelectedIndex == 0 {
                     pokemons = CONSTANTS.allPokemonsSortedById
                 } else {
                     pokemons = CONSTANTS.allPokemonsSortedById.sortByAlphabet()
                 }
-            
+                
             case .TypeCell: ()
-                types = CONSTANTS.allTypes
-            
+            types = CONSTANTS.allTypes
+                
             case .MoveCell:
                 moves = CONSTANTS.allMoves
-            
+                
             case .AbilityCell:
                 abilities = CONSTANTS.allAbilities
-            
+                
             case .TMCell:
                 items = CONSTANTS.allItems.machines
-            
+                
             case .ItemCell:
                 if segmentControllSelectedIndex == 0 {
                     items = CONSTANTS.allItems.excludeBerriesMachines
@@ -262,101 +282,51 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         
         tableView.reloadData()
     }
+}
+
+
+// MARK: - Initializer and Handler
+extension GenericTVC {
     
-    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently, only with AbilityCell, TMCell, and ItemCell
-        
-        deselectTableViewRow()
-    }
-    
-    func deselectTableViewRow() {
-        
-        if let indexPath = self.indexPath {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-    }
-    
-    // MARK: - IBActions
-    @IBAction func searchBtnTapped(_ sender: Any) {
-        
-        present(searchResultController, animated: true) {
-            self.searchResultController.searchBar.becomeFirstResponder()
-        }
-    }
-    
-    // MARK: - Functions
     func prepareNecessaryData() {
         
         switch currentGenericCell {
-        
+            
         case .PokedexCell:
             pokemons = CONSTANTS.allPokemonsSortedById
-        
+            
         case .TypeCell:
             types = CONSTANTS.allTypes
-        
+            
         case .MoveCell:
             moves = CONSTANTS.allMoves
-        
+            
         case .AbilityCell:
             abilities = CONSTANTS.allAbilities
             configureViewLauncher()
-        
+            
         case .TMCell:
             items = CONSTANTS.allItems.machines
             configureViewLauncher()
-        
+            
         case .ItemCell:
             items = CONSTANTS.allItems.excludeBerriesMachines
             configureViewLauncher()
-        
+            
         case .BerryCell:
             items = CONSTANTS.allItems.berries
             configureViewLauncher()
         }
     }
     
-    func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
+    func configureViewLauncher() {
         
-        self.segmentControllSelectedIndex = sender.selectedSegmentIndex
+        viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
+        viewLauncher?.delegate = self
         
-        switch  currentGenericCell {
-        
-        case .PokedexCell:
-            if segmentControllSelectedIndex == 0 {
-                pokemons = CONSTANTS.allPokemonsSortedById
-            } else { //must be 1
-                pokemons = pokemons.sortByAlphabet()
-            }
-            
-        case .ItemCell:
-            if segmentControllSelectedIndex == 0 { //A-Z
-                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
-            } else { //must be 1, Cat.
-                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
-            }
-        
-        default: ()
+        if let window = UIApplication.shared.keyWindow {
+            viewLauncher?.setSuperview(window)
         }
-        
-        tableView.reloadData()
-    }
-    
-    func handleSelectedAbilityItemCell(sender: Any) {
-        
-        if let ability = sender as? Ability, let viewLauncher = viewLauncher {
-            if !ability.hasCompletedInfo { ability.parseCompletedInfo() }
-            
-            let textView = viewLauncher.makeTextView(withText: ability.description)
-            viewLauncher.addSubview(textView)
-        
-        } else if let item = sender as? Item, let viewLauncher = viewLauncher {
-            if !item.hasCompletedInfo { item.parseCompletedInfo() }
-            
-            let textView = viewLauncher.makeTextView(withText: item.effect)
-            viewLauncher.addSubview(textView)
-        }
-        
-        viewLauncher?.launch()
     }
     
     func configureNavigationBar() {
@@ -396,13 +366,54 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         }
     }
     
-    func configureViewLauncher() {
+    func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
         
-        viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
-        viewLauncher?.delegate = self
+        self.segmentControllSelectedIndex = sender.selectedSegmentIndex
         
-        if let window = UIApplication.shared.keyWindow {
-            viewLauncher?.setSuperview(window)
+        switch  currentGenericCell {
+            
+        case .PokedexCell:
+            if segmentControllSelectedIndex == 0 {
+                pokemons = CONSTANTS.allPokemonsSortedById
+            } else { //must be 1
+                pokemons = pokemons.sortByAlphabet()
+            }
+            
+        case .ItemCell:
+            if segmentControllSelectedIndex == 0 { //A-Z
+                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
+            } else { //must be 1, Cat.
+                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
+            }
+            
+        default: ()
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func handleSelectedAbilityItemCell(sender: Any) {
+        
+        if let ability = sender as? Ability, let viewLauncher = viewLauncher {
+            if !ability.hasCompletedInfo { ability.parseCompletedInfo() }
+            
+            let textView = viewLauncher.makeTextView(withText: ability.description)
+            viewLauncher.addSubview(textView)
+            
+        } else if let item = sender as? Item, let viewLauncher = viewLauncher {
+            if !item.hasCompletedInfo { item.parseCompletedInfo() }
+            
+            let textView = viewLauncher.makeTextView(withText: item.effect)
+            viewLauncher.addSubview(textView)
+        }
+        
+        viewLauncher?.launch()
+    }
+    
+    func deselectTableViewRow() {
+        
+        if let indexPath = self.indexPath {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 }

@@ -30,24 +30,34 @@ class MoveDetailVC: UIViewController, TypeUILabelDelegate {
         updateUI()
     }
     
-    func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
-        
-        performSegue(withIdentifier: "TypeDetailTVC", sender: typeLbl.text)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
             typeDetailTVC.type = type
         }
     }
+}
+
+
+// MARK: Protocol
+extension MoveDetailVC {
+    
+    func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
+        
+        performSegue(withIdentifier: "TypeDetailTVC", sender: typeLbl.text)
+    }
+}
+
+
+// MARK: - Updater
+extension MoveDetailVC {
     
     func updateUI() {
         
         self.title = move.name
         
         move.parseCompletedInfo()
-                
+        
         nameLbl.text = move.name
         nameLbl.backgroundColor = UIColor.myColor.get(from: move.type)
         nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
