@@ -7,8 +7,9 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 
 ## Status:
 * Still in working progress.
-* Have not yet to set constains.
-* Storyboard is set for iPhone 6s/7.
+* Have not yet to set constains. 
+    + Some are programatically calculated.
+    + Storyboard is set for iPhone 6s/7.
 
 ## Preview:
 <div>
@@ -18,6 +19,7 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokemon-weaknesses.png" alt="Pokemon Weaknesses" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokedex-entry.png" alt="Pokedex Entry" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/types.png" alt="Types" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/type-detail.png" alt="Types Detail" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/moves.png" alt="Moves" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/move-search.png" alt="Moves Search" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/move-detail.png" alt="Moves Detail" height="360px">
