@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PokemonInfoVC: UIViewController {
+class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     @IBOutlet weak var pokeIdLbl: UILabel!
     @IBOutlet weak var pokeImgView: UIImageView!
@@ -56,6 +56,9 @@ class PokemonInfoVC: UIViewController {
         
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex))
         
+        pokeType01Lbl.delegate = self
+        pokeType02Lbl.delegate = self
+        
         DispatchQueue.main.async {
             self.updateEvolutionUI()
         }
@@ -78,6 +81,23 @@ class PokemonInfoVC: UIViewController {
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
             typeDetailTVC.type = type
             audioPlayer.play(audio: .select)
+        }
+    }
+    
+    func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
+        
+        print("pokemoninfovc typeuilabel tapped")
+        if let label = tapGesture.view as? TypeUILabel {
+            switch label {
+                
+            case pokeType01Lbl: print("perform")
+            performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
+                
+            case pokeType02Lbl:
+                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType02Lbl.text)
+                
+            default: ()
+            }
         }
     }
     
@@ -215,9 +235,6 @@ class PokemonInfoVC: UIViewController {
         configureTapGesture(for: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
         configureTapGesture(for: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))
         configureTapGesture(for: pokeEvolution03Img, action: #selector(handleEvolutionPress(_:)))
-        
-        configureTapGesture(for: pokeType01Lbl, action: #selector(handleTypeLblPress(_:)))
-        configureTapGesture(for: pokeType02Lbl, action: #selector(handleTypeLblPress(_:)))
     }
     
     func configureLongPressGesture(for view: UIView, action: Selector) {
@@ -353,22 +370,6 @@ class PokemonInfoVC: UIViewController {
                 audioPlayer.play(audio: .select)
                 updateUI()
                 updatePokemonStatsProgressViews()
-            }
-        }
-    }
-    
-    func handleTypeLblPress(_ sender: UITapGestureRecognizer) {
-        
-        if let label = sender.view as? TypeUILabel {
-            switch label {
-                
-            case pokeType01Lbl: print("perform")
-                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
-                
-            case pokeType02Lbl:
-                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType02Lbl.text)
-                
-            default: ()
             }
         }
     }

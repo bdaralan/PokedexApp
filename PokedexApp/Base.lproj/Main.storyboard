@@ -422,6 +422,7 @@
                         <outlet property="probLbl" destination="RMy-l4-QuY" id="1mr-ue-d7F"/>
                         <outlet property="tmLbl" destination="99h-Mi-p7w" id="18C-vb-7jF"/>
                         <outlet property="typeLbl" destination="zZd-0f-nId" id="S4J-vm-Egd"/>
+                        <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="XEe-kS-nT9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZW-Ip-vmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1209,8 +1210,8 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fSY-tL-Ci9"/>
-        <segue reference="ft2-ZN-vRI"/>
+        <segue reference="XEe-kS-nT9"/>
         <segue reference="qU5-OR-CKK"/>
+        <segue reference="ft2-ZN-vRI"/>
     </inferredMetricsTieBreakers>
 </document>

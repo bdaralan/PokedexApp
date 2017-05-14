@@ -22,16 +22,20 @@ class OffenseDefenseCell: UITableViewCell {
     
     private var type: String!
     
+    var delegateForTypeLabel: TypeUILabelDelegate?
+    
     var height: CGFloat = 240 //height that will be used for ...(heightForRowAt: indexPath)
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.isUserInteractionEnabled = false
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(false, animated: animated)
     }
     
-    func configureCell(forType type: String, strongAgainstTypes: [String], weakToTypes: [String], resistToTypes: [String], immuneToTypes: [String]) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(false, animated: animated)
+    }
+    
+    func configureCell(forType type: String, strongAgainstTypes: [String], weakToTypes: [String], resistToTypes: [String], immuneToTypes: [String], delegate: TypeUILabelDelegate) {
         
         self.type = type
         
@@ -48,7 +52,6 @@ class OffenseDefenseCell: UITableViewCell {
         immuneToView.sizeToContent()
         
         let viewSpacing: CGFloat = 29
-        //strongAgainstSecLbl.setOriginBelow(self.contentView)
         strongAgainstView.setOriginBelow(strongAgainstSecLbl)
         weakToSecLbl.setOriginBelow(strongAgainstView, spacing: viewSpacing)
         weakToView.setOriginBelow(weakToSecLbl)
@@ -61,6 +64,8 @@ class OffenseDefenseCell: UITableViewCell {
     }
     
     private func add(types: [String], to view: UIView) {
+        
+        view.removeAllSubviews()
         
         let spacing: CGFloat = 8
         var x: CGFloat = 8
@@ -86,6 +91,8 @@ class OffenseDefenseCell: UITableViewCell {
                         y = y + typeLabel.frame.height + spacing
                     }
                     
+                    typeLabel.delegate = self.delegateForTypeLabel
+                    typeLabel.isUserInteractionEnabled = true
                     view.addSubview(typeLabel)
                 }
             }

@@ -8,7 +8,18 @@
 
 import UIKit
 
+
+protocol TypeUILabelDelegate {
+    
+    func typeUILabel(didTap tapGesture: UITapGestureRecognizer)
+}
+
+
 class TypeUILabel: UILabel {
+    
+    var delegate: TypeUILabelDelegate?
+    
+    private var tapGesture: UITapGestureRecognizer!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +31,9 @@ class TypeUILabel: UILabel {
         self.textColor = UIColor.white
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(typeUILabelTapped))
+        self.addGestureRecognizer(tapGesture)
     }
     
     override init(frame: CGRect) {
@@ -38,5 +52,10 @@ class TypeUILabel: UILabel {
                 self.backgroundColor = UIColor.myColor.get(from: text)
             }
         }
+    }
+    
+    func typeUILabelTapped() {
+        
+        delegate?.typeUILabel(didTap: tapGesture)
     }
 }

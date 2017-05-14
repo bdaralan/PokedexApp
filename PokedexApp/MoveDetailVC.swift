@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoveDetailVC: UIViewController {
+class MoveDetailVC: UIViewController, TypeUILabelDelegate {
     
     @IBOutlet weak var nameLbl: RIOUILabel!
     @IBOutlet weak var typeLbl: TypeUILabel!
@@ -24,7 +24,22 @@ class MoveDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        typeLbl.delegate = self
+        typeLbl.isUserInteractionEnabled = true
+        
         updateUI()
+    }
+    
+    func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
+        
+        performSegue(withIdentifier: "TypeDetailTVC", sender: typeLbl.text)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
+            typeDetailTVC.type = type
+        }
     }
     
     func updateUI() {

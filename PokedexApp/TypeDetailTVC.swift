@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TypeDetailTVC: UITableViewController {
+class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     var type: String! //will be assigned by segue
     var pokemons: [Pokemon]!
@@ -76,7 +76,8 @@ class TypeDetailTVC: UITableViewController {
             
         case offenseDefenseSection:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "OffenseDefenseCell") as? OffenseDefenseCell {
-                cell.configureCell(forType: type, strongAgainstTypes: strongAgainstTypes, weakToTypes: weakToTypes, resistToTypes: resistToTypes, immuneToTypes: immuneToTypes)
+                cell.delegateForTypeLabel = self
+                cell.configureCell(forType: type, strongAgainstTypes: strongAgainstTypes, weakToTypes: weakToTypes, resistToTypes: resistToTypes, immuneToTypes: immuneToTypes, delegate: self)
                 self.offenseDefenseCellHeight = cell.height
                 return cell
             }
@@ -156,6 +157,14 @@ class TypeDetailTVC: UITableViewController {
         }
     }
     
+    func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
+        
+        if let typeLabel = tapGesture.view as? TypeUILabel {
+            self.type = typeLabel.text
+            updateUI()
+        }
+    }
+    
     func handleTypeLblTapped(_ sender: UITapGestureRecognizer) {
         
         if let typeLbl = sender.view as? TypeUILabel, self.title != typeLbl.text {
@@ -200,7 +209,8 @@ class TypeDetailTVC: UITableViewController {
             getWeaknesses()
         }
         
-        segmentControl.tintColor = UIColor.myColor.get(from: type)
+        offenseDefenseLbl.backgroundColor = UIColor.myColor.get(from: type)
+        segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
         
         tableView.reloadData()
@@ -211,6 +221,11 @@ class TypeDetailTVC: UITableViewController {
     }
     
     func setDefaultState() {
+        
+        strongAgainstTypes.removeAll()
+        weakToTypes.removeAll()
+        resistToTypes.removeAll()
+        immuneToTypes.removeAll()
     }
     
     func cacheNecessaryData() {
