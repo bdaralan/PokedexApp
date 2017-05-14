@@ -14,10 +14,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     var pokemons: [Pokemon]!
     var moves: [Move]!
     
-    var strongAgainstTypes = [String]()
-    var weakToTypes = [String]()
-    var resistToTypes = [String]()
-    var immuneToTypes = [String]()
+    var strongAgainstTypeLbls = [TypeUILabel]()
+    var weakToTypeLbls = [TypeUILabel]()
+    var resistToTypeLbls = [TypeUILabel]()
+    var immuneToTypeLbls = [TypeUILabel]()
     
     var segmentControl: RoundUISegmentedControl!
     var offenseDefenseLbl: UILabel!
@@ -76,8 +76,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             
         case offenseDefenseSection:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "OffenseDefenseCell") as? OffenseDefenseCell {
-                cell.delegateForTypeLabel = self
-                cell.configureCell(forType: type, strongAgainstTypes: strongAgainstTypes, weakToTypes: weakToTypes, resistToTypes: resistToTypes, immuneToTypes: immuneToTypes, delegate: self)
+                cell.configureCell(forType: type, strongAgainstTypeLbls: strongAgainstTypeLbls, weakToTypeLbls: weakToTypeLbls, resistToTypeLbls: resistToTypeLbls, immuneToTypeLbls: immuneToTypeLbls)
                 self.offenseDefenseCellHeight = cell.height
                 return cell
             }
@@ -159,15 +158,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
-        if let typeLabel = tapGesture.view as? TypeUILabel {
-            self.type = typeLabel.text
-            updateUI()
-        }
-    }
-    
-    func handleTypeLblTapped(_ sender: UITapGestureRecognizer) {
-        
-        if let typeLbl = sender.view as? TypeUILabel, self.title != typeLbl.text {
+        if let typeLbl = tapGesture.view as? TypeUILabel, type != typeLbl.text {
             audioPlayer.play(audio: .select)
             self.type = typeLbl.text
             self.updateUI()
@@ -176,7 +167,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     func segmentControlValueChanged(_ sender: UISegmentedControl) {
         
-        // ReloadData and scroll to top
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
     }
@@ -190,23 +180,25 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         if let _ = cache.object(forKey: type as AnyObject) as? String,
             let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [Pokemon],
             let cachedMoves = cache.object(forKey: "cachedMoves\(type)" as AnyObject) as? [Move],
-            let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypes\(type)" as AnyObject) as? [String],
-            let cachedWeakToTypes = cache.object(forKey: "weakToTypes\(type)" as AnyObject) as? [String],
-            let cachedResistToTypes = cache.object(forKey: "resisToTypes\(type)" as AnyObject) as? [String],
-            let cachedImmuneToTypes = cache.object(forKey: "immuneToTypes\(type)" as AnyObject) as? [String] {
+            let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
+            let cachedWeakToTypes = cache.object(forKey: "weakToTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
+            let cachedResistToTypes = cache.object(forKey: "resisToTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
+            let cachedImmuneToTypes = cache.object(forKey: "immuneToTypeLbls\(type)" as AnyObject) as? [TypeUILabel] {print("cached")
             
             pokemons = cachedPokemons
             moves = cachedMoves
-            strongAgainstTypes = cachedStrongAgainstTypes
-            weakToTypes = cachedWeakToTypes
-            resistToTypes = cachedResistToTypes
-            immuneToTypes = cachedImmuneToTypes
+            strongAgainstTypeLbls = cachedStrongAgainstTypes
+            weakToTypeLbls = cachedWeakToTypes
+            resistToTypeLbls = cachedResistToTypes
+            immuneToTypeLbls = cachedImmuneToTypes
             
         } else {
             pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
             moves = CONSTANTS.allMoves.filter(forType: type)
-            getStrongness()
-            getWeaknesses()
+            strongAgainstTypeLbls = makeTypeLabels(from: getOffensiveTypes())
+            weakToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "2"))
+            resistToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "1/2"))
+            immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
         
         offenseDefenseLbl.backgroundColor = UIColor.myColor.get(from: type)
@@ -222,10 +214,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     func setDefaultState() {
         
-        strongAgainstTypes.removeAll()
-        weakToTypes.removeAll()
-        resistToTypes.removeAll()
-        immuneToTypes.removeAll()
+        strongAgainstTypeLbls.removeAll()
+        weakToTypeLbls.removeAll()
+        resistToTypeLbls.removeAll()
+        immuneToTypeLbls.removeAll()
     }
     
     func cacheNecessaryData() {
@@ -233,10 +225,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
         self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
         self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
-        self.cache.setObject(strongAgainstTypes as AnyObject, forKey: "strongAgainstTypes\(type)" as AnyObject)
-        self.cache.setObject(weakToTypes as AnyObject, forKey: "weakToTypes\(type)" as AnyObject)
-        self.cache.setObject(resistToTypes as AnyObject, forKey: "resisToTypes\(type)" as AnyObject)
-        self.cache.setObject(immuneToTypes as AnyObject, forKey: "immuneToTypes\(type)" as AnyObject)
+        self.cache.setObject(strongAgainstTypeLbls as AnyObject, forKey: "strongAgainstTypeLbls\(type)" as AnyObject)
+        self.cache.setObject(weakToTypeLbls as AnyObject, forKey: "weakToTypeLbls\(type)" as AnyObject)
+        self.cache.setObject(resistToTypeLbls as AnyObject, forKey: "resisToTypeLbls\(type)" as AnyObject)
+        self.cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
     }
     
     func prepareHeaderViews() {
@@ -289,33 +281,81 @@ extension TypeDetailTVC {
 // MARK: - computing for strongness and weaknesses
 extension TypeDetailTVC {
     
-    func getStrongness() {
+    func getOffensiveTypes() -> [String] {
+        
+        var strongAgainstTypes = [String]()
         
         for type in CONSTANTS.allTypes {
             if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
                 strongAgainstTypes.append(type)
             }
         }
+        
+        return strongAgainstTypes
     }
     
-    func getWeaknesses() {
+    func getDefensiveTypes(effective: String) -> [String] {
+        
+        var defensiveTypes = [String]()
         
         if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
-            for (type, effective) in weaknessesDict {
-                switch effective {
-                    
-                case "2": //weak against
-                    weakToTypes.append(type)
-                    
-                case "1/2": //strong against
-                    resistToTypes.append(type)
-                    
-                case "0": //immune against
-                    immuneToTypes.append(type)
-                    
-                default: () // value = ""
-                }
+            for (type, effectiveness) in weaknessesDict where effectiveness == effective {
+                defensiveTypes.append(type)
             }
         }
+        
+        return defensiveTypes
+    }
+    
+    func makeTypeLabels(from types: [String]) -> [TypeUILabel] {
+        
+        var strongAgainstTypeLbls = [TypeUILabel]()
+        
+        let spacing: CGFloat = 8
+        var x: CGFloat = 8
+        var y: CGFloat = 0
+        
+        if types.count > 0 {
+            for type in types {
+                if let cachedTypeLabel = globalCache.object(forKey: "PokemonType\(type)" as AnyObject) as? TypeUILabel {
+                    print(cachedTypeLabel)
+                    
+                } else {
+                    let typeLabel: TypeUILabel = {
+                        let label = TypeUILabel()
+                        label.frame.origin = CGPoint(x: x, y: y)
+                        label.text = type
+                        return label
+                    }()
+                    
+                    typeLabel.delegate = self
+                    typeLabel.isUserInteractionEnabled = true
+                    
+                    x = x + typeLabel.frame.width + spacing
+                    
+                    if x + typeLabel.frame.width + spacing > view.frame.width + spacing {
+                        x = 8
+                        y = y + typeLabel.frame.height + spacing
+                    }
+                    
+                    strongAgainstTypeLbls.append(typeLabel)
+                }
+            }
+            
+        } else {
+            let noneLbl: TypeUILabel = {
+                let label = TypeUILabel()
+                label.text = "None"
+                label.textColor = UIColor.myColor.sectionText
+                label.backgroundColor = UIColor.myColor.ability
+                label.frame.origin.x = x
+                label.frame.origin.y = y
+                return label
+            }()
+            
+            strongAgainstTypeLbls.append(noneLbl)
+        }
+        
+        return strongAgainstTypeLbls
     }
 }

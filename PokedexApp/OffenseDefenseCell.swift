@@ -22,8 +22,6 @@ class OffenseDefenseCell: UITableViewCell {
     
     private var type: String!
     
-    var delegateForTypeLabel: TypeUILabelDelegate?
-    
     var height: CGFloat = 240 //height that will be used for ...(heightForRowAt: indexPath)
     
     
@@ -35,20 +33,20 @@ class OffenseDefenseCell: UITableViewCell {
         super.setHighlighted(false, animated: animated)
     }
     
-    func configureCell(forType type: String, strongAgainstTypes: [String], weakToTypes: [String], resistToTypes: [String], immuneToTypes: [String], delegate: TypeUILabelDelegate) {
+    func configureCell(forType type: String, strongAgainstTypeLbls: [TypeUILabel], weakToTypeLbls: [TypeUILabel], resistToTypeLbls: [TypeUILabel], immuneToTypeLbls: [TypeUILabel]) {
         
         self.type = type
         
-        add(types: strongAgainstTypes, to: strongAgainstView)
+        add(typeLbls: strongAgainstTypeLbls, to: strongAgainstView)
         strongAgainstView.sizeToContent()
         
-        add(types: weakToTypes, to: weakToView)
+        add(typeLbls: weakToTypeLbls, to: weakToView)
         weakToView.sizeToContent()
         
-        add(types: resistToTypes, to: resistToView)
+        add(typeLbls: resistToTypeLbls, to: resistToView)
         resistToView.sizeToContent()
         
-        add(types: immuneToTypes, to: immuneToView)
+        add(typeLbls: immuneToTypeLbls, to: immuneToView)
         immuneToView.sizeToContent()
         
         let viewSpacing: CGFloat = 29
@@ -63,53 +61,12 @@ class OffenseDefenseCell: UITableViewCell {
         self.height = immuneToView.frame.origin.y + immuneToView.frame.height + viewSpacing
     }
     
-    private func add(types: [String], to view: UIView) {
+    private func add(typeLbls: [TypeUILabel], to view: UIView) {
         
         view.removeAllSubviews()
         
-        let spacing: CGFloat = 8
-        var x: CGFloat = 8
-        var y: CGFloat = 0
-        
-        if types.count > 0 {
-            for type in types {
-                if let cachedTypeLabel = globalCache.object(forKey: "PokemonType\(type)" as AnyObject) as? TypeUILabel {
-                    print(cachedTypeLabel)
-                    
-                } else {
-                    let typeLabel: TypeUILabel = {
-                        let label = TypeUILabel()
-                        label.frame.origin = CGPoint(x: x, y: y)
-                        label.text = type
-                        return label
-                    }()
-                    
-                    x = x + typeLabel.frame.width + spacing
-                    
-                    if x + typeLabel.frame.width + spacing > view.frame.width - spacing {
-                        x = 8
-                        y = y + typeLabel.frame.height + spacing
-                    }
-                    
-                    typeLabel.delegate = self.delegateForTypeLabel
-                    typeLabel.isUserInteractionEnabled = true
-                    view.addSubview(typeLabel)
-                }
-            }
-            
-        } else {
-            let noneLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.text = "None"
-                label.textColor = UIColor.myColor.sectionText
-                label.backgroundColor = UIColor.myColor.ability
-                label.frame.origin.x = x
-                label.frame.origin.y = y
-                
-                return label
-            }()
-            
-            view.addSubview(noneLbl)
+        for typeLbl in typeLbls {
+            view.addSubview(typeLbl)
         }
     }
 }
