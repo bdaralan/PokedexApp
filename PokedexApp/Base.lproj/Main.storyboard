@@ -341,93 +341,112 @@
             </objects>
             <point key="canvasLocation" x="380" y="859.52023988005999"/>
         </scene>
-        <!--Move Details-->
-        <scene sceneID="uht-Sn-ROc">
+        <!--Move DetailTVC-->
+        <scene sceneID="PkP-x0-FX8">
             <objects>
-                <viewController id="T4B-Xs-RGo" customClass="MoveDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Tj0-RC-gN6"/>
-                        <viewControllerLayoutGuide type="bottom" id="ef6-yo-Xyc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rAG-AU-Y83">
+                <tableViewController id="2nR-hK-xsR" customClass="MoveDetailTVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="J4y-3Z-hg2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10,000,000 Volt Thunderbolt (S)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzY-gx-QqE" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="88" width="255" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accuracy (–)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHx-jz-zfo" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="199" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prob (–)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMy-l4-QuY" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="209" y="125" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PP (1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thw-qs-bvH" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="162" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TM (–)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99h-Mi-p7w" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="209" y="162" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Power (195)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xg-kw-yfz" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="125" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Electric" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZd-0f-nId" customClass="TypeUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="279" y="88" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Pikachu-exclusive Z-Move." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HxI-wY-q7D" customClass="MoveDetailUITextView" customModule="PokedexApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="236" width="343" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Move Details" id="tHR-2z-JOK"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveDetailCell" rowHeight="240" id="InN-Ab-7Xh" customClass="MoveDetailCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="240"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="InN-Ab-7Xh" id="kD4-l0-TM2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10,000,000 Volt Thunderbolt (S)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dA9-Bv-O5Y" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="8" width="255" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Electric" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-qi-xci" customClass="TypeUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="279" y="8" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Power (195)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEW-yt-cBn" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="37" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PP (1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1D-e2-NHs" userLabel="PP Lbl" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="66" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accuracy (–)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-tT-Lv7" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="95" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prob (–)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyl-ei-Nlp" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="209" y="37" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TM (–)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVY-ge-phn" userLabel="TM Lbl" customClass="RIOUILabel" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="209" y="66" width="150" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Pikachu-exclusive Z-Move." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AIa-7j-Yhw" customClass="MoveDetailUITextView" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="124" width="343" height="108"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="accuracyLbl" destination="eAE-tT-Lv7" id="ULQ-mr-bDO"/>
+                                    <outlet property="effectTextView" destination="AIa-7j-Yhw" id="bqp-aN-y4N"/>
+                                    <outlet property="nameLbl" destination="dA9-Bv-O5Y" id="WFe-iQ-8fR"/>
+                                    <outlet property="powerLbl" destination="QEW-yt-cBn" id="8Xa-1W-6k8"/>
+                                    <outlet property="ppLbl" destination="h1D-e2-NHs" id="5ca-Mk-0KG"/>
+                                    <outlet property="probLbl" destination="Zyl-ei-Nlp" id="q5n-2t-lBd"/>
+                                    <outlet property="tmLbl" destination="iVY-ge-phn" id="97R-K9-7ch"/>
+                                    <outlet property="typeLbl" destination="56Q-qi-xci" id="k6T-vg-ctL"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="qzJ-GG-8Dk" customClass="MoveCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="268" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qzJ-GG-8Dk" id="6PD-Wv-5sm">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2nR-hK-xsR" id="J5h-rc-meG"/>
+                            <outlet property="delegate" destination="2nR-hK-xsR" id="F1m-HK-1UD"/>
+                        </connections>
+                    </tableView>
                     <connections>
-                        <outlet property="accuracyLbl" destination="gHx-jz-zfo" id="9qH-VM-Zuy"/>
-                        <outlet property="effectTextView" destination="HxI-wY-q7D" id="Bt1-4C-Nwf"/>
-                        <outlet property="nameLbl" destination="ZzY-gx-QqE" id="htc-bB-Atw"/>
-                        <outlet property="powerLbl" destination="0xg-kw-yfz" id="MiZ-oc-x1P"/>
-                        <outlet property="ppLbl" destination="thw-qs-bvH" id="8QH-lN-Sz1"/>
-                        <outlet property="probLbl" destination="RMy-l4-QuY" id="1mr-ue-d7F"/>
-                        <outlet property="tmLbl" destination="99h-Mi-p7w" id="18C-vb-7jF"/>
-                        <outlet property="typeLbl" destination="zZd-0f-nId" id="S4J-vm-Egd"/>
-                        <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="XEe-kS-nT9"/>
+                        <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="rHc-U9-I2b"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8ZW-Ip-vmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5U-Pi-Cw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2785" y="860"/>
+            <point key="canvasLocation" x="2801" y="860"/>
         </scene>
         <!--GenericTVC-->
         <scene sceneID="qxz-zJ-Peo">
@@ -663,10 +682,10 @@
                     </navigationItem>
                     <connections>
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="hBg-BA-g37"/>
-                        <segue destination="T4B-Xs-RGo" kind="show" identifier="MoveDetailVC" id="niM-lp-2Wm"/>
                         <segue destination="c34-xz-D97" kind="show" identifier="AbilityDetailVC" id="tBt-IF-6wh"/>
                         <segue destination="K7W-JF-qE0" kind="show" identifier="TMDetailVC" id="kQE-e2-M1w"/>
                         <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="fSY-tL-Ci9"/>
+                        <segue destination="2nR-hK-xsR" kind="show" identifier="MoveDetailTVC" id="QYb-qA-O7c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mla-5D-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -863,7 +882,7 @@
                     <navigationItem key="navigationItem" title="Type Detials" id="yJf-e0-282"/>
                     <connections>
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="ft2-ZN-vRI"/>
-                        <segue destination="T4B-Xs-RGo" kind="show" identifier="MoveDetailVC" id="qU5-OR-CKK"/>
+                        <segue destination="2nR-hK-xsR" kind="show" identifier="MoveDetailTVC" id="cKZ-6c-fcp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbI-a9-C9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1210,8 +1229,8 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XEe-kS-nT9"/>
-        <segue reference="qU5-OR-CKK"/>
+        <segue reference="Zzn-cQ-Gx5"/>
         <segue reference="ft2-ZN-vRI"/>
+        <segue reference="cKZ-6c-fcp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -142,7 +142,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             performSegue(withIdentifier: "TypeDetailTVC", sender: types[indexPath.row])
         
         case .MoveCell:
-            performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
+            performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
         
         case .AbilityCell:
             self.indexPath = indexPath
@@ -177,8 +177,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             }
             
         case is Move:
-            if let moveDetailVC = segue.destination as? MoveDetailVC, let move = sender as? Move {
-                moveDetailVC.move = move
+            if let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move {
+                moveDetailTVC.move = move
             }
             
         case is Ability:

@@ -141,7 +141,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
                 performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
                 
             } else { //segmentControl.selectedSegmentIndex == moveSegIndex
-                performSegue(withIdentifier: "MoveDetailVC", sender: moves[indexPath.row])
+                performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
             }
         }
     }
@@ -151,8 +151,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
             pokemonInfoVC.pokemon = pokemon
             
-        } else if let moveDetailVC = segue.destination as? MoveDetailVC, let move = sender as? Move {
-            moveDetailVC.move = move
+        } else if let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move {
+            moveDetailTVC.move = move
         }
     }
 }
