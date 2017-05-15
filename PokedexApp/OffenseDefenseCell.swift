@@ -49,16 +49,16 @@ class OffenseDefenseCell: UITableViewCell {
         add(typeLbls: immuneToTypeLbls, to: immuneToView)
         immuneToView.sizeToContent()
         
-        let viewSpacing: CGFloat = 29
+        let spacingView = CONSTANTS.constrain.spcingView
         strongAgainstView.setOriginBelow(strongAgainstSecLbl)
-        weakToSecLbl.setOriginBelow(strongAgainstView, spacing: viewSpacing)
+        weakToSecLbl.setOriginBelow(strongAgainstView, spacing: spacingView)
         weakToView.setOriginBelow(weakToSecLbl)
-        resistToSecLbl.setOriginBelow(weakToView, spacing: viewSpacing)
+        resistToSecLbl.setOriginBelow(weakToView, spacing: spacingView)
         resistToView.setOriginBelow(resistToSecLbl)
-        immuneToSecLbl.setOriginBelow(resistToView, spacing: viewSpacing)
+        immuneToSecLbl.setOriginBelow(resistToView, spacing: spacingView)
         immuneToView.setOriginBelow(immuneToSecLbl)
         
-        self.height = immuneToView.frame.origin.y + immuneToView.frame.height + viewSpacing
+        self.height = immuneToView.frame.origin.y + immuneToView.frame.height + spacingView
     }
     
     private func add(typeLbls: [TypeUILabel], to view: UIView) {

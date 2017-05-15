@@ -30,6 +30,12 @@ class Move {
     var effect: String { return _effect != nil ? _effect : ""  }
     var prob: String { return _prob != nil ? _prob : ""  }
     
+    private var _hasCompletedInfo: Bool = false
+    
+    var hasCompletedInfo: Bool {
+        return _hasCompletedInfo
+    }
+    
     init(name: String, type: String, category: String) {
         _name = name
         _type = type
@@ -52,6 +58,8 @@ class Move {
             _tm = tm
             _effect = effect
             _prob = prob
+            
+            _hasCompletedInfo = true
         }
     }
 }

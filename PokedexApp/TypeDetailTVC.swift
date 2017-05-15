@@ -41,7 +41,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
         moves = CONSTANTS.allMoves.filter(forType: type)
         
-        prepareHeaderViews()
+        configureHeaderViews()
         updateUI()
     }
     
@@ -99,13 +99,13 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return self.headerViewHeight
+        return self.sectionHeaderViewHeight
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionHeaderView: UIView = {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: headerViewWidth, height: headerViewHeight))
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
             view.backgroundColor = UIColor.myColor.sectionBackground
             return view
         }()
@@ -161,11 +161,11 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
 // MARK: - Computed Property
 extension TypeDetailTVC {
     
-    var headerViewWidth: CGFloat {
+    var sectionHeaderViewWidth: CGFloat {
         return tableView.frame.width
     }
     
-    var headerViewHeight: CGFloat {
+    var sectionHeaderViewHeight: CGFloat {
         return segmentControl.frame.height + 16
     }
 }
@@ -189,8 +189,6 @@ extension TypeDetailTVC {
 extension TypeDetailTVC {
     
     func updateUI() {
-        
-        self.title = type
         
         setDefaultState()
         
@@ -218,6 +216,7 @@ extension TypeDetailTVC {
             immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
         
+        offenseDefenseLbl.text = String(self.type + "'s Offensive / Defensive")
         offenseDefenseLbl.backgroundColor = UIColor.myColor.get(from: type)
         segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
@@ -236,19 +235,13 @@ extension TypeDetailTVC {
         resistToTypeLbls.removeAll()
         immuneToTypeLbls.removeAll()
     }
-    
-    func segmentControlValueChanged(_ sender: UISegmentedControl) {
-        
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
-    }
 }
 
 
 // MARK: - Initilizer and Handler
 extension TypeDetailTVC {
     
-    func prepareHeaderViews() {
+    func configureHeaderViews() {
         
         let typeColor = UIColor.myColor.get(from: self.type)
         
@@ -274,8 +267,6 @@ extension TypeDetailTVC {
             label.baselineAdjustment = .alignCenters
             label.textColor = UIColor.white
             label.backgroundColor = typeColor
-            
-            label.text = String("Offense / Defense")
             return label
         }()
     }
@@ -289,6 +280,12 @@ extension TypeDetailTVC {
         self.cache.setObject(weakToTypeLbls as AnyObject, forKey: "weakToTypeLbls\(type)" as AnyObject)
         self.cache.setObject(resistToTypeLbls as AnyObject, forKey: "resisToTypeLbls\(type)" as AnyObject)
         self.cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
+    }
+    
+    func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
+        
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
     }
 }
 

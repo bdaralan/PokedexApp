@@ -63,5 +63,6 @@ struct Constant {
         
         let margin: CGFloat = 16
         let spacing: CGFloat = 8
+        let spcingView: CGFloat = 29
     }
 }
