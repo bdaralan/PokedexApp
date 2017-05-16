@@ -254,6 +254,7 @@ extension Pokemon {
 // MARK: - Get Evolution
 extension Pokemon {
     
+    ///: Will return [self] if no evolution
     var evolutions: [Pokemon] {
         
         var evolutions = [Pokemon]()
