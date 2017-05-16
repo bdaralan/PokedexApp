@@ -137,7 +137,7 @@ class Pokemon {
         var name = self.name
         
         if self.hasForm {
-            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = CONSTANTS.allPokemonsSortedById.filter({$0.id == self.id}).first {
+            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = CONSTANTS.allPokemonsSortedByName.filter({$0.id == self.id}).first {
                 name = selfNoForm.name
             }
         }
@@ -157,7 +157,7 @@ class Pokemon {
 }
 
 
-// MARK: - Extension for Pokemon
+// MARK: - Computed Property
 extension Pokemon {
     
     var hasSecondType: Bool {
@@ -219,66 +219,6 @@ extension Pokemon {
         return "\(id)\(crySound)"
     }
     
-    
-    var evolutions: [Pokemon] {
-        
-        var evolutions = [Pokemon]()
-        var selfNoForm = self
-        
-        if self.hasForm {
-            if CONSTANTS.evolutionSpecialCaseForm.contains(self.form),
-                let noFormPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.id == self.id}).first {
-                selfNoForm = noFormPokemon
-            }
-        }
-        
-        if !selfNoForm.hasCompletedInfo {
-            selfNoForm.parseCompletedInfo()
-        }
-        
-        evolutions = [selfNoForm]
-        
-        if selfNoForm.isBaseEvolution { // MARK: - isBaseEvolution
-            if let evolveToPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveTo}).first {
-                if !evolveToPokemon.hasCompletedInfo {
-                    evolveToPokemon.parseCompletedInfo()
-                }
-                
-                if evolveToPokemon.isLastEvolution {
-                    evolutions = [selfNoForm, evolveToPokemon]
-                } else { //isMidEvolution
-                    if let lastEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == evolveToPokemon.evolveTo}).first {
-                        evolutions = [selfNoForm, evolveToPokemon, lastEvolution]
-                    }
-                }
-            }
-        } else if selfNoForm.isMidEvolution { // MARK: - isMidEvolution
-            if !self.hasCompletedInfo {
-                self.parseCompletedInfo()
-            }
-            
-            if let baseEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveFrom}).first, let lastEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveTo}).first {
-                evolutions = [baseEvolution, selfNoForm, lastEvolution]
-            }
-        } else if selfNoForm.isLastEvolution { // MARK: - isLastEvolution
-            if let evolveFromPokemon = CONSTANTS.allPokemonsSortedById.filter({$0.name == selfNoForm.evolveFrom}).first {
-                if !evolveFromPokemon.hasCompletedInfo {
-                    evolveFromPokemon.parseCompletedInfo()
-                }
-                
-                if evolveFromPokemon.isBaseEvolution {
-                    evolutions = [evolveFromPokemon, selfNoForm]
-                } else { //isMidEvollution
-                    if let baseEvolution = CONSTANTS.allPokemonsSortedById.filter({$0.name == evolveFromPokemon.evolveFrom}).first {
-                        evolutions = [baseEvolution, evolveFromPokemon, selfNoForm]
-                    }
-                }
-            }
-        }
-
-        return evolutions //return an array with one element which is itself
-    }
-    
     var weaknesses: DictionarySS {
         
         var weaknessesDict = DictionarySS()
@@ -311,7 +251,68 @@ extension Pokemon {
 }
 
 
-// MARK: - Extension for [Pokemon]
+// MARK: - Get Evolution
+extension Pokemon {
+    
+    var evolutions: [Pokemon] {
+        
+        var evolutions = [Pokemon]()
+        var selfNoForm = self
+        
+        if self.hasForm, CONSTANTS.evolutionSpecialCaseForm.contains(self.form) {
+            selfNoForm = CONSTANTS.allPokemonsSortedById.search(forId: self.id, withName: self.name)
+        }
+        
+        if !selfNoForm.hasCompletedInfo {
+            selfNoForm.parseCompletedInfo()
+        }
+        
+        evolutions = [selfNoForm]
+        
+        if selfNoForm.isBaseEvolution { // MARK: - isBaseEvolution
+            let evolveToPokemon = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
+            
+            if !evolveToPokemon.hasCompletedInfo {
+                evolveToPokemon.parseCompletedInfo()
+            }
+            
+            if evolveToPokemon.isLastEvolution {
+                evolutions = [selfNoForm, evolveToPokemon]
+            } else { //isMidEvolution
+                let lastEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: evolveToPokemon.evolveTo)
+                evolutions = [selfNoForm, evolveToPokemon, lastEvolution]
+            }
+            
+        } else if selfNoForm.isMidEvolution { // MARK: - isMidEvolution
+            if !self.hasCompletedInfo {
+                self.parseCompletedInfo()
+            }
+            
+            let baseEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
+            let lastEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
+            evolutions = [baseEvolution, selfNoForm, lastEvolution]
+            
+        } else if selfNoForm.isLastEvolution { // MARK: - isLastEvolution
+            let evolveFromPokemon = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
+            
+            if !evolveFromPokemon.hasCompletedInfo {
+                evolveFromPokemon.parseCompletedInfo()
+            }
+            
+            if evolveFromPokemon.isBaseEvolution {
+                evolutions = [evolveFromPokemon, selfNoForm]
+            } else { //isMidEvollution
+                let baseEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: evolveFromPokemon.evolveFrom)
+                evolutions = [baseEvolution, evolveFromPokemon, selfNoForm]
+            }
+        }
+        
+        return evolutions //return an array with one element which is itself
+    }
+}
+
+
+// MARK: - Shorthand Sort and Filter
 extension Array where Element: Pokemon {
     
     func sortById() -> [Pokemon] {
@@ -332,5 +333,54 @@ extension Array where Element: Pokemon {
     func filter(forType type: String) -> [Pokemon] {
         
         return self.filter({$0.primaryType == type || $0.secondaryType == type})
+    }
+}
+
+
+// MARK: - Binary Search
+extension Array where Element: Pokemon {
+    
+    func search(forName searchName: String) -> Pokemon {
+        
+        var begin = 0
+        var end = self.count - 1
+        
+        while begin <= end {
+            let mid = (begin + end) / 2
+            
+            if self[mid].name == searchName {
+                return self[mid]
+            } else {
+                if self[mid].name < searchName {
+                    begin = mid + 1
+                } else {
+                    end = mid - 1
+                }
+            }
+        }
+        
+        return Pokemon(name: "Error", id: -1, form: "Error", types: ["Error", "Error"])
+    }
+    
+    func search(forId searchId: Int, withName targetName: String) -> Pokemon {
+        
+        var begin = 0
+        var end = self.count - 1
+        
+        while begin <= end {
+            let mid = (begin + end) / 2
+            
+            if self[mid].id == searchId, self[mid].name != targetName {
+                return self[mid]
+            } else {
+                if self[mid].id < searchId {
+                    begin = mid + 1
+                } else {
+                    end = mid - 1
+                }
+            }
+        }
+        
+        return Pokemon(name: "Error", id: -1, form: "Error", types: ["Error", "Error"])
     }
 }

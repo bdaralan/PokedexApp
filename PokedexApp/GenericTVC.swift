@@ -253,7 +253,7 @@ extension GenericTVC {
                 if segmentControllSelectedIndex == 0 {
                     pokemons = CONSTANTS.allPokemonsSortedById
                 } else {
-                    pokemons = CONSTANTS.allPokemonsSortedById.sortByAlphabet()
+                    pokemons = CONSTANTS.allPokemonsSortedByName
                 }
                 
             case .TypeCell: ()

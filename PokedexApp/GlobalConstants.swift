@@ -25,27 +25,53 @@ let CONSTANTS = Constant() // Constants use throughout the app
 // Strct for all Constants
 struct Constant {
     
-    let movesJSON = loadData.movesJSON()
-    let pokemonsJSON = loadData.pokemonsJSON()
-    let abilitiesJSON = loadData.abilitiesJSON()
-    let pokemonAbilitiesJSON = loadData.pokemonAbilitiesJSON()
-    let measurementsJSON = loadData.measurementsJSON()
-    let weaknessesJSON = loadData.weaknessesJSON()
-    let pokedexEntriesJSON = loadData.pokedexEntriesJSON()
-    let evolutionsJSON = loadData.evolutionJSON()
-    let itemsJSON = loadData.itemJSON()
+    let movesJSON: DictionarySA!
+    let pokemonsJSON: DictionarySA!
+    let abilitiesJSON: DictionarySA!
+    let pokemonAbilitiesJSON: DictionarySA!
+    let measurementsJSON: DictionarySA!
+    let weaknessesJSON: DictionarySA!
+    let pokedexEntriesJSON: DictionarySA!
+    let evolutionsJSON: DictionarySA!
+    let itemsJSON: DictionarySA!
     
-    let allPokemonsSortedById = loadData.allPokemons(by: .id)
-    let allAbilities = loadData.allAbilities()
-    let allTypes = loadData.allTypes()
-    let allMoves = loadData.allMoves()
-    let allItems = loadData.allItems()
+    let allPokemonsSortedById: [Pokemon]!
+    let allPokemonsSortedByName: [Pokemon]!
+    let allAbilities: [Ability]!
+    let allTypes: [String]!
+    let allMoves: [Move]!
+    let allItems: [Item]!
     
-    let evolutionSpecialCaseForm = loadData.evolutionSpecialCaseForm()
-    let crySoundSepcialCaseName = loadData.crySoundSpecialCaseName()
+    let evolutionSpecialCaseForm: [String]!
+    let crySoundSepcialCaseName: DictionarySS!
     
-    let keys = Key()
-    let constrain = Constrain()
+    let keys: Key!
+    let constrain: Constrain!
+    
+    init() {
+        movesJSON = loadData.movesJSON()
+        pokemonsJSON = loadData.pokemonsJSON()
+        abilitiesJSON = loadData.abilitiesJSON()
+        pokemonAbilitiesJSON = loadData.pokemonAbilitiesJSON()
+        measurementsJSON = loadData.measurementsJSON()
+        weaknessesJSON = loadData.weaknessesJSON()
+        pokedexEntriesJSON = loadData.pokedexEntriesJSON()
+        evolutionsJSON = loadData.evolutionJSON()
+        itemsJSON = loadData.itemJSON()
+        
+        allPokemonsSortedById = loadData.allPokemons(by: .id)
+        allPokemonsSortedByName = allPokemonsSortedById.sortByAlphabet()
+        allAbilities = loadData.allAbilities()
+        allTypes = loadData.allTypes()
+        allMoves = loadData.allMoves()
+        allItems = loadData.allItems()
+        
+        evolutionSpecialCaseForm = loadData.evolutionSpecialCaseForm()
+        crySoundSepcialCaseName = loadData.crySoundSpecialCaseName()
+        
+        keys = Key()
+        constrain = Constrain()
+    }
     
     
     // Sub Struct
