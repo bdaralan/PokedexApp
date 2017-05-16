@@ -226,7 +226,8 @@ extension GenericTVC {
             switch currentGenericCell {
                 
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemonsSortedById.filter(forName: searchText, options: .caseInsensitive)
+                
+                pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
                 
             case .TypeCell:
                 types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
@@ -246,6 +247,7 @@ extension GenericTVC {
             case .BerryCell:
                 items = CONSTANTS.allItems.berries.filter(for: searchText, options: .caseInsensitive)
             }
+            
         } else {
             
             switch currentGenericCell {
@@ -342,6 +344,8 @@ extension GenericTVC {
         tableView.tableHeaderView = searchResultController.searchBar
         
         if currentGenericCell == .PokedexCell {
+            searchResultController.searchBar.placeholder = "Name, ID, Type, TypeType, Ability"
+            
             let segmentControll: RoundUISegmentedControl = {
                 let sc = RoundUISegmentedControl(items: ["0-9", "A-Z"])
                 sc.selectedSegmentIndex = 0
