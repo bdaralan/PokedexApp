@@ -43,9 +43,7 @@ class AbilityCell: UITableViewCell {
 
     func configureCell(ability: Ability) {
         
-        DispatchQueue.main.async {
-            self.abilityLbl.text = ability.name
-            self.pokemonLbl.text = ability.pokemon
-        }
+        self.abilityLbl.text = ability.name
+        self.pokemonLbl.text = ability.pokemon
     }
 }

@@ -15,25 +15,19 @@ class ItemCell: UITableViewCell {
     
     func configureCell(item: Item) {
         
-        DispatchQueue.main.async {
-            self.rhsLbl.text = item.name
-            self.lhsLbl.text = item.category
-        }
+        self.rhsLbl.text = item.name
+        self.lhsLbl.text = item.category
     }
     
     func configureCell(tm: Item) {
         
-        DispatchQueue.main.async {
-            self.rhsLbl.text = tm.name
-            self.lhsLbl.isHidden = true
-        }
+        self.rhsLbl.text = tm.name
+        self.lhsLbl.isHidden = true
     }
     
     func configureCell(berry: Item) {
         
-        DispatchQueue.main.async {
-            self.rhsLbl.text = berry.name
-            self.lhsLbl.isHidden = true
-        }
+        self.rhsLbl.text = berry.name
+        self.lhsLbl.isHidden = true
     }
 }

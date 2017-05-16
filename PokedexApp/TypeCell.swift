@@ -33,10 +33,8 @@ class TypeCell: UITableViewCell {
 
     func configureCell(type: String) {
         
-        DispatchQueue.main.async {
-            self.typeTextLbl.text = type
-            self.typeLbl.backgroundColor = UIColor.myColor.get(from: type)
-            self.typeLbl.text = type
-        }
+        self.typeTextLbl.text = type
+        self.typeLbl.backgroundColor = UIColor.myColor.get(from: type)
+        self.typeLbl.text = type
     }
 }

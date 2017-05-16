@@ -83,7 +83,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(currentGenericCell)", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(currentGenericCell)")
         
         switch currentGenericCell {
         
@@ -127,7 +127,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             }
         }
         
-        return cell //should never reach this line
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
