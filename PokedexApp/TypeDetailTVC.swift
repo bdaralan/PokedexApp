@@ -190,6 +190,8 @@ extension TypeDetailTVC {
     
     func updateUI() {
         
+        self.title = type
+        
         setDefaultState()
         
         if let _ = cache.object(forKey: type as AnyObject) as? String,
@@ -216,7 +218,6 @@ extension TypeDetailTVC {
             immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
         
-        offenseDefenseLbl.text = String(self.type + "'s Offensive / Defensive")
         offenseDefenseLbl.backgroundColor = UIColor.myColor.get(from: type)
         segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
@@ -267,6 +268,7 @@ extension TypeDetailTVC {
             label.baselineAdjustment = .alignCenters
             label.textColor = UIColor.white
             label.backgroundColor = typeColor
+            label.text = "Offense / Defense"
             return label
         }()
     }

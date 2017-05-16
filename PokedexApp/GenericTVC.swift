@@ -38,6 +38,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     var currentGenericCell: GenericCell { return genericCell }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

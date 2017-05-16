@@ -50,7 +50,11 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     var viewLauncher: ViewLauncher!
     var userSelectedUnit: Unit!
     
-    // MARK: - ViewDidLoad
+    let base = 0 //base evolution
+    let mid = 1 //mid evolution
+    let last = 2 //last evolution
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -173,31 +177,31 @@ extension PokemonInfoVC {
         switch evolutions.count {
             
         case 1:
-            pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
+            pokeEvolution01Img.image = UIImage(named: evolutions[base].imageName)
             pokeEvolution01Img.isHidden = false
             pokeEvolution01Img.isUserInteractionEnabled = true
             
         case 2:
-            pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
+            pokeEvolution01Img.image = UIImage(named: evolutions[base].imageName)
             pokeEvolution01Img.isHidden = false
             pokeEvolution01Img.isUserInteractionEnabled = true
             
-            pokeEvolution02Img.image = UIImage(named: evolutions[1].imageName)
+            pokeEvolution02Img.image = UIImage(named: evolutions[mid].imageName)
             pokeEvolution02Img.isHidden = false
             pokeEvolution02Img.isUserInteractionEnabled = true
             
             pokeEvolutionArr01Img.isHidden = false
             
         case 3:
-            pokeEvolution01Img.image = UIImage(named: evolutions[0].imageName)
+            pokeEvolution01Img.image = UIImage(named: evolutions[base].imageName)
             pokeEvolution01Img.isHidden = false
             pokeEvolution01Img.isUserInteractionEnabled = true
             
-            pokeEvolution02Img.image = UIImage(named: evolutions[1].imageName)
+            pokeEvolution02Img.image = UIImage(named: evolutions[mid].imageName)
             pokeEvolution02Img.isHidden = false
             pokeEvolution02Img.isUserInteractionEnabled = true
             
-            pokeEvolution03Img.image = UIImage(named: evolutions[2].imageName)
+            pokeEvolution03Img.image = UIImage(named: evolutions[last].imageName)
             pokeEvolution03Img.isHidden = false
             pokeEvolution03Img.isUserInteractionEnabled = true
             
@@ -223,29 +227,35 @@ extension PokemonInfoVC {
 // MARK: - Initializer and Handler
 extension PokemonInfoVC {
     
-    func configureTappedGestures() {
+    func configureViewLauncher() {
         
-        configureLongPressGesture(for: measurementSectionLbl, action: #selector(handleSectionLblPress))
-        measurementSectionLbl.isUserInteractionEnabled = true
-        measurementSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
-        measurementSectionLbl.layer.borderWidth = 2
-        
-        configureLongPressGesture(for: pokedexEnterySectionLbl, action: #selector(handleSectionLblPress))
-        pokedexEnterySectionLbl.isUserInteractionEnabled = true
-        pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
-        pokedexEnterySectionLbl.layer.borderWidth = 2
-        
-        configureLongPressGesture(for: weaknessesSectionLbl, action: #selector(handleSectionLblPress))
-        weaknessesSectionLbl.isUserInteractionEnabled = true
-        weaknessesSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
-        weaknessesSectionLbl.layer.borderWidth = 2
-        
-        configureTapGesture(for: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
-        configureTapGesture(for: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))
-        configureTapGesture(for: pokeEvolution03Img, action: #selector(handleEvolutionPress(_:)))
+        viewLauncher = ViewLauncher(swipeToDismissDirection: .up)
+        viewLauncher.setSuperview(self.view)
     }
     
-    func configureLongPressGesture(for view: UIView, action: Selector) {
+    func configureTappedGestures() {
+        
+        addLongPressGesture(to: measurementSectionLbl, action: #selector(handleSectionLblPress))
+        measurementSectionLbl.isUserInteractionEnabled = true
+        measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
+        measurementSectionLbl.layer.borderWidth = 2
+        
+        addLongPressGesture(to: pokedexEnterySectionLbl, action: #selector(handleSectionLblPress))
+        pokedexEnterySectionLbl.isUserInteractionEnabled = true
+        pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
+        pokedexEnterySectionLbl.layer.borderWidth = 2
+        
+        addLongPressGesture(to: weaknessesSectionLbl, action: #selector(handleSectionLblPress))
+        weaknessesSectionLbl.isUserInteractionEnabled = true
+        weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
+        weaknessesSectionLbl.layer.borderWidth = 2
+        
+        addTapGesture(to: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
+        addTapGesture(to: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))
+        addTapGesture(to: pokeEvolution03Img, action: #selector(handleEvolutionPress(_:)))
+    }
+    
+    func addLongPressGesture(to view: UIView, action: Selector) {
         
         let longPress = UILongPressGestureRecognizer(target: self, action: action)
         longPress.minimumPressDuration = 0
@@ -253,17 +263,11 @@ extension PokemonInfoVC {
         view.addGestureRecognizer(longPress)
     }
     
-    func configureTapGesture(for view: UIView, action: Selector) {
+    func addTapGesture(to view: UIView, action: Selector) {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         
         view.addGestureRecognizer(tapGesture)
-    }
-    
-    func configureViewLauncher() {
-        
-        viewLauncher = ViewLauncher(swipeToDismissDirection: .up)
-        viewLauncher.setSuperview(self.view)
     }
     
     func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
@@ -274,20 +278,20 @@ extension PokemonInfoVC {
             switch senderView {
                 
             case pokeEvolution01Img:
-                if pokemon.name != evolutions[0].name {
-                    pokemon = evolutions[0]
+                if pokemon.name != evolutions[base].name {
+                    pokemon = evolutions[base]
                     shouldUpdateUI = true
                 }
                 
             case pokeEvolution02Img:
-                if pokemon.name != evolutions[1].name {
-                    pokemon = evolutions[1]
+                if pokemon.name != evolutions[mid].name {
+                    pokemon = evolutions[mid]
                     shouldUpdateUI = true
                 }
                 
             case pokeEvolution03Img:
-                if pokemon.name != evolutions[2].name {
-                    pokemon = evolutions[2]
+                if pokemon.name != evolutions[last].name {
+                    pokemon = evolutions[last]
                     shouldUpdateUI = true
                 }
                 
@@ -314,7 +318,7 @@ extension PokemonInfoVC {
                     measurementSectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
                 } else if sender.state == .ended {
                     audioPlayer.play(audio: .select)
-                    self.measurementSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
+                    self.measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
                     
                     let originalOriginY = pokeHeightLbl.frame.origin.y
                     let animateToOriginY = measurementSectionLbl.frame.origin.y
@@ -343,7 +347,7 @@ extension PokemonInfoVC {
                     weaknessesSectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
                 } else if sender.state == .ended {
                     audioPlayer.play(audio: .select)
-                    weaknessesSectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
+                    weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                     if viewLauncher.isIdle {
                         let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
                         viewLauncher.addSubview(weaknessesView)
@@ -356,7 +360,7 @@ extension PokemonInfoVC {
                     pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
                 } else if sender.state == .ended  {
                     audioPlayer.play(audio: .select)
-                    pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.clear.cgColor
+                    pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
                     if viewLauncher.isIdle {
                         let pokedexEntryTextView = viewLauncher.makeTextView(withText: pokemon.pokedexEntry)
                         viewLauncher.addSubview(pokedexEntryTextView)

@@ -22,19 +22,20 @@ class PokedexCell: UITableViewCell {
     }
 
     func configureCell(for pokemon: Pokemon) {
-    
+        
         pokemonName.text = pokemon.name
         pokemonID.text = pokemon.id.toPokedexId()
         
-        if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
-            pokemonImg.image = cachedImage
-        } else {
-            DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async {
+            if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
+                self.pokemonImg.image = cachedImage
+            } else {
                 if let image = UIImage(named: pokemon.imageName) {
                     self.pokemonImg.image = image
                     globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
                 }
-            })
+            }
         }
+        
     }
 }

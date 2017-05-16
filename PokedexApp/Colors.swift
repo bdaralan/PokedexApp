@@ -22,19 +22,17 @@ extension UIColor {
 /*-- Main Class --*/
 class Colors {
     
+    let app: AppColor!
     let pokemonType: PokeTypeColor!
     let move: PokeMoveColor!
     let ability: UIColor!
-    let navigationBar: UIColor!
     let sectionBackground: UIColor!
     let sectionText: UIColor!
-    let clear: UIColor!
     
     init() {
-        clear = UIColor.clear
+        app = AppColor()
         pokemonType = PokeTypeColor()
         move = PokeMoveColor()
-        navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
         sectionBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
         sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
         ability = sectionBackground.withAlphaComponent(0.35)
@@ -66,15 +64,22 @@ class Colors {
         case "Special": return move.special
         case "Status": return move.status
         
-        default: return clear
+        default: return UIColor.clear
         }
     }
 }
 
+struct AppColor {
+    
+    let navigationBar = UIColor.clear
+    let barItem = UIColor.clear
+    let viewController = UIColor.clear
+    let tableViewController = UIColor.clear
+}
 
-/*-- Pokemon Type Color --*/
+
 struct PokeTypeColor {
-    //240 128 48
+    
     let Normal = UIColor(red:0.66, green:0.66, blue:0.47, alpha:1.0) //A8A878
     let Fighting = UIColor(red:0.75, green:0.19, blue:0.16, alpha:1.0) //C03028
     let Flying = UIColor(red:0.66, green:0.56, blue:0.94, alpha:1.0) //A890F0
@@ -95,6 +100,7 @@ struct PokeTypeColor {
     let Fairy = UIColor(red:0.93, green:0.60, blue:0.67, alpha:1.0) //EE99AC
     let Unknown = UIColor(red:0.41, green:0.63, blue:0.56, alpha:1.0) //68A090
 }
+
 
 struct PokeMoveColor {
     

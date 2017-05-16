@@ -45,28 +45,30 @@ class MoveCell: UITableViewCell {
     
     func configureCell(for move: Move) {
         
-        moveName.text = move.name
-        
-        moveCategory.backgroundColor = UIColor.myColor.get(from: move.category)
-        moveCategory.textColor = UIColor.white
-        
-        switch move.category {
+        DispatchQueue.main.async {
+            self.moveName.text = move.name
             
-        case "Physical":
-            moveCategory.text = "P"
+            self.moveCategory.backgroundColor = UIColor.myColor.get(from: move.category)
+            self.moveCategory.textColor = UIColor.white
             
-        case "Special":
-            moveCategory.text = "S"
+            switch move.category {
+                
+            case "Physical":
+                self.moveCategory.text = "P"
+                
+            case "Special":
+                self.moveCategory.text = "S"
+                
+            case "Status":
+                self.moveCategory.text = "S"
+                
+            default:
+                self.moveCategory.text = "-"
+                self.moveCategory.textColor = UIColor.black
+            }
             
-        case "Status":
-            moveCategory.text = "S"
-            
-        default:
-            moveCategory.text = "-"
-            moveCategory.textColor = UIColor.black
+            self.moveType.backgroundColor = UIColor.myColor.get(from: move.type)
+            self.moveType.text = move.type
         }
-        
-        moveType.backgroundColor = UIColor.myColor.get(from: move.type)
-        moveType.text = move.type
     }
 }

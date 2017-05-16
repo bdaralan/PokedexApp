@@ -117,6 +117,8 @@ extension MoveDetailTVC {
     
     func updateUI() {
         
+        self.title = move.name
+        
         if !move.hasCompletedInfo {
             move.parseCompletedInfo()
         }
@@ -146,8 +148,8 @@ extension MoveDetailTVC {
         powerLbl.text = "Power"
         powerLbl.roundLabel.text = move.power.isEmpty ? "–" : move.power
         
-        probLbl.text = "Proc"
-        probLbl.roundLabel.text = move.prob.isEmpty ? "–" : "\(move.prob)%"
+        probLbl.text = "Prob %"
+        probLbl.roundLabel.text = move.prob.isEmpty ? "–" : "\(move.prob)"
         
         ppLbl.text = "PP"
         ppLbl.roundLabel.text = move.pp.isEmpty ? "–" : move.pp
