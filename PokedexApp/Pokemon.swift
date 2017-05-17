@@ -168,6 +168,14 @@ class Pokemon {
             _spAttack = spAttack
             _spDefense = spDefense
             _speed = speed
+            
+        } else {
+            _hp = 0
+            _attack = 0
+            _defense = 0
+            _spAttack = 0
+            _spDefense = 0
+            _speed = 0
         }
     }
     
@@ -181,6 +189,11 @@ class Pokemon {
             _firstAbility = ability01
             _secondAbility = ability02
             _hiddenAbility = hiddenAbility
+            
+        } else {
+            _firstAbility = ""
+            _secondAbility = ""
+            _hiddenAbility = ""
         }
     }
     
@@ -192,6 +205,10 @@ class Pokemon {
             
             _height = height.components(separatedBy: ", ")
             _weight = weight.components(separatedBy: ", ")
+            
+        } else {
+            _height = ["0", "0"]
+            _weight = ["0", "0"]
         }
     }
     
@@ -213,6 +230,10 @@ class Pokemon {
                 _evolveFrom = evolveFrom
                 _evolveTo = evolveTo
             }
+            
+        } else {
+            _evolveFrom = ""
+            _evolveTo = ""
         }
         
         // TODO: - case where pokemon is a mega evolution, other forms, or not in json
@@ -224,7 +245,7 @@ class Pokemon {
 extension Pokemon {
     
     var hasSecondType: Bool { return self.secondaryType != "" }
-
+    
     var hasSecondAbility: Bool { return self.secondAbility != "" }
     
     var hasHiddenAbility: Bool { return self.hiddenAbility != "" }
@@ -363,14 +384,14 @@ extension Array where Element: Pokemon {
         
         return self.filter({
             $0.name.range(of: searchText, options: options) != nil
-            || $0.id.toPokedexId().range(of: searchText) != nil
-            || $0.primaryType == searchText
-            || $0.secondaryType == searchText
-            || String($0.primaryType+$0.secondaryType) == searchText
-            || String($0.secondaryType+$0.primaryType) == searchText
-            || $0.firstAbility == searchText
-            || $0.secondAbility == searchText
-            || $0.hiddenAbility == searchText
+                || $0.id.toPokedexId().range(of: searchText) != nil
+                || $0.primaryType == searchText
+                || $0.secondaryType == searchText
+                || String($0.primaryType+$0.secondaryType) == searchText
+                || String($0.secondaryType+$0.primaryType) == searchText
+                || $0.firstAbility == searchText
+                || $0.secondAbility == searchText
+                || $0.hiddenAbility == searchText
         })
     }
 }
