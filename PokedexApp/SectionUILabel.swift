@@ -17,6 +17,8 @@ class SectionUILabel: UILabel {
         self.clipsToBounds = true
         self.backgroundColor = UIColor.myColor.sectionBackground
         self.textColor = UIColor.myColor.sectionText
+        self.textAlignment = .center
+        self.baselineAdjustment = .alignCenters
         self.font = UIFont(name: "GillSans-SemiBold", size: 17)
     }
     

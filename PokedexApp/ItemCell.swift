@@ -22,12 +22,12 @@ class ItemCell: UITableViewCell {
     func configureCell(tm: Item) {
         
         self.lhsLbl.text = tm.name
-        //self.rhsLbl.isHidden = true
+        self.rhsLbl.isHidden = true
     }
     
     func configureCell(berry: Item) {
         
         self.lhsLbl.text = berry.name
-        //self.rhsLbl.isHidden = true
+        self.rhsLbl.isHidden = true
     }
 }

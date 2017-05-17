@@ -150,11 +150,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         
         case .AbilityCell:
             self.indexPath = indexPath
-            performSegue(withIdentifier: "AbilityDetailVC", sender: abilities[indexPath.row])
+            performSegue(withIdentifier: "AbilityDetailTVC", sender: abilities[indexPath.row])
         
-        case .TMCell:
-            self.indexPath = indexPath
-            performSegue(withIdentifier: "TMDetailVC", sender: items[indexPath.row])
+        case .TMCell: ()
         
         case .ItemCell:
             self.indexPath = indexPath
@@ -186,14 +184,11 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             }
             
         case is Ability:
-            if let abilityDetailVC = segue.destination as? AbilityDetailVC, let ability = sender as? Ability {
-                abilityDetailVC.ability = ability
+            if let abilityDetailTVC = segue.destination as? AbilityDetailTVC, let ability = sender as? Ability {
+                abilityDetailTVC.ability = ability
             }
             
-        case is Item:
-            if let tmDetailVC = segue.destination as? TMDetailVC, let tm = sender as? Item {
-                tmDetailVC.tm = tm
-            }
+        case is Item: ()
             
         default: ()
         }

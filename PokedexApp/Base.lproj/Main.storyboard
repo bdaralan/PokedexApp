@@ -472,6 +472,81 @@
             </objects>
             <point key="canvasLocation" x="2839.1999999999998" y="859.52023988005999"/>
         </scene>
+        <!--Ability Details-->
+        <scene sceneID="qZW-0S-8ko">
+            <objects>
+                <tableViewController id="4vM-Ig-M2A" customClass="AbilityDetailTVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VIS-hY-m1f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AbilityDetailCell" rowHeight="140" id="SF3-Ar-fhA" customClass="AbilityDetailCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SF3-Ar-fhA" id="vGq-vv-43V">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Speed Boost" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZFk-2b-exE" customClass="MoveDetailUITextView" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="359" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionTextView" destination="ZFk-2b-exE" id="Ckv-Tv-b44"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokedexCell" id="EQX-fy-vl8" customClass="PokedexCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="168" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EQX-fy-vl8" id="WGd-jQ-lDA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="58S-dw-Yx0">
+                                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gothita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaW-7Q-9Vg">
+                                            <rect key="frame" x="76" y="12" width="225" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#574" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8R-YC-Qzt">
+                                            <rect key="frame" x="309" y="11" width="50" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="76" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="pokemonID" destination="w8R-YC-Qzt" id="oWn-4M-O24"/>
+                                    <outlet property="pokemonImg" destination="58S-dw-Yx0" id="ExD-m4-LDf"/>
+                                    <outlet property="pokemonName" destination="YaW-7Q-9Vg" id="24R-H8-fOA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4vM-Ig-M2A" id="6MY-IQ-Aox"/>
+                            <outlet property="delegate" destination="4vM-Ig-M2A" id="YgN-Am-SsM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ability Details" id="A2j-nQ-LDP"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIZ-ss-Ewq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3656.8000000000002" y="859.52023988005999"/>
+        </scene>
         <!--GenericTVC-->
         <scene sceneID="qxz-zJ-Peo">
             <objects>
@@ -706,53 +781,14 @@
                     </navigationItem>
                     <connections>
                         <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoVC" id="hBg-BA-g37"/>
-                        <segue destination="c34-xz-D97" kind="show" identifier="AbilityDetailVC" id="tBt-IF-6wh"/>
-                        <segue destination="K7W-JF-qE0" kind="show" identifier="TMDetailVC" id="kQE-e2-M1w"/>
                         <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="fSY-tL-Ci9"/>
                         <segue destination="2nR-hK-xsR" kind="show" identifier="MoveDetailTVC" id="QYb-qA-O7c"/>
+                        <segue destination="4vM-Ig-M2A" kind="show" identifier="AbilityDetailTVC" id="WwS-oR-bSB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mla-5D-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="104.7976011994003"/>
-        </scene>
-        <!--Ability Details-->
-        <scene sceneID="h7g-Fa-3iu">
-            <objects>
-                <viewController id="c34-xz-D97" customClass="AbilityDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hnT-gf-99Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="JzY-FV-pfa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xtK-5C-bra">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Ability Details" id="5lU-cr-hYb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IHu-bd-Iz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3602" y="860"/>
-        </scene>
-        <!--TM Details-->
-        <scene sceneID="2pE-2a-IBX">
-            <objects>
-                <viewController id="K7W-JF-qE0" customClass="TMDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="j6j-wx-Iqy"/>
-                        <viewControllerLayoutGuide type="bottom" id="GDQ-4R-WPw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ddC-56-uoi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="TM Details" id="2K7-b9-atz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kze-Ow-cWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4350" y="860"/>
         </scene>
         <!--Type Details-->
         <scene sceneID="eFj-nb-c1c">
@@ -1254,8 +1290,8 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QYb-qA-O7c"/>
-        <segue reference="hBg-BA-g37"/>
         <segue reference="fSY-tL-Ci9"/>
+        <segue reference="cKZ-6c-fcp"/>
+        <segue reference="ft2-ZN-vRI"/>
     </inferredMetricsTieBreakers>
 </document>

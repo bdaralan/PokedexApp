@@ -19,12 +19,14 @@ class MoveDetailUITextView: UITextView {
         self.clipsToBounds = true
         self.textAlignment = .center
         self.layer.borderColor = UIColor.black.cgColor
+        self.font = UIFont(name: "GillSans", size: 17)
     }
     
-    func applyStyle() {
-        
-        let width = self.frame.width
-        self.sizeToFit()
-        self.frame.size.width = width
+    override var text: String! {
+        didSet {
+            let width = self.frame.width
+            self.sizeToFit()
+            self.frame.size.width = width
+        }
     }
 }

@@ -157,7 +157,6 @@ extension MoveDetailTVC {
         tmLbl.roundLabel.text = move.tm.isEmpty ? "–" : move.tm
         
         effectTextView.text = move.effect.isEmpty ? "–" : move.effect
-        effectTextView.applyStyle()
         
         headerView.frame.size.height = headerViewHeight
     }
