@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		532327421ECCF2CB00164C53 /* MachineDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532327411ECCF2CB00164C53 /* MachineDetailTVC.swift */; };
 		532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */; };
 		5334E2921EC7AF2100F77861 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334E2911EC7AF2000F77861 /* UIViewExtension.swift */; };
 		533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* GenericTVC.swift */; };
@@ -873,6 +874,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		532327411ECCF2CB00164C53 /* MachineDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineDetailTVC.swift; sourceTree = "<group>"; };
 		532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsUIProgressView.swift; sourceTree = "<group>"; };
 		5334E2911EC7AF2000F77861 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		533A78811E9FDA6100554F7F /* GenericTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTVC.swift; sourceTree = "<group>"; };
@@ -2687,6 +2689,7 @@
 				53D74A121EA9349900A6D591 /* MoveDetailTVC.swift */,
 				53FD91F71EB711EB00C7EC86 /* TypeDetailTVC.swift */,
 				53B988FC1ECC1B4C002551D1 /* AbilityDetailTVC.swift */,
+				532327411ECCF2CB00164C53 /* MachineDetailTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3631,6 +3634,7 @@
 				536095BA1E970E9000D2F2FC /* SectionUILabel.swift in Sources */,
 				537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */,
 				53ECA7071EA1EA3100964977 /* Move.swift in Sources */,
+				532327421ECCF2CB00164C53 /* MachineDetailTVC.swift in Sources */,
 				53ECA7171EA2FA8000964977 /* TypeCell.swift in Sources */,
 				536095C21E97160500D2F2FC /* AbilityUILabel.swift in Sources */,
 				533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */,

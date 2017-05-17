@@ -165,7 +165,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSh-TE-zb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="104.7976011994003"/>
+            <point key="canvasLocation" x="423" y="105"/>
         </scene>
         <!--Settings-->
         <scene sceneID="yEw-Za-me1">
@@ -339,7 +339,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xu0-7g-KjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="859.52023988005999"/>
+            <point key="canvasLocation" x="422" y="860"/>
         </scene>
         <!--Move Details-->
         <scene sceneID="PkP-x0-FX8">
@@ -475,7 +475,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5U-Pi-Cw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2839.1999999999998" y="859.52023988005999"/>
+            <point key="canvasLocation" x="3284" y="860"/>
         </scene>
         <!--Ability Details-->
         <scene sceneID="qZW-0S-8ko">
@@ -553,7 +553,81 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIZ-ss-Ewq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="860"/>
+            <point key="canvasLocation" x="4282" y="860"/>
+        </scene>
+        <!--Machine DetailTVC-->
+        <scene sceneID="1ij-51-gvZ">
+            <objects>
+                <tableViewController id="ZPg-9n-70W" customClass="MachineDetailTVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jix-bV-eBD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AbilityDetailCell" rowHeight="140" id="BCZ-Lp-JnP" userLabel="MachineDetailCell" customClass="AbilityDetailCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BCZ-Lp-JnP" id="X2f-AZ-QtX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Teaches the move Mega Punch / DynamicPunch / Focus Punch / Hone Claws." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-DQ-z6z" customClass="MoveDetailUITextView" customModule="PokedexApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="359" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionTextView" destination="QhP-DQ-z6z" id="hRe-4E-Ef2"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokedexCell" id="d8w-FO-gCd" customClass="PokedexCell" customModule="PokedexApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="168" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d8w-FO-gCd" id="beg-lQ-7tI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="EqJ-wN-7h6">
+                                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gothita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWf-wA-YJ4">
+                                            <rect key="frame" x="76" y="12" width="225" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#574" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alp-GT-XTX">
+                                            <rect key="frame" x="309" y="11" width="50" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="76" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="pokemonID" destination="Alp-GT-XTX" id="UKg-8L-jiU"/>
+                                    <outlet property="pokemonImg" destination="EqJ-wN-7h6" id="25w-G6-hKR"/>
+                                    <outlet property="pokemonName" destination="hWf-wA-YJ4" id="vDM-Pu-BIV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZPg-9n-70W" id="q1X-cY-r6e"/>
+                            <outlet property="delegate" destination="ZPg-9n-70W" id="wfi-V8-7aa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wv0-3w-SKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5247" y="860"/>
         </scene>
         <!--GenericTVC-->
         <scene sceneID="qxz-zJ-Peo">
@@ -792,11 +866,12 @@
                         <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="fSY-tL-Ci9"/>
                         <segue destination="2nR-hK-xsR" kind="show" identifier="MoveDetailTVC" id="QYb-qA-O7c"/>
                         <segue destination="4vM-Ig-M2A" kind="show" identifier="AbilityDetailTVC" id="WwS-oR-bSB"/>
+                        <segue destination="ZPg-9n-70W" kind="show" identifier="MachineDetailTVC" id="Xwm-OI-2UX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mla-5D-exU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="104.7976011994003"/>
+            <point key="canvasLocation" x="1415" y="105"/>
         </scene>
         <!--Type Details-->
         <scene sceneID="eFj-nb-c1c">
@@ -955,7 +1030,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbI-a9-C9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029.5999999999999" y="859.52023988005999"/>
+            <point key="canvasLocation" x="2310" y="860"/>
         </scene>
         <!--PokemonInfo-->
         <scene sceneID="4Wp-Im-GFA">
@@ -1271,7 +1346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTO-Tr-Rzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="860"/>
+            <point key="canvasLocation" x="1414" y="860"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HJw-Ti-DU7">
@@ -1299,9 +1374,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zzn-cQ-Gx5"/>
+        <segue reference="cKZ-6c-fcp"/>
+        <segue reference="rHc-U9-I2b"/>
         <segue reference="s9j-uD-IwM"/>
         <segue reference="bBF-vP-3Uf"/>
-        <segue reference="cKZ-6c-fcp"/>
     </inferredMetricsTieBreakers>
 </document>

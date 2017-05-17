@@ -29,6 +29,7 @@ class AbilityDetailCell: UITableViewCell {
     func configureCell(for ability: Ability) {
         
         self.descriptionTextView.text = ability.description
+        
         self.height = descriptionTextView.frame.origin.y +  descriptionTextView.frame.height + CONSTANTS.constrain.spcingView
     }
 }

@@ -152,7 +152,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             self.indexPath = indexPath
             performSegue(withIdentifier: "AbilityDetailTVC", sender: abilities[indexPath.row])
         
-        case .TMCell: ()
+        case .TMCell:
+            performSegue(withIdentifier: "MachineDetailTVC", sender: nil)
         
         case .ItemCell:
             self.indexPath = indexPath

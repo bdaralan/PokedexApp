@@ -73,6 +73,7 @@ class MoveDetailCell: UITableViewCell {
         tmLbl.roundLabel.text = move.tm.isEmpty ? "–" : move.tm
         
         effectTextView.text = move.effect.isEmpty ? "–" : move.effect
+        
         height = effectTextView.frame.origin.y + effectTextView.frame.height + CONSTANTS.constrain.spcingView
     }
 }
