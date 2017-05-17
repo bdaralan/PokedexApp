@@ -61,3 +61,30 @@ extension Array where Element: Ability {
         return self.filter({$0.name.range(of: searchText, options: options) != nil})
     }
 }
+
+
+extension Array where Element: Ability {
+    
+    // Binary Search
+    func search(forName searchName: String) -> Ability {
+        
+        var begin = 0
+        var end = self.count - 1
+        
+        while begin <= end {
+            let mid = (begin + end) / 2
+            
+            if self[mid].name == searchName {
+                return self[mid]
+            } else {
+                if self[mid].name < searchName {
+                    begin = mid + 1
+                } else {
+                    end = mid - 1
+                }
+            }
+        }
+        
+        return Ability(name: "Error", pokemon: "Error")
+    }
+}

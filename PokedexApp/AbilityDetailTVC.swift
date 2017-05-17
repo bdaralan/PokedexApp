@@ -68,6 +68,11 @@ class AbilityDetailTVC: UITableViewController {
         return UITableViewCell()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
@@ -80,6 +85,13 @@ class AbilityDetailTVC: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
+            pokemonInfoVC.pokemon = pokemon
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return CONSTANTS.height.sectionHeaderView
@@ -88,16 +100,15 @@ class AbilityDetailTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionHeaderView: SectionUILabel = {
-            let view = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: CONSTANTS.height.sectionHeaderView))
-            return view
+            let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: CONSTANTS.height.sectionHeaderView))
+            label.layer.cornerRadius = 0
+            return label
         }()
-        
-        sectionHeaderView.layer.cornerRadius = 0
-        
+                
         switch section {
             
         case abilityDetialSection:
-            sectionHeaderView.text = "Description"
+            sectionHeaderView.text = "Ability Detail"
             return sectionHeaderView
             
         case pokemonSection:

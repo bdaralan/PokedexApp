@@ -54,7 +54,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     let mid = 1 //mid evolution
     let last = 2 //last evolution
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,6 +85,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
             typeDetailTVC.type = type
             audioPlayer.play(audio: .select)
+        } else if let abilityDetailTVC = segue.destination as? AbilityDetailTVC, let ability = sender as? Ability {
+            abilityDetailTVC.ability = ability
         }
     }
     
@@ -94,7 +96,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             switch label {
                 
             case pokeType01Lbl:
-            performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
+                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
                 
             case pokeType02Lbl:
                 performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType02Lbl.text)
@@ -111,7 +113,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
 }
 
 
-// MARK: - Updater 
+// MARK: - Updater
 extension PokemonInfoVC {
     
     func updateUI() {
@@ -135,19 +137,24 @@ extension PokemonInfoVC {
         }
         
         pokeAbility01Lbl.text = pokemon.firstAbility
+        pokeAbility01Lbl.isUserInteractionEnabled = true
         
         if pokemon.hasSecondAbility {
             pokeAbility02Lbl.text = pokemon.secondAbility
             pokeAbility02Lbl.isHidden = false
+            pokeAbility02Lbl.isUserInteractionEnabled = true
         } else {
             pokeAbility02Lbl.isHidden = true
+            pokeAbility02Lbl.isUserInteractionEnabled = false
         }
         
         if pokemon.hasHiddenAbility {
-            pokeHiddenAibilityLbl.isHidden = false
             pokeHiddenAibilityLbl.text = "\(pokemon.hiddenAbility) (H)"
+            pokeHiddenAibilityLbl.isHidden = false
+            pokeHiddenAibilityLbl.isUserInteractionEnabled = true
         } else {
             pokeHiddenAibilityLbl.isHidden = true
+            pokeHiddenAibilityLbl.isUserInteractionEnabled = false
         }
         
         pokeHeightLbl.text = pokemon.getHeight(as: userSelectedUnit)
@@ -249,6 +256,10 @@ extension PokemonInfoVC {
         addTapGesture(to: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
         addTapGesture(to: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))
         addTapGesture(to: pokeEvolution03Img, action: #selector(handleEvolutionPress(_:)))
+        
+        addTapGesture(to: pokeAbility01Lbl, action: #selector(handleAbilityPress(_:)))
+        addTapGesture(to: pokeAbility02Lbl, action: #selector(handleAbilityPress(_:)))
+        addTapGesture(to: pokeHiddenAibilityLbl, action: #selector(handleAbilityPress(_:)))
     }
     
     func addLongPressGesture(to view: UIView, action: Selector) {
@@ -264,6 +275,31 @@ extension PokemonInfoVC {
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    func handleAbilityPress(_ sender: UITapGestureRecognizer) {
+        
+        if let senderView = sender.view {
+            
+            let identifier = "AbilityDetailTVC"
+            
+            switch senderView {
+                
+            case pokeAbility01Lbl:
+                let ability = CONSTANTS.allAbilities.search(forName: pokemon.firstAbility)
+                performSegue(withIdentifier: identifier, sender: ability)
+                
+            case pokeAbility02Lbl:
+                let ability = CONSTANTS.allAbilities.search(forName: pokemon.secondAbility)
+                performSegue(withIdentifier: identifier, sender: ability)
+                
+            case pokeHiddenAibilityLbl:
+                let ability = CONSTANTS.allAbilities.search(forName: pokemon.hiddenAbility)
+                performSegue(withIdentifier: identifier, sender: ability)
+                
+            default: ()
+            }
+        }
     }
     
     func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {

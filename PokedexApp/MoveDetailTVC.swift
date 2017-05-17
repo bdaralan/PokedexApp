@@ -10,21 +10,10 @@ import UIKit
 
 class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var nameLbl: RIOUILabel!
-    @IBOutlet weak var typeLbl: TypeUILabel!
-    @IBOutlet weak var powerLbl: RIOUILabel!
-    @IBOutlet weak var probLbl: RIOUILabel!
-    @IBOutlet weak var accuracyLbl: RIOUILabel!
-    @IBOutlet weak var ppLbl: RIOUILabel!
-    @IBOutlet weak var tmLbl: RIOUILabel!
-    @IBOutlet weak var effectTextView: MoveDetailUITextView!
-    
     var move: Move! //will be assigned during segue
     var moves: [Move]!
     
     var segmentControl: RoundUISegmentedControl!
-    var sectionHeaderView: UIView!
     
     let moveDetailCellSection = 0
     let moveCellSection = 1
@@ -38,32 +27,69 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        typeLbl.delegate = self
-        typeLbl.isUserInteractionEnabled = true
+        self.title = move.name
         
         moves = CONSTANTS.allMoves.filter(forType: move.type)
         
-        configureHeaderView()
-        updateUI()
+        configureSegmentControl()
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return moves.count
+        switch section {
+        case moveDetailCellSection:
+            return 1
+            
+        case moveCellSection:
+            return moves.count
+            
+        default:
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
-            cell.configureCell(for: moves[indexPath.row])
-            return cell
+        switch indexPath.section {
+            
+        case moveDetailCellSection:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveDetailCell", for: indexPath) as? MoveDetailCell {
+                cell.configureCell(for: moves[indexPath.row])
+                moveDetailCellHeight = cell.height
+                return cell
+            }
+            
+        case moveCellSection:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
+                cell.configureCell(for: moves[indexPath.row])
+                return cell
+            }
+            
+        default:()
         }
         
-        return MoveCell()
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.section {
+            
+        case moveDetailCellSection:
+            return moveDetailCellHeight
+            
+        default:
+            return UITableViewCell().frame.height
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -73,7 +99,31 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        return sectionHeaderView
+        switch section {
+            
+        case moveDetailCellSection:
+            let sectionHeaderView: SectionUILabel = {
+                let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
+                label.layer.cornerRadius = 0
+                label.text = "Move Detail"
+                return label
+            }()
+            
+            return sectionHeaderView
+            
+        case moveCellSection:
+            let sectionHeaderView: UIView = {
+                let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
+                view.backgroundColor = UIColor.myColor.sectionBackground
+                return view
+            }()
+            
+            sectionHeaderView.addSubview(segmentControl)
+            return sectionHeaderView
+            
+        default:
+            return UIView()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,11 +143,7 @@ extension MoveDetailTVC {
     }
     
     var sectionHeaderViewHeight: CGFloat {
-        return segmentControl.frame.height + 16
-    }
-    
-    var headerViewHeight: CGFloat {
-        return effectTextView.frame.origin.y + effectTextView.frame.height + CONSTANTS.constrain.spcingView
+        return CONSTANTS.height.sectionHeaderView
     }
 }
 
@@ -112,61 +158,10 @@ extension MoveDetailTVC {
 }
 
 
-// MARK: - Updater
-extension MoveDetailTVC {
-    
-    func updateUI() {
-        
-        self.title = move.name
-        
-        nameLbl.text = move.name
-        nameLbl.backgroundColor = UIColor.myColor.get(from: move.type)
-        nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
-        
-        var category = move.category
-        nameLbl.roundLabel.backgroundColor = UIColor.myColor.get(from: category)
-        nameLbl.roundLabel.textColor = UIColor.white
-        
-        switch category {
-        case "Physical": category = "P"
-        case "Special": category = "S"
-        case "Status": category = "S"
-        default:
-            category = "–"
-            nameLbl.roundLabel.textColor = UIColor.black
-            nameLbl.roundLabel.backgroundColor = UIColor.white
-        }
-        
-        nameLbl.roundLabel.text = category
-        
-        typeLbl.text = move.type
-        
-        powerLbl.text = "Power"
-        powerLbl.roundLabel.text = move.power.isEmpty ? "–" : move.power
-        
-        probLbl.text = "Prob %"
-        probLbl.roundLabel.text = move.prob.isEmpty ? "–" : "\(move.prob)"
-        
-        ppLbl.text = "PP"
-        ppLbl.roundLabel.text = move.pp.isEmpty ? "–" : move.pp
-        
-        accuracyLbl.text = "Accuracy"
-        accuracyLbl.roundLabel.text = move.accuracy.isEmpty ? "–" : move.accuracy
-        
-        tmLbl.text = "TM"
-        tmLbl.roundLabel.text = move.tm.isEmpty ? "–" : move.tm
-        
-        effectTextView.text = move.effect.isEmpty ? "–" : move.effect
-        
-        headerView.frame.size.height = headerViewHeight
-    }
-}
-
-
 // MARK: - Initializer and Handler
 extension MoveDetailTVC {
     
-    func configureHeaderView() {
+    func configureSegmentControl() {
         
         let spacing: CGFloat = 8
         
@@ -183,19 +178,11 @@ extension MoveDetailTVC {
             sc.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
             return sc
         }()
-    
-        sectionHeaderView = {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
-            view.backgroundColor = UIColor.myColor.sectionBackground
-            return view
-        }()
-        
-        sectionHeaderView.addSubview(segmentControl)
     }
     
     func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 1), at: .top, animated: true)
         print("segmentControlValueChanged")
     }
 }
