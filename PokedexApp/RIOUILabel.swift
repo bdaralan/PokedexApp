@@ -60,8 +60,7 @@ class RIOUILabel: UILabel {
     override var frame: CGRect {
         didSet {
             if self.roundLabel == nil {
-                // MARK: - +12 to make sure initially roundLabel is larger than main label
-                let radius = self.frame.height + 12
+                let radius = self.frame.height + 12 //+12 to make sure initially roundLabel is larger than main label
                 let x = self.frame.origin.x + (self.frame.width - radius)
                 let y = self.frame.origin.y - (radius - self.frame.height) / 2
                 self.roundLabel = RoundUILabel(frame: CGRect(x: x, y: y, width: radius, height: radius))
@@ -80,7 +79,8 @@ class RIOUILabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 24 - radius / 2, height: rect.height)) //width = rect.width - (x * 2) - (radius / 2) - x
+        let x: CGFloat = 5
+        super.drawText(in: CGRect(x: x, y: 0, width: rect.width - x * 3 - radius / 2, height: rect.height))
     }
 }
 
@@ -145,7 +145,8 @@ extension RIOUILabel {
 class RoundUILabel: UILabel {
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 16, height: rect.height))
+        let x: CGFloat = 5
+        super.drawText(in: CGRect(x: x, y: 0, width: rect.width - x * 2, height: rect.height))
     }
 }
 

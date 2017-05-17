@@ -21,9 +21,5 @@ class TMDetailVC: UIViewController {
     func updateUI() {
         
         self.title = tm.name
-        
-        if !tm.hasCompletedInfo {
-            tm.parseCompletedInfo()
-        }
     }
 }

@@ -21,9 +21,5 @@ class AbilityDetailVC: UIViewController {
     func updateUI() {
         
         self.title = ability.name
-        
-        if !ability.hasCompletedInfo {
-            ability.parseCompletedInfo()
-        }
     }
 }

@@ -75,18 +75,18 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         switch indexPath.section {
             
         case offenseDefenseSection:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "OffenseDefenseCell") as? OffenseDefenseCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "OffenseDefenseCell", for: indexPath) as? OffenseDefenseCell {
                 cell.configureCell(forType: type, strongAgainstTypeLbls: strongAgainstTypeLbls, weakToTypeLbls: weakToTypeLbls, resistToTypeLbls: resistToTypeLbls, immuneToTypeLbls: immuneToTypeLbls)
                 self.offenseDefenseCellHeight = cell.height
                 return cell
             }
             
         case pokemonMoveSection:
-            if segmentControl.selectedSegmentIndex == pokemonSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell") as? PokedexCell {
+            if segmentControl.selectedSegmentIndex == pokemonSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
                 cell.configureCell(for: pokemons[indexPath.row])
                 return cell
                 
-            } else if segmentControl.selectedSegmentIndex == moveSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell") as? MoveCell {
+            } else if segmentControl.selectedSegmentIndex == moveSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
                 cell.configureCell(for: moves[indexPath.row])
                 return cell
             }

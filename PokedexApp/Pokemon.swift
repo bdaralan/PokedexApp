@@ -10,86 +10,149 @@ import Foundation
 
 class Pokemon {
     
-    private var _name: String = ""
-    private var _id: Int = 0
-    private var _form: String = ""
+    private var _name: String!
     
-    private var _hp: Int = 0
-    private var _attack: Int = 0
-    private var _defense: Int = 0
-    private var _spAttack: Int = 0
-    private var _spDefense: Int = 0
-    private var _speed: Int = 0
+    private var _id: Int!
     
-    private var _primaryType: String = ""
-    private var _secondaryType: String = ""
+    private var _form: String!
     
-    private var _firstAbility: String = ""
-    private var _secondAbility: String = ""
-    private var _hiddenAbility: String = ""
+    private var _primaryType: String!
     
-    private var _height: [String] = []
-    private var _weight: [String] = []
+    private var _secondaryType: String!
     
-    private var _evolveFrom: String = ""
-    private var _evolveTo: String = ""
+    private var _hp: Int!
     
-    private var _hasCompletedInfo: Bool = false //true if parseCompletedInfo() is called once
+    private var _attack: Int!
     
-    var hasCompletedInfo: Bool { return _hasCompletedInfo }
+    private var _defense: Int!
+    
+    private var _spAttack: Int!
+    
+    private var _spDefense: Int!
+    
+    private var _speed: Int!
+    
+    private var _firstAbility: String!
+    
+    private var _secondAbility: String!
+    
+    private var _hiddenAbility: String!
+    
+    private var _height: [String]!
+    
+    private var _weight: [String]!
+    
+    private var _evolveFrom: String!
+    
+    private var _evolveTo: String!
+    
     
     var name: String { return _name }
+    
     var id: Int { return _id }
+    
     var form: String { return _form }
     
-    var hp: Int { return _hp }
-    var attack: Int { return _attack }
-    var defense: Int { return _defense }
-    var spAttack: Int { return _spAttack }
-    var spDefense: Int { return _spDefense }
-    var speed: Int { return _speed }
-    
     var primaryType: String { return _primaryType }
+    
     var secondaryType: String { return _secondaryType }
     
-    var firstAbility: String { return _firstAbility }
-    var secondAbility: String { return _secondAbility }
-    var hiddenAbility: String { return _hiddenAbility }
+    var hp: Int {
+        
+        if _hp == nil { self.parseStats() }
+        return _hp
+    }
     
-    var evolveFrom: String { return _evolveFrom }
-    var evolveTo: String { return _evolveTo }
+    var attack: Int {
+        
+        if _attack == nil { self.parseStats() }
+        return _attack
+    }
     
-    func getHeight(as unit: Unit) -> String { return _height[unit.rawValue] }
-    func getWeight(as unit: Unit) -> String { return _weight[unit.rawValue] }
+    var defense: Int {
+        
+        if _defense == nil { self.parseStats() }
+        return _defense
+    }
+    
+    var spAttack: Int {
+        
+        if _spAttack == nil { self.parseStats() }
+        return _spAttack
+    }
+    
+    var spDefense: Int {
+        
+        if _spDefense == nil { self.parseStats() }
+        return _spDefense
+    }
+    
+    var speed: Int {
+        
+        if _speed == nil { self.parseStats() }
+        return _speed
+    }
+    
+    var firstAbility: String {
+        
+        if _firstAbility == nil { self.parseAbilities() }
+        return _firstAbility
+    }
+    
+    var secondAbility: String {
+        
+        if _secondAbility == nil { self.parseAbilities() }
+        return _secondAbility
+    }
+    
+    var hiddenAbility: String {
+        
+        if _hiddenAbility == nil { self.parseAbilities() }
+        return _hiddenAbility
+    }
+    
+    var evolveFrom: String {
+        
+        if _evolveFrom == nil { self.parseEvolution() }
+        return _evolveFrom
+    }
+    
+    var evolveTo: String {
+        
+        if _evolveTo == nil { self.parseEvolution() }
+        return _evolveTo
+    }
+    
+    func getHeight(as unit: Unit) -> String {
+        
+        if _height == nil { self.parseMeasurement() }
+        return _height[unit.rawValue]
+    }
+    
+    func getWeight(as unit: Unit) -> String {
+        
+        if _weight == nil { self.parseMeasurement() }
+        return _weight[unit.rawValue]
+    }
     
     
-    init(name: String, id: Int, form: String, types: [String], hasCompletedInfo: Bool = false) {
+    init(name: String, id: Int, form: String, types: [String]) {
+        
         _name = name
         _id = id
         _form = form
-        _hasCompletedInfo = hasCompletedInfo
         
         switch types.count {
         case 1:
             _primaryType = types[0]
+            _secondaryType = ""
         default:
             _primaryType = types[0]
             _secondaryType = types[1]
         }
     }
     
-    
-    func parseCompletedInfo() {
-        
-        parseStatsTypes()
-        parseAbilities()
-        parseMeasurement()
-        parseEvolution()
-        
-        _hasCompletedInfo = true
-    }
-    
-    private func parseStatsTypes() {
+    private func parseStats() {
         
         if let pokeInfo = CONSTANTS.pokemonsJSON[name],
             let hp = pokeInfo["hp"] as? Int,
@@ -160,50 +223,23 @@ class Pokemon {
 // MARK: - Computed Property
 extension Pokemon {
     
-    var hasSecondType: Bool {
-        
-        return self.secondaryType != ""
-    }
+    var hasSecondType: Bool { return self.secondaryType != "" }
+
+    var hasSecondAbility: Bool { return self.secondAbility != "" }
     
-    var hasSecondAbility: Bool {
-        
-        return self.secondAbility != ""
-    }
+    var hasHiddenAbility: Bool { return self.hiddenAbility != "" }
     
-    var hasHiddenAbility: Bool {
-        
-        return self.hiddenAbility != ""
-    }
+    var hasForm: Bool { return self.form != "" }
     
-    var hasForm: Bool {
-        
-        return self.form != ""
-    }
+    var hasNoEvolution: Bool { return self.evolveFrom == "" && self.evolveTo == "" }
     
-    var hasNoEvolution: Bool {
-        
-        return self.evolveFrom == "" && self.evolveTo == ""
-    }
+    var isBaseEvolution: Bool { return self.evolveFrom == "" && self.evolveTo != "" }
     
-    var isBaseEvolution: Bool {
-        
-        return self.evolveFrom == "" && self.evolveTo != ""
-    }
+    var isMidEvolution: Bool { return self.evolveFrom != "" && self.evolveTo != "" }
     
-    var isMidEvolution: Bool {
-        
-        return self.evolveFrom != "" && self.evolveTo != ""
-    }
+    var isLastEvolution: Bool { return self.evolveFrom != "" && self.evolveTo == "" }
     
-    var isLastEvolution: Bool {
-        
-        return self.evolveFrom != "" && self.evolveTo == ""
-    }
-    
-    var imageName: String {
-        
-        return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)"
-    }
+    var imageName: String { return self.hasForm ? "\(self.id)-\(self.form)" : "\(self.id)" }
     
     var crySound: String {
         
@@ -264,18 +300,10 @@ extension Pokemon {
             selfNoForm = CONSTANTS.allPokemonsSortedById.search(forId: self.id, withName: self.name)
         }
         
-        if !selfNoForm.hasCompletedInfo {
-            selfNoForm.parseCompletedInfo()
-        }
-        
         evolutions = [selfNoForm]
         
         if selfNoForm.isBaseEvolution { // MARK: - isBaseEvolution
             let evolveToPokemon = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
-            
-            if !evolveToPokemon.hasCompletedInfo {
-                evolveToPokemon.parseCompletedInfo()
-            }
             
             if evolveToPokemon.isLastEvolution {
                 evolutions = [selfNoForm, evolveToPokemon]
@@ -285,20 +313,12 @@ extension Pokemon {
             }
             
         } else if selfNoForm.isMidEvolution { // MARK: - isMidEvolution
-            if !self.hasCompletedInfo {
-                self.parseCompletedInfo()
-            }
-            
             let baseEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
             let lastEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
             evolutions = [baseEvolution, selfNoForm, lastEvolution]
             
         } else if selfNoForm.isLastEvolution { // MARK: - isLastEvolution
             let evolveFromPokemon = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
-            
-            if !evolveFromPokemon.hasCompletedInfo {
-                evolveFromPokemon.parseCompletedInfo()
-            }
             
             if evolveFromPokemon.isBaseEvolution {
                 evolutions = [evolveFromPokemon, selfNoForm]
@@ -338,6 +358,9 @@ extension Array where Element: Pokemon {
     
     func filter(for searchText: String, options: String.CompareOptions) -> [Pokemon] {
         
+        var searchText = searchText
+        if searchText.contains(" ") { searchText = searchText.capitalized }
+        
         return self.filter({
             $0.name.range(of: searchText, options: options) != nil
             || $0.id.toPokedexId().range(of: searchText) != nil
@@ -347,7 +370,7 @@ extension Array where Element: Pokemon {
             || String($0.secondaryType+$0.primaryType) == searchText
             || $0.firstAbility == searchText
             || $0.secondAbility == searchText
-            || $0.hiddenAbility.replacingOccurrences(of: " (H)", with: "") == searchText
+            || $0.hiddenAbility == searchText
         })
     }
 }
@@ -375,7 +398,7 @@ extension Array where Element: Pokemon {
             }
         }
         
-        return Pokemon(name: "Error", id: -1, form: "Error", types: ["Error", "Error"])
+        return Pokemon(name: "Error", id: 0, form: "Error", types: ["Error", "Error"])
     }
     
     func search(forId searchId: Int, withName targetName: String) -> Pokemon {
@@ -397,6 +420,6 @@ extension Array where Element: Pokemon {
             }
         }
         
-        return Pokemon(name: "Error", id: -1, form: "Error", types: ["Error", "Error"])
+        return Pokemon(name: "Error", id: 0, form: "Error", types: ["Error", "Error"])
     }
 }

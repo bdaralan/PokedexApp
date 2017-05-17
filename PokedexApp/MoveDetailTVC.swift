@@ -54,7 +54,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell") as? MoveCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
             cell.configureCell(for: moves[indexPath.row])
             return cell
         }
@@ -118,10 +118,6 @@ extension MoveDetailTVC {
     func updateUI() {
         
         self.title = move.name
-        
-        if !move.hasCompletedInfo {
-            move.parseCompletedInfo()
-        }
         
         nameLbl.text = move.name
         nameLbl.backgroundColor = UIColor.myColor.get(from: move.type)

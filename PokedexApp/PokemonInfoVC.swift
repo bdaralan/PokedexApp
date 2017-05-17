@@ -116,10 +116,6 @@ extension PokemonInfoVC {
     
     func updateUI() {
         
-        if !pokemon.hasCompletedInfo {
-            pokemon.parseCompletedInfo()
-        }
-        
         self.navigationItem.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
         pokeImgView.image = UIImage(named: pokemon.imageName)

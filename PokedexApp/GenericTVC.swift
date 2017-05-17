@@ -83,7 +83,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(currentGenericCell)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(currentGenericCell)", for: indexPath)
         
         switch currentGenericCell {
         
@@ -114,16 +114,19 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         case .TMCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(tm: items[indexPath.row])
+                return cell
             }
         
         case .ItemCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(item: items[indexPath.row])
+                return cell
             }
         
         case .BerryCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(berry: items[indexPath.row])
+                return cell
             }
         }
         
@@ -226,7 +229,6 @@ extension GenericTVC {
             switch currentGenericCell {
                 
             case .PokedexCell:
-                
                 pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
                 
             case .TypeCell:
@@ -400,14 +402,10 @@ extension GenericTVC {
     func handleSelectedAbilityItemCell(sender: Any) {
         
         if let ability = sender as? Ability, let viewLauncher = viewLauncher {
-            if !ability.hasCompletedInfo { ability.parseCompletedInfo() }
-            
             let textView = viewLauncher.makeTextView(withText: ability.description)
             viewLauncher.addSubview(textView)
             
         } else if let item = sender as? Item, let viewLauncher = viewLauncher {
-            if !item.hasCompletedInfo { item.parseCompletedInfo() }
-            
             let textView = viewLauncher.makeTextView(withText: item.effect)
             viewLauncher.addSubview(textView)
         }

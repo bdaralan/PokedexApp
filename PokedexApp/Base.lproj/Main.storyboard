@@ -631,8 +631,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="lhsLbl" destination="MmN-IH-32c" id="e7c-lA-yVV"/>
-                                    <outlet property="rhsLbl" destination="bCC-oU-iiF" id="ED1-M1-6OR"/>
+                                    <outlet property="lhsLbl" destination="bCC-oU-iiF" id="1nB-kb-XVP"/>
+                                    <outlet property="rhsLbl" destination="MmN-IH-32c" id="J7W-OH-LDj"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="aFt-dW-NcW" customClass="ItemCell" customModule="PokedexApp" customModuleProvider="target">
@@ -659,8 +659,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="lhsLbl" destination="lA8-qQ-ccB" id="hxF-tp-33g"/>
-                                    <outlet property="rhsLbl" destination="9uw-cj-IR7" id="xbx-F9-Wm6"/>
+                                    <outlet property="lhsLbl" destination="9uw-cj-IR7" id="y65-UY-7QS"/>
+                                    <outlet property="rhsLbl" destination="lA8-qQ-ccB" id="E7f-gS-Aky"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BerryCell" id="wqM-TC-5ds" userLabel="BerryCell" customClass="ItemCell" customModule="PokedexApp" customModuleProvider="target">
@@ -687,8 +687,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="lhsLbl" destination="0ZD-El-PUX" id="o9c-87-iSO"/>
-                                    <outlet property="rhsLbl" destination="4m4-vi-ep2" id="5CV-GY-vbx"/>
+                                    <outlet property="lhsLbl" destination="4m4-vi-ep2" id="hr1-5k-wec"/>
+                                    <outlet property="rhsLbl" destination="0ZD-El-PUX" id="Q7U-fl-HdK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1254,8 +1254,8 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hBg-BA-g37"/>
         <segue reference="QYb-qA-O7c"/>
-        <segue reference="Zzn-cQ-Gx5"/>
+        <segue reference="hBg-BA-g37"/>
+        <segue reference="fSY-tL-Ci9"/>
     </inferredMetricsTieBreakers>
 </document>
