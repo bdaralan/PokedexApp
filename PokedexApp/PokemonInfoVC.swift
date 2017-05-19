@@ -53,7 +53,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     let base = 0 //base evolution
     let mid = 1 //mid evolution
     let last = 2 //last evolution
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()

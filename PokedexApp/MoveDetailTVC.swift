@@ -22,7 +22,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     let nilSegInex = 1
 
     var moveDetailCellHeight: CGFloat = 240
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

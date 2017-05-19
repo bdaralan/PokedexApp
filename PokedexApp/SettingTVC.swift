@@ -33,6 +33,7 @@ class SettingTVC: UITableViewController {
     var viewLauncher: ViewLauncher!
     var textView: UITextView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

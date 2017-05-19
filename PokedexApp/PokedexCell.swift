@@ -20,22 +20,21 @@ class PokedexCell: UITableViewCell {
         pokemonID.font = UIFont(name: "GillSans", size: 17)
         pokemonImg.contentMode = .scaleAspectFill
     }
-
+    
     func configureCell(for pokemon: Pokemon) {
         
         pokemonName.text = pokemon.name
         pokemonID.text = pokemon.id.toPokedexId()
         
-        DispatchQueue.main.async {
-            if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
-                self.pokemonImg.image = cachedImage
-            } else {
+        if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
+            self.pokemonImg.image = cachedImage
+        } else {
+            DispatchQueue.main.async {
                 if let image = UIImage(named: pokemon.imageName) {
                     self.pokemonImg.image = image
                     globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
                 }
             }
         }
-        
     }
 }

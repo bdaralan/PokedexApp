@@ -15,7 +15,8 @@ class HomeMenuTVC: UITableViewController {
     
     var genericCell: GenericCell!
     var genericTVCTitle: String!
-        
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

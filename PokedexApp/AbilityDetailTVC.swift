@@ -18,6 +18,7 @@ class AbilityDetailTVC: UITableViewController {
     let abilityDetialSection = 0
     let pokemonSection = 1
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

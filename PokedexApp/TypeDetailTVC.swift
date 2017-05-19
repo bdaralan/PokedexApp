@@ -217,7 +217,7 @@ extension TypeDetailTVC {
             resistToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "1/2"))
             immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
-        
+    
         offenseDefenseLbl.backgroundColor = UIColor.myColor.get(from: type)
         segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor

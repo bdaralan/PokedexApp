@@ -191,8 +191,6 @@ extension ViewLauncher {
     
     func getWeaknessView(of pokemon: Pokemon) -> UIView {
         
-        let cachedWeaknessLabels = "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)"
-        
         let spacing = CONSTANTS.constrain.spacing
         let margin = CONSTANTS.constrain.margin
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
@@ -201,18 +199,22 @@ extension ViewLauncher {
         var weaknessLabels = [UILabel]()
         
         // TODO: - fix this repeated calculation when caching
-        if let cachedWeaknessLabels = globalCache.object(forKey: cachedWeaknessLabels as AnyObject) as? [UILabel] {
+        if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) as? [UILabel] {
+        
             weaknessLabels = cachedWeaknessLabels
             
             for i in 0 ..< weaknessLabels.count / 2 {
                 y = y + weaknessLabels[i].frame.height + spacing
             }
+            
         } else if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.secondaryType)\(pokemon.primaryType)" as AnyObject) as? [UILabel] {
+            
             weaknessLabels = cachedWeaknessLabels
             
             for i in 0 ..< weaknessLabels.count / 2 {
                 y = y + weaknessLabels[i].frame.height + spacing
             }
+            
         } else {
             let weaknesses = pokemon.weaknesses
             
@@ -260,7 +262,7 @@ extension ViewLauncher {
                 y = y + typeLbl.frame.height + spacing
             }
             
-            globalCache.setObject(weaknessLabels as AnyObject, forKey: cachedWeaknessLabels as AnyObject)
+            globalCache.setObject(weaknessLabels as AnyObject, forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject)
         }
         
         weaknessesView.frame.size.height = y
