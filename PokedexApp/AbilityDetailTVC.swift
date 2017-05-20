@@ -94,13 +94,13 @@ class AbilityDetailTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return CONSTANTS.height.sectionHeaderView
+        return CONSTANTS.constrain.sectionHeaderViewHeight
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionHeaderView: SectionUILabel = {
-            let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: CONSTANTS.height.sectionHeaderView))
+            let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: CONSTANTS.constrain.sectionHeaderViewHeight))
             label.layer.cornerRadius = 0
             return label
         }()

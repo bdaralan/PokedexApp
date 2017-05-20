@@ -143,7 +143,7 @@ extension MoveDetailTVC {
     }
     
     var sectionHeaderViewHeight: CGFloat {
-        return CONSTANTS.height.sectionHeaderView
+        return CONSTANTS.constrain.sectionHeaderViewHeight
     }
 }
 

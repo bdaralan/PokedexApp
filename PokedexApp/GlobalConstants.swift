@@ -45,9 +45,9 @@ struct Constant {
     let evolutionSpecialCaseForm: [String]!
     let crySoundSepcialCaseName: DictionarySS!
     
+    let fonts: Font
     let keys: Key!
     let constrain: Constrain!
-    let height: Height!
     
     init() {
         movesJSON = loadData.movesJSON()
@@ -70,13 +70,18 @@ struct Constant {
         evolutionSpecialCaseForm = loadData.evolutionSpecialCaseForm()
         crySoundSepcialCaseName = loadData.crySoundSpecialCaseName()
         
+        fonts = Font()
         keys = Key()
         constrain = Constrain()
-        height = Height()
     }
     
     
     // Sub Struct
+    struct Font {
+        let gillSans = UIFont(name: "GillSans", size: 17)
+        let gillSansSemiBold = UIFont(name: "GillSans-SemiBold", size: 17)
+    }
+    
     struct Key {
         
         let setting = SettingKey()
@@ -92,10 +97,6 @@ struct Constant {
         let margin: CGFloat = 16
         let spacing: CGFloat = 8
         let spcingView: CGFloat = 29
-    }
-    
-    struct Height {
-        
-        let sectionHeaderView: CGFloat = 45
+        let sectionHeaderViewHeight: CGFloat = 45
     }
 }

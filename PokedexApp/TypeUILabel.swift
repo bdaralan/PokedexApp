@@ -30,6 +30,7 @@ class TypeUILabel: UILabel {
         self.textColor = UIColor.white
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
+        self.font = CONSTANTS.fonts.gillSans
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(typeUILabelTapped))
         self.addGestureRecognizer(tapGesture)

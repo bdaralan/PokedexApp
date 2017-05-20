@@ -836,6 +836,7 @@
 		536E03CA1EBAE659003020D7 /* select.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 536E03C61EBAE659003020D7 /* select.m4a */; };
 		536E03CC1EBAE6BB003020D7 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E03CB1EBAE6BB003020D7 /* AudioPlayer.swift */; };
 		536E03CF1EBAF9C7003020D7 /* save.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 536E03CE1EBAF9C7003020D7 /* save.m4a */; };
+		53702FBF1ED0127B00814B34 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53702FBE1ED0127B00814B34 /* HomeCell.swift */; };
 		537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */; };
 		538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963A1EA3D7C0005E63FB /* SettingTVC.swift */; };
 		538F963F1EA479AE005E63FB /* RoundUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */; };
@@ -1703,6 +1704,7 @@
 		536EFFFD1EBAD660003020D7 /* 654-Braixen.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "654-Braixen.m4a"; sourceTree = "<group>"; };
 		536EFFFE1EBAD660003020D7 /* 655-Delphox.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "655-Delphox.m4a"; sourceTree = "<group>"; };
 		536EFFFF1EBAD660003020D7 /* 656-Froakie.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "656-Froakie.m4a"; sourceTree = "<group>"; };
+		53702FBE1ED0127B00814B34 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuTVC.swift; sourceTree = "<group>"; };
 		538F963A1EA3D7C0005E63FB /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundUISegmentedControl.swift; sourceTree = "<group>"; };
@@ -2658,8 +2660,9 @@
 		53CF3DE41E8A27050073A516 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */,
+				53702FBE1ED0127B00814B34 /* HomeCell.swift */,
 				53CF3DEA1E8A28340073A516 /* PokedexCell.swift */,
+				53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */,
 				53ECA7161EA2FA8000964977 /* TypeCell.swift */,
 				53ECA70A1EA2719600964977 /* MoveCell.swift */,
 				53ECA7141EA2FA2E00964977 /* AbilityCell.swift */,
@@ -3637,6 +3640,7 @@
 				532327421ECCF2CB00164C53 /* MachineDetailTVC.swift in Sources */,
 				53ECA7171EA2FA8000964977 /* TypeCell.swift in Sources */,
 				536095C21E97160500D2F2FC /* AbilityUILabel.swift in Sources */,
+				53702FBF1ED0127B00814B34 /* HomeCell.swift in Sources */,
 				533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */,
 				53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */,
 				53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */,

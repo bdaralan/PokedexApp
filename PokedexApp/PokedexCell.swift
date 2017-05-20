@@ -17,7 +17,7 @@ class PokedexCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pokemonID.font = UIFont(name: "GillSans", size: 17)
+        pokemonID.font = CONSTANTS.fonts.gillSans
         pokemonImg.contentMode = .scaleAspectFill
     }
     

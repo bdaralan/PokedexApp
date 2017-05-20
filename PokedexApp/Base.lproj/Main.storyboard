@@ -20,7 +20,7 @@
                         <sections>
                             <tableViewSection headerTitle="Pokemon" id="DrA-wX-zzs">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="s1O-hK-zPU" style="IBUITableViewCellStyleDefault" id="4tn-jq-fUE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="s1O-hK-zPU" style="IBUITableViewCellStyleDefault" id="4tn-jq-fUE" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tn-jq-fUE" id="ZuS-Y0-dTZ">
@@ -37,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9Yj-iO-d5x" style="IBUITableViewCellStyleDefault" id="2Vh-Uk-gxQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9Yj-iO-d5x" style="IBUITableViewCellStyleDefault" id="2Vh-Uk-gxQ" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Vh-Uk-gxQ" id="Qck-F0-WkG">
@@ -54,7 +54,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="IEU-fN-LeW" style="IBUITableViewCellStyleDefault" id="rhX-vP-nPS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="IEU-fN-LeW" style="IBUITableViewCellStyleDefault" id="rhX-vP-nPS" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rhX-vP-nPS" id="xeG-yv-psG">
@@ -71,7 +71,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xP9-wr-jYc" style="IBUITableViewCellStyleDefault" id="XYM-91-o2O">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xP9-wr-jYc" style="IBUITableViewCellStyleDefault" id="XYM-91-o2O" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XYM-91-o2O" id="2dQ-bz-MDI">
@@ -92,7 +92,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Bag" id="og6-gF-27Q">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iUW-nK-55d" style="IBUITableViewCellStyleDefault" id="aAc-dl-bvr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iUW-nK-55d" style="IBUITableViewCellStyleDefault" id="aAc-dl-bvr" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aAc-dl-bvr" id="Y2H-x8-w3R">
@@ -109,7 +109,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UIb-xd-wMC" style="IBUITableViewCellStyleDefault" id="KQT-78-O27">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UIb-xd-wMC" style="IBUITableViewCellStyleDefault" id="KQT-78-O27" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="331.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KQT-78-O27" id="Jrf-XY-J5Q">
@@ -126,7 +126,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YQR-Fg-68i" style="IBUITableViewCellStyleDefault" id="wd0-29-bOf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YQR-Fg-68i" style="IBUITableViewCellStyleDefault" id="wd0-29-bOf" customClass="HomeCell" customModule="PokedexApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="375.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wd0-29-bOf" id="RoN-Jk-8uK">
@@ -1374,9 +1374,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cKZ-6c-fcp"/>
-        <segue reference="rHc-U9-I2b"/>
-        <segue reference="s9j-uD-IwM"/>
         <segue reference="bBF-vP-3Uf"/>
+        <segue reference="s9j-uD-IwM"/>
+        <segue reference="Zzn-cQ-Gx5"/>
+        <segue reference="cKZ-6c-fcp"/>
     </inferredMetricsTieBreakers>
 </document>

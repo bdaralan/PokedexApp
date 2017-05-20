@@ -19,7 +19,7 @@ class MoveDetailUITextView: UITextView {
         self.clipsToBounds = true
         self.textAlignment = .center
         self.layer.borderColor = UIColor.black.cgColor
-        self.font = UIFont(name: "GillSans", size: 17)
+        self.font = CONSTANTS.fonts.gillSans
     }
     
     override var text: String! {

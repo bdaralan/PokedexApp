@@ -29,6 +29,7 @@ class RIOUILabel: UILabel {
         self.baselineAdjustment = .alignCenters
         self.textColor = UIColor.white
         self.backgroundColor = UIColor.black
+        self.font = CONSTANTS.fonts.gillSans
         
         //configure roundLabel
         self.roundLabel.layer.cornerRadius = radius / 2
@@ -39,6 +40,7 @@ class RIOUILabel: UILabel {
         self.roundLabel.textColor = UIColor.black
         self.roundLabel.backgroundColor = UIColor.white
         self.roundLabel.layer.borderWidth = 3
+        self.roundLabel.font = CONSTANTS.fonts.gillSans
     }
     
     override init(frame: CGRect) {
