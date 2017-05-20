@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-@objc protocol ViewLauncherDelegate: NSObjectProtocol {
+@objc protocol ViewLauncherDelegate {
     
     @objc optional func viewLauncher(willLaunch launchOrigin: CGPoint)
     
@@ -24,7 +23,7 @@ import UIKit
 // TODO: - Allow launcView to be size to any width, beside keyWindow width
 class ViewLauncher: NSObject {
     
-    var delegate: ViewLauncherDelegate?
+    weak var delegate: ViewLauncherDelegate?
     
     private var _launchView: UIView!
     private var _dimView: UIView!

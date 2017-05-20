@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-protocol TypeUILabelDelegate {
+@objc protocol TypeUILabelDelegate {
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer)
 }
@@ -17,7 +16,7 @@ protocol TypeUILabelDelegate {
 
 class TypeUILabel: UILabel {
     
-    var delegate: TypeUILabelDelegate?
+    weak var delegate: TypeUILabelDelegate?
     
     private var tapGesture: UITapGestureRecognizer!
     
