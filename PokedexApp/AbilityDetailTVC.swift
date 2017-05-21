@@ -77,6 +77,7 @@ class AbilityDetailTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        audioPlayer.play(audio: .select)
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
     }
     
@@ -152,6 +153,7 @@ extension AbilityDetailTVC {
             let sc = RoundUISegmentedControl(items: ["All", "Hidden"])
             sc.frame.origin = CGPoint(x: spacing, y: spacing)
             sc.frame.size.width = tableView.frame.width - spacing * 2
+            sc.tintColor = UIColor.myColor.sectionText
             sc.layer.borderColor = sc.tintColor.cgColor
             sc.backgroundColor = UIColor.white
             
@@ -176,9 +178,5 @@ extension AbilityDetailTVC {
         }
         
         tableView.reloadData()
-        
-        if pokemons.count > 0 { //must check because pokemons might not have the ability as hidden
-            tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonCellSection), at: .top, animated: true)
-        }
     }
 }
