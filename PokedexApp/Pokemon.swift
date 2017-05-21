@@ -377,13 +377,18 @@ extension Array where Element: Pokemon {
         return self.filter({$0.primaryType == type || $0.secondaryType == type})
     }
     
-    func filter(forAbility ability: String) -> [Pokemon] {
+    func filter(forAbility ability: String, hiddenOnly: Bool = false) -> [Pokemon] {
         
-        return self.filter({
-            $0.firstAbility == ability
-            || $0.secondAbility == ability
-            || $0.hiddenAbility == ability
-        })
+        if hiddenOnly {
+            return self.filter({$0.hiddenAbility == ability})
+            
+        } else {
+            return self.filter({
+                $0.firstAbility == ability
+                    || $0.secondAbility == ability
+                    || $0.hiddenAbility == ability
+            })
+        }
     }
     
     func filter(for searchText: String, options: String.CompareOptions) -> [Pokemon] {
@@ -393,14 +398,14 @@ extension Array where Element: Pokemon {
         
         return self.filter({
             $0.name.range(of: searchText, options: options) != nil
-            || $0.id.toPokedexId().range(of: searchText) != nil
-            || $0.primaryType == searchText
-            || $0.secondaryType == searchText
-            || String($0.primaryType+$0.secondaryType) == searchText
-            || String($0.secondaryType+$0.primaryType) == searchText
-            || $0.firstAbility == searchText
-            || $0.secondAbility == searchText
-            || $0.hiddenAbility == searchText
+                || $0.id.toPokedexId().range(of: searchText) != nil
+                || $0.primaryType == searchText
+                || $0.secondaryType == searchText
+                || String($0.primaryType+$0.secondaryType) == searchText
+                || String($0.secondaryType+$0.primaryType) == searchText
+                || $0.firstAbility == searchText
+                || $0.secondAbility == searchText
+                || $0.hiddenAbility == searchText
         })
     }
 }

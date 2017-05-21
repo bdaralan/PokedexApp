@@ -182,7 +182,7 @@ extension MoveDetailTVC {
     
     func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 1), at: .top, animated: true)
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveCellSection), at: .top, animated: true)
         print("segmentControlValueChanged")
     }
 }
