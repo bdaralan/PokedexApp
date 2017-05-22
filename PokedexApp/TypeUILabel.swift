@@ -31,9 +31,6 @@ class TypeUILabel: UILabel {
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
         self.font = CONSTANTS.fonts.gillSans
-        
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(typeUILabelTapped))
-        self.addGestureRecognizer(tapGesture)
     }
     
     override init(frame: CGRect) {
@@ -54,8 +51,20 @@ class TypeUILabel: UILabel {
         }
     }
     
+    override var isUserInteractionEnabled: Bool {
+        didSet {
+            if isUserInteractionEnabled {
+                tapGesture = UITapGestureRecognizer(target: self, action: #selector(typeUILabelTapped))
+                self.addGestureRecognizer(tapGesture)
+                
+            } else {
+                if tapGesture != nil { self.removeGestureRecognizer(tapGesture) }
+            }
+        }
+    }
+    
     func typeUILabelTapped() {
-        
+
         delegate?.typeUILabel(didTap: tapGesture)
     }
 }

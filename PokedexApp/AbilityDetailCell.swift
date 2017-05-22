@@ -19,11 +19,11 @@ class AbilityDetailCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(false, animated: animated)
+        super.setSelected(false, animated: false)
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(false, animated: animated)
+        super.setHighlighted(false, animated: false)
     }
 
     func configureCell(for ability: Ability) {

@@ -17,6 +17,7 @@ class MoveDetailUITextView: UITextView {
         self.layer.cornerRadius = 18.5
         self.isScrollEnabled = false
         self.clipsToBounds = true
+        self.isEditable = false
         self.textAlignment = .center
         self.layer.borderColor = UIColor.black.cgColor
         self.font = CONSTANTS.fonts.gillSans

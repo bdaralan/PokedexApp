@@ -77,8 +77,10 @@ class AbilityDetailTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        audioPlayer.play(audio: .select)
-        performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        if indexPath.section == pokemonCellSection {
+            audioPlayer.play(audio: .select)
+            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
