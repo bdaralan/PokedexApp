@@ -25,6 +25,8 @@ class AbilityDetailTVC: UITableViewController {
     var abilityDetailCellHeight: CGFloat = 45
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,11 @@ class AbilityDetailTVC: UITableViewController {
         prepareNecessaryData()
         configureHeaderViews()
     }
+    
+    
+    
+    
+    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -75,14 +82,6 @@ class AbilityDetailTVC: UITableViewController {
         return UITableViewCell()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section == pokemonCellSection {
-            audioPlayer.play(audio: .select)
-            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
@@ -92,13 +91,6 @@ class AbilityDetailTVC: UITableViewController {
             
         default:
             return UITableViewCell().frame.height
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
-            pokemonInfoVC.pokemon = pokemon
         }
     }
     
@@ -129,11 +121,31 @@ class AbilityDetailTVC: UITableViewController {
             return UIView()
         }
     }
-}
-
-
-// MARK: - Initializer and Handler
-extension AbilityDetailTVC {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == pokemonCellSection {
+            audioPlayer.play(audio: .select)
+            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        }
+    }
+    
+    
+    
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
+            pokemonInfoVC.pokemon = pokemon
+        }
+    }
+    
+    
+    
+    
+    // MARK: - Initializer and Handler
     
     func prepareNecessaryData() {
         

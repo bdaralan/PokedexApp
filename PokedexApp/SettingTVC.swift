@@ -34,6 +34,8 @@ class SettingTVC: UITableViewController {
     var textView: UITextView!
     
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +55,12 @@ class SettingTVC: UITableViewController {
         audioPlayer.play(audio: .save, forcePlay: true)
     }
 
+    
+    
+    
+    
     // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -91,6 +98,11 @@ class SettingTVC: UITableViewController {
         }
     }
     
+    
+    
+    
+    // MARK: - IBActions
+    
     @IBAction func measurementSCValueChanged(_ sender: UISegmentedControl) {
         
         UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex)
@@ -101,11 +113,11 @@ class SettingTVC: UITableViewController {
         UserDefaults.standard.set(sender.isOn, forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
         if sender.isOn { audioPlayer.play(audio: .select) }
     }
-}
-
-
-// MARK: - Initializer and Handler
-extension SettingTVC {
+    
+    
+    
+    
+    // MARK: - Initializer and Handler
     
     func loadSettingFromUserDefaults() {
         

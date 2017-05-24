@@ -126,40 +126,31 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         }
     }
     
+    
+    
+    // MARK: Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
             typeDetailTVC.type = type
         }
     }
-}
-
-
-// MARK: Computed Property
-extension MoveDetailTVC {
     
-    var sectionHeaderViewWidth: CGFloat {
-        return tableView.frame.width
-    }
     
-    var sectionHeaderViewHeight: CGFloat {
-        return CONSTANTS.constrain.sectionHeaderViewHeight
-    }
-}
-
-
-// MARK: Protocol
-extension MoveDetailTVC {
+    
+    
+    // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
         performSegue(withIdentifier: "TypeDetailTVC", sender: move.type)
     }
-}
-
-
-// MARK: - Initializer and Handler
-extension MoveDetailTVC {
+    
+    
+    
+    
+    // MARK: - Initializer and Handler
     
     func configureSegmentControl() {
         
@@ -184,5 +175,20 @@ extension MoveDetailTVC {
         
         tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveCellSection), at: .top, animated: true)
         print("segmentControlValueChanged")
+    }
+}
+
+
+
+
+// MARK: Computed Property
+extension MoveDetailTVC {
+    
+    var sectionHeaderViewWidth: CGFloat {
+        return tableView.frame.width
+    }
+    
+    var sectionHeaderViewHeight: CGFloat {
+        return CONSTANTS.constrain.sectionHeaderViewHeight
     }
 }

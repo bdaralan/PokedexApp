@@ -35,6 +35,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     let cache = NSCache<AnyObject, AnyObject>()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +46,11 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         configureHeaderViews()
         updateUI()
     }
+    
+    
+    
+    
+    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -146,6 +153,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         }
     }
     
+    
+    
+    
+    // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
@@ -155,24 +166,11 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             moveDetailTVC.move = move
         }
     }
-}
-
-
-// MARK: - Computed Property
-extension TypeDetailTVC {
     
-    var sectionHeaderViewWidth: CGFloat {
-        return tableView.frame.width
-    }
     
-    var sectionHeaderViewHeight: CGFloat {
-        return segmentControl.frame.height + 16
-    }
-}
-
-
-// MARK: - Protocol
-extension TypeDetailTVC {
+    
+    
+    // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
@@ -182,11 +180,11 @@ extension TypeDetailTVC {
             self.updateUI()
         }
     }
-}
-
-
-// MARK: - Updater
-extension TypeDetailTVC {
+    
+    
+    
+    
+    // MARK: - Updater
     
     func updateUI() {
         
@@ -217,7 +215,7 @@ extension TypeDetailTVC {
             resistToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "1/2"))
             immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
-    
+        
         offenseDefenseLbl.backgroundColor = UIColor.myColor.get(from: type)
         segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
@@ -236,11 +234,11 @@ extension TypeDetailTVC {
         resistToTypeLbls.removeAll()
         immuneToTypeLbls.removeAll()
     }
-}
-
-
-// MARK: - Initilizer and Handler
-extension TypeDetailTVC {
+    
+    
+    
+    
+    // MARK: - Initializer and Handler
     
     func configureHeaderViews() {
         
@@ -290,6 +288,23 @@ extension TypeDetailTVC {
         tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
     }
 }
+
+
+
+
+// MARK: - Computed Property
+extension TypeDetailTVC {
+    
+    var sectionHeaderViewWidth: CGFloat {
+        return tableView.frame.width
+    }
+    
+    var sectionHeaderViewHeight: CGFloat {
+        return segmentControl.frame.height + 16
+    }
+}
+
+
 
 
 // MARK: - Make TypeUILabel

@@ -54,6 +54,8 @@ class Ability {
 }
 
 
+
+
 extension Array where Element: Ability {
     
     func filter(for searchText: String, options: String.CompareOptions) -> [Ability] {
@@ -61,6 +63,8 @@ extension Array where Element: Ability {
         return self.filter({$0.name.range(of: searchText, options: options) != nil})
     }
 }
+
+
 
 
 extension Array where Element: Ability {

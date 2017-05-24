@@ -80,6 +80,11 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
+    
+    
+    
+    // MARK: Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
@@ -89,6 +94,11 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             abilityDetailTVC.ability = ability
         }
     }
+    
+    
+    
+    
+    // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
@@ -106,15 +116,20 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
+    
+    
+    
+    // MARK: - IBActions
+    
     @IBAction func cryBarBtnPressed(_ sender: Any) {
         
         audioPlayer.play(audio: pokemon.crySound)
     }
-}
-
-
-// MARK: - Updater
-extension PokemonInfoVC {
+    
+    
+    
+    
+    // MARK: - Updater
     
     func updateUI() {
         
@@ -224,11 +239,11 @@ extension PokemonInfoVC {
         pokeSpDefensePV.setProgress(pokemon.spDefense.toProgress(), animated: true)
         pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
     }
-}
-
-
-// MARK: - Initializer and Handler
-extension PokemonInfoVC {
+    
+    
+    
+    
+    // MARK: - Initializer and Handler
     
     func configureViewLauncher() {
         

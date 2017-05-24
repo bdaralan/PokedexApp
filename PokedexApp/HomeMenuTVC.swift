@@ -17,6 +17,8 @@ class HomeMenuTVC: UITableViewController {
     var genericTVCTitle: String!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,11 @@ class HomeMenuTVC: UITableViewController {
         homeMenuSections = loadData.homeMenuSections()
         homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     }
+    
+    
+    
+    
+    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -53,6 +60,11 @@ class HomeMenuTVC: UITableViewController {
             genericTVC.title = genericTVCTitle
         }
     }
+    
+    
+    
+    
+    // MARK: - IBActions
     
     @IBAction func settingBtnPressed(_ sender: Any) {
         

@@ -39,6 +39,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     var currentGenericCell: GenericCell { return genericCell }
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +55,11 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         
         viewLauncher?.dismiss()
     }
+    
+    
+    
+    
+    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -195,28 +202,32 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         }
     }
     
+    
+    
+    
+    // MARK: - Protocol
+    
+    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently, only with AbilityCell, TMCell, and ItemCell
+        
+        deselectTableViewRow()
+    }
+    
 
+    
+    
+    // MARK: - IBActions
+    
     @IBAction func searchBtnTapped(_ sender: Any) {
         
         present(searchResultController, animated: true) {
             self.searchResultController.searchBar.becomeFirstResponder()
         }
     }
-}
-
-
-// MARK: - Protocol
-extension GenericTVC {
     
-    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently, only with AbilityCell, TMCell, and ItemCell
-        
-        deselectTableViewRow()
-    }
-}
-
-
-// MARK: - Search
-extension GenericTVC {
+    
+    
+    
+    // MARK: - Search
     
     func updateSearchResults(for searchController: UISearchController) {
         
@@ -283,11 +294,11 @@ extension GenericTVC {
         
         tableView.reloadData()
     }
-}
-
-
-// MARK: - Initializer and Handler
-extension GenericTVC {
+    
+    
+    
+    
+    // MARK: - Initializer and Handler
     
     func prepareNecessaryData() {
         

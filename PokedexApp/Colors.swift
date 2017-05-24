@@ -19,6 +19,8 @@ extension UIColor {
 }
 
 
+
+
 /*-- Main Class --*/
 class Colors {
     
@@ -69,6 +71,9 @@ class Colors {
     }
 }
 
+
+
+
 struct AppColor {
     
     let navigationBar = UIColor.clear
@@ -76,6 +81,8 @@ struct AppColor {
     let viewController = UIColor.clear
     let tableViewController = UIColor.clear
 }
+
+
 
 
 struct PokeTypeColor {
@@ -100,6 +107,8 @@ struct PokeTypeColor {
     let Fairy = UIColor(red:0.93, green:0.60, blue:0.67, alpha:1.0) //EE99AC
     let Unknown = UIColor(red:0.41, green:0.63, blue:0.56, alpha:1.0) //68A090
 }
+
+
 
 
 struct PokeMoveColor {

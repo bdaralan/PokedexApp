@@ -241,6 +241,8 @@ class Pokemon {
 }
 
 
+
+
 // MARK: - Computed Property
 extension Pokemon {
     
@@ -308,6 +310,8 @@ extension Pokemon {
 }
 
 
+
+
 // MARK: - Get Evolution
 extension Pokemon {
     
@@ -352,6 +356,8 @@ extension Pokemon {
         return evolutions //return an array with one element which is itself
     }
 }
+
+
 
 
 // MARK: - Shorthand Sort and Filter

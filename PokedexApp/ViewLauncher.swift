@@ -20,7 +20,10 @@ import UIKit
 }
 
 
+
+
 // TODO: - Allow launcView to be size to any width, beside keyWindow width
+
 class ViewLauncher: NSObject {
     
     weak var delegate: ViewLauncherDelegate?
@@ -54,6 +57,8 @@ class ViewLauncher: NSObject {
             return CGPoint(x: _launchOrigin.x, y: (_launchOrigin.y + _launchView.frame.height))
         }
     }
+    
+    
     
     
     init(launchViewFrame: CGRect, dimViewFrame: CGRect, swipeToDismissDirection: UISwipeGestureRecognizerDirection) {
@@ -91,7 +96,6 @@ class ViewLauncher: NSObject {
         }()
     }
     
-    
     /** Convenience init.
         Use this to quickly initialize ViewLauncer when there is a NavigationController
      */
@@ -110,6 +114,8 @@ class ViewLauncher: NSObject {
         
         self.init(launchViewFrame: launchViewFrame, dimViewFrame: dimViewFrame, swipeToDismissDirection: swipeToDismissDirection)
     }
+    
+    
     
     
     func setSuperview(_ superview: UIView) {
@@ -182,6 +188,7 @@ class ViewLauncher: NSObject {
         }
     }
 }
+
 
 
 
