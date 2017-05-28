@@ -23,7 +23,7 @@ let CONSTANTS = Constant() // Constants use throughout the app
 
 
 // Strct for all Constants
-struct Constant {
+class Constant {
     
     let movesJSON: DictionarySA!
     let pokemonsJSON: DictionarySA!
@@ -34,6 +34,8 @@ struct Constant {
     let pokedexEntriesJSON: DictionarySA!
     let evolutionsJSON: DictionarySA!
     let itemsJSON: DictionarySA!
+    
+    var pokemonLearnMoveJSON: DictionarySA?
     
     let allPokemonsSortedById: [Pokemon]!
     let allPokemonsSortedByName: [Pokemon]!

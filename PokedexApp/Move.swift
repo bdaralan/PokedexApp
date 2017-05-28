@@ -97,6 +97,61 @@ class Move {
 
 
 
+// Move learn by pokemons
+extension Move {
+    
+    enum LearnMethod: Int {
+        case any
+        case levelup
+        case breedOrMachine
+    }
+    
+    func pokemonsLearn(by learnMethod: LearnMethod) -> [Pokemon] {
+        
+        var pokemons = [Pokemon]()
+        
+        if let moveDict = CONSTANTS.pokemonLearnMoveJSON?[self.name] as? Dictionary<String,[String]> {
+            
+            for id in moveDict.keys {
+                
+                if let levels = moveDict[id] {
+                    
+                    for level in levels {
+                        
+                        switch learnMethod {
+                            
+                        case .any:
+                            let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
+                            pokemons.append(pokemon)
+                            
+                        case .levelup:
+                            if level != "0" {
+                                let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
+                                pokemons.append(pokemon)
+                            }
+                            
+                        case .breedOrMachine:
+                            if level == "0" {
+                                let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
+                                pokemons.append(pokemon)
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return pokemons
+            
+        } else {
+            return pokemons
+        }
+    }
+}
+
+
+
+
+// Shorthand filter
 extension Array where Element: Move {
     
     func filter(forName name: String, options: String.CompareOptions) -> [Move] {

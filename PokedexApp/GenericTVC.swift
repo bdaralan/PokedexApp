@@ -59,6 +59,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     
     
+    deinit {
+        if currentGenericCell == .MoveCell { CONSTANTS.pokemonLearnMoveJSON = nil; print("deinit") }
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -312,6 +319,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .MoveCell:
             moves = CONSTANTS.allMoves
+            CONSTANTS.pokemonLearnMoveJSON = loadData.pokemonLearnMovesJSON()
             
         case .AbilityCell:
             abilities = CONSTANTS.allAbilities

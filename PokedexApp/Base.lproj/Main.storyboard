@@ -426,40 +426,38 @@
                                     <outlet property="typeLbl" destination="EKZ-kv-bjb" id="Z9N-LR-nAj"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCell" id="QT4-c5-Dfp" customClass="MoveCell" customModule="PokedexApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokedexCell" id="ZIl-sA-VSs" customClass="PokedexCell" customModule="PokedexApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="268" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QT4-c5-Dfp" id="Q0q-P0-KeP">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZIl-sA-VSs" id="TPa-ii-v8o">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10,000,000 Volt Thunderbolt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGD-Bn-85E">
-                                            <rect key="frame" x="16" y="11" width="226" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="oYl-b9-4wL">
+                                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gothita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUY-bS-l2k">
+                                            <rect key="frame" x="76" y="12" width="225" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Electric" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZL-oK-UVm" customClass="TypeUILabel" customModule="PokedexApp" customModuleProvider="target">
-                                            <rect key="frame" x="279" y="11" width="80" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#574" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJV-iT-to4">
+                                            <rect key="frame" x="309" y="11" width="50" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-dk-IzE">
-                                            <rect key="frame" x="250" y="11" width="21" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="76" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="moveCategory" destination="Q6C-dk-IzE" id="g0c-id-9ri"/>
-                                    <outlet property="moveName" destination="jGD-Bn-85E" id="JzB-U9-sm9"/>
-                                    <outlet property="moveType" destination="KZL-oK-UVm" id="9VU-FF-caQ"/>
+                                    <outlet property="pokemonID" destination="VJV-iT-to4" id="ydj-VA-hTh"/>
+                                    <outlet property="pokemonImg" destination="oYl-b9-4wL" id="Hm3-mw-bJQ"/>
+                                    <outlet property="pokemonName" destination="lUY-bS-l2k" id="9GJ-Ug-3BF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1376,7 +1374,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="bBF-vP-3Uf"/>
         <segue reference="s9j-uD-IwM"/>
-        <segue reference="Zzn-cQ-Gx5"/>
+        <segue reference="rHc-U9-I2b"/>
         <segue reference="cKZ-6c-fcp"/>
     </inferredMetricsTieBreakers>
 </document>

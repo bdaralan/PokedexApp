@@ -442,6 +442,7 @@ extension Array where Element: Pokemon {
         return Pokemon(name: "Error", id: 0, form: "Error", types: ["Error", "Error"])
     }
     
+    ///: Use with search for evolution
     func search(forId searchId: Int, withName targetName: String) -> Pokemon {
         
         var begin = 0
@@ -452,8 +453,33 @@ extension Array where Element: Pokemon {
             
             if self[mid].id == searchId, self[mid].name != targetName {
                 return self[mid]
+                
             } else {
                 if self[mid].id < searchId {
+                    begin = mid + 1
+                } else {
+                    end = mid - 1
+                }
+            }
+        }
+        
+        return Pokemon(name: "Error", id: 0, form: "Error", types: ["Error", "Error"])
+    }
+    
+    ///: Use with search for learn move
+    func search(forId searchId: String) -> Pokemon {
+        
+        var begin = 0
+        var end = self.count - 1
+        
+        while begin <= end {
+            let mid = (begin + end) / 2
+            
+            if "\(self[mid].id.toPokedexId())" == searchId {
+                return self[mid]
+                
+            } else {
+                if "\(self[mid].id.toPokedexId())" < searchId {
                     begin = mid + 1
                 } else {
                     end = mid - 1

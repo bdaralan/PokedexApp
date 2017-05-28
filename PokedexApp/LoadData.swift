@@ -55,6 +55,11 @@ class LoadData {
         return loadDataFromFile(name: "moves", ofType: "json")
     }
     
+    func pokemonLearnMovesJSON() -> DictionarySA {
+        
+        return loadDataFromFile(name: "pokemon-learn-moves", ofType: "json")
+    }
+    
     func evolutionJSON() -> DictionarySA {
         
         return loadDataFromFile(name: "evolutions", ofType: "json")

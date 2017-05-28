@@ -12,17 +12,21 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     var move: Move! //will be assigned during segue
     var moves: [Move]!
+    var pokemons: [Pokemon]!
     
     var segmentControl: RoundUISegmentedControl!
     
     let moveDetailCellSection = 0
-    let moveCellSection = 1
-    
-    let pokemonSegIndex = 0
-    let nilSegInex = 1
+    let pokemonCellSection = 1
 
     var moveDetailCellHeight: CGFloat = 240
+    
+    var currentSCIndex: Move.LearnMethod {
+        return Move.LearnMethod(rawValue: segmentControl.selectedSegmentIndex)!
+    }
 
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         self.title = move.name
         
         moves = CONSTANTS.allMoves.filter(forType: move.type)
-        
+        pokemons = move.pokemonsLearn(by: .any)
+
         configureSegmentControl()
     }
     
@@ -45,8 +50,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         case moveDetailCellSection:
             return 1
             
-        case moveCellSection:
-            return moves.count
+        case pokemonCellSection:
+            return pokemons.count
             
         default:
             return 0
@@ -64,9 +69,9 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
                 return cell
             }
             
-        case moveCellSection:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
-                cell.configureCell(for: moves[indexPath.row])
+        case pokemonCellSection:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
+                cell.configureCell(for: pokemons[indexPath.row])
                 return cell
             }
             
@@ -111,7 +116,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             
             return sectionHeaderView
             
-        case moveCellSection:
+        case pokemonCellSection:
             let sectionHeaderView: UIView = {
                 let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
                 view.backgroundColor = UIColor.myColor.sectionBackground
@@ -157,14 +162,14 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         let spacing: CGFloat = 8
         
         segmentControl = {
-            let sc = RoundUISegmentedControl(items: ["WillBePokemon", "MaybeMove"])
+            let sc = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / TM"])
             sc.frame.origin = CGPoint(x: spacing, y: spacing)
             sc.frame.size.width = sectionHeaderViewWidth - spacing * 2
             sc.tintColor = UIColor.myColor.get(from: move.type)
             sc.layer.borderColor = sc.tintColor.cgColor
             sc.backgroundColor = UIColor.white
             
-            sc.selectedSegmentIndex = pokemonSegIndex
+            sc.selectedSegmentIndex = 0
             
             sc.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
             return sc
@@ -173,8 +178,27 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveCellSection), at: .top, animated: true)
-        print("segmentControlValueChanged")
+        
+            switch currentSCIndex {
+            case .any:
+                pokemons = move.pokemonsLearn(by: .any)
+                
+            case .levelup:
+                pokemons = move.pokemonsLearn(by: .levelup)
+                
+            case .breedOrMachine:
+                pokemons = move.pokemonsLearn(by: .breedOrMachine)
+            }
+        
+        tableView.reloadData()
+        
+        let pokemonCellSectionRows = tableView.numberOfRows(inSection: pokemonCellSection)
+        
+        if pokemonCellSectionRows != 0 {
+            tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonCellSection), at: .top, animated: true)
+        } else {
+            tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveDetailCellSection), at: .top, animated: true)
+        }
     }
 }
 
