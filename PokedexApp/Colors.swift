@@ -30,6 +30,7 @@ class Colors {
     let ability: UIColor!
     let sectionBackground: UIColor!
     let sectionText: UIColor!
+    let tableViewSeparator: UIColor!
     
     init() {
         app = AppColor()
@@ -38,6 +39,7 @@ class Colors {
         sectionBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
         sectionText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
         ability = sectionBackground.withAlphaComponent(0.35)
+        tableViewSeparator = UIColor(red: 0.78, green: 0.78, blue: 0.8, alpha: 1) //defaul color
     }
     
     func get(from string: String) -> UIColor {

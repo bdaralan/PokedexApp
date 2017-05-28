@@ -110,41 +110,35 @@ extension Move {
         
         var pokemons = [Pokemon]()
         
-        if let moveDict = CONSTANTS.pokemonLearnMoveJSON?[self.name] as? Dictionary<String,[String]> {
+        if let moveDict = CONSTANTS.pokemonLearnMoveJSON?[self.name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
             
             for id in moveDict.keys {
                 
                 if let levels = moveDict[id] {
                     
-                    for level in levels {
+                    switch learnMethod {
                         
-                        switch learnMethod {
-                            
-                        case .any:
+                    case .any:
+                        let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
+                        pokemons.append(pokemon)
+                        
+                    case .levelup:
+                        if !levels.contains("0") {
                             let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
                             pokemons.append(pokemon)
-                            
-                        case .levelup:
-                            if level != "0" {
-                                let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
-                                pokemons.append(pokemon)
-                            }
-                            
-                        case .breedOrMachine:
-                            if level == "0" {
-                                let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
-                                pokemons.append(pokemon)
-                            }
+                        }
+                        
+                    case .breedOrMachine:
+                        if levels.contains("0") {
+                            let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
+                            pokemons.append(pokemon)
                         }
                     }
                 }
             }
-            
-            return pokemons
-            
-        } else {
-            return pokemons
         }
+        
+        return pokemons.sortById()
     }
 }
 

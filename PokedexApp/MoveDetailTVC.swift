@@ -162,7 +162,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         let spacing: CGFloat = 8
         
         segmentControl = {
-            let sc = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / TM"])
+            let sc = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / Others"])
             sc.frame.origin = CGPoint(x: spacing, y: spacing)
             sc.frame.size.width = sectionHeaderViewWidth - spacing * 2
             sc.tintColor = UIColor.myColor.get(from: move.type)
@@ -196,8 +196,11 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         if pokemonCellSectionRows != 0 {
             tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonCellSection), at: .top, animated: true)
+            //tableView.separatorColor = UIColor.myColor.tableViewSeparator
+            
         } else {
             tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveDetailCellSection), at: .top, animated: true)
+            //tableView.separatorColor = UIColor.clear
         }
     }
 }

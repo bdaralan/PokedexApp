@@ -60,7 +60,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     
     deinit {
-        if currentGenericCell == .MoveCell { CONSTANTS.pokemonLearnMoveJSON = nil; print("deinit") }
+        if currentGenericCell == .MoveCell { CONSTANTS.pokemonLearnMoveJSON = nil }
     }
     
     
