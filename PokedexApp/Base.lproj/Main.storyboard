@@ -468,7 +468,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Move Details" id="8pV-H1-AOK"/>
                     <connections>
-                        <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="rHc-U9-I2b"/>
+                        <segue destination="blO-wq-vwT" kind="show" identifier="PokemonInfoTVC" id="C0V-2o-5xA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5U-Pi-Cw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1372,9 +1372,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bBF-vP-3Uf"/>
-        <segue reference="s9j-uD-IwM"/>
-        <segue reference="rHc-U9-I2b"/>
+        <segue reference="fSY-tL-Ci9"/>
         <segue reference="cKZ-6c-fcp"/>
+        <segue reference="C0V-2o-5xA"/>
+        <segue reference="bBF-vP-3Uf"/>
     </inferredMetricsTieBreakers>
 </document>

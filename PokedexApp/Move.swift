@@ -119,19 +119,19 @@ extension Move {
                     switch learnMethod {
                         
                     case .any:
-                        let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
-                        pokemons.append(pokemon)
+                        let learnablePokemons = CONSTANTS.allPokemonsSortedById.filter(forId: id)
+                        for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         
                     case .levelup:
                         if !levels.contains("0") {
-                            let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
-                            pokemons.append(pokemon)
+                            let learnablePokemons = CONSTANTS.allPokemonsSortedById.filter(forId: id)
+                            for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         }
                         
                     case .breedOrMachine:
                         if levels.contains("0") {
-                            let pokemon = CONSTANTS.allPokemonsSortedById.search(forId: id)
-                            pokemons.append(pokemon)
+                            let learnablePokemons = CONSTANTS.allPokemonsSortedById.filter(forId: id)
+                            for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         }
                     }
                 }

@@ -39,6 +39,11 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         configureSegmentControl()
     }
     
+    
+    
+    
+    // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
@@ -51,7 +56,11 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             return 1
             
         case pokemonCellSection:
-            return pokemons.count
+            if pokemons.count > 0 {
+                return pokemons.count
+            } else {
+                return 1 // for a regular cell, with text "None"
+            }
             
         default:
             return 0
@@ -70,8 +79,13 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             }
             
         case pokemonCellSection:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
+            if pokemons.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
                 cell.configureCell(for: pokemons[indexPath.row])
+                return cell
+            } else {
+                let cell = UITableViewCell()
+                cell.textLabel?.text = "None"
+                cell.isUserInteractionEnabled = false
                 return cell
             }
             
@@ -79,10 +93,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         }
         
         return UITableViewCell()
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -131,14 +141,22 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == pokemonCellSection {
+            performSegue(withIdentifier: "PokemonInfoTVC", sender: pokemons[indexPath.row])
+        }
+    }
+    
+    
     
     
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
-            typeDetailTVC.type = type
+        if let pokemonInfoTVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
+            pokemonInfoTVC.pokemon = pokemon
         }
     }
     

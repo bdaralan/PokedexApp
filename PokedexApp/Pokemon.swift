@@ -360,6 +360,18 @@ extension Pokemon {
 
 
 
+// MARK: - Error pokemon
+extension Pokemon {
+    
+    convenience init(errorPokemonName name: String) {
+        
+        self.init(name: name, id: 0, form: "Error", types: ["Error", "Error"])
+    }
+}
+
+
+
+
 // MARK: - Shorthand Sort and Filter
 extension Array where Element: Pokemon {
     
@@ -467,26 +479,12 @@ extension Array where Element: Pokemon {
     }
     
     ///: Use with search for learn move
-    func search(forId searchId: String) -> Pokemon {
+    func filter(forId searchId: String) -> [Pokemon] {
         
-        var begin = 0
-        var end = self.count - 1
+        let exceptionForm = ["mega", "primal"]
         
-        while begin <= end {
-            let mid = (begin + end) / 2
-            
-            if "\(self[mid].id.toPokedexId())" == searchId {
-                return self[mid]
-                
-            } else {
-                if "\(self[mid].id.toPokedexId())" < searchId {
-                    begin = mid + 1
-                } else {
-                    end = mid - 1
-                }
-            }
-        }
+        let pokemons: [Pokemon] = self.filter({$0.id.toPokedexId() == searchId && !exceptionForm.contains($0.form)})
         
-        return Pokemon(name: "Error", id: 0, form: "Error", types: ["Error", "Error"])
+        return pokemons.isEmpty ? [Pokemon]() : pokemons
     }
 }
