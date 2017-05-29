@@ -138,6 +138,17 @@ class ViewLauncher: NSObject {
         _launchView.addSubview(subview)
     }
     
+    func addSubviews(_ subviews: [UIView]) {
+        
+        for view in subviews {
+            _launchView.addSubview(view)
+        }
+        
+        if let lastView = subviews.last {
+            _launchView.frame.size.height = lastView.frame.origin.y + lastView.frame.height + subviews[0].frame.origin.y
+        }
+    }
+    
     func launch(duration: TimeInterval = 0, withHeight height: CGFloat = 0) {
         
         if self.isIdle {
@@ -195,31 +206,22 @@ class ViewLauncher: NSObject {
 // MARK: - ViewLauncher Extention
 extension ViewLauncher {
     
-    func getWeaknessView(of pokemon: Pokemon) -> UIView {
+    func weaknessLabels(of pokemon: Pokemon) -> [TypeUILabel] {
         
         let spacing = CONSTANTS.constrain.spacing
         let margin = CONSTANTS.constrain.margin
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
+    
+        var weaknessLabels = [TypeUILabel]()
         
-        let weaknessesView = UIView(frame: CGRect(x: 0, y: spacing, width: self.frame.width, height: y))
-        var weaknessLabels = [UILabel]()
-        
-        // TODO: - fix this repeated calculation when caching
-        if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) as? [UILabel] {
+
+        if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject) as? [TypeUILabel] {
         
             weaknessLabels = cachedWeaknessLabels
             
-            for i in 0 ..< weaknessLabels.count / 2 {
-                y = y + weaknessLabels[i].frame.height + spacing
-            }
-            
-        } else if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.secondaryType)\(pokemon.primaryType)" as AnyObject) as? [UILabel] {
+        } else if let cachedWeaknessLabels = globalCache.object(forKey: "cachedWeaknessLabels\(pokemon.secondaryType)\(pokemon.primaryType)" as AnyObject) as? [TypeUILabel] {
             
             weaknessLabels = cachedWeaknessLabels
-            
-            for i in 0 ..< weaknessLabels.count / 2 {
-                y = y + weaknessLabels[i].frame.height + spacing
-            }
             
         } else {
             let weaknesses = pokemon.weaknesses
@@ -236,7 +238,6 @@ extension ViewLauncher {
                 
                 let effectiveLbl: TypeUILabel = {
                     let label = TypeUILabel()
-                    label.awakeFromNib()
                     label.frame.origin.x = margin + label.frame.width + spacing
                     label.frame.origin.y = y
                     label.text = "\(effective)x"
@@ -271,13 +272,7 @@ extension ViewLauncher {
             globalCache.setObject(weaknessLabels as AnyObject, forKey: "cachedWeaknessLabels\(pokemon.primaryType)\(pokemon.secondaryType)" as AnyObject)
         }
         
-        weaknessesView.frame.size.height = y
-        
-        for weakness in weaknessLabels {
-            weaknessesView.addSubview(weakness)
-        }
-        
-        return weaknessesView
+        return weaknessLabels
     }
     
     func makeTextView(withText text: String) -> UITextView {

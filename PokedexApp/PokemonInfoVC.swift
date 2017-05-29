@@ -396,8 +396,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                     audioPlayer.play(audio: .select)
                     weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                     if viewLauncher.isIdle {
-                        let weaknessesView = viewLauncher.getWeaknessView(of: pokemon)
-                        viewLauncher.addSubview(weaknessesView)
+                        let weaknessLabels = viewLauncher.weaknessLabels(of: pokemon)
+                        viewLauncher.addSubviews(weaknessLabels)
                         viewLauncher.launch()
                     }
                 }
