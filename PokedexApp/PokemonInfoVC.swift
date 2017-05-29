@@ -298,6 +298,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             
             let identifier = "AbilityDetailTVC"
             
+            audioPlayer.play(audio: .select)
+            
             switch senderView {
                 
             case pokeAbility01Lbl:

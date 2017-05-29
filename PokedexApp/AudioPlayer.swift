@@ -8,6 +8,14 @@
 
 import AVFoundation
 
+enum ResourceAudioFile: String {
+    case error = "error"
+    case openPC = "open-pc"
+    case save = "save"
+    case select = "select"
+}
+
+
 class AudioPlayer {
     
     private var player = AVAudioPlayer()
@@ -28,6 +36,7 @@ class AudioPlayer {
         do { try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient) }
         catch { print(error) }
     }
+    
     
     
     func play(audio: String, ofType type: String = "m4a", forcePlay: Bool = false) {
@@ -83,12 +92,4 @@ class AudioPlayer {
             }
         }
     }
-}
-
-
-enum ResourceAudioFile: String {
-    case error = "error"
-    case openPC = "open-pc"
-    case save = "save"
-    case select = "select"
 }

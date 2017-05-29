@@ -96,6 +96,7 @@ class ViewLauncher: NSObject {
         }()
     }
     
+    
     /** Convenience init.
         Use this to quickly initialize ViewLauncer when there is a NavigationController
      */
@@ -140,7 +141,12 @@ class ViewLauncher: NSObject {
     
     func addSubviews(_ subviews: [UIView]) {
         
+        var spacing: CGFloat = 0
+        
+        if subviews[0].frame.origin.y == 8 { spacing = 8 }
+        
         for view in subviews {
+            view.frame.origin.y += spacing
             _launchView.addSubview(view)
         }
         
@@ -290,7 +296,7 @@ extension ViewLauncher {
         } else {
             textView = {
                 let textView = UITextView(frame: CGRect(x: margin, y: 8, width: width, height: 31))
-                textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+                textView.font = CONSTANTS.fonts.appleSDGothicNeoRegular
                 textView.isScrollEnabled = false
                 textView.isEditable = false
                 

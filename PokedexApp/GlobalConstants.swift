@@ -82,6 +82,7 @@ class Constant {
     struct Font {
         let gillSans = UIFont(name: "GillSans", size: 17)
         let gillSansSemiBold = UIFont(name: "GillSans-SemiBold", size: 17)
+        let appleSDGothicNeoRegular = UIFont(name: "AppleSDGothicNeo-Regular", size: 16) //pokedex entry text
     }
     
     struct Key {
