@@ -43,9 +43,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        clearsSelectionOnViewWillAppear = true
-        
+                
         prepareNecessaryData()
         configureNavigationBar()
     }
@@ -167,15 +165,16 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             performSegue(withIdentifier: "AbilityDetailTVC", sender: abilities[indexPath.row])
         
         case .TMCell:
-            performSegue(withIdentifier: "MachineDetailTVC", sender: nil)
+            self.indexPath = indexPath
+            handleSelectedItemCellRow(sender: items[indexPath.row])
         
         case .ItemCell:
             self.indexPath = indexPath
-            handleSelectedAbilityItemCell(sender: items[indexPath.row])
+            handleSelectedItemCellRow(sender: items[indexPath.row])
         
         case .BerryCell:
             self.indexPath = indexPath
-            handleSelectedAbilityItemCell(sender: items[indexPath.row])
+            handleSelectedItemCellRow(sender: items[indexPath.row])
         }
     }
     
@@ -414,13 +413,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         tableView.reloadData()
     }
     
-    func handleSelectedAbilityItemCell(sender: Any) {
+    func handleSelectedItemCellRow(sender: Any) {
         
-        if let ability = sender as? Ability, let viewLauncher = viewLauncher {
-            let textView = viewLauncher.makeTextView(withText: ability.description)
-            viewLauncher.addSubview(textView)
-            
-        } else if let item = sender as? Item, let viewLauncher = viewLauncher {
+        if let item = sender as? Item, let viewLauncher = viewLauncher {
             let textView = viewLauncher.makeTextView(withText: item.effect)
             viewLauncher.addSubview(textView)
         }

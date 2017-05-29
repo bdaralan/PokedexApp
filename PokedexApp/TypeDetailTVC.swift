@@ -50,6 +50,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     
     
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {

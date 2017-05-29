@@ -21,9 +21,7 @@ class HomeMenuTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        clearsSelectionOnViewWillAppear = true
-        
+                
         homeMenuSections = loadData.homeMenuSections()
         homeMenuRowsInSections = loadData.homeMenuRowsInSections()
     }

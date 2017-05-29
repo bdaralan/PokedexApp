@@ -1372,9 +1372,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bBF-vP-3Uf"/>
+        <segue reference="s9j-uD-IwM"/>
         <segue reference="fSY-tL-Ci9"/>
         <segue reference="cKZ-6c-fcp"/>
-        <segue reference="C0V-2o-5xA"/>
-        <segue reference="bBF-vP-3Uf"/>
     </inferredMetricsTieBreakers>
 </document>
