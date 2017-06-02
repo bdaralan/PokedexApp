@@ -31,7 +31,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     var searchResultController: UISearchController!
     
-    var indexPath: IndexPath? //use to deselect row on viewLauncher dismissed
+    var indexPath: IndexPath! //use to deselect row on viewLauncher dismissed
     var segmentControllSelectedIndex: Int?
     
     var viewLauncher: ViewLauncher?
@@ -43,7 +43,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         prepareNecessaryData()
         configureNavigationBar()
     }
@@ -57,37 +57,31 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     
     
-    deinit {
-        if currentGenericCell == .MoveCell { CONSTANTS.pokemonLearnMoveJSON = nil }
-    }
-    
-    
-    
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch currentGenericCell {
-        
+            
         case .PokedexCell:
             return pokemons.count
-        
+            
         case .TypeCell:
             return types.count
-        
+            
         case .MoveCell:
             return moves.count
-        
+            
         case .AbilityCell:
             return abilities.count
-        
+            
         case .TMCell:
             return items.count
-        
+            
         case .ItemCell:
             return items.count
-        
+            
         case .BerryCell:
             return items.count
         }
@@ -98,7 +92,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(currentGenericCell)", for: indexPath)
         
         switch currentGenericCell {
-        
+            
         case .PokedexCell:
             if let cell = cell as? PokedexCell {
                 cell.configureCell(for: pokemons[indexPath.row])
@@ -128,13 +122,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
                 cell.configureCell(tm: items[indexPath.row])
                 return cell
             }
-        
+            
         case .ItemCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(item: items[indexPath.row])
                 return cell
             }
-        
+            
         case .BerryCell:
             if let cell = cell as? ItemCell {
                 cell.configureCell(berry: items[indexPath.row])
@@ -150,28 +144,28 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         audioPlayer.play(audio: .select)
         
         switch currentGenericCell {
-        
+            
         case .PokedexCell:
             performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-        
+            
         case .TypeCell:
             performSegue(withIdentifier: "TypeDetailTVC", sender: types[indexPath.row])
-        
+            
         case .MoveCell:
             performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
-        
+            
         case .AbilityCell:
             self.indexPath = indexPath
             performSegue(withIdentifier: "AbilityDetailTVC", sender: abilities[indexPath.row])
-        
+            
         case .TMCell:
             self.indexPath = indexPath
             handleSelectedItemCellRow(sender: items[indexPath.row])
-        
+            
         case .ItemCell:
             self.indexPath = indexPath
             handleSelectedItemCellRow(sender: items[indexPath.row])
-        
+            
         case .BerryCell:
             self.indexPath = indexPath
             handleSelectedItemCellRow(sender: items[indexPath.row])
@@ -213,12 +207,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     // MARK: - Protocol
     
-    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently, only with AbilityCell, TMCell, and ItemCell
+    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently use with AbilityCell, TMCell, and ItemCell
         
-        deselectTableViewRow()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-
+    
     
     
     // MARK: - IBActions
@@ -242,25 +236,25 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             switch currentGenericCell {
                 
             case .PokedexCell:
-                pokemons = CONSTANTS.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
+                pokemons = VARIABLE.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
                 
             case .TypeCell:
-                types = CONSTANTS.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
+                types = VARIABLE.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
                 
             case .MoveCell:
-                moves = CONSTANTS.allMoves.filter(forName: searchText, options: .caseInsensitive)
+                moves = VARIABLE.allMoves.filter(forName: searchText, options: .caseInsensitive)
                 
             case .AbilityCell:
-                abilities = CONSTANTS.allAbilities.filter(for: searchText, options: .caseInsensitive)
+                abilities = VARIABLE.allAbilities.filter(for: searchText, options: .caseInsensitive)
                 
             case .TMCell:
-                items = CONSTANTS.allItems.machines.filter(for: searchText, options: .caseInsensitive)
+                items = VARIABLE.allItems.machines.filter(for: searchText, options: .caseInsensitive)
                 
             case .ItemCell:
-                items = CONSTANTS.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
+                items = VARIABLE.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
                 
             case .BerryCell:
-                items = CONSTANTS.allItems.berries.filter(for: searchText, options: .caseInsensitive)
+                items = VARIABLE.allItems.berries.filter(for: searchText, options: .caseInsensitive)
             }
             
         } else {
@@ -269,32 +263,32 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
                 
             case .PokedexCell:
                 if segmentControllSelectedIndex == 0 {
-                    pokemons = CONSTANTS.allPokemonsSortedById
+                    pokemons = VARIABLE.allPokemonsSortedById
                 } else {
-                    pokemons = CONSTANTS.allPokemonsSortedByName
+                    pokemons = VARIABLE.allPokemonsSortedByName
                 }
                 
             case .TypeCell: ()
-            types = CONSTANTS.allTypes
+            types = VARIABLE.allTypes
                 
             case .MoveCell:
-                moves = CONSTANTS.allMoves
+                moves = VARIABLE.allMoves
                 
             case .AbilityCell:
-                abilities = CONSTANTS.allAbilities
+                abilities = VARIABLE.allAbilities
                 
             case .TMCell:
-                items = CONSTANTS.allItems.machines
+                items = VARIABLE.allItems.machines
                 
             case .ItemCell:
                 if segmentControllSelectedIndex == 0 {
-                    items = CONSTANTS.allItems.excludeBerriesMachines
+                    items = VARIABLE.allItems.excludeBerriesMachines
                 } else {
-                    items = CONSTANTS.allItems.excludeBerriesMachines
+                    items = VARIABLE.allItems.excludeBerriesMachines
                 }
                 
             case .BerryCell:
-                items = CONSTANTS.allItems.berries
+                items = VARIABLE.allItems.berries
             }
         }
         
@@ -311,29 +305,29 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         switch currentGenericCell {
             
         case .PokedexCell:
-            pokemons = CONSTANTS.allPokemonsSortedById
+            pokemons = VARIABLE.allPokemonsSortedById
             
         case .TypeCell:
-            types = CONSTANTS.allTypes
+            types = VARIABLE.allTypes
             
         case .MoveCell:
-            moves = CONSTANTS.allMoves
-            CONSTANTS.pokemonLearnMoveJSON = loadData.pokemonLearnMovesJSON()
+            moves = VARIABLE.allMoves
+            Constant.pokemonLearnMoveJSON = LoadData.pokemonLearnMovesJSON()
             
         case .AbilityCell:
-            abilities = CONSTANTS.allAbilities
+            abilities = VARIABLE.allAbilities
             configureViewLauncher()
             
         case .TMCell:
-            items = CONSTANTS.allItems.machines
+            items = VARIABLE.allItems.machines
             configureViewLauncher()
             
         case .ItemCell:
-            items = CONSTANTS.allItems.excludeBerriesMachines
+            items = VARIABLE.allItems.excludeBerriesMachines
             configureViewLauncher()
             
         case .BerryCell:
-            items = CONSTANTS.allItems.berries
+            items = VARIABLE.allItems.berries
             configureViewLauncher()
         }
     }
@@ -395,16 +389,16 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .PokedexCell:
             if segmentControllSelectedIndex == 0 {
-                pokemons = CONSTANTS.allPokemonsSortedById
+                pokemons = VARIABLE.allPokemonsSortedById
             } else { //must be 1
                 pokemons = pokemons.sortByAlphabet()
             }
             
         case .ItemCell:
             if segmentControllSelectedIndex == 0 { //A-Z
-                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
+                items = VARIABLE.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
             } else { //must be 1, Cat.
-                items = CONSTANTS.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
+                items = VARIABLE.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
             }
             
         default: ()
@@ -421,12 +415,5 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         }
         
         viewLauncher?.launch()
-    }
-    
-    func deselectTableViewRow() {
-        
-        if let indexPath = self.indexPath {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
     }
 }

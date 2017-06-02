@@ -40,8 +40,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
-        moves = CONSTANTS.allMoves.filter(forType: type)
+        pokemons = VARIABLE.allPokemonsSortedById.filter(forType: type)
+        moves = VARIABLE.allMoves.filter(forType: type)
         
         configureHeaderViews()
         updateUI()
@@ -209,8 +209,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             immuneToTypeLbls = cachedImmuneToTypes
             
         } else {
-            pokemons = CONSTANTS.allPokemonsSortedById.filter(forType: type)
-            moves = CONSTANTS.allMoves.filter(forType: type)
+            pokemons = VARIABLE.allPokemonsSortedById.filter(forType: type)
+            moves = VARIABLE.allMoves.filter(forType: type)
             strongAgainstTypeLbls = makeTypeLabels(from: getOffensiveTypes())
             weakToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "2"))
             resistToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "1/2"))
@@ -286,7 +286,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
         tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
+//        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
     }
 }
 
@@ -315,8 +315,8 @@ extension TypeDetailTVC {
         
         var strongAgainstTypes = [String]()
         
-        for type in CONSTANTS.allTypes {
-            if let typeDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
+        for type in VARIABLE.allTypes {
+            if let typeDict = Constant.weaknessesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
                 strongAgainstTypes.append(type)
             }
         }
@@ -328,7 +328,7 @@ extension TypeDetailTVC {
         
         var defensiveTypes = [String]()
         
-        if let weaknessesDict = CONSTANTS.weaknessesJSON[type] as? DictionarySS {
+        if let weaknessesDict = Constant.weaknessesJSON[type] as? DictionarySS {
             for (type, effectiveness) in weaknessesDict where effectiveness == effective {
                 defensiveTypes.append(type)
             }

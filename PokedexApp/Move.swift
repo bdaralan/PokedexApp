@@ -76,7 +76,7 @@ class Move {
     
     private func parseCompletedInfo() {
         
-        if let move = CONSTANTS.movesJSON[self.name] as? DictionarySS,
+        if let move = Constant.movesJSON[self.name] as? DictionarySS,
             let power = move["power"],
             let accuracy = move["accuracy"],
             let pp = move["pp"],
@@ -110,7 +110,7 @@ extension Move {
         
         var pokemons = [Pokemon]()
         
-        if let moveDict = CONSTANTS.pokemonLearnMoveJSON?[self.name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
+        if let moveDict = Constant.pokemonLearnMoveJSON[self.name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
             
             for id in moveDict.keys {
                 
@@ -119,18 +119,18 @@ extension Move {
                     switch learnMethod {
                         
                     case .any:
-                        let learnablePokemons = CONSTANTS.allPokemonsSortedById.filter(forId: id)
+                        let learnablePokemons = VARIABLE.allPokemonsSortedById.filter(forId: id)
                         for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         
                     case .levelup:
                         if !levels.contains("0") {
-                            let learnablePokemons = CONSTANTS.allPokemonsSortedById.filter(forId: id)
+                            let learnablePokemons = VARIABLE.allPokemonsSortedById.filter(forId: id)
                             for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         }
                         
                     case .breedOrMachine:
                         if levels.contains("0") {
-                            let learnablePokemons = CONSTANTS.allPokemonsSortedById.filter(forId: id)
+                            let learnablePokemons = VARIABLE.allPokemonsSortedById.filter(forId: id)
                             for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         }
                     }

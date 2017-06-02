@@ -20,7 +20,7 @@ class MoveDetailUITextView: UITextView {
         self.isEditable = false
         self.textAlignment = .center
         self.layer.borderColor = UIColor.black.cgColor
-        self.font = CONSTANTS.fonts.gillSans
+        self.font = Constant.Font.gillSans
     }
     
     override var text: String! {

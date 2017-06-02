@@ -22,8 +22,8 @@ class HomeMenuTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        homeMenuSections = loadData.homeMenuSections()
-        homeMenuRowsInSections = loadData.homeMenuRowsInSections()
+        homeMenuSections = LoadData.homeMenuSections()
+        homeMenuRowsInSections = LoadData.homeMenuRowsInSections()
     }
     
     

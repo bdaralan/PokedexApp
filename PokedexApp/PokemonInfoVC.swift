@@ -58,7 +58,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: CONSTANTS.keys.setting.measurementSCSelectedIndex))
+        userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: Constant.Key.Setting.measurementSCSelectedIndex))
         
         pokeType01Lbl.delegate = self
         pokeType02Lbl.delegate = self
@@ -303,15 +303,15 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             switch senderView {
                 
             case pokeAbility01Lbl:
-                let ability = CONSTANTS.allAbilities.search(forName: pokemon.firstAbility)
+                let ability = VARIABLE.allAbilities.search(forName: pokemon.firstAbility)
                 performSegue(withIdentifier: identifier, sender: ability)
                 
             case pokeAbility02Lbl:
-                let ability = CONSTANTS.allAbilities.search(forName: pokemon.secondAbility)
+                let ability = VARIABLE.allAbilities.search(forName: pokemon.secondAbility)
                 performSegue(withIdentifier: identifier, sender: ability)
                 
             case pokeHiddenAibilityLbl:
-                let ability = CONSTANTS.allAbilities.search(forName: pokemon.hiddenAbility)
+                let ability = VARIABLE.allAbilities.search(forName: pokemon.hiddenAbility)
                 performSegue(withIdentifier: identifier, sender: ability)
                 
             default: ()

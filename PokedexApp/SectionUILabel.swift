@@ -19,7 +19,7 @@ class SectionUILabel: UILabel {
         self.textColor = UIColor.myColor.sectionText
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
-        self.font = CONSTANTS.fonts.gillSansSemiBold
+        self.font = Constant.Font.gillSansSemiBold
     }
     
     override init(frame: CGRect) {

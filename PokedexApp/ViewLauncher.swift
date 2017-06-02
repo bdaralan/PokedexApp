@@ -214,8 +214,8 @@ extension ViewLauncher {
     
     func weaknessLabels(of pokemon: Pokemon) -> [TypeUILabel] {
         
-        let spacing = CONSTANTS.constrain.spacing
-        let margin = CONSTANTS.constrain.margin
+        let spacing = Constant.Constrain.spacing
+        let margin = Constant.Constrain.margin
         var y: CGFloat = spacing //will keep increasing as more weakness labels are added
     
         var weaknessLabels = [TypeUILabel]()
@@ -287,7 +287,7 @@ extension ViewLauncher {
         
         let cachedTextView = "cachedLaunchViewTextView"
         
-        let margin = CONSTANTS.constrain.margin
+        let margin = Constant.Constrain.margin
         let width = self.frame.width - (margin * 2)
         
         if let cachedTextView = globalCache.object(forKey: cachedTextView as AnyObject) as? UITextView {
@@ -296,7 +296,7 @@ extension ViewLauncher {
         } else {
             textView = {
                 let textView = UITextView(frame: CGRect(x: margin, y: 8, width: width, height: 31))
-                textView.font = CONSTANTS.fonts.appleSDGothicNeoRegular
+                textView.font = Constant.Font.appleSDGothicNeoRegular
                 textView.isScrollEnabled = false
                 textView.isEditable = false
                 

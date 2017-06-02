@@ -75,6 +75,6 @@ class MoveDetailCell: UITableViewCell {
         
         effectTextView.text = move.effect.isEmpty ? "–" : move.effect
         
-        height = effectTextView.frame.origin.y + effectTextView.frame.height + CONSTANTS.constrain.spcingView
+        height = effectTextView.frame.origin.y + effectTextView.frame.height + Constant.Constrain.spcingView
     }
 }

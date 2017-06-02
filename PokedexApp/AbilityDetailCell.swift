@@ -30,6 +30,6 @@ class AbilityDetailCell: UITableViewCell {
         
         self.descriptionTextView.text = ability.description
         
-        self.height = descriptionTextView.frame.origin.y +  descriptionTextView.frame.height + CONSTANTS.constrain.spcingView
+        self.height = descriptionTextView.frame.origin.y +  descriptionTextView.frame.height + Constant.Constrain.spcingView
     }
 }

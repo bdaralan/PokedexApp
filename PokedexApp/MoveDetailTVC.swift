@@ -33,7 +33,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         self.title = move.name
         
-        moves = CONSTANTS.allMoves.filter(forType: move.type)
+        moves = VARIABLE.allMoves.filter(forType: move.type)
         pokemons = move.pokemonsLearn(by: .any)
 
         configureSegmentControl()
@@ -210,16 +210,16 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         tableView.reloadData()
         
-        let pokemonCellSectionRows = tableView.numberOfRows(inSection: pokemonCellSection)
-        
-        if pokemonCellSectionRows != 0 {
-            tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonCellSection), at: .top, animated: true)
-            //tableView.separatorColor = UIColor.myColor.tableViewSeparator
-            
-        } else {
-            tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveDetailCellSection), at: .top, animated: true)
-            //tableView.separatorColor = UIColor.clear
-        }
+//        let pokemonCellSectionRows = tableView.numberOfRows(inSection: pokemonCellSection)
+//        
+//        if pokemonCellSectionRows != 0 {
+//            tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonCellSection), at: .top, animated: true)
+//            //tableView.separatorColor = UIColor.myColor.tableViewSeparator
+//            
+//        } else {
+//            tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveDetailCellSection), at: .top, animated: true)
+//            //tableView.separatorColor = UIColor.clear
+//        }
     }
 }
 
@@ -234,6 +234,6 @@ extension MoveDetailTVC {
     }
     
     var sectionHeaderViewHeight: CGFloat {
-        return CONSTANTS.constrain.sectionHeaderViewHeight
+        return Constant.Constrain.sectionHeaderViewHeight
     }
 }

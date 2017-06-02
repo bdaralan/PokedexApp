@@ -43,7 +43,7 @@ class Ability {
     
     private func parseCompletedInfo() {
         
-        if let info = CONSTANTS.abilitiesJSON[_name] as? DictionarySS,
+        if let info = Constant.abilitiesJSON[_name] as? DictionarySS,
             let description = info["description"],
             let generation = info["generation"] {
             

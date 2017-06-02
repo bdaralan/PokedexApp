@@ -154,7 +154,7 @@ class Pokemon {
     
     private func parseStats() {
         
-        if let pokeInfo = CONSTANTS.pokemonsJSON[name],
+        if let pokeInfo = Constant.pokemonsJSON[name],
             let hp = pokeInfo["hp"] as? Int,
             let attack = pokeInfo["attack"] as? Int,
             let defense = pokeInfo["defense"] as? Int,
@@ -181,7 +181,7 @@ class Pokemon {
     
     private func parseAbilities() {
         
-        if let abilities = CONSTANTS.pokemonAbilitiesJSON[name],
+        if let abilities = Constant.pokemonAbilitiesJSON[name],
             let ability01 = abilities["ability01"] as? String,
             let ability02 = abilities["ability02"] as? String,
             let hiddenAbility = abilities["hidden"] as? String {
@@ -199,7 +199,7 @@ class Pokemon {
     
     private func parseMeasurement() {
         
-        if let measurements = CONSTANTS.measurementsJSON[name],
+        if let measurements = Constant.measurementsJSON[name],
             let height = measurements["height"] as? String,
             let weight = measurements["weight"] as? String {
             
@@ -217,12 +217,12 @@ class Pokemon {
         var name = self.name
         
         if self.hasForm {
-            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = CONSTANTS.allPokemonsSortedByName.filter({$0.id == self.id}).first {
+            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = VARIABLE.allPokemonsSortedByName.filter({$0.id == self.id}).first {
                 name = selfNoForm.name
             }
         }
         
-        if let evolutions = CONSTANTS.evolutionsJSON[name] as? [DictionarySS] {
+        if let evolutions = Constant.evolutionsJSON[name] as? [DictionarySS] {
             if let evolution = evolutions.first,
                 let evolveFrom = evolution["evolve-from"],
                 let evolveTo = evolution["evolve-to"] {
@@ -269,8 +269,8 @@ extension Pokemon {
         let id = String(format: "%03d-", self.id)
         var crySound = self.name
         
-        if CONSTANTS.crySoundSepcialCaseName.keys.contains(crySound),
-            let name = CONSTANTS.crySoundSepcialCaseName[crySound] {
+        if Constant.crySoundSepcialCaseName.keys.contains(crySound),
+            let name = Constant.crySoundSepcialCaseName[crySound] {
             
             crySound = name
         }
@@ -283,7 +283,7 @@ extension Pokemon {
         var weaknessesDict = DictionarySS()
         
         if primaryType != "" {
-            if let weaknesses = CONSTANTS.weaknessesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
+            if let weaknesses = Constant.weaknessesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
                 for (type, effective) in weaknesses where effective != "" {
                     weaknessesDict.updateValue(effective, forKey: type)
                 }
@@ -295,7 +295,7 @@ extension Pokemon {
     
     var pokedexEntry: String {
         
-        if let pokedexEntry = CONSTANTS.pokedexEntriesJSON["\(self.id)"] as? DictionarySS {
+        if let pokedexEntry = Constant.pokedexEntriesJSON["\(self.id)"] as? DictionarySS {
             if let omegaEntry = pokedexEntry["omega"], let alphaEntry = pokedexEntry["alpha"] {
                 if omegaEntry != alphaEntry {
                     return "OR:\n\(omegaEntry)\n\nAS:\n\(alphaEntry)"
@@ -321,34 +321,34 @@ extension Pokemon {
         var evolutions = [Pokemon]()
         var selfNoForm = self
         
-        if self.hasForm, CONSTANTS.evolutionSpecialCaseForm.contains(self.form) {
-            selfNoForm = CONSTANTS.allPokemonsSortedById.search(forId: self.id, withName: self.name)
+        if self.hasForm, Constant.evolutionSpecialCaseForm.contains(self.form) {
+            selfNoForm = VARIABLE.allPokemonsSortedById.search(forId: self.id, withName: self.name)
         }
         
         evolutions = [selfNoForm]
         
         if selfNoForm.isBaseEvolution { // MARK: - isBaseEvolution
-            let evolveToPokemon = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
+            let evolveToPokemon = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
             
             if evolveToPokemon.isLastEvolution {
                 evolutions = [selfNoForm, evolveToPokemon]
             } else { //isMidEvolution
-                let lastEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: evolveToPokemon.evolveTo)
+                let lastEvolution = VARIABLE.allPokemonsSortedByName.search(forName: evolveToPokemon.evolveTo)
                 evolutions = [selfNoForm, evolveToPokemon, lastEvolution]
             }
             
         } else if selfNoForm.isMidEvolution { // MARK: - isMidEvolution
-            let baseEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
-            let lastEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
+            let baseEvolution = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
+            let lastEvolution = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
             evolutions = [baseEvolution, selfNoForm, lastEvolution]
             
         } else if selfNoForm.isLastEvolution { // MARK: - isLastEvolution
-            let evolveFromPokemon = CONSTANTS.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
+            let evolveFromPokemon = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
             
             if evolveFromPokemon.isBaseEvolution {
                 evolutions = [evolveFromPokemon, selfNoForm]
             } else { //isMidEvollution
-                let baseEvolution = CONSTANTS.allPokemonsSortedByName.search(forName: evolveFromPokemon.evolveFrom)
+                let baseEvolution = VARIABLE.allPokemonsSortedByName.search(forName: evolveFromPokemon.evolveFrom)
                 evolutions = [baseEvolution, evolveFromPokemon, selfNoForm]
             }
         }

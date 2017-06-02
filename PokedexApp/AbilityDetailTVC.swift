@@ -96,13 +96,13 @@ class AbilityDetailTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return CONSTANTS.constrain.sectionHeaderViewHeight
+        return Constant.Constrain.sectionHeaderViewHeight
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionHeaderView: UIView = {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: CONSTANTS.constrain.sectionHeaderViewHeight))
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
             view.backgroundColor = UIColor.myColor.sectionBackground
             return view
         }()
@@ -149,7 +149,7 @@ class AbilityDetailTVC: UITableViewController {
     
     func prepareNecessaryData() {
         
-        pokemons = CONSTANTS.allPokemonsSortedById.filter(forAbility: ability.name)
+        pokemons = VARIABLE.allPokemonsSortedById.filter(forAbility: ability.name)
     }
     
     func configureHeaderViews() {
@@ -157,7 +157,7 @@ class AbilityDetailTVC: UITableViewController {
         let spacing: CGFloat = 8
         
         abilityDetailLbl = {
-            let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: CONSTANTS.constrain.sectionHeaderViewHeight))
+            let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
             label.layer.cornerRadius = 0
             label.text = "Ability Detail"
             return label
@@ -183,10 +183,10 @@ class AbilityDetailTVC: UITableViewController {
         switch sender.selectedSegmentIndex {
             
         case pokemonWithAbilitySegIndex:
-            pokemons = CONSTANTS.allPokemonsSortedById.filter(forAbility: ability.name)
+            pokemons = VARIABLE.allPokemonsSortedById.filter(forAbility: ability.name)
             
         case pokemonWithAbilityAsHiddenSegIndex:
-            pokemons = CONSTANTS.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
+            pokemons = VARIABLE.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
             
         default: ()
         }

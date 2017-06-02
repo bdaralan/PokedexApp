@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol TypeUILabelDelegate {
+protocol TypeUILabelDelegate: class {
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer)
 }
@@ -30,7 +30,7 @@ class TypeUILabel: UILabel {
         self.textColor = UIColor.white
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
-        self.font = CONSTANTS.fonts.gillSans
+        self.font = Constant.Font.gillSans
     }
     
     override init(frame: CGRect) {

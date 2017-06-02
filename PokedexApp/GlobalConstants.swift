@@ -13,59 +13,93 @@ typealias DictionarySS = Dictionary<String, String>
 typealias DidFinishAnimation = Bool
 
 
+
+
+
 let globalCache = NSCache<AnyObject, AnyObject>()
 
 let audioPlayer = AudioPlayer()
 
+let VARIABLE = Variable()
 
-// Strct for all Constants
+
+
+
+
+class Variable {
+    
+    lazy var allPokemonsSortedById: [Pokemon] = LoadData.allPokemons(by: .id)
+    
+    lazy var allPokemonsSortedByName: [Pokemon] = LoadData.allPokemons(by: .name)
+    
+    lazy var allAbilities: [Ability] = LoadData.allAbilities()
+    
+    lazy var allTypes: [String] = LoadData.allTypes()
+    
+    lazy var allMoves: [Move] = LoadData.allMoves()
+    
+    lazy var allItems: [Item] = LoadData.allItems()
+    
+}
+
+
+
+
 struct Constant {
     
     static let movesJSON: DictionarySA = LoadData.movesJSON()
-    static let pokemonsJSON: DictionarySA = LoadData.pokemonsJSON()
-    static let abilitiesJSON: DictionarySA = LoadData.abilitiesJSON()
-    static let pokemonAbilitiesJSON: DictionarySA = LoadData.pokemonAbilitiesJSON()
-    static let measurementsJSON: DictionarySA = LoadData.measurementsJSON()
-    static let weaknessesJSON: DictionarySA = LoadData.weaknessesJSON()
-    static let pokedexEntriesJSON: DictionarySA = LoadData.pokedexEntriesJSON()
-    static let evolutionsJSON: DictionarySA = LoadData.evolutionJSON()
-    static let itemsJSON: DictionarySA = LoadData.itemJSON()
     
     static var pokemonLearnMoveJSON: DictionarySA = LoadData.pokemonLearnMovesJSON()
     
-    static let allPokemonsSortedById: [Pokemon] = LoadData.allPokemons(by: .id)
-    static let allPokemonsSortedByName: [Pokemon] = allPokemonsSortedById
-    static let allAbilities: [Ability] = LoadData.allAbilities()
-    static let allTypes: [String] = LoadData.allTypes()
-    static let allMoves: [Move] = LoadData.allMoves()
-    static let allItems: [Item] = LoadData.allItems()
+    static let pokemonsJSON: DictionarySA = LoadData.pokemonsJSON()
+    
+    static let abilitiesJSON: DictionarySA = LoadData.abilitiesJSON()
+    
+    static let pokemonAbilitiesJSON: DictionarySA = LoadData.pokemonAbilitiesJSON()
+    
+    static let measurementsJSON: DictionarySA = LoadData.measurementsJSON()
+    
+    static let weaknessesJSON: DictionarySA = LoadData.weaknessesJSON()
+    
+    static let pokedexEntriesJSON: DictionarySA = LoadData.pokedexEntriesJSON()
+    
+    static let evolutionsJSON: DictionarySA = LoadData.evolutionJSON()
+    
+    static let itemsJSON: DictionarySA = LoadData.itemJSON()
     
     static let evolutionSpecialCaseForm: [String] = LoadData.evolutionSpecialCaseForm()
+    
     static let crySoundSepcialCaseName: DictionarySS = LoadData.crySoundSpecialCaseName()
     
     
     // Sub Struct
     struct Font {
+        
         static let gillSans = UIFont(name: "GillSans", size: 17)
+        
         static let gillSansSemiBold = UIFont(name: "GillSans-SemiBold", size: 17)
+        
         static let appleSDGothicNeoRegular = UIFont(name: "AppleSDGothicNeo-Regular", size: 16) //pokedex entry text
     }
     
     struct Key {
         
-        static let setting = SettingKey()
-        
-        struct SettingKey {
-            let measurementSCSelectedIndex = "SettingMeasurementUnit"
-            let soundEffectSwitchState = "SettingSoundEffectState"
+        struct Setting {
+            
+            static let measurementSCSelectedIndex = "SettingMeasurementUnit"
+            
+            static let soundEffectSwitchState = "SettingSoundEffectState"
         }
     }
     
     struct Constrain {
         
         static let margin: CGFloat = 16
+        
         static let spacing: CGFloat = 8
+        
         static let spcingView: CGFloat = 29
+        
         static let sectionHeaderViewHeight: CGFloat = 45
     }
 }

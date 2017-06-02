@@ -104,8 +104,7 @@ struct LoadData {
             if let moveDict = json[name] as? DictionarySA,
                 let type = moveDict["type"] as? String,
                 let category = moveDict["category"] as? String {
-                let move = Move(name: name, type: type, category: category)
-                moves.append(move)
+                moves.append(Move(name: name, type: type, category: category))
             }
         }
         
@@ -120,8 +119,7 @@ struct LoadData {
         for name in json.keys.sorted() {
             if let abilityDict = json[name] as? DictionarySS,
                 let pokemon = abilityDict["pokemon"] {
-                let ability = Ability(name: name, pokemon: pokemon)
-                abilities.append(ability)
+                abilities.append(Ability(name: name, pokemon: pokemon))
             }
         }
         
@@ -136,8 +134,7 @@ struct LoadData {
         for item in json.keys.sorted() {
             if let itemDict = json[item] as? DictionarySS {
                 if let category = itemDict["category"] {
-                    let item = Item(name: item, category: category)
-                    items.append(item)
+                    items.append(Item(name: item, category: category))
                 }
             }
         }

@@ -23,7 +23,7 @@ class AudioPlayer {
     private let cache = NSCache<AnyObject, AnyObject>()
     
     private var soundEffectIsOn: Bool {
-        return UserDefaults.standard.bool(forKey: CONSTANTS.keys.setting.soundEffectSwitchState)
+        return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
     }
     
     var setting: AVAudioPlayer {
