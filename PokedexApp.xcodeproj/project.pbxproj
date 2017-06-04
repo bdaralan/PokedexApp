@@ -2660,8 +2660,8 @@
 			isa = PBXGroup;
 			children = (
 				53CF3DEA1E8A28340073A516 /* PokedexCell.swift */,
-				53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */,
 				53ECA7161EA2FA8000964977 /* TypeCell.swift */,
+				53FD91FD1EB71B3400C7EC86 /* ItemCell.swift */,
 				53ECA70A1EA2719600964977 /* MoveCell.swift */,
 				53ECA7141EA2FA2E00964977 /* AbilityCell.swift */,
 				53D558BE1ECCBACC0029BB78 /* MoveDetailCell.swift */,

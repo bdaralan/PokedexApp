@@ -42,26 +42,31 @@ class Move {
     }
     
     var accuracy: String {
+        
         if _accuracy == nil { self.parseCompletedInfo() }
         return _accuracy
     }
     
     var pp: String {
+        
         if _pp == nil { self.parseCompletedInfo() }
         return _pp
     }
     
     var tm: String {
+        
         if _tm == nil { self.parseCompletedInfo() }
         return _tm
     }
     
     var effect: String {
+        
         if _effect == nil { self.parseCompletedInfo() }
         return _effect
     }
     
     var prob: String {
+        
         if _prob == nil { self.parseCompletedInfo() }
         return _prob
     }
@@ -110,7 +115,7 @@ extension Move {
         
         var pokemons = [Pokemon]()
         
-        if let moveDict = Constant.pokemonLearnMoveJSON[self.name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
+        if let moveDict = Constant.pokemonLearnMoveJSON[name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
             
             for id in moveDict.keys {
                 

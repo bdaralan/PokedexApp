@@ -14,6 +14,8 @@ class MoveCell: UITableViewCell {
     @IBOutlet weak var moveCategory: UILabel!
     @IBOutlet weak var moveType: TypeUILabel!
     
+    weak var move: Move!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -45,12 +47,14 @@ class MoveCell: UITableViewCell {
     
     func configureCell(for move: Move) {
         
-        self.moveName.text = move.name
+        self.move = move
+        
+        self.moveName.text = self.move.name
         
         self.moveCategory.backgroundColor = UIColor.myColor.get(from: move.category)
         self.moveCategory.textColor = UIColor.white
         
-        switch move.category {
+        switch self.move.category {
             
         case "Physical":
             self.moveCategory.text = "P"
@@ -66,7 +70,7 @@ class MoveCell: UITableViewCell {
             self.moveCategory.textColor = UIColor.black
         }
         
-        self.moveType.text = move.type
-        self.moveType.backgroundColor = UIColor.myColor.get(from: move.type)
+        self.moveType.text = self.move.type
+        self.moveType.backgroundColor = UIColor.myColor.get(from: self.move.type)
     }
 }

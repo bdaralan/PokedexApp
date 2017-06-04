@@ -10,8 +10,6 @@ import UIKit
 
 typealias DictionarySA = Dictionary<String, AnyObject>
 typealias DictionarySS = Dictionary<String, String>
-typealias DidFinishAnimation = Bool
-
 
 
 
@@ -28,18 +26,26 @@ let VARIABLE = Variable()
 
 class Variable {
     
-    lazy var allPokemonsSortedById: [Pokemon] = LoadData.allPokemons(by: .id)
+    var allPokemonsSortedById: [Pokemon]!
     
-    lazy var allPokemonsSortedByName: [Pokemon] = LoadData.allPokemons(by: .name)
+    var allPokemonsSortedByName: [Pokemon]!
     
-    lazy var allAbilities: [Ability] = LoadData.allAbilities()
+    var allAbilities: [Ability]!
     
-    lazy var allTypes: [String] = LoadData.allTypes()
+    var allTypes: [String]!
     
-    lazy var allMoves: [Move] = LoadData.allMoves()
+    var allMoves: [Move]!
     
-    lazy var allItems: [Item] = LoadData.allItems()
+    var allItems: [Item]!
     
+    init() {
+        allPokemonsSortedById = LoadData.allPokemons(by: .id)
+        allPokemonsSortedByName = LoadData.allPokemons(by: .name)
+        allAbilities = LoadData.allAbilities()
+        allTypes = LoadData.allTypes()
+        allMoves = LoadData.allMoves()
+        allItems = LoadData.allItems()
+    }
 }
 
 
@@ -49,7 +55,7 @@ struct Constant {
     
     static let movesJSON: DictionarySA = LoadData.movesJSON()
     
-    static var pokemonLearnMoveJSON: DictionarySA = LoadData.pokemonLearnMovesJSON()
+    static let pokemonLearnMoveJSON: DictionarySA = LoadData.pokemonLearnMovesJSON()
     
     static let pokemonsJSON: DictionarySA = LoadData.pokemonsJSON()
     

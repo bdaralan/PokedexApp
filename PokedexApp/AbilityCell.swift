@@ -13,6 +13,8 @@ class AbilityCell: UITableViewCell {
     @IBOutlet weak var abilityLbl: UILabel!
     @IBOutlet weak var pokemonLbl: UILabel!
     
+    weak var ability: Ability!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -43,7 +45,9 @@ class AbilityCell: UITableViewCell {
 
     func configureCell(ability: Ability) {
         
-        self.abilityLbl.text = ability.name
-        self.pokemonLbl.text = ability.pokemon
+        self.ability = ability
+        
+        self.abilityLbl.text = self.ability.name
+        self.pokemonLbl.text = self.ability.pokemon
     }
 }

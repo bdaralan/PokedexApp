@@ -9,6 +9,7 @@
 import UIKit
 
 enum GenericCell: String {
+    
     case PokedexCell = "00"
     case TypeCell = "01"
     case MoveCell = "02"
@@ -51,10 +52,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewLauncher?.dismiss()
+        if indexPath != nil { viewLauncher?.dismiss() }
     }
     
-    
+    deinit {
+        print("deinit", self)
+    }
     
     
     
@@ -155,7 +158,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
             
         case .AbilityCell:
-            self.indexPath = indexPath
             performSegue(withIdentifier: "AbilityDetailTVC", sender: abilities[indexPath.row])
             
         case .TMCell:
@@ -312,7 +314,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .MoveCell:
             moves = VARIABLE.allMoves
-            Constant.pokemonLearnMoveJSON = LoadData.pokemonLearnMovesJSON()
             
         case .AbilityCell:
             abilities = VARIABLE.allAbilities

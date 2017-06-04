@@ -18,7 +18,7 @@ enum TypesSortedOption {
     case category
 }
 
-struct LoadData {
+public struct LoadData {
     
     static func pokemonsJSON() -> DictionarySA {
         
@@ -72,12 +72,13 @@ struct LoadData {
     
     static func allPokemons(by option: PokemonSortedOption) -> [Pokemon] {
         
-        var pokemons = [Pokemon]()
         let json = pokemonsJSON()
-        let names = json.keys
+        var pokemons = [Pokemon]()
         
-        for name in names {
-            if let pokemonInfo = json[name] as? DictionarySA, let id = pokemonInfo["id"] as? Int, let form = pokemonInfo["form"] as? String,
+        for name in json.keys {
+            if let pokemonInfo = json[name] as? DictionarySA,
+                let id = pokemonInfo["id"] as? Int,
+                let form = pokemonInfo["form"] as? String,
                 let types = pokemonInfo["type"] as? [String] {
                 let pokemon = Pokemon(name: name, id: id, form: form, types: types)
                 pokemons.append(pokemon)
@@ -97,16 +98,18 @@ struct LoadData {
     static func allMoves() -> [Move] {
         
         let json = movesJSON()
-        let names = json.keys
         var moves = [Move]()
         
-        for name in names {
+        for name in json.keys {
             if let moveDict = json[name] as? DictionarySA,
                 let type = moveDict["type"] as? String,
                 let category = moveDict["category"] as? String {
-                moves.append(Move(name: name, type: type, category: category))
+                let move = Move(name: name, type: type, category: category)
+                moves.append(move)
             }
         }
+        
+        if moves.count > 1 { moves = moves.sorted(by: {$0.name < $1.name}) }
         
         return moves
     }
@@ -116,28 +119,34 @@ struct LoadData {
         let json = abilitiesJSON()
         var abilities = [Ability]()
         
-        for name in json.keys.sorted() {
+        for name in json.keys {
             if let abilityDict = json[name] as? DictionarySS,
                 let pokemon = abilityDict["pokemon"] {
-                abilities.append(Ability(name: name, pokemon: pokemon))
+                let ability = Ability(name: name, pokemon: pokemon)
+                abilities.append(ability)
             }
         }
+        
+        if abilities.count > 1 { abilities = abilities.sorted(by: {$0.name < $1.name}) }
         
         return abilities
     }
     
     static func allItems() -> [Item] {
         
-        let json = self.itemJSON()
+        let json = itemJSON()
         var items = [Item]()
         
-        for item in json.keys.sorted() {
+        for item in json.keys {
             if let itemDict = json[item] as? DictionarySS {
                 if let category = itemDict["category"] {
-                    items.append(Item(name: item, category: category))
+                    let item = Item(name: item, category: category)
+                    items.append(item)
                 }
             }
         }
+        
+        if items.count > 1 { items = items.sorted(by: {$0.name < $1.name}) }
         
         return items
     }
