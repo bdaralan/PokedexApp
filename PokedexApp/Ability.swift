@@ -49,6 +49,10 @@ class Ability {
             
             _description = description
             _generation = generation
+        
+        } else {
+            _description = "???"
+            _generation = "???"
         }
     }
 }

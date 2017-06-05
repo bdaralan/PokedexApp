@@ -14,8 +14,6 @@ class HomeMenuTVC: UITableViewController {
     var homeMenuRowsInSections: [[String]]!
     
     var genericCell: GenericCell!
-    var genericTVCTitle: String!
-    
     
     
     
@@ -46,9 +44,10 @@ class HomeMenuTVC: UITableViewController {
         audioPlayer.play(audio: .select)
         
         genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
-        genericTVCTitle = homeMenuRowsInSections[indexPath.section][indexPath.row]
         
-        performSegue(withIdentifier: "GenericTVC", sender: genericTVCTitle)
+        let title = homeMenuRowsInSections[indexPath.section][indexPath.row]
+        
+        performSegue(withIdentifier: "GenericTVC", sender: title)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

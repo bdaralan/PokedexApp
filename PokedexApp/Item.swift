@@ -37,7 +37,10 @@ class Item {
     private func parseCompletedInfo() {
         
         if let itemDict = Constant.itemsJSON[name] as? DictionarySS, let effect = itemDict["effect"] {
-            self._effect = effect
+            _effect = effect
+        
+        } else {
+            _effect = "???"
         }
     }
 }

@@ -37,37 +37,37 @@ class Move {
     
     var power: String {
         
-        if _power == nil { self.parseCompletedInfo() }
+        if _power == nil { parseCompletedInfo() }
         return _power
     }
     
     var accuracy: String {
         
-        if _accuracy == nil { self.parseCompletedInfo() }
+        if _accuracy == nil { parseCompletedInfo() }
         return _accuracy
     }
     
     var pp: String {
         
-        if _pp == nil { self.parseCompletedInfo() }
+        if _pp == nil { parseCompletedInfo() }
         return _pp
     }
     
     var tm: String {
         
-        if _tm == nil { self.parseCompletedInfo() }
+        if _tm == nil { parseCompletedInfo() }
         return _tm
     }
     
     var effect: String {
         
-        if _effect == nil { self.parseCompletedInfo() }
+        if _effect == nil { parseCompletedInfo() }
         return _effect
     }
     
     var prob: String {
         
-        if _prob == nil { self.parseCompletedInfo() }
+        if _prob == nil { parseCompletedInfo() }
         return _prob
     }
     
@@ -95,6 +95,14 @@ class Move {
             _tm = tm
             _effect = effect
             _prob = prob
+        
+        } else {
+            _power = "???"
+            _accuracy = "???"
+            _pp = "???"
+            _tm = "???"
+            _effect = "???"
+            _prob = "???"
         }
     }
 }
