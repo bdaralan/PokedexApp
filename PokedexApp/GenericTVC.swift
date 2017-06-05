@@ -52,7 +52,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if indexPath != nil { viewLauncher?.dismiss() }
+        viewLauncher?.removeFromSuperview()
+        //if indexPath != nil { viewLauncher?.dismiss() }
     }
     
     deinit {
@@ -198,8 +199,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
                 abilityDetailTVC.ability = ability
             }
             
-        case is Item: ()
-            
         default: ()
         }
     }
@@ -270,8 +269,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
                     pokemons = VARIABLE.allPokemonsSortedByName
                 }
                 
-            case .TypeCell: ()
-            types = VARIABLE.allTypes
+            case .TypeCell:
+                types = VARIABLE.allTypes
                 
             case .MoveCell:
                 moves = VARIABLE.allMoves
@@ -317,8 +316,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .AbilityCell:
             abilities = VARIABLE.allAbilities
-            configureViewLauncher()
-            
+                        
         case .TMCell:
             items = VARIABLE.allItems.machines
             configureViewLauncher()

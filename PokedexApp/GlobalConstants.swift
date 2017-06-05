@@ -41,10 +41,10 @@ class Variable {
     init() {
         allPokemonsSortedById = LoadData.allPokemons(by: .id)
         allPokemonsSortedByName = LoadData.allPokemons(by: .name)
-        allAbilities = LoadData.allAbilities()
-        allTypes = LoadData.allTypes()
-        allMoves = LoadData.allMoves()
-        allItems = LoadData.allItems()
+        allAbilities = LoadData.allAbilities
+        allTypes = LoadData.allTypes
+        allMoves = LoadData.allMoves
+        allItems = LoadData.allItems
     }
 }
 
@@ -53,29 +53,29 @@ class Variable {
 
 struct Constant {
     
-    static let movesJSON: DictionarySA = LoadData.movesJSON()
+    static let movesJSON: DictionarySA = LoadData.movesJSON
     
-    static let pokemonLearnMoveJSON: DictionarySA = LoadData.pokemonLearnMovesJSON()
+    static let pokemonLearnMoveJSON: DictionarySA = LoadData.pokemonLearnMovesJSON
     
-    static let pokemonsJSON: DictionarySA = LoadData.pokemonsJSON()
+    static let pokemonsJSON: DictionarySA = LoadData.pokemonsJSON
     
-    static let abilitiesJSON: DictionarySA = LoadData.abilitiesJSON()
+    static let abilitiesJSON: DictionarySA = LoadData.abilitiesJSON
     
-    static let pokemonAbilitiesJSON: DictionarySA = LoadData.pokemonAbilitiesJSON()
+    static let pokemonAbilitiesJSON: DictionarySA = LoadData.pokemonAbilitiesJSON
     
-    static let measurementsJSON: DictionarySA = LoadData.measurementsJSON()
+    static let measurementsJSON: DictionarySA = LoadData.measurementsJSON
     
-    static let weaknessesJSON: DictionarySA = LoadData.weaknessesJSON()
+    static let weaknessesJSON: DictionarySA = LoadData.weaknessesJSON
     
-    static let pokedexEntriesJSON: DictionarySA = LoadData.pokedexEntriesJSON()
+    static let pokedexEntriesJSON: DictionarySA = LoadData.pokedexEntriesJSON
     
-    static let evolutionsJSON: DictionarySA = LoadData.evolutionJSON()
+    static let evolutionsJSON: DictionarySA = LoadData.evolutionJSON
     
-    static let itemsJSON: DictionarySA = LoadData.itemJSON()
+    static let itemsJSON: DictionarySA = LoadData.itemJSON
     
-    static let evolutionSpecialCaseForm: [String] = LoadData.evolutionSpecialCaseForm()
+    static let evolutionSpecialCaseForm: [String] = LoadData.evolutionSpecialCaseForm
     
-    static let crySoundSepcialCaseName: DictionarySS = LoadData.crySoundSpecialCaseName()
+    static let crySoundSepcialCaseName: DictionarySS = LoadData.crySoundSpecialCaseName
     
     
     // Sub Struct

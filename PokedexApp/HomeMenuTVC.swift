@@ -22,8 +22,8 @@ class HomeMenuTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        homeMenuSections = LoadData.homeMenuSections()
-        homeMenuRowsInSections = LoadData.homeMenuRowsInSections()
+        homeMenuSections = LoadData.homeMenuSections
+        homeMenuRowsInSections = LoadData.homeMenuRowsInSections
     }
     
     
@@ -48,14 +48,14 @@ class HomeMenuTVC: UITableViewController {
         genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
         genericTVCTitle = homeMenuRowsInSections[indexPath.section][indexPath.row]
         
-        performSegue(withIdentifier: "GenericTVC", sender: nil)
+        performSegue(withIdentifier: "GenericTVC", sender: genericTVCTitle)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "GenericTVC", let genericTVC = segue.destination as? GenericTVC {
+        if let genericTVC = segue.destination as? GenericTVC, let title = sender as? String {
             genericTVC.genericCell = genericCell
-            genericTVC.title = genericTVCTitle
+            genericTVC.title = title
         }
     }
     
