@@ -364,7 +364,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             case measurementSectionLbl:
                 if sender.state == .began {
                     measurementSectionLbl.isUserInteractionEnabled = false
-                    measurementSectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
+                    measurementSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
                 } else if sender.state == .ended {
                     audioPlayer.play(audio: .select)
                     self.measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
@@ -393,7 +393,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 
             case weaknessesSectionLbl:
                 if sender.state == .began {
-                    weaknessesSectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
+                    weaknessesSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
                 } else if sender.state == .ended {
                     audioPlayer.play(audio: .select)
                     weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
@@ -406,7 +406,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 
             case pokedexEnterySectionLbl:
                 if sender.state == .began {
-                    pokedexEnterySectionLbl.layer.borderColor = UIColor.myColor.sectionText.cgColor
+                    pokedexEnterySectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
                 } else if sender.state == .ended  {
                     audioPlayer.play(audio: .select)
                     pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor

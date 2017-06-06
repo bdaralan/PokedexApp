@@ -129,7 +129,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         case pokemonCellSection:
             let sectionHeaderView: UIView = {
                 let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
-                view.backgroundColor = UIColor.myColor.sectionBackground
+                view.backgroundColor = UIColor.AppObject.sectionBackground
                 return view
             }()
             
@@ -183,7 +183,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             let sc = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / Others"])
             sc.frame.origin = CGPoint(x: spacing, y: spacing)
             sc.frame.size.width = sectionHeaderViewWidth - spacing * 2
-            sc.tintColor = UIColor.myColor.get(from: move.type)
+            sc.tintColor = UIColor.pokemonType(from: move.type)
             sc.layer.borderColor = sc.tintColor.cgColor
             sc.backgroundColor = UIColor.white
             

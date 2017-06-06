@@ -34,7 +34,7 @@ class TypeCell: UITableViewCell {
     func configureCell(type: String) {
         
         self.typeTextLbl.text = type
-        self.typeLbl.backgroundColor = UIColor.myColor.get(from: type)
+        self.typeLbl.backgroundColor = UIColor.pokemonType(from: type)
         self.typeLbl.text = type
     }
 }

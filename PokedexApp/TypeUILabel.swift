@@ -46,7 +46,7 @@ class TypeUILabel: UILabel {
     override var text: String? {
         didSet {
             if let text = text {
-                self.backgroundColor = UIColor.myColor.get(from: text)
+                self.backgroundColor = UIColor.pokemonType(from: text)
             }
         }
     }

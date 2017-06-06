@@ -103,7 +103,7 @@ class AbilityDetailTVC: UITableViewController {
         
         let sectionHeaderView: UIView = {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
-            view.backgroundColor = UIColor.myColor.sectionBackground
+            view.backgroundColor = UIColor.AppObject.sectionBackground
             return view
         }()
         
@@ -167,7 +167,7 @@ class AbilityDetailTVC: UITableViewController {
             let sc = RoundUISegmentedControl(items: ["All", "Hidden"])
             sc.frame.origin = CGPoint(x: spacing, y: spacing)
             sc.frame.size.width = tableView.frame.width - spacing * 2
-            sc.tintColor = UIColor.myColor.sectionText
+            sc.tintColor = UIColor.AppObject.sectionText
             sc.layer.borderColor = sc.tintColor.cgColor
             sc.backgroundColor = UIColor.white
             

@@ -51,7 +51,7 @@ class MoveCell: UITableViewCell {
         
         self.moveName.text = self.move.name
         
-        self.moveCategory.backgroundColor = UIColor.myColor.get(from: move.category)
+        self.moveCategory.backgroundColor = UIColor.pokemonType(from: move.category)
         self.moveCategory.textColor = UIColor.white
         
         switch self.move.category {
@@ -71,6 +71,6 @@ class MoveCell: UITableViewCell {
         }
         
         self.moveType.text = self.move.type
-        self.moveType.backgroundColor = UIColor.myColor.get(from: self.move.type)
+        self.moveType.backgroundColor = UIColor.pokemonType(from: self.move.type)
     }
 }
