@@ -25,28 +25,15 @@ let VARIABLE = Variable()
 
 class Variable {
     
-    var allPokemonsSortedById: [Pokemon]!
+    lazy var allPokemonsSortedById: Array<Pokemon> = loadData.allPokemons(by: .id)
     
-    var allPokemonsSortedByName: [Pokemon]!
+    lazy var allPokemonsSortedByName: Array<Pokemon> = loadData.allPokemons(by: .name)
     
-    var allTypes: [String]!
+    lazy var allTypes: Array<String> = loadData.allTypes()
     
-    var allMoves: [Move]!
+    lazy var allMoves: Array<Move> = loadData.allMoves()
     
-    var allAbilities: [Ability]!
+    lazy var allAbilities: Array<Ability> = loadData.allAbilities()
     
-    var allItems: [Item]!
-    
-    init() {
-        allPokemonsSortedById = loadData.allPokemons(by: .id)
-        allPokemonsSortedByName = loadData.allPokemons(by: .name)
-        allTypes = loadData.allTypes()
-        allMoves = loadData.allMoves()
-        allAbilities = loadData.allAbilities()
-        allItems = loadData.allItems()
-        //allTypes = [String]()
-        //allMoves = [Move]()
-        //allAbilities = [Ability]()
-        //allItems = [Item]()
-    }
+    lazy var allItems: Array<Item> = loadData.allItems()
 }
