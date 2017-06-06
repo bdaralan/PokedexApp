@@ -24,6 +24,9 @@ class HomeMenuTVC: UITableViewController {
         homeMenuRowsInSections = loadData.homeMenuRowsInSections
     }
     
+    deinit {
+        print("deinit", self)
+    }
     
     
     

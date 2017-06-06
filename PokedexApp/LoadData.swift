@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoadData {
+struct LoadData {
     
     enum PokemonSortedOption {
         case id
@@ -34,7 +34,8 @@ class LoadData {
                 let types = pokemonInfo["type"] as? [String] {
                 let pokemon = Pokemon(name: name, id: id, form: form, types: types)
                 pokemons.append(pokemon)
-            }
+                
+            } else { print("Cannot parse pokemon:", name) }
         }
         
         switch option {
@@ -47,7 +48,7 @@ class LoadData {
         return pokemons
     }
     
-    var allMoves: [Move] {
+    func allMoves() -> [Move] {
         
         let json = movesJSON
         var moves = [Move]()
@@ -58,7 +59,8 @@ class LoadData {
                 let category = moveDict["category"] as? String {
                 let move = Move(name: name, type: type, category: category)
                 moves.append(move)
-            }
+                
+            } else { print("Cannot parse move:", name) }
         }
         
         if moves.count > 1 { moves = moves.sorted(by: {$0.name < $1.name}) }
@@ -66,7 +68,7 @@ class LoadData {
         return moves
     }
     
-    var allAbilities: [Ability] {
+    func allAbilities() -> [Ability] {
         
         let json = abilitiesJSON
         var abilities = [Ability]()
@@ -76,7 +78,8 @@ class LoadData {
                 let pokemon = abilityDict["pokemon"] {
                 let ability = Ability(name: name, pokemon: pokemon)
                 abilities.append(ability)
-            }
+                
+            } else { print("Cannot parse ability:", name) }
         }
         
         if abilities.count > 1 { abilities = abilities.sorted(by: {$0.name < $1.name}) }
@@ -84,18 +87,19 @@ class LoadData {
         return abilities
     }
     
-    var allItems: [Item] {
+    func allItems() -> [Item] {
         
         let json = itemJSON
         var items = [Item]()
         
-        for item in json.keys {
-            if let itemDict = json[item] as? DictionarySS {
+        for name in json.keys {
+            if let itemDict = json[name] as? DictionarySS {
                 if let category = itemDict["category"] {
-                    let item = Item(name: item, category: category)
+                    let item = Item(name: name, category: category)
                     items.append(item)
                 }
-            }
+                
+            } else { print("Cannot parse item:", name) }
         }
         
         if items.count > 1 { items = items.sorted(by: {$0.name < $1.name}) }
@@ -103,7 +107,7 @@ class LoadData {
         return items
     }
     
-    var allTypes: [String] {
+    func allTypes() -> [String] {
         
         let plist = loadDataFromFile(name: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {
@@ -256,12 +260,14 @@ extension LoadData {
                         
                         return json
                     }
+                    
                 } else {
                     if let plist = NSDictionary(contentsOfFile: path) as? DictionarySA {
                         
                         return plist
                     }
                 }
+                
             } catch { print(error) }
         }
         

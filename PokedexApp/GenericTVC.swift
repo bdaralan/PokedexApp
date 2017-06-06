@@ -56,9 +56,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         //if indexPath != nil { viewLauncher?.dismiss() }
     }
     
-    deinit {
-        print("deinit", self)
-    }
     
     
     
