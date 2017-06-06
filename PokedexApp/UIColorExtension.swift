@@ -123,6 +123,7 @@ extension UIColor {
             
         case "Status": return UIColor.Pokemon.Move.status
             
+            
         default: return UIColor.clear
         }
     }
