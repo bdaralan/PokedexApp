@@ -53,7 +53,7 @@ struct LoadData {
         let json = movesJSON
         var moves = [Move]()
         
-        for name in json.keys {
+        for name in json.keys.sorted() {
             if let moveDict = json[name] as? DictionarySA,
                 let type = moveDict["type"] as? String,
                 let category = moveDict["category"] as? String {
@@ -63,8 +63,6 @@ struct LoadData {
             } else { print("Cannot parse move:", name) }
         }
         
-        if moves.count > 1 { moves = moves.sorted(by: {$0.name < $1.name}) }
-        
         return moves
     }
     
@@ -73,7 +71,7 @@ struct LoadData {
         let json = abilitiesJSON
         var abilities = [Ability]()
         
-        for name in json.keys {
+        for name in json.keys.sorted() {
             if let abilityDict = json[name] as? DictionarySS,
                 let pokemon = abilityDict["pokemon"] {
                 let ability = Ability(name: name, pokemon: pokemon)
@@ -81,8 +79,6 @@ struct LoadData {
                 
             } else { print("Cannot parse ability:", name) }
         }
-        
-        if abilities.count > 1 { abilities = abilities.sorted(by: {$0.name < $1.name}) }
         
         return abilities
     }
@@ -92,7 +88,7 @@ struct LoadData {
         let json = itemJSON
         var items = [Item]()
         
-        for name in json.keys {
+        for name in json.keys.sorted() {
             if let itemDict = json[name] as? DictionarySS {
                 if let category = itemDict["category"] {
                     let item = Item(name: name, category: category)
@@ -101,9 +97,7 @@ struct LoadData {
                 
             } else { print("Cannot parse item:", name) }
         }
-        
-        if items.count > 1 { items = items.sorted(by: {$0.name < $1.name}) }
-        
+                
         return items
     }
     
