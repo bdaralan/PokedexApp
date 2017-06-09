@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum Unit: Int {
     case USCustomary
@@ -30,9 +31,7 @@ class SettingTVC: UITableViewController {
     @IBOutlet weak var measurementSC: UISegmentedControl!
     @IBOutlet weak var soundEffectSwitch: UISwitch!
     
-    var viewLauncher: ViewLauncher!
-    var textView: UITextView!
-    
+    var viewLauncher: ViewLauncher?
 
     
     
@@ -46,16 +45,11 @@ class SettingTVC: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewLauncher.dismiss()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        audioPlayer.play(audio: .save, forcePlay: true)
+        viewLauncher?.dismiss()
+        viewLauncher?.removeFromSuperview()
+        audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
     }
 
-    
     
     
     
@@ -82,16 +76,20 @@ class SettingTVC: UITableViewController {
             case.disclaimer:
                 audioPlayer.play(audio: .select)
                 let text = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
-                let textView = viewLauncher.makeTextView(withText: text)
-                viewLauncher.addSubview(textView)
-                viewLauncher.launch()
+                
+                if let textView = viewLauncher?.makeTextView(withText: text) {
+                    viewLauncher?.addSubview(textView)
+                    viewLauncher?.launch()
+                }
                 
             case .credits:
                 audioPlayer.play(audio: .select)
                 let text = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
-                let textView = viewLauncher.makeTextView(withText: text)
-                viewLauncher.addSubview(textView)
-                viewLauncher.launch()
+                
+                if let textView = viewLauncher?.makeTextView(withText: text) {
+                    viewLauncher?.addSubview(textView)
+                    viewLauncher?.launch()
+                }
                 
             default: ()
             }
@@ -130,7 +128,7 @@ class SettingTVC: UITableViewController {
         viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
         
         if let window = UIApplication.shared.keyWindow {
-            viewLauncher.setSuperview(window)
+            viewLauncher?.setSuperview(window)
         }
     }
 }

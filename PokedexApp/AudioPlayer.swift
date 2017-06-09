@@ -8,88 +8,59 @@
 
 import AVFoundation
 
-enum ResourceAudioFile: String {
-    case error = "error"
-    case openPC = "open-pc"
-    case save = "save"
-    case select = "select"
-}
-
-
 class AudioPlayer {
     
-    private var player = AVAudioPlayer()
+    private var pokemonCry: AVAudioPlayer!
     
-    private let cache = NSCache<AnyObject, AnyObject>()
+    private let error = AVAudioPlayer(resourceAudio: AVAudioPlayer.ResourceAudioFile.error)
     
-    private var soundEffectIsOn: Bool {
+    private let openPC = AVAudioPlayer(resourceAudio: AVAudioPlayer.ResourceAudioFile.openPC)
+    
+    private let save = AVAudioPlayer(resourceAudio: AVAudioPlayer.ResourceAudioFile.save)
+    
+    private let select = AVAudioPlayer(resourceAudio: AVAudioPlayer.ResourceAudioFile.select)
+    
+    private var isSoundEffectSettingOn: Bool {
+        
         return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
     }
     
-    var setting: AVAudioPlayer {
-        set { player = newValue }
-        get { return player }
+    
+    
+    func play(audio: AVAudioPlayer.ResourceAudioFile) {
+        
+        if isSoundEffectSettingOn || audio == .save {
+            
+            switch audio {
+                
+            case .select:
+                select.prepareToPlay()
+                select.play()
+                
+            case .openPC:
+                openPC.prepareToPlay()
+                openPC.play()
+                
+            case .save:
+                save.prepareToPlay()
+                save.play()
+                
+            case .error:
+                error.prepareToPlay()
+                error.play()
+            }
+        }
     }
     
-    
-    init() {
-        do { try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient) }
+    func play(audio: String, ofType type: String) {
+        
+        guard isSoundEffectSettingOn, let path = Bundle.main.path(forResource: audio, ofType: type) else { return }
+        
+        do { pokemonCry = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path)) }
         catch { print(error) }
-    }
-    
-    
-    
-    func play(audio: String, ofType type: String = "m4a", forcePlay: Bool = false) {
         
-        let cacheKey = "\(audio).\(type)"
+        pokemonCry.prepareToPlay()
+        pokemonCry.play()
         
-        
-        if self.soundEffectIsOn || forcePlay {
-            if let cachedPlayer = self.cache.object(forKey: cacheKey as AnyObject) as? AVAudioPlayer {
-                self.player = cachedPlayer
-                self.player.prepareToPlay()
-                self.player.play()
-                
-            } else {
-                DispatchQueue.main.async {
-                    if let path = Bundle.main.path(forResource: audio, ofType: type) {
-                        do {
-                            self.player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                        } catch { print(error) }
-                        
-                        self.player.prepareToPlay()
-                        self.player.play()
-                        
-                    } else {
-                        self.play(audio: .error)
-                    }
-                }
-            }
-        }
-    }
-    
-    func play(audio: ResourceAudioFile, forcePlay: Bool = false) {
-        
-        let cacheKey = "\(audio.rawValue).m4a"
-        
-        if self.soundEffectIsOn || forcePlay {
-            if let cachedAudio = self.cache.object(forKey: cacheKey as AnyObject) as? AVAudioPlayer {
-                self.player = cachedAudio
-                
-            } else {
-                DispatchQueue.main.async {
-                    if let path = Bundle.main.path(forResource: audio.rawValue, ofType: "m4a") {
-                        do {
-                            let player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                            self.cache.setObject(player, forKey: audio.rawValue as AnyObject)
-                            self.player = player
-                        } catch { print(error) }
-                    }
-                    
-                    self.player.prepareToPlay()
-                    self.player.play()
-                }
-            }
-        }
     }
 }

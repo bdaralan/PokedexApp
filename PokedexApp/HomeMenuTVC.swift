@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeMenuTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        do { try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient) }
+        catch { print(error) }
     }
     
     

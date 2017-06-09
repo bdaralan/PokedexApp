@@ -123,7 +123,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     @IBAction func cryBarBtnPressed(_ sender: Any) {
         
-        audioPlayer.play(audio: pokemon.crySound)
+        audioPlayer.play(audio: pokemon.crySound, ofType: "m4a")
     }
     
     
