@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LoadData {
+class LoadData {
     
     enum PokemonSortedOption {
         case id
@@ -103,7 +103,7 @@ struct LoadData {
     
     func allTypes() -> [String] {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {
             
             return types.sorted()
@@ -115,7 +115,7 @@ struct LoadData {
     
     var homeMenuSections: [String] {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let homeMenu = plist["HomeMenu"] as? DictionarySA, let sections = homeMenu["Sections"] as? [String] {
             
             return sections
@@ -126,7 +126,7 @@ struct LoadData {
     
     var homeMenuRowsInSections: [[String]] {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let homeMenu = plist["HomeMenu"] as? DictionarySA, let rowsInSection = homeMenu["RowsInSections"] as? [[String]] {
             
             return rowsInSection
@@ -137,7 +137,7 @@ struct LoadData {
     
     var settingSections: [String] {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let settingMenu = plist["SettingMenu"] as? DictionarySA, let sections = settingMenu["Sections"] as? [String] {
             
             return sections
@@ -148,7 +148,7 @@ struct LoadData {
     
     var settingRowsInSections: [[String]] {
      
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let settingMenu = plist["SettingMenu"] as? DictionarySA, let rowsInSections = settingMenu["RowsInSections"] as? [[String]] {
             
             return rowsInSections
@@ -159,7 +159,7 @@ struct LoadData {
     
     var pokemonTypes: [String] {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {
             
             return types
@@ -170,7 +170,7 @@ struct LoadData {
     
     var evolutionSpecialCaseForm: [String] {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let specialCaseForm = plist["EvolutionSpecialCaseForm"] as? [String] {
             
             return specialCaseForm
@@ -181,7 +181,7 @@ struct LoadData {
     
     var crySoundSpecialCaseName: DictionarySS {
         
-        let plist = loadDataFromFile(name: "constants", ofType: "plist")
+        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
         if let specialCaseName = plist["CrySoundSpecialCaseName"] as? DictionarySS {
             
             return specialCaseName
@@ -197,55 +197,60 @@ extension LoadData {
     
     var pokemonsJSON: DictionarySA {
         
-        return loadDataFromFile(name: "pokemons", ofType: "json")
+        return LoadData.load(fromFile: "pokemons", ofType: "json")
     }
     
     var abilitiesJSON: DictionarySA {
         
-        return loadDataFromFile(name: "abilities", ofType: "json")
+        return LoadData.load(fromFile: "abilities", ofType: "json")
     }
     
     var pokemonAbilitiesJSON: DictionarySA {
         
-        return loadDataFromFile(name: "pokemon-abilities", ofType: "json")
+        return LoadData.load(fromFile: "pokemon-abilities", ofType: "json")
     }
     
     var measurementsJSON: DictionarySA {
         
-        return loadDataFromFile(name: "measurements", ofType: "json")
+        return LoadData.load(fromFile: "measurements", ofType: "json")
     }
     
     var weaknessesJSON: DictionarySA {
         
-        return loadDataFromFile(name: "weaknesses", ofType: "json")
+        return LoadData.load(fromFile: "weaknesses", ofType: "json")
     }
     
     var pokedexEntriesJSON: DictionarySA {
         
-        return loadDataFromFile(name: "pokedex-enteries", ofType: "json")
+        return LoadData.load(fromFile: "pokedex-enteries", ofType: "json")
     }
     
     var movesJSON: DictionarySA {
         
-        return loadDataFromFile(name: "moves", ofType: "json")
+        return LoadData.load(fromFile: "moves", ofType: "json")
     }
     
     var pokemonLearnMovesJSON: DictionarySA {
         
-        return loadDataFromFile(name: "pokemon-learn-moves", ofType: "json")
+        return LoadData.load(fromFile: "pokemon-learn-moves", ofType: "json")
     }
     
     var evolutionJSON: DictionarySA {
         
-        return loadDataFromFile(name: "evolutions", ofType: "json")
+        return LoadData.load(fromFile: "evolutions", ofType: "json")
     }
     
     var itemJSON: DictionarySA {
         
-        return loadDataFromFile(name: "items", ofType: "json")
+        return LoadData.load(fromFile: "items", ofType: "json")
     }
+}
+
+
+
+extension LoadData {
     
-    func loadDataFromFile(name: String, ofType type: String) -> DictionarySA {
+    static func load(fromFile name: String, ofType type: String) -> DictionarySA {
         
         if let path = Bundle.main.path(forResource: name, ofType: type), let data = NSData(contentsOfFile: path) as Data? {
             do {

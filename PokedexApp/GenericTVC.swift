@@ -52,8 +52,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewLauncher?.removeFromSuperview()
-        //if indexPath != nil { viewLauncher?.dismiss() }
+        if indexPath != nil { viewLauncher?.dismiss() }
     }
     
     

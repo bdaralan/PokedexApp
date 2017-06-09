@@ -9,33 +9,20 @@
 import UIKit
 
 class ItemCell: UITableViewCell {
-
-    @IBOutlet weak var rhsLbl: UILabel!
-    @IBOutlet weak var lhsLbl: UILabel!
-    
-    weak var item: Item!
     
     func configureCell(item: Item) {
         
-        self.item = item
-        
-        self.lhsLbl.text = self.item.name
-        self.rhsLbl.text = self.item.category
+        self.textLabel?.text = item.name
+        self.detailTextLabel?.text = item.category
     }
     
     func configureCell(tm: Item) {
         
-        self.item = tm
-        
-        self.lhsLbl.text = self.item.name
-        self.rhsLbl.isHidden = true
+        self.textLabel?.text = tm.name
     }
     
     func configureCell(berry: Item) {
         
-        self.item = berry
-        
-        self.lhsLbl.text = self.item.name
-        self.rhsLbl.isHidden = true
+        self.textLabel?.text = berry.name
     }
 }

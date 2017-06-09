@@ -10,6 +10,8 @@ import UIKit
 
 struct Constant {
     
+    static private let loadData = LoadData()
+    
     static let movesJSON: DictionarySA = loadData.movesJSON
     
     static let pokemonLearnMoveJSON: DictionarySA = loadData.pokemonLearnMovesJSON

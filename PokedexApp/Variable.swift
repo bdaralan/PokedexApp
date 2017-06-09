@@ -17,23 +17,23 @@ let globalCache = NSCache<AnyObject, AnyObject>()
 
 let audioPlayer = AudioPlayer()
 
-let loadData = LoadData()
-
 let VARIABLE = Variable()
 
 
 
 class Variable {
     
-    lazy var allPokemonsSortedById: Array<Pokemon> = loadData.allPokemons(by: .id)
+    static private let loadData = LoadData()
     
-    lazy var allPokemonsSortedByName: Array<Pokemon> = loadData.allPokemons(by: .name)
+    lazy var allPokemonsSortedById: [Pokemon] = loadData.allPokemons(by: .id)
     
-    lazy var allTypes: Array<String> = loadData.allTypes()
+    lazy var allPokemonsSortedByName: [Pokemon] = loadData.allPokemons(by: .name)
     
-    lazy var allMoves: Array<Move> = loadData.allMoves()
+    lazy var allTypes: [String] = loadData.allTypes()
     
-    lazy var allAbilities: Array<Ability> = loadData.allAbilities()
+    lazy var allMoves: [Move] = loadData.allMoves()
     
-    lazy var allItems: Array<Item> = loadData.allItems()
+    lazy var allAbilities: [Ability] = loadData.allAbilities()
+    
+    lazy var allItems: [Item] = loadData.allItems()
 }

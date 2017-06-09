@@ -46,7 +46,6 @@ class SettingTVC: UITableViewController {
         super.viewWillDisappear(animated)
         
         viewLauncher?.dismiss()
-        viewLauncher?.removeFromSuperview()
         audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
     }
 
