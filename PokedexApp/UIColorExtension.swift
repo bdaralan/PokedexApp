@@ -135,7 +135,7 @@ extension UIColor {
     
     struct AppObject {
         
-        // For custom app objects
+        // For custom objects in app
         
         static let sectionBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
         
@@ -143,7 +143,7 @@ extension UIColor {
         
         
         
-        // For default app objects
+        // For default objects in app
         
         static let navigationBar = UIColor.clear
         

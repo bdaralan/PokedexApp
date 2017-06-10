@@ -861,6 +861,7 @@
 		53D558BF1ECCBACC0029BB78 /* MoveDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D558BE1ECCBACC0029BB78 /* MoveDetailCell.swift */; };
 		53D74A131EA9349900A6D591 /* MoveDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A121EA9349900A6D591 /* MoveDetailTVC.swift */; };
 		53D74A151EA943D500A6D591 /* CircleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A141EA943D500A6D591 /* CircleUILabel.swift */; };
+		53E5F3061EEC9D99000B4332 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5F3051EEC9D99000B4332 /* Animatable.swift */; };
 		53ECA7071EA1EA3100964977 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7061EA1EA3100964977 /* Move.swift */; };
 		53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA70A1EA2719600964977 /* MoveCell.swift */; };
 		53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7141EA2FA2E00964977 /* AbilityCell.swift */; };
@@ -1732,6 +1733,7 @@
 		53D558BE1ECCBACC0029BB78 /* MoveDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveDetailCell.swift; sourceTree = "<group>"; };
 		53D74A121EA9349900A6D591 /* MoveDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveDetailTVC.swift; sourceTree = "<group>"; };
 		53D74A141EA943D500A6D591 /* CircleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleUILabel.swift; sourceTree = "<group>"; };
+		53E5F3051EEC9D99000B4332 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 		53ECA7061EA1EA3100964977 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		53ECA70A1EA2719600964977 /* MoveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCell.swift; sourceTree = "<group>"; };
 		53ECA7141EA2FA2E00964977 /* AbilityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityCell.swift; sourceTree = "<group>"; };
@@ -2636,6 +2638,7 @@
 				53CF3DE31E8A27000073A516 /* Model */,
 				53CF3DE51E8A27090073A516 /* Controller */,
 				53CF3DEE1E8A28D10073A516 /* Utilities */,
+				53E5F3041EEC9D7A000B4332 /* Protocol */,
 				53DD46B41EC19D71002FA5C5 /* Extensions */,
 				53CF3DF11E8A29450073A516 /* Constants */,
 				5389C1FD1E8EFD02001594B0 /* Resources */,
@@ -2726,6 +2729,14 @@
 				5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		53E5F3041EEC9D7A000B4332 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				53E5F3051EEC9D99000B4332 /* Animatable.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3634,6 +3645,7 @@
 				536095B81E970E1B00D2F2FC /* UIColorExtension.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,
+				53E5F3061EEC9D99000B4332 /* Animatable.swift in Sources */,
 				53CF3DED1E8A284A0073A516 /* Pokemon.swift in Sources */,
 				53D236871EC4447900BF9504 /* MoveDetailUITextView.swift in Sources */,
 				538F963F1EA479AE005E63FB /* RoundUISegmentedControl.swift in Sources */,
