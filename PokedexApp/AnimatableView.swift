@@ -8,24 +8,51 @@
 
 import UIKit
 
-class AnimatableView: UIView {
+class AnimatableView: UIView, CAAnimationDelegate {
     
     var animationDuration: TimeInterval = 0.5
+    
     var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+    
     var autoreverses = false
-
+    
+    var fromValue: NSValue!
+    
+    var toValue: NSValue!
+    
+    var swipeToDismissDirection: UISwipeGestureRecognizerDirection {
+        
+        if fromValue.cgPointValue.x < toValue.cgPointValue.x { //swipe left
+            return UISwipeGestureRecognizerDirection.left
+            
+        } else if fromValue.cgPointValue.x > toValue.cgPointValue.x { //swipe right
+            return UISwipeGestureRecognizerDirection.right
+            
+        } else if fromValue.cgPointValue.y < toValue.cgPointValue.y { //swipe up
+            return UISwipeGestureRecognizerDirection.up
+            
+        } else if fromValue.cgPointValue.y > toValue.cgPointValue.y { //swipt down
+            return UISwipeGestureRecognizerDirection.down
+            
+        } else { //default: swipe up
+            return UISwipeGestureRecognizerDirection.up
+        }
+    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.backgroundColor = UIColor.white
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 0.2
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        awakeFromNib()
+        self.awakeFromNib()
+        self.layer.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,24 +61,56 @@ class AnimatableView: UIView {
     
     
     
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.removeFromSuperview()
+        print("removeFromSuperview")
+    }
+    
+    
+    
     func animatePosition(fromValue: NSValue, toValue: NSValue) {
         
+        self.fromValue = fromValue
+        self.toValue = toValue
+        
         DispatchQueue.global(qos: .default).sync {
-            let animation: CABasicAnimation = {
-                let animation = CABasicAnimation(keyPath: "position")
-                animation.timingFunction = timingFunction
-                animation.duration = animationDuration
-                animation.autoreverses = autoreverses
-                animation.fromValue = fromValue
-                animation.toValue = toValue
-                
-                return animation
-            }()
             
+            let animation = createAnimation(fromValue: fromValue, toValue: toValue)
+            
+            let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(_:)))
+            dismissGesture.direction = swipeToDismissDirection
+            self.addGestureRecognizer(dismissGesture)
+            self.isUserInteractionEnabled = true
+            
+            
+            // Add animation
             DispatchQueue.main.async {
                 self.layer.add(animation, forKey: "position")
             }
         }
+    }
+    
+    func createAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.timingFunction = timingFunction
+        animation.duration = animationDuration
+        animation.autoreverses = autoreverses
+        animation.fromValue = fromValue
+        animation.toValue = toValue
+        
+        return animation
+    }
+    
+    func dismiss(_ sender: UISwipeGestureRecognizer) {
+        
+        let animation = createAnimation(fromValue: toValue, toValue: fromValue)
+        self.layer.add(animation, forKey: "position")
+        self.center = fromValue.cgPointValue
+    }
+    
+    func getBlackView() {
+        
     }
 }
 
@@ -60,6 +119,7 @@ class AnimatableView: UIView {
 extension AnimatableView {
     
     convenience init(pokemonWeaknesses pokemon: Pokemon) {
+        
         self.init(frame: Constant.Constrain.frameUnderNavController)
         
         let spacing = Constant.Constrain.spacing
@@ -118,12 +178,16 @@ extension AnimatableView {
     }
     
     convenience init(pokedexEntry pokemon: Pokemon) {
-        self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
+        self.init(frame: Constant.Constrain.frameUnderNavController)
         
         let margin = Constant.Constrain.margin
+        let spacing = Constant.Constrain.spacing
+        let width = self.frame.width - margin * 2
+        let height = self.frame.height
         
         let textView: UITextView = {
-            let textView = UITextView(frame: CGRect(x: margin, y: 8, width: 0, height: 0))
+            let textView = UITextView(frame: CGRect(x: margin, y: spacing, width: width, height: height))
             textView.font = Constant.Font.appleSDGothicNeoRegular
             textView.isScrollEnabled = false
             textView.isEditable = false
@@ -134,9 +198,8 @@ extension AnimatableView {
         textView.text = pokemon.pokedexEntry
         textView.sizeToFit()
         
-        guard let windowFrame = UIApplication.shared.keyWindow?.frame else { return }
-        self.frame.size.width = windowFrame.width
-        self.frame.size.height = textView.frame.height
+        self.frame.size.height = textView.frame.height + spacing
+        
         self.addSubview(textView)
     }
 }

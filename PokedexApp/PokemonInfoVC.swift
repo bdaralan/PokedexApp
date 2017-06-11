@@ -395,19 +395,14 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 if sender.state == .began {
                     weaknessesSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
                 } else if sender.state == .ended {
-                    audioPlayer.play(audio: .select)
                     weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
-                    
-                    print("beore guard")
-                    guard let navControllerFrame = navigationController?.view.frame else { return }
-                    print("after guard")
+                    audioPlayer.play(audio: .select)
+        
                     let weaknessesView = AnimatableView(pokemonWeaknesses: pokemon)
+                    self.view.insertSubview(weaknessesView, belowSubview: self.view)
                     
-                    weaknessesView.frame.origin.y = navControllerFrame.origin.y + navControllerFrame.height
-                    self.view.addSubview(weaknessesView)
-                    
-                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x, y: weaknessesView.center.y))
-                    let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: self.view.center.y))
+                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x, y: -weaknessesView.center.y))
+                    let toValue = NSValue(cgPoint: weaknessesView.center)
                     
                     weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue)
                 }
@@ -416,13 +411,16 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 if sender.state == .began {
                     pokedexEnterySectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
                 } else if sender.state == .ended  {
-                    audioPlayer.play(audio: .select)
                     pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
-                    if viewLauncher.isIdle {
-                        let pokedexEntryTextView = viewLauncher.makeTextView(withText: pokemon.pokedexEntry)
-                        viewLauncher.addSubview(pokedexEntryTextView)
-                        viewLauncher.launch()
-                    }
+                    audioPlayer.play(audio: .select)
+                    
+                    let pokedexEnteryView = AnimatableView(pokedexEntry: pokemon)
+                    self.view.insertSubview(pokedexEnteryView, belowSubview: self.view)
+                    
+                    let fromValue = NSValue(cgPoint: CGPoint(x: pokedexEnteryView.center.x, y: -pokedexEnteryView.center.y))
+                    let toValue = NSValue(cgPoint: pokedexEnteryView.center)
+                    
+                    pokedexEnteryView.animatePosition(fromValue: fromValue, toValue: toValue)
                 }
                 
             default: ()

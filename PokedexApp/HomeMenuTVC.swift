@@ -21,27 +21,27 @@ class HomeMenuTVC: UITableViewController {
         
         //TEST CODE HERE...
         
-        let pokemon = VARIABLE.allPokemonsSortedById[0]
-        
-        let weaknessView = AnimatableView(pokemonWeaknesses: pokemon)
-        
-        self.navigationController?.view.insertSubview(weaknessView, belowSubview: self.navigationController!.navigationBar)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(animate))
-        weaknessView.addGestureRecognizer(tapGesture)
+//        let pokemon = VARIABLE.allPokemonsSortedById[0]
+//        
+//        let weaknessView = AnimatableView(pokemonWeaknesses: pokemon)
+//        
+//        self.navigationController?.view.insertSubview(weaknessView, belowSubview: self.navigationController!.navigationBar)
+//        
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(animate))
+//        weaknessView.addGestureRecognizer(tapGesture)
         
         
         
     }
     
-    func animate(_ sender: UITapGestureRecognizer) {
-        
-        guard let view = sender.view as? AnimatableView else { return }
-        let fromValue = NSValue(cgPoint: CGPoint(x: view.center.x, y: -view.frame.height))
-        let toValue = NSValue(cgPoint: view.center)
-        
-        view.animatePosition(fromValue: fromValue, toValue: toValue)
-    }
+//    func animate(_ sender: UITapGestureRecognizer) {
+//        
+//        guard let view = sender.view as? AnimatableView else { return }
+//        let fromValue = NSValue(cgPoint: CGPoint(x: view.center.x, y: -view.frame.height))
+//        let toValue = NSValue(cgPoint: view.center)
+//        
+//        view.animatePosition(fromValue: fromValue, toValue: toValue)
+//    }
     
     
     deinit { print("deinit", self) }
