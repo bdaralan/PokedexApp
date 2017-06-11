@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */; };
-		5334E2921EC7AF2100F77861 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334E2911EC7AF2000F77861 /* UIViewExtension.swift */; };
 		533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* GenericTVC.swift */; };
 		5340F8601EDBB4DD00FFAA83 /* pokemon-learn-moves.json in Resources */ = {isa = PBXBuildFile; fileRef = 5340F85F1EDBB4DD00FFAA83 /* pokemon-learn-moves.json */; };
 		5354F14F1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */; };
@@ -839,6 +838,7 @@
 		536E03CF1EBAF9C7003020D7 /* save.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 536E03CE1EBAF9C7003020D7 /* save.m4a */; };
 		536F34F81EE6694E0022215E /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536F34F71EE6694E0022215E /* Variable.swift */; };
 		537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */; };
+		538E6C091EED89BD007C0633 /* AnimatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E6C081EED89BD007C0633 /* AnimatableView.swift */; };
 		538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963A1EA3D7C0005E63FB /* SettingTVC.swift */; };
 		538F963F1EA479AE005E63FB /* RoundUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */; };
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
@@ -861,7 +861,6 @@
 		53D558BF1ECCBACC0029BB78 /* MoveDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D558BE1ECCBACC0029BB78 /* MoveDetailCell.swift */; };
 		53D74A131EA9349900A6D591 /* MoveDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A121EA9349900A6D591 /* MoveDetailTVC.swift */; };
 		53D74A151EA943D500A6D591 /* CircleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D74A141EA943D500A6D591 /* CircleUILabel.swift */; };
-		53E5F3061EEC9D99000B4332 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5F3051EEC9D99000B4332 /* Animatable.swift */; };
 		53ECA7071EA1EA3100964977 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7061EA1EA3100964977 /* Move.swift */; };
 		53ECA70B1EA2719600964977 /* MoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA70A1EA2719600964977 /* MoveCell.swift */; };
 		53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7141EA2FA2E00964977 /* AbilityCell.swift */; };
@@ -878,7 +877,6 @@
 
 /* Begin PBXFileReference section */
 		532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsUIProgressView.swift; sourceTree = "<group>"; };
-		5334E2911EC7AF2000F77861 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		533A78811E9FDA6100554F7F /* GenericTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTVC.swift; sourceTree = "<group>"; };
 		5340F85F1EDBB4DD00FFAA83 /* pokemon-learn-moves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokemon-learn-moves.json"; sourceTree = "<group>"; };
 		5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerExtension.swift; sourceTree = "<group>"; };
@@ -1709,6 +1707,7 @@
 		536EFFFF1EBAD660003020D7 /* 656-Froakie.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "656-Froakie.m4a"; sourceTree = "<group>"; };
 		536F34F71EE6694E0022215E /* Variable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		537F1A1C1E8A422F009D0400 /* HomeMenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMenuTVC.swift; sourceTree = "<group>"; };
+		538E6C081EED89BD007C0633 /* AnimatableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableView.swift; sourceTree = "<group>"; };
 		538F963A1EA3D7C0005E63FB /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundUISegmentedControl.swift; sourceTree = "<group>"; };
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
@@ -1733,7 +1732,6 @@
 		53D558BE1ECCBACC0029BB78 /* MoveDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveDetailCell.swift; sourceTree = "<group>"; };
 		53D74A121EA9349900A6D591 /* MoveDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveDetailTVC.swift; sourceTree = "<group>"; };
 		53D74A141EA943D500A6D591 /* CircleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleUILabel.swift; sourceTree = "<group>"; };
-		53E5F3051EEC9D99000B4332 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 		53ECA7061EA1EA3100964977 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		53ECA70A1EA2719600964977 /* MoveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCell.swift; sourceTree = "<group>"; };
 		53ECA7141EA2FA2E00964977 /* AbilityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityCell.swift; sourceTree = "<group>"; };
@@ -2683,6 +2681,7 @@
 				538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */,
 				532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */,
 				5391B8561EADB1A40090634F /* RIOUILabel.swift */,
+				538E6C081EED89BD007C0633 /* AnimatableView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2723,7 +2722,6 @@
 		53DD46B41EC19D71002FA5C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5334E2911EC7AF2000F77861 /* UIViewExtension.swift */,
 				53D2367E1EC433EB00BF9504 /* UILabelExtension.swift */,
 				536095B71E970E1B00D2F2FC /* UIColorExtension.swift */,
 				5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */,
@@ -2734,7 +2732,6 @@
 		53E5F3041EEC9D7A000B4332 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				53E5F3051EEC9D99000B4332 /* Animatable.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -3645,7 +3642,6 @@
 				536095B81E970E1B00D2F2FC /* UIColorExtension.swift in Sources */,
 				536095BC1E9711AD00D2F2FC /* TypeUILabel.swift in Sources */,
 				538F963B1EA3D7C0005E63FB /* SettingTVC.swift in Sources */,
-				53E5F3061EEC9D99000B4332 /* Animatable.swift in Sources */,
 				53CF3DED1E8A284A0073A516 /* Pokemon.swift in Sources */,
 				53D236871EC4447900BF9504 /* MoveDetailUITextView.swift in Sources */,
 				538F963F1EA479AE005E63FB /* RoundUISegmentedControl.swift in Sources */,
@@ -3666,7 +3662,6 @@
 				53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */,
 				53CF3DF31E8A29580073A516 /* Constant.swift in Sources */,
 				53B988FD1ECC1B4C002551D1 /* AbilityDetailTVC.swift in Sources */,
-				5334E2921EC7AF2100F77861 /* UIViewExtension.swift in Sources */,
 				536F34F81EE6694E0022215E /* Variable.swift in Sources */,
 				532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */,
 				536E03CC1EBAE6BB003020D7 /* AudioPlayer.swift in Sources */,
@@ -3676,6 +3671,7 @@
 				53CF3DD21E8A26E50073A516 /* AppDelegate.swift in Sources */,
 				53D2367F1EC433EB00BF9504 /* UILabelExtension.swift in Sources */,
 				536095B61E96F98900D2F2FC /* Ability.swift in Sources */,
+				538E6C091EED89BD007C0633 /* AnimatableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

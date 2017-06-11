@@ -1,20 +1,66 @@
 //
-//  UIViewExtension.swift
+//  AnimatableView.swift
 //  PokedexApp
 //
-//  Created by Dara on 5/13/17.
+//  Created by Dara on 6/11/17.
 //  Copyright © 2017 iDara09. All rights reserved.
 //
 
 import UIKit
 
-extension UIView: Animatable {}
+class AnimatableView: UIView {
+    
+    var animationDuration: TimeInterval = 0.5
+    var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+    var autoreverses = false
+
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.backgroundColor = UIColor.white
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        awakeFromNib()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    
+    
+    func animatePosition(fromValue: NSValue, toValue: NSValue) {
+        
+        DispatchQueue.global(qos: .default).sync {
+            let animation: CABasicAnimation = {
+                let animation = CABasicAnimation(keyPath: "position")
+                animation.timingFunction = timingFunction
+                animation.duration = animationDuration
+                animation.autoreverses = autoreverses
+                animation.fromValue = fromValue
+                animation.toValue = toValue
+                
+                return animation
+            }()
+            
+            DispatchQueue.main.async {
+                self.layer.add(animation, forKey: "position")
+            }
+        }
+    }
+}
 
 
-extension UIView {
+
+extension AnimatableView {
     
     convenience init(pokemonWeaknesses pokemon: Pokemon) {
-        self.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        self.init(frame: Constant.Constrain.frameUnderNavController)
         
         let spacing = Constant.Constrain.spacing
         let margin = Constant.Constrain.margin
@@ -67,10 +113,6 @@ extension UIView {
             y += typeLabel.frame.height + spacing
             self.frame.size.height = y
         }
-        
-        guard let windowFrame = UIApplication.shared.keyWindow?.frame else { return }
-        self.frame.size.width = windowFrame.width
-        self.frame.origin.x = windowFrame.width
         
         for label in weaknessLabels { self.addSubview(label) }
     }

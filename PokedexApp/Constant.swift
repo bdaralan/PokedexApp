@@ -66,5 +66,19 @@ struct Constant {
         static let spcingView: CGFloat = 29
         
         static let sectionHeaderViewHeight: CGFloat = 45
+        
+        static let frameUnderNavController: CGRect = {
+            
+            var rect = CGRect(x: 0, y: 0, width: 64, height: 64)
+            
+            guard let windowFrame = UIApplication.shared.keyWindow?.frame else { return rect }
+            let statusBarFrame = UIApplication.shared.statusBarFrame
+            rect.size.width = windowFrame.width
+            rect.size.height = 64
+            rect.origin.x = 0
+            rect.origin.y = statusBarFrame.origin.y + statusBarFrame.height + UINavigationController().navigationBar.frame.height
+            
+            return rect
+        }()
     }
 }

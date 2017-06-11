@@ -401,7 +401,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                     print("beore guard")
                     guard let navControllerFrame = navigationController?.view.frame else { return }
                     print("after guard")
-                    let weaknessesView = UIView(pokemonWeaknesses: pokemon)
+                    let weaknessesView = AnimatableView(pokemonWeaknesses: pokemon)
                     
                     weaknessesView.frame.origin.y = navControllerFrame.origin.y + navControllerFrame.height
                     self.view.addSubview(weaknessesView)
@@ -409,7 +409,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                     let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x, y: weaknessesView.center.y))
                     let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: self.view.center.y))
                     
-                    weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue, duration: 0.5, autoreverses: false, remainAtToValue: true)
+                    weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue)
                 }
                 
             case pokedexEnterySectionLbl:
