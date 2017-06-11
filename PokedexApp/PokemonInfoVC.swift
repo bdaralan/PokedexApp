@@ -414,7 +414,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                     pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
                     audioPlayer.play(audio: .select)
                     
-                    let pokedexEnteryView = AnimatableView(pokedexEntry: pokemon)
+                    let pokedexEnteryView = AnimatableView(text: pokemon.pokedexEntry)
                     self.view.insertSubview(pokedexEnteryView, belowSubview: self.view)
                     self.view.insertSubview(pokedexEnteryView.dimView, belowSubview: pokedexEnteryView)
                     

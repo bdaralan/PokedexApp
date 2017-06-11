@@ -30,8 +30,6 @@ class SettingTVC: UITableViewController {
     
     @IBOutlet weak var measurementSC: UISegmentedControl!
     @IBOutlet weak var soundEffectSwitch: UISwitch!
-    
-    var viewLauncher: ViewLauncher?
 
     
     
@@ -39,13 +37,11 @@ class SettingTVC: UITableViewController {
         super.viewDidLoad()
         
         loadSettingFromUserDefaults()
-        configureViewLauncher()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewLauncher?.dismiss()
         audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
     }
 
@@ -76,19 +72,28 @@ class SettingTVC: UITableViewController {
                 audioPlayer.play(audio: .select)
                 let text = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
                 
-                if let textView = viewLauncher?.makeTextView(withText: text) {
-                    viewLauncher?.addSubview(textView)
-                    viewLauncher?.launch()
-                }
+                guard let navBar = self.navigationController?.navigationBar else { return }
+                let disclaimerView = AnimatableView(text: text)
+                self.navigationController?.view.insertSubview(disclaimerView, belowSubview: navBar)
+                self.navigationController?.view.insertSubview(disclaimerView.dimView, belowSubview: disclaimerView)
+                
+                let fromValue = NSValue(cgPoint: CGPoint(x: disclaimerView.center.x * 3, y: disclaimerView.center.y))
+                let toValue = NSValue(cgPoint: disclaimerView.center)
+                disclaimerView.animatePosition(fromValue: fromValue, toValue: toValue)
+                
                 
             case .credits:
                 audioPlayer.play(audio: .select)
                 let text = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
                 
-                if let textView = viewLauncher?.makeTextView(withText: text) {
-                    viewLauncher?.addSubview(textView)
-                    viewLauncher?.launch()
-                }
+                guard let navBar = self.navigationController?.navigationBar else { return }
+                let creditView = AnimatableView(text: text)
+                self.navigationController?.view.insertSubview(creditView, belowSubview: navBar)
+                self.navigationController?.view.insertSubview(creditView.dimView, belowSubview: creditView)
+                
+                let fromValue = NSValue(cgPoint: CGPoint(x: creditView.center.x * 3, y: creditView.center.y))
+                let toValue = NSValue(cgPoint: creditView.center)
+                creditView.animatePosition(fromValue: fromValue, toValue: toValue)
                 
             default: ()
             }
@@ -120,14 +125,5 @@ class SettingTVC: UITableViewController {
         
         measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: Constant.Key.Setting.measurementSCSelectedIndex)
         soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
-    }
-    
-    func configureViewLauncher() {
-        
-        viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
-        
-        if let window = UIApplication.shared.keyWindow {
-            viewLauncher?.setSuperview(window)
-        }
     }
 }

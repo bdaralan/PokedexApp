@@ -41,6 +41,8 @@ class AnimatableView: UIView, CAAnimationDelegate {
         }
     }
     
+    private var shadowOpacity: Float = 0.3
+    
     
     
     override func awakeFromNib() {
@@ -48,16 +50,16 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         self.backgroundColor = UIColor.white
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowOpacity = 0.3
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.awakeFromNib()
-        self.layer.delegate = self
-        
         self.dimView = initDimView()
+        
+        //self.layer.delegate = self
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -78,26 +80,27 @@ class AnimatableView: UIView, CAAnimationDelegate {
         self.fromValue = fromValue
         self.toValue = toValue
         
-        DispatchQueue.global(qos: .default).sync {
+        self.layer.shadowOpacity = self.shadowOpacity
+        self.dimView.layer.shadowOpacity = self.shadowOpacity
+        
+        //DispatchQueue.main.async {
             
-            // elf
-            let animation = createPositionAnimation(fromValue: fromValue, toValue: toValue)
+            // self
+            let animation = self.createPositionAnimation(fromValue: fromValue, toValue: toValue)
             
-            let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleDismiss))
-            dismissGesture.direction = swipeToDismissDirection
+            let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.handleDismiss))
+            dismissGesture.direction = self.swipeToDismissDirection
             self.addGestureRecognizer(dismissGesture)
             self.isUserInteractionEnabled = true
             
             // self.dimView
-            let dimAnimation = createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
+            let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
             // Add animation
-            DispatchQueue.main.async {
-                self.layer.add(animation, forKey: "position")
-                self.dimView.layer.add(dimAnimation, forKey: "opacity")
-                self.dimView.alpha = 1
-            }
-        }
+            self.layer.add(animation, forKey: "position")
+            self.dimView.layer.add(dimAnimation, forKey: "opacity")
+            self.dimView.alpha = 1
+        //}
     }
     
     func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
@@ -131,11 +134,13 @@ class AnimatableView: UIView, CAAnimationDelegate {
         let animation = createPositionAnimation(fromValue: toValue, toValue: fromValue)
         self.layer.add(animation, forKey: "position")
         self.center = fromValue.cgPointValue
+        self.layer.shadowOpacity = 0
         
         // self.dimView
         let dimAnimation = createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
         self.dimView.layer.add(dimAnimation, forKey: "opacity")
         self.dimView.alpha = 0
+        self.dimView.layer.shadowOpacity = 0
     }
     
     ///: Initialize self.dimView. Must be called before `self` is initialize
@@ -224,7 +229,7 @@ extension AnimatableView {
         for label in weaknessLabels { self.addSubview(label) }
     }
     
-    convenience init(pokedexEntry pokemon: Pokemon) {
+    convenience init(text: String) {
         
         self.init(frame: Constant.Constrain.frameUnderNavController)
         
@@ -242,7 +247,7 @@ extension AnimatableView {
             return textView
         }()
         
-        textView.text = pokemon.pokedexEntry
+        textView.text = text
         textView.sizeToFit()
         
         self.frame.size.height = textView.frame.height + spacing
