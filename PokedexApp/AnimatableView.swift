@@ -6,6 +6,14 @@
 //  Copyright © 2017 iDara09. All rights reserved.
 //
 
+
+/*
+// TODO: - remove self and self.dimView from superview after dismissed
+    
+    # Issues:
+        - animationDidStop does not get called
+*/
+ 
 import UIKit
 
 class AnimatableView: UIView, CAAnimationDelegate {
