@@ -67,11 +67,20 @@ struct Constant {
         
         static let sectionHeaderViewHeight: CGFloat = 45
         
+        static let keyWindowFrame: CGRect = {
+            
+            guard let keyWindowFrame = UIApplication.shared.keyWindow?.frame else {
+                fatalError("Cannot get keyWindow from UIApplication shared instance")
+            }
+            
+            return keyWindowFrame
+        }()
+        
         static let frameUnderNavController: CGRect = {
             
             var rect = CGRect(x: 0, y: 0, width: 64, height: 64)
             
-            guard let windowFrame = UIApplication.shared.keyWindow?.frame else { return rect }
+            let windowFrame = keyWindowFrame
             let statusBarFrame = UIApplication.shared.statusBarFrame
             rect.size.width = windowFrame.width
             rect.size.height = 64

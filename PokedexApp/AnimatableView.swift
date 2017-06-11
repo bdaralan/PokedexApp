@@ -10,6 +10,8 @@ import UIKit
 
 class AnimatableView: UIView, CAAnimationDelegate {
     
+    var dimView: UIView!
+    
     var animationDuration: TimeInterval = 0.5
     
     var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
@@ -40,12 +42,13 @@ class AnimatableView: UIView, CAAnimationDelegate {
     }
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.backgroundColor = UIColor.white
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOpacity = 0.3
     }
     
     override init(frame: CGRect) {
@@ -53,6 +56,8 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         self.awakeFromNib()
         self.layer.delegate = self
+        
+        self.dimView = initDimView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -75,22 +80,27 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         DispatchQueue.global(qos: .default).sync {
             
-            let animation = createAnimation(fromValue: fromValue, toValue: toValue)
+            // elf
+            let animation = createPositionAnimation(fromValue: fromValue, toValue: toValue)
             
-            let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(_:)))
+            let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleDismiss))
             dismissGesture.direction = swipeToDismissDirection
             self.addGestureRecognizer(dismissGesture)
             self.isUserInteractionEnabled = true
             
+            // self.dimView
+            let dimAnimation = createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
             // Add animation
             DispatchQueue.main.async {
                 self.layer.add(animation, forKey: "position")
+                self.dimView.layer.add(dimAnimation, forKey: "opacity")
+                self.dimView.alpha = 1
             }
         }
     }
     
-    func createAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
+    func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
         
         let animation = CABasicAnimation(keyPath: "position")
         animation.timingFunction = timingFunction
@@ -102,15 +112,52 @@ class AnimatableView: UIView, CAAnimationDelegate {
         return animation
     }
     
-    func dismiss(_ sender: UISwipeGestureRecognizer) {
+    func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
         
-        let animation = createAnimation(fromValue: toValue, toValue: fromValue)
-        self.layer.add(animation, forKey: "position")
-        self.center = fromValue.cgPointValue
+        let animation = CAKeyframeAnimation(keyPath: "opacity")
+        animation.duration = animationDuration
+        animation.values = values
+        animation.keyTimes = keyTimes
+        
+        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunctions = [timingFunction, timingFunction, timingFunction]
+        
+        return animation
     }
     
-    func getBlackView() {
+    func handleDismiss() {
         
+        // self
+        let animation = createPositionAnimation(fromValue: toValue, toValue: fromValue)
+        self.layer.add(animation, forKey: "position")
+        self.center = fromValue.cgPointValue
+        
+        // self.dimView
+        let dimAnimation = createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
+        self.dimView.layer.add(dimAnimation, forKey: "opacity")
+        self.dimView.alpha = 0
+    }
+    
+    ///: Initialize self.dimView. Must be called before `self` is initialize
+    func initDimView() -> UIView {
+        
+        let dimView: UIView = {
+            let x = self.frame.origin.x
+            let y = Constant.Constrain.frameUnderNavController.origin.y
+            let width = self.frame.width
+            let height = Constant.Constrain.keyWindowFrame.height - y
+            
+            let view = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
+            view.backgroundColor = UIColor(white: 0, alpha: 0.1)
+            
+            return view
+        }()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
+        dimView.addGestureRecognizer(tapGesture)
+        dimView.isUserInteractionEnabled = true
+        
+        return dimView
     }
 }
 
