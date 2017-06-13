@@ -20,7 +20,7 @@ enum GenericCell: String {
 }
 
 
-class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDelegate {
+class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     var genericCell: GenericCell! // will be assigned when perform segue
     
@@ -35,8 +35,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     var indexPath: IndexPath! //use to deselect row on viewLauncher dismissed
     var segmentControllSelectedIndex: Int?
     
-    var viewLauncher: ViewLauncher?
-    
     var currentGenericCell: GenericCell { return genericCell }
     
     
@@ -48,13 +46,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         prepareNecessaryData()
         configureNavigationBar()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if indexPath != nil { viewLauncher?.dismiss() }
-    }
-    
+
     
     
     
@@ -315,25 +307,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
                         
         case .TMCell:
             items = VARIABLE.allItems.machines
-            configureViewLauncher()
             
         case .ItemCell:
             items = VARIABLE.allItems.excludeBerriesMachines
-            configureViewLauncher()
             
         case .BerryCell:
             items = VARIABLE.allItems.berries
-            configureViewLauncher()
-        }
-    }
-    
-    func configureViewLauncher() {
-        
-        viewLauncher = ViewLauncher(swipeToDismissDirection: .right)
-        viewLauncher?.delegate = self
-        
-        if let window = UIApplication.shared.keyWindow {
-            viewLauncher?.setSuperview(window)
         }
     }
     
@@ -404,11 +383,5 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     func handleSelectedItemCellRow(sender: Any) {
         
-        if let item = sender as? Item, let viewLauncher = viewLauncher {
-            let textView = viewLauncher.makeTextView(withText: item.effect)
-            viewLauncher.addSubview(textView)
-        }
-        
-        viewLauncher?.launch()
     }
 }

@@ -11,6 +11,10 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
     + Some are programatically calculated.
     + Storyboard is set for iPhone 6s/7.
 
+## ToDo:
+* Move from frame to NSLayoutConstraint (programmatically).
+* Fix Move, Abiliy, and Item retain cycle.
+
 ## Preview:
 <div>
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokemon-info.png" alt="Pokemon Info" height="360px">

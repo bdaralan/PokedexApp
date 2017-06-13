@@ -47,7 +47,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     var pokemon: Pokemon!
     var evolutions: [Pokemon]!
-    var viewLauncher: ViewLauncher!
+
     var userSelectedUnit: Unit!
     
     let base = 0 //base evolution
@@ -68,7 +68,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
         
         configureTappedGestures()
-        configureViewLauncher()
         updateUI()
     }
     
@@ -244,12 +243,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     
     // MARK: - Initializer and Handler
-    
-    func configureViewLauncher() {
-        
-        viewLauncher = ViewLauncher(swipeToDismissDirection: .up)
-        viewLauncher.setSuperview(self.view)
-    }
     
     func configureTappedGestures() {
         

@@ -2653,6 +2653,7 @@
 			children = (
 				53CF3DD11E8A26E50073A516 /* AppDelegate.swift */,
 				53F8F6E51E9CA70500D6AAAF /* ViewLauncher.swift */,
+				538E6C081EED89BD007C0633 /* AnimatableView.swift */,
 				53CF3DEC1E8A284A0073A516 /* Pokemon.swift */,
 				536095B51E96F98900D2F2FC /* Ability.swift */,
 				53ECA7061EA1EA3100964977 /* Move.swift */,
@@ -2681,7 +2682,6 @@
 				538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */,
 				532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */,
 				5391B8561EADB1A40090634F /* RIOUILabel.swift */,
-				538E6C081EED89BD007C0633 /* AnimatableView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

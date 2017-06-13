@@ -22,9 +22,7 @@ class TypeUILabel: UILabel {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
-        self.frame.size.width = 80
-        self.frame.size.height = 21
+
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.textColor = UIColor.white
@@ -41,6 +39,10 @@ class TypeUILabel: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
     }
     
     override var text: String? {

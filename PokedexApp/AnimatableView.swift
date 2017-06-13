@@ -49,8 +49,6 @@ class AnimatableView: UIView, CAAnimationDelegate {
         }
     }
     
-    private var shadowOpacity: Float = 0.3
-    
     
     
     override func awakeFromNib() {
@@ -58,6 +56,7 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         self.backgroundColor = UIColor.white
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 0.3
     }
     
     override init(frame: CGRect) {
@@ -66,8 +65,7 @@ class AnimatableView: UIView, CAAnimationDelegate {
         self.awakeFromNib()
         self.dimView = initDimView()
         
-        //self.layer.delegate = self
-        
+        self.layer.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -77,7 +75,7 @@ class AnimatableView: UIView, CAAnimationDelegate {
     
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        self.removeFromSuperview()
+        //self.removeFromSuperview()
         print("removeFromSuperview")
     }
     
@@ -88,12 +86,9 @@ class AnimatableView: UIView, CAAnimationDelegate {
         self.fromValue = fromValue
         self.toValue = toValue
         
-        self.layer.shadowOpacity = self.shadowOpacity
-        self.dimView.layer.shadowOpacity = self.shadowOpacity
-        
         //DispatchQueue.main.async {
             
-            // self
+            // setup self
             let animation = self.createPositionAnimation(fromValue: fromValue, toValue: toValue)
             
             let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.handleDismiss))
@@ -101,54 +96,31 @@ class AnimatableView: UIView, CAAnimationDelegate {
             self.addGestureRecognizer(dismissGesture)
             self.isUserInteractionEnabled = true
             
-            // self.dimView
+            // setup self.dimView
             let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
-            // Add animation
+            // add animation
             self.layer.add(animation, forKey: "position")
             self.dimView.layer.add(dimAnimation, forKey: "opacity")
             self.dimView.alpha = 1
         //}
     }
     
-    func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
-        
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.timingFunction = timingFunction
-        animation.duration = animationDuration
-        animation.autoreverses = autoreverses
-        animation.fromValue = fromValue
-        animation.toValue = toValue
-        
-        return animation
-    }
-    
-    func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
-        
-        let animation = CAKeyframeAnimation(keyPath: "opacity")
-        animation.duration = animationDuration
-        animation.values = values
-        animation.keyTimes = keyTimes
-        
-        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        animation.timingFunctions = [timingFunction, timingFunction, timingFunction]
-        
-        return animation
-    }
-    
+    ///: Dismiss `self` and `self.dimView`
     func handleDismiss() {
         
-        // self
+        // animate self
         let animation = createPositionAnimation(fromValue: toValue, toValue: fromValue)
         self.layer.add(animation, forKey: "position")
+        
+        // keep self at toValue position
         self.center = fromValue.cgPointValue
         self.layer.shadowOpacity = 0
         
-        // self.dimView
+        // animate self.dimView
         let dimAnimation = createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
         self.dimView.layer.add(dimAnimation, forKey: "opacity")
         self.dimView.alpha = 0
-        self.dimView.layer.shadowOpacity = 0
     }
     
     ///: Initialize self.dimView. Must be called before `self` is initialize
@@ -176,6 +148,38 @@ class AnimatableView: UIView, CAAnimationDelegate {
 
 
 
+// MARK: - Function for creating simple animations
+extension AnimatableView {
+    
+    func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.timingFunction = timingFunction
+        animation.duration = animationDuration
+        animation.autoreverses = autoreverses
+        animation.fromValue = fromValue
+        animation.toValue = toValue
+        
+        return animation
+    }
+    
+    func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
+        
+        let animation = CAKeyframeAnimation(keyPath: "opacity")
+        animation.duration = animationDuration
+        animation.values = values
+        animation.keyTimes = keyTimes
+        
+        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunctions = [timingFunction, timingFunction, timingFunction]
+        
+        return animation
+    }
+}
+
+
+
+// MARK: - Convenience init for pokemon's weaknesses and pokedex entry
 extension AnimatableView {
     
     convenience init(pokemonWeaknesses pokemon: Pokemon) {
@@ -265,6 +269,8 @@ extension AnimatableView {
 }
 
 
+
+// MARK: - Delete this later
 extension UIView {
     
     class func animate(views: [UIView], to toOrigin: CGPoint, withDuration duration: TimeInterval, willReturn: Bool = false, action: (), completion: ()) {

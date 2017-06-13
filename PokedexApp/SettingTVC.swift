@@ -24,7 +24,7 @@ enum SettingRow: String {
     case credits = "23"
 }
 
-// TODO: - remove hard code links and revampe viewLauncher
+// TODO: - remove hard code links
 
 class SettingTVC: UITableViewController {
     
@@ -35,7 +35,6 @@ class SettingTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadSettingFromUserDefaults()
     }
     
@@ -44,7 +43,6 @@ class SettingTVC: UITableViewController {
         
         audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
     }
-
     
     
     
