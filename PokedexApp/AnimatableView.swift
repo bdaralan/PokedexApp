@@ -5,14 +5,6 @@
 //  Created by Dara on 6/11/17.
 //  Copyright © 2017 iDara09. All rights reserved.
 //
-
-
-/*
-// TODO: - remove self and self.dimView from superview after dismissed
-    
-    # Issues:
-        - animationDidStop does not get called
-*/
  
 import UIKit
 
@@ -49,6 +41,8 @@ class AnimatableView: UIView, CAAnimationDelegate {
         }
     }
     
+    private var willDismiss = false
+    
     
     
     override func awakeFromNib() {
@@ -64,8 +58,6 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         self.awakeFromNib()
         self.dimView = initDimView()
-        
-        self.layer.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -75,8 +67,11 @@ class AnimatableView: UIView, CAAnimationDelegate {
     
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        //self.removeFromSuperview()
-        print("removeFromSuperview")
+        
+        if willDismiss {
+            self.removeFromSuperview()
+            self.dimView.removeFromSuperview()
+        }
     }
     
     
@@ -86,41 +81,78 @@ class AnimatableView: UIView, CAAnimationDelegate {
         self.fromValue = fromValue
         self.toValue = toValue
         
-        //DispatchQueue.main.async {
+        self.willDismiss = false
+        
+        DispatchQueue.global(qos: .default).async {
+            let selfAnimation = self.createPositionAnimation(fromValue: fromValue, toValue: toValue)
+            let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
-            // setup self
-            let animation = self.createPositionAnimation(fromValue: fromValue, toValue: toValue)
-            
+            // add swipe to dismiss gesture to self
             let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.handleDismiss))
             dismissGesture.direction = self.swipeToDismissDirection
             self.addGestureRecognizer(dismissGesture)
             self.isUserInteractionEnabled = true
             
-            // setup self.dimView
-            let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
-            
-            // add animation
-            self.layer.add(animation, forKey: "position")
-            self.dimView.layer.add(dimAnimation, forKey: "opacity")
-            self.dimView.alpha = 1
-        //}
+            DispatchQueue.main.async {
+                self.layer.add(selfAnimation, forKey: "position")
+                self.dimView.layer.add(dimAnimation, forKey: "opacity")
+                self.dimView.alpha = 1
+            }
+        }
     }
     
     ///: Dismiss `self` and `self.dimView`
     func handleDismiss() {
         
-        // animate self
-        let animation = createPositionAnimation(fromValue: toValue, toValue: fromValue)
-        self.layer.add(animation, forKey: "position")
+        self.willDismiss = true
         
-        // keep self at toValue position
-        self.center = fromValue.cgPointValue
-        self.layer.shadowOpacity = 0
+        DispatchQueue.global(qos: .default).async {
+            let selfAnimation = self.createPositionAnimation(fromValue: self.toValue, toValue: self.fromValue)
+            let dimAnimation = self.createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
+            
+            DispatchQueue.main.async {
+                self.layer.add(selfAnimation, forKey: "position")
+                self.center = self.fromValue.cgPointValue
+                
+                self.dimView.layer.add(dimAnimation, forKey: "opacity")
+                self.dimView.alpha = 0
+            }
+        }
+    }
+}
+
+
+
+// MARK: - Helper function for creating simple animations and dimView
+extension AnimatableView {
+    
+    func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation { 
         
-        // animate self.dimView
-        let dimAnimation = createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
-        self.dimView.layer.add(dimAnimation, forKey: "opacity")
-        self.dimView.alpha = 0
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.timingFunction = timingFunction
+        animation.duration = animationDuration
+        animation.autoreverses = autoreverses
+        animation.fromValue = fromValue
+        animation.toValue = toValue
+        
+        // use delegate animationDidStop to remove `self` from superview on swipe to dismiss
+        animation.delegate = self
+        
+        return animation
+    }
+    
+    ///:
+    func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
+        
+        let animation = CAKeyframeAnimation(keyPath: "opacity")
+        animation.duration = animationDuration
+        animation.values = values
+        animation.keyTimes = keyTimes
+        
+        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunctions = [timingFunction, timingFunction, timingFunction]
+        
+        return animation
     }
     
     ///: Initialize self.dimView. Must be called before `self` is initialize
@@ -143,37 +175,6 @@ class AnimatableView: UIView, CAAnimationDelegate {
         dimView.isUserInteractionEnabled = true
         
         return dimView
-    }
-}
-
-
-
-// MARK: - Function for creating simple animations
-extension AnimatableView {
-    
-    func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation {
-        
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.timingFunction = timingFunction
-        animation.duration = animationDuration
-        animation.autoreverses = autoreverses
-        animation.fromValue = fromValue
-        animation.toValue = toValue
-        
-        return animation
-    }
-    
-    func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
-        
-        let animation = CAKeyframeAnimation(keyPath: "opacity")
-        animation.duration = animationDuration
-        animation.values = values
-        animation.keyTimes = keyTimes
-        
-        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        animation.timingFunctions = [timingFunction, timingFunction, timingFunction]
-        
-        return animation
     }
 }
 
