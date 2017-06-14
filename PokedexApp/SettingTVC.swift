@@ -73,10 +73,12 @@ class SettingTVC: UITableViewController {
                 guard let navBar = self.navigationController?.navigationBar else { return }
                 
                 let disclaimerView = AnimatableView(text: text)
+                disclaimerView.center.x *= 3 //set it off the scren, to the right
+                
                 self.navigationController?.view.insertSubview(disclaimerView, belowSubview: navBar)
                 
-                let fromValue = NSValue(cgPoint: CGPoint(x: disclaimerView.center.x * 3, y: disclaimerView.center.y))
-                let toValue = NSValue(cgPoint: disclaimerView.center)
+                let fromValue = NSValue(cgPoint: disclaimerView.center)
+                let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: disclaimerView.center.y))
                 
                 disclaimerView.animatePosition(fromValue: fromValue, toValue: toValue)
                 
@@ -88,10 +90,12 @@ class SettingTVC: UITableViewController {
                 guard let navBar = self.navigationController?.navigationBar else { return }
                 
                 let creditView = AnimatableView(text: text)
+                creditView.center.x *= 3 //set it off the scren, to the right
+
                 self.navigationController?.view.insertSubview(creditView, belowSubview: navBar)
                 
-                let fromValue = NSValue(cgPoint: CGPoint(x: creditView.center.x * 3, y: creditView.center.y))
-                let toValue = NSValue(cgPoint: creditView.center)
+                let fromValue = NSValue(cgPoint: CGPoint(x: creditView.center.x, y: creditView.center.y))
+                let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: creditView.center.y))
                 
                 creditView.animatePosition(fromValue: fromValue, toValue: toValue)
                 

@@ -41,10 +41,6 @@ class TypeUILabel: UILabel {
         super.init(coder: aDecoder)
     }
     
-    convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
-    }
-    
     override var text: String? {
         didSet {
             if let text = text {
@@ -70,5 +66,14 @@ class TypeUILabel: UILabel {
     func typeUILabelTapped() {
 
         delegate?.typeUILabel(didTap: tapGesture)
+    }
+}
+
+
+
+extension TypeUILabel {
+    
+    convenience init(pokemonType: String) {
+        self.init()
     }
 }

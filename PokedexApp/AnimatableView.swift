@@ -92,10 +92,6 @@ class AnimatableView: UIView, CAAnimationDelegate {
         if self.willDismiss {
             self.removeFromSuperview()
             self.dimView.removeFromSuperview()
-            
-        } else { // at the end of animation begin
-            self.center = toValue.cgPointValue
-            self.dimView.alpha = 1
         }
     }
     
@@ -109,8 +105,6 @@ class AnimatableView: UIView, CAAnimationDelegate {
         self.fromValue = fromValue
         self.toValue = toValue
         self.willDismiss = false
-        
-        self.center = fromValue.cgPointValue
         
         DispatchQueue.global(qos: .default).async {
             // create animations
@@ -127,6 +121,10 @@ class AnimatableView: UIView, CAAnimationDelegate {
                 // animations begin
                 self.layer.add(selfAnimation, forKey: "position")
                 self.dimView.layer.add(dimAnimation, forKey: "opacity")
+                
+                // animations end
+                self.center = self.toValue.cgPointValue
+                self.dimView.alpha = 1
             }
         }
     }
@@ -142,9 +140,10 @@ class AnimatableView: UIView, CAAnimationDelegate {
             let dimAnimation = self.createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
             
             DispatchQueue.main.async {
-                //animations begin
+                // animations begin
                 self.layer.add(selfAnimation, forKey: "position")
                 self.dimView.layer.add(dimAnimation, forKey: "opacity")
+                
             }
         }
     }
@@ -267,26 +266,31 @@ extension AnimatableView {
         
         self.init(frame: Constant.Constrain.frameUnderNavController)
         
-        let margin = Constant.Constrain.margin
-        let spacing = Constant.Constrain.spacing
-        let width = self.frame.width - margin * 2
-        let height = self.frame.height
-        
         let textView: UITextView = {
-            let textView = UITextView(frame: CGRect(x: margin, y: spacing, width: width, height: height))
+            let textView = UITextView(frame: frame)
             textView.font = Constant.Font.appleSDGothicNeoRegular
             textView.isScrollEnabled = false
             textView.isEditable = false
             
+            textView.text = text
+            textView.sizeToFit()
+            
             return textView
         }()
         
-        textView.text = text
-        textView.sizeToFit()
-        
-        self.frame.size.height = textView.frame.height + spacing
-        
         self.addSubview(textView)
+        self.frame.size.height = textView.contentSize.height
+    
+        // add constraints
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let views: [String: UIView] = ["textView": textView]
+        
+        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[textView]-16-|", options: [], metrics: nil, views: views)
+        
+        let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textView]-|", options: [], metrics: nil, views: views)
+        
+        self.addConstraints(hConstraints + vConstraints)
     }
 }
 
