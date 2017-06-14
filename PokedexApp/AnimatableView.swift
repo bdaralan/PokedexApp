@@ -152,6 +152,10 @@ class AnimatableView: UIView, CAAnimationDelegate {
                 self.layer.add(selfAnimation, forKey: "position")
                 self.dimView.layer.add(dimAnimation, forKey: "opacity")
                 
+                // animations end
+                self.center = self.fromValue.cgPointValue
+                self.alpha = 0
+                self.dimView.alpha = 0
             }
         }
     }
