@@ -393,10 +393,10 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         
                     let weaknessesView = AnimatableView(pokemonWeaknesses: pokemon)
                     self.view.insertSubview(weaknessesView, belowSubview: self.view)
-                    self.view.insertSubview(weaknessesView.dimView, belowSubview: weaknessesView)
                     
-                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x, y: -weaknessesView.center.y))
+                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x * 3, y: weaknessesView.center.y))
                     let toValue = NSValue(cgPoint: weaknessesView.center)
+                    
                     weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue)
                 }
                 
@@ -409,10 +409,10 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                     
                     let pokedexEnteryView = AnimatableView(text: pokemon.pokedexEntry)
                     self.view.insertSubview(pokedexEnteryView, belowSubview: self.view)
-                    self.view.insertSubview(pokedexEnteryView.dimView, belowSubview: pokedexEnteryView)
                     
-                    let fromValue = NSValue(cgPoint: CGPoint(x: pokedexEnteryView.center.x, y: -pokedexEnteryView.center.y))
+                    let fromValue = NSValue(cgPoint: CGPoint(x: pokedexEnteryView.center.x * 3, y: pokedexEnteryView.center.y))
                     let toValue = NSValue(cgPoint: pokedexEnteryView.center)
+                    
                     pokedexEnteryView.animatePosition(fromValue: fromValue, toValue: toValue)
                 }
                 

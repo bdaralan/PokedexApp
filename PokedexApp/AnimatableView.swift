@@ -57,33 +57,63 @@ class AnimatableView: UIView, CAAnimationDelegate {
         super.init(frame: frame)
         
         self.awakeFromNib()
-        self.dimView = initDimView()
+        self.initDimView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    override func didMoveToSuperview() {
+        
+        // Add `self.dimView` to the superview when `self` is added to the superview
+        superview?.insertSubview(self.dimView, belowSubview: self)
+        
+        // Add constraints
+        let views = [
+            "dimView": self.dimView
+        ] as [String: UIView]
+        
+        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimView]|", options: [], metrics: nil, views: views)
+        
+        let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[dimView]|", options: [], metrics: nil, views: views)
+        
+        let dimViewHeightConstraint = NSLayoutConstraint.init(item: self.dimView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        
+        superview?.addConstraints(hConstraints + vConstraints + [dimViewHeightConstraint])
+    }
     
+    
+    
+    // MARK: - CAAnimationDelegate
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
-        if willDismiss {
+        if self.willDismiss {
             self.removeFromSuperview()
             self.dimView.removeFromSuperview()
+            
+        } else { // at the end of animation begin
+            self.center = toValue.cgPointValue
+            self.dimView.alpha = 1
         }
     }
     
     
     
+    // MARK: - Functions
+    
+    ///: Animate `self` with swipe to dismiss gesture attached
     func animatePosition(fromValue: NSValue, toValue: NSValue) {
         
         self.fromValue = fromValue
         self.toValue = toValue
-        
         self.willDismiss = false
         
+        self.center = fromValue.cgPointValue
+        
         DispatchQueue.global(qos: .default).async {
+            // create animations
             let selfAnimation = self.createPositionAnimation(fromValue: fromValue, toValue: toValue)
             let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
@@ -94,9 +124,9 @@ class AnimatableView: UIView, CAAnimationDelegate {
             self.isUserInteractionEnabled = true
             
             DispatchQueue.main.async {
+                // animations begin
                 self.layer.add(selfAnimation, forKey: "position")
                 self.dimView.layer.add(dimAnimation, forKey: "opacity")
-                self.dimView.alpha = 1
             }
         }
     }
@@ -107,15 +137,14 @@ class AnimatableView: UIView, CAAnimationDelegate {
         self.willDismiss = true
         
         DispatchQueue.global(qos: .default).async {
+            // create animations
             let selfAnimation = self.createPositionAnimation(fromValue: self.toValue, toValue: self.fromValue)
             let dimAnimation = self.createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
             
             DispatchQueue.main.async {
+                //animations begin
                 self.layer.add(selfAnimation, forKey: "position")
-                self.center = self.fromValue.cgPointValue
-                
                 self.dimView.layer.add(dimAnimation, forKey: "opacity")
-                self.dimView.alpha = 0
             }
         }
     }
@@ -124,6 +153,7 @@ class AnimatableView: UIView, CAAnimationDelegate {
 
 
 // MARK: - Helper function for creating simple animations and dimView
+
 extension AnimatableView {
     
     func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation { 
@@ -135,13 +165,12 @@ extension AnimatableView {
         animation.fromValue = fromValue
         animation.toValue = toValue
         
-        // use delegate animationDidStop to remove `self` from superview on swipe to dismiss
+        // use with animationDidStop to remove `self` from superview on swipe to dismiss
         animation.delegate = self
         
         return animation
     }
     
-    ///:
     func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
         
         let animation = CAKeyframeAnimation(keyPath: "opacity")
@@ -156,25 +185,17 @@ extension AnimatableView {
     }
     
     ///: Initialize self.dimView. Must be called before `self` is initialize
-    func initDimView() -> UIView {
-        
-        let dimView: UIView = {
-            let x = self.frame.origin.x
-            let y = Constant.Constrain.frameUnderNavController.origin.y
-            let width = self.frame.width
-            let height = Constant.Constrain.keyWindowFrame.height - y
-            
-            let view = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
-            view.backgroundColor = UIColor(white: 0, alpha: 0.1)
-            
-            return view
-        }()
-        
+    func initDimView() {
+    
+        self.dimView = UIView()
+        self.dimView.translatesAutoresizingMaskIntoConstraints = false
+        self.dimView.backgroundColor = UIColor(white: 0, alpha: 0.15)
+        self.dimView.alpha = 0
+    
+        // add tap to dismiss gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
         dimView.addGestureRecognizer(tapGesture)
         dimView.isUserInteractionEnabled = true
-        
-        return dimView
     }
 }
 
