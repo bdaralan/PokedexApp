@@ -12,7 +12,7 @@ class AnimatableView: UIView, CAAnimationDelegate {
     
     var dimView: UIView!
     
-    var animationDuration: TimeInterval = 0.5
+    var animationDuration: TimeInterval = 0.75
     
     var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
     
@@ -108,7 +108,11 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         DispatchQueue.global(qos: .default).async {
             // create animations
-            let selfAnimation = self.createPositionAnimation(fromValue: fromValue, toValue: toValue)
+            let selfAnimation = self.createPositionWithOpacityAnimation(fromValue: self.fromValue, toValue: self.toValue, opacityValues: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
+            
+            // use with animationDidStop to remove `self` from superview on swipe to dismiss
+            selfAnimation.delegate = self
+            
             let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
             // add swipe to dismiss gesture to self
@@ -136,7 +140,11 @@ class AnimatableView: UIView, CAAnimationDelegate {
         
         DispatchQueue.global(qos: .default).async {
             // create animations
-            let selfAnimation = self.createPositionAnimation(fromValue: self.toValue, toValue: self.fromValue)
+            let selfAnimation = self.createPositionWithOpacityAnimation(fromValue: self.toValue, toValue: self.fromValue, opacityValues: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
+            
+            // use with animationDidStop to remove `self` from superview when animations end
+            selfAnimation.delegate = self
+            
             let dimAnimation = self.createOpacityAnimation(values: [1, 0.5, 0.25, 0], keyTimes: [0, 0.25, 0.5, 1])
             
             DispatchQueue.main.async {
@@ -158,14 +166,11 @@ extension AnimatableView {
     func createPositionAnimation(fromValue: NSValue, toValue: NSValue) -> CABasicAnimation { 
         
         let animation = CABasicAnimation(keyPath: "position")
+        animation.fromValue = fromValue
+        animation.toValue = toValue
         animation.timingFunction = timingFunction
         animation.duration = animationDuration
         animation.autoreverses = autoreverses
-        animation.fromValue = fromValue
-        animation.toValue = toValue
-        
-        // use with animationDidStop to remove `self` from superview on swipe to dismiss
-        animation.delegate = self
         
         return animation
     }
@@ -173,14 +178,25 @@ extension AnimatableView {
     func createOpacityAnimation(values: [Any], keyTimes: [NSNumber]) -> CAKeyframeAnimation {
         
         let animation = CAKeyframeAnimation(keyPath: "opacity")
-        animation.duration = animationDuration
         animation.values = values
         animation.keyTimes = keyTimes
-        
-        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        animation.timingFunctions = [timingFunction, timingFunction, timingFunction]
+        animation.duration = animationDuration
+        animation.timingFunction = timingFunction
         
         return animation
+    }
+    
+    func createPositionWithOpacityAnimation(fromValue: NSValue, toValue: NSValue, opacityValues: [Any], keyTimes: [NSNumber]) -> CAAnimationGroup {
+        
+        let positionAnimation = createPositionAnimation(fromValue: fromValue, toValue: toValue)
+        let opacityAnimation = createOpacityAnimation(values: opacityValues, keyTimes: keyTimes)
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [positionAnimation, opacityAnimation]
+        animationGroup.duration = animationDuration
+        animationGroup.timingFunction = timingFunction
+        
+        return animationGroup
     }
     
     ///: Initialize self.dimView. Must be called before `self` is initialize
@@ -188,7 +204,7 @@ extension AnimatableView {
     
         self.dimView = UIView()
         self.dimView.translatesAutoresizingMaskIntoConstraints = false
-        self.dimView.backgroundColor = UIColor(white: 0, alpha: 0.15)
+        self.dimView.backgroundColor = UIColor(white: 0, alpha: 0.2)
         self.dimView.alpha = 0
     
         // add tap to dismiss gesture
