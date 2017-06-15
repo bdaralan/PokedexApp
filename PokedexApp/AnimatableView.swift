@@ -70,9 +70,7 @@ class AnimatableView: UIView, CAAnimationDelegate {
         superview?.insertSubview(self.dimView, belowSubview: self)
         
         // Add constraints
-        let views = [
-            "dimView": self.dimView
-        ] as [String: UIView]
+        let views = ["dimView": self.dimView] as [String: UIView]
         
         let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimView]|", options: [], metrics: nil, views: views)
         
@@ -85,13 +83,25 @@ class AnimatableView: UIView, CAAnimationDelegate {
     
     
     
+    // MARK: - Superclass properties
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        
+        self.dimView.removeFromSuperview()
+    }
+    
+    
+    
     // MARK: - CAAnimationDelegate
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
         if self.willDismiss {
             self.removeFromSuperview()
-            self.dimView.removeFromSuperview()
+        
+        } else {
+            self.addDismissGestures()
         }
     }
     
@@ -115,11 +125,6 @@ class AnimatableView: UIView, CAAnimationDelegate {
             
             let dimAnimation = self.createOpacityAnimation(values: [0, 0.25, 0.5, 1], keyTimes: [0, 0.25, 0.5, 1])
             
-            // add swipe to dismiss gesture to self
-            let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.handleDismiss))
-            dismissGesture.direction = self.swipeToDismissDirection
-            self.addGestureRecognizer(dismissGesture)
-            self.isUserInteractionEnabled = true
             
             DispatchQueue.main.async {
                 // animations begin
@@ -210,8 +215,18 @@ extension AnimatableView {
         self.dimView.translatesAutoresizingMaskIntoConstraints = false
         self.dimView.backgroundColor = UIColor(white: 0, alpha: 0.2)
         self.dimView.alpha = 0
+    }
     
-        // add tap to dismiss gesture
+    ///: Add swipe and tap to dismiss for `self` and `self.dimView`
+    func addDismissGestures() {
+        
+        // add swipe to dismiss gesture to self
+        let dismissGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.handleDismiss))
+        dismissGesture.direction = self.swipeToDismissDirection
+        self.addGestureRecognizer(dismissGesture)
+        self.isUserInteractionEnabled = true
+        
+        // add tap to dismiss gesture to self.dimView
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
         dimView.addGestureRecognizer(tapGesture)
         dimView.isUserInteractionEnabled = true
@@ -227,59 +242,84 @@ extension AnimatableView {
         
         self.init(frame: Constant.Constrain.frameUnderNavController)
         
-        let spacing = Constant.Constrain.spacing
-        let margin = Constant.Constrain.margin
-        
-        var y: CGFloat = spacing
-        
         let weaknesses = pokemon.weaknesses
-        var weaknessLabels = [TypeUILabel]()
+        
+        var typeLabels = [TypeUILabel]()
+        var effectiveLabels = [TypeUILabel]()
         
         for (type, effective) in weaknesses {
             
-            let typeLabel: TypeUILabel = {
-                let label = TypeUILabel()
-                label.frame.origin.x = margin
-                label.frame.origin.y = y
-                label.text = type
-                return label
-            }()
+            let typeLabel = TypeUILabel()
+            typeLabel.text = type
             
-            let effectiveLabel: TypeUILabel = {
-                let label = TypeUILabel()
-                label.frame.origin.x = margin + label.frame.width + spacing
-                label.frame.origin.y = y
-                label.text = "\(effective)x"
-                label.backgroundColor = typeLabel.backgroundColor
+            let effectiveLabel = TypeUILabel()
+            effectiveLabel.text = "\(effective)x"
+            effectiveLabel.backgroundColor = typeLabel.backgroundColor
+            
                 
-                // MARK: - Pokemon's weaknesses effective width
-                if effective == "1/4" {
-                    label.frame.size.width = label.frame.height * 2
-                } else if effective == "1/2" {
-                    label.frame.size.width = label.frame.height * 4
-                } else if effective == "2" {
-                    label.frame.size.width = label.frame.height * 8
-                } else if effective == "4" {
-                    label.frame.size.width = self.frame.width - label.frame.width - spacing - (margin * 2)
-                } else if effective == "0" { // "0"
-                    label.frame.size.width = label.frame.height * 2
-                    label.textAlignment = .left
-                    label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
-                    label.textColor = typeLabel.backgroundColor
-                    label.backgroundColor = UIColor.clear
-                }
-                
-                return label
-            }()
+//                // MARK: - Pokemon's weaknesses effective width
+//                if effective == "1/4" {
+//                    label.frame.size.width = label.frame.height * 2
+//                } else if effective == "1/2" {
+//                    label.frame.size.width = label.frame.height * 4
+//                } else if effective == "2" {
+//                    label.frame.size.width = label.frame.height * 8
+//                } else if effective == "4" {
+//                    label.frame.size.width = self.frame.width - label.frame.width - spacing - (margin * 2)
+//                } else if effective == "0" { // "0"
+//                    label.frame.size.width = label.frame.height * 2
+//                    label.textAlignment = .left
+//                    label.font = UIFont(name: "\(label.font.fontName)-Bold", size: label.font.pointSize)
+//                    label.textColor = typeLabel.backgroundColor
+//                    label.backgroundColor = UIColor.clear
+//                }
             
-            weaknessLabels.append(typeLabel)
-            weaknessLabels.append(effectiveLabel)
-            
-            y += typeLabel.frame.height + spacing
-            self.frame.size.height = y
+            typeLabels.append(typeLabel)
+            effectiveLabels.append(effectiveLabel)
         }
         
-        for label in weaknessLabels { self.addSubview(label) }
+        // Add constraint to type labels and effective labels
+        for i in 0 ..< typeLabels.count {
+            
+            self.addSubview(typeLabels[i])
+            self.addSubview(effectiveLabels[i])
+            
+            typeLabels[i].translatesAutoresizingMaskIntoConstraints = false
+            effectiveLabels[i].translatesAutoresizingMaskIntoConstraints = false
+            
+            let views: [String: Any] = [
+                "typeLabel": typeLabels[i],
+                "effectiveLabel": effectiveLabels[i],
+                "self": self
+                ]
+            
+            
+            if i == 0 {
+                let vContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[typeLabel]", options: [], metrics: nil, views: views)
+                
+                self.addConstraints(vContraints)
+            
+            } else {
+                let vContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[prevTypeLabel]-8-[typeLabel]", options: [], metrics: nil, views: ["prevTypeLabel": typeLabels[i - 1], "typeLabel": typeLabels[i]])
+                
+                self.addConstraints(vContraints)
+            }
+            
+            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]-16-|", options: .alignAllCenterY, metrics: nil, views: views)
+            
+            let typeWidthConstraint = NSLayoutConstraint.init(item: typeLabels[i], attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: typeLabels[i].frame.width)
+            
+            let typeHeightConstraint = NSLayoutConstraint.init(item: typeLabels[i], attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: typeLabels[i].frame.height)
+            
+            let effecitveHeightConstraint = NSLayoutConstraint.init(item: effectiveLabels[i], attribute: .height, relatedBy: .equal, toItem: typeLabels[i], attribute: .height, multiplier: 1, constant: 0)
+            
+            self.addConstraints(hConstraints + [typeWidthConstraint, typeHeightConstraint, effecitveHeightConstraint])
+            
+            // TODO: - Add constraint to self
+            if i == typeLabels.count - 1 {
+                
+            }
+        }
     }
     
     convenience init(text: String) {
