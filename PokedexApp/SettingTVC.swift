@@ -31,7 +31,8 @@ class SettingTVC: UITableViewController {
     @IBOutlet weak var measurementSC: UISegmentedControl!
     @IBOutlet weak var soundEffectSwitch: UISwitch!
 
-    
+    var disclaimerView: AnimatableView?
+    var creditView: AnimatableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,13 @@ class SettingTVC: UITableViewController {
         super.viewWillDisappear(animated)
         
         audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        disclaimerView?.removeFromSuperview()
+        creditView?.removeFromSuperview()
     }
     
     
@@ -68,36 +76,43 @@ class SettingTVC: UITableViewController {
                 
             case.disclaimer:
                 audioPlayer.play(audio: .select)
-                let text = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
+                
+                let disclaimer = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
                 
                 guard let navBar = self.navigationController?.navigationBar else { return }
                 
-                let disclaimerView = AnimatableView(text: text)
-                disclaimerView.center.x *= 3 //set it off the scren, to the right
-                
-                self.navigationController?.view.insertSubview(disclaimerView, belowSubview: navBar)
-                
-                let fromValue = NSValue(cgPoint: disclaimerView.center)
-                let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: disclaimerView.center.y))
-                
-                disclaimerView.animatePosition(fromValue: fromValue, toValue: toValue)
-                
+                disclaimerView = AnimatableView(text: disclaimer)
+
+                if let disclaimerView = disclaimerView {
+                    disclaimerView.center.x *= 3 //set it off the scren, to the right
+                    
+                    self.navigationController?.view.insertSubview(disclaimerView, belowSubview: navBar)
+                    
+                    let fromValue = NSValue(cgPoint: disclaimerView.center)
+                    let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: disclaimerView.center.y))
+                    
+                    disclaimerView.animatePosition(fromValue: fromValue, toValue: toValue)
+                }
                 
             case .credits:
                 audioPlayer.play(audio: .select)
-                let text = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
+                
+                let credit = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
                 
                 guard let navBar = self.navigationController?.navigationBar else { return }
                 
-                let creditView = AnimatableView(text: text)
-                creditView.center.x *= 3 //set it off the scren, to the right
-
-                self.navigationController?.view.insertSubview(creditView, belowSubview: navBar)
+                creditView = AnimatableView(text: credit)
                 
-                let fromValue = NSValue(cgPoint: CGPoint(x: creditView.center.x, y: creditView.center.y))
-                let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: creditView.center.y))
-                
-                creditView.animatePosition(fromValue: fromValue, toValue: toValue)
+                if let creditView = creditView {
+                    creditView.center.x *= 3 //set it off the scren, to the right
+                    
+                    self.navigationController?.view.insertSubview(creditView, belowSubview: navBar)
+                    
+                    let fromValue = NSValue(cgPoint: CGPoint(x: creditView.center.x, y: creditView.center.y))
+                    let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: creditView.center.y))
+                    
+                    creditView.animatePosition(fromValue: fromValue, toValue: toValue)
+                }
                 
             default: ()
             }

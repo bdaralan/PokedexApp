@@ -45,6 +45,9 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     @IBOutlet weak var pokeEvolutionArr01Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr02Img: UIImageView!
     
+    var weaknessesView: AnimatableView?
+    var pokedexEntryView: AnimatableView?
+    
     var pokemon: Pokemon!
     var evolutions: [Pokemon]!
 
@@ -79,6 +82,12 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        weaknessesView?.removeFromSuperview()
+        pokedexEntryView?.removeFromSuperview()
+    }
     
     
     
@@ -89,6 +98,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
             typeDetailTVC.type = type
             audioPlayer.play(audio: .select)
+            
         } else if let abilityDetailTVC = segue.destination as? AbilityDetailTVC, let ability = sender as? Ability {
             abilityDetailTVC.ability = ability
         }
@@ -242,7 +252,167 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     
     
-    // MARK: - Initializer and Handler
+    // MARK: - Handler
+    
+    func handleAbilityPress(_ sender: UITapGestureRecognizer) {
+        
+        if let senderView = sender.view {
+            
+            let identifier = "AbilityDetailTVC"
+            
+            audioPlayer.play(audio: .select)
+            
+            switch senderView {
+                
+            case pokeAbility01Lbl:
+                let ability = VARIABLE.allAbilities.search(forName: pokemon.firstAbility)
+                performSegue(withIdentifier: identifier, sender: ability)
+                
+            case pokeAbility02Lbl:
+                let ability = VARIABLE.allAbilities.search(forName: pokemon.secondAbility)
+                performSegue(withIdentifier: identifier, sender: ability)
+                
+            case pokeHiddenAibilityLbl:
+                let ability = VARIABLE.allAbilities.search(forName: pokemon.hiddenAbility)
+                performSegue(withIdentifier: identifier, sender: ability)
+                
+            default: ()
+            }
+        }
+    }
+    
+    func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
+        
+        var shouldUpdateUI = false
+        
+        guard let senderView = sender.view else { return }
+        switch senderView {
+            
+        case pokeEvolution01Img:
+            if pokemon.name != evolutions[base].name {
+                pokemon = evolutions[base]
+                shouldUpdateUI = true
+            }
+            
+        case pokeEvolution02Img:
+            if pokemon.name != evolutions[mid].name {
+                pokemon = evolutions[mid]
+                shouldUpdateUI = true
+            }
+            
+        case pokeEvolution03Img:
+            if pokemon.name != evolutions[last].name {
+                pokemon = evolutions[last]
+                shouldUpdateUI = true
+            }
+            
+        default: ()
+        }
+        
+        if shouldUpdateUI {
+            audioPlayer.play(audio: .select)
+            updateUI()
+            updatePokemonStatsProgressViews()
+        }
+    }
+
+    func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
+        
+        
+        guard let senderView = sender.view else { return }
+        switch senderView {
+            
+        case measurementSectionLbl:
+            if sender.state == .began {
+                measurementSectionLbl.isUserInteractionEnabled = false
+                measurementSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
+            
+            } else if sender.state == .ended {
+                audioPlayer.play(audio: .select)
+                self.measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
+                
+                let originalOriginY = pokeHeightLbl.frame.origin.y
+                let animateToOriginY = measurementSectionLbl.frame.origin.y
+                let animatedDuration: TimeInterval = 0.25
+                
+                UIView.animate(withDuration: animatedDuration, animations: {
+                    self.pokeHeightLbl.frame.origin.y = animateToOriginY
+                    self.pokeHeightLbl.alpha = 0
+                    self.pokeWeighLblt.frame.origin.y = animateToOriginY
+                    self.pokeWeighLblt.alpha = 0
+                }) { (Bool) in
+                    self.toggleMeasurement()
+                    UIView.animate(withDuration: animatedDuration, animations: {
+                        self.pokeHeightLbl.frame.origin.y = originalOriginY
+                        self.pokeHeightLbl.alpha = 1
+                        self.pokeWeighLblt.frame.origin.y = originalOriginY
+                        self.pokeWeighLblt.alpha = 1
+                    }) { (Bool) in
+                        self.measurementSectionLbl.isUserInteractionEnabled = true
+                    }
+                }
+            }
+            
+        case weaknessesSectionLbl:
+            if sender.state == .began {
+                weaknessesSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
+            } else if sender.state == .ended {
+                weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
+                audioPlayer.play(audio: .select)
+                
+                weaknessesView = AnimatableView(pokemonWeaknesses: pokemon)
+                
+                if let weaknessesView = weaknessesView {
+                    self.view.insertSubview(weaknessesView, belowSubview: self.view)
+                    
+                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x * 3, y: weaknessesView.center.y))
+                    let toValue = NSValue(cgPoint: weaknessesView.center)
+                    
+                    weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue)
+                }
+            }
+            
+        case pokedexEnterySectionLbl:
+            if sender.state == .began {
+                pokedexEnterySectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
+            } else if sender.state == .ended  {
+                pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
+                audioPlayer.play(audio: .select)
+                
+                pokedexEntryView = AnimatableView(text: pokemon.pokedexEntry)
+                
+                if let pokedexEntryView = pokedexEntryView {
+                    self.view.insertSubview(pokedexEntryView, belowSubview: self.view)
+                    
+                    let fromValue = NSValue(cgPoint: CGPoint(x: pokedexEntryView.center.x * 3, y: pokedexEntryView.center.y))
+                    let toValue = NSValue(cgPoint: pokedexEntryView.center)
+                    
+                    pokedexEntryView.animatePosition(fromValue: fromValue, toValue: toValue)
+                }
+            }
+            
+        default: ()
+        }
+    }
+    
+    func toggleMeasurement() {
+        
+        if userSelectedUnit == Unit.SI {
+            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
+            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
+            userSelectedUnit = Unit.USCustomary
+        } else {
+            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
+            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
+            userSelectedUnit = Unit.SI
+        }
+    }
+}
+
+
+
+// MARK: - Helper functions
+extension PokemonInfoVC {
     
     func configureTappedGestures() {
         
@@ -283,154 +453,5 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         
         view.addGestureRecognizer(tapGesture)
-    }
-    
-    func handleAbilityPress(_ sender: UITapGestureRecognizer) {
-        
-        if let senderView = sender.view {
-            
-            let identifier = "AbilityDetailTVC"
-            
-            audioPlayer.play(audio: .select)
-            
-            switch senderView {
-                
-            case pokeAbility01Lbl:
-                let ability = VARIABLE.allAbilities.search(forName: pokemon.firstAbility)
-                performSegue(withIdentifier: identifier, sender: ability)
-                
-            case pokeAbility02Lbl:
-                let ability = VARIABLE.allAbilities.search(forName: pokemon.secondAbility)
-                performSegue(withIdentifier: identifier, sender: ability)
-                
-            case pokeHiddenAibilityLbl:
-                let ability = VARIABLE.allAbilities.search(forName: pokemon.hiddenAbility)
-                performSegue(withIdentifier: identifier, sender: ability)
-                
-            default: ()
-            }
-        }
-    }
-    
-    func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
-        
-        var shouldUpdateUI = false
-        
-        if let senderView = sender.view {
-            switch senderView {
-                
-            case pokeEvolution01Img:
-                if pokemon.name != evolutions[base].name {
-                    pokemon = evolutions[base]
-                    shouldUpdateUI = true
-                }
-                
-            case pokeEvolution02Img:
-                if pokemon.name != evolutions[mid].name {
-                    pokemon = evolutions[mid]
-                    shouldUpdateUI = true
-                }
-                
-            case pokeEvolution03Img:
-                if pokemon.name != evolutions[last].name {
-                    pokemon = evolutions[last]
-                    shouldUpdateUI = true
-                }
-                
-            default: ()
-            }
-            
-            if shouldUpdateUI {
-                audioPlayer.play(audio: .select)
-                updateUI()
-                updatePokemonStatsProgressViews()
-            }
-        }
-    }
-    
-    func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
-        
-        if let senderView = sender.view {
-            
-            switch senderView {
-                
-            case measurementSectionLbl:
-                if sender.state == .began {
-                    measurementSectionLbl.isUserInteractionEnabled = false
-                    measurementSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
-                } else if sender.state == .ended {
-                    audioPlayer.play(audio: .select)
-                    self.measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
-                    
-                    let originalOriginY = pokeHeightLbl.frame.origin.y
-                    let animateToOriginY = measurementSectionLbl.frame.origin.y
-                    let animatedDuration: TimeInterval = 0.25
-                    
-                    UIView.animate(withDuration: animatedDuration, animations: {
-                        self.pokeHeightLbl.frame.origin.y = animateToOriginY
-                        self.pokeHeightLbl.alpha = 0
-                        self.pokeWeighLblt.frame.origin.y = animateToOriginY
-                        self.pokeWeighLblt.alpha = 0
-                    }) { (Bool) in
-                        self.toggleMeasurement()
-                        UIView.animate(withDuration: animatedDuration, animations: {
-                            self.pokeHeightLbl.frame.origin.y = originalOriginY
-                            self.pokeHeightLbl.alpha = 1
-                            self.pokeWeighLblt.frame.origin.y = originalOriginY
-                            self.pokeWeighLblt.alpha = 1
-                        }) { (Bool) in
-                            self.measurementSectionLbl.isUserInteractionEnabled = true
-                        }
-                    }
-                }
-                
-            case weaknessesSectionLbl:
-                if sender.state == .began {
-                    weaknessesSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
-                } else if sender.state == .ended {
-                    weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
-                    audioPlayer.play(audio: .select)
-        
-                    let weaknessesView = AnimatableView(pokemonWeaknesses: pokemon)
-                    self.view.insertSubview(weaknessesView, belowSubview: self.view)
-                    
-                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x * 3, y: weaknessesView.center.y))
-                    let toValue = NSValue(cgPoint: weaknessesView.center)
-                    
-                    weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue)
-                }
-                
-            case pokedexEnterySectionLbl:
-                if sender.state == .began {
-                    pokedexEnterySectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
-                } else if sender.state == .ended  {
-                    pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
-                    audioPlayer.play(audio: .select)
-                    
-                    let pokedexEnteryView = AnimatableView(text: pokemon.pokedexEntry)
-                    self.view.insertSubview(pokedexEnteryView, belowSubview: self.view)
-                    
-                    let fromValue = NSValue(cgPoint: CGPoint(x: pokedexEnteryView.center.x * 3, y: pokedexEnteryView.center.y))
-                    let toValue = NSValue(cgPoint: pokedexEnteryView.center)
-                    
-                    pokedexEnteryView.animatePosition(fromValue: fromValue, toValue: toValue)
-                }
-                
-            default: ()
-            }
-        }
-    }
-    
-    func toggleMeasurement() {
-        
-        if userSelectedUnit == Unit.SI {
-            pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
-            pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
-            userSelectedUnit = Unit.USCustomary
-        } else {
-            pokeHeightLbl.text = pokemon.getHeight(as: .SI)
-            pokeWeighLblt.text = pokemon.getWeight(as: .SI)
-            userSelectedUnit = Unit.SI
-        }
     }
 }
