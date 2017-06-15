@@ -73,7 +73,7 @@ class TypeUILabel: UILabel {
 
 extension TypeUILabel {
     
-    convenience init(pokemonType: String) {
-        self.init()
+    convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
     }
 }
