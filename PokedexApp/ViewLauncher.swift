@@ -15,7 +15,7 @@ protocol ViewLauncherDelegate: class {
 
 
 
-class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
+class ViewLauncher: UIView, Animatable {
     
     weak var delegate: ViewLauncherDelegate?
     
@@ -23,7 +23,7 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
     
     var dimView = AnimatableUIView()
     
-    var animationDuration: TimeInterval = 0.75
+    var animationDuration: TimeInterval = 0.5
     
     var launchValue: NSValue? // must anually set
     
@@ -49,7 +49,8 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
         
         // set self properties
         self.backgroundColor = UIColor.clear
-        //self.clipsToBounds = true
+        self.alpha = 1
+        self.clipsToBounds = true
         
         // set lauchView properties
         self.launchView.backgroundColor = UIColor.Pokemon.Type.psychic
@@ -59,31 +60,22 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
         self.dimView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         // apply functionlaities
-        self.addDismissGestures()
-        self.applyConstraints()
+        self.addLaunchViewDimViewDismissGestures()
+        self.addLaunchViewDimViewConstraints()
     }
     
     
     
     // MARK: - Override superclass properties
     
-    override func didMoveToSuperview() {
+    override func willMove(toSuperview newSuperview: UIView?) {
         
-        guard let superview = superview else { return }
+        guard let superview = newSuperview else { return }
         self.layoutIfNeeded()
         self.launchValue = NSValue(cgPoint: CGPoint(x: superview.center.x, y: self.launchView.center.y))
         self.dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
     }
-    
-    
-    
-    // MARK: - Protocol
-    
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-        self.removeFromSuperview()
-    }
-    
+
     
     
     // MARK: - Methods
@@ -104,6 +96,7 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
             // set final positions
             self.launchView.center = launchValue.cgPointValue
             self.dimView.alpha = 1
+            self.alpha = 1
             
             DispatchQueue.main.async {
                 // start animations
@@ -126,11 +119,10 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
             let positionAnimation = self.createPositionAnimation(fromValue: launchValue, toValue: dismissValue, duration: self.animationDuration)
             let fadeOutAnimation = self.createFadeOutAnimation(duration: self.animationDuration)
             
-            fadeOutAnimation.delegate = self //set delegate so `self` can remove itself from superview after dismiss animations end
-            
             // set final positions
             self.launchView.center = dismissValue.cgPointValue
             self.dimView.alpha = 0
+            self.alpha = 0
             
             DispatchQueue.main.async {
                 // start animations
@@ -148,7 +140,7 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
 extension ViewLauncher {
     
     /// Add dimiss gestures to `launchView` and `dimView`
-    func addDismissGestures() {
+    func addLaunchViewDimViewDismissGestures() {
         
         let swipeToDismiss = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
         swipeToDismiss.direction = .right
@@ -159,12 +151,9 @@ extension ViewLauncher {
     }
     
     /// Applying constraints to `launchView` and `dimView`
-    func applyConstraints() {
+    func addLaunchViewDimViewConstraints() {
 
-        let views = [
-            "launchView": launchView,
-            "dimView": dimView
-        ]
+        let views = ["launchView": launchView, "dimView": dimView]
         
         launchView.translatesAutoresizingMaskIntoConstraints = false
         dimView.translatesAutoresizingMaskIntoConstraints = false
