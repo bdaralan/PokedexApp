@@ -18,6 +18,8 @@ class TypeUILabel: UILabel {
     
     weak var delegate: TypeUILabelDelegate?
     
+    var additionalConstraints: [NSLayoutConstraint]?
+    
     private var tapGesture: UITapGestureRecognizer!
     
     override func awakeFromNib() {
