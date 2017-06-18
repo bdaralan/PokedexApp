@@ -10,9 +10,26 @@ import UIKit
 
 class AnimatableUIView: UIView {
     
-    func addSubviews(_ views: ([TypeUILabel], [TypeUILabel])) {
-
-        let (typeLabels, effectiveLabels) = views
+    func addWeaknessTypeLabels(of pokemon: Pokemon) {
+        
+        let weaknesses = pokemon.weaknesses
+        
+        var typeLabels = [TypeUILabel]()
+        var effectiveLabels = [TypeUILabel]()
+        
+        // Append typeLabels and effectiveLabels for its number of weaknesses
+        for (type, effective) in weaknesses {
+            
+            let typeLabel = TypeUILabel()
+            typeLabel.text = type
+            
+            let effectiveLabel = TypeUILabel()
+            effectiveLabel.text = "\(effective)x"
+            effectiveLabel.backgroundColor = typeLabel.backgroundColor
+            
+            typeLabels.append(typeLabel)
+            effectiveLabels.append(effectiveLabel)
+        }
         
         // Add constraints
         for i in 0 ..< typeLabels.count {
@@ -23,58 +40,47 @@ class AnimatableUIView: UIView {
             self.addSubview(typeLabel)
             self.addSubview(effectiveLabel)
             
-            let views: [String: Any] = ["typeLabel": typeLabel, "effectiveLabel": effectiveLabel]
-            
             typeLabel.translatesAutoresizingMaskIntoConstraints = false
             effectiveLabel.translatesAutoresizingMaskIntoConstraints = false
             
-            if typeLabel == typeLabels.first {
-                let typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[typeLabel]", options: [], metrics: nil, views: views)
-                
-                self.addConstraints(typeLabelVContraints)
+            let views = ["typeLabel": typeLabel, "effectiveLabel": effectiveLabel]
+            
+            var hConstraints = [NSLayoutConstraint]() // vConstraints for both type and effecitve label
+            var typeLabelVContraints = [NSLayoutConstraint]()
+            var effectiveLabelWidthConstraint = NSLayoutConstraint()
+            var effectiveLabelCenterYConstrant = NSLayoutConstraint()
+            
+            
+            // add vConstraints
+            if i == 0 {
+                typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[typeLabel(21)]", options: [], metrics: nil, views: views)
                 
             } else {
-                let typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[prevTypeLabel]-8-[typeLabel]", options: [], metrics: nil, views: ["prevTypeLabel": typeLabels[i - 1], "typeLabel": typeLabels[i]])
-                
-                self.addConstraints(typeLabelVContraints)
+                typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[prevTypeLabel(21)]-8-[typeLabel(21)]", options: [], metrics: nil, views: ["prevTypeLabel": typeLabels[i - 1], "typeLabel": typeLabels[i]])
             }
             
+            // add hConstraints
+            hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel(80)]-[effectiveLabel]", options: [], metrics: nil, views: views)
             
-            // Pokemon's weaknesses effective width
+            effectiveLabelCenterYConstrant = NSLayoutConstraint.init(item: effectiveLabel, attribute: .centerY, relatedBy: .equal, toItem: typeLabel, attribute: .centerY, multiplier: 1, constant: 0)
+            
+            // add width constraint for effective label
             switch effectiveLabel.text! {
                 
             case "1/4x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
-                
-                self.addConstraints(hConstraints + [widthConstraint])
+                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
                 
             case "1/2x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 4, constant: 0)
-                
-                self.addConstraints(hConstraints + [widthConstraint])
+                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 4, constant: 0)
                 
             case "2x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 8, constant: 0)
-                
-                self.addConstraints(hConstraints + [widthConstraint])
+                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 8, constant: 0)
                 
             case "4x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]-16-|", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                self.addConstraints(hConstraints)
+                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -16)
                 
             case "0x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
-                
-                self.addConstraints(hConstraints + [widthConstraint])
+                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
                 
                 effectiveLabel.textAlignment = .left
                 effectiveLabel.font = UIFont(name: "\(effectiveLabel.font.fontName)-Bold", size: effectiveLabel.font.pointSize)
@@ -84,15 +90,10 @@ class AnimatableUIView: UIView {
             default:()
             }
             
-            let typeWidthConstraint = NSLayoutConstraint.init(item: typeLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: typeLabel.frame.width)
-            
-            let typeHeightConstraint = NSLayoutConstraint.init(item: typeLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: typeLabel.frame.height)
-            
-            let effecitveHeightConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .height, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 1, constant: 0)
-            
-            self.addConstraints([typeWidthConstraint, typeHeightConstraint, effecitveHeightConstraint])
+            self.addConstraints(typeLabelVContraints + hConstraints + [effectiveLabelWidthConstraint, effectiveLabelCenterYConstrant])
         }
         
+        // adjust self height to containt all label, similar to .sizeToFit()
         if let selfLastSubview = typeLabels.last {
             let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
             
@@ -135,5 +136,5 @@ extension AnimatableUIView {
         
         self.addConstraints(hConstraints + vConstraints)
     }
-
+    
 }

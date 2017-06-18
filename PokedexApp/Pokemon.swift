@@ -488,33 +488,3 @@ extension Array where Element: Pokemon {
         return pokemons.isEmpty ? [Pokemon]() : pokemons
     }
 }
-
-
-
-// MARK: - Create TypeUILabel
-extension Pokemon {
-    
-    func createWeaknessTypeUILabels() -> ([TypeUILabel], [TypeUILabel]) {
-        
-        let weaknesses = self.weaknesses
-        
-        var typeLabels = [TypeUILabel]()
-        var effectiveLabels = [TypeUILabel]()
-        
-        // Init typeLabels and effectiveLabels for its number of weaknesses
-        for (type, effective) in weaknesses {
-            
-            let typeLabel = TypeUILabel()
-            typeLabel.text = type
-            
-            let effectiveLabel = TypeUILabel()
-            effectiveLabel.text = "\(effective)x"
-            effectiveLabel.backgroundColor = typeLabel.backgroundColor
-            
-            typeLabels.append(typeLabel)
-            effectiveLabels.append(effectiveLabel)
-        }
-
-        return (typeLabels, effectiveLabels)
-    }
-}

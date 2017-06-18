@@ -363,8 +363,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 audioPlayer.play(audio: .select)
 
-                viewLauncher.launchView.addSubviews(pokemon.createWeaknessTypeUILabels())
-                viewLauncher.computeLaunchDimissValues(superview: viewLauncher.superview)
                 viewLauncher.launch()
             }
             
@@ -419,7 +417,8 @@ extension PokemonInfoVC {
         self.viewLauncher = ViewLauncher(frame: CGRect(x: 0, y: y, width: width, height: height))
         
         self.view.addSubview(viewLauncher)
-        self.viewLauncher.dismiss()
+        viewLauncher.launchView.addWeaknessTypeLabels(of: pokemon)
+        viewLauncher.dismiss()
     }
     
     func configureTappedGestures() {
