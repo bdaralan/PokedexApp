@@ -48,6 +48,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     var weaknessesView: AnimatableView?
     var pokedexEntryView: AnimatableView?
     
+    var viewLauncher: ViewLauncher!
+    
     var pokemon: Pokemon!
     var evolutions: [Pokemon]!
 
@@ -70,6 +72,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             self.updateEvolutionUI()
         }
         
+        configureViewLauncher()
         configureTappedGestures()
         updateUI()
     }
@@ -359,17 +362,10 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             } else if sender.state == .ended {
                 weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 audioPlayer.play(audio: .select)
-                
-                weaknessesView = AnimatableView(pokemonWeaknesses: pokemon)
-                
-                if let weaknessesView = weaknessesView {
-                    self.view.insertSubview(weaknessesView, belowSubview: self.view)
-                    
-                    let fromValue = NSValue(cgPoint: CGPoint(x: weaknessesView.center.x * 3, y: weaknessesView.center.y))
-                    let toValue = NSValue(cgPoint: weaknessesView.center)
-                    
-                    weaknessesView.animatePosition(fromValue: fromValue, toValue: toValue)
-                }
+
+                viewLauncher.launchView.addSubviews(pokemon.createWeaknessTypeUILabels())
+                viewLauncher.computeLaunchDimissValues(superview: viewLauncher.superview)
+                viewLauncher.launch()
             }
             
         case pokedexEnterySectionLbl:
@@ -413,6 +409,18 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
 
 // MARK: - Helper functions
 extension PokemonInfoVC {
+    
+    func configureViewLauncher() {
+        
+        let y = Constant.Constrain.frameUnderNavController.origin.y
+        let width = self.view.frame.width
+        let height = self.view.frame.height - y
+        
+        self.viewLauncher = ViewLauncher(frame: CGRect(x: 0, y: y, width: width, height: height))
+        
+        self.view.addSubview(viewLauncher)
+        self.viewLauncher.dismiss()
+    }
     
     func configureTappedGestures() {
         

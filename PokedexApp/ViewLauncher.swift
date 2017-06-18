@@ -53,7 +53,7 @@ class ViewLauncher: UIView, Animatable {
         self.clipsToBounds = true
         
         // set lauchView properties
-        self.launchView.backgroundColor = UIColor.Pokemon.Type.psychic
+        self.launchView.backgroundColor = UIColor.white
         self.launchView.layer.cornerRadius = 21
         
         // set dimView properties
@@ -70,10 +70,7 @@ class ViewLauncher: UIView, Animatable {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         
-        guard let superview = newSuperview else { return }
-        self.layoutIfNeeded()
-        self.launchValue = NSValue(cgPoint: CGPoint(x: superview.center.x, y: self.launchView.center.y))
-        self.dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
+        computeLaunchDimissValues(superview: newSuperview)
     }
 
     
@@ -139,6 +136,14 @@ class ViewLauncher: UIView, Animatable {
 
 extension ViewLauncher {
     
+    func computeLaunchDimissValues(superview: UIView?) {
+        
+        guard let superview = superview else { return }
+        self.layoutIfNeeded()
+        self.launchValue = NSValue(cgPoint: CGPoint(x: superview.center.x, y: self.launchView.center.y))
+        self.dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
+    }
+    
     /// Add dimiss gestures to `launchView` and `dimView`
     func addLaunchViewDimViewDismissGestures() {
         
@@ -157,9 +162,9 @@ extension ViewLauncher {
         
         launchView.translatesAutoresizingMaskIntoConstraints = false
         dimView.translatesAutoresizingMaskIntoConstraints = false
-        
+                
         let launchViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[launchView]-16-|", options: [], metrics: nil, views: views)
-        let launchViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[launchView(90)]", options: [], metrics: nil, views: views)
+        let launchViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[launchView]", options: [], metrics: nil, views: views)
         let dimViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimView]|", options: [], metrics: nil, views: views)
         let dimViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimView]|", options: [], metrics: nil, views: views)
 

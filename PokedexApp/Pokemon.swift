@@ -494,7 +494,7 @@ extension Array where Element: Pokemon {
 // MARK: - Create TypeUILabel
 extension Pokemon {
     
-    func createWeaknessTypeUILabels() -> [TypeUILabel] {
+    func createWeaknessTypeUILabels() -> ([TypeUILabel], [TypeUILabel]) {
         
         let weaknesses = self.weaknesses
         
@@ -514,83 +514,7 @@ extension Pokemon {
             typeLabels.append(typeLabel)
             effectiveLabels.append(effectiveLabel)
         }
-        
-        // Add constraints
-        for i in 0 ..< typeLabels.count {
-            
-            let typeLabel = typeLabels[i]
-            let effectiveLabel = effectiveLabels[i]
-            
-            let views: [String: Any] = ["typeLabel": typeLabel, "effectiveLabel": effectiveLabel]
-            
-            typeLabel.translatesAutoresizingMaskIntoConstraints = false
-            effectiveLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            if typeLabel == typeLabels.first {
-                let typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[typeLabel]", options: [], metrics: nil, views: views)
-                
-                typeLabel.additionalConstraints?.append(contentsOf: typeLabelVContraints)
-                
-            } else {
-                let typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[prevTypeLabel]-8-[typeLabel]", options: [], metrics: nil, views: ["prevTypeLabel": typeLabels[i - 1], "typeLabel": typeLabels[i]])
-                
-                typeLabel.additionalConstraints?.append(contentsOf: typeLabelVContraints)
-            }
-            
-            
-            // Pokemon's weaknesses effective width
-            switch effectiveLabel.text! {
-                
-            case "1/4x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
-                
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
-                
-            case "1/2x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 4, constant: 0)
-                
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
-                
-            case "2x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 8, constant: 0)
-                
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
-                
-            case "4x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]-16-|", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints)
-                
-            case "0x":
-                let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
-                
-                let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
-                
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
-                
-                effectiveLabel.textAlignment = .left
-                effectiveLabel.font = UIFont(name: "\(effectiveLabel.font.fontName)-Bold", size: effectiveLabel.font.pointSize)
-                effectiveLabel.textColor = typeLabel.backgroundColor
-                effectiveLabel.backgroundColor = UIColor.clear
-                
-            default:()
-            }
-            
-            let typeWidthConstraint = NSLayoutConstraint.init(item: typeLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: typeLabel.frame.width)
-            
-            let typeHeightConstraint = NSLayoutConstraint.init(item: typeLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: typeLabel.frame.height)
-            
-            let effecitveHeightConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .height, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 1, constant: 0)
-            
-            typeLabel.additionalConstraints?.append(contentsOf: [typeWidthConstraint, typeHeightConstraint, effecitveHeightConstraint])
-        }
-        
-        return typeLabels + effectiveLabels
+
+        return (typeLabels, effectiveLabels)
     }
 }

@@ -10,58 +10,18 @@ import UIKit
 
 class AnimatableUIView: UIView {
     
-    private var heightConstraint: NSLayoutConstraint?
-    
-    func addSubviews(_ views: [UIView]) {
-        
-        for view in views {
-            self.addSubview(view)
-        }
-        
-        guard let lastSubview = self.subviews.last else { return }
-        
-        if let heightConstraint = self.heightConstraint {
-            self.removeConstraint(heightConstraint)
-        }
-        
-        let heightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: lastSubview, attribute: .bottom, multiplier: 1, constant: 16)
-        
-        self.heightConstraint = heightConstraint
-        
-        self.superview?.addConstraint(heightConstraint)
-    }
-}
+    func addSubviews(_ views: ([TypeUILabel], [TypeUILabel])) {
 
-
-
-extension AnimatableUIView {
-    
-    func getWeaknessLabels(pokemon: Pokemon) -> [TypeUILabel] {
-        
-        let weaknesses = pokemon.weaknesses
-        
-        var typeLabels = [TypeUILabel]()
-        var effectiveLabels = [TypeUILabel]()
-        
-        // Init typeLabels and effectiveLabels for its number of weaknesses
-        for (type, effective) in weaknesses {
-            
-            let typeLabel = TypeUILabel()
-            typeLabel.text = type
-            
-            let effectiveLabel = TypeUILabel()
-            effectiveLabel.text = "\(effective)x"
-            effectiveLabel.backgroundColor = typeLabel.backgroundColor
-            
-            typeLabels.append(typeLabel)
-            effectiveLabels.append(effectiveLabel)
-        }
+        let (typeLabels, effectiveLabels) = views
         
         // Add constraints
         for i in 0 ..< typeLabels.count {
             
             let typeLabel = typeLabels[i]
             let effectiveLabel = effectiveLabels[i]
+            
+            self.addSubview(typeLabel)
+            self.addSubview(effectiveLabel)
             
             let views: [String: Any] = ["typeLabel": typeLabel, "effectiveLabel": effectiveLabel]
             
@@ -71,12 +31,12 @@ extension AnimatableUIView {
             if typeLabel == typeLabels.first {
                 let typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[typeLabel]", options: [], metrics: nil, views: views)
                 
-                typeLabel.additionalConstraints?.append(contentsOf: typeLabelVContraints)
+                self.addConstraints(typeLabelVContraints)
                 
             } else {
                 let typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[prevTypeLabel]-8-[typeLabel]", options: [], metrics: nil, views: ["prevTypeLabel": typeLabels[i - 1], "typeLabel": typeLabels[i]])
                 
-                typeLabel.additionalConstraints?.append(contentsOf: typeLabelVContraints)
+                self.addConstraints(typeLabelVContraints)
             }
             
             
@@ -88,33 +48,33 @@ extension AnimatableUIView {
                 
                 let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
                 
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
+                self.addConstraints(hConstraints + [widthConstraint])
                 
             case "1/2x":
                 let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
                 
                 let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 4, constant: 0)
                 
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
+                self.addConstraints(hConstraints + [widthConstraint])
                 
             case "2x":
                 let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
                 
                 let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 8, constant: 0)
                 
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
+                self.addConstraints(hConstraints + [widthConstraint])
                 
             case "4x":
                 let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]-16-|", options: .alignAllCenterY, metrics: nil, views: views)
                 
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints)
+                self.addConstraints(hConstraints)
                 
             case "0x":
                 let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel]-16-[effectiveLabel]", options: .alignAllCenterY, metrics: nil, views: views)
                 
                 let widthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
                 
-                typeLabel.additionalConstraints?.append(contentsOf: hConstraints + [widthConstraint])
+                self.addConstraints(hConstraints + [widthConstraint])
                 
                 effectiveLabel.textAlignment = .left
                 effectiveLabel.font = UIFont(name: "\(effectiveLabel.font.fontName)-Bold", size: effectiveLabel.font.pointSize)
@@ -130,11 +90,20 @@ extension AnimatableUIView {
             
             let effecitveHeightConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .height, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 1, constant: 0)
             
-            typeLabel.additionalConstraints?.append(contentsOf: [typeWidthConstraint, typeHeightConstraint, effecitveHeightConstraint])
+            self.addConstraints([typeWidthConstraint, typeHeightConstraint, effecitveHeightConstraint])
         }
         
-        return typeLabels + effectiveLabels
+        if let selfLastSubview = typeLabels.last {
+            let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
+            
+            self.addConstraint(selfHeightConstraint)
+        }
     }
+}
+
+
+
+extension AnimatableUIView {
     
     convenience init(text: String) {
         
