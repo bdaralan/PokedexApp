@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AnimatableUIView: UIView {
+class AnimatableUIView: UIView {}
+
+/// Add pokemon weaknesses
+extension AnimatableUIView {
     
     func addWeaknessTypeLabels(of pokemon: Pokemon) {
         
@@ -98,18 +101,17 @@ class AnimatableUIView: UIView {
             let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
             
             self.addConstraint(selfHeightConstraint)
-            self.superview?.layoutIfNeeded()
+            self.layoutIfNeeded()
         }
     }
 }
 
 
 
+/// Add pokemon pokedex entry
 extension AnimatableUIView {
     
-    convenience init(text: String) {
-        
-        self.init(frame: Constant.Constrain.frameUnderNavController)
+    func addPokedexEntryTextView(pokedexEntry: String) {
         
         let textView: UITextView = {
             let textView = UITextView(frame: frame)
@@ -117,14 +119,13 @@ extension AnimatableUIView {
             textView.isScrollEnabled = false
             textView.isEditable = false
             
-            textView.text = text
+            textView.text = pokedexEntry
             textView.sizeToFit()
             
             return textView
         }()
         
         self.addSubview(textView)
-        self.frame.size.height = textView.contentSize.height + 16
         
         // add constraints
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -135,6 +136,9 @@ extension AnimatableUIView {
         
         let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textView]-|", options: [], metrics: nil, views: views)
         
-        self.addConstraints(hConstraints + vConstraints)
+        let selfHeight = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: textView, attribute: .bottom, multiplier: 1, constant: 8)
+        
+        self.addConstraints(hConstraints + vConstraints + [selfHeight])
+        self.layoutIfNeeded()
     }
 }

@@ -45,12 +45,15 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     @IBOutlet weak var pokeEvolutionArr01Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr02Img: UIImageView!
     
-    var weaknessesView: AnimatableView?
-    var pokedexEntryView: AnimatableView?
+    var pokemonWeaknessViewLauncher: ViewLauncher!
+    var pokedexEntryViewLauncher: ViewLauncher!
     
-    var viewLauncher: ViewLauncher!
+    var pokemon: Pokemon! {
+        didSet {
+            configureViewLauncher()
+        }
+    }
     
-    var pokemon: Pokemon!
     var evolutions: [Pokemon]!
 
     var userSelectedUnit: Unit!
@@ -59,6 +62,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     let mid = 1 //mid evolution
     let last = 2 //last evolution
    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +76,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             self.updateEvolutionUI()
         }
         
-        configureViewLauncher()
         configureTappedGestures()
         updateUI()
     }
@@ -83,13 +86,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         DispatchQueue.main.async {
             self.updatePokemonStatsProgressViews()
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        weaknessesView?.removeFromSuperview()
-        pokedexEntryView?.removeFromSuperview()
     }
     
     
@@ -363,7 +359,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 audioPlayer.play(audio: .select)
 
-                viewLauncher.launch()
+                pokemonWeaknessViewLauncher.launch()
             }
             
         case pokedexEnterySectionLbl:
@@ -373,16 +369,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
                 audioPlayer.play(audio: .select)
                 
-                pokedexEntryView = AnimatableView(text: pokemon.pokedexEntry)
-                
-                if let pokedexEntryView = pokedexEntryView {
-                    self.view.insertSubview(pokedexEntryView, belowSubview: self.view)
-                    
-                    let fromValue = NSValue(cgPoint: CGPoint(x: pokedexEntryView.center.x * 3, y: pokedexEntryView.center.y))
-                    let toValue = NSValue(cgPoint: pokedexEntryView.center)
-                    
-                    pokedexEntryView.animatePosition(fromValue: fromValue, toValue: toValue)
-                }
+                pokedexEntryViewLauncher.launch()
             }
             
         default: ()
@@ -410,16 +397,31 @@ extension PokemonInfoVC {
     
     func configureViewLauncher() {
         
-        let y = Constant.Constrain.frameUnderNavController.origin.y
-        let width = self.view.frame.width
-        let height = self.view.frame.height - y
+        if pokemonWeaknessViewLauncher == nil, pokedexEntryViewLauncher == nil {
+            let y = Constant.Constrain.frameUnderNavController.origin.y
+            let width = self.view.frame.width
+            let height = self.view.frame.height - y
+            let frame = CGRect(x: 0, y: y, width: width, height: height)
+            
+            // Configure pokemon weakness and pokedex entry viewlauncher
+            self.pokemonWeaknessViewLauncher = ViewLauncher(frame: frame)
+            self.view.addSubview(pokemonWeaknessViewLauncher)
+            
+            self.pokedexEntryViewLauncher = ViewLauncher(frame: frame)
+            self.view.addSubview(pokedexEntryViewLauncher)
         
-        self.viewLauncher = ViewLauncher(frame: CGRect(x: 0, y: y, width: width, height: height))
+        } else {
+            self.pokemonWeaknessViewLauncher.launchView.removeAllSubviews()
+            self.pokedexEntryViewLauncher.launchView.removeAllSubviews()
+        }
         
-        self.view.addSubview(viewLauncher)
-        viewLauncher.launchView.addWeaknessTypeLabels(of: pokemon)
-        viewLauncher.computeLaunchDimissValues(superview: viewLauncher.superview)
-        viewLauncher.dismiss()
+        pokemonWeaknessViewLauncher.dismiss(animated: false)
+        pokedexEntryViewLauncher.dismiss(animated: false)
+        
+        DispatchQueue.main.async {
+            self.pokemonWeaknessViewLauncher.launchView.addWeaknessTypeLabels(of: self.pokemon)
+            self.pokedexEntryViewLauncher.launchView.addPokedexEntryTextView(pokedexEntry: self.pokemon.pokedexEntry)
+        }
     }
     
     func configureTappedGestures() {

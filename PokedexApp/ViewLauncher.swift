@@ -16,11 +16,13 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
     
     var animationDuration: TimeInterval = 0.5
     
-    var launchValue: NSValue? // must anually set
+    var timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
     
-    var dismissValue: NSValue? // same as launchValue
+    var launchValue: NSValue! // will be computed when call launch() or dismiss()
     
-    private var isLaunching = false
+    var dismissValue: NSValue! // same as launchValue
+    
+    private var isDismissing: Bool!
 
     
     
@@ -48,9 +50,6 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
         
         // set dimView properties
         self.dimView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-    }
-    
-    override func didMoveToSuperview() {
         
         // add launchView and dimView to self
         self.addSubview(dimView)
@@ -59,79 +58,71 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
         // apply functionlaities
         self.addLaunchViewDimViewDismissGestures()
         self.addLaunchViewDimViewConstraints()
-        
-        // estimate dimiss position
-        computeLaunchDimissValues(superview: self.superview)
-    }
-    
-    
-    
-    // MARK: - Protocol
-    
-    func animationDidStart(_ anim: CAAnimation) {
-        
-        if isLaunching, let launchValue = launchValue {
-            // set final positions after launch animation
-            self.launchView.center = launchValue.cgPointValue
-            self.dimView.alpha = 1
-            self.alpha = 1
-            
-        }
-    }
-    
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-         if !isLaunching, let dismissValue = dismissValue {
-            // set final positions after dismiss animation
-            self.launchView.center = dismissValue.cgPointValue
-            self.dimView.alpha = 0
-            self.alpha = 0
-        }
     }
 
     
     
-    // MARK: - Methods
+    // MARK: - Delegate
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+        if isDismissing { self.alpha = 0 }
+    }
+    
+    
     
     /// Send `launchView` to the center of `self.superview` and fade-in `dimView`
     func launch() {
     
-        if let launchValue = self.launchValue, let dismissValue = self.dismissValue {
-            // mark isLaunching to true
-            self.isLaunching = true
-            
-            // create animations
-            let positionAnimation = self.createPositionAnimation(fromValue: dismissValue, toValue: launchValue, duration: self.animationDuration)
-            let fadeInAnimation = self.createFadeInAnimation(duration: self.animationDuration)
-            fadeInAnimation.delegate = self //set delegate to call animationDidStop
-            
-            // start animations
-            self.launchView.layer.add(positionAnimation, forKey: "position")
-            self.dimView.layer.add(fadeInAnimation, forKey: "opacity")
+        // flag isLaunching
+        self.isDismissing = false
         
-        } else {
-            print("called ViewLauncher.launch() before set launchValue and dismissValue")
-        }
+        // estimate launch and dimiss position
+        computeLaunchDimissValues(superview: self.superview)
+        
+        // create animations
+        let positionAnimation = createPositionAnimation(fromValue: dismissValue, toValue: launchValue, duration: animationDuration, timingFunction: timingFunction)
+        let fadeInAnimation = createFadeInAnimation(duration: animationDuration, timingFunction: timingFunction)
+        fadeInAnimation.delegate = self
+        
+        // set final positions after launch animation
+        self.alpha = 1
+        self.dimView.alpha = 1
+        self.launchView.center = launchValue.cgPointValue
+        
+        // start animations
+        self.launchView.layer.add(positionAnimation, forKey: "position")
+        self.dimView.layer.add(fadeInAnimation, forKey: "opacity")
     }
     
     /// Send `launchView` off screen self and fade-out `dimView`
-    func dismiss() {
+    func dismiss(animated: Bool) { 
         
-        if let launchValue = self.launchValue, let dismissValue = self.dismissValue {
-            // mark isLaunching to false
-            self.isLaunching = false
-            
+        // flag isLaunching
+        self.isDismissing = true
+        
+        // estimate launch and dimiss position
+        computeLaunchDimissValues(superview: self.superview)
+        
+        if animated {
             // create animations
-            let positionAnimation = self.createPositionAnimation(fromValue: launchValue, toValue: dismissValue, duration: self.animationDuration)
-            let fadeOutAnimation = self.createFadeOutAnimation(duration: self.animationDuration)
-            fadeOutAnimation.delegate = self //set delegate to call animationDidStop
+            let positionAnimation = createPositionAnimation(fromValue: launchValue, toValue: dismissValue, duration: animationDuration, timingFunction: timingFunction)
+            let fadeOutAnimation = createFadeOutAnimation(duration: animationDuration, timingFunction: timingFunction)
+            fadeOutAnimation.delegate = self
+            
+            // set final positions after dismiss animation
+            self.dimView.alpha = 0
+            self.launchView.center = dismissValue.cgPointValue
             
             // start animations
             self.launchView.layer.add(positionAnimation, forKey: "position")
             self.dimView.layer.add(fadeOutAnimation, forKey: "opacity")
         
         } else {
-            print("called ViewLauncher.dismiss() before set launchValue and dismissValue")
+            // set final positions after dismiss animation
+            self.alpha = 0
+            self.dimView.alpha = 0
+            self.launchView.center = dismissValue.cgPointValue
         }
     }
 }
@@ -152,12 +143,18 @@ extension ViewLauncher {
     /// Add dimiss gestures to `launchView` and `dimView`
     func addLaunchViewDimViewDismissGestures() {
         
-        let swipeToDismiss = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
+        let swipeToDismiss = UISwipeGestureRecognizer(target: self, action: #selector(handleDismissCalledBySelector))
         swipeToDismiss.direction = .right
         launchView.addGestureRecognizer(swipeToDismiss)
         
-        let tapToDimiss = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+        let tapToDimiss = UITapGestureRecognizer(target: self, action: #selector(handleDismissCalledBySelector))
         dimView.addGestureRecognizer(tapToDimiss)
+    }
+    
+    /// Dismiss function used by selector
+    func handleDismissCalledBySelector() {
+        
+        dismiss(animated: true)
     }
     
     /// Applying constraints to `launchView` and `dimView`
