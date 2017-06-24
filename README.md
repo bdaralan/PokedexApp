@@ -12,7 +12,8 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
     + Storyboard is set for iPhone 6s/7.
 
 ## ToDo:
-* [ ] Move from frame to NSLayoutConstraint (programmatically).
+* [ ] Move from frame to NSLayoutConstraint for view that has a lot of subviews.
+    + [x] ViewLauncher: pokemon weaknesses and pokedex entry
 * [ ] Fix Move, Abiliy, and Item retain cycle.
 * [x] Add animate opacity in AnimatableView
 
