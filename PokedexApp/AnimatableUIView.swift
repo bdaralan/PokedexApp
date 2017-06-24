@@ -98,6 +98,7 @@ class AnimatableUIView: UIView {
             let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
             
             self.addConstraint(selfHeightConstraint)
+            self.superview?.layoutIfNeeded()
         }
     }
 }
@@ -136,5 +137,4 @@ extension AnimatableUIView {
         
         self.addConstraints(hConstraints + vConstraints)
     }
-    
 }

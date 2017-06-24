@@ -418,6 +418,7 @@ extension PokemonInfoVC {
         
         self.view.addSubview(viewLauncher)
         viewLauncher.launchView.addWeaknessTypeLabels(of: pokemon)
+        viewLauncher.computeLaunchDimissValues(superview: viewLauncher.superview)
         viewLauncher.dismiss()
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewLauncher: UIView, Animatable {
+class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
     
     var launchView = AnimatableUIView()
     
@@ -19,15 +19,14 @@ class ViewLauncher: UIView, Animatable {
     var launchValue: NSValue? // must anually set
     
     var dismissValue: NSValue? // same as launchValue
+    
+    private var isLaunching = false
 
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.addSubview(dimView)
-        self.addSubview(launchView)
-        
+    
         self.awakeFromNib()
     }
 
@@ -49,20 +48,46 @@ class ViewLauncher: UIView, Animatable {
         
         // set dimView properties
         self.dimView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    }
+    
+    override func didMoveToSuperview() {
+        
+        // add launchView and dimView to self
+        self.addSubview(dimView)
+        self.addSubview(launchView)
         
         // apply functionlaities
         self.addLaunchViewDimViewDismissGestures()
         self.addLaunchViewDimViewConstraints()
+        
+        // estimate dimiss position
+        computeLaunchDimissValues(superview: self.superview)
     }
     
     
     
-    // MARK: - Override superclass properties
+    // MARK: - Protocol
     
-//    override func willMove(toSuperview newSuperview: UIView?) {
-//        
-//        computeLaunchDimissValues(superview: newSuperview)
-//    }
+    func animationDidStart(_ anim: CAAnimation) {
+        
+        if isLaunching, let launchValue = launchValue {
+            // set final positions after launch animation
+            self.launchView.center = launchValue.cgPointValue
+            self.dimView.alpha = 1
+            self.alpha = 1
+            
+        }
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+         if !isLaunching, let dismissValue = dismissValue {
+            // set final positions after dismiss animation
+            self.launchView.center = dismissValue.cgPointValue
+            self.dimView.alpha = 0
+            self.alpha = 0
+        }
+    }
 
     
     
@@ -70,55 +95,43 @@ class ViewLauncher: UIView, Animatable {
     
     /// Send `launchView` to the center of `self.superview` and fade-in `dimView`
     func launch() {
-        
-        guard let launchValue = self.launchValue, let dismissValue = self.dismissValue else {
-            print("called ViewLauncher.launch() before set launchValue and dismissValue")
-            return
-        }
-        
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+    
+        if let launchValue = self.launchValue, let dismissValue = self.dismissValue {
+            // mark isLaunching to true
+            self.isLaunching = true
+            
             // create animations
             let positionAnimation = self.createPositionAnimation(fromValue: dismissValue, toValue: launchValue, duration: self.animationDuration)
             let fadeInAnimation = self.createFadeInAnimation(duration: self.animationDuration)
+            fadeInAnimation.delegate = self //set delegate to call animationDidStop
             
-            // set final positions
-            self.launchView.center = launchValue.cgPointValue
-            self.dimView.alpha = 1
-            self.alpha = 1
-            
-            DispatchQueue.main.async {
-                // start animations
-                self.launchView.layer.add(positionAnimation, forKey: "position")
-                self.dimView.layer.add(fadeInAnimation, forKey: "opacity")
-            }
+            // start animations
+            self.launchView.layer.add(positionAnimation, forKey: "position")
+            self.dimView.layer.add(fadeInAnimation, forKey: "opacity")
+        
+        } else {
+            print("called ViewLauncher.launch() before set launchValue and dismissValue")
         }
     }
     
     /// Send `launchView` off screen self and fade-out `dimView`
     func dismiss() {
-//        
-//        guard let launchValue = self.launchValue, let dismissValue = self.dismissValue else {
-//            print("called ViewLauncher.dismiss() before set launchValue and dismissValue")
-//            return
-//        }
         
-        computeLaunchDimissValues(superview: self.superview)
-        
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+        if let launchValue = self.launchValue, let dismissValue = self.dismissValue {
+            // mark isLaunching to false
+            self.isLaunching = false
+            
             // create animations
-            let positionAnimation = self.createPositionAnimation(fromValue: self.launchValue!, toValue: self.dismissValue!, duration: self.animationDuration)
+            let positionAnimation = self.createPositionAnimation(fromValue: launchValue, toValue: dismissValue, duration: self.animationDuration)
             let fadeOutAnimation = self.createFadeOutAnimation(duration: self.animationDuration)
+            fadeOutAnimation.delegate = self //set delegate to call animationDidStop
             
-            // set final positions
-            self.launchView.center = self.dismissValue!.cgPointValue
-            self.dimView.alpha = 0
-            self.alpha = 0
-            
-            DispatchQueue.main.async {
-                // start animations
-                self.launchView.layer.add(positionAnimation, forKey: "position")
-                self.dimView.layer.add(fadeOutAnimation, forKey: "opacity")
-            }
+            // start animations
+            self.launchView.layer.add(positionAnimation, forKey: "position")
+            self.dimView.layer.add(fadeOutAnimation, forKey: "opacity")
+        
+        } else {
+            print("called ViewLauncher.dismiss() before set launchValue and dismissValue")
         }
     }
 }
@@ -132,8 +145,6 @@ extension ViewLauncher {
     func computeLaunchDimissValues(superview: UIView?) {
         
         guard let superview = superview else { return }
-        //self.layoutIfNeeded()
-        self.layoutSubviews()
         self.launchValue = NSValue(cgPoint: CGPoint(x: superview.center.x, y: self.launchView.center.y))
         self.dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
     }
@@ -159,6 +170,7 @@ extension ViewLauncher {
                 
         let launchViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[launchView]-16-|", options: [], metrics: nil, views: views)
         let launchViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[launchView]", options: [], metrics: nil, views: views)
+        
         let dimViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimView]|", options: [], metrics: nil, views: views)
         let dimViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimView]|", options: [], metrics: nil, views: views)
 
