@@ -32,9 +32,6 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/move-detail.png" alt="Moves Detail" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/abilities.png" alt="Abilites" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/ability-detail.png" alt="Ability Detail" height="360px">
-
-
-
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/tms.png" alt="TMs" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/tm-detail.png" alt="TM Detail" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/items.png" alt="Items" height="360px">
