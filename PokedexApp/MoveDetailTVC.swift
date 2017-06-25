@@ -57,11 +57,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             return 1
             
         case pokemonCellSection:
-            if pokemons.count > 0 {
-                return pokemons.count
-            } else {
-                return 1 // for a regular cell, with text "None"
-            }
+            guard pokemons.count > 0 else { return 1 } // for a regular cell, with text "None"
+            return pokemons.count
             
         default:
             return 0
@@ -74,7 +71,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             
         case moveDetailCellSection:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveDetailCell", for: indexPath) as? MoveDetailCell {
-                cell.configureCell(for: moves[indexPath.row])
+                cell.configureCell(for: move)
                 moveDetailCellHeight = cell.height
                 return cell
             }
