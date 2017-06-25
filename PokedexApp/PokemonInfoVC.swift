@@ -288,22 +288,19 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         switch senderView {
             
         case pokeEvolution01Img:
-            if pokemon.name != evolutions[base].name {
-                pokemon = evolutions[base]
-                shouldUpdateUI = true
-            }
+            guard pokemon.name != evolutions[base].name else { return }
+            pokemon = evolutions[base]
+            shouldUpdateUI = true
             
         case pokeEvolution02Img:
-            if pokemon.name != evolutions[mid].name {
-                pokemon = evolutions[mid]
-                shouldUpdateUI = true
-            }
+            guard pokemon.name != evolutions[mid].name else { return }
+            pokemon = evolutions[mid]
+            shouldUpdateUI = true
             
         case pokeEvolution03Img:
-            if pokemon.name != evolutions[last].name {
-                pokemon = evolutions[last]
-                shouldUpdateUI = true
-            }
+            guard pokemon.name != evolutions[last].name else { return }
+            pokemon = evolutions[last]
+            shouldUpdateUI = true
             
         default: ()
         }
@@ -323,33 +320,18 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             
         case measurementSectionLbl:
             if sender.state == .began {
-                measurementSectionLbl.isUserInteractionEnabled = false
+                //measurementSectionLbl.isUserInteractionEnabled = false
                 measurementSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
             
             } else if sender.state == .ended {
                 audioPlayer.play(audio: .select)
-                self.measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
+                measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 
-                let originalOriginY = pokeHeightLbl.frame.origin.y
-                let animateToOriginY = measurementSectionLbl.frame.origin.y
-                let animatedDuration: TimeInterval = 0.25
-                
-                UIView.animate(withDuration: animatedDuration, animations: {
-                    self.pokeHeightLbl.frame.origin.y = animateToOriginY
-                    self.pokeHeightLbl.alpha = 0
-                    self.pokeWeighLblt.frame.origin.y = animateToOriginY
-                    self.pokeWeighLblt.alpha = 0
-                }) { (Bool) in
-                    self.toggleMeasurement()
-                    UIView.animate(withDuration: animatedDuration, animations: {
-                        self.pokeHeightLbl.frame.origin.y = originalOriginY
-                        self.pokeHeightLbl.alpha = 1
-                        self.pokeWeighLblt.frame.origin.y = originalOriginY
-                        self.pokeWeighLblt.alpha = 1
-                    }) { (Bool) in
-                        self.measurementSectionLbl.isUserInteractionEnabled = true
-                    }
-                }
+                let toYValue = measurementSectionLbl.center.y
+                pokeHeightLbl.animateUp(toYValue: toYValue, duration: 0.05, reverse: true)
+                pokeWeighLblt.animateUp(toYValue: toYValue, duration: 0.05, reverse: true)
+            
+                self.toggleMeasurement()
             }
             
         case weaknessesSectionLbl:
@@ -398,17 +380,13 @@ extension PokemonInfoVC {
     func configureViewLauncher() {
         
         if pokemonWeaknessViewLauncher == nil, pokedexEntryViewLauncher == nil {
-            let y = Constant.Constrain.frameUnderNavController.origin.y
-            let width = self.view.frame.width
-            let height = self.view.frame.height - y
-            let frame = CGRect(x: 0, y: y, width: width, height: height)
+            let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
             
             // Configure pokemon weakness and pokedex entry viewlauncher
-            pokemonWeaknessViewLauncher = ViewLauncher(frame: frame)
-            pokemonWeaknessViewLauncher.launchView.backgroundColor = UIColor(white: 0, alpha: 0.3)
+            pokemonWeaknessViewLauncher = ViewLauncher(frame: viewLauncherFrame)
             self.view.addSubview(pokemonWeaknessViewLauncher)
             
-            pokedexEntryViewLauncher = ViewLauncher(frame: frame)
+            pokedexEntryViewLauncher = ViewLauncher(frame: viewLauncherFrame)
             self.view.addSubview(pokedexEntryViewLauncher)
         
         } else {
@@ -455,14 +433,12 @@ extension PokemonInfoVC {
         
         let longPress = UILongPressGestureRecognizer(target: self, action: action)
         longPress.minimumPressDuration = 0
-        
         view.addGestureRecognizer(longPress)
     }
     
     func addTapGesture(to view: UIView, action: Selector) {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
-        
         view.addGestureRecognizer(tapGesture)
     }
 }

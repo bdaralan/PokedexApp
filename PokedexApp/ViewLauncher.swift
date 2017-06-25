@@ -13,7 +13,7 @@ protocol ViewLauncherDelegate: class {
     func viewLauncherDidDismiss(viewlauncher: ViewLauncher)
 }
 
-class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
+class ViewLauncher: UIView, CAAnimationDelegate {
     
     weak var delegate: ViewLauncherDelegate?
     

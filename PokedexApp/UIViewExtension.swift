@@ -8,6 +8,10 @@
 
 import UIKit
 
+extension UIView: Animatable {}
+
+
+
 extension UIView {
     
     func removeAllSubviews() {

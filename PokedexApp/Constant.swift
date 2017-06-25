@@ -89,5 +89,20 @@ struct Constant {
             
             return rect
         }()
+        
+        static let viewlauncherFrameUnderNavBar: CGRect = {
+            
+            guard let keyWindowFrame = UIApplication.shared.keyWindow?.frame else {
+                fatalError("Cannot get keyWindow from UIApplication shared instance")
+            }
+            
+            let statusBarFrame = UIApplication.shared.statusBarFrame
+            let x: CGFloat = 0
+            let y = statusBarFrame.origin.y + statusBarFrame.height + UINavigationController().navigationBar.frame.height
+            let width = keyWindowFrame.width
+            let height = keyWindowFrame.height
+            
+            return CGRect(x: x, y: y, width: width, height: height)
+        }()
     }
 }

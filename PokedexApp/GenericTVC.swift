@@ -351,12 +351,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     func configureViewLauncher() {
         
-        let y = Constant.Constrain.frameUnderNavController.origin.y
-        let width = self.view.frame.width
-        let height = self.view.frame.height - y
-        let frame = CGRect(x: 0, y: y, width: width, height: height)
-        
-        viewLauncher = ViewLauncher(frame: frame)
+        viewLauncher = ViewLauncher(frame: Constant.Constrain.viewlauncherFrameUnderNavBar)
         UIApplication.shared.keyWindow?.addSubview(viewLauncher)
         viewLauncher.dismiss(animated: false)
         viewLauncher.delegate = self

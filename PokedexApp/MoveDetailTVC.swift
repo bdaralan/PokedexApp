@@ -22,6 +22,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     var moveDetailCellHeight: CGFloat = 240
     
     var currentSCIndex: Move.LearnMethod {
+        
         return Move.LearnMethod(rawValue: segmentControl.selectedSegmentIndex)!
     }
 
@@ -143,9 +144,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == pokemonCellSection {
-            performSegue(withIdentifier: "PokemonInfoTVC", sender: pokemons[indexPath.row])
-        }
+        guard indexPath.section == pokemonCellSection else { return }
+        performSegue(withIdentifier: "PokemonInfoTVC", sender: pokemons[indexPath.row])
     }
     
     
@@ -155,9 +155,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let pokemonInfoTVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
-            pokemonInfoTVC.pokemon = pokemon
-        }
+        guard let pokemonInfoTVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
+        pokemonInfoTVC.pokemon = pokemon
     }
     
     
@@ -226,7 +225,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
 
 
 
-// MARK: Computed Property
+// MARK: - Computed Property
 extension MoveDetailTVC {
     
     var sectionHeaderViewWidth: CGFloat {

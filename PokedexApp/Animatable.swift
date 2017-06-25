@@ -48,3 +48,26 @@ extension Animatable {
         return animation
     }
 }
+
+
+
+// MARK: - Actions for UIView
+extension Animatable where Self: UIView {
+    
+    func animateUp(toYValue: CGFloat, duration: TimeInterval, reverse: Bool) {
+        
+        let fromVaule = NSValue(cgPoint: self.center)
+        let toValue = NSValue(cgPoint: CGPoint(x: self.center.x, y: toYValue))
+        let timingFuntion = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
+        let moveAnimation = createPositionAnimation(fromValue: fromVaule, toValue: toValue, duration: duration, timingFunction: timingFuntion)
+        moveAnimation.autoreverses = reverse
+        
+        let opacityAnimation = createFadeOutAnimation(timingFunction: timingFuntion)
+        
+        let animations = CAAnimationGroup()
+        animations.animations = [moveAnimation, opacityAnimation]
+        
+        self.layer.add(animations, forKey: "position")
+    }
+}

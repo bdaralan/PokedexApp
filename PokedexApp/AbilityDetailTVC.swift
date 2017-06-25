@@ -124,10 +124,9 @@ class AbilityDetailTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == pokemonCellSection {
-            audioPlayer.play(audio: .select)
-            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-        }
+        guard indexPath.section == pokemonCellSection else { return }
+        audioPlayer.play(audio: .select)
+        performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
     }
     
     
@@ -137,9 +136,8 @@ class AbilityDetailTVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
-            pokemonInfoVC.pokemon = pokemon
-        }
+        guard let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
+        pokemonInfoVC.pokemon = pokemon
     }
     
     

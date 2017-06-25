@@ -31,8 +31,8 @@ class SettingTVC: UITableViewController {
     @IBOutlet weak var measurementSC: UISegmentedControl!
     @IBOutlet weak var soundEffectSwitch: UISwitch!
 
-    var disclaimerView: ViewLauncher!
-    var creditView: ViewLauncher!
+    var disclaimerViewLauncher: ViewLauncher!
+    var creditViewLauncher: ViewLauncher!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +45,14 @@ class SettingTVC: UITableViewController {
         super.viewWillDisappear(animated)
         
         audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
-        disclaimerView.removeFromSuperview()
-        creditView.removeFromSuperview()
+        disclaimerViewLauncher.removeFromSuperview()
+        creditViewLauncher.removeFromSuperview()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        disclaimerView.dismiss(animated: false)
-        creditView.dismiss(animated: false)
+        disclaimerViewLauncher.dismiss(animated: false)
+        creditViewLauncher.dismiss(animated: false)
     }
     
     
@@ -77,11 +77,11 @@ class SettingTVC: UITableViewController {
                 
             case.disclaimer:
                 audioPlayer.play(audio: .select)
-                disclaimerView.launch()
+                disclaimerViewLauncher.launch()
                 
             case .credits:
                 audioPlayer.play(audio: .select)
-                creditView.launch()
+                creditViewLauncher.launch()
                 
             default: ()
             }
@@ -116,26 +116,22 @@ class SettingTVC: UITableViewController {
     
     func configureDisclaimerCreditView() {
         
-        // Create frame
-        let y = Constant.Constrain.frameUnderNavController.origin.y
-        let width = self.view.frame.width
-        let height = self.view.frame.height - y
-        let frame = CGRect(x: 0, y: y, width: width, height: height)
+        let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
         
         // Setup disclaimer viewlauncher
-        disclaimerView = ViewLauncher(frame: frame)
-        UIApplication.shared.keyWindow?.addSubview(disclaimerView)
-        disclaimerView.dismiss(animated: false)
+        disclaimerViewLauncher = ViewLauncher(frame: viewLauncherFrame)
+        UIApplication.shared.keyWindow?.addSubview(disclaimerViewLauncher)
+        disclaimerViewLauncher.dismiss(animated: false)
         
         let disclaimer = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
-        disclaimerView.launchView.addTextView(text: disclaimer)
+        disclaimerViewLauncher.launchView.addTextView(text: disclaimer)
         
         // Setup credit viewlauncher
-        creditView = ViewLauncher(frame: frame)
-        UIApplication.shared.keyWindow?.addSubview(creditView)
-        creditView.dismiss(animated: false)
+        creditViewLauncher = ViewLauncher(frame: viewLauncherFrame)
+        UIApplication.shared.keyWindow?.addSubview(creditViewLauncher)
+        creditViewLauncher.dismiss(animated: false)
         
         let credit = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
-        creditView.launchView.addTextView(text: credit)
+        creditViewLauncher.launchView.addTextView(text: credit)
     }
 }
