@@ -31,6 +31,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     var items: [Item]!
     
     var searchResultController: UISearchController!
+    var viewLauncher: ViewLauncher!
     
     var indexPath: IndexPath! //use to deselect row on viewLauncher dismissed
     var segmentControllSelectedIndex: Int?
@@ -39,15 +40,24 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareNecessaryData()
         configureNavigationBar()
+        configureViewLauncher()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        viewLauncher.dismiss(animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        viewLauncher.removeFromSuperview()
     }
 
-    
     
     
     // MARK: - Table view data source
@@ -168,24 +178,20 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         switch sender {
             
         case is Pokemon:
-            if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
-                pokemonInfoVC.pokemon = pokemon
-            }
+            guard let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
+            pokemonInfoVC.pokemon = pokemon
             
         case is String: // type
-            if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
-                typeDetailTVC.type = type
-            }
+            guard let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String else { return }
+            typeDetailTVC.type = type
             
         case is Move:
-            if let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move {
-                moveDetailTVC.move = move
-            }
+            guard let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move else { return }
+            moveDetailTVC.move = move
             
         case is Ability:
-            if let abilityDetailTVC = segue.destination as? AbilityDetailTVC, let ability = sender as? Ability {
-                abilityDetailTVC.ability = ability
-            }
+            guard let abilityDetailTVC = segue.destination as? AbilityDetailTVC, let ability = sender as? Ability else { return }
+            abilityDetailTVC.ability = ability
             
         default: ()
         }
@@ -355,6 +361,25 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         }
     }
     
+    func configureViewLauncher() {
+        
+        let y = Constant.Constrain.frameUnderNavController.origin.y
+        let width = self.view.frame.width
+        let height = self.view.frame.height - y
+        let frame = CGRect(x: 0, y: y, width: width, height: height)
+        
+        viewLauncher = ViewLauncher(frame: frame)
+        UIApplication.shared.keyWindow?.addSubview(viewLauncher)
+        viewLauncher.dismiss(animated: false)
+    }
+    
+    func handleSelectedItemCellRow(sender: Item) {
+        
+        viewLauncher.launchView.removeAllSubviews()
+        viewLauncher.launchView.addTextView(text: sender.effect)
+        viewLauncher.launch()
+    }
+    
     func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
         
         self.segmentControllSelectedIndex = sender.selectedSegmentIndex
@@ -379,9 +404,5 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         }
         
         tableView.reloadData()
-    }
-    
-    func handleSelectedItemCellRow(sender: Any) {
-        
     }
 }

@@ -31,25 +31,28 @@ class SettingTVC: UITableViewController {
     @IBOutlet weak var measurementSC: UISegmentedControl!
     @IBOutlet weak var soundEffectSwitch: UISwitch!
 
-    var disclaimerView: AnimatableView?
-    var creditView: AnimatableView?
+    var disclaimerView: ViewLauncher!
+    var creditView: ViewLauncher!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadSettingFromUserDefaults()
+        configureDisclaimerCreditView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
+        disclaimerView.removeFromSuperview()
+        creditView.removeFromSuperview()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
         
-        disclaimerView?.removeFromSuperview()
-        creditView?.removeFromSuperview()
+        disclaimerView.dismiss(animated: false)
+        creditView.dismiss(animated: false)
     }
     
     
@@ -65,54 +68,20 @@ class SettingTVC: UITableViewController {
             switch selectedRow {
                 
             case .iDara09GitHub:
-                if let url = URL(string: "https://github.com/iDara09") {
-                    UIApplication.shared.open(url)
-                }
+                guard let url = URL(string: "https://github.com/iDara09") else { return }
+                UIApplication.shared.open(url)
                 
             case .sourceCode:
-                if let url = URL(string: "https://github.com/iDara09/PokedexApp") {
-                    UIApplication.shared.open(url)
-                }
+                guard let url = URL(string: "https://github.com/iDara09/PokedexApp") else { return }
+                UIApplication.shared.open(url)
                 
             case.disclaimer:
                 audioPlayer.play(audio: .select)
-                
-                let disclaimer = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
-                
-                guard let navBar = self.navigationController?.navigationBar else { return }
-                
-                disclaimerView = AnimatableView(text: disclaimer)
-
-                if let disclaimerView = disclaimerView {
-                    disclaimerView.center.x *= 3 //set it off the scren, to the right
-                    
-                    self.navigationController?.view.insertSubview(disclaimerView, belowSubview: navBar)
-                    
-                    let fromValue = NSValue(cgPoint: disclaimerView.center)
-                    let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: disclaimerView.center.y))
-                    
-                    disclaimerView.animatePosition(fromValue: fromValue, toValue: toValue)
-                }
+                disclaimerView.launch()
                 
             case .credits:
                 audioPlayer.play(audio: .select)
-                
-                let credit = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
-                
-                guard let navBar = self.navigationController?.navigationBar else { return }
-                
-                creditView = AnimatableView(text: credit)
-                
-                if let creditView = creditView {
-                    creditView.center.x *= 3 //set it off the scren, to the right
-                    
-                    self.navigationController?.view.insertSubview(creditView, belowSubview: navBar)
-                    
-                    let fromValue = NSValue(cgPoint: CGPoint(x: creditView.center.x, y: creditView.center.y))
-                    let toValue = NSValue(cgPoint: CGPoint(x: self.view.center.x, y: creditView.center.y))
-                    
-                    creditView.animatePosition(fromValue: fromValue, toValue: toValue)
-                }
+                creditView.launch()
                 
             default: ()
             }
@@ -137,12 +106,36 @@ class SettingTVC: UITableViewController {
     
     
     
-    
     // MARK: - Initializer and Handler
     
     func loadSettingFromUserDefaults() {
         
         measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: Constant.Key.Setting.measurementSCSelectedIndex)
         soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
+    }
+    
+    func configureDisclaimerCreditView() {
+        
+        // Create frame
+        let y = Constant.Constrain.frameUnderNavController.origin.y
+        let width = self.view.frame.width
+        let height = self.view.frame.height - y
+        let frame = CGRect(x: 0, y: y, width: width, height: height)
+        
+        // Setup disclaimer viewlauncher
+        disclaimerView = ViewLauncher(frame: frame)
+        UIApplication.shared.keyWindow?.addSubview(disclaimerView)
+        disclaimerView.dismiss(animated: false)
+        
+        let disclaimer = "Disclaimer:\n● This is for practice and learning purposes only.\n● All contents, arts, assets, and data belong to their respective owners."
+        disclaimerView.launchView.addTextView(text: disclaimer)
+        
+        // Setup credit viewlauncher
+        creditView = ViewLauncher(frame: frame)
+        UIApplication.shared.keyWindow?.addSubview(creditView)
+        creditView.dismiss(animated: false)
+        
+        let credit = "Data Resources:\n● Bulbapedia\n● PokemonDB\n● Official Pokemon Site\n● Phasma\n● Veekun"
+        creditView.launchView.addTextView(text: credit)
     }
 }

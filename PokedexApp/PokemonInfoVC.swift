@@ -404,15 +404,16 @@ extension PokemonInfoVC {
             let frame = CGRect(x: 0, y: y, width: width, height: height)
             
             // Configure pokemon weakness and pokedex entry viewlauncher
-            self.pokemonWeaknessViewLauncher = ViewLauncher(frame: frame)
+            pokemonWeaknessViewLauncher = ViewLauncher(frame: frame)
+            pokemonWeaknessViewLauncher.launchView.backgroundColor = UIColor(white: 0, alpha: 0.3)
             self.view.addSubview(pokemonWeaknessViewLauncher)
             
-            self.pokedexEntryViewLauncher = ViewLauncher(frame: frame)
+            pokedexEntryViewLauncher = ViewLauncher(frame: frame)
             self.view.addSubview(pokedexEntryViewLauncher)
         
         } else {
-            self.pokemonWeaknessViewLauncher.launchView.removeAllSubviews()
-            self.pokedexEntryViewLauncher.launchView.removeAllSubviews()
+            pokemonWeaknessViewLauncher.launchView.removeAllSubviews()
+            pokedexEntryViewLauncher.launchView.removeAllSubviews()
         }
         
         pokemonWeaknessViewLauncher.dismiss(animated: false)
@@ -420,7 +421,7 @@ extension PokemonInfoVC {
         
         DispatchQueue.main.async {
             self.pokemonWeaknessViewLauncher.launchView.addWeaknessTypeLabels(of: self.pokemon)
-            self.pokedexEntryViewLauncher.launchView.addPokedexEntryTextView(pokedexEntry: self.pokemon.pokedexEntry)
+            self.pokedexEntryViewLauncher.launchView.addTextView(text: self.pokemon.pokedexEntry)
         }
     }
     

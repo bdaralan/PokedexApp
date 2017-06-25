@@ -86,8 +86,6 @@ extension AnimatableUIView {
                 effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
                 
                 effectiveLabel.textAlignment = .left
-                effectiveLabel.font = UIFont(name: "\(effectiveLabel.font.fontName)-Bold", size: effectiveLabel.font.pointSize)
-                effectiveLabel.textColor = typeLabel.backgroundColor
                 effectiveLabel.backgroundColor = UIColor.clear
                 
             default:()
@@ -97,12 +95,11 @@ extension AnimatableUIView {
         }
         
         // adjust self height to containt all label, similar to .sizeToFit()
-        if let selfLastSubview = typeLabels.last {
-            let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
-            
-            self.addConstraint(selfHeightConstraint)
-            self.layoutIfNeeded()
-        }
+        guard let selfLastSubview = typeLabels.last else { return }
+        let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
+        
+        self.addConstraint(selfHeightConstraint)
+        self.superview?.layoutIfNeeded()
     }
 }
 
@@ -111,7 +108,7 @@ extension AnimatableUIView {
 /// Add pokemon pokedex entry
 extension AnimatableUIView {
     
-    func addPokedexEntryTextView(pokedexEntry: String) {
+    func addTextView(text: String) {
         
         let textView: UITextView = {
             let textView = UITextView(frame: frame)
@@ -119,7 +116,7 @@ extension AnimatableUIView {
             textView.isScrollEnabled = false
             textView.isEditable = false
             
-            textView.text = pokedexEntry
+            textView.text = text
             textView.sizeToFit()
             
             return textView
@@ -139,6 +136,6 @@ extension AnimatableUIView {
         let selfHeight = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: textView, attribute: .bottom, multiplier: 1, constant: 8)
         
         self.addConstraints(hConstraints + vConstraints + [selfHeight])
-        self.layoutIfNeeded()
+        self.superview?.layoutIfNeeded()
     }
 }
