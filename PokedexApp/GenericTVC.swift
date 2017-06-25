@@ -20,7 +20,7 @@ enum GenericCell: String {
 }
 
 
-class GenericTVC: UITableViewController, UISearchResultsUpdating {
+class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDelegate {
     
     var genericCell: GenericCell! // will be assigned when perform segue
     
@@ -96,49 +96,40 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         switch currentGenericCell {
             
         case .PokedexCell:
-            if let cell = cell as? PokedexCell {
-                cell.configureCell(for: pokemons[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? PokedexCell else { return UITableViewCell() }
+            cell.configureCell(for: pokemons[indexPath.row])
+            return cell
             
         case .TypeCell:
-            if let cell = cell as? TypeCell {
-                cell.configureCell(type: types[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? TypeCell else { return UITableViewCell() }
+            cell.configureCell(type: types[indexPath.row])
+            return cell
             
         case .MoveCell:
-            if let cell = cell as? MoveCell {
-                cell.configureCell(for: moves[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? MoveCell else { return UITableViewCell() }
+            cell.configureCell(for: moves[indexPath.row])
+            return cell
             
         case .AbilityCell:
-            if let cell = cell as? AbilityCell {
-                cell.configureCell(ability: abilities[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? AbilityCell else { return UITableViewCell() }
+            cell.configureCell(ability: abilities[indexPath.row])
+            return cell
             
         case .TMCell:
-            if let cell = cell as? ItemCell {
-                cell.configureCell(tm: items[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? ItemCell else { return UITableViewCell() }
+            cell.configureCell(tm: items[indexPath.row])
+            return cell
             
         case .ItemCell:
-            if let cell = cell as? ItemCell {
-                cell.configureCell(item: items[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? ItemCell else { return UITableViewCell() }
+            cell.configureCell(item: items[indexPath.row])
+            return cell
             
         case .BerryCell:
-            if let cell = cell as? ItemCell {
-                cell.configureCell(berry: items[indexPath.row])
-                return cell
-            }
+            guard let cell = cell as? ItemCell else { return UITableViewCell() }
+            cell.configureCell(berry: items[indexPath.row])
+            return cell
         }
-        
-        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -199,14 +190,12 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
     
     
     
-    
     // MARK: - Protocol
     
-    func viewLauncher(willDismiss dismissOrigin: CGPoint) { // currently use with AbilityCell, TMCell, and ItemCell
+    func viewLauncherDidDismiss(viewlauncher: ViewLauncher) {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     
     
     
@@ -218,7 +207,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
             self.searchResultController.searchBar.becomeFirstResponder()
         }
     }
-    
     
     
     
@@ -371,6 +359,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating {
         viewLauncher = ViewLauncher(frame: frame)
         UIApplication.shared.keyWindow?.addSubview(viewLauncher)
         viewLauncher.dismiss(animated: false)
+        viewLauncher.delegate = self
     }
     
     func handleSelectedItemCellRow(sender: Item) {

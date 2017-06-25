@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol ViewLauncherDelegate: class {
+    
+    func viewLauncherDidDismiss(viewlauncher: ViewLauncher)
+}
+
 class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
+    
+    weak var delegate: ViewLauncherDelegate?
     
     var launchView = AnimatableUIView()
     
@@ -66,7 +73,10 @@ class ViewLauncher: UIView, Animatable, CAAnimationDelegate {
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
-        if isDismissing { self.alpha = 0 }
+        if isDismissing {
+            self.alpha = 0
+            self.delegate?.viewLauncherDidDismiss(viewlauncher: self)
+        }
     }
     
     
