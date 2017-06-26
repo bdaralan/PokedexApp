@@ -315,7 +315,7 @@ extension TypeDetailTVC {
         var strongAgainstTypes = [String]()
         
         for type in VARIABLE.allTypes {
-            if let typeDict = Constant.weaknessesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
+            if let typeDict = Constant.defensesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
                 strongAgainstTypes.append(type)
             }
         }
@@ -327,8 +327,8 @@ extension TypeDetailTVC {
         
         var defensiveTypes = [String]()
         
-        if let weaknessesDict = Constant.weaknessesJSON[type] as? DictionarySS {
-            for (type, effectiveness) in weaknessesDict where effectiveness == effective {
+        if let defensesDict = Constant.defensesJSON[type] as? DictionarySS {
+            for (type, effectiveness) in defensesDict where effectiveness == effective {
                 defensiveTypes.append(type)
             }
         }

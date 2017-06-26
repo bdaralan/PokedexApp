@@ -215,9 +215,9 @@ extension LoadData {
         return LoadData.load(fromFile: "measurements", ofType: "json")
     }
     
-    var weaknessesJSON: DictionarySA {
+    var defensesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "weaknesses", ofType: "json")
+        return LoadData.load(fromFile: "defenses", ofType: "json")
     }
     
     var pokedexEntriesJSON: DictionarySA {

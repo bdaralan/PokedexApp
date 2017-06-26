@@ -713,14 +713,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Blazikenite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sFQ-Mi-PaK">
-                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="12" width="82.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Hold Item" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FWx-ek-FpO">
-                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="286" y="12" width="74" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -961,7 +961,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weaknesses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx8-dz-0ng" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Defenses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx8-dz-0ng" customClass="SectionUILabel" customModule="PokedexApp" customModuleProvider="target">
                                 <rect key="frame" x="194" y="246" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1208,6 +1208,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="defensesSectionLbl" destination="Rx8-dz-0ng" id="F4F-q6-lla"/>
                         <outlet property="measurementSectionLbl" destination="hhg-QI-IA8" id="yBa-wY-ahu"/>
                         <outlet property="pokeAbility01Lbl" destination="Snr-jG-dfM" id="jZ3-dr-4rQ"/>
                         <outlet property="pokeAbility02Lbl" destination="PTV-r8-0Ch" id="TcX-xT-hPV"/>
@@ -1236,7 +1237,6 @@
                         <outlet property="pokeType02Lbl" destination="0Wq-Rz-vs9" id="q8o-0F-fmd"/>
                         <outlet property="pokeWeighLblt" destination="Ygv-tF-L6n" id="4Ji-pJ-cwX"/>
                         <outlet property="pokedexEnterySectionLbl" destination="6yR-rc-PGc" id="AJB-mJ-2uO"/>
-                        <outlet property="weaknessesSectionLbl" destination="Rx8-dz-0ng" id="La7-ti-uAE"/>
                         <segue destination="f0m-dk-nUt" kind="show" identifier="TypeDetailTVC" id="Zzn-cQ-Gx5"/>
                         <segue destination="4vM-Ig-M2A" kind="show" identifier="AbilityDetailTVC" id="bBF-vP-3Uf"/>
                     </connections>
@@ -1271,9 +1271,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fSY-tL-Ci9"/>
-        <segue reference="WwS-oR-bSB"/>
-        <segue reference="hBg-BA-g37"/>
         <segue reference="QYb-qA-O7c"/>
+        <segue reference="hBg-BA-g37"/>
+        <segue reference="Zzn-cQ-Gx5"/>
+        <segue reference="bBF-vP-3Uf"/>
     </inferredMetricsTieBreakers>
 </document>

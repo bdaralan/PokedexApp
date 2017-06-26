@@ -24,7 +24,7 @@ struct Constant {
     
     static let measurementsJSON: DictionarySA = loadData.measurementsJSON
     
-    static let weaknessesJSON: DictionarySA = loadData.weaknessesJSON
+    static let defensesJSON: DictionarySA = loadData.defensesJSON
     
     static let pokedexEntriesJSON: DictionarySA = loadData.pokedexEntriesJSON
     

@@ -11,39 +11,27 @@ import UIKit
 class Pokemon {
     
     private var _name: String!
-    
     private var _id: Int!
-    
     private var _form: String!
     
     private var _primaryType: String!
-    
     private var _secondaryType: String!
     
     private var _hp: Int!
-    
     private var _attack: Int!
-    
     private var _defense: Int!
-    
     private var _spAttack: Int!
-    
     private var _spDefense: Int!
-    
     private var _speed: Int!
     
     private var _firstAbility: String!
-    
     private var _secondAbility: String!
-    
     private var _hiddenAbility: String!
     
     private var _height: [String]!
-    
     private var _weight: [String]!
     
     private var _evolveFrom: String!
-    
     private var _evolveTo: String!
     
     
@@ -278,19 +266,19 @@ extension Pokemon {
         return "\(id)\(crySound)"
     }
     
-    var weaknesses: DictionarySS {
+    var defenses: DictionarySS {
         
-        var weaknessesDict = DictionarySS()
+        var defensesDict = DictionarySS()
         
         if primaryType != "" {
-            if let weaknesses = Constant.weaknessesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
-                for (type, effective) in weaknesses where effective != "" {
-                    weaknessesDict.updateValue(effective, forKey: type)
+            if let defenses = Constant.defensesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
+                for (type, effective) in defenses where effective != "" {
+                    defensesDict.updateValue(effective, forKey: type)
                 }
             }
         }
         
-        return weaknessesDict
+        return defensesDict
     }
     
     var pokedexEntry: String {

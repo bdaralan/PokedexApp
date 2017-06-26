@@ -24,7 +24,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     @IBOutlet weak var measurementSectionLbl: UILabel!
     @IBOutlet weak var pokedexEnterySectionLbl: UILabel!
-    @IBOutlet weak var weaknessesSectionLbl: UILabel!
+    @IBOutlet weak var defensesSectionLbl: UILabel!
     
     @IBOutlet weak var pokeHpLbl: UILabel!
     @IBOutlet weak var pokeAttackLbl: UILabel!
@@ -45,7 +45,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     @IBOutlet weak var pokeEvolutionArr01Img: UIImageView!
     @IBOutlet weak var pokeEvolutionArr02Img: UIImageView!
     
-    var pokemonWeaknessViewLauncher: ViewLauncher!
+    var pokemonDefenseViewLauncher: ViewLauncher!
     var pokedexEntryViewLauncher: ViewLauncher!
     
     var pokemon: Pokemon! {
@@ -334,14 +334,14 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 self.toggleMeasurement()
             }
             
-        case weaknessesSectionLbl:
+        case defensesSectionLbl:
             if sender.state == .began {
-                weaknessesSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
+                defensesSectionLbl.layer.borderColor = UIColor.AppObject.sectionText.cgColor
             } else if sender.state == .ended {
-                weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
+                defensesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 audioPlayer.play(audio: .select)
 
-                pokemonWeaknessViewLauncher.launch()
+                pokemonDefenseViewLauncher.launch()
             }
             
         case pokedexEnterySectionLbl:
@@ -379,26 +379,26 @@ extension PokemonInfoVC {
     
     func configureViewLauncher() {
         
-        if pokemonWeaknessViewLauncher == nil, pokedexEntryViewLauncher == nil {
+        if pokemonDefenseViewLauncher == nil, pokedexEntryViewLauncher == nil {
             let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
             
-            // Configure pokemon weakness and pokedex entry viewlauncher
-            pokemonWeaknessViewLauncher = ViewLauncher(frame: viewLauncherFrame)
-            self.view.addSubview(pokemonWeaknessViewLauncher)
+            // Configure pokemon defense and pokedex entry viewlauncher
+            pokemonDefenseViewLauncher = ViewLauncher(frame: viewLauncherFrame)
+            self.view.addSubview(pokemonDefenseViewLauncher)
             
             pokedexEntryViewLauncher = ViewLauncher(frame: viewLauncherFrame)
             self.view.addSubview(pokedexEntryViewLauncher)
         
         } else {
-            pokemonWeaknessViewLauncher.launchView.removeAllSubviews()
+            pokemonDefenseViewLauncher.launchView.removeAllSubviews()
             pokedexEntryViewLauncher.launchView.removeAllSubviews()
         }
         
-        pokemonWeaknessViewLauncher.dismiss(animated: false)
+        pokemonDefenseViewLauncher.dismiss(animated: false)
         pokedexEntryViewLauncher.dismiss(animated: false)
         
         DispatchQueue.main.async {
-            self.pokemonWeaknessViewLauncher.launchView.addWeaknessTypeLabels(of: self.pokemon)
+            self.pokemonDefenseViewLauncher.launchView.addDefenseTypeLabels(of: self.pokemon)
             self.pokedexEntryViewLauncher.launchView.addTextView(text: self.pokemon.pokedexEntry)
         }
     }
@@ -415,10 +415,10 @@ extension PokemonInfoVC {
         pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
         pokedexEnterySectionLbl.layer.borderWidth = 2
         
-        addLongPressGesture(to: weaknessesSectionLbl, action: #selector(handleSectionLblPress))
-        weaknessesSectionLbl.isUserInteractionEnabled = true
-        weaknessesSectionLbl.layer.borderColor = UIColor.clear.cgColor
-        weaknessesSectionLbl.layer.borderWidth = 2
+        addLongPressGesture(to: defensesSectionLbl, action: #selector(handleSectionLblPress))
+        defensesSectionLbl.isUserInteractionEnabled = true
+        defensesSectionLbl.layer.borderColor = UIColor.clear.cgColor
+        defensesSectionLbl.layer.borderWidth = 2
         
         addTapGesture(to: pokeEvolution01Img, action: #selector(handleEvolutionPress(_:)))
         addTapGesture(to: pokeEvolution02Img, action: #selector(handleEvolutionPress(_:)))

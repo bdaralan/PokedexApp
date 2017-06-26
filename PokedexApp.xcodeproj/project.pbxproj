@@ -869,7 +869,7 @@
 		53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7141EA2FA2E00964977 /* AbilityCell.swift */; };
 		53ECA7171EA2FA8000964977 /* TypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECA7161EA2FA8000964977 /* TypeCell.swift */; };
 		53FD91F11EB6FBDC00C7EC86 /* pokedex-enteries.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FD91E91EB6FBDC00C7EC86 /* pokedex-enteries.json */; };
-		53FD91F41EB6FBDC00C7EC86 /* weaknesses.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FD91EC1EB6FBDC00C7EC86 /* weaknesses.json */; };
+		53FD91F41EB6FBDC00C7EC86 /* defenses.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FD91EC1EB6FBDC00C7EC86 /* defenses.json */; };
 		53FD91F61EB6FD1800C7EC86 /* measurements.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FD91F51EB6FD1800C7EC86 /* measurements.json */; };
 		53FD91F81EB711EB00C7EC86 /* TypeDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD91F71EB711EB00C7EC86 /* TypeDetailTVC.swift */; };
 		53FD91FA1EB7157C00C7EC86 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 53FD91F91EB7157C00C7EC86 /* items.json */; };
@@ -1742,7 +1742,7 @@
 		53ECA7141EA2FA2E00964977 /* AbilityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityCell.swift; sourceTree = "<group>"; };
 		53ECA7161EA2FA8000964977 /* TypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCell.swift; sourceTree = "<group>"; };
 		53FD91E91EB6FBDC00C7EC86 /* pokedex-enteries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokedex-enteries.json"; sourceTree = "<group>"; };
-		53FD91EC1EB6FBDC00C7EC86 /* weaknesses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weaknesses.json; sourceTree = "<group>"; };
+		53FD91EC1EB6FBDC00C7EC86 /* defenses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defenses.json; sourceTree = "<group>"; };
 		53FD91F51EB6FD1800C7EC86 /* measurements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = measurements.json; sourceTree = "<group>"; };
 		53FD91F71EB711EB00C7EC86 /* TypeDetailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeDetailTVC.swift; sourceTree = "<group>"; };
 		53FD91F91EB7157C00C7EC86 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
@@ -1770,7 +1770,7 @@
 				5364D18A1EBA60FF00FEDF63 /* abilities.json */,
 				5364D1941EBA63FF00FEDF63 /* evolutions.json */,
 				5364D1951EBA63FF00FEDF63 /* pokemons.json */,
-				53FD91EC1EB6FBDC00C7EC86 /* weaknesses.json */,
+				53FD91EC1EB6FBDC00C7EC86 /* defenses.json */,
 				53FD91F51EB6FD1800C7EC86 /* measurements.json */,
 				53FD91E91EB6FBDC00C7EC86 /* pokedex-enteries.json */,
 				5364D18B1EBA60FF00FEDF63 /* pokemon-abilities.json */,
@@ -3347,7 +3347,7 @@
 				536E038B1EBAD663003020D7 /* 748-Toxapex.m4a in Resources */,
 				536E01341EBAD662003020D7 /* 156-Quilava.m4a in Resources */,
 				536E03A61EBAD663003020D7 /* 775-Komala.m4a in Resources */,
-				53FD91F41EB6FBDC00C7EC86 /* weaknesses.json in Resources */,
+				53FD91F41EB6FBDC00C7EC86 /* defenses.json in Resources */,
 				536E00D51EBAD662003020D7 /* 061-Poliwhirl.m4a in Resources */,
 				536E01131EBAD662003020D7 /* 123-Scyther.m4a in Resources */,
 				536E02101EBAD662003020D7 /* 376-Metagross.m4a in Resources */,

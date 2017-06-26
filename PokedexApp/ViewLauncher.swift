@@ -10,7 +10,7 @@ import UIKit
 
 protocol ViewLauncherDelegate: class {
     
-    func viewLauncherDidDismiss(viewlauncher: ViewLauncher)
+    func viewLauncherWillDismiss(viewlauncher: ViewLauncher)
 }
 
 class ViewLauncher: UIView, CAAnimationDelegate {
@@ -75,7 +75,6 @@ class ViewLauncher: UIView, CAAnimationDelegate {
         
         if isDismissing {
             self.alpha = 0
-            self.delegate?.viewLauncherDidDismiss(viewlauncher: self)
         }
     }
     
@@ -113,6 +112,9 @@ class ViewLauncher: UIView, CAAnimationDelegate {
         
         // estimate launch and dimiss position
         computeLaunchDimissValues(superview: self.superview)
+        
+        // delegate
+        delegate?.viewLauncherWillDismiss(viewlauncher: self)
         
         if animated {
             // create animations

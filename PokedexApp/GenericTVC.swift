@@ -192,8 +192,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     // MARK: - Protocol
     
-    func viewLauncherDidDismiss(viewlauncher: ViewLauncher) {
+    func viewLauncherWillDismiss(viewlauncher: ViewLauncher) {
         
+        guard indexPath != nil else { return }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

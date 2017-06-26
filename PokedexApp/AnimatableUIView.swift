@@ -10,24 +10,24 @@ import UIKit
 
 class AnimatableUIView: UIView {}
 
-/// Add pokemon weaknesses
+/// Add pokemon defenses
 extension AnimatableUIView {
     
-    func addWeaknessTypeLabels(of pokemon: Pokemon) {
+    func addDefenseTypeLabels(of pokemon: Pokemon) {
         
-        let weaknesses = pokemon.weaknesses
+        let defenses = pokemon.defenses
         
         var typeLabels = [TypeUILabel]()
         var effectiveLabels = [TypeUILabel]()
         
-        // Append typeLabels and effectiveLabels for its number of weaknesses
-        for (type, effective) in weaknesses {
+        // Append typeLabels and effectiveLabels for its number of defenses
+        for (type, effective) in defenses {
             
             let typeLabel = TypeUILabel()
             typeLabel.text = type
             
             let effectiveLabel = TypeUILabel()
-            effectiveLabel.text = "\(effective)x"
+            effectiveLabel.text =  effective == "0" ? "Immune" : "\(effective)x"
             effectiveLabel.backgroundColor = typeLabel.backgroundColor
             
             typeLabels.append(typeLabel)
@@ -82,11 +82,13 @@ extension AnimatableUIView {
             case "4x":
                 effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -16)
                 
-            case "0x":
-                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
+            case "Immune":
+                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .width, multiplier: 1, constant: 0)
                 
-                effectiveLabel.textAlignment = .left
+                effectiveLabel.textColor = effectiveLabel.backgroundColor
                 effectiveLabel.backgroundColor = UIColor.clear
+                effectiveLabel.textAlignment = .left
+                effectiveLabel.clipsToBounds = false
                 
             default:()
             }
