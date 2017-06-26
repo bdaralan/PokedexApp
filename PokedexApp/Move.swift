@@ -132,18 +132,18 @@ extension Move {
                     switch learnMethod {
                         
                     case .any:
-                        let learnablePokemons = VARIABLE.allPokemonsSortedById.filter(forId: id)
+                        let learnablePokemons = Variable.allPokemonsSortedById.filter(forId: id)
                         for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         
                     case .levelup:
                         if !levels.contains("0") {
-                            let learnablePokemons = VARIABLE.allPokemonsSortedById.filter(forId: id)
+                            let learnablePokemons = Variable.allPokemonsSortedById.filter(forId: id)
                             for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         }
                         
                     case .breedOrMachine:
                         if levels.contains("0") {
-                            let learnablePokemons = VARIABLE.allPokemonsSortedById.filter(forId: id)
+                            let learnablePokemons = Variable.allPokemonsSortedById.filter(forId: id)
                             for pokemon in learnablePokemons { pokemons.append(pokemon) }
                         }
                     }

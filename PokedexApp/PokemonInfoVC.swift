@@ -264,15 +264,15 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             switch senderView {
                 
             case pokeAbility01Lbl:
-                let ability = VARIABLE.allAbilities.search(forName: pokemon.firstAbility)
+                let ability = Variable.allAbilities.search(forName: pokemon.firstAbility)
                 performSegue(withIdentifier: identifier, sender: ability)
                 
             case pokeAbility02Lbl:
-                let ability = VARIABLE.allAbilities.search(forName: pokemon.secondAbility)
+                let ability = Variable.allAbilities.search(forName: pokemon.secondAbility)
                 performSegue(withIdentifier: identifier, sender: ability)
                 
             case pokeHiddenAibilityLbl:
-                let ability = VARIABLE.allAbilities.search(forName: pokemon.hiddenAbility)
+                let ability = Variable.allAbilities.search(forName: pokemon.hiddenAbility)
                 performSegue(withIdentifier: identifier, sender: ability)
                 
             default: ()

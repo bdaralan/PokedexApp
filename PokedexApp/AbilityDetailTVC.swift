@@ -147,7 +147,7 @@ class AbilityDetailTVC: UITableViewController {
     
     func prepareNecessaryData() {
         
-        pokemons = VARIABLE.allPokemonsSortedById.filter(forAbility: ability.name)
+        pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
     }
     
     func configureHeaderViews() {
@@ -181,10 +181,10 @@ class AbilityDetailTVC: UITableViewController {
         switch sender.selectedSegmentIndex {
             
         case pokemonWithAbilitySegIndex:
-            pokemons = VARIABLE.allPokemonsSortedById.filter(forAbility: ability.name)
+            pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
             
         case pokemonWithAbilityAsHiddenSegIndex:
-            pokemons = VARIABLE.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
+            pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
             
         default: ()
         }

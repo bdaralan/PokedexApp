@@ -8,19 +8,27 @@
 
 import UIKit
 
+let globalCache = NSCache<AnyObject, AnyObject>()
+
+let audioPlayer = AudioPlayer()
+
+
+
 struct Constant {
     
     static private let loadData = LoadData()
     
-    static let movesJSON: DictionarySA = loadData.movesJSON
+    static let pokemonsJSON: DictionarySA = loadData.pokemonsJSON
     
     static let pokemonLearnMoveJSON: DictionarySA = loadData.pokemonLearnMovesJSON
     
-    static let pokemonsJSON: DictionarySA = loadData.pokemonsJSON
+    static let movesJSON: DictionarySA = loadData.movesJSON
     
     static let abilitiesJSON: DictionarySA = loadData.abilitiesJSON
     
     static let pokemonAbilitiesJSON: DictionarySA = loadData.pokemonAbilitiesJSON
+    
+    static let itemsJSON: DictionarySA = loadData.itemJSON
     
     static let measurementsJSON: DictionarySA = loadData.measurementsJSON
     
@@ -29,8 +37,6 @@ struct Constant {
     static let pokedexEntriesJSON: DictionarySA = loadData.pokedexEntriesJSON
     
     static let evolutionsJSON: DictionarySA = loadData.evolutionJSON
-    
-    static let itemsJSON: DictionarySA = loadData.itemJSON
     
     static let evolutionSpecialCaseForm: [String] = loadData.evolutionSpecialCaseForm
     

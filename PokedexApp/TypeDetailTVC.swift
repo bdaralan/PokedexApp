@@ -40,8 +40,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pokemons = VARIABLE.allPokemonsSortedById.filter(forType: type)
-        moves = VARIABLE.allMoves.filter(forType: type)
+        pokemons = Variable.allPokemonsSortedById.filter(forType: type)
+        moves = Variable.allMoves.filter(forType: type)
         
         configureHeaderViews()
         updateUI()
@@ -208,8 +208,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             immuneToTypeLbls = cachedImmuneToTypes
             
         } else {
-            pokemons = VARIABLE.allPokemonsSortedById.filter(forType: type)
-            moves = VARIABLE.allMoves.filter(forType: type)
+            pokemons = Variable.allPokemonsSortedById.filter(forType: type)
+            moves = Variable.allMoves.filter(forType: type)
             strongAgainstTypeLbls = makeTypeLabels(from: getOffensiveTypes())
             weakToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "2"))
             resistToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "1/2"))
@@ -314,7 +314,7 @@ extension TypeDetailTVC {
         
         var strongAgainstTypes = [String]()
         
-        for type in VARIABLE.allTypes {
+        for type in Variable.allTypes {
             if let typeDict = Constant.defensesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
                 strongAgainstTypes.append(type)
             }

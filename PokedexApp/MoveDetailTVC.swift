@@ -34,7 +34,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         self.title = move.name
         
-        moves = VARIABLE.allMoves.filter(forType: move.type)
+        moves = Variable.allMoves.filter(forType: move.type)
         pokemons = move.pokemonsLearn(by: .any)
 
         configureSegmentControl()

@@ -103,7 +103,7 @@ class LoadData {
     
     func allTypes() -> [String] {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {
             
             return types.sorted()
@@ -115,7 +115,7 @@ class LoadData {
     
     var homeMenuSections: [String] {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let homeMenu = plist["HomeMenu"] as? DictionarySA, let sections = homeMenu["Sections"] as? [String] {
             
             return sections
@@ -126,7 +126,7 @@ class LoadData {
     
     var homeMenuRowsInSections: [[String]] {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let homeMenu = plist["HomeMenu"] as? DictionarySA, let rowsInSection = homeMenu["RowsInSections"] as? [[String]] {
             
             return rowsInSection
@@ -137,7 +137,7 @@ class LoadData {
     
     var settingSections: [String] {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let settingMenu = plist["SettingMenu"] as? DictionarySA, let sections = settingMenu["Sections"] as? [String] {
             
             return sections
@@ -148,7 +148,7 @@ class LoadData {
     
     var settingRowsInSections: [[String]] {
      
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let settingMenu = plist["SettingMenu"] as? DictionarySA, let rowsInSections = settingMenu["RowsInSections"] as? [[String]] {
             
             return rowsInSections
@@ -159,7 +159,7 @@ class LoadData {
     
     var pokemonTypes: [String] {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let types = plist["PokemonTypes"] as? [String] {
             
             return types
@@ -170,7 +170,7 @@ class LoadData {
     
     var evolutionSpecialCaseForm: [String] {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let specialCaseForm = plist["EvolutionSpecialCaseForm"] as? [String] {
             
             return specialCaseForm
@@ -181,7 +181,7 @@ class LoadData {
     
     var crySoundSpecialCaseName: DictionarySS {
         
-        let plist = LoadData.load(fromFile: "constants", ofType: "plist")
+        let plist = load(fromFile: "constants", ofType: "plist")
         if let specialCaseName = plist["CrySoundSpecialCaseName"] as? DictionarySS {
             
             return specialCaseName
@@ -197,52 +197,52 @@ extension LoadData {
     
     var pokemonsJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "pokemons", ofType: "json")
+        return load(fromFile: "pokemons", ofType: "json")
     }
     
     var abilitiesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "abilities", ofType: "json")
+        return load(fromFile: "abilities", ofType: "json")
     }
     
     var pokemonAbilitiesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "pokemon-abilities", ofType: "json")
+        return load(fromFile: "pokemon-abilities", ofType: "json")
     }
     
     var measurementsJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "measurements", ofType: "json")
+        return load(fromFile: "measurements", ofType: "json")
     }
     
     var defensesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "defenses", ofType: "json")
+        return load(fromFile: "defenses", ofType: "json")
     }
     
     var pokedexEntriesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "pokedex-enteries", ofType: "json")
+        return load(fromFile: "pokedex-enteries", ofType: "json")
     }
     
     var movesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "moves", ofType: "json")
+        return load(fromFile: "moves", ofType: "json")
     }
     
     var pokemonLearnMovesJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "pokemon-learn-moves", ofType: "json")
+        return load(fromFile: "pokemon-learn-moves", ofType: "json")
     }
     
     var evolutionJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "evolutions", ofType: "json")
+        return load(fromFile: "evolutions", ofType: "json")
     }
     
     var itemJSON: DictionarySA {
         
-        return LoadData.load(fromFile: "items", ofType: "json")
+        return load(fromFile: "items", ofType: "json")
     }
 }
 
@@ -250,7 +250,7 @@ extension LoadData {
 
 extension LoadData {
     
-    static func load(fromFile name: String, ofType type: String) -> DictionarySA {
+    func load(fromFile name: String, ofType type: String) -> DictionarySA {
         
         if let path = Bundle.main.path(forResource: name, ofType: type), let data = NSData(contentsOfFile: path) as Data? {
             do {

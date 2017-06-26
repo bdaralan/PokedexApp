@@ -205,7 +205,7 @@ class Pokemon {
         var name = self.name
         
         if self.hasForm {
-            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = VARIABLE.allPokemonsSortedByName.filter({$0.id == self.id}).first {
+            if self.form.contains("mega") || self.form.contains("primal"), let selfNoForm = Variable.allPokemonsSortedByName.filter({$0.id == self.id}).first {
                 name = selfNoForm.name
             }
         }
@@ -310,33 +310,33 @@ extension Pokemon {
         var selfNoForm = self
         
         if self.hasForm, Constant.evolutionSpecialCaseForm.contains(self.form) {
-            selfNoForm = VARIABLE.allPokemonsSortedById.search(forId: self.id, withName: self.name)
+            selfNoForm = Variable.allPokemonsSortedById.search(forId: self.id, withName: self.name)
         }
         
         evolutions = [selfNoForm]
         
         if selfNoForm.isBaseEvolution { // MARK: - isBaseEvolution
-            let evolveToPokemon = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
+            let evolveToPokemon = Variable.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
             
             if evolveToPokemon.isLastEvolution {
                 evolutions = [selfNoForm, evolveToPokemon]
             } else { //isMidEvolution
-                let lastEvolution = VARIABLE.allPokemonsSortedByName.search(forName: evolveToPokemon.evolveTo)
+                let lastEvolution = Variable.allPokemonsSortedByName.search(forName: evolveToPokemon.evolveTo)
                 evolutions = [selfNoForm, evolveToPokemon, lastEvolution]
             }
             
         } else if selfNoForm.isMidEvolution { // MARK: - isMidEvolution
-            let baseEvolution = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
-            let lastEvolution = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
+            let baseEvolution = Variable.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
+            let lastEvolution = Variable.allPokemonsSortedByName.search(forName: selfNoForm.evolveTo)
             evolutions = [baseEvolution, selfNoForm, lastEvolution]
             
         } else if selfNoForm.isLastEvolution { // MARK: - isLastEvolution
-            let evolveFromPokemon = VARIABLE.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
+            let evolveFromPokemon = Variable.allPokemonsSortedByName.search(forName: selfNoForm.evolveFrom)
             
             if evolveFromPokemon.isBaseEvolution {
                 evolutions = [evolveFromPokemon, selfNoForm]
             } else { //isMidEvollution
-                let baseEvolution = VARIABLE.allPokemonsSortedByName.search(forName: evolveFromPokemon.evolveFrom)
+                let baseEvolution = Variable.allPokemonsSortedByName.search(forName: evolveFromPokemon.evolveFrom)
                 evolutions = [baseEvolution, evolveFromPokemon, selfNoForm]
             }
         }

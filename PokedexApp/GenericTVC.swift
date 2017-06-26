@@ -49,11 +49,13 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         viewLauncher.dismiss(animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
         viewLauncher.removeFromSuperview()
     }
@@ -152,15 +154,15 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .TMCell:
             self.indexPath = indexPath
-            handleSelectedItemCellRow(sender: items[indexPath.row])
+            handleSelectedItemCellRow(item: items[indexPath.row])
             
         case .ItemCell:
             self.indexPath = indexPath
-            handleSelectedItemCellRow(sender: items[indexPath.row])
+            handleSelectedItemCellRow(item: items[indexPath.row])
             
         case .BerryCell:
             self.indexPath = indexPath
-            handleSelectedItemCellRow(sender: items[indexPath.row])
+            handleSelectedItemCellRow(item: items[indexPath.row])
         }
     }
     
@@ -220,25 +222,25 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             switch currentGenericCell {
                 
             case .PokedexCell:
-                pokemons = VARIABLE.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
+                pokemons = Variable.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
                 
             case .TypeCell:
-                types = VARIABLE.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
+                types = Variable.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
                 
             case .MoveCell:
-                moves = VARIABLE.allMoves.filter(forName: searchText, options: .caseInsensitive)
+                moves = Variable.allMoves.filter(forName: searchText, options: .caseInsensitive)
                 
             case .AbilityCell:
-                abilities = VARIABLE.allAbilities.filter(for: searchText, options: .caseInsensitive)
+                abilities = Variable.allAbilities.filter(for: searchText, options: .caseInsensitive)
                 
             case .TMCell:
-                items = VARIABLE.allItems.machines.filter(for: searchText, options: .caseInsensitive)
+                items = Variable.allItems.machines.filter(for: searchText, options: .caseInsensitive)
                 
             case .ItemCell:
-                items = VARIABLE.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
+                items = Variable.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
                 
             case .BerryCell:
-                items = VARIABLE.allItems.berries.filter(for: searchText, options: .caseInsensitive)
+                items = Variable.allItems.berries.filter(for: searchText, options: .caseInsensitive)
             }
             
         } else {
@@ -247,32 +249,32 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
                 
             case .PokedexCell:
                 if segmentControllSelectedIndex == 0 {
-                    pokemons = VARIABLE.allPokemonsSortedById
+                    pokemons = Variable.allPokemonsSortedById
                 } else {
-                    pokemons = VARIABLE.allPokemonsSortedByName
+                    pokemons = Variable.allPokemonsSortedByName
                 }
                 
             case .TypeCell:
-                types = VARIABLE.allTypes
+                types = Variable.allTypes
                 
             case .MoveCell:
-                moves = VARIABLE.allMoves
+                moves = Variable.allMoves
                 
             case .AbilityCell:
-                abilities = VARIABLE.allAbilities
+                abilities = Variable.allAbilities
                 
             case .TMCell:
-                items = VARIABLE.allItems.machines
+                items = Variable.allItems.machines
                 
             case .ItemCell:
                 if segmentControllSelectedIndex == 0 {
-                    items = VARIABLE.allItems.excludeBerriesMachines
+                    items = Variable.allItems.excludeBerriesMachines
                 } else {
-                    items = VARIABLE.allItems.excludeBerriesMachines
+                    items = Variable.allItems.excludeBerriesMachines
                 }
                 
             case .BerryCell:
-                items = VARIABLE.allItems.berries
+                items = Variable.allItems.berries
             }
         }
         
@@ -289,25 +291,25 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         switch currentGenericCell {
             
         case .PokedexCell:
-            pokemons = VARIABLE.allPokemonsSortedById
+            pokemons = Variable.allPokemonsSortedById
             
         case .TypeCell:
-            types = VARIABLE.allTypes
+            types = Variable.allTypes
             
         case .MoveCell:
-            moves = VARIABLE.allMoves
+            moves = Variable.allMoves
             
         case .AbilityCell:
-            abilities = VARIABLE.allAbilities
+            abilities = Variable.allAbilities
                         
         case .TMCell:
-            items = VARIABLE.allItems.machines
+            items = Variable.allItems.machines
             
         case .ItemCell:
-            items = VARIABLE.allItems.excludeBerriesMachines
+            items = Variable.allItems.excludeBerriesMachines
             
         case .BerryCell:
-            items = VARIABLE.allItems.berries
+            items = Variable.allItems.berries
         }
     }
     
@@ -358,10 +360,10 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         viewLauncher.delegate = self
     }
     
-    func handleSelectedItemCellRow(sender: Item) {
+    func handleSelectedItemCellRow(item: Item) {
         
         viewLauncher.launchView.removeAllSubviews()
-        viewLauncher.launchView.addTextView(text: sender.effect)
+        viewLauncher.launchView.addTextView(text: item.effect)
         viewLauncher.launch()
     }
     
@@ -373,16 +375,16 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .PokedexCell:
             if segmentControllSelectedIndex == 0 {
-                pokemons = VARIABLE.allPokemonsSortedById
+                pokemons = Variable.allPokemonsSortedById
             } else { //must be 1
                 pokemons = pokemons.sortByAlphabet()
             }
             
         case .ItemCell:
             if segmentControllSelectedIndex == 0 { //A-Z
-                items = VARIABLE.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
+                items = Variable.allItems.excludeBerriesMachines.sorted(by: {$0.name < $1.name})
             } else { //must be 1, Cat.
-                items = VARIABLE.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
+                items = Variable.allItems.excludeBerriesMachines.sorted(by: {$0.category < $1.category})
             }
             
         default: ()

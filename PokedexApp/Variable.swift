@@ -8,32 +8,19 @@
 
 import Foundation
 
-typealias DictionarySA = Dictionary<String, AnyObject>
-typealias DictionarySS = Dictionary<String, String>
-
-
-
-let globalCache = NSCache<AnyObject, AnyObject>()
-
-let audioPlayer = AudioPlayer()
-
-let VARIABLE = Variable()
-
-
-
 class Variable {
     
     static private let loadData = LoadData()
     
-    lazy var allPokemonsSortedById: [Pokemon] = loadData.allPokemons(by: .id)
+    static let allPokemonsSortedById: [Pokemon] = loadData.allPokemons(by: .id)
     
-    lazy var allPokemonsSortedByName: [Pokemon] = loadData.allPokemons(by: .name)
+    static let allPokemonsSortedByName: [Pokemon] = loadData.allPokemons(by: .name)
     
-    lazy var allTypes: [String] = loadData.allTypes()
+    static let allTypes: [String] = loadData.allTypes()
     
-    lazy var allMoves: [Move] = loadData.allMoves()
+    static let allMoves: [Move] = loadData.allMoves()
     
-    lazy var allAbilities: [Ability] = loadData.allAbilities()
+    static let allAbilities: [Ability] = loadData.allAbilities()
     
-    lazy var allItems: [Item] = loadData.allItems()
+    static let allItems: [Item] = loadData.allItems()
 }
