@@ -37,11 +37,11 @@ class MoveDetailCell: UITableViewCell {
     func configureCell(for move: Move) {
         
         nameLbl.text = move.name
-        nameLbl.backgroundColor = UIColor.pokemonType(from: move.type)
+        nameLbl.backgroundColor = UIColor.MyColor.pokemonType(from: move.type)
         nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
         
         var category = move.category
-        nameLbl.roundLabel.backgroundColor = UIColor.pokemonType(from: category)
+        nameLbl.roundLabel.backgroundColor = UIColor.MyColor.pokemonType(from: category)
         nameLbl.roundLabel.textColor = UIColor.white
         
         switch category {
