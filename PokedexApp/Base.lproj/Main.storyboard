@@ -655,9 +655,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="moveCategory" destination="3BU-EA-l4t" id="T0z-cF-EPf"/>
-                                    <outlet property="moveName" destination="WHV-LA-eQp" id="cMF-4r-Kr3"/>
-                                    <outlet property="moveType" destination="qUR-is-3Sh" id="vQu-Ck-1dB"/>
+                                    <outlet property="moveCategoryLbl" destination="3BU-EA-l4t" id="WAC-0C-yJG"/>
+                                    <outlet property="moveNameLbl" destination="WHV-LA-eQp" id="PSq-iQ-bfe"/>
+                                    <outlet property="moveTypeLbl" destination="qUR-is-3Sh" id="jQC-Tc-qr1"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AbilityCell" id="00G-A9-ZK7" customClass="AbilityCell" customModule="PokedexApp" customModuleProvider="target">
@@ -1271,9 +1271,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fSY-tL-Ci9"/>
+        <segue reference="WwS-oR-bSB"/>
         <segue reference="QYb-qA-O7c"/>
         <segue reference="hBg-BA-g37"/>
-        <segue reference="Zzn-cQ-Gx5"/>
-        <segue reference="bBF-vP-3Uf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,65 +10,65 @@ import UIKit
 
 class MoveCell: UITableViewCell {
     
-    @IBOutlet weak var moveName: UILabel!
-    @IBOutlet weak var moveCategory: UILabel!
-    @IBOutlet weak var moveType: TypeUILabel!
+    @IBOutlet weak var moveNameLbl: UILabel!
+    @IBOutlet weak var moveCategoryLbl: UILabel!
+    @IBOutlet weak var moveTypeLbl: TypeUILabel!
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        moveCategory.layer.cornerRadius = moveCategory.frame.height / 2
-        moveCategory.clipsToBounds = true
+        moveCategoryLbl.layer.cornerRadius = moveCategoryLbl.frame.height / 2
+        moveCategoryLbl.clipsToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         
-        let moveCategoryBackgroundColor = moveCategory.backgroundColor
-        let moveTypeBackgroundColor = moveType.backgroundColor
+        let moveCategoryBackgroundColor = moveCategoryLbl.backgroundColor
+        let moveTypeBackgroundColor = moveTypeLbl.backgroundColor
         
         super.setSelected(selected, animated: animated)
         
-        moveCategory.backgroundColor = moveCategoryBackgroundColor
-        moveType.backgroundColor = moveTypeBackgroundColor
+        moveCategoryLbl.backgroundColor = moveCategoryBackgroundColor
+        moveTypeLbl.backgroundColor = moveTypeBackgroundColor
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         
-        let moveCategoryBackgroundColor = moveCategory.backgroundColor
-        let moveTypeBackgroundColor = moveType.backgroundColor
+        let moveCategoryBackgroundColor = moveCategoryLbl.backgroundColor
+        let moveTypeBackgroundColor = moveTypeLbl.backgroundColor
         
         super.setHighlighted(highlighted, animated: animated)
         
-        moveCategory.backgroundColor = moveCategoryBackgroundColor
-        moveType.backgroundColor = moveTypeBackgroundColor
+        moveCategoryLbl.backgroundColor = moveCategoryBackgroundColor
+        moveTypeLbl.backgroundColor = moveTypeBackgroundColor
     }
     
     func configureCell(for move: Move) {
         
-        self.moveName.text = move.name
+        moveNameLbl.text = move.name
         
-        self.moveCategory.backgroundColor = UIColor.MyColor.pokemonType(from: move.category)
-        self.moveCategory.textColor = UIColor.white
+        moveCategoryLbl.backgroundColor = UIColor.MyColor.getColor(from: move.category)
+        moveCategoryLbl.textColor = UIColor.white
         
         switch move.category {
             
         case "Physical":
-            self.moveCategory.text = "P"
+            moveCategoryLbl.text = "P"
             
         case "Special":
-            self.moveCategory.text = "S"
+            moveCategoryLbl.text = "S"
             
         case "Status":
-            self.moveCategory.text = "S"
+            moveCategoryLbl.text = "S"
             
         default:
-            self.moveCategory.text = "-"
-            self.moveCategory.textColor = UIColor.black
+            moveCategoryLbl.text = "-"
+            moveCategoryLbl.textColor = UIColor.black
         }
         
-        self.moveType.text = move.type
-        self.moveType.backgroundColor = UIColor.MyColor.pokemonType(from: move.type)
+        moveTypeLbl.text = move.type
+        moveTypeLbl.backgroundColor = UIColor.MyColor.getColor(from: move.type)
     }
 }

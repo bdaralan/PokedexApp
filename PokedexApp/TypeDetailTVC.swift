@@ -216,7 +216,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
         
-        offenseDefenseLbl.backgroundColor = UIColor.MyColor.pokemonType(from: type)
+        offenseDefenseLbl.backgroundColor = UIColor.MyColor.getColor(from: type)
         segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
         
@@ -242,7 +242,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     func configureHeaderViews() {
         
-        let typeColor = UIColor.MyColor.pokemonType(from: self.type)
+        let typeColor = UIColor.MyColor.getColor(from: self.type)
         
         segmentControl = {
             let sc = RoundUISegmentedControl(items: ["Pokemon", "Move"])

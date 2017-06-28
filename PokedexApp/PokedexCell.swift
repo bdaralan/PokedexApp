@@ -31,10 +31,9 @@ class PokedexCell: UITableViewCell {
             
         } else {
             DispatchQueue.main.async {
-                if let image = UIImage(named: pokemon.imageName) {
-                    self.pokemonImg.image = image
-                    globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
-                }
+                guard let image = UIImage(named: pokemon.imageName) else { return }
+                self.pokemonImg.image = image
+                globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
             }
         }
     }

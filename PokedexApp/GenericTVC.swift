@@ -330,24 +330,24 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             let segmentControll: RoundUISegmentedControl = {
                 let sc = RoundUISegmentedControl(items: ["0-9", "A-Z"])
                 sc.selectedSegmentIndex = 0
-                sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
-                
                 return sc
             }()
             
+            segmentControll.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
             navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
+            
             self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
             
         } else if currentGenericCell == .ItemCell {
             let segmentControll: RoundUISegmentedControl = {
                 let sc = RoundUISegmentedControl(items: ["A-Z", "Cat"])
                 sc.selectedSegmentIndex = 0
-                sc.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
-                
                 return sc
             }()
             
+            segmentControll.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
             navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
+            
             self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
         }
     }

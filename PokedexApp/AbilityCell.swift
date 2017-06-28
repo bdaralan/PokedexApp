@@ -20,7 +20,8 @@ class AbilityCell: UITableViewCell {
         
         pokemonLbl.backgroundColor = UIColor.black
         pokemonLbl.textColor = UIColor.white
-        pokemonLbl.font = UIFont(name: "GillSans", size: 15)
+        pokemonLbl.font = Constant.Font.gillSans
+        pokemonLbl.font = UIFont(name: pokemonLbl.font.fontName, size: 15)
         pokemonLbl.layer.cornerRadius = pokemonLbl.frame.height / 2
         pokemonLbl.clipsToBounds = true
     }
@@ -45,7 +46,7 @@ class AbilityCell: UITableViewCell {
 
     func configureCell(ability: Ability) {
                 
-        self.abilityLbl.text = ability.name
-        self.pokemonLbl.text = ability.pokemon
+        abilityLbl.text = ability.name
+        pokemonLbl.text = ability.pokemon
     }
 }

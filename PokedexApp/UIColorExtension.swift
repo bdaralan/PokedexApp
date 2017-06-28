@@ -107,8 +107,8 @@ extension UIColor {
         
         // MARK: - Function
         
-        /// Get pokemon type color with String. For example: "Fighting"
-        static func pokemonType(from string: String) -> UIColor {
+        /// Get pokemon type (Fighting) or category (Physical) color from the given String.
+        static func getColor(from string: String) -> UIColor {
             
             switch string {
                 

@@ -179,7 +179,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             let sc = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / Others"])
             sc.frame.origin = CGPoint(x: spacing, y: spacing)
             sc.frame.size.width = sectionHeaderViewWidth - spacing * 2
-            sc.tintColor = UIColor.MyColor.pokemonType(from: move.type)
+            sc.tintColor = UIColor.MyColor.getColor(from: move.type)
             sc.layer.borderColor = sc.tintColor.cgColor
             sc.backgroundColor = UIColor.white
             
