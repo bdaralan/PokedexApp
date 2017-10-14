@@ -15,8 +15,8 @@ class SectionUILabel: UILabel {
         
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
-        self.backgroundColor = UIColor.MyColor.AppObject.sectionBackground
-        self.textColor = UIColor.MyColor.AppObject.sectionText
+        self.backgroundColor = DBColor.AppObject.sectionBackground
+        self.textColor = DBColor.AppObject.sectionText
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
         self.font = Constant.Font.gillSansSemiBold

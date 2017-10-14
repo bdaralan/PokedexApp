@@ -37,11 +37,11 @@ class MoveDetailCell: UITableViewCell {
     func configureCell(for move: Move) {
         
         nameLbl.text = move.name
-        nameLbl.backgroundColor = UIColor.MyColor.getColor(from: move.type)
+        nameLbl.backgroundColor = DBColor.get(color: move.type)
         nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor
         
         var category = move.category
-        nameLbl.roundLabel.backgroundColor = UIColor.MyColor.getColor(from: category)
+        nameLbl.roundLabel.backgroundColor = DBColor.get(color: category)
         nameLbl.roundLabel.textColor = UIColor.white
         
         switch category {

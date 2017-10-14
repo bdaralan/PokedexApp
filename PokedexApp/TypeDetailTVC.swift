@@ -114,7 +114,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         let sectionHeaderView: UIView = {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
-            view.backgroundColor = UIColor.MyColor.AppObject.sectionBackground
+            view.backgroundColor = DBColor.AppObject.sectionBackground
             return view
         }()
         
@@ -216,7 +216,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             immuneToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "0"))
         }
         
-        offenseDefenseLbl.backgroundColor = UIColor.MyColor.getColor(from: type)
+        offenseDefenseLbl.backgroundColor = DBColor.get(color: type)
         segmentControl.tintColor = offenseDefenseLbl.backgroundColor
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
         
@@ -242,7 +242,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     func configureHeaderViews() {
         
-        let typeColor = UIColor.MyColor.getColor(from: self.type)
+        let typeColor = DBColor.get(color: self.type)
         
         segmentControl = {
             let sc = RoundUISegmentedControl(items: ["Pokemon", "Move"])
@@ -370,8 +370,8 @@ extension TypeDetailTVC {
             let noneLbl: TypeUILabel = {
                 let label = TypeUILabel()
                 label.text = "None"
-                label.textColor = UIColor.MyColor.AppObject.sectionText
-                label.backgroundColor = UIColor.MyColor.Pokemon.ability
+                label.textColor = DBColor.AppObject.sectionText
+                label.backgroundColor = DBColor.Pokemon.ability
                 label.frame.origin.x = x
                 label.frame.origin.y = y
                 return label

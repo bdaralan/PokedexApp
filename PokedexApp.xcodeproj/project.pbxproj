@@ -844,6 +844,7 @@
 		538F963F1EA479AE005E63FB /* RoundUISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */; };
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53A9C3851EC7E26D00420A7D /* OffenseDefenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A9C3841EC7E26D00420A7D /* OffenseDefenseCell.swift */; };
+		53B79B551F91B59300AE1B6A /* DBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B79B541F91B59300AE1B6A /* DBColor.swift */; };
 		53B7E1DF1EF5C05F00E2302F /* AnimatableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B7E1DE1EF5C05F00E2302F /* AnimatableUIView.swift */; };
 		53B7E1E11EF5C16C00E2302F /* ViewLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B7E1E01EF5C16C00E2302F /* ViewLauncher.swift */; };
 		53B7E1E31EF5CB4300E2302F /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B7E1E21EF5CB4300E2302F /* Animatable.swift */; };
@@ -1715,6 +1716,7 @@
 		538F963E1EA479AE005E63FB /* RoundUISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundUISegmentedControl.swift; sourceTree = "<group>"; };
 		5391B8561EADB1A40090634F /* RIOUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIOUILabel.swift; sourceTree = "<group>"; };
 		53A9C3841EC7E26D00420A7D /* OffenseDefenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffenseDefenseCell.swift; sourceTree = "<group>"; };
+		53B79B541F91B59300AE1B6A /* DBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBColor.swift; sourceTree = "<group>"; };
 		53B7E1DE1EF5C05F00E2302F /* AnimatableUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableUIView.swift; sourceTree = "<group>"; };
 		53B7E1E01EF5C16C00E2302F /* ViewLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLauncher.swift; sourceTree = "<group>"; };
 		53B7E1E21EF5CB4300E2302F /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
@@ -2714,6 +2716,7 @@
 		53CF3DF11E8A29450073A516 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				53B79B541F91B59300AE1B6A /* DBColor.swift */,
 				536F34F71EE6694E0022215E /* Variable.swift */,
 				53CF3DF21E8A29580073A516 /* Constant.swift */,
 				533E70EE1F00D55C00BB7698 /* TypeAlias.swift */,
@@ -3668,6 +3671,7 @@
 				5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */,
 				53D558BF1ECCBACC0029BB78 /* MoveDetailCell.swift in Sources */,
 				53ECA7151EA2FA2E00964977 /* AbilityCell.swift in Sources */,
+				53B79B551F91B59300AE1B6A /* DBColor.swift in Sources */,
 				53CF3DF31E8A29580073A516 /* Constant.swift in Sources */,
 				53B988FD1ECC1B4C002551D1 /* AbilityDetailTVC.swift in Sources */,
 				536F34F81EE6694E0022215E /* Variable.swift in Sources */,

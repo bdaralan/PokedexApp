@@ -15,7 +15,7 @@ class AbilityUILabel: UILabel {
         
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
-        self.backgroundColor = UIColor.MyColor.Pokemon.ability
+        self.backgroundColor = DBColor.Pokemon.ability
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
     }

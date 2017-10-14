@@ -34,7 +34,7 @@ class TypeCell: UITableViewCell {
     func configureCell(type: String) {
         
         self.typeTextLbl.text = type
-        self.typeLbl.backgroundColor = UIColor.MyColor.getColor(from: type)
+        self.typeLbl.backgroundColor = DBColor.get(color: type)
         self.typeLbl.text = type
     }
 }
