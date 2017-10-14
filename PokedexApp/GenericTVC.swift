@@ -367,7 +367,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         viewLauncher.launch()
     }
     
-    func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
+    @objc func handleSegmentControllValueChange(_ sender: UISegmentedControl) {
         
         self.segmentControllSelectedIndex = sender.selectedSegmentIndex
         

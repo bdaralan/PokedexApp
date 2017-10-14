@@ -164,7 +164,7 @@ extension ViewLauncher {
     }
     
     /// Dismiss function used by selector
-    func handleDismissCalledBySelector() {
+    @objc func handleDismissCalledBySelector() {
         
         dismiss(animated: true)
     }

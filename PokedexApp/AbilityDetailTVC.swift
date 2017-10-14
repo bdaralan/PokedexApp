@@ -176,7 +176,7 @@ class AbilityDetailTVC: UITableViewController {
         }()
     }
     
-    func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
+    @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
             

@@ -190,7 +190,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         }()
     }
     
-    func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
+    @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
         
             switch currentSCIndex {

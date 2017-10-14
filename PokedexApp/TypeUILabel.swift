@@ -63,7 +63,7 @@ class TypeUILabel: UILabel {
         }
     }
     
-    func typeUILabelTapped() {
+    @objc func typeUILabelTapped() {
 
         delegate?.typeUILabel(didTap: tapGesture)
     }

@@ -282,7 +282,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         self.cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
     }
     
-    func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
+    @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
         tableView.reloadData()
 //        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)

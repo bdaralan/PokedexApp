@@ -253,7 +253,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     // MARK: - Handler
     
-    func handleAbilityPress(_ sender: UITapGestureRecognizer) {
+    @objc func handleAbilityPress(_ sender: UITapGestureRecognizer) {
         
         if let senderView = sender.view {
             
@@ -280,7 +280,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
-    func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
+    @objc func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
         
         var shouldUpdateUI = false
         
@@ -312,7 +312,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
 
-    func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
+    @objc func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
         
         
         guard let senderView = sender.view else { return }
