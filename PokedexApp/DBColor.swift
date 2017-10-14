@@ -131,5 +131,5 @@ extension DBColor {
 private extension Int {
     
     /// Devided `self` by 255 to get RBG range 0-1.
-    var range: CGFloat { return CGFloat(self / 255) }
+    var range: CGFloat { return CGFloat(self) / 255 }
 }
