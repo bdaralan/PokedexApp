@@ -845,6 +845,7 @@
 		5391B8571EADB1A40090634F /* RIOUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5391B8561EADB1A40090634F /* RIOUILabel.swift */; };
 		53A9C3851EC7E26D00420A7D /* OffenseDefenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A9C3841EC7E26D00420A7D /* OffenseDefenseCell.swift */; };
 		53B79B551F91B59300AE1B6A /* DBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B79B541F91B59300AE1B6A /* DBColor.swift */; };
+		53B79B561F91C2A300AE1B6A /* DBColor.swift in Resources */ = {isa = PBXBuildFile; fileRef = 53B79B541F91B59300AE1B6A /* DBColor.swift */; };
 		53B7E1DF1EF5C05F00E2302F /* AnimatableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B7E1DE1EF5C05F00E2302F /* AnimatableUIView.swift */; };
 		53B7E1E11EF5C16C00E2302F /* ViewLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B7E1E01EF5C16C00E2302F /* ViewLauncher.swift */; };
 		53B7E1E31EF5CB4300E2302F /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B7E1E21EF5CB4300E2302F /* Animatable.swift */; };
@@ -2806,6 +2807,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B79B561F91C2A300AE1B6A /* DBColor.swift in Resources */,
 				536E01471EBAD662003020D7 /* 175-Togepi.m4a in Resources */,
 				536E03AA1EBAD663003020D7 /* 779-Bruxish.m4a in Resources */,
 				536E03381EBAD663003020D7 /* 672-Skiddo.m4a in Resources */,

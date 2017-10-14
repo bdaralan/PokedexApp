@@ -58,8 +58,6 @@ struct DBColor {
         static let unknown = UIColor(red: 104.range, green: 160.range, blue: 144.range, alpha: 1) //68A090
     }
     
-    
-    
     /// Pokemon move color
     struct PokemonMove {
         
@@ -71,8 +69,6 @@ struct DBColor {
         
         static let zMove = UIColor(red: 250.range, green: 202.range, blue: 13.range, alpha: 1) //FACA0D
     }
-    
-    
     
     /// App object color
     struct AppObject {
@@ -101,32 +97,32 @@ struct DBColor {
 extension DBColor {
     
     static func get(color: String) -> UIColor {
-        
+
         switch color.lowercased() {
         case "normal": return PokemonType.normal
         case "fighting": return PokemonType.fighting
-        case "normal": return PokemonType.flying
-        case "normal": return PokemonType.poison
-        case "normal": return PokemonType.ground
-        case "normal": return PokemonType.rock
-        case "normal": return PokemonType.bug
-        case "normal": return PokemonType.ghost
-        case "normal": return PokemonType.steel
-        case "normal": return PokemonType.fire
-        case "normal": return PokemonType.water
-        case "normal": return PokemonType.grass
-        case "normal": return PokemonType.electric
-        case "normal": return PokemonType.psychic
-        case "normal": return PokemonType.ice
-        case "normal": return PokemonType.dragon
-        case "normal": return PokemonType.dark
-        case "normal": return PokemonType.fairy
-            
+        case "flying": return PokemonType.flying
+        case "poison": return PokemonType.poison
+        case "ground": return PokemonType.ground
+        case "rock": return PokemonType.rock
+        case "bug": return PokemonType.bug
+        case "ghost": return PokemonType.ghost
+        case "steel": return PokemonType.steel
+        case "fire": return PokemonType.fire
+        case "water": return PokemonType.water
+        case "grass": return PokemonType.grass
+        case "electric": return PokemonType.electric
+        case "psychic": return PokemonType.psychic
+        case "ice": return PokemonType.ice
+        case "dragon": return PokemonType.dragon
+        case "dark": return PokemonType.dark
+        case "fairy": return PokemonType.fairy
+
         case "physical": return PokemonMove.physical
         case "special": return PokemonMove.special
         case "status": return PokemonMove.status
         case "zmove": return PokemonMove.zMove
-            
+
         default: return PokemonType.unknown
         }
     }
