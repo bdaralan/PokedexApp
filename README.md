@@ -6,15 +6,16 @@ The [PokemonApp](https://github.com/iDara09/PokemonApp) is running by a REST API
 However, the API currently only has 721 Pokemons, so I start this new one which will run locally by `json` data.
 
 ## Status:
-* Still in working progress.
+* Finished version 1.0.
 * Have not yet to set constains. 
     + Some are programatically calculated.
     + Storyboard is set for iPhone 6s/7.
 
 ## ToDo:
-* [ ] Move from frame to NSLayoutConstraint for view that has a lot of subviews.
+* [ ] Move from frame to NSLayoutConstraint.
     + [x] ViewLauncher: pokemon weaknesses and pokedex entry
-* [ ] Fix Move, Abiliy, and Item retain cycle.
+* [x] Fix Move, Abiliy, and Item retain cycle.
+    + error came from AudioToolBox, simulator only; the actual device is fine.
 * [x] Add animate opacity in AnimatableView
 
 ## Preview:
