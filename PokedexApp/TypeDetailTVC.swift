@@ -94,7 +94,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
                 cell.configureCell(for: pokemons[indexPath.row])
                 return cell
                 
-            } else if segmentControl.selectedSegmentIndex == moveSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
+            } else if segmentControl.selectedSegmentIndex == moveSegIndex,
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
                 cell.configureCell(for: moves[indexPath.row])
                 return cell
             }
