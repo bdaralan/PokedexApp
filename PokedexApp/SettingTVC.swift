@@ -44,7 +44,7 @@ class SettingTVC: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        audioPlayer.play(audio: AVAudioPlayer.ResourceAudioFile.save)
+        AudioPlayer.play(audio: .save)
         disclaimerViewLauncher.removeFromSuperview()
         creditViewLauncher.removeFromSuperview()
     }
@@ -54,8 +54,6 @@ class SettingTVC: UITableViewController {
         disclaimerViewLauncher.dismiss(animated: false)
         creditViewLauncher.dismiss(animated: false)
     }
-    
-    
     
     // MARK: - Table view data source
     
@@ -76,20 +74,17 @@ class SettingTVC: UITableViewController {
                 UIApplication.shared.open(url)
                 
             case.disclaimer:
-                audioPlayer.play(audio: .select)
+                AudioPlayer.play(audio: .select)
                 disclaimerViewLauncher.launch()
                 
             case .credits:
-                audioPlayer.play(audio: .select)
+                AudioPlayer.play(audio: .select)
                 creditViewLauncher.launch()
                 
             default: ()
             }
         }
     }
-    
-    
-    
     
     // MARK: - IBActions
     
@@ -101,10 +96,8 @@ class SettingTVC: UITableViewController {
     @IBAction func soundEffectSwitchToggled(_ sender: UISwitch) {
         
         UserDefaults.standard.set(sender.isOn, forKey: Constant.Key.Setting.soundEffectSwitchState)
-        if sender.isOn { audioPlayer.play(audio: .select) }
+        if sender.isOn { AudioPlayer.play(audio: .select) }
     }
-    
-    
     
     // MARK: - Initializer and Handler
     
@@ -116,9 +109,8 @@ class SettingTVC: UITableViewController {
     
     func configureDisclaimerCreditView() {
         
-        let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
-        
         // Setup disclaimer viewlauncher
+        let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
         disclaimerViewLauncher = ViewLauncher(frame: viewLauncherFrame)
         UIApplication.shared.keyWindow?.addSubview(disclaimerViewLauncher)
         disclaimerViewLauncher.dismiss(animated: false)

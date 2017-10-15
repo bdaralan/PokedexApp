@@ -136,7 +136,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        audioPlayer.play(audio: .select)
+        AudioPlayer.play(audio: .select)
         
         switch currentGenericCell {
             

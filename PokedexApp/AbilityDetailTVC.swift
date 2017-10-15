@@ -125,7 +125,7 @@ class AbilityDetailTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard indexPath.section == pokemonCellSection else { return }
-        audioPlayer.play(audio: .select)
+        AudioPlayer.play(audio: .select)
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
     }
     

@@ -18,15 +18,11 @@ class HomeMenuTVC: UITableViewController {
         catch { print(error) }
     }
     
-    
-    deinit { print("deinit", self) }
-    
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        audioPlayer.play(audio: .select)
+        AudioPlayer.play(audio: .select)
         
         let genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
         
@@ -43,14 +39,11 @@ class HomeMenuTVC: UITableViewController {
         }
     }
     
-    
-    
-    
     // MARK: - IBActions
     
     @IBAction func settingBtnPressed(_ sender: Any) {
         
+        AudioPlayer.play(audio: .openPC)
         performSegue(withIdentifier: "SettingTVC", sender: nil)
-        audioPlayer.play(audio: .openPC)
     }
 }

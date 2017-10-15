@@ -95,8 +95,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
+            AudioPlayer.play(audio: .select)
             typeDetailTVC.type = type
-            audioPlayer.play(audio: .select)
             
         } else if let abilityDetailTVC = segue.destination as? AbilityDetailTVC, let ability = sender as? Ability {
             abilityDetailTVC.ability = ability
@@ -131,7 +131,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     @IBAction func cryBarBtnPressed(_ sender: Any) {
         
-        audioPlayer.play(audio: pokemon.crySound, ofType: "m4a")
+        AudioPlayer.play(audio: pokemon.crySound, ofType: "m4a")
     }
     
     
@@ -259,7 +259,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             
             let identifier = "AbilityDetailTVC"
             
-            audioPlayer.play(audio: .select)
+            AudioPlayer.play(audio: .select)
             
             switch senderView {
                 
@@ -306,7 +306,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
         
         if shouldUpdateUI {
-            audioPlayer.play(audio: .select)
+            AudioPlayer.play(audio: .select)
             updateUI()
             updatePokemonStatsProgressViews()
         }
@@ -324,7 +324,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 measurementSectionLbl.layer.borderColor = DBColor.AppObject.sectionText.cgColor
             
             } else if sender.state == .ended {
-                audioPlayer.play(audio: .select)
+                AudioPlayer.play(audio: .select)
                 measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 
                 let toYValue = measurementSectionLbl.center.y
@@ -339,7 +339,7 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
                 defensesSectionLbl.layer.borderColor = DBColor.AppObject.sectionText.cgColor
             } else if sender.state == .ended {
                 defensesSectionLbl.layer.borderColor = UIColor.clear.cgColor
-                audioPlayer.play(audio: .select)
+                AudioPlayer.play(audio: .select)
 
                 pokemonDefenseViewLauncher.launch()
             }
@@ -348,8 +348,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             if sender.state == .began {
                 pokedexEnterySectionLbl.layer.borderColor = DBColor.AppObject.sectionText.cgColor
             } else if sender.state == .ended  {
+                AudioPlayer.play(audio: .select)
                 pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
-                audioPlayer.play(audio: .select)
                 
                 pokedexEntryViewLauncher.launch()
             }

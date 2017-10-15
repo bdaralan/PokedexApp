@@ -11,7 +11,6 @@
 		533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* GenericTVC.swift */; };
 		533E70EF1F00D55C00BB7698 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533E70EE1F00D55C00BB7698 /* TypeAlias.swift */; };
 		5340F8601EDBB4DD00FFAA83 /* pokemon-learn-moves.json in Resources */ = {isa = PBXBuildFile; fileRef = 5340F85F1EDBB4DD00FFAA83 /* pokemon-learn-moves.json */; };
-		5354F14F1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */; };
 		536095B61E96F98900D2F2FC /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B51E96F98900D2F2FC /* Ability.swift */; };
 		536095B81E970E1B00D2F2FC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B71E970E1B00D2F2FC /* UIColorExtension.swift */; };
 		536095BA1E970E9000D2F2FC /* SectionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536095B91E970E9000D2F2FC /* SectionUILabel.swift */; };
@@ -884,7 +883,6 @@
 		533A78811E9FDA6100554F7F /* GenericTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTVC.swift; sourceTree = "<group>"; };
 		533E70EE1F00D55C00BB7698 /* TypeAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		5340F85F1EDBB4DD00FFAA83 /* pokemon-learn-moves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokemon-learn-moves.json"; sourceTree = "<group>"; };
-		5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerExtension.swift; sourceTree = "<group>"; };
 		536095B51E96F98900D2F2FC /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		536095B71E970E1B00D2F2FC /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		536095B91E970E9000D2F2FC /* SectionUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionUILabel.swift; sourceTree = "<group>"; };
@@ -2731,7 +2729,6 @@
 				536E22A71EFF794100EEA536 /* UIViewExtension.swift */,
 				53D2367E1EC433EB00BF9504 /* UILabelExtension.swift */,
 				536095B71E970E1B00D2F2FC /* UIColorExtension.swift */,
-				5354F14E1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3667,7 +3664,6 @@
 				533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */,
 				53CF3DEB1E8A28340073A516 /* PokedexCell.swift in Sources */,
 				53CF3DF51E8A34590073A516 /* LoadData.swift in Sources */,
-				5354F14F1EEA3F1B00776F85 /* AVAudioPlayerExtension.swift in Sources */,
 				53A9C3851EC7E26D00420A7D /* OffenseDefenseCell.swift in Sources */,
 				53FD91FC1EB715BD00C7EC86 /* Item.swift in Sources */,
 				53B7E1DF1EF5C05F00E2302F /* AnimatableUIView.swift in Sources */,

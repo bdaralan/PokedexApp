@@ -31,8 +31,6 @@ class ViewLauncher: UIView, CAAnimationDelegate {
     
     private var isDismissing: Bool!
 
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     
@@ -66,8 +64,6 @@ class ViewLauncher: UIView, CAAnimationDelegate {
         self.addLaunchViewDimViewDismissGestures()
         self.addLaunchViewDimViewConstraints()
     }
-
-    
     
     // MARK: - Delegate
     
@@ -77,8 +73,6 @@ class ViewLauncher: UIView, CAAnimationDelegate {
             self.alpha = 0
         }
     }
-    
-    
     
     /// Send `launchView` to the center of `self.superview` and fade-in `dimView`
     func launch() {
@@ -138,8 +132,6 @@ class ViewLauncher: UIView, CAAnimationDelegate {
         }
     }
 }
-
-
 
 // MARK: - Helper functions
 

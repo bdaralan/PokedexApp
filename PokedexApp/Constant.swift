@@ -10,10 +10,6 @@ import UIKit
 
 let globalCache = NSCache<AnyObject, AnyObject>()
 
-let audioPlayer = AudioPlayer()
-
-
-
 struct Constant {
     
     static private let loadData = LoadData()

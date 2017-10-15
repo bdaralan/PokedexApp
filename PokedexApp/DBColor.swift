@@ -117,13 +117,14 @@ extension DBColor {
         case "dragon": return PokemonType.dragon
         case "dark": return PokemonType.dark
         case "fairy": return PokemonType.fairy
+        case "unknow": return PokemonType.unknown
 
         case "physical": return PokemonMove.physical
         case "special": return PokemonMove.special
         case "status": return PokemonMove.status
         case "zmove": return PokemonMove.zMove
 
-        default: return PokemonType.unknown
+        default: return UIColor.clear
         }
     }
 }
