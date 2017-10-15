@@ -60,34 +60,18 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         viewLauncher.removeFromSuperview()
     }
 
-    
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch currentGenericCell {
-            
-        case .PokedexCell:
-            return pokemons.count
-            
-        case .TypeCell:
-            return types.count
-            
-        case .MoveCell:
-            return moves.count
-            
-        case .AbilityCell:
-            return abilities.count
-            
-        case .TMCell:
-            return items.count
-            
-        case .ItemCell:
-            return items.count
-            
-        case .BerryCell:
-            return items.count
+        case .PokedexCell: return pokemons.count
+        case .TypeCell: return types.count
+        case .MoveCell: return moves.count
+        case .AbilityCell: return abilities.count
+        case .TMCell: return items.count
+        case .ItemCell: return items.count
+        case .BerryCell: return items.count
         }
     }
     
@@ -190,8 +174,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         }
     }
     
-    
-    
     // MARK: - Protocol
     
     func viewLauncherWillDismiss(viewlauncher: ViewLauncher) {
@@ -199,8 +181,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         guard indexPath != nil else { return }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
     
     // MARK: - IBActions
     
@@ -210,8 +190,6 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             self.searchResultController.searchBar.becomeFirstResponder()
         }
     }
-    
-    
     
     // MARK: - Search
     
@@ -281,35 +259,18 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         tableView.reloadData()
     }
     
-    
-    
-    
     // MARK: - Initializer and Handler
     
     func prepareNecessaryData() {
         
         switch currentGenericCell {
-            
-        case .PokedexCell:
-            pokemons = Variable.allPokemonsSortedById
-            
-        case .TypeCell:
-            types = Variable.allTypes
-            
-        case .MoveCell:
-            moves = Variable.allMoves
-            
-        case .AbilityCell:
-            abilities = Variable.allAbilities
-                        
-        case .TMCell:
-            items = Variable.allItems.machines
-            
-        case .ItemCell:
-            items = Variable.allItems.excludeBerriesMachines
-            
-        case .BerryCell:
-            items = Variable.allItems.berries
+        case .PokedexCell: pokemons = Variable.allPokemonsSortedById
+        case .TypeCell: types = Variable.allTypes
+        case .MoveCell: moves = Variable.allMoves
+        case .AbilityCell: abilities = Variable.allAbilities
+        case .TMCell: items = Variable.allItems.machines
+        case .ItemCell: items = Variable.allItems.excludeBerriesMachines
+        case .BerryCell: items = Variable.allItems.berries
         }
     }
     
@@ -327,24 +288,16 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         if currentGenericCell == .PokedexCell {
             searchResultController.searchBar.placeholder = "Name, ID, Type, TypeType, Ability"
             
-            let segmentControll: RoundUISegmentedControl = {
-                let sc = RoundUISegmentedControl(items: ["0-9", "A-Z"])
-                sc.selectedSegmentIndex = 0
-                return sc
-            }()
-            
+            let segmentControll = RoundUISegmentedControl(items: ["0-9", "A-Z"])
+            segmentControll.selectedSegmentIndex = 0
             segmentControll.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
             navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
             
             self.segmentControllSelectedIndex = segmentControll.selectedSegmentIndex
             
         } else if currentGenericCell == .ItemCell {
-            let segmentControll: RoundUISegmentedControl = {
-                let sc = RoundUISegmentedControl(items: ["A-Z", "Cat"])
-                sc.selectedSegmentIndex = 0
-                return sc
-            }()
-            
+            let segmentControll = RoundUISegmentedControl(items: ["A-Z", "Cat"])
+            segmentControll.selectedSegmentIndex = 0
             segmentControll.addTarget(self, action: #selector(handleSegmentControllValueChange), for: .valueChanged)
             navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: segmentControll))
             

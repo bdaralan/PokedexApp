@@ -107,10 +107,8 @@ class Move {
     }
 }
 
-
-
-
 // Move learn by pokemons
+
 extension Move {
     
     enum LearnMethod: Int {

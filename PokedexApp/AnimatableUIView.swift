@@ -105,8 +105,6 @@ extension AnimatableUIView {
     }
 }
 
-
-
 /// Add pokemon pokedex entry
 extension AnimatableUIView {
     

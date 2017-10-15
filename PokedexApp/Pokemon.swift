@@ -123,7 +123,6 @@ class Pokemon {
         return _weight[unit.rawValue]
     }
     
-    
     init(name: String, id: Int, form: String, types: [String]) {
         
         _name = name
@@ -228,10 +227,8 @@ class Pokemon {
     }
 }
 
-
-
-
 // MARK: - Computed Property
+
 extension Pokemon {
     
     var hasSecondType: Bool { return self.secondaryType != "" }
@@ -297,10 +294,8 @@ extension Pokemon {
     }
 }
 
-
-
-
 // MARK: - Get Evolution
+
 extension Pokemon {
     
     ///: Will return [self] if no evolution
@@ -345,10 +340,8 @@ extension Pokemon {
     }
 }
 
-
-
-
 // MARK: - Error pokemon
+
 extension Pokemon {
     
     convenience init(errorPokemonName name: String) {
@@ -357,10 +350,8 @@ extension Pokemon {
     }
 }
 
-
-
-
 // MARK: - Shorthand Sort and Filter
+
 extension Array where Element: Pokemon {
     
     func sortById() -> [Pokemon] {
@@ -416,8 +407,8 @@ extension Array where Element: Pokemon {
     }
 }
 
-
 // MARK: - Binary Search
+
 extension Array where Element: Pokemon {
     
     func search(forName searchName: String) -> Pokemon {

@@ -10,9 +10,8 @@ import UIKit
 
 protocol Animatable: class {}
 
-
-
 // MARK: - Methods for creating animations
+
 extension Animatable {
     
     func createFadeInAnimation(values: [Any] = [0, 0.25, 0.5, 0.75, 1], keyTimes: [NSNumber] = [0, 0.25, 0.5, 0.75, 1], duration: TimeInterval = 0.75, timingFunction: CAMediaTimingFunction) -> CAKeyframeAnimation {
@@ -49,9 +48,8 @@ extension Animatable {
     }
 }
 
-
-
 // MARK: - Actions for UIView
+
 extension Animatable where Self: UIView {
     
     func animateUp(toYValue: CGFloat, duration: TimeInterval, reverse: Bool) {

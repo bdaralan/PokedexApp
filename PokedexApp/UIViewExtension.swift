@@ -8,11 +8,7 @@
 
 import UIKit
 
-extension UIView: Animatable {}
-
-
-
-extension UIView {
+extension UIView: Animatable {
     
     func removeAllSubviews() {
         
@@ -28,8 +24,7 @@ extension UIView {
     
     func sizeToContent(verticalSpacing: CGFloat = 0) {
         
-        if let lastSubview = self.subviews.last {
-            self.frame.size.height = lastSubview.frame.origin.y + lastSubview.frame.height + verticalSpacing * 2
-        }
+        guard let lastSubview = self.subviews.last else { return }
+        self.frame.size.height = lastSubview.frame.origin.y + lastSubview.frame.height + verticalSpacing * 2
     }
 }

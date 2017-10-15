@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UILabel {
     
     func setLength(to length: CGFloat) {

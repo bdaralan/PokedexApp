@@ -25,9 +25,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         return Move.LearnMethod(rawValue: segmentControl.selectedSegmentIndex)!
     }
-
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +36,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
 
         configureSegmentControl()
     }
-    
-    
-    
     
     // MARK: - Table view data source
     
@@ -145,9 +139,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         performSegue(withIdentifier: "PokemonInfoTVC", sender: pokemons[indexPath.row])
     }
     
-    
-    
-    
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -156,18 +147,12 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         pokemonInfoTVC.pokemon = pokemon
     }
     
-    
-    
-    
     // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         
         performSegue(withIdentifier: "TypeDetailTVC", sender: move.type)
     }
-    
-    
-    
     
     // MARK: - Initializer and Handler
     
@@ -219,10 +204,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
 }
 
-
-
-
 // MARK: - Computed Property
+
 extension MoveDetailTVC {
     
     var sectionHeaderViewWidth: CGFloat {

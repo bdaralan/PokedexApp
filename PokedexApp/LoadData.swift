@@ -20,8 +20,6 @@ class LoadData {
         case category
     }
     
-    
-    
     func allPokemons(by option: PokemonSortedOption) -> [Pokemon] {
         
         let json = pokemonsJSON
@@ -191,7 +189,7 @@ class LoadData {
     }
 }
 
-
+// MARK: Extension LoadData
 
 extension LoadData {
     
@@ -245,8 +243,6 @@ extension LoadData {
         return load(fromFile: "items", ofType: "json")
     }
 }
-
-
 
 extension LoadData {
     

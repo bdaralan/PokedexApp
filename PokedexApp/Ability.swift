@@ -57,8 +57,7 @@ class Ability {
     }
 }
 
-
-
+// MARK: - Array Extension
 
 extension Array where Element: Ability {
     
@@ -67,9 +66,6 @@ extension Array where Element: Ability {
         return self.filter({$0.name.range(of: searchText, options: options) != nil})
     }
 }
-
-
-
 
 extension Array where Element: Ability {
     

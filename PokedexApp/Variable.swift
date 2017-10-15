@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Variable {
+struct Variable {
     
     static private let loadData = LoadData()
     

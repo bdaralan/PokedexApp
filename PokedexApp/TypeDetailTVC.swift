@@ -34,9 +34,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     let cache = NSCache<AnyObject, AnyObject>()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,10 +43,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         configureHeaderViews()
         updateUI()
     }
-    
-    
-    
-    
     
     // MARK: - Table view data source
     
@@ -62,19 +55,16 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         switch section {
             
-        case offenseDefenseSection:
-            return 1
+        case offenseDefenseSection: return 1
             
         case pokemonMoveSection:
             if segmentControl.selectedSegmentIndex == pokemonSegIndex {
                 return pokemons.count
-                
             } else { //segmentControl.selectedSegmentIndex == moveSegIndex
                 return moves.count
             }
             
-        default:
-            return 0
+        default: return 0
         }
     }
     
@@ -113,22 +103,13 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let sectionHeaderView: UIView = {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
-            view.backgroundColor = DBColor.AppObject.sectionBackground
-            return view
-        }()
+        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
+        sectionHeaderView.backgroundColor = DBColor.AppObject.sectionBackground
         
         switch section {
-            
-        case offenseDefenseSection:
-            sectionHeaderView.addSubview(offenseDefenseLbl)
-            
-        case pokemonMoveSection:
-            sectionHeaderView.addSubview(segmentControl)
-            
+        case offenseDefenseSection: sectionHeaderView.addSubview(offenseDefenseLbl)
+        case pokemonMoveSection: sectionHeaderView.addSubview(segmentControl)
         default: ()
-            
         }
         
         return sectionHeaderView
@@ -136,27 +117,20 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == offenseDefenseSection {
-            return offenseDefenseCellHeight
-        }
-        
-        return UITableViewCell().frame.height
+        guard indexPath.section == offenseDefenseSection else { return UITableViewCell().frame.height }
+        return offenseDefenseCellHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if  indexPath.section == pokemonMoveSection {
-            if segmentControl.selectedSegmentIndex == pokemonSegIndex {
-                performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-                
-            } else { //segmentControl.selectedSegmentIndex == moveSegIndex
-                performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
-            }
+        guard indexPath.section == pokemonMoveSection else { return }
+        if segmentControl.selectedSegmentIndex == pokemonSegIndex {
+            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+            
+        } else { //segmentControl.selectedSegmentIndex == moveSegIndex
+            performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
         }
     }
-    
-    
-    
     
     // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -169,9 +143,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         }
     }
     
-    
-    
-    
     // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
@@ -181,9 +152,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         self.type = typeLbl.text
         self.updateUI()
     }
-    
-    
-    
     
     // MARK: - Updater
     
@@ -236,9 +204,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         immuneToTypeLbls.removeAll()
     }
     
-    
-    
-    
     // MARK: - Initializer and Handler
     
     func configureHeaderViews() {
@@ -290,25 +255,17 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
 }
 
-
-
-
 // MARK: - Computed Property
+
 extension TypeDetailTVC {
     
-    var sectionHeaderViewWidth: CGFloat {
-        return tableView.frame.width
-    }
+    var sectionHeaderViewWidth: CGFloat { return tableView.frame.width }
     
-    var sectionHeaderViewHeight: CGFloat {
-        return segmentControl.frame.height + 16
-    }
+    var sectionHeaderViewHeight: CGFloat { return segmentControl.frame.height + 16 }
 }
 
-
-
-
 // MARK: - Make TypeUILabel
+
 extension TypeDetailTVC {
     
     func getOffensiveTypes() -> [String] {
@@ -347,13 +304,9 @@ extension TypeDetailTVC {
         
         if types.count > 0 {
             for type in types {
-                let typeLabel: TypeUILabel = {
-                    let label = TypeUILabel()
-                    label.frame.origin = CGPoint(x: x, y: y)
-                    label.text = type
-                    return label
-                }()
-                
+                let typeLabel = TypeUILabel()
+                typeLabel.frame.origin = CGPoint(x: x, y: y)
+                typeLabel.text = type
                 typeLabel.delegate = self
                 typeLabel.isUserInteractionEnabled = true
                 
@@ -368,15 +321,12 @@ extension TypeDetailTVC {
             }
             
         } else {
-            let noneLbl: TypeUILabel = {
-                let label = TypeUILabel()
-                label.text = "None"
-                label.textColor = DBColor.AppObject.sectionText
-                label.backgroundColor = DBColor.Pokemon.ability
-                label.frame.origin.x = x
-                label.frame.origin.y = y
-                return label
-            }()
+            let noneLbl = TypeUILabel()
+            noneLbl.text = "None"
+            noneLbl.textColor = DBColor.AppObject.sectionText
+            noneLbl.backgroundColor = DBColor.Pokemon.ability
+            noneLbl.frame.origin.x = x
+            noneLbl.frame.origin.y = y
             
             strongAgainstTypeLbls.append(noneLbl)
         }

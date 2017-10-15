@@ -27,7 +27,6 @@ class Item {
         return _effect
     }
     
-    
     init(name: String, category: String) {
         
         self._name = name
@@ -38,32 +37,21 @@ class Item {
         
         if let itemDict = Constant.itemsJSON[name] as? DictionarySS, let effect = itemDict["effect"] {
             _effect = effect
-        
         } else {
             _effect = "???"
         }
     }
 }
 
-
-
+// MARK: - Array Extension
 
 extension Array where Element: Item {
     
-    var machines: [Item] {
-        
-        return self.filter({$0.category == "Machines"})
-    }
+    var machines: [Item] { return self.filter({$0.category == "Machines"}) }
     
-    var berries: [Item] {
-        
-        return self.filter({$0.category == "Berries"})
-    }
+    var berries: [Item] { return self.filter({$0.category == "Berries"}) }
     
-    var excludeBerriesMachines: [Item] {
-        
-        return self.filter({$0.category != "Machines" && $0.category != "Berries"})
-    }
+    var excludeBerriesMachines: [Item] { return self.filter({$0.category != "Machines" && $0.category != "Berries"}) }
     
     func filter(for searchText: String, options: String.CompareOptions) -> [Item] {
         

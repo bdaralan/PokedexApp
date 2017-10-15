@@ -86,7 +86,6 @@ class RIOUILabel: UILabel {
     }
 }
 
-
 extension RIOUILabel {
     
     /// Check if the `roundLabel` is vertically centered with the main label, `self`.
@@ -142,8 +141,8 @@ extension RIOUILabel {
     }
 }
 
-
 // MARK: - RoundUILabel
+
 class RoundUILabel: UILabel {
     
     override func drawText(in rect: CGRect) {

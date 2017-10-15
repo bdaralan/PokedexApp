@@ -62,8 +62,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     let mid = 1 //mid evolution
     let last = 2 //last evolution
    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +86,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
-    
-    
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,9 +98,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             abilityDetailTVC.ability = ability
         }
     }
-    
-    
-    
     
     // MARK: - Protocol
     
@@ -124,18 +117,12 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         }
     }
     
-    
-    
-    
     // MARK: - IBActions
     
     @IBAction func cryBarBtnPressed(_ sender: Any) {
         
         AudioPlayer.play(audio: pokemon.crySound, ofType: "m4a")
     }
-    
-    
-    
     
     // MARK: - Updater
     
@@ -248,19 +235,14 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
         pokeSpeedPV.setProgress(pokemon.speed.toProgress(), animated: true)
     }
     
-    
-    
-    
     // MARK: - Handler
     
     @objc func handleAbilityPress(_ sender: UITapGestureRecognizer) {
         
         if let senderView = sender.view {
-            
-            let identifier = "AbilityDetailTVC"
-            
             AudioPlayer.play(audio: .select)
             
+            let identifier = "AbilityDetailTVC"
             switch senderView {
                 
             case pokeAbility01Lbl:
@@ -283,7 +265,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     @objc func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
         
         var shouldUpdateUI = false
-        
         guard let senderView = sender.view else { return }
         switch senderView {
             
@@ -313,7 +294,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     }
 
     @objc func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
-        
         
         guard let senderView = sender.view else { return }
         switch senderView {
@@ -372,9 +352,8 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     }
 }
 
-
-
 // MARK: - Helper functions
+
 extension PokemonInfoVC {
     
     func configureViewLauncher() {
