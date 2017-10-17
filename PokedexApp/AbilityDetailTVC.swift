@@ -137,11 +137,11 @@ class AbilityDetailTVC: UITableViewController {
         
         let spacing: CGFloat = 8
         
-        let abilityDetailLbl = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
+        abilityDetailLbl = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
         abilityDetailLbl.layer.cornerRadius = 0
         abilityDetailLbl.text = "Ability Detail"
         
-        let segmentControl = RoundUISegmentedControl(items: ["All", "Hidden"])
+        segmentControl = RoundUISegmentedControl(items: ["All", "Hidden"])
         segmentControl.frame.origin = CGPoint(x: spacing, y: spacing)
         segmentControl.frame.size.width = tableView.frame.width - spacing * 2
         segmentControl.tintColor = DBColor.AppObject.sectionText

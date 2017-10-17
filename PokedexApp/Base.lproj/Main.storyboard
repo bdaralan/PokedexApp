@@ -1271,9 +1271,9 @@
         <image name="setting-icon" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ft2-ZN-vRI"/>
+        <segue reference="hBg-BA-g37"/>
         <segue reference="fSY-tL-Ci9"/>
         <segue reference="WwS-oR-bSB"/>
-        <segue reference="cKZ-6c-fcp"/>
+        <segue reference="QYb-qA-O7c"/>
     </inferredMetricsTieBreakers>
 </document>
