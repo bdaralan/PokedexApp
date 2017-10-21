@@ -14,8 +14,9 @@ class HomeMenuTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do { try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient) }
-        catch { print(error) }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        } catch { print(error.localizedDescription) }
     }
     
     // MARK: - Table view data source
@@ -25,18 +26,15 @@ class HomeMenuTVC: UITableViewController {
         AudioPlayer.play(audio: .select)
         
         let genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
-        
         let title = tableView.cellForRow(at: indexPath)?.textLabel?.text
-        
         performSegue(withIdentifier: "GenericTVC", sender: (genericCell, title))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let genericTVC = segue.destination as? GenericTVC, let (genericCell, title) = sender as? (GenericCell, String) {
-            genericTVC.genericCell = genericCell
-            genericTVC.title = title
-        }
+        guard let genericTVC = segue.destination as? GenericTVC, let (genericCell, title) = sender as? (GenericCell, String) else { return }
+        genericTVC.genericCell = genericCell
+        genericTVC.title = title
     }
     
     // MARK: - IBActions

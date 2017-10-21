@@ -48,22 +48,14 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2 // NOTE: - OffenseDefenseCell and Pokemon/Move Section (use segmentControl)
+        return 2 // NOTE: OffenseDefenseCell and Pokemon/Move Section (use segmentControl)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch section {
-            
         case offenseDefenseSection: return 1
-            
-        case pokemonMoveSection:
-            if segmentControl.selectedSegmentIndex == pokemonSegIndex {
-                return pokemons.count
-            } else { //segmentControl.selectedSegmentIndex == moveSegIndex
-                return moves.count
-            }
-            
+        case pokemonMoveSection: return segmentControl.selectedSegmentIndex == pokemonSegIndex ? pokemons.count : moves.count // moveSegIndex
         default: return 0
         }
     }
@@ -117,22 +109,24 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard indexPath.section == offenseDefenseSection else { return UITableViewCell().frame.height }
-        return offenseDefenseCellHeight
+        switch indexPath.section {
+        case offenseDefenseSection: return offenseDefenseCellHeight
+        default: return UITableViewCell().frame.height
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard indexPath.section == pokemonMoveSection else { return }
-        if segmentControl.selectedSegmentIndex == pokemonSegIndex {
-            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
-            
-        } else { //segmentControl.selectedSegmentIndex == moveSegIndex
-            performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
+        switch segmentControl.selectedSegmentIndex {
+        case pokemonSegIndex: performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+        case moveSegIndex: performSegue(withIdentifier: "MoveDetailTVC", sender: moves[indexPath.row])
+        default: ()
         }
     }
     
     // MARK: - Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
@@ -210,31 +204,23 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         let typeColor = DBColor.get(color: self.type)
         
-        segmentControl = {
-            let sc = RoundUISegmentedControl(items: ["Pokemon", "Move"])
-            sc.frame.origin = CGPoint(x: spacing, y: spacing)
-            sc.frame.size.width = tableView.frame.width - spacing * 2
-            sc.tintColor = typeColor
-            sc.layer.borderColor = sc.tintColor.cgColor
-            sc.backgroundColor = UIColor.white
-            
-            sc.selectedSegmentIndex = pokemonSegIndex
-            
-            sc.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
-            return sc
-        }()
+        segmentControl = RoundUISegmentedControl(items: ["Pokemon", "Move"])
+        segmentControl.selectedSegmentIndex = pokemonSegIndex
+        segmentControl.frame.origin = CGPoint(x: spacing, y: spacing)
+        segmentControl.frame.size.width = tableView.frame.width - spacing * 2
+        segmentControl.tintColor = typeColor
+        segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
+        segmentControl.backgroundColor = UIColor.white
+        segmentControl.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
         
-        offenseDefenseLbl = {
-            let label = UILabel(frame: CGRect(x: spacing, y: spacing, width: segmentControl.frame.width, height: segmentControl.frame.height))
-            label.clipsToBounds = true
-            label.layer.cornerRadius = label.frame.height / 2
-            label.textAlignment = .center
-            label.baselineAdjustment = .alignCenters
-            label.textColor = UIColor.white
-            label.backgroundColor = typeColor
-            label.text = "Offense / Defense"
-            return label
-        }()
+        offenseDefenseLbl = UILabel(frame: CGRect(x: spacing, y: spacing, width: segmentControl.frame.width, height: segmentControl.frame.height))
+        offenseDefenseLbl.clipsToBounds = true
+        offenseDefenseLbl.layer.cornerRadius = offenseDefenseLbl.frame.height / 2
+        offenseDefenseLbl.textAlignment = .center
+        offenseDefenseLbl.baselineAdjustment = .alignCenters
+        offenseDefenseLbl.textColor = UIColor.white
+        offenseDefenseLbl.backgroundColor = typeColor
+        offenseDefenseLbl.text = "Offense / Defense"
     }
     
     func cacheNecessaryData() {

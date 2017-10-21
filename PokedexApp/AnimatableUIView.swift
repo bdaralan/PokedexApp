@@ -90,7 +90,7 @@ extension AnimatableUIView {
                 effectiveLabel.textAlignment = .left
                 effectiveLabel.clipsToBounds = false
                 
-            default:()
+            default: ()
             }
             
             self.addConstraints(typeLabelVContraints + hConstraints + [effectiveLabelWidthConstraint, effectiveLabelCenterYConstrant])

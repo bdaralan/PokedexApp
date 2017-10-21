@@ -65,7 +65,7 @@ class AbilityDetailTVC: UITableViewController {
                 return cell
             }
             
-        default:()
+        default: ()
         }
         
         return UITableViewCell()
@@ -74,12 +74,8 @@ class AbilityDetailTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
-            
-        case abilityDetialSection:
-            return abilityDetailCellHeight
-            
-        default:
-            return UITableViewCell().frame.height
+        case abilityDetialSection: return abilityDetailCellHeight
+        default: return UITableViewCell().frame.height
         }
     }
     
@@ -90,25 +86,16 @@ class AbilityDetailTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let sectionHeaderView: UIView = {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
-            view.backgroundColor = DBColor.AppObject.sectionBackground
-            return view
-        }()
+        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
+        sectionHeaderView.backgroundColor = DBColor.AppObject.sectionBackground
         
         switch section {
-            
-        case abilityDetialSection:
-            sectionHeaderView.addSubview(abilityDetailLbl)
-            return sectionHeaderView
-            
-        case pokemonCellSection:
-            sectionHeaderView.addSubview(segmentControl)
-            return sectionHeaderView
-            
-        default:
-            return UIView()
+        case abilityDetialSection: sectionHeaderView.addSubview(abilityDetailLbl)
+        case pokemonCellSection: sectionHeaderView.addSubview(segmentControl)
+        default: ()
         }
+        
+        return sectionHeaderView
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -47,15 +47,9 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch section {
-        case moveDetailCellSection:
-            return 1
-            
-        case pokemonCellSection:
-            guard pokemons.count > 0 else { return 1 } // for a regular cell, with text "None"
-            return pokemons.count
-            
-        default:
-            return 0
+        case moveDetailCellSection: return 1
+        case pokemonCellSection: return pokemons.count > 0 ? pokemons.count : 1 // return 1 for a regular cell, with text "None"
+        default: return 0
         }
     }
     
@@ -81,7 +75,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
                 return cell
             }
             
-        default:()
+        default: ()
         }
         
         return UITableViewCell()
@@ -90,12 +84,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
-            
-        case moveDetailCellSection:
-            return moveDetailCellHeight
-            
-        default:
-            return UITableViewCell().frame.height
+        case moveDetailCellSection: return moveDetailCellHeight
+        default: return UITableViewCell().frame.height
         }
     }
     
@@ -109,27 +99,18 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         switch section {
             
         case moveDetailCellSection:
-            let sectionHeaderView: SectionUILabel = {
-                let label = SectionUILabel(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
-                label.layer.cornerRadius = 0
-                label.text = "Move Detail"
-                return label
-            }()
-            
+            let sectionHeaderView = SectionUILabel(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
+            sectionHeaderView.layer.cornerRadius = 0
+            sectionHeaderView.text = "Move Detail"
             return sectionHeaderView
             
         case pokemonCellSection:
-            let sectionHeaderView: UIView = {
-                let view = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
-                view.backgroundColor = DBColor.AppObject.sectionBackground
-                return view
-            }()
-            
+            let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
+            sectionHeaderView.backgroundColor = DBColor.AppObject.sectionBackground
             sectionHeaderView.addSubview(segmentControl)
             return sectionHeaderView
             
-        default:
-            return UIView()
+        default: return UIView()
         }
     }
     
@@ -160,34 +141,23 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         let spacing: CGFloat = 8
         
-        segmentControl = {
-            let sc = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / Others"])
-            sc.frame.origin = CGPoint(x: spacing, y: spacing)
-            sc.frame.size.width = sectionHeaderViewWidth - spacing * 2
-            sc.tintColor = DBColor.get(color: move.type)
-            sc.layer.borderColor = sc.tintColor.cgColor
-            sc.backgroundColor = UIColor.white
-            
-            sc.selectedSegmentIndex = 0
-            
-            sc.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
-            return sc
-        }()
+        segmentControl = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / Others"])
+        segmentControl.frame.origin = CGPoint(x: spacing, y: spacing)
+        segmentControl.frame.size.width = sectionHeaderViewWidth - spacing * 2
+        segmentControl.tintColor = DBColor.get(color: move.type)
+        segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
+        segmentControl.backgroundColor = UIColor.white
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
     }
     
     @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
-        
-            switch currentSCIndex {
-            case .any:
-                pokemons = move.pokemonsLearn(by: .any)
-                
-            case .levelup:
-                pokemons = move.pokemonsLearn(by: .levelup)
-                
-            case .breedOrMachine:
-                pokemons = move.pokemonsLearn(by: .breedOrMachine)
-            }
+        switch currentSCIndex {
+        case .any: pokemons = move.pokemonsLearn(by: .any)
+        case .levelup: pokemons = move.pokemonsLearn(by: .levelup)
+        case .breedOrMachine: pokemons = move.pokemonsLearn(by: .breedOrMachine)
+        }
         
         tableView.reloadData()
         
@@ -209,10 +179,12 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
 extension MoveDetailTVC {
     
     var sectionHeaderViewWidth: CGFloat {
+        
         return tableView.frame.width
     }
     
     var sectionHeaderViewHeight: CGFloat {
+        
         return Constant.Constrain.sectionHeaderViewHeight
     }
 }

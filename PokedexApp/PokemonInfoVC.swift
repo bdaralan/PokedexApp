@@ -239,27 +239,10 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     
     @objc func handleAbilityPress(_ sender: UITapGestureRecognizer) {
         
-        if let senderView = sender.view {
-            AudioPlayer.play(audio: .select)
-            
-            let identifier = "AbilityDetailTVC"
-            switch senderView {
-                
-            case pokeAbility01Lbl:
-                let ability = Variable.allAbilities.search(forName: pokemon.firstAbility)
-                performSegue(withIdentifier: identifier, sender: ability)
-                
-            case pokeAbility02Lbl:
-                let ability = Variable.allAbilities.search(forName: pokemon.secondAbility)
-                performSegue(withIdentifier: identifier, sender: ability)
-                
-            case pokeHiddenAibilityLbl:
-                let ability = Variable.allAbilities.search(forName: pokemon.hiddenAbility)
-                performSegue(withIdentifier: identifier, sender: ability)
-                
-            default: ()
-            }
-        }
+        guard let abilityLabel = sender.view as? UILabel, let abilityString = abilityLabel.text else { return }
+        AudioPlayer.play(audio: .select)
+        let ability = Variable.allAbilities.search(forName: abilityString)
+        performSegue(withIdentifier: "AbilityDetailTVC", sender: ability)
     }
     
     @objc func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {

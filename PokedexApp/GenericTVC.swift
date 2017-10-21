@@ -82,40 +82,35 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         switch currentGenericCell {
             
         case .PokedexCell:
-            guard let cell = cell as? PokedexCell else { return UITableViewCell() }
-            cell.configureCell(for: pokemons[indexPath.row])
-            return cell
+            let cell = cell as? PokedexCell
+            cell?.configureCell(for: pokemons[indexPath.row])
             
         case .TypeCell:
-            guard let cell = cell as? TypeCell else { return UITableViewCell() }
-            cell.configureCell(type: types[indexPath.row])
-            return cell
+            let cell = cell as? TypeCell
+            cell?.configureCell(type: types[indexPath.row])
             
         case .MoveCell:
-            guard let cell = cell as? MoveCell else { return UITableViewCell() }
-            cell.configureCell(for: moves[indexPath.row])
-            return cell
+            let cell = cell as? MoveCell
+            cell?.configureCell(for: moves[indexPath.row])
             
         case .AbilityCell:
-            guard let cell = cell as? AbilityCell else { return UITableViewCell() }
-            cell.configureCell(ability: abilities[indexPath.row])
-            return cell
+            let cell = cell as? AbilityCell
+            cell?.configureCell(ability: abilities[indexPath.row])
             
         case .TMCell:
-            guard let cell = cell as? ItemCell else { return UITableViewCell() }
-            cell.configureCell(tm: items[indexPath.row])
-            return cell
+            let cell = cell as? ItemCell
+            cell?.configureCell(tm: items[indexPath.row])
             
         case .ItemCell:
-            guard let cell = cell as? ItemCell else { return UITableViewCell() }
-            cell.configureCell(item: items[indexPath.row])
-            return cell
+            let cell = cell as? ItemCell
+            cell?.configureCell(item: items[indexPath.row])
             
         case .BerryCell:
-            guard let cell = cell as? ItemCell else { return UITableViewCell() }
-            cell.configureCell(berry: items[indexPath.row])
-            return cell
+            let cell = cell as? ItemCell
+            cell?.configureCell(berry: items[indexPath.row])
         }
+        
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,16 +132,16 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             performSegue(withIdentifier: "AbilityDetailTVC", sender: abilities[indexPath.row])
             
         case .TMCell:
-            self.indexPath = indexPath
             handleSelectedItemCellRow(item: items[indexPath.row])
+            self.indexPath = indexPath
             
         case .ItemCell:
-            self.indexPath = indexPath
             handleSelectedItemCellRow(item: items[indexPath.row])
+            self.indexPath = indexPath
             
         case .BerryCell:
-            self.indexPath = indexPath
             handleSelectedItemCellRow(item: items[indexPath.row])
+            self.indexPath = indexPath
         }
     }
     
