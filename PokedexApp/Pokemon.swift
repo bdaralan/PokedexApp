@@ -433,7 +433,7 @@ extension Array where Element: Pokemon {
         return Pokemon(name: "Error", id: 0, form: "Error", types: ["Error", "Error"])
     }
     
-    ///: Use with search for evolution
+    /// Use with search for evolution
     func search(forId searchId: Int, withName targetName: String) -> Pokemon {
         
         var begin = 0
