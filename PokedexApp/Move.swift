@@ -119,6 +119,12 @@ extension Move {
     
     func pokemonsLearn(by learnMethod: LearnMethod) -> [Pokemon] {
         
+        // TODO: Improve pokemon learn move search
+        // 1. create new array for all sorted pokemon
+        // 2. replace filter with binary search
+        // 3. if found a pokemon, remove it from array; redo the search
+        // 4. if not found, means there is not more, stop the search; return
+        
         var pokemons = [Pokemon]()
         
         if let moveDict = Constant.pokemonLearnMoveJSON[name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
