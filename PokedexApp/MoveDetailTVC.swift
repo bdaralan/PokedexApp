@@ -11,8 +11,11 @@ import UIKit
 class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     var move: Move! //will be assigned during segue
-    var moves: [Move]!
-    var pokemons: [Pokemon]!
+    var moves = [Move]()
+    var pokemons = [Pokemon]()
+    var learnMovePokemons = [PokemonLearnMove]()
+    
+    var currentPokemons = [Pokemon]()
     
     var segmentControl: RoundUISegmentedControl!
     
@@ -30,10 +33,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         super.viewDidLoad()
         
         self.title = move.name
-        
-        moves = Variable.allMoves.filter(forType: move.type)
-        pokemons = move.pokemonsLearn(by: .any)
 
+        configureAttributes()
         configureSegmentControl()
     }
     
@@ -48,7 +49,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
 
         switch section {
         case moveDetailCellSection: return 1
-        case pokemonCellSection: return pokemons.count > 0 ? pokemons.count : 1 // return 1 for a regular cell, with text "None"
+        case pokemonCellSection: return currentPokemons.count > 0 ? currentPokemons.count : 1 // return 1 for a regular cell, with text "None"
         default: return 0
         }
     }
@@ -65,8 +66,8 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             }
             
         case pokemonCellSection:
-            if pokemons.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
-                cell.configureCell(for: pokemons[indexPath.row])
+            if currentPokemons.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
+                cell.configureCell(for: currentPokemons[indexPath.row])
                 return cell
             } else {
                 let cell = UITableViewCell()
@@ -117,7 +118,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard indexPath.section == pokemonCellSection else { return }
-        performSegue(withIdentifier: "PokemonInfoTVC", sender: pokemons[indexPath.row])
+        performSegue(withIdentifier: "PokemonInfoTVC", sender: currentPokemons[indexPath.row])
     }
     
     // MARK: Segue
@@ -137,6 +138,25 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     // MARK: - Initializer and Handler
     
+    func configureAttributes() {
+        
+        // moves
+        moves = Variable.allMoves.filter(forType: move.type)
+        
+        // learnMovePokemons
+        guard let moveDic = Constant.pokemonLearnMoveJSON[move.name] as? Dictionary<String, [String]> else { return }
+        learnMovePokemons = PokemonLearnMove.initArray(moveName: move.name, moveDictionary: moveDic)
+        
+        // pokemons
+        for learnMovePokemon in learnMovePokemons {
+            pokemons = pokemons + Variable.allPokemonsSortedById.filter(forId: learnMovePokemon.pokemonId)
+        }
+        pokemons = pokemons.sortById()
+        
+        // currentPokemons
+        currentPokemons = pokemons
+    }
+    
     func configureSegmentControl() {
         
         let spacing: CGFloat = 8
@@ -154,9 +174,20 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
         switch currentSCIndex {
-        case .any: pokemons = move.pokemonsLearn(by: .any)
-        case .levelup: pokemons = move.pokemonsLearn(by: .levelup)
-        case .breedOrMachine: pokemons = move.pokemonsLearn(by: .breedOrMachine)
+        case .any:
+            currentPokemons = pokemons
+        
+        case .levelup:
+            currentPokemons = []
+            let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .levelUp })
+            for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
+            currentPokemons = currentPokemons.sortById()
+        
+        case .breedOrMachine:
+            currentPokemons = []
+            let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .breed || $0.learnMethod == .breedOrLevelUp })
+            for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
+            currentPokemons = currentPokemons.sortById()
         }
         
         tableView.reloadData()
