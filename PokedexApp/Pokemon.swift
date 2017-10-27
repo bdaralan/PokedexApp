@@ -253,44 +253,30 @@ extension Pokemon {
         
         let id = String(format: "%03d-", self.id)
         var crySound = self.name
-        
-        if Constant.crySoundSepcialCaseName.keys.contains(crySound),
-            let name = Constant.crySoundSepcialCaseName[crySound] {
-            
+        if Constant.crySoundSepcialCaseName.keys.contains(crySound), let name = Constant.crySoundSepcialCaseName[crySound] {
             crySound = name
         }
-        
         return "\(id)\(crySound)"
     }
     
     var defenses: DictionarySS {
         
         var defensesDict = DictionarySS()
-        
-        if primaryType != "" {
-            if let defenses = Constant.defensesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS {
-                for (type, effective) in defenses where effective != "" {
-                    defensesDict.updateValue(effective, forKey: type)
-                }
-            }
+        guard primaryType != "", let defenses = Constant.defensesJSON["\(_primaryType)\(_secondaryType)"] as? DictionarySS else { return defensesDict }
+        for (type, effective) in defenses where effective != "" {
+            defensesDict.updateValue(effective, forKey: type)
         }
-        
         return defensesDict
     }
     
     var pokedexEntry: String {
         
-        if let pokedexEntry = Constant.pokedexEntriesJSON["\(self.id)"] as? DictionarySS {
-            if let omegaEntry = pokedexEntry["omega"], let alphaEntry = pokedexEntry["alpha"] {
-                if omegaEntry != alphaEntry {
-                    return "OR:\n\(omegaEntry)\n\nAS:\n\(alphaEntry)"
-                } else {
-                    return "ORAS:\n\(omegaEntry)"
-                }
-            }
+        let pokedexEntry = Constant.pokedexEntriesJSON["\(self.id)"] as? DictionarySS
+        guard let omegaEntry = pokedexEntry?["omega"], let alphaEntry = pokedexEntry?["alpha"] else { return "\(self.name)..." }
+        switch omegaEntry == alphaEntry {
+        case true: return "ORAS:\n\(omegaEntry)"
+        case false: return "OR:\n\(omegaEntry)\n\nAS:\n\(alphaEntry)"
         }
-        
-        return "\(self.name)..."
     }
 }
 
@@ -376,23 +362,15 @@ extension Array where Element: Pokemon {
     
     func filter(forAbility ability: String, hiddenOnly: Bool = false) -> [Pokemon] {
         
-        if hiddenOnly {
-            return self.filter({$0.hiddenAbility == ability})
-            
-        } else {
-            return self.filter({
-                $0.firstAbility == ability
-                    || $0.secondAbility == ability
-                    || $0.hiddenAbility == ability
-            })
+        switch hiddenOnly {
+        case true: return self.filter({$0.hiddenAbility == ability})
+        case false: return self.filter({ $0.firstAbility == ability || $0.secondAbility == ability || $0.hiddenAbility == ability })
         }
     }
     
     func filter(for searchText: String, options: String.CompareOptions) -> [Pokemon] {
         
-        var searchText = searchText
-        if searchText.contains(" ") { searchText = searchText.capitalized }
-        
+        let searchText = searchText.capitalized
         return self.filter({
             $0.name.range(of: searchText, options: options) != nil
                 || $0.id.toPokedexId().range(of: searchText) != nil
@@ -413,20 +391,16 @@ extension Array where Element: Pokemon {
     
     func search(forName searchName: String) -> Pokemon {
         
-        var begin = 0
-        var end = self.count - 1
+        var lowIndex = 0
+        var highIndex = (self.count > 0 ? self.count - 1 : 0)
+        var midIndex = highIndex / 2
         
-        while begin <= end {
-            let mid = (begin + end) / 2
-            
-            if self[mid].name == searchName {
-                return self[mid]
-            } else {
-                if self[mid].name < searchName {
-                    begin = mid + 1
-                } else {
-                    end = mid - 1
-                }
+        while midIndex <= highIndex {
+            midIndex = (lowIndex + highIndex) / 2
+            guard searchName != self[midIndex].name else { return self[midIndex] }
+            switch searchName < self[midIndex].name {
+            case true: highIndex = midIndex - 1
+            case false: lowIndex = midIndex + 1
             }
         }
         
@@ -436,20 +410,18 @@ extension Array where Element: Pokemon {
     /// Use with search for evolution
     func search(forId searchId: Int, withName targetName: String) -> Pokemon {
         
-        var begin = 0
-        var end = self.count - 1
+        var lowIndex = 0
+        var highIndex = (self.count > 0 ? self.count - 1 : 0)
+        var midIndex = highIndex / 2
         
-        while begin <= end {
-            let mid = (begin + end) / 2
-            
-            if self[mid].id == searchId, self[mid].name != targetName {
-                return self[mid]
-                
+        while midIndex <= highIndex {
+            midIndex = (lowIndex + highIndex) / 2
+            if searchId == self[midIndex].id, self[midIndex].name != targetName {
+                return self[midIndex]
             } else {
-                if self[mid].id < searchId {
-                    begin = mid + 1
-                } else {
-                    end = mid - 1
+                switch searchId < self[midIndex].id {
+                case true: highIndex = midIndex - 1
+                case false: lowIndex = midIndex + 1
                 }
             }
         }
@@ -462,7 +434,7 @@ extension Array where Element: Pokemon {
         
         let exceptionForm = ["mega", "primal"]
         
-        let pokemons: [Pokemon] = self.filter({$0.id.toPokedexId() == searchId && !exceptionForm.contains($0.form)})
+        let pokemons: [Pokemon] = self.filter({ $0.id.toPokedexId() == searchId && !exceptionForm.contains($0.form) })
         
         return pokemons.isEmpty ? [Pokemon]() : pokemons
     }

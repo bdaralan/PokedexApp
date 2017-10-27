@@ -72,20 +72,16 @@ extension Array where Element: Ability {
     // Binary Search
     func search(forName searchName: String) -> Ability {
         
-        var begin = 0
-        var end = self.count - 1
+        var lowIndex = 0
+        var highIndex = (self.count > 0 ? self.count - 1 : 0)
+        var midIndex = highIndex / 2
         
-        while begin <= end {
-            let mid = (begin + end) / 2
-            
-            if self[mid].name == searchName {
-                return self[mid]
-            } else {
-                if self[mid].name < searchName {
-                    begin = mid + 1
-                } else {
-                    end = mid - 1
-                }
+        while midIndex <= highIndex {
+            midIndex = (lowIndex + highIndex) / 2
+            guard searchName != self[midIndex].name else { return self[midIndex] }
+            switch searchName < self[midIndex].name {
+            case true: highIndex = midIndex - 1
+            case false: lowIndex = midIndex + 1
             }
         }
         

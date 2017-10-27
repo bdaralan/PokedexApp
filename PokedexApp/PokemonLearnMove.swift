@@ -10,6 +10,7 @@ import Foundation
 
 enum MoveLearnMethod {
     
+    case any
     case levelUp
     case breed
     case breedOrLevelUp
@@ -23,10 +24,10 @@ struct PokemonLearnMove {
     
     public var learnMethod: MoveLearnMethod {
         
-        let containLevelZero = learnLevels.contains("0")
+        let hasLearnByBreed = learnLevels.contains("0")
         switch learnLevels.count > 1 {
-        case true: return containLevelZero ? .breedOrLevelUp : .levelUp
-        case false: return containLevelZero ? .breed : .levelUp
+        case true: return hasLearnByBreed ? .breedOrLevelUp : .levelUp
+        case false: return hasLearnByBreed ? .breed : .levelUp
         }
     }
 }
@@ -39,12 +40,11 @@ extension PokemonLearnMove {
     /// - parameter moveDictionary: example: `Dictionaory<PokemonId, [LearnLevel]>`
     public static func initArray(moveName: String, moveDictionary: Dictionary<String, [String]>) -> [PokemonLearnMove] {
         
-        var pokemons = [PokemonLearnMove]()
+        var learnPokemons = [PokemonLearnMove]()
         for (pokemonId, learnLevels) in moveDictionary {
-            let pokemon = PokemonLearnMove(moveName: moveName, pokemonId: pokemonId, learnLevels: learnLevels)
-            pokemons.append(pokemon)
+            let learnPokemon = PokemonLearnMove(moveName: moveName, pokemonId: pokemonId, learnLevels: learnLevels)
+            learnPokemons.append(learnPokemon)
         }
-        
-        return pokemons
+        return learnPokemons
     }
 }

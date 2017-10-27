@@ -107,62 +107,8 @@ class Move {
     }
 }
 
-// Move learn by pokemons
-
-extension Move {
-    
-    enum LearnMethod: Int {
-        case any
-        case levelup
-        case breedOrMachine
-    }
-    
-    func pokemonsLearn(by learnMethod: LearnMethod) -> [Pokemon] {
-        
-        // TODO: Improve pokemon learn move search
-        // 1. create new array for all sorted pokemon
-        // 2. replace filter with binary search
-        // 3. if found a pokemon, remove it from array; redo the search
-        // 4. if not found, means there is not more, stop the search; return
-        
-        var pokemons = [Pokemon]()
-        
-        if let moveDict = Constant.pokemonLearnMoveJSON[name] as? Dictionary<String,[String]>, moveDict.keys.count > 0 {
-            
-            for id in moveDict.keys {
-                
-                if let levels = moveDict[id] {
-                    
-                    switch learnMethod {
-                        
-                    case .any:
-                        let learnablePokemons = Variable.allPokemonsSortedById.filter(forId: id)
-                        for pokemon in learnablePokemons { pokemons.append(pokemon) }
-                        
-                    case .levelup:
-                        if !levels.contains("0") {
-                            let learnablePokemons = Variable.allPokemonsSortedById.filter(forId: id)
-                            for pokemon in learnablePokemons { pokemons.append(pokemon) }
-                        }
-                        
-                    case .breedOrMachine:
-                        if levels.contains("0") {
-                            let learnablePokemons = Variable.allPokemonsSortedById.filter(forId: id)
-                            for pokemon in learnablePokemons { pokemons.append(pokemon) }
-                        }
-                    }
-                }
-            }
-        }
-        
-        return pokemons.sortById()
-    }
-}
-
-
-
-
 // Shorthand filter
+
 extension Array where Element: Move {
     
     func filter(forName name: String, options: String.CompareOptions) -> [Move] {
