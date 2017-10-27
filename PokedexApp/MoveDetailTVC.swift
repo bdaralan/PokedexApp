@@ -10,7 +10,7 @@ import UIKit
 
 class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
-    var move: Move! //will be assigned during segue
+    var move: Move! // will be assigned during segue
     var moves = [Move]()
     var pokemons = [Pokemon]()
     var learnMovePokemons = [PokemonLearnMove]()
@@ -18,16 +18,12 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     var currentPokemons = [Pokemon]()
     
     var segmentControl: RoundUISegmentedControl!
+    var segmentControllLearnMoveMethodIndex: MoveLearnMethod!
     
     let moveDetailCellSection = 0
     let pokemonCellSection = 1
 
     var moveDetailCellHeight: CGFloat = 240
-    
-    var currentSCIndex: Move.LearnMethod {
-        
-        return Move.LearnMethod(rawValue: segmentControl.selectedSegmentIndex)!
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +32,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
 
         configureAttributes()
         configureSegmentControl()
+        updateSegmentControllLearnMoveMethodIndex()
     }
     
     // MARK: - Table view data source
@@ -171,37 +168,38 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         segmentControl.addTarget(self, action: #selector(segmentControlValueChanged(_:)), for: .valueChanged)
     }
     
+    private func updateSegmentControllLearnMoveMethodIndex() {
+        
+        // value must be correspond with segmentControl in configureSegmentControl()
+        switch segmentControl.selectedSegmentIndex {
+        case 0: segmentControllLearnMoveMethodIndex = .any
+        case 1: segmentControllLearnMoveMethodIndex = .levelUp
+        case 2: segmentControllLearnMoveMethodIndex = .breedOrLevelUp
+        default: ()
+        }
+    }
+    
     @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
         
-        switch currentSCIndex {
-        case .any:
-            currentPokemons = pokemons
+        updateSegmentControllLearnMoveMethodIndex()
         
-        case .levelup:
+        switch segmentControllLearnMoveMethodIndex {
+        case .levelUp:
             currentPokemons = []
             let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .levelUp })
             for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
             currentPokemons = currentPokemons.sortById()
         
-        case .breedOrMachine:
+        case .breedOrLevelUp:
             currentPokemons = []
             let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .breed || $0.learnMethod == .breedOrLevelUp })
             for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
             currentPokemons = currentPokemons.sortById()
+            
+        default: currentPokemons = pokemons
         }
         
         tableView.reloadData()
-        
-//        let pokemonCellSectionRows = tableView.numberOfRows(inSection: pokemonCellSection)
-//        
-//        if pokemonCellSectionRows != 0 {
-//            tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonCellSection), at: .top, animated: true)
-//            //tableView.separatorColor = UIColor.myColor.tableViewSeparator
-//            
-//        } else {
-//            tableView.scrollToRow(at: IndexPath.init(row: 0, section: moveDetailCellSection), at: .top, animated: true)
-//            //tableView.separatorColor = UIColor.clear
-//        }
     }
 }
 
