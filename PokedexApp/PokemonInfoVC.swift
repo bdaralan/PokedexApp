@@ -303,7 +303,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             } else if sender.state == .ended {
                 defensesSectionLbl.layer.borderColor = UIColor.clear.cgColor
                 AudioPlayer.play(audio: .select)
-
                 pokemonDefenseViewLauncher.launch()
             }
             
@@ -313,7 +312,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             } else if sender.state == .ended  {
                 AudioPlayer.play(audio: .select)
                 pokedexEnterySectionLbl.layer.borderColor = UIColor.clear.cgColor
-                
                 pokedexEntryViewLauncher.launch()
             }
             

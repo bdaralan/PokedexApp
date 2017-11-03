@@ -73,7 +73,9 @@ class TypeUILabel: UILabel {
 
 extension TypeUILabel {
     
+    static var defaultSize: CGSize { return CGSize(width: 80, height: 21) }
+    
     convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        self.init(frame: CGRect(origin: .zero, size: TypeUILabel.defaultSize))
     }
 }

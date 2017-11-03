@@ -15,93 +15,51 @@ extension AnimatableUIView {
     
     func addDefenseTypeLabels(of pokemon: Pokemon) {
         
-        let defenses = pokemon.defenses
+        let typeCount = CGFloat(pokemon.defenses.count)
+        let spacing: CGFloat = 16
+        let height: CGFloat = TypeUILabel.defaultSize.height
+        let heightConstraint = (height * typeCount) + (spacing * (typeCount + 2)) // +2 for top and bottom of stack
+        heightAnchor.constraint(equalToConstant: heightConstraint).isActive = true
         
-        var typeLabels = [TypeUILabel]()
-        var effectiveLabels = [TypeUILabel]()
+        // create a stack view for pokemonDefenseView
+        let defenseStackView = UIStackView()
+        defenseStackView.axis = .vertical
+        defenseStackView.distribution = .equalSpacing
         
-        // Append typeLabels and effectiveLabels for its number of defenses
-        for (type, effective) in defenses {
-            
-            let typeLabel = TypeUILabel()
-            typeLabel.text = type
-            
-            let effectiveLabel = TypeUILabel()
-            effectiveLabel.text =  effective == "0" ? "Immune" : "\(effective)x"
-            effectiveLabel.backgroundColor = typeLabel.backgroundColor
-            
-            typeLabels.append(typeLabel)
-            effectiveLabels.append(effectiveLabel)
-        }
+        // stack view constraints
+        defenseStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(defenseStackView)
+        defenseStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
+        defenseStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.85).isActive = true
+        defenseStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        defenseStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        // Add constraints
-        for i in 0 ..< typeLabels.count {
-            
-            let typeLabel = typeLabels[i]
-            let effectiveLabel = effectiveLabels[i]
-            
-            self.addSubview(typeLabel)
-            self.addSubview(effectiveLabel)
-            
-            typeLabel.translatesAutoresizingMaskIntoConstraints = false
-            effectiveLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            let views = ["typeLabel": typeLabel, "effectiveLabel": effectiveLabel]
-            
-            var hConstraints = [NSLayoutConstraint]() // vConstraints for both type and effecitve label
-            var typeLabelVContraints = [NSLayoutConstraint]()
-            var effectiveLabelWidthConstraint = NSLayoutConstraint()
-            var effectiveLabelCenterYConstrant = NSLayoutConstraint()
-            
-            
-            // add vConstraints
-            if i == 0 {
-                typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[typeLabel(21)]", options: [], metrics: nil, views: views)
-                
-            } else {
-                typeLabelVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[prevTypeLabel(21)]-8-[typeLabel(21)]", options: [], metrics: nil, views: ["prevTypeLabel": typeLabels[i - 1], "typeLabel": typeLabels[i]])
+        for (type, effective) in pokemon.defenses {
+            let defenseView = PokemonDefenseView()
+            defenseView.typeLabel.text = type
+            switch effective {
+            case "1/4":
+                defenseView.effectiveSlider.value = 0.2
+                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-4x"), for: .normal)
+            case "1/2":
+                defenseView.effectiveSlider.value = 0.4
+                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-2x"), for: .normal)
+            case "2":
+                defenseView.effectiveSlider.value = 0.8
+                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-2x"), for: .normal)
+            case "4":
+                defenseView.effectiveSlider.value = 1
+                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-4x"), for: .normal)
+            case "0":
+                defenseView.effectiveSlider.value = 0
+                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
+            default:
+                defenseView.effectiveSlider.value = 0.6
+                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
             }
             
-            // add hConstraints
-            hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[typeLabel(80)]-[effectiveLabel]", options: [], metrics: nil, views: views)
-            
-            effectiveLabelCenterYConstrant = NSLayoutConstraint.init(item: effectiveLabel, attribute: .centerY, relatedBy: .equal, toItem: typeLabel, attribute: .centerY, multiplier: 1, constant: 0)
-            
-            // add width constraint for effective label
-            switch effectiveLabel.text! {
-                
-            case "1/4x":
-                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 2, constant: 0)
-                
-            case "1/2x":
-                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 4, constant: 0)
-                
-            case "2x":
-                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .height, multiplier: 8, constant: 0)
-                
-            case "4x":
-                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -16)
-                
-            case "Immune":
-                effectiveLabelWidthConstraint = NSLayoutConstraint.init(item: effectiveLabel, attribute: .width, relatedBy: .equal, toItem: typeLabel, attribute: .width, multiplier: 1, constant: 0)
-                
-                effectiveLabel.textColor = effectiveLabel.backgroundColor
-                effectiveLabel.backgroundColor = UIColor.clear
-                effectiveLabel.textAlignment = .left
-                effectiveLabel.clipsToBounds = false
-                
-            default: ()
-            }
-            
-            self.addConstraints(typeLabelVContraints + hConstraints + [effectiveLabelWidthConstraint, effectiveLabelCenterYConstrant])
+            defenseStackView.addArrangedSubview(defenseView)
         }
-        
-        // adjust self height to containt all label, similar to .sizeToFit()
-        guard let selfLastSubview = typeLabels.last else { return }
-        let selfHeightConstraint = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: selfLastSubview, attribute: .bottom, multiplier: 1, constant: 16)
-        
-        self.addConstraint(selfHeightConstraint)
-        self.superview?.layoutIfNeeded()
     }
 }
 
