@@ -262,7 +262,7 @@ extension Pokemon {
     var defenses: DictionarySS {
         
         var defensesDict = DictionarySS()
-        guard primaryType != "", let defenses = Constant.defensesJSON["\(_primaryType)\(_secondaryType)"] as? DictionarySS else { return defensesDict }
+        guard primaryType != "", let defenses = Constant.defensesJSON["\(primaryType)\(secondaryType)"] as? DictionarySS else { return defensesDict }
         for (type, effective) in defenses where effective != "" {
             defensesDict.updateValue(effective, forKey: type)
         }

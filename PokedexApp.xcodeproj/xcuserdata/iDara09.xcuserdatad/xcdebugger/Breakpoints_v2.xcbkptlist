@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PokedexApp/MoveDetailTVC.swift"
-            timestampString = "530772481.111717"
+            filePath = "PokedexApp/PokemonInfoVC.swift"
+            timestampString = "531370973.006721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "configureAttributes()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokedexApp/MoveDetailTVC.swift"
-            timestampString = "530772481.11216"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "segmentControlValueChanged(_:)"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "configureViewLauncher()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
