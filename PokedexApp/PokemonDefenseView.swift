@@ -61,6 +61,7 @@ class PokemonDefenseStackView: UIStackView {
     private func configureEffectiveSlider() {
         let thumbImage = UIImage(named: "poke-effective-value-x")
         effectiveSlider.setThumbImage(thumbImage, for: .normal)
+        effectiveSlider.maximumTrackTintColor = .clear
         effectiveSlider.isUserInteractionEnabled = false
     }
 }
