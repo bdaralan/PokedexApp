@@ -22,43 +22,44 @@ extension AnimatableUIView {
         heightAnchor.constraint(equalToConstant: heightConstraint).isActive = true
         
         // create a stack view for pokemonDefenseView
-        let defenseStackView = UIStackView()
-        defenseStackView.axis = .vertical
-        defenseStackView.distribution = .equalSpacing
+        let defenseContainerStackView = UIStackView()
+        defenseContainerStackView.axis = .vertical
+        defenseContainerStackView.distribution = .equalSpacing
         
         // stack view constraints
-        defenseStackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(defenseStackView)
-        defenseStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
-        defenseStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.85).isActive = true
-        defenseStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        defenseStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        addSubview(defenseContainerStackView)
+        defenseContainerStackView.translatesAutoresizingMaskIntoConstraints = false
+        defenseContainerStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
+        defenseContainerStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.85).isActive = true
+        defenseContainerStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        defenseContainerStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         for (type, effective) in pokemon.defenses {
-            let defenseView = PokemonDefenseView()
-            defenseView.typeLabel.text = type
+            let defenseStackView = PokemonDefenseStackView()
             switch effective {
-            case "1/4":
-                defenseView.effectiveSlider.value = 0.2
-                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-4x"), for: .normal)
-            case "1/2":
-                defenseView.effectiveSlider.value = 0.4
-                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-2x"), for: .normal)
-            case "2":
-                defenseView.effectiveSlider.value = 0.8
-                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-2x"), for: .normal)
-            case "4":
-                defenseView.effectiveSlider.value = 1
-                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-4x"), for: .normal)
-            case "0":
-                defenseView.effectiveSlider.value = 0
-                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
-            default:
-                defenseView.effectiveSlider.value = 0.6
-                defenseView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
+            case "0": // immune
+                defenseStackView.effectiveSlider.value = 0
+                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
+            case "1/4": // 1/4x
+                defenseStackView.effectiveSlider.value = 0.2
+                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-4x"), for: .normal)
+            case "1/2": // 1/2x
+                defenseStackView.effectiveSlider.value = 0.4
+                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-2x"), for: .normal)
+            case "": // 1x
+                defenseStackView.effectiveSlider.value = 0.6
+                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
+            case "2": // 2x
+                defenseStackView.effectiveSlider.value = 0.8
+                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-2x"), for: .normal)
+            case "4": // 4x
+                defenseStackView.effectiveSlider.value = 1
+                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-4x"), for: .normal)
+            default: ()
             }
-            
-            defenseStackView.addArrangedSubview(defenseView)
+            defenseStackView.typeLabel.text = type
+            defenseStackView.effectiveSlider.tintColor = DBColor.get(color: type)
+            defenseContainerStackView.addArrangedSubview(defenseStackView)
         }
     }
 }
@@ -80,20 +81,14 @@ extension AnimatableUIView {
             return textView
         }()
         
-        self.addSubview(textView)
-        
         // add constraints
+        addSubview(textView)
         textView.translatesAutoresizingMaskIntoConstraints = false
-        
         let views: [String: UIView] = ["textView": textView]
-        
         let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[textView]-16-|", options: [], metrics: nil, views: views)
-        
         let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textView]-|", options: [], metrics: nil, views: views)
-        
         let selfHeight = NSLayoutConstraint.init(item: self, attribute: .bottom, relatedBy: .equal, toItem: textView, attribute: .bottom, multiplier: 1, constant: 8)
-        
-        self.addConstraints(hConstraints + vConstraints + [selfHeight])
-        self.superview?.layoutIfNeeded()
+        addConstraints(hConstraints + vConstraints + [selfHeight])
+        superview?.layoutIfNeeded()
     }
 }

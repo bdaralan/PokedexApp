@@ -12,7 +12,7 @@ struct TestUISample {
     
     public static func testPokemonDefenseView() {
         guard let window = UIApplication.shared.keyWindow else { print("TestUISample Fail to run"); return }
-        let pokemonDefView = PokemonDefenseView()
+        let pokemonDefView = PokemonDefenseStackView()
         pokemonDefView.typeLabel.text = "Grass"
         pokemonDefView.effectiveSlider.value = 0.8
         
