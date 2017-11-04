@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PokemonDefenseView: UIView {
+class PokemonDefenseStackView: UIStackView {
     
     let typeLabel = TypeUILabel()
     let effectiveSlider = UISlider()
@@ -18,8 +18,8 @@ class PokemonDefenseView: UIView {
         configureView()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
         configureView()
     }
     
@@ -32,36 +32,35 @@ class PokemonDefenseView: UIView {
     }
     
     private func configureView() {
+        spacing = 16
+        configureConstraints()
         configureTypeLabel()
         configureEffectiveSlider()
     }
     
-    private func configureTypeLabel() {
-        typeLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(typeLabel)
+    private func configureConstraints() {
+        let size = TypeUILabel.defaultSize
         
-        // constarints
-        let width = typeLabel.frame.width
-        let height = typeLabel.frame.height
+        addArrangedSubview(typeLabel)
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        typeLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        typeLabel.widthAnchor.constraint(equalToConstant: width).isActive = true
-        typeLabel.heightAnchor.constraint(equalToConstant: height).isActive = true
+        typeLabel.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        typeLabel.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        
+        addArrangedSubview(effectiveSlider)
+        effectiveSlider.translatesAutoresizingMaskIntoConstraints = false
+        effectiveSlider.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        effectiveSlider.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        effectiveSlider.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+    }
+    
+    private func configureTypeLabel() {
+        typeLabel.text = "PokemonType"
     }
     
     private func configureEffectiveSlider() {
-        effectiveSlider.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(effectiveSlider)
-        
-        // constraints
-        let height = TypeUILabel.defaultSize.height
-        effectiveSlider.leadingAnchor.constraint(equalTo: typeLabel.trailingAnchor, constant: 24).isActive = true
-        effectiveSlider.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        effectiveSlider.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        effectiveSlider.heightAnchor.constraint(equalToConstant: height).isActive = true
-        
-        // set default thumb image
-        let thumbImage = UIImage.init(named: "poke-effective-value-x")
+        let thumbImage = UIImage(named: "poke-effective-value-x")
         effectiveSlider.setThumbImage(thumbImage, for: .normal)
+        effectiveSlider.isUserInteractionEnabled = false
     }
 }
