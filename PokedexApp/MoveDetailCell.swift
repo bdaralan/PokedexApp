@@ -22,10 +22,6 @@ class MoveDetailCell: UITableViewCell {
     
     var height: CGFloat = 240
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
     }
@@ -35,7 +31,6 @@ class MoveDetailCell: UITableViewCell {
     }
     
     func configureCell(for move: Move) {
-        
         nameLbl.text = move.name
         nameLbl.backgroundColor = DBColor.get(color: move.type)
         nameLbl.roundLabel.layer.borderColor = nameLbl.backgroundColor?.cgColor

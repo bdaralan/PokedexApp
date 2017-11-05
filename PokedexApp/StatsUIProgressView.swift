@@ -10,12 +10,20 @@ import UIKit
 
 class StatsUIProgressView: UIProgressView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.progress = 0
-        self.layer.frame.size.height = 3
-        self.layer.cornerRadius = self.layer.frame.height / 2
-        self.clipsToBounds = true
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureView()
+    }
+    
+    private func configureView() {
+        progress = 0
+        layer.frame.size.height = 3
+        layer.cornerRadius = self.layer.frame.height / 2
+        clipsToBounds = true
     }
 }

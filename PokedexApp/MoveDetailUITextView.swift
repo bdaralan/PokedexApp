@@ -12,22 +12,25 @@ class MoveDetailUITextView: UITextView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 18.5
-        self.clipsToBounds = true
-        self.isScrollEnabled = false
-        self.isEditable = false
-        self.textAlignment = .center
-        self.layer.borderColor = UIColor.black.cgColor
-        self.font = Constant.Font.gillSans
+        configureView()
     }
     
     override var text: String! {
         didSet {
-            let width = self.frame.width
-            self.sizeToFit()
-            self.frame.size.width = width
+            let width = frame.width
+            sizeToFit()
+            frame.size.width = width
         }
+    }
+    
+    private func configureView() {
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 18.5
+        clipsToBounds = true
+        isScrollEnabled = false
+        isEditable = false
+        textAlignment = .center
+        layer.borderColor = UIColor.black.cgColor
+        font = Constant.Font.gillSans
     }
 }

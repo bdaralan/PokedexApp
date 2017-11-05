@@ -48,20 +48,18 @@ class TypeUILabel: UILabel {
     
     override var isUserInteractionEnabled: Bool {
         didSet {
-            if isUserInteractionEnabled {
-                if tapGesture == nil {
-                    tapGesture = UITapGestureRecognizer(target: self, action: #selector(typeUILabelTapped))
-                }
-                self.addGestureRecognizer(tapGesture)
-                
-            } else {
-                if tapGesture != nil { self.removeGestureRecognizer(tapGesture) }
+            guard isUserInteractionEnabled else {
+                if tapGesture != nil { removeGestureRecognizer(tapGesture) }
+                return
             }
+            if tapGesture == nil {
+                tapGesture = UITapGestureRecognizer(target: self, action: #selector(typeUILabelTapped))
+            }
+            self.addGestureRecognizer(tapGesture)
         }
     }
     
     @objc func typeUILabelTapped() {
-
         delegate?.typeUILabel(didTap: tapGesture)
     }
 }

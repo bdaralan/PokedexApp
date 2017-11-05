@@ -16,7 +16,10 @@ class PokedexCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        configureCell()
+    }
+    
+    private func configureCell() {
         pokemonID.font = Constant.Font.gillSans
         pokemonImg.contentMode = .scaleAspectFill
     }

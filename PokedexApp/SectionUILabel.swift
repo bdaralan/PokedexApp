@@ -9,26 +9,24 @@
 import UIKit
 
 class SectionUILabel: UILabel {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-        self.backgroundColor = DBColor.AppObject.sectionBackground
-        self.textColor = DBColor.AppObject.sectionText
-        self.textAlignment = .center
-        self.baselineAdjustment = .alignCenters
-        self.font = Constant.Font.gillSansSemiBold
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        awakeFromNib()
+        configureView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        configureView()
+    }
+    
+    private func configureView() {
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+        backgroundColor = DBColor.AppObject.sectionBackground
+        textColor = DBColor.AppObject.sectionText
+        textAlignment = .center
+        baselineAdjustment = .alignCenters
+        font = Constant.Font.gillSansSemiBold
     }
 }

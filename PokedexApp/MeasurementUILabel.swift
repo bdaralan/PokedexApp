@@ -9,12 +9,20 @@
 import UIKit
 
 class MeasurementUILabel: UILabel {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-        self.backgroundColor = DBColor.AppObject.sectionBackground //.withAlphaComponent(0.35)
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureView()
+    }
+    
+    private func configureView() {
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+        backgroundColor = DBColor.AppObject.sectionBackground //.withAlphaComponent(0.35)
     }
 }

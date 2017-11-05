@@ -24,7 +24,6 @@ class OffenseDefenseCell: UITableViewCell {
     
     var height: CGFloat = 240 //height that will be used for ...(heightForRowAt: indexPath)
     
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
     }
@@ -62,9 +61,7 @@ class OffenseDefenseCell: UITableViewCell {
     }
     
     private func add(typeLbls: [TypeUILabel], to view: UIView) {
-        
         view.removeAllSubviews()
-        
         for typeLbl in typeLbls {
             view.addSubview(typeLbl)
         }

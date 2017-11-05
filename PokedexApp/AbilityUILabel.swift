@@ -10,17 +10,25 @@ import UIKit
 
 class AbilityUILabel: UILabel {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-        self.backgroundColor = DBColor.Pokemon.ability
-        self.textAlignment = .center
-        self.baselineAdjustment = .alignCenters
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureView()
     }
     
     override func drawText(in rect: CGRect) {
         super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 16, height: rect.height))
+    }
+    
+    private func configureView() {
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+        backgroundColor = DBColor.Pokemon.ability
+        textAlignment = .center
+        baselineAdjustment = .alignCenters
     }
 }

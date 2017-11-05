@@ -14,10 +14,6 @@ class AbilityDetailCell: UITableViewCell {
     
     var height: CGFloat = 45
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
     }
@@ -27,9 +23,7 @@ class AbilityDetailCell: UITableViewCell {
     }
 
     func configureCell(for ability: Ability) {
-        
-        self.descriptionTextView.text = ability.description
-        
-        self.height = descriptionTextView.frame.origin.y +  descriptionTextView.frame.height + Constant.Constrain.spcingView
+        descriptionTextView.text = ability.description
+        height = descriptionTextView.frame.origin.y +  descriptionTextView.frame.height + Constant.Constrain.spcingView
     }
 }
