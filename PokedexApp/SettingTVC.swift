@@ -36,21 +36,18 @@ class SettingTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadSettingFromUserDefaults()
         configureDisclaimerCreditView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         AudioPlayer.play(audio: .save)
         disclaimerViewLauncher.removeFromSuperview()
         creditViewLauncher.removeFromSuperview()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         disclaimerViewLauncher.dismiss(animated: false)
         creditViewLauncher.dismiss(animated: false)
     }
@@ -58,43 +55,32 @@ class SettingTVC: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        if let selectedRow = SettingRow(rawValue: "\(indexPath.section)\(indexPath.row)") {
-            
-            switch selectedRow {
-                
-            case .iDara09GitHub:
-                guard let url = URL(string: "https://github.com/iDara09") else { return }
-                UIApplication.shared.open(url)
-                
-            case .sourceCode:
-                guard let url = URL(string: "https://github.com/iDara09/PokedexApp") else { return }
-                UIApplication.shared.open(url)
-                
-            case.disclaimer:
-                AudioPlayer.play(audio: .select)
-                disclaimerViewLauncher.launch()
-                
-            case .credits:
-                AudioPlayer.play(audio: .select)
-                creditViewLauncher.launch()
-                
-            default: ()
-            }
+        guard let selectedRow = SettingRow(rawValue: "\(indexPath.section)\(indexPath.row)") else { return }
+        switch selectedRow {
+        case .iDara09GitHub:
+            guard let url = URL(string: "https://github.com/iDara09") else { return }
+            UIApplication.shared.open(url)
+        case .sourceCode:
+            guard let url = URL(string: "https://github.com/iDara09/PokedexApp") else { return }
+            UIApplication.shared.open(url)
+        case.disclaimer:
+            AudioPlayer.play(audio: .select)
+            disclaimerViewLauncher.launch()
+        case .credits:
+            AudioPlayer.play(audio: .select)
+            creditViewLauncher.launch()
+        default: ()
         }
     }
     
     // MARK: - IBActions
     
     @IBAction func measurementSCValueChanged(_ sender: UISegmentedControl) {
-        
         UserDefaults.standard.set(measurementSC.selectedSegmentIndex, forKey: Constant.Key.Setting.measurementSCSelectedIndex)
     }
     
     @IBAction func soundEffectSwitchToggled(_ sender: UISwitch) {
-        
         UserDefaults.standard.set(sender.isOn, forKey: Constant.Key.Setting.soundEffectSwitchState)
         if sender.isOn { AudioPlayer.play(audio: .select) }
     }
@@ -102,13 +88,11 @@ class SettingTVC: UITableViewController {
     // MARK: - Initializer and Handler
     
     func loadSettingFromUserDefaults() {
-        
         measurementSC.selectedSegmentIndex = UserDefaults.standard.integer(forKey: Constant.Key.Setting.measurementSCSelectedIndex)
         soundEffectSwitch.isOn = UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
     }
     
     func configureDisclaimerCreditView() {
-        
         // Setup disclaimer viewlauncher
         let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
         disclaimerViewLauncher = ViewLauncher(frame: viewLauncherFrame)

@@ -36,10 +36,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pokemons = Variable.allPokemonsSortedById.filter(forType: type)
         moves = Variable.allMoves.filter(forType: type)
-        
         configureHeaderViews()
         updateUI()
     }
@@ -47,12 +45,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 2 // NOTE: OffenseDefenseCell and Pokemon/Move Section (use segmentControl)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         switch section {
         case offenseDefenseSection: return 1
         case pokemonMoveSection: return segmentControl.selectedSegmentIndex == pokemonSegIndex ? pokemons.count : moves.count // moveSegIndex
@@ -61,9 +57,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
-            
         case offenseDefenseSection:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "OffenseDefenseCell", for: indexPath) as? OffenseDefenseCell {
                 cell.configureCell(forType: type, strongAgainstTypeLbls: strongAgainstTypeLbls, weakToTypeLbls: weakToTypeLbls, resistToTypeLbls: resistToTypeLbls, immuneToTypeLbls: immuneToTypeLbls)
@@ -75,7 +69,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             if segmentControl.selectedSegmentIndex == pokemonSegIndex, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
                 cell.configureCell(for: pokemons[indexPath.row])
                 return cell
-                
             } else if segmentControl.selectedSegmentIndex == moveSegIndex,
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MoveCell", for: indexPath) as? MoveCell {
                 cell.configureCell(for: moves[indexPath.row])
@@ -84,17 +77,14 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             
         default: ()
         }
-        
         return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return self.sectionHeaderViewHeight
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
         sectionHeaderView.backgroundColor = DBColor.AppObject.sectionBackground
         
@@ -103,12 +93,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         case pokemonMoveSection: sectionHeaderView.addSubview(segmentControl)
         default: ()
         }
-        
         return sectionHeaderView
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         switch indexPath.section {
         case offenseDefenseSection: return offenseDefenseCellHeight
         default: return UITableViewCell().frame.height
@@ -116,7 +104,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard indexPath.section == pokemonMoveSection else { return }
         switch segmentControl.selectedSegmentIndex {
         case pokemonSegIndex: performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
@@ -128,10 +115,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
             pokemonInfoVC.pokemon = pokemon
-            
         } else if let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move {
             moveDetailTVC.move = move
         }
@@ -140,19 +125,16 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
-        
         guard let typeLbl = tapGesture.view as? TypeUILabel, type != typeLbl.text else { return }
         AudioPlayer.play(audio: .select)
-        self.type = typeLbl.text
-        self.updateUI()
+        type = typeLbl.text
+        updateUI()
     }
     
     // MARK: - Updater
     
     func updateUI() {
-        
         self.title = type
-        
         setDefaultState()
         
         if let _ = cache.object(forKey: type as AnyObject) as? String,
@@ -184,14 +166,12 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         segmentControl.layer.borderColor = segmentControl.tintColor.cgColor
         
         tableView.reloadData()
-        
         DispatchQueue.main.async {
             self.cacheNecessaryData()
         }
     }
     
     func setDefaultState() {
-        
         strongAgainstTypeLbls.removeAll()
         weakToTypeLbls.removeAll()
         resistToTypeLbls.removeAll()
@@ -201,7 +181,6 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Initializer and Handler
     
     func configureHeaderViews() {
-        
         let typeColor = DBColor.get(color: self.type)
         
         segmentControl = RoundUISegmentedControl(items: ["Pokemon", "Move"])
@@ -224,18 +203,16 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
     
     func cacheNecessaryData() {
-        
-        self.cache.setObject(type as AnyObject, forKey: type as AnyObject)
-        self.cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
-        self.cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
-        self.cache.setObject(strongAgainstTypeLbls as AnyObject, forKey: "strongAgainstTypeLbls\(type)" as AnyObject)
-        self.cache.setObject(weakToTypeLbls as AnyObject, forKey: "weakToTypeLbls\(type)" as AnyObject)
-        self.cache.setObject(resistToTypeLbls as AnyObject, forKey: "resisToTypeLbls\(type)" as AnyObject)
-        self.cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
+        cache.setObject(type as AnyObject, forKey: type as AnyObject)
+        cache.setObject(Array(pokemons) as AnyObject, forKey: "cachedPokemons\(type)" as AnyObject)
+        cache.setObject(Array(moves) as AnyObject, forKey: "cachedMoves\(type)" as AnyObject)
+        cache.setObject(strongAgainstTypeLbls as AnyObject, forKey: "strongAgainstTypeLbls\(type)" as AnyObject)
+        cache.setObject(weakToTypeLbls as AnyObject, forKey: "weakToTypeLbls\(type)" as AnyObject)
+        cache.setObject(resistToTypeLbls as AnyObject, forKey: "resisToTypeLbls\(type)" as AnyObject)
+        cache.setObject(immuneToTypeLbls as AnyObject, forKey: "immuneToTypeLbls\(type)" as AnyObject)
     }
     
     @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
-        
         tableView.reloadData()
 //        tableView.scrollToRow(at: IndexPath.init(row: 0, section: pokemonMoveSection), at: .top, animated: true)
     }
@@ -245,9 +222,13 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
 
 extension TypeDetailTVC {
     
-    var sectionHeaderViewWidth: CGFloat { return tableView.frame.width }
+    var sectionHeaderViewWidth: CGFloat {
+        return tableView.frame.width
+    }
     
-    var sectionHeaderViewHeight: CGFloat { return segmentControl.frame.height + 16 }
+    var sectionHeaderViewHeight: CGFloat {
+        return segmentControl.frame.height + 16
+    }
 }
 
 // MARK: - Make TypeUILabel
@@ -255,33 +236,26 @@ extension TypeDetailTVC {
 extension TypeDetailTVC {
     
     func getOffensiveTypes() -> [String] {
-        
         var strongAgainstTypes = [String]()
-        
         for type in Variable.allTypes {
             if let typeDict = Constant.defensesJSON[type] as? DictionarySS, let effective = typeDict[self.type], effective == "2" {
                 strongAgainstTypes.append(type)
             }
         }
-        
         return strongAgainstTypes
     }
     
     func getDefensiveTypes(effective: String) -> [String] {
-        
         var defensiveTypes = [String]()
-        
         if let defensesDict = Constant.defensesJSON[type] as? DictionarySS {
             for (type, effectiveness) in defensesDict where effectiveness == effective {
                 defensiveTypes.append(type)
             }
         }
-        
         return defensiveTypes
     }
     
     func makeTypeLabels(from types: [String]) -> [TypeUILabel] {
-        
         var strongAgainstTypeLbls = [TypeUILabel]()
         
         let spacing: CGFloat = 8
@@ -302,7 +276,6 @@ extension TypeDetailTVC {
                     x = 8
                     y = y + typeLabel.frame.height + spacing
                 }
-                
                 strongAgainstTypeLbls.append(typeLabel)
             }
             
@@ -313,10 +286,8 @@ extension TypeDetailTVC {
             noneLbl.backgroundColor = DBColor.Pokemon.ability
             noneLbl.frame.origin.x = x
             noneLbl.frame.origin.y = y
-            
             strongAgainstTypeLbls.append(noneLbl)
         }
-        
         return strongAgainstTypeLbls
     }
 }

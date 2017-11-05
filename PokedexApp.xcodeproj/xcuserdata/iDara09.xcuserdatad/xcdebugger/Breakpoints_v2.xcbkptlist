@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokedexApp/PokemonInfoVC.swift"
-            timestampString = "531539366.626302"
+            timestampString = "531549132.314895"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "configureViewLauncher()"
             landmarkType = "7">
          </BreakpointContent>

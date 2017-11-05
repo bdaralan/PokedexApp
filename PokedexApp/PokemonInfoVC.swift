@@ -64,23 +64,19 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         userSelectedUnit = Unit(rawValue: UserDefaults.standard.integer(forKey: Constant.Key.Setting.measurementSCSelectedIndex))
-        
         pokeType01Lbl.delegate = self
         pokeType02Lbl.delegate = self
         
         DispatchQueue.main.async {
             self.updateEvolutionUI()
         }
-        
         configureTappedGestures()
         updateUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         DispatchQueue.main.async {
             self.updatePokemonStatsProgressViews()
         }
@@ -89,7 +85,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String {
             AudioPlayer.play(audio: .select)
             typeDetailTVC.type = type
@@ -102,33 +97,24 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
-        
-        if let label = tapGesture.view as? TypeUILabel {
-            switch label {
-                
-            case pokeType01Lbl:
-                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
-                
-            case pokeType02Lbl:
-                performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType02Lbl.text)
-                
-            default: ()
-            }
+        guard let label = tapGesture.view as? TypeUILabel else { return }
+        switch label {
+        case pokeType01Lbl: performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType01Lbl.text)
+        case pokeType02Lbl: performSegue(withIdentifier: "TypeDetailTVC", sender: pokeType02Lbl.text)
+        default: ()
         }
     }
     
     // MARK: - IBActions
     
     @IBAction func cryBarBtnPressed(_ sender: Any) {
-        
         AudioPlayer.play(audio: pokemon.crySound, ofType: "m4a")
     }
     
     // MARK: - Updater
     
     func updateUI() {
-        
-        self.navigationItem.title = pokemon.name
+        navigationItem.title = pokemon.name
         pokeIdLbl.text = pokemon.id.toPokedexId()
         pokeImgView.image = UIImage(named: pokemon.imageName)
         
@@ -179,7 +165,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     }
     
     func updateEvolutionUI() {
-        
         if let cachedEvolutions = globalCache.object(forKey: "cachedEvolutions\(pokemon.name)" as AnyObject) as? [Pokemon] {
             evolutions = cachedEvolutions
         } else {
@@ -221,12 +206,11 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             pokeEvolutionArr01Img.isHidden = false
             pokeEvolutionArr02Img.isHidden = false
             
-        default: () //0
+        default: () // 0
         }
     }
     
     func updatePokemonStatsProgressViews() {
-        
         pokeHpPV.setProgress(pokemon.hp.toProgress(), animated: true)
         pokeAttackPV.setProgress(pokemon.attack.toProgress(), animated: true)
         pokeDefensePV.setProgress(pokemon.defense.toProgress(), animated: true)
@@ -238,7 +222,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     // MARK: - Handler
     
     @objc func handleAbilityPress(_ sender: UITapGestureRecognizer) {
-        
         guard let abilityLabel = sender.view as? UILabel, let abilityString = abilityLabel.text else { return }
         AudioPlayer.play(audio: .select)
         let ability = Variable.allAbilities.search(forName: abilityString)
@@ -246,7 +229,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     }
     
     @objc func handleEvolutionPress(_ sender: UILongPressGestureRecognizer) {
-        
         var shouldUpdateUI = false
         guard let senderView = sender.view else { return }
         switch senderView {
@@ -277,7 +259,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     }
 
     @objc func handleSectionLblPress(_ sender: UILongPressGestureRecognizer) {
-        
         guard let senderView = sender.view else { return }
         switch senderView {
             
@@ -285,16 +266,13 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
             if sender.state == .began {
                 //measurementSectionLbl.isUserInteractionEnabled = false
                 measurementSectionLbl.layer.borderColor = DBColor.AppObject.sectionText.cgColor
-            
             } else if sender.state == .ended {
                 AudioPlayer.play(audio: .select)
                 measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
-                
                 let toYValue = measurementSectionLbl.center.y
                 pokeHeightLbl.animateUp(toYValue: toYValue, duration: 0.05, reverse: true)
                 pokeWeighLblt.animateUp(toYValue: toYValue, duration: 0.05, reverse: true)
-            
-                self.toggleMeasurement()
+                toggleMeasurement()
             }
             
         case defensesSectionLbl:
@@ -320,7 +298,6 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
     }
     
     func toggleMeasurement() {
-        
         if userSelectedUnit == Unit.SI {
             pokeHeightLbl.text = pokemon.getHeight(as: .USCustomary)
             pokeWeighLblt.text = pokemon.getWeight(as: .USCustomary)
@@ -338,16 +315,14 @@ class PokemonInfoVC: UIViewController, TypeUILabelDelegate {
 extension PokemonInfoVC {
     
     func configureViewLauncher() {
-        
         if pokemonDefenseViewLauncher == nil, pokedexEntryViewLauncher == nil {
             let viewLauncherFrame = Constant.Constrain.viewlauncherFrameUnderNavBar
             
-            // Configure pokemon defense and pokedex entry viewlauncher
+            // configure pokemon defense and pokedex entry viewlauncher
             pokemonDefenseViewLauncher = ViewLauncher(frame: viewLauncherFrame)
-            self.view.addSubview(pokemonDefenseViewLauncher)
-            
+            view.addSubview(pokemonDefenseViewLauncher)
             pokedexEntryViewLauncher = ViewLauncher(frame: viewLauncherFrame)
-            self.view.addSubview(pokedexEntryViewLauncher)
+            view.addSubview(pokedexEntryViewLauncher)
         
         } else {
             pokemonDefenseViewLauncher.launchView.removeAllSubviews()
@@ -364,7 +339,6 @@ extension PokemonInfoVC {
     }
     
     func configureTappedGestures() {
-        
         addLongPressGesture(to: measurementSectionLbl, action: #selector(handleSectionLblPress))
         measurementSectionLbl.isUserInteractionEnabled = true
         measurementSectionLbl.layer.borderColor = UIColor.clear.cgColor
@@ -390,14 +364,12 @@ extension PokemonInfoVC {
     }
     
     func addLongPressGesture(to view: UIView, action: Selector) {
-        
         let longPress = UILongPressGestureRecognizer(target: self, action: action)
         longPress.minimumPressDuration = 0
         view.addGestureRecognizer(longPress)
     }
     
     func addTapGesture(to view: UIView, action: Selector) {
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         view.addGestureRecognizer(tapGesture)
     }

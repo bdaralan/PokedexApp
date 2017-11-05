@@ -27,9 +27,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = move.name
-
         configureAttributes()
         configureSegmentControl()
         updateSegmentControllLearnMoveMethodIndex()
@@ -38,12 +36,10 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         switch section {
         case moveDetailCellSection: return 1
         case pokemonCellSection: return currentPokemons.count > 0 ? currentPokemons.count : 1 // return 1 for a regular cell, with text "None"
@@ -54,7 +50,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-            
         case moveDetailCellSection:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveDetailCell", for: indexPath) as? MoveDetailCell {
                 cell.configureCell(for: move)
@@ -75,12 +70,10 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             
         default: ()
         }
-        
         return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         switch indexPath.section {
         case moveDetailCellSection: return moveDetailCellHeight
         default: return UITableViewCell().frame.height
@@ -88,14 +81,11 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return sectionHeaderViewHeight
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         switch section {
-            
         case moveDetailCellSection:
             let sectionHeaderView = SectionUILabel(frame: CGRect(x: 0, y: 0, width: sectionHeaderViewWidth, height: sectionHeaderViewHeight))
             sectionHeaderView.layer.cornerRadius = 0
@@ -113,7 +103,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard indexPath.section == pokemonCellSection else { return }
         performSegue(withIdentifier: "PokemonInfoTVC", sender: currentPokemons[indexPath.row])
     }
@@ -121,7 +110,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let pokemonInfoTVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
         pokemonInfoTVC.pokemon = pokemon
     }
@@ -129,35 +117,26 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Protocol
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
-        
         performSegue(withIdentifier: "TypeDetailTVC", sender: move.type)
     }
     
     // MARK: - Initializer and Handler
     
     func configureAttributes() {
-        
-        // moves
         moves = Variable.allMoves.filter(forType: move.type)
         
-        // learnMovePokemons
         guard let moveDic = Constant.pokemonLearnMoveJSON[move.name] as? Dictionary<String, [String]> else { return }
         learnMovePokemons = PokemonLearnMove.initArray(moveName: move.name, moveDictionary: moveDic)
         
-        // pokemons
         for learnMovePokemon in learnMovePokemons {
             pokemons = pokemons + Variable.allPokemonsSortedById.filter(forId: learnMovePokemon.pokemonId)
         }
         pokemons = pokemons.sortById()
-        
-        // currentPokemons
         currentPokemons = pokemons
     }
     
     func configureSegmentControl() {
-        
         let spacing: CGFloat = 8
-        
         segmentControl = RoundUISegmentedControl(items: ["All", "Level Up", "Breed / Others"])
         segmentControl.frame.origin = CGPoint(x: spacing, y: spacing)
         segmentControl.frame.size.width = sectionHeaderViewWidth - spacing * 2
@@ -169,7 +148,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     }
     
     private func updateSegmentControllLearnMoveMethodIndex() {
-        
         // value must be correspond with segmentControl in configureSegmentControl()
         switch segmentControl.selectedSegmentIndex {
         case 0: segmentControllLearnMoveMethodIndex = .any
@@ -198,7 +176,6 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
             
         default: currentPokemons = pokemons
         }
-        
         tableView.reloadData()
     }
 }
@@ -208,12 +185,10 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
 extension MoveDetailTVC {
     
     var sectionHeaderViewWidth: CGFloat {
-        
         return tableView.frame.width
     }
     
     var sectionHeaderViewHeight: CGFloat {
-        
         return Constant.Constrain.sectionHeaderViewHeight
     }
 }

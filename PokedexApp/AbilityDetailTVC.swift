@@ -26,9 +26,7 @@ class AbilityDetailTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = ability.name
-        
         prepareNecessaryData()
         configureHeaderViews()
     }
@@ -40,7 +38,6 @@ class AbilityDetailTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         switch section {
         case abilityDetialSection: return 1
         case pokemonCellSection: return pokemons.count
@@ -49,9 +46,7 @@ class AbilityDetailTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.section {
-            
         case abilityDetialSection:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "AbilityDetailCell", for: indexPath) as? AbilityDetailCell {
                 cell.configureCell(for: ability)
@@ -67,12 +62,10 @@ class AbilityDetailTVC: UITableViewController {
             
         default: ()
         }
-        
         return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         switch indexPath.section {
         case abilityDetialSection: return abilityDetailCellHeight
         default: return UITableViewCell().frame.height
@@ -80,12 +73,10 @@ class AbilityDetailTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return Constant.Constrain.sectionHeaderViewHeight
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
         sectionHeaderView.backgroundColor = DBColor.AppObject.sectionBackground
         
@@ -94,12 +85,10 @@ class AbilityDetailTVC: UITableViewController {
         case pokemonCellSection: sectionHeaderView.addSubview(segmentControl)
         default: ()
         }
-        
         return sectionHeaderView
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard indexPath.section == pokemonCellSection else { return }
         AudioPlayer.play(audio: .select)
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
@@ -108,7 +97,6 @@ class AbilityDetailTVC: UITableViewController {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
         pokemonInfoVC.pokemon = pokemon
     }
@@ -116,12 +104,10 @@ class AbilityDetailTVC: UITableViewController {
     // MARK: - Initializer and Handler
     
     func prepareNecessaryData() {
-        
         pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
     }
     
     func configureHeaderViews() {
-        
         let spacing: CGFloat = 8
         
         abilityDetailLbl = SectionUILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: Constant.Constrain.sectionHeaderViewHeight))
@@ -139,13 +125,11 @@ class AbilityDetailTVC: UITableViewController {
     }
     
     @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
-        
         switch sender.selectedSegmentIndex {
         case pokemonWithAbilitySegIndex: pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
         case pokemonWithAbilityAsHiddenSegIndex: pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
         default: ()
         }
-        
         tableView.reloadData()
     }
 }
