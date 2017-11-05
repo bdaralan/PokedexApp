@@ -20,32 +20,29 @@ class TypeUILabel: UILabel {
         
     private var tapGesture: UITapGestureRecognizer!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-        self.textColor = UIColor.white
-        self.textAlignment = .center
-        self.baselineAdjustment = .alignCenters
-        self.font = Constant.Font.gillSans
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        awakeFromNib()
+        configureView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        configureView()
+    }
+    
+    private func configureView() {
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+        textColor = UIColor.white
+        textAlignment = .center
+        baselineAdjustment = .alignCenters
+        font = Constant.Font.gillSans
     }
     
     override var text: String? {
         didSet {
-            if let text = text {
-                self.backgroundColor = DBColor.get(color: text)
-            }
+            guard let text = text else { return }
+            self.backgroundColor = DBColor.get(color: text)
         }
     }
     

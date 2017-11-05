@@ -1,5 +1,5 @@
 //
-//  PokemonDefenseView.swift
+//  PokeDefenseStackView.swift
 //  PokedexApp
 //
 //  Created by Dara on 11/2/17.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class PokemonDefenseStackView: UIStackView {
+class PokeDefenseStackView: UIStackView {
     
     let typeLabel = TypeUILabel()
-    let effectiveSlider = UISlider()
+    let effectiveSlider = DBUISlider()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class PokemonDefenseStackView: UIStackView {
     
     convenience init() {
         let size = TypeUILabel.defaultSize
-        let width = size.width * 2 + 24 // +value is spacing between typeLabel and effectiveProgressView
+        let width = size.width * 3 // add some horizontal width for typeLabel and effectiveProgressView
         let frame = CGRect(origin: .zero, size: CGSize(width: width, height: size.height))
         self.init(frame: frame)
         configureView()
@@ -33,35 +33,36 @@ class PokemonDefenseStackView: UIStackView {
     
     private func configureView() {
         spacing = 16
-        configureConstraints()
+        distribution = .fillProportionally
         configureTypeLabel()
         configureEffectiveSlider()
+        configureConstraints()
     }
     
     private func configureConstraints() {
         let size = TypeUILabel.defaultSize
-        
         addArrangedSubview(typeLabel)
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
-        typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         typeLabel.widthAnchor.constraint(equalToConstant: size.width).isActive = true
         typeLabel.heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        
         addArrangedSubview(effectiveSlider)
         effectiveSlider.translatesAutoresizingMaskIntoConstraints = false
-        effectiveSlider.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        effectiveSlider.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        effectiveSlider.centerYAnchor.constraint(equalTo: typeLabel.centerYAnchor).isActive = true
         effectiveSlider.heightAnchor.constraint(equalToConstant: size.height).isActive = true
     }
     
     private func configureTypeLabel() {
-        typeLabel.text = "PokemonType"
+        typeLabel.text = "PokeType?"
     }
     
     private func configureEffectiveSlider() {
-        let thumbImage = UIImage(named: "poke-effective-value-x")
-        effectiveSlider.setThumbImage(thumbImage, for: .normal)
         effectiveSlider.maximumTrackTintColor = .clear
         effectiveSlider.isUserInteractionEnabled = false
+        effectiveSlider.thumbTextLabel.text = "?"
+        effectiveSlider.thumbTextLabel.textColor = .white
+        effectiveSlider.thumbTextLabel.font = Constant.Font.gillSansSemiBold
+        effectiveSlider.thumbTextLabel.adjustsFontSizeToFitWidth = true
+        effectiveSlider.thumbTextLabel.minimumScaleFactor = 0.5
+        effectiveSlider.thumbTextLabel.textInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
     }
 }

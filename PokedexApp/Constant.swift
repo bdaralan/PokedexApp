@@ -44,6 +44,8 @@ struct Constant {
         
         static let gillSans = UIFont(name: "GillSans", size: 17)
         
+        static let gillSansBold = UIFont(name: "GillSans-Bold", size: 17)
+        
         static let gillSansSemiBold = UIFont(name: "GillSans-SemiBold", size: 17)
         
         static let appleSDGothicNeoRegular = UIFont(name: "AppleSDGothicNeo-Regular", size: 16) //pokedex entry text

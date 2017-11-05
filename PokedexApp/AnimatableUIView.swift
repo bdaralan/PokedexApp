@@ -17,49 +17,55 @@ extension AnimatableUIView {
         
         let typeCount = CGFloat(pokemon.defenses.count)
         let spacing: CGFloat = 16
-        let height: CGFloat = TypeUILabel.defaultSize.height
-        let heightConstraint = (height * typeCount) + (spacing * (typeCount + 2)) // +2 for top and bottom of stack
-        heightAnchor.constraint(equalToConstant: heightConstraint).isActive = true
+        let viewHeight: CGFloat = TypeUILabel.defaultSize.height
+        let viewHeightConstant = (viewHeight + spacing) * typeCount + spacing // an extra spacing for the top of the stack
+        heightAnchor.constraint(equalToConstant: viewHeightConstant).isActive = true
         
         // create a stack view for pokemonDefenseView
         let defenseContainerStackView = UIStackView()
         defenseContainerStackView.axis = .vertical
-        defenseContainerStackView.distribution = .equalSpacing
+        defenseContainerStackView.distribution = .fillEqually
+        defenseContainerStackView.spacing = spacing
         
         // stack view constraints
+        let defenseHeightConstant = viewHeightConstant - spacing * 2
         addSubview(defenseContainerStackView)
         defenseContainerStackView.translatesAutoresizingMaskIntoConstraints = false
         defenseContainerStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
-        defenseContainerStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.85).isActive = true
+        defenseContainerStackView.heightAnchor.constraint(equalToConstant: defenseHeightConstant).isActive = true
         defenseContainerStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         defenseContainerStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         for (type, effective) in pokemon.defenses {
-            let defenseStackView = PokemonDefenseStackView()
-            switch effective {
-            case "0": // immune
-                defenseStackView.effectiveSlider.value = 0
-                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
-            case "1/4": // 1/4x
-                defenseStackView.effectiveSlider.value = 0.2
-                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-4x"), for: .normal)
-            case "1/2": // 1/2x
-                defenseStackView.effectiveSlider.value = 0.4
-                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-1-2x"), for: .normal)
-            case "": // 1x
-                defenseStackView.effectiveSlider.value = 0.6
-                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-0x"), for: .normal)
-            case "2": // 2x
-                defenseStackView.effectiveSlider.value = 0.8
-                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-2x"), for: .normal)
-            case "4": // 4x
-                defenseStackView.effectiveSlider.value = 1
-                defenseStackView.effectiveSlider.setThumbImage(#imageLiteral(resourceName: "poke-effective-value-4x"), for: .normal)
+            let defenseStackView = PokeDefenseStackView()
+            defenseContainerStackView.addArrangedSubview(defenseStackView)
+            
+            var effectiveValue: Float = 0
+            var effectiveValueString = defenseStackView.effectiveSlider.thumbTextLabel.text
+            switch effective { // empty, "", is 1x, but will not show
+            case "0":
+                effectiveValue = 0
+                effectiveValueString = "0x"
+            case "1/4":
+                effectiveValue = 0.25
+                effectiveValueString = "1/4x"
+            case "1/2":
+                effectiveValue = 0.5
+                effectiveValueString = "1/2x"
+            case "2":
+                effectiveValue = 0.75
+                effectiveValueString = "2x"
+            case "4":
+                effectiveValue = 1
+                effectiveValueString = "4x"
             default: ()
             }
+            let tintColor = DBColor.get(color: type)
             defenseStackView.typeLabel.text = type
-            defenseStackView.effectiveSlider.tintColor = DBColor.get(color: type)
-            defenseContainerStackView.addArrangedSubview(defenseStackView)
+            defenseStackView.effectiveSlider.value = effectiveValue
+            defenseStackView.effectiveSlider.thumbTextLabel.text = effectiveValueString
+            defenseStackView.effectiveSlider.tintColor = tintColor
+            defenseStackView.effectiveSlider.thumbTintColor = tintColor
         }
     }
 }
