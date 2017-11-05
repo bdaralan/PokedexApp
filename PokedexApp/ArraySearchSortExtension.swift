@@ -13,13 +13,10 @@ extension Array where Element: Comparable {
     // MARK: - Binary Search
     
     public func binarySearch(for element: Element) -> Element? {
-        
         guard self.count > 0 else { return nil }
-
         var lowIndex = 0
         var highIndex = self.count - 1
         var midIndex = highIndex / 2
-
         while midIndex <= highIndex {
             midIndex = (lowIndex + highIndex) / 2
             guard element != self[midIndex] else { return self[midIndex] }
@@ -28,14 +25,12 @@ extension Array where Element: Comparable {
             case false: lowIndex = midIndex + 1
             }
         }
-
         return nil
     }
     
     // MARK: - Merge Sort
     
     public func mergeSort() -> [Element] {
-        
         guard self.count > 1 else { return self }
         
         // split
@@ -47,7 +42,6 @@ extension Array where Element: Comparable {
     }
     
     private func mergeAndSort(lhs: [Element], rhs: [Element]) -> [Element] {
-        
         var lhs = lhs
         var rhs = rhs
         var mergedArray = [Element]()
@@ -59,7 +53,6 @@ extension Array where Element: Comparable {
             case false: mergedArray.append(rhs.removeFirst())
             }
         }
-        
         return mergedArray + lhs + rhs
     }
 }

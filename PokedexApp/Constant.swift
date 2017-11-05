@@ -76,21 +76,18 @@ struct Constant {
             guard let keyWindowFrame = UIApplication.shared.keyWindow?.frame else {
                 fatalError("Cannot get keyWindow from UIApplication shared instance")
             }
-            
             return keyWindowFrame
         }()
         
         static let frameUnderNavController: CGRect = {
             
             var rect = CGRect(x: 0, y: 0, width: 64, height: 64)
-            
             let windowFrame = keyWindowFrame
             let statusBarFrame = UIApplication.shared.statusBarFrame
             rect.size.width = windowFrame.width
             rect.size.height = 64
             rect.origin.x = 0
             rect.origin.y = statusBarFrame.origin.y + statusBarFrame.height + UINavigationController().navigationBar.frame.height
-            
             return rect
         }()
         
@@ -99,13 +96,11 @@ struct Constant {
             guard let keyWindowFrame = UIApplication.shared.keyWindow?.frame else {
                 fatalError("Cannot get keyWindow from UIApplication shared instance")
             }
-            
             let statusBarFrame = UIApplication.shared.statusBarFrame
             let x: CGFloat = 0
             let y = statusBarFrame.origin.y + statusBarFrame.height + UINavigationController().navigationBar.frame.height
             let width = keyWindowFrame.width
             let height = keyWindowFrame.height
-            
             return CGRect(x: x, y: y, width: width, height: height)
         }()
     }

@@ -28,7 +28,6 @@ struct AudioPlayer {
     static var isSoundEffectSettingOn: Bool { return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState) }
     
     static func play(audio: ResourceAudioFile) {
-        
         if isSoundEffectSettingOn || audio == .save {
             let audioPlayer: AVAudioPlayer
             switch audio {
@@ -43,17 +42,17 @@ struct AudioPlayer {
     }
     
     static func play(audio: String, ofType type: String) {
-        
         guard isSoundEffectSettingOn, let path = Bundle.main.path(forResource: audio, ofType: type) else { return }
         do {
             let pokemonCry = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
             pokemonCry.prepareToPlay()
             pokemonCry.play()
-        } catch { print(error) }
+        } catch {
+            print(error)
+        }
     }
     
     static func load(resourceAudio: ResourceAudioFile) -> AVAudioPlayer {
-        
         do {
             let audioUrl = URL(fileReferenceLiteralResourceName: resourceAudio.rawValue)
             let audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)

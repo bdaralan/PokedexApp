@@ -68,10 +68,7 @@ class ViewLauncher: UIView, CAAnimationDelegate {
     // MARK: - Delegate
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-        if isDismissing {
-            self.alpha = 0
-        }
+        if isDismissing { alpha = 0 }
     }
     
     /// Send `launchView` to the center of `self.superview` and fade-in `dimView`
@@ -117,18 +114,17 @@ class ViewLauncher: UIView, CAAnimationDelegate {
             fadeOutAnimation.delegate = self
             
             // set final positions after dismiss animation
-            self.dimView.alpha = 0
-            self.launchView.center = dismissValue.cgPointValue
+            dimView.alpha = 0
+            launchView.center = dismissValue.cgPointValue
             
             // start animations
-            self.launchView.layer.add(positionAnimation, forKey: "position")
-            self.dimView.layer.add(fadeOutAnimation, forKey: "opacity")
+            launchView.layer.add(positionAnimation, forKey: "position")
+            dimView.layer.add(fadeOutAnimation, forKey: "opacity")
         
-        } else {
-            // set final positions after dismiss animation
-            self.alpha = 0
-            self.dimView.alpha = 0
-            self.launchView.center = dismissValue.cgPointValue
+        } else { // set final positions after dismiss animation
+            alpha = 0
+            dimView.alpha = 0
+            launchView.center = dismissValue.cgPointValue
         }
     }
 }
@@ -138,15 +134,13 @@ class ViewLauncher: UIView, CAAnimationDelegate {
 extension ViewLauncher {
     
     func computeLaunchDimissValues(superview: UIView?) {
-        
         guard let superview = superview else { return }
-        self.launchValue = NSValue(cgPoint: CGPoint(x: superview.center.x, y: self.launchView.center.y))
-        self.dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
+        launchValue = NSValue(cgPoint: CGPoint(x: superview.center.x, y: self.launchView.center.y))
+        dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
     }
     
     /// Add dimiss gestures to `launchView` and `dimView`
     func addLaunchViewDimViewDismissGestures() {
-        
         let swipeToDismiss = UISwipeGestureRecognizer(target: self, action: #selector(handleDismissCalledBySelector))
         swipeToDismiss.direction = .right
         launchView.addGestureRecognizer(swipeToDismiss)
@@ -157,24 +151,18 @@ extension ViewLauncher {
     
     /// Dismiss function used by selector
     @objc func handleDismissCalledBySelector() {
-        
         dismiss(animated: true)
     }
     
     /// Applying constraints to `launchView` and `dimView`
     func addLaunchViewDimViewConstraints() {
-
-        let views = ["launchView": launchView, "dimView": dimView]
-        
         launchView.translatesAutoresizingMaskIntoConstraints = false
         dimView.translatesAutoresizingMaskIntoConstraints = false
-                
+        let views = ["launchView": launchView, "dimView": dimView]
         let launchViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[launchView]-16-|", options: [], metrics: nil, views: views)
         let launchViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[launchView]", options: [], metrics: nil, views: views)
-        
         let dimViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimView]|", options: [], metrics: nil, views: views)
         let dimViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimView]|", options: [], metrics: nil, views: views)
-
-        self.addConstraints(launchViewHConstraints + launchViewVConstraints + dimViewHConstraints + dimViewVConstraints)
+        addConstraints(launchViewHConstraints + launchViewVConstraints + dimViewHConstraints + dimViewVConstraints)
     }
 }

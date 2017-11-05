@@ -9,4 +9,5 @@
 import Foundation
 
 typealias DictionarySA = Dictionary<String, AnyObject>
+
 typealias DictionarySS = Dictionary<String, String>

@@ -11,7 +11,6 @@ import UIKit
 extension UILabel {
     
     func setLength(to length: CGFloat) {
-        
         self.frame.size.width = length
     }
 }
