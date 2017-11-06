@@ -91,7 +91,7 @@ class RIOUILabel: UILabel {
     
     private func configureRoundLabelConstraints() {
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
-        roundLabel.centerXAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         roundLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true
         roundLabel.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true

@@ -48,7 +48,7 @@ class OffenseDefenseCell: UITableViewCell {
         add(typeLbls: immuneToTypeLbls, to: immuneToView)
         immuneToView.sizeToContent()
         
-        let spacingView = Constant.Constrain.spcingView
+        let spacingView = Constant.Constrain.spacingView
         strongAgainstView.setOriginBelow(strongAgainstSecLbl)
         weakToSecLbl.setOriginBelow(strongAgainstView, spacing: spacingView)
         weakToView.setOriginBelow(weakToSecLbl)

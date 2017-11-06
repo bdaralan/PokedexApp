@@ -67,7 +67,7 @@ struct Constant {
         
         static let spacing: CGFloat = 8
         
-        static let spcingView: CGFloat = 29
+        static let spacingView: CGFloat = 29
         
         static let sectionHeaderViewHeight: CGFloat = 45
         
