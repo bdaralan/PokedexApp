@@ -15,46 +15,59 @@ struct AudioPlayer {
         case openPC = "open-pc.m4a"
         case save = "save.m4a"
         case select = "select.m4a"
+        
+        var fileName: String { return rawValue.components(separatedBy: ".")[0] }
+        var fileType: String { return rawValue.components(separatedBy: ".")[1] }
     }
     
-    static let error = load(resourceAudio: .error)
+    /// The main audio player
+    static var player = AVAudioPlayer()
     
-    static let openPC = load(resourceAudio: .openPC)
+    static let error = load(resource: .error)
     
-    static let save = load(resourceAudio: .save)
+    static let openPC = load(resource: .openPC)
     
-    static let select = load(resourceAudio: .select)
+    static let save = load(resource: .save)
     
-    static var isSoundEffectSettingOn: Bool { return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState) }
+    static let select = load(resource: .select)
+    
+    static var isSoundEffectSettingOn: Bool {
+        return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
+    }
     
     static func play(audio: ResourceAudioFile) {
-        if isSoundEffectSettingOn || audio == .save {
-            let audioPlayer: AVAudioPlayer
-            switch audio {
-            case .select: audioPlayer = select
-            case .openPC: audioPlayer = openPC
-            case .save: audioPlayer = save
-            case .error: audioPlayer = error
-            }
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
+        guard isSoundEffectSettingOn || audio == .save else { return }
+        switch audio {
+        case .select: player = select
+        case .openPC: player = openPC
+        case .save: player = save
+        case .error: player = error
         }
+        player.prepareToPlay()
+        player.play()
     }
     
     static func play(audio: String, ofType type: String) {
-        guard isSoundEffectSettingOn, let path = Bundle.main.path(forResource: audio, ofType: type) else { return }
-        do {
-            let pokemonCry = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            pokemonCry.prepareToPlay()
-            pokemonCry.play()
-        } catch {
-            print(error)
+        if isSoundEffectSettingOn, let path = Bundle.main.path(forResource: audio, ofType: type) {
+            do {
+                let url = URL(fileURLWithPath: path)
+                let pokemonCry = try AVAudioPlayer(contentsOf: url)
+                player = pokemonCry
+            } catch {
+                print(error.localizedDescription)
+            }
+            player.prepareToPlay()
+            player.play()
+        } else {
+            error.prepareToPlay()
+            error.play()
         }
     }
     
-    static func load(resourceAudio: ResourceAudioFile) -> AVAudioPlayer {
+    static func load(resource: ResourceAudioFile) -> AVAudioPlayer {
+        guard let path = Bundle.main.path(forResource: resource.fileName, ofType: resource.fileType) else { return AVAudioPlayer() }
         do {
-            let audioUrl = URL(fileReferenceLiteralResourceName: resourceAudio.rawValue)
+            let audioUrl = URL(fileURLWithPath: path)
             let audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
             return audioPlayer
         } catch {
