@@ -395,7 +395,7 @@ extension Array where Element: Pokemon {
         var highIndex = (self.count > 0 ? self.count - 1 : 0)
         var midIndex = highIndex / 2
         
-        while midIndex <= highIndex {
+        while lowIndex <= highIndex {
             midIndex = (lowIndex + highIndex) / 2
             guard searchName != self[midIndex].name else { return self[midIndex] }
             switch searchName < self[midIndex].name {
