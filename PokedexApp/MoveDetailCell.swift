@@ -8,17 +8,20 @@
 
 import UIKit
 
+private let hSpacing: CGFloat = 16 // horizontal
+private let vSpacing: CGFloat = 32 // vertical
+private let labelSize = TypeUILabel.defaultSize
+
 class MoveDetailCell: UITableViewCell {
     
-//    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var nameLbl: RIOUILabel!
-    @IBOutlet weak var typeLbl: TypeUILabel!
-    @IBOutlet weak var powerLbl: RIOUILabel!
-    @IBOutlet weak var probLbl: RIOUILabel!
-    @IBOutlet weak var accuracyLbl: RIOUILabel!
-    @IBOutlet weak var ppLbl: RIOUILabel!
-    @IBOutlet weak var tmLbl: RIOUILabel!
-    @IBOutlet weak var effectTextView: MoveDetailUITextView!
+    let nameLbl = RIOUILabel()
+    let typeLbl = TypeUILabel()
+    let powerLbl = RIOUILabel()
+    let probLbl = RIOUILabel()
+    let accuracyLbl = RIOUILabel()
+    let ppLbl = RIOUILabel()
+    let tmLbl = RIOUILabel()
+    let effectTextView = MoveDetailUITextView()
         
     var height: CGFloat {
         return nameLbl.frame.origin.y * 2 + effectTextView.frame.origin.y + effectTextView.frame.height
@@ -26,15 +29,12 @@ class MoveDetailCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureContentView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        configureCell()
+        configureContentView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,6 +43,10 @@ class MoveDetailCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(false, animated: false)
+    }
+    
+    private func configureContentView() {
+        configureConstraints()
     }
     
     func configureCell(for move: Move) {
@@ -87,59 +91,61 @@ class MoveDetailCell: UITableViewCell {
     }
     
     private func configureConstraints() {
-        let hSpacing: CGFloat = 16 // horizontal
-        let vSpacing: CGFloat = 24 // vertical
-        let typeSize = TypeUILabel.defaultSize
-        
+        contentView.addSubview(typeLbl)
         typeLbl.translatesAutoresizingMaskIntoConstraints = false
         typeLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: vSpacing).isActive = true
         typeLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -hSpacing).isActive = true
-        typeLbl.widthAnchor.constraint(equalToConstant: typeSize.width).isActive = true
-        typeLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
+        typeLbl.widthAnchor.constraint(equalToConstant: labelSize.width).isActive = true
+        typeLbl.heightAnchor.constraint(equalToConstant: labelSize.height).isActive = true
         
+        contentView.addSubview(nameLbl)
         nameLbl.translatesAutoresizingMaskIntoConstraints = false
         nameLbl.topAnchor.constraint(equalTo: typeLbl.topAnchor).isActive = true
         nameLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: hSpacing).isActive = true
         nameLbl.trailingAnchor.constraint(equalTo: typeLbl.leadingAnchor, constant: -hSpacing).isActive = true
-        nameLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
+        nameLbl.heightAnchor.constraint(equalToConstant: labelSize.height).isActive = true
         
+        contentView.addSubview(powerLbl)
         powerLbl.translatesAutoresizingMaskIntoConstraints = false
         powerLbl.topAnchor.constraint(equalTo: nameLbl.bottomAnchor, constant: vSpacing).isActive = true
         powerLbl.leadingAnchor.constraint(equalTo: nameLbl.leadingAnchor).isActive = true
         powerLbl.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: -hSpacing * 2).isActive = true
-        powerLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
+        powerLbl.heightAnchor.constraint(equalToConstant: labelSize.height).isActive = true
         
+        contentView.addSubview(ppLbl)
         ppLbl.translatesAutoresizingMaskIntoConstraints = false
         ppLbl.topAnchor.constraint(equalTo: powerLbl.bottomAnchor, constant: vSpacing).isActive = true
         ppLbl.leadingAnchor.constraint(equalTo: powerLbl.leadingAnchor).isActive = true
         ppLbl.widthAnchor.constraint(equalTo: powerLbl.widthAnchor).isActive = true
-        ppLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
+        ppLbl.heightAnchor.constraint(equalTo: powerLbl.heightAnchor).isActive = true
         
+        contentView.addSubview(accuracyLbl)
         accuracyLbl.translatesAutoresizingMaskIntoConstraints = false
         accuracyLbl.topAnchor.constraint(equalTo: ppLbl.bottomAnchor, constant: vSpacing).isActive = true
         accuracyLbl.leadingAnchor.constraint(equalTo: powerLbl.leadingAnchor).isActive = true
         accuracyLbl.widthAnchor.constraint(equalTo: powerLbl.widthAnchor).isActive = true
         accuracyLbl.heightAnchor.constraint(equalTo: powerLbl.heightAnchor).isActive = true
         
+        contentView.addSubview(probLbl)
         probLbl.translatesAutoresizingMaskIntoConstraints = false
         probLbl.topAnchor.constraint(equalTo: typeLbl.bottomAnchor, constant: vSpacing).isActive = true
         probLbl.trailingAnchor.constraint(equalTo: typeLbl.trailingAnchor).isActive = true
         probLbl.widthAnchor.constraint(equalTo: powerLbl.widthAnchor).isActive = true
         probLbl.heightAnchor.constraint(equalTo: powerLbl.heightAnchor).isActive = true
         
+        contentView.addSubview(tmLbl)
         tmLbl.translatesAutoresizingMaskIntoConstraints = false
         tmLbl.topAnchor.constraint(equalTo: probLbl.bottomAnchor, constant: vSpacing).isActive = true
         tmLbl.trailingAnchor.constraint(equalTo: typeLbl.trailingAnchor).isActive = true
         tmLbl.widthAnchor.constraint(equalTo: powerLbl.widthAnchor).isActive = true
         tmLbl.heightAnchor.constraint(equalTo: powerLbl.heightAnchor).isActive = true
         
+        contentView.addSubview(effectTextView)
         effectTextView.translatesAutoresizingMaskIntoConstraints = false
         effectTextView.topAnchor.constraint(equalTo: accuracyLbl.bottomAnchor, constant: vSpacing).isActive = true
+//        effectTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -vSpacing).isActive = true
         effectTextView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -(hSpacing * 2)).isActive = true
+//        effectTextView.heightAnchor.constraint(greaterThanOrEqualToConstant: 36).isActive = true
         effectTextView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-    }
-    
-    private func configureCell() {
-        configureConstraints()
     }
 }
