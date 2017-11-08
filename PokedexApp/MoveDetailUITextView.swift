@@ -10,22 +10,19 @@ import UIKit
 
 class MoveDetailUITextView: UITextView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
         configureView()
     }
     
-    override var text: String! {
-        didSet {
-            let width = frame.width
-            sizeToFit()
-            frame.size.width = width
-        }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureView()
     }
     
     private func configureView() {
-        layer.borderWidth = 1.0
-        layer.cornerRadius = 18.5
+        layer.borderWidth = 1
+        layer.cornerRadius = 20
         clipsToBounds = true
         isScrollEnabled = false
         isEditable = false

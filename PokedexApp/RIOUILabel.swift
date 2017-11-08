@@ -45,7 +45,7 @@ class RIOUILabel: UILabel {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        configureRoundLabelRadius()
+        configureRadius()
     }
     
     override var backgroundColor: UIColor? {
@@ -67,7 +67,6 @@ class RIOUILabel: UILabel {
 //    }
 
     private func configureView() {
-        layer.cornerRadius = frame.height / 2
         clipsToBounds = true
         adjustsFontSizeToFitWidth = true
         textAlignment = .center
@@ -97,7 +96,8 @@ class RIOUILabel: UILabel {
         roundLabel.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true
     }
     
-    private func configureRoundLabelRadius() {
+    private func configureRadius() {
+        layer.cornerRadius = frame.height / 2
         roundLabel.layer.cornerRadius = min(roundLabel.frame.width, roundLabel.frame.height) / 2
     }
 }
