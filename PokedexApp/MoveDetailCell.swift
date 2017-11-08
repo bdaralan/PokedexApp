@@ -92,21 +92,21 @@ class MoveDetailCell: UITableViewCell {
         let typeSize = TypeUILabel.defaultSize
         
         typeLbl.translatesAutoresizingMaskIntoConstraints = false
-        typeLbl.topAnchor.constraint(equalTo: topAnchor, constant: vSpacing).isActive = true
-        typeLbl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -hSpacing).isActive = true
+        typeLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: vSpacing).isActive = true
+        typeLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -hSpacing).isActive = true
         typeLbl.widthAnchor.constraint(equalToConstant: typeSize.width).isActive = true
         typeLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
         
         nameLbl.translatesAutoresizingMaskIntoConstraints = false
         nameLbl.topAnchor.constraint(equalTo: typeLbl.topAnchor).isActive = true
-        nameLbl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: hSpacing).isActive = true
+        nameLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: hSpacing).isActive = true
         nameLbl.trailingAnchor.constraint(equalTo: typeLbl.leadingAnchor, constant: -hSpacing).isActive = true
         nameLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
         
         powerLbl.translatesAutoresizingMaskIntoConstraints = false
         powerLbl.topAnchor.constraint(equalTo: nameLbl.bottomAnchor, constant: vSpacing).isActive = true
         powerLbl.leadingAnchor.constraint(equalTo: nameLbl.leadingAnchor).isActive = true
-        powerLbl.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -hSpacing * 2).isActive = true
+        powerLbl.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5, constant: -hSpacing * 2).isActive = true
         powerLbl.heightAnchor.constraint(equalToConstant: typeSize.height).isActive = true
         
         ppLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -135,8 +135,8 @@ class MoveDetailCell: UITableViewCell {
         
         effectTextView.translatesAutoresizingMaskIntoConstraints = false
         effectTextView.topAnchor.constraint(equalTo: accuracyLbl.bottomAnchor, constant: vSpacing).isActive = true
-        effectTextView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(hSpacing * 2)).isActive = true
-        effectTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        effectTextView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -(hSpacing * 2)).isActive = true
+        effectTextView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
     
     private func configureCell() {
