@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PokedexApp/MoveDetailTVC.swift"
-            timestampString = "531895458.488448"
+            filePath = "PokedexApp/AudioPlayer.swift"
+            timestampString = "532639391.245311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "configureMoveDetailCell()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "play(audio:ofType:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

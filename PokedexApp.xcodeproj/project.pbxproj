@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4708FC551FBF90F4009110B0 /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4708FC541FBF90F4009110B0 /* PokemonData.swift */; };
 		532826E71EAB19EA00BC8CCE /* StatsUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */; };
 		533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A78811E9FDA6100554F7F /* GenericTVC.swift */; };
 		533E70EF1F00D55C00BB7698 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533E70EE1F00D55C00BB7698 /* TypeAlias.swift */; };
@@ -884,6 +885,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4708FC541FBF90F4009110B0 /* PokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
 		532826E61EAB19EA00BC8CCE /* StatsUIProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsUIProgressView.swift; sourceTree = "<group>"; };
 		533A78811E9FDA6100554F7F /* GenericTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericTVC.swift; sourceTree = "<group>"; };
 		533E70EE1F00D55C00BB7698 /* TypeAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
@@ -2734,6 +2736,7 @@
 				536F34F71EE6694E0022215E /* Variable.swift */,
 				53CF3DF21E8A29580073A516 /* Constant.swift */,
 				533E70EE1F00D55C00BB7698 /* TypeAlias.swift */,
+				4708FC541FBF90F4009110B0 /* PokemonData.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -2790,7 +2793,7 @@
 				TargetAttributes = {
 					53CF3DCD1E8A26E50073A516 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = TSM4QUAH7H;
+						DevelopmentTeam = J58QF9TXDQ;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -3675,6 +3678,7 @@
 				539637791FAC1526008ACF5D /* PokeDefenseStackView.swift in Sources */,
 				537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */,
 				53ECA7071EA1EA3100964977 /* Move.swift in Sources */,
+				4708FC551FBF90F4009110B0 /* PokemonData.swift in Sources */,
 				53ECA7171EA2FA8000964977 /* TypeCell.swift in Sources */,
 				536095C21E97160500D2F2FC /* AbilityUILabel.swift in Sources */,
 				533A78821E9FDA6100554F7F /* GenericTVC.swift in Sources */,
@@ -3837,10 +3841,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TSM4QUAH7H;
+				DEVELOPMENT_TEAM = J58QF9TXDQ;
 				INFOPLIST_FILE = PokedexApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bdaradev.PokedexApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bdaralan.PokedexApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -3851,10 +3855,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TSM4QUAH7H;
+				DEVELOPMENT_TEAM = J58QF9TXDQ;
 				INFOPLIST_FILE = PokedexApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bdaradev.PokedexApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bdaralan.PokedexApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

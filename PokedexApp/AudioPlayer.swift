@@ -21,7 +21,7 @@ struct AudioPlayer {
     }
     
     /// The main audio player
-    static var player = AVAudioPlayer()
+    static private var player = AVAudioPlayer()
     
     static let error = load(resource: .error)
     
@@ -48,7 +48,9 @@ struct AudioPlayer {
     }
     
     static func play(audio: String, ofType type: String) {
-        if isSoundEffectSettingOn, let path = Bundle.main.path(forResource: audio, ofType: type) {
+        guard isSoundEffectSettingOn else { return }
+        player = error // default to error in case of fail try or no file
+        if let path = Bundle.main.path(forResource: audio, ofType: type) {
             do {
                 let url = URL(fileURLWithPath: path)
                 let pokemonCry = try AVAudioPlayer(contentsOf: url)
@@ -56,12 +58,9 @@ struct AudioPlayer {
             } catch {
                 print(error.localizedDescription)
             }
-            player.prepareToPlay()
-            player.play()
-        } else {
-            error.prepareToPlay()
-            error.play()
         }
+        player.prepareToPlay()
+        player.play()
     }
     
     static func load(resource: ResourceAudioFile) -> AVAudioPlayer {
