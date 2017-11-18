@@ -9,7 +9,7 @@
 import UIKit
 
 private let hSpacing: CGFloat = 16 // horizontal
-private let vSpacing: CGFloat = 32 // vertical
+private let vSpacing: CGFloat = 24 // vertical
 private let labelSize = TypeUILabel.defaultSize
 
 class MoveDetailCell: UITableViewCell {
@@ -22,10 +22,6 @@ class MoveDetailCell: UITableViewCell {
     let ppLbl = RIOUILabel()
     let tmLbl = RIOUILabel()
     let effectTextView = MoveDetailUITextView()
-        
-    var height: CGFloat {
-        return nameLbl.frame.origin.y * 2 + effectTextView.frame.origin.y + effectTextView.frame.height
-    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

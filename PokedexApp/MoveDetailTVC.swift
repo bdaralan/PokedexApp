@@ -23,14 +23,19 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     let moveDetailCellSection = 0
     let pokemonCellSection = 1
 
-    var moveDetailCellHeight: CGFloat = 240
+    var moveDetailCellHeight: CGFloat = 264
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = move.name
         configureAttributes()
         configureSegmentControl()
+        configureMoveDetailCell()
         updateSegmentControllLearnMoveMethodIndex()
+    }
+    
+    // TODO: - estimate row height for MoveDetailCell
+    private func configureMoveDetailCell() {
     }
     
     // MARK: - Table view data source
@@ -51,32 +56,30 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         switch indexPath.section {
         case moveDetailCellSection:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "MoveDetailCell", for: indexPath) as? MoveDetailCell {
-                cell.configureCell(for: move)
-                moveDetailCellHeight = cell.height
-                return cell
+            if let moveDetailCell = tableView.dequeueReusableCell(withIdentifier: "\(MoveDetailCell.self)", for: indexPath) as? MoveDetailCell {
+                moveDetailCell.configureCell(for: move)
+                return moveDetailCell
             }
             
         case pokemonCellSection:
             if currentPokemons.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell {
                 cell.configureCell(for: currentPokemons[indexPath.row])
                 return cell
-            } else {
-                let cell = UITableViewCell()
-                cell.textLabel?.text = "None"
-                cell.isUserInteractionEnabled = false
-                return cell
             }
             
         default: ()
         }
-        return UITableViewCell()
+        
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "None"
+        cell.isUserInteractionEnabled = false
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case moveDetailCellSection: return moveDetailCellHeight
-        default: return UITableViewCell().frame.height
+        default: return tableView.rowHeight
         }
     }
     
