@@ -17,9 +17,9 @@ private var pokemonMegaEvolutionJsonFileName: String { return "pokemon-mega-evol
 
 // MARK: - Singleton
 
-private var _allPokemonsJson: DictionarySA!
+private var _pokemonJson: DictionarySA!
 
-private var _allMegaEvolutionPokemonsJson: DictionarySA!
+private var _megaEvolutionPokemonJson: DictionarySA!
 
 private var _allPokemons: [DBPokemon]!
 
@@ -32,8 +32,14 @@ public struct PokeData {
     
     // MARK: - Getter
     
+    /// Dictionary from `json` file `pokemonJsonFileName`.
+    public static var pokemonJson: Dictionary<String, AnyObject> { return _pokemonJson }
+    
+    /// Dictionary from `json` file `pokemonMegaEvolutionJsonFileName`.
+    public static var megaEvolutionPokemonJson: Dictionary<String, AnyObject> { return _megaEvolutionPokemonJson }
+    
     /// All Pokemons with their information.
-    public static var allPokemon: [DBPokemon] { return _allPokemons }
+    public static var allPokemons: [DBPokemon] { return _allPokemons }
     
     /// All Mega Evolution Pokemons with their information.
     public static var allMegaEvolutionPokemons: [DBPokemon] { return _allMegaEvolutionPokemons }
@@ -42,10 +48,10 @@ public struct PokeData {
     
     /// Initializes and prepares `PokeData`'s properties.
     public static func initializes() {
-        _allPokemonsJson = readPokemonJson()
-        _allMegaEvolutionPokemonsJson = readMegaEvolutionPokemonJson()
-        _allPokemons = decodePokemons(from: _allPokemonsJson)
-        _allMegaEvolutionPokemons = decodePokemons(from: _allMegaEvolutionPokemonsJson)
+        _pokemonJson = readPokemonJson()
+        _megaEvolutionPokemonJson = readMegaEvolutionPokemonJson()
+        _allPokemons = decodePokemons(from: _pokemonJson)
+        _allMegaEvolutionPokemons = decodePokemons(from: _megaEvolutionPokemonJson)
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.
