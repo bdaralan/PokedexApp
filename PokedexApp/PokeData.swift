@@ -25,8 +25,10 @@ private var _allPokemons: [DBPokemon]!
 
 private var _allMegaEvolutionPokemons: [DBPokemon]!
 
+private var _pokemonMap: Dictionary<String, DBPokemon>!
 
-// MARK: - Main class
+
+// MARK: - PokeData
 
 public struct PokeData {
     
@@ -44,14 +46,20 @@ public struct PokeData {
     /// All Mega Evolution Pokemons with their information.
     public static var allMegaEvolutionPokemons: [DBPokemon] { return _allMegaEvolutionPokemons }
     
+    /// Pokemon dictionary.
+    /// - note: Each dictionary's key is `Pokemon.key`.
+    public static var pokemonMap: Dictionary<String, DBPokemon> { return _pokemonMap }
+    
     // MARK: - Function
     
     /// Initializes and prepares `PokeData`'s properties.
     public static func initializes() {
         _pokemonJson = readPokemonJson()
         _megaEvolutionPokemonJson = readMegaEvolutionPokemonJson()
-        _allPokemons = decodePokemons(from: _pokemonJson)
+        
         _allMegaEvolutionPokemons = decodePokemons(from: _megaEvolutionPokemonJson)
+        _allPokemons = decodePokemons(from: _pokemonJson) + _allMegaEvolutionPokemons
+        _pokemonMap = createAllPokemonMap(pokemons: _allPokemons)
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.
@@ -62,6 +70,14 @@ public struct PokeData {
     /// Read `pokemonMegaEvolutionJsonFileName.json` to `_allPokemonMegaEvolutionJson`
     private static func readMegaEvolutionPokemonJson() -> DictionarySA {
         return readJson(fileName: pokemonMegaEvolutionJsonFileName)
+    }
+    
+    private static func createAllPokemonMap(pokemons: [DBPokemon]) -> Dictionary<String, DBPokemon> {
+        var allPokemonsMap = Dictionary<String, DBPokemon>()
+        for pokemon in pokemons {
+            allPokemonsMap.updateValue(pokemon, forKey: pokemon.key)
+        }
+        return allPokemonsMap
     }
     
     /// Read json file from main bundle.

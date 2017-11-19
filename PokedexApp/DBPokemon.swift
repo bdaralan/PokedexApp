@@ -27,6 +27,10 @@ public class DBPokemon: Encodable, Decodable, Equatable {
     public static func ==(lhs: DBPokemon, rhs: DBPokemon) -> Bool {
         return lhs.info.id == rhs.info.id && lhs.info.name == rhs.info.name
     }
+    
+    public var key: String {
+        return String.init(format: "%04d%@", info.id, info.name)
+    }
 }
 
 // MARK: - Attribute classes
