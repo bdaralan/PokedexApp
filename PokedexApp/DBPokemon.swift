@@ -16,10 +16,7 @@ import Foundation
 // MARK - Main class
 
 /// Pokemon
-/// - note: `Comparable` using only `id` and `name`
-///  - LessThan: compares `"\(id)\(name)"`
-///  - Equal: compare `id && name`
-public class DBPokemon: Encodable, Decodable, Comparable {
+public class DBPokemon: Encodable, Decodable, Equatable {
     
     let info: PokeInfo
     let types: PokeType
@@ -27,14 +24,8 @@ public class DBPokemon: Encodable, Decodable, Comparable {
     let stats: PokeStat
     let measurements: PokeMeasurement
     
-    public static func <(lhs: DBPokemon, rhs: DBPokemon) -> Bool {
-        return "\(lhs.info.id)\(lhs.info.name)" < "\(rhs.info.id)\(rhs.info.name)"
-    }
-    
     public static func ==(lhs: DBPokemon, rhs: DBPokemon) -> Bool {
-        let isEqualId = lhs.info.id == rhs.info.id
-        let isEqualName = lhs.info.name == rhs.info.name
-        return isEqualId && isEqualName
+        return lhs.info.id == rhs.info.id && lhs.info.name == rhs.info.name
     }
 }
 

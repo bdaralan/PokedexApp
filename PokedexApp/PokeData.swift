@@ -32,8 +32,11 @@ public struct PokeData {
     
     // MARK: - Getter
     
-    /// All Pokemon with their information,
+    /// All Pokemons with their information.
     public static var allPokemon: [DBPokemon] { return _allPokemons }
+    
+    /// All Mega Evolution Pokemons with their information.
+    public static var allMegaEvolutionPokemons: [DBPokemon] { return _allMegaEvolutionPokemons }
     
     // MARK: - Function
     
@@ -43,24 +46,6 @@ public struct PokeData {
         _allMegaEvolutionPokemonsJson = readMegaEvolutionPokemonJson()
         _allPokemons = decodePokemons(from: _allPokemonsJson)
         _allMegaEvolutionPokemons = decodePokemons(from: _allMegaEvolutionPokemonsJson)
-//        // TEST CODE, MUST DELETE WHEN DONE
-//        var dictionary = DictionarySA()
-//        let encoder = JSONEncoder()
-//        do {
-//            for pokemon in _allMegaEvolutionPokemons {
-//                let key = String.init(format: "%04d", pokemon.info.id) + pokemon.info.name
-//                let pokemonData = try encoder.encode(pokemon)
-//                let pokemonValue = try JSONSerialization.jsonObject(with: pokemonData, options: []) as AnyObject
-//                dictionary.updateValue(pokemonValue, forKey: key)
-//            }
-//            if #available(iOS 11, *) {
-//                let data = try JSONSerialization.data(withJSONObject: dictionary, options: .sortedKeys)
-//                let document = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-//                let url = document!.appendingPathComponent("pokemon-mega-evolution").appendingPathExtension("json")
-//                try data.write(to: url, options: .atomic)
-//                print(url.path)
-//            }
-//        } catch { print(error.localizedDescription) }
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.

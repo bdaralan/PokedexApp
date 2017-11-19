@@ -70,7 +70,7 @@
             "form": "",
             "id": 3,
             "megaEvolution": [
-                "mega3"
+                "0003Mega Venusaur"
             ],
             "name": "Venusaur"
         },
@@ -162,8 +162,8 @@
             "form": "",
             "id": 6,
             "megaEvolution": [
-                "mega6x",
-                "mega6y"
+                "0006Mega Charizard X",
+                "0006Mega Charizard Y"
             ],
             "name": "Charizard"
         },
@@ -255,7 +255,7 @@
             "form": "",
             "id": 9,
             "megaEvolution": [
-                "mega9"
+                "0009Mega Blastoise"
             ],
             "name": "Blastoise"
         },
@@ -437,7 +437,7 @@
             "form": "",
             "id": 15,
             "megaEvolution": [
-                "mega15"
+                "0015Mega Beedrill"
             ],
             "name": "Beedrill"
         },
@@ -529,7 +529,7 @@
             "form": "",
             "id": 18,
             "megaEvolution": [
-                "mega18"
+                "0018Mega Pidgeot"
             ],
             "name": "Pidgeot"
         },
@@ -2271,7 +2271,7 @@
             "form": "",
             "id": 65,
             "megaEvolution": [
-                "mega65"
+                "0065Mega Alakazam"
             ],
             "name": "Alakazam"
         },
@@ -2813,7 +2813,7 @@
             "form": "",
             "id": 80,
             "megaEvolution": [
-                "mega80"
+                "0080Mega Slowbro"
             ],
             "name": "Slowbro"
         },
@@ -3295,7 +3295,7 @@
             "form": "",
             "id": 94,
             "megaEvolution": [
-                "mega94"
+                "0094Mega Gengar"
             ],
             "name": "Gengar"
         },
@@ -3987,7 +3987,7 @@
             "form": "",
             "id": 115,
             "megaEvolution": [
-                "mega115"
+                "0115Mega Kangaskhan"
             ],
             "name": "Kangaskhan"
         },
@@ -4349,7 +4349,7 @@
             "form": "",
             "id": 127,
             "megaEvolution": [
-                "mega127"
+                "0127Mega Pinsir"
             ],
             "name": "Pinsir"
         },
@@ -4441,7 +4441,7 @@
             "form": "",
             "id": 130,
             "megaEvolution": [
-                "mega130"
+                "0130Mega Gyarados"
             ],
             "name": "Gyarados"
         },
@@ -4803,7 +4803,7 @@
             "form": "",
             "id": 142,
             "megaEvolution": [
-                "mega142"
+                "0142Mega Aerodactyl"
             ],
             "name": "Aerodactyl"
         },
@@ -5044,7 +5044,7 @@
             "evolutionTree": 150,
             "form": "",
             "id": 150,
-            "megaEvolution": [],
+            "megaEvolution": ["0150Mega Mewtwo X", "0150Mega Mewtwo Y"],
             "name": "Mewtwo"
         },
         "measurements": {
@@ -5975,7 +5975,7 @@
             "form": "",
             "id": 181,
             "megaEvolution": [
-                "mega181"
+                "0181Mega Ampharos"
             ],
             "name": "Ampharos"
         },
@@ -6787,7 +6787,7 @@
             "form": "",
             "id": 208,
             "megaEvolution": [
-                "mega208"
+                "0208Mega Steelix"
             ],
             "name": "Steelix"
         },
@@ -6909,7 +6909,7 @@
             "form": "",
             "id": 212,
             "megaEvolution": [
-                "mega212"
+                "0212Mega Scizor"
             ],
             "name": "Scizor"
         },
@@ -6971,7 +6971,7 @@
             "form": "",
             "id": 214,
             "megaEvolution": [
-                "mega214"
+                "0214Mega Heracross"
             ],
             "name": "Heracross"
         },
@@ -7423,7 +7423,7 @@
             "form": "",
             "id": 229,
             "megaEvolution": [
-                "mega229"
+                "0229Mega Houndoom"
             ],
             "name": "Houndoom"
         },
@@ -7995,7 +7995,7 @@
             "form": "",
             "id": 248,
             "megaEvolution": [
-                "mega248"
+                "0248Mega Tyranitar"
             ],
             "name": "Tyranitar"
         },
@@ -8177,7 +8177,7 @@
             "form": "",
             "id": 254,
             "megaEvolution": [
-                "mega254"
+                "0254Mega Sceptile"
             ],
             "name": "Sceptile"
         },
@@ -8269,7 +8269,7 @@
             "form": "",
             "id": 257,
             "megaEvolution": [
-                "mega257"
+                "0257Mega Blaziken"
             ],
             "name": "Blaziken"
         },
@@ -8361,7 +8361,7 @@
             "form": "",
             "id": 260,
             "megaEvolution": [
-                "mega260"
+                "0260Mega Swampert"
             ],
             "name": "Swampert"
         },
@@ -9023,7 +9023,7 @@
             "form": "",
             "id": 282,
             "megaEvolution": [
-                "mega282"
+                "0282Mega Gardevoir"
             ],
             "name": "Gardevoir"
         },
@@ -9625,7 +9625,7 @@
             "form": "",
             "id": 302,
             "megaEvolution": [
-                "mega302"
+                "0302Mega Sableye"
             ],
             "name": "Sableye"
         },
@@ -9657,7 +9657,7 @@
             "form": "",
             "id": 303,
             "megaEvolution": [
-                "mega303"
+                "0303Mega Mawile"
             ],
             "name": "Mawile"
         },
@@ -9749,7 +9749,7 @@
             "form": "",
             "id": 306,
             "megaEvolution": [
-                "mega306"
+                "0306Mega Aggron"
             ],
             "name": "Aggron"
         },
@@ -9811,7 +9811,7 @@
             "form": "",
             "id": 308,
             "megaEvolution": [
-                "mega308"
+                "0308Mega Medicham"
             ],
             "name": "Medicham"
         },
@@ -9873,7 +9873,7 @@
             "form": "",
             "id": 310,
             "megaEvolution": [
-                "mega310"
+                "0310Mega Manectric"
             ],
             "name": "Manectric"
         },
@@ -10145,7 +10145,7 @@
             "form": "",
             "id": 319,
             "megaEvolution": [
-                "mega319"
+                "0319Mega Sharpedo"
             ],
             "name": "Sharpedo"
         },
@@ -10267,7 +10267,7 @@
             "form": "",
             "id": 323,
             "megaEvolution": [
-                "mega323"
+                "0323Mega Camerupt"
             ],
             "name": "Camerupt"
         },
@@ -10599,7 +10599,7 @@
             "form": "",
             "id": 334,
             "megaEvolution": [
-                "mega334"
+                "0334Mega Altaria"
             ],
             "name": "Altaria"
         },
@@ -11201,7 +11201,7 @@
             "form": "",
             "id": 354,
             "megaEvolution": [
-                "mega354"
+                "0354Mega Banette"
             ],
             "name": "Banette"
         },
@@ -11353,7 +11353,7 @@
             "form": "",
             "id": 359,
             "megaEvolution": [
-                "mega359"
+                "0359Mega Absol"
             ],
             "name": "Absol"
         },
@@ -11445,7 +11445,7 @@
             "form": "",
             "id": 362,
             "megaEvolution": [
-                "mega362"
+                "0362Mega Glalie"
             ],
             "name": "Glalie"
         },
@@ -11777,7 +11777,7 @@
             "form": "",
             "id": 373,
             "megaEvolution": [
-                "mega373"
+                "0373Mega Salamence"
             ],
             "name": "Salamence"
         },
@@ -11868,7 +11868,7 @@
             "evolutionTree": 374,
             "form": "",
             "id": 376,
-            "megaEvolution": [],
+            "megaEvolution": ["0376Mega Metagross"],
             "name": "Metagross"
         },
         "measurements": {
@@ -11989,7 +11989,7 @@
             "form": "",
             "id": 380,
             "megaEvolution": [
-                "mega380"
+                "0380Mega Latias"
             ],
             "name": "Latias"
         },
@@ -12021,7 +12021,7 @@
             "form": "",
             "id": 381,
             "megaEvolution": [
-                "mega381"
+                "0381Mega Latios"
             ],
             "name": "Latios"
         },
@@ -12053,7 +12053,7 @@
             "form": "",
             "id": 382,
             "megaEvolution": [
-                "primal382"
+                "0382Primal Kyogre"
             ],
             "name": "Kyogre"
         },
@@ -12085,7 +12085,7 @@
             "form": "",
             "id": 383,
             "megaEvolution": [
-                "primal383"
+                "0383Primal Groudon"
             ],
             "name": "Groudon"
         },
@@ -12117,7 +12117,7 @@
             "form": "",
             "id": 384,
             "megaEvolution": [
-                "mega384"
+                "0384Mega Rayquaza"
             ],
             "name": "Rayquaza"
         },
@@ -13739,7 +13739,7 @@
             "form": "",
             "id": 428,
             "megaEvolution": [
-                "mega428"
+                "0428Mega Lopunny"
             ],
             "name": "Lopunny"
         },
@@ -14251,7 +14251,7 @@
             "form": "",
             "id": 445,
             "megaEvolution": [
-                "mega445"
+                "0445Mega Garchomp"
             ],
             "name": "Garchomp"
         },
@@ -14343,7 +14343,7 @@
             "form": "",
             "id": 448,
             "megaEvolution": [
-                "mega448"
+                "0448Mega Lucario"
             ],
             "name": "Lucario"
         },
@@ -14705,7 +14705,7 @@
             "form": "",
             "id": 460,
             "megaEvolution": [
-                "mega460"
+                "0460Mega Abomasnow"
             ],
             "name": "Abomasnow"
         },
@@ -15157,7 +15157,7 @@
             "form": "",
             "id": 475,
             "megaEvolution": [
-                "mega475"
+                "0475Mega Gallade"
             ],
             "name": "Gallade"
         },
@@ -17049,7 +17049,7 @@
             "form": "",
             "id": 531,
             "megaEvolution": [
-                "mega531"
+                "0531Mega Audino"
             ],
             "name": "Audino"
         },
@@ -23471,7 +23471,7 @@
             "form": "",
             "id": 719,
             "megaEvolution": [
-                "mega719"
+                "0719Mega Diancie"
             ],
             "name": "Diancie"
         },
