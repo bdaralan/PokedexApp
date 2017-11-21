@@ -38,7 +38,7 @@ public struct PokeData {
     public static var pokemonJson: Dictionary<String, AnyObject> { return _pokemonJson }
     
     /// Dictionary from `json` file `pokemonMegaEvolutionJsonFileName`.
-    public static var megaEvolutionPokemonJson: Dictionary<String, AnyObject> { return _pokemonMegaEvolutionJson }
+    public static var pokemonMegaEvolutionJson: Dictionary<String, AnyObject> { return _pokemonMegaEvolutionJson }
     
     /// Dictionary from `json` file `pokemonEvolutionTreeJsonFileName`.
     public static var pokemonEvolutionTreeJson: Dictionary<String, AnyObject> { return _pokemonEvolutionTreeJson }
