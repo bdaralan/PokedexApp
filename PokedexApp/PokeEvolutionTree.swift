@@ -1,5 +1,5 @@
 //
-//  PokemonEvolutionTree.swift
+//  PokeEvolutionTree.swift
 //  PokedexApp
 //
 //  Created by Dara Beng on 11/20/17.
@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Main class
 
 /// PokemonEvolutionTree
-public class PokemonEvolutionTree: Encodable, Decodable {
+public class PokeEvolutionTree: Encodable, Decodable {
     
     let basePokemon: String
     let pokemonNodes: [PokemonNode]
@@ -36,13 +36,17 @@ public class PokemonEvolutionTree: Encodable, Decodable {
         }
         do {
             let data = try JSONSerialization.data(withJSONObject: dictionary, options: [])
-            let tree = try JSONDecoder().decode(PokemonEvolutionTree.self, from: data)
+            let tree = try JSONDecoder().decode(PokeEvolutionTree.self, from: data)
             self.init(base: tree.basePokemon, pokemons: tree.pokemonNodes)
         } catch {
             self.init()
-            print("\(PokemonEvolutionTree.self).init(dictionary: DictionarySA?) fail!!")
+            print("\(PokeEvolutionTree.self).init(dictionary: DictionarySA?) fail!!")
             print(error.localizedDescription)
         }
+    }
+    
+    public func pokemonNodes(evolutionStage: PokeEvolutionStage) -> [PokemonNode] {
+        return pokemonNodes.filter({ $0.stage == evolutionStage.rawValue })
     }
 }
 
@@ -56,4 +60,11 @@ public struct PokemonNode: Encodable, Decodable {
     let pokemon: String
     let prev: String
     let stage: Int
+}
+
+/// PokeEvolutionStage
+public enum PokeEvolutionStage: Int {
+    case first = 1
+    case second
+    case third
 }
