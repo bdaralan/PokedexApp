@@ -33,7 +33,7 @@ public class DBPokemon: Encodable, Decodable, Equatable {
     }
 }
 
-// MARK: - Attribute classes
+// MARK: - Pokemon attribute class
 
 /// Pokemon info
 public struct PokeInfo: Encodable, Decodable {

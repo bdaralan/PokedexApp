@@ -14,16 +14,16 @@ private var pokemonJsonFileName: String { return "pokemon" }
 
 private var pokemonMegaEvolutionJsonFileName: String { return "pokemon-mega-evolution" }
 
+private var pokemonEvolutionTreeJsonFileName: String { return "pokemon-evolution-tree" }
+
 
 // MARK: - Singleton
 
 private var _pokemonJson: DictionarySA!
 
-private var _megaEvolutionPokemonJson: DictionarySA!
+private var _pokemonMegaEvolutionJson: DictionarySA!
 
-private var _allPokemons: [DBPokemon]!
-
-private var _allMegaEvolutionPokemons: [DBPokemon]!
+private var _pokemonEvolutionTreeJson: DictionarySA!
 
 private var _pokemonMap: Dictionary<String, DBPokemon>!
 
@@ -38,13 +38,10 @@ public struct PokeData {
     public static var pokemonJson: Dictionary<String, AnyObject> { return _pokemonJson }
     
     /// Dictionary from `json` file `pokemonMegaEvolutionJsonFileName`.
-    public static var megaEvolutionPokemonJson: Dictionary<String, AnyObject> { return _megaEvolutionPokemonJson }
+    public static var megaEvolutionPokemonJson: Dictionary<String, AnyObject> { return _pokemonMegaEvolutionJson }
     
-    /// All Pokemons with their information.
-    public static var allPokemons: [DBPokemon] { return _allPokemons }
-    
-    /// All Mega Evolution Pokemons with their information.
-    public static var allMegaEvolutionPokemons: [DBPokemon] { return _allMegaEvolutionPokemons }
+    /// Dictionary from `json` file `pokemonEvolutionTreeJsonFileName`.
+    public static var pokemonEvolutionTreeJson: Dictionary<String, AnyObject> { return _pokemonEvolutionTreeJson }
     
     /// Pokemon dictionary.
     /// - note: Each dictionary's key is `Pokemon.key`.
@@ -54,12 +51,14 @@ public struct PokeData {
     
     /// Initializes and prepares `PokeData`'s properties.
     public static func initializes() {
+        // read all necessary json
         _pokemonJson = readPokemonJson()
-        _megaEvolutionPokemonJson = readMegaEvolutionPokemonJson()
+        _pokemonMegaEvolutionJson = readPokemonMegaEvolutionJson()
+        _pokemonEvolutionTreeJson = readPokemonEvolutionTreeJson()
         
-        _allMegaEvolutionPokemons = decodePokemons(from: _megaEvolutionPokemonJson)
-        _allPokemons = decodePokemons(from: _pokemonJson) + _allMegaEvolutionPokemons
-        _pokemonMap = createAllPokemonMap(pokemons: _allPokemons)
+        // create pokemon map
+        let allPokemons = decodePokemons(from: _pokemonJson) + decodePokemons(from: _pokemonMegaEvolutionJson)
+        _pokemonMap = createAllPokemonMap(pokemons: allPokemons)
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.
@@ -68,8 +67,13 @@ public struct PokeData {
     }
     
     /// Read `pokemonMegaEvolutionJsonFileName.json` to `_allPokemonMegaEvolutionJson`
-    private static func readMegaEvolutionPokemonJson() -> DictionarySA {
+    private static func readPokemonMegaEvolutionJson() -> DictionarySA {
         return readJson(fileName: pokemonMegaEvolutionJsonFileName)
+    }
+    
+    /// Read `pokemonEvolutionTreeJsonFileName.json` to `_pokemonEvolutionTreeJson`.
+    private static func readPokemonEvolutionTreeJson() -> DictionarySA {
+        return readJson(fileName: pokemonEvolutionTreeJsonFileName)
     }
     
     private static func createAllPokemonMap(pokemons: [DBPokemon]) -> Dictionary<String, DBPokemon> {
@@ -78,6 +82,26 @@ public struct PokeData {
             allPokemonsMap.updateValue(pokemon, forKey: pokemon.key)
         }
         return allPokemonsMap
+    }
+    
+    /// Decode every Pokemon from `_allPokemonsJson` as `Pokemon`.
+    /// Append every `Pokemon` to `_allPokemons`.
+    /// - parameter dictionary: `Dictionary` contains Pokemon data that can be decode.
+    private static func decodePokemons(from dictionary: DictionarySA) -> [DBPokemon] {
+        do {
+            var allPokemons = [DBPokemon]()
+            let decoder = JSONDecoder()
+            for (_, pokemonDict) in dictionary {
+                let pokemonData = try JSONSerialization.data(withJSONObject: pokemonDict, options: [])
+                let pokemon = try decoder.decode(DBPokemon.self, from: pokemonData)
+                allPokemons.append(pokemon)
+            }
+            return allPokemons
+        } catch {
+            print("decodeAllPokemons() fail!!")
+            print(error.localizedDescription)
+            return []
+        }
     }
     
     /// Read json file from main bundle.
@@ -99,25 +123,5 @@ public struct PokeData {
             print(error.localizedDescription)
         }
         return [:]
-    }
-    
-    /// Decode every Pokemon from `_allPokemonsJson` as `Pokemon`.
-    /// Append every `Pokemon` to `_allPokemons`.
-    /// - parameter dictionary: `Dictionary` contains Pokemon data that can be decode.
-    private static func decodePokemons(from dictionary: DictionarySA) -> [DBPokemon] {
-        do {
-            var allPokemons = [DBPokemon]()
-            let decoder = JSONDecoder()
-            for (_, pokemonDict) in dictionary {
-                let pokemonData = try JSONSerialization.data(withJSONObject: pokemonDict, options: [])
-                let pokemon = try decoder.decode(DBPokemon.self, from: pokemonData)
-                allPokemons.append(pokemon)
-            }
-            return allPokemons
-        } catch {
-            print("decodeAllPokemons() fail!!")
-            print(error.localizedDescription)
-            return []
-        }
     }
 }
