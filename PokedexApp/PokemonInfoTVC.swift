@@ -44,10 +44,11 @@ class PokemonInfoTVC: UITableViewController {
     
     private func ConfigureTableView() {
         // register cells
-        cellIds = ["\(PokeInfoCell.self)", "\(PokeStatCell.self)", "\(PokeEvolutionCell.self)"]
+        cellIds = ["\(PokeInfoCell.self)", "\(PokeStatCell.self)", "\(PokeEvolutionCell.self)", "\(PokeDexEntryCell.self)"]
         tableView.register(PokeInfoCell.self, forCellReuseIdentifier: "\(PokeInfoCell.self)")
         tableView.register(PokeStatCell.self, forCellReuseIdentifier: "\(PokeStatCell.self)")
         tableView.register(PokeEvolutionCell.self, forCellReuseIdentifier: "\(PokeEvolutionCell.self)")
+        tableView.register(PokeDexEntryCell.self, forCellReuseIdentifier: "\(PokeDexEntryCell.self)")
         
         // tableview
         tableView.separatorInset = UIEdgeInsets.zero

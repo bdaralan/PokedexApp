@@ -85,37 +85,37 @@ class PokeStatCell: UITableViewCell {
     private func configureLabels() {
         hpLabel.text = "HP"
         hpLabel.textAlignment = .left
-        hpLabel.changeStyle(to: .insetLong)
+        hpLabel.changeStyle(to: .longInsetRight)
         hpLabel.roundLabelBorderWidth = 0
         hpLabel.backgroundColor = DBColor.PokemonStat.hp
         
         attackLabel.text = "Attack"
         attackLabel.textAlignment = .left
-        attackLabel.changeStyle(to: .insetLong)
+        attackLabel.changeStyle(to: .longInsetRight)
         attackLabel.roundLabelBorderWidth = 0
         attackLabel.backgroundColor = DBColor.PokemonStat.attack
         
         defenseLabel.text = "Defense"
         defenseLabel.textAlignment = .left
-        defenseLabel.changeStyle(to: .insetLong)
+        defenseLabel.changeStyle(to: .longInsetRight)
         defenseLabel.roundLabelBorderWidth = 0
         defenseLabel.backgroundColor = DBColor.PokemonStat.defense
         
         spAttackLabel.text = "SpAttack"
         spAttackLabel.textAlignment = .left
-        spAttackLabel.changeStyle(to: .insetLong)
+        spAttackLabel.changeStyle(to: .longInsetRight)
         spAttackLabel.roundLabelBorderWidth = 0
         spAttackLabel.backgroundColor = DBColor.PokemonStat.spAttack
         
         spDefenseLabel.text = "SpDefense"
         spDefenseLabel.textAlignment = .left
-        spDefenseLabel.changeStyle(to: .insetLong)
+        spDefenseLabel.changeStyle(to: .longInsetRight)
         spDefenseLabel.roundLabelBorderWidth = 0
         spDefenseLabel.backgroundColor = DBColor.PokemonStat.spDefense
         
         speedLabel.text = "Speed"
         speedLabel.textAlignment = .left
-        speedLabel.changeStyle(to: .insetLong)
+        speedLabel.changeStyle(to: .longInsetRight)
         speedLabel.roundLabelBorderWidth = 0
         speedLabel.backgroundColor = DBColor.PokemonStat.speed
     }

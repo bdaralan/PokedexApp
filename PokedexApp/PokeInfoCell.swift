@@ -60,7 +60,7 @@ class PokeInfoCell: UITableViewCell {
     
     public func configureCell(pokemon: DBPokemon?) {
 //        self.pokemon = pokemon
-        self.pokemon = PokeData.pokemonMap["0007Squirtle"]!
+        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
         updateIdLabel()
         updatePokeImageView()
         updateTypeLabels()
