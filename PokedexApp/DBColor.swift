@@ -70,6 +70,23 @@ struct DBColor {
         static let zMove = UIColor(red: 250.range, green: 202.range, blue: 13.range, alpha: 1) //FACA0D
     }
     
+    /// Pokemon stats color
+    
+    struct PokemonStat {
+        
+        static let hp = UIColor(red: 120.range, green: 200.range, blue: 80.range, alpha: 1) // 78C850
+        
+        static let attack = UIColor(red: 233.range, green: 64.range, blue: 3.range, alpha: 1) // E94003
+        
+        static let defense = UIColor(red: 176.range, green: 48.range, blue: 0, alpha: 1) // B03000
+        
+        static let spAttack = UIColor(red: 34.range, green: 102.range, blue: 204.range, alpha: 1) // 2266CC
+        
+        static let spDefense = UIColor(red: 17.range, green: 55.range, blue: 112.range, alpha: 1) //B3770
+        
+        static let speed = UIColor(red: 249.range, green: 201.range, blue: 14.range, alpha: 1) // F9C90E
+    }
+    
     /// App object color
     struct AppObject {
         

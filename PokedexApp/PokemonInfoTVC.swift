@@ -37,7 +37,6 @@ class PokemonInfoTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIds[indexPath.row], for: indexPath)
-        cell.backgroundColor = .lightGray
         return cell
     }
     

@@ -24,12 +24,12 @@ class PokeStatCell: UITableViewCell {
     let speedLabel = RIOUILabel()
     
     let sliderStackView = UIStackView()
-    let hpSlider = DBUISlider()
-    let attackSlider = DBUISlider()
-    let defenseSlider = DBUISlider()
-    let spAttackSlider = DBUISlider()
-    let spDefenseSlider = DBUISlider()
-    let speedSlider = DBUISlider()
+    let hpSlider = UISlider()
+    let attackSlider = UISlider()
+    let defenseSlider = UISlider()
+    let spAttackSlider = UISlider()
+    let spDefenseSlider = UISlider()
+    let speedSlider = UISlider()
     
     var pokemon: DBPokemon!
     
@@ -55,46 +55,108 @@ class PokeStatCell: UITableViewCell {
     
     public func configureCell(pokemon: DBPokemon?) {
 //        self.pokemon = pokemon
-        let pokemon = PokeData.pokemonMap["0280Ralts"]!
+        let pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+        
+        // labels
         hpLabel.roundLabel.text = "\(pokemon.stats.hp)"
         attackLabel.roundLabel.text = "\(pokemon.stats.attack)"
         defenseLabel.roundLabel.text = "\(pokemon.stats.defense)"
         spAttackLabel.roundLabel.text = "\(pokemon.stats.spAttack)"
         spDefenseLabel.roundLabel.text = "\(pokemon.stats.spDefense)"
         speedLabel.roundLabel.text = "\(pokemon.stats.speed)"
+        
+        // slider
+        hpSlider.setValue(Float(pokemon.stats.hp), animated: true)
+        attackSlider.setValue(Float(pokemon.stats.attack), animated: true)
+        defenseSlider.setValue(Float(pokemon.stats.defense), animated: true)
+        spAttackSlider.setValue(Float(pokemon.stats.spAttack), animated: true)
+        spDefenseSlider.setValue(Float(pokemon.stats.spDefense), animated: true)
+        speedSlider.setValue(Float(pokemon.stats.speed), animated: true)
     }
     
     private func configureCell() {
         configureLabels()
+        configureSliders()
         configureStackViews()
         configureConstraints()
         configureCell(pokemon: nil)
     }
     
     private func configureLabels() {
-        hpLabel.changeStyle(to: .insetLong)
-        hpLabel.textAlignment = .left
         hpLabel.text = "HP"
+        hpLabel.textAlignment = .left
+        hpLabel.changeStyle(to: .insetLong)
+        hpLabel.roundLabelBorderWidth = 0
+        hpLabel.backgroundColor = DBColor.PokemonStat.hp
         
-        attackLabel.changeStyle(to: .insetLong)
-        attackLabel.textAlignment = .left
         attackLabel.text = "Attack"
+        attackLabel.textAlignment = .left
+        attackLabel.changeStyle(to: .insetLong)
+        attackLabel.roundLabelBorderWidth = 0
+        attackLabel.backgroundColor = DBColor.PokemonStat.attack
         
-        defenseLabel.changeStyle(to: .insetLong)
-        defenseLabel.textAlignment = .left
         defenseLabel.text = "Defense"
+        defenseLabel.textAlignment = .left
+        defenseLabel.changeStyle(to: .insetLong)
+        defenseLabel.roundLabelBorderWidth = 0
+        defenseLabel.backgroundColor = DBColor.PokemonStat.defense
         
-        spAttackLabel.changeStyle(to: .insetLong)
-        spAttackLabel.textAlignment = .left
         spAttackLabel.text = "SpAttack"
+        spAttackLabel.textAlignment = .left
+        spAttackLabel.changeStyle(to: .insetLong)
+        spAttackLabel.roundLabelBorderWidth = 0
+        spAttackLabel.backgroundColor = DBColor.PokemonStat.spAttack
         
-        spDefenseLabel.changeStyle(to: .insetLong)
-        spDefenseLabel.textAlignment = .left
         spDefenseLabel.text = "SpDefense"
+        spDefenseLabel.textAlignment = .left
+        spDefenseLabel.changeStyle(to: .insetLong)
+        spDefenseLabel.roundLabelBorderWidth = 0
+        spDefenseLabel.backgroundColor = DBColor.PokemonStat.spDefense
         
-        speedLabel.changeStyle(to: .insetLong)
-        speedLabel.textAlignment = .left
         speedLabel.text = "Speed"
+        speedLabel.textAlignment = .left
+        speedLabel.changeStyle(to: .insetLong)
+        speedLabel.roundLabelBorderWidth = 0
+        speedLabel.backgroundColor = DBColor.PokemonStat.speed
+    }
+    
+    private func configureSliders() {
+        let maxValue: Float = 250
+        hpSlider.maximumTrackTintColor = .clear
+        hpSlider.minimumTrackTintColor = hpLabel.backgroundColor
+        hpSlider.thumbTintColor = hpSlider.minimumTrackTintColor
+        hpSlider.maximumValue = maxValue
+        hpSlider.isUserInteractionEnabled = false
+        
+        attackSlider.maximumTrackTintColor = .clear
+        attackSlider.minimumTrackTintColor = attackLabel.backgroundColor
+        attackSlider.thumbTintColor = attackSlider.minimumTrackTintColor
+        attackSlider.maximumValue = maxValue
+        attackSlider.isUserInteractionEnabled = false
+        
+        defenseSlider.maximumTrackTintColor = .clear
+        defenseSlider.minimumTrackTintColor = defenseLabel.backgroundColor
+        defenseSlider.thumbTintColor = defenseSlider.minimumTrackTintColor
+        defenseSlider.maximumValue = maxValue
+        defenseSlider.isUserInteractionEnabled = false
+        
+        spAttackSlider.maximumTrackTintColor = .clear
+        spAttackSlider.minimumTrackTintColor = spAttackLabel.backgroundColor
+        spAttackSlider.thumbTintColor = spAttackSlider.minimumTrackTintColor
+        spAttackSlider.maximumValue = maxValue
+        spAttackSlider.isUserInteractionEnabled = false
+        
+        spDefenseSlider.maximumTrackTintColor = .clear
+        spDefenseSlider.minimumTrackTintColor = spDefenseLabel.backgroundColor
+        spDefenseSlider.thumbTintColor = spDefenseSlider.minimumTrackTintColor
+        spDefenseSlider.maximumValue = maxValue
+        spDefenseLabel.isUserInteractionEnabled = false
+        
+        speedSlider.maximumTrackTintColor = .clear
+        speedSlider.minimumTrackTintColor = speedLabel.backgroundColor
+        speedSlider.thumbTintColor = speedSlider.minimumTrackTintColor
+        speedSlider.maximumValue = maxValue
+        speedSlider.isUserInteractionEnabled = false
     }
     
     private func configureStackViews() {

@@ -18,6 +18,10 @@ class RIOUILabel: UILabel {
     /// The round label at the right size of `self`, the main label.
     let roundLabel = UILabel()
     
+    public var roundLabelBorderWidth: CGFloat = 3 {
+        didSet { roundLabel.layer.borderWidth =  roundLabelBorderWidth }
+    }
+    
     private var roundLabelStyle: RIOUILabelStyle = .regular
     
     /// The radius of the `roundLabel`. In most cases, its height is hightly prefered
@@ -52,7 +56,7 @@ class RIOUILabel: UILabel {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        configureRadiusAndBorder()
+        configureRadius()
     }
     
     override var backgroundColor: UIColor? {
@@ -101,15 +105,12 @@ class RIOUILabel: UILabel {
         roundLabel.textColor = UIColor.black
         roundLabel.backgroundColor = UIColor.white
         roundLabel.font = Constant.Font.gillSans
+        roundLabel.layer.borderWidth = roundLabelBorderWidth
     }
     
-    private func configureRadiusAndBorder() {
+    private func configureRadius() {
         layer.cornerRadius = frame.height / 2
         roundLabel.layer.cornerRadius = min(roundLabel.frame.width, roundLabel.frame.height) / 2
-        switch roundLabelStyle {
-        case .regular: roundLabel.layer.borderWidth = 3
-        case .insetLong: roundLabel.layer.borderWidth = 0
-        }
     }
     
     private func configureDefaultConstraints() {
