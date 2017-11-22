@@ -16,6 +16,7 @@
 		47264F051FC4B66A004447AD /* PokemonInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47264F041FC4B66A004447AD /* PokemonInfoTVC.swift */; };
 		47264F071FC4EC57004447AD /* PokeEvolutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47264F061FC4EC57004447AD /* PokeEvolutionCell.swift */; };
 		47264F091FC50805004447AD /* PokeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47264F081FC50805004447AD /* PokeInfoCell.swift */; };
+		47264F0B1FC55154004447AD /* PokeStatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47264F0A1FC55154004447AD /* PokeStatCell.swift */; };
 		4765C00F1FC0194200732DD0 /* DBPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4765C00E1FC0194200732DD0 /* DBPokemon.swift */; };
 		47D4B5211FC3EB52000E59C1 /* pokemon-mega-evolution.json in Resources */ = {isa = PBXBuildFile; fileRef = 47D4B51E1FC3EB51000E59C1 /* pokemon-mega-evolution.json */; };
 		47D4B5231FC3EB52000E59C1 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 47D4B5201FC3EB52000E59C1 /* pokemon.json */; };
@@ -919,6 +920,7 @@
 		47264F041FC4B66A004447AD /* PokemonInfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoTVC.swift; sourceTree = "<group>"; };
 		47264F061FC4EC57004447AD /* PokeEvolutionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeEvolutionCell.swift; sourceTree = "<group>"; };
 		47264F081FC50805004447AD /* PokeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeInfoCell.swift; sourceTree = "<group>"; };
+		47264F0A1FC55154004447AD /* PokeStatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeStatCell.swift; sourceTree = "<group>"; };
 		4765C00E1FC0194200732DD0 /* DBPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPokemon.swift; sourceTree = "<group>"; };
 		47D4B51E1FC3EB51000E59C1 /* pokemon-mega-evolution.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pokemon-mega-evolution.json"; sourceTree = "<group>"; };
 		47D4B5201FC3EB52000E59C1 /* pokemon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
@@ -2775,6 +2777,7 @@
 				47264F001FC4A83A004447AD /* PokeEvolutionCollectionCell.swift */,
 				47264F061FC4EC57004447AD /* PokeEvolutionCell.swift */,
 				47264F081FC50805004447AD /* PokeInfoCell.swift */,
+				47264F0A1FC55154004447AD /* PokeStatCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3803,6 +3806,7 @@
 				537F1A1D1E8A422F009D0400 /* HomeMenuTVC.swift in Sources */,
 				53ECA7071EA1EA3100964977 /* Move.swift in Sources */,
 				47264F031FC4AF5A004447AD /* PokeEvolutionCV.swift in Sources */,
+				47264F0B1FC55154004447AD /* PokeStatCell.swift in Sources */,
 				4708FC551FBF90F4009110B0 /* PokeData.swift in Sources */,
 				53ECA7171EA2FA8000964977 /* TypeCell.swift in Sources */,
 				536095C21E97160500D2F2FC /* AbilityUILabel.swift in Sources */,

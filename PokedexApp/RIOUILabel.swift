@@ -8,10 +8,17 @@
 
 import UIKit
 
+enum RIOUILabelStyle {
+    case regular
+    case insetLong
+}
+
 class RIOUILabel: UILabel {
     
     /// The round label at the right size of `self`, the main label.
     let roundLabel = UILabel()
+    
+    private var roundLabelStyle: RIOUILabelStyle = .regular
     
     /// The radius of the `roundLabel`. In most cases, its height is hightly prefered
     private var radius: CGFloat {
@@ -29,7 +36,7 @@ class RIOUILabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+        let insets = UIEdgeInsets(top: 0, left: layer.cornerRadius, bottom: 0, right: 4)
         let rect = UIEdgeInsetsInsetRect(rect, insets)
         super.drawText(in: rect)
     }
@@ -37,7 +44,7 @@ class RIOUILabel: UILabel {
     override func didMoveToSuperview() {
         if let superview = superview {
             superview.addSubview(roundLabel)
-            configureRoundLabelConstraints()
+            changeStyle(to: roundLabelStyle)
         } else {
             roundLabel.removeFromSuperview()
         }
@@ -45,12 +52,21 @@ class RIOUILabel: UILabel {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        configureRadius()
+        configureRadiusAndBorder()
     }
     
     override var backgroundColor: UIColor? {
         didSet {
             roundLabel.layer.borderColor = backgroundColor?.cgColor
+        }
+    }
+    
+    public func changeStyle(to style: RIOUILabelStyle) {
+        roundLabelStyle = style
+        guard let _ = superview else { return }
+        switch style {
+        case .regular: configureDefaultConstraints()
+        case .insetLong: configureInsetLongConstraints()
         }
     }
     
@@ -84,20 +100,34 @@ class RIOUILabel: UILabel {
         roundLabel.baselineAdjustment = .alignCenters
         roundLabel.textColor = UIColor.black
         roundLabel.backgroundColor = UIColor.white
-        roundLabel.layer.borderWidth = 3
         roundLabel.font = Constant.Font.gillSans
     }
     
-    private func configureRoundLabelConstraints() {
+    private func configureRadiusAndBorder() {
+        layer.cornerRadius = frame.height / 2
+        roundLabel.layer.cornerRadius = min(roundLabel.frame.width, roundLabel.frame.height) / 2
+        switch roundLabelStyle {
+        case .regular: roundLabel.layer.borderWidth = 3
+        case .insetLong: roundLabel.layer.borderWidth = 0
+        }
+    }
+    
+    private func configureDefaultConstraints() {
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.deactivate(roundLabel.constraints)
         roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         roundLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true
         roundLabel.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true
     }
     
-    private func configureRadius() {
-        layer.cornerRadius = frame.height / 2
-        roundLabel.layer.cornerRadius = min(roundLabel.frame.width, roundLabel.frame.height) / 2
+    private func configureInsetLongConstraints() {
+        roundLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.deactivate(roundLabel.constraints)
+        let margin: CGFloat = 4
+        roundLabel.topAnchor.constraint(equalTo: topAnchor, constant: margin).isActive = true
+        roundLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -margin).isActive = true
+        roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin).isActive = true
+        roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
     }
 }
