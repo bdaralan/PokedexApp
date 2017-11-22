@@ -55,5 +55,6 @@ class PokeEvolutionCollectionCell: UICollectionViewCell {
         label.text = "→"
         label.textAlignment = .left
         label.roundLabel.text = "16"
+        label.textInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 0)
     }
 }
