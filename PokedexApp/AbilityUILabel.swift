@@ -21,11 +21,16 @@ class AbilityUILabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: CGRect(x: 8, y: 0, width: rect.width - 16, height: rect.height))
+        let rect = UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
+        super.drawText(in: rect)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = self.frame.height / 2
     }
     
     private func configureView() {
-        layer.cornerRadius = self.frame.height / 2
         clipsToBounds = true
         backgroundColor = DBColor.Pokemon.ability
         textAlignment = .center

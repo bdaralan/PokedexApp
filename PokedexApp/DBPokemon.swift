@@ -52,6 +52,10 @@ public struct PokeAbility: Encodable, Decodable {
     let first: String
     let second: String
     let hidden: String
+    
+    var hasFirst: Bool { return !first.isEmpty }
+    var hasSecond: Bool { return !second.isEmpty }
+    var hasHidden: Bool { return !hidden.isEmpty }
 }
 
 
@@ -60,6 +64,8 @@ public struct PokeType: Encodable, Decodable {
     
     let primary: String
     let secondary: String
+    
+    var hasSecondary: Bool { return !secondary.isEmpty }
 }
 
 

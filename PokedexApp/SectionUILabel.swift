@@ -20,8 +20,12 @@ class SectionUILabel: UILabel {
         configureView()
     }
     
-    private func configureView() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         layer.cornerRadius = self.frame.height / 2
+    }
+    
+    private func configureView() {
         clipsToBounds = true
         backgroundColor = DBColor.AppObject.sectionBackground
         textColor = DBColor.AppObject.sectionText

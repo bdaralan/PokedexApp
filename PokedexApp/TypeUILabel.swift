@@ -30,8 +30,16 @@ class TypeUILabel: UILabel {
         configureView()
     }
     
+    convenience init() {
+        self.init(frame: CGRect(origin: .zero, size: TypeUILabel.defaultSize))
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = frame.height / 2
+    }
+    
     private func configureView() {
-        layer.cornerRadius = self.frame.height / 2
         clipsToBounds = true
         textColor = UIColor.white
         textAlignment = .center
@@ -69,8 +77,4 @@ class TypeUILabel: UILabel {
 extension TypeUILabel {
     
     static var defaultSize: CGSize { return CGSize(width: 80, height: 21) }
-    
-    convenience init() {
-        self.init(frame: CGRect(origin: .zero, size: TypeUILabel.defaultSize))
-    }
 }
