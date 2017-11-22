@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Use with PokeEvolutionCell. Will be fill into its `contentView` to display Pokemon's evolutions.
 class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private let numberOfItemPerColmn = 3

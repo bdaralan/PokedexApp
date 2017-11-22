@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Use with PokemonInfoTVC to display Pokemon's id, types, abilities, and image.
 class PokeInfoCell: UITableViewCell {
     
     let idLabel = SectionUILabel()

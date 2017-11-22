@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `PokeEvolutionCV`'s cell, use to display Pokemon's evolutions.
 class PokeEvolutionCollectionCell: UICollectionViewCell {
     
     let label: RIOUILabel = RIOUILabel()
