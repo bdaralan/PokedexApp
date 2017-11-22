@@ -40,7 +40,8 @@ class RIOUILabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 0, left: layer.cornerRadius, bottom: 0, right: 4)
+        let leftInset = layer.cornerRadius < 4 ? 4 : layer.cornerRadius
+        let insets = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: 4)
         let rect = UIEdgeInsetsInsetRect(rect, insets)
         super.drawText(in: rect)
     }
