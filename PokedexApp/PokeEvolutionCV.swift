@@ -11,8 +11,8 @@ import UIKit
 /// Use with PokeEvolutionCell. Will be fill into its `contentView` to display Pokemon's evolutions.
 class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    private let numberOfItemPerColmn = 3
-    private let numberOfItemPerRow = 3
+    private var numberOfItemPerColmn = 3
+    private var numberOfItemPerRow = 3
     private var sizeForItem: CGSize = .zero
     
     public var isConstraintToSuperviewBound: Bool = false
@@ -32,9 +32,9 @@ class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectio
     private func configureCollectionView() {
         delegate = self
         dataSource = self
+        backgroundColor = nil
         isScrollEnabled = false
         register(PokeEvolutionCollectionCell.self, forCellWithReuseIdentifier: "\(PokeEvolutionCollectionCell.self)")
-        backgroundColor = .green
     }
     
     public static var defaultLayout: UICollectionViewFlowLayout {
@@ -42,10 +42,11 @@ class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectio
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         return layout
     }
     
+    /// Call to update `itemSize` when change `numberOfItemPerRow` or `numberOfItemPerColumn`.
     public func updateSizeForItem() {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let hInsetSpace = layout.sectionInset.left + layout.sectionInset.right
@@ -53,8 +54,8 @@ class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectio
         let numberOfItemPerRow = CGFloat(self.numberOfItemPerRow)
         let numberOfItemPerColumn = CGFloat(self.numberOfItemPerColmn)
         
-        let width = (bounds.width - (layout.minimumInteritemSpacing * numberOfItemPerColumn - 1) - hInsetSpace) / numberOfItemPerColumn
-        let height = (bounds.height - (layout.minimumLineSpacing * numberOfItemPerRow - 1) - vInsetSpace) / numberOfItemPerRow
+        let width = (bounds.width - (layout.minimumInteritemSpacing * (numberOfItemPerColumn - 1)) - hInsetSpace) / numberOfItemPerColumn
+        let height = (bounds.height - (layout.minimumLineSpacing * (numberOfItemPerRow - 1)) - vInsetSpace) / numberOfItemPerRow
         sizeForItem = CGSize(width: width.rounded(.down), height: height.rounded(.down))
     }
     
@@ -66,7 +67,7 @@ class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: "\(PokeEvolutionCollectionCell.self)", for: indexPath)
-        cell.contentView.backgroundColor = .white
+        cell.contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         return cell
     }
     

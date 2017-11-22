@@ -14,7 +14,7 @@ class PokemonInfoTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()
+        ConfigureTableView()
     }
 
     // MARK: - Table view data source
@@ -42,10 +42,15 @@ class PokemonInfoTVC: UITableViewController {
     
     // MARK: - Function
     
-    private func registerCells() {
+    private func ConfigureTableView() {
+        // register cells
         cellIds = ["\(PokeInfoCell.self)", "\(PokeStatCell.self)", "\(PokeEvolutionCell.self)"]
         tableView.register(PokeInfoCell.self, forCellReuseIdentifier: "\(PokeInfoCell.self)")
         tableView.register(PokeStatCell.self, forCellReuseIdentifier: "\(PokeStatCell.self)")
         tableView.register(PokeEvolutionCell.self, forCellReuseIdentifier: "\(PokeEvolutionCell.self)")
+        
+        // tableview
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.showsVerticalScrollIndicator = false
     }
 }

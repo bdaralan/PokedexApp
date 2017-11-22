@@ -124,37 +124,37 @@ class PokeStatCell: UITableViewCell {
         let maxValue: Float = 250
         hpSlider.maximumTrackTintColor = .clear
         hpSlider.minimumTrackTintColor = hpLabel.backgroundColor
-        hpSlider.thumbTintColor = hpSlider.minimumTrackTintColor
+        hpSlider.thumbTintColor = hpLabel.backgroundColor
         hpSlider.maximumValue = maxValue
         hpSlider.isUserInteractionEnabled = false
         
         attackSlider.maximumTrackTintColor = .clear
         attackSlider.minimumTrackTintColor = attackLabel.backgroundColor
-        attackSlider.thumbTintColor = attackSlider.minimumTrackTintColor
+        attackSlider.thumbTintColor = attackLabel.backgroundColor
         attackSlider.maximumValue = maxValue
         attackSlider.isUserInteractionEnabled = false
         
         defenseSlider.maximumTrackTintColor = .clear
         defenseSlider.minimumTrackTintColor = defenseLabel.backgroundColor
-        defenseSlider.thumbTintColor = defenseSlider.minimumTrackTintColor
+        defenseSlider.thumbTintColor = defenseLabel.backgroundColor
         defenseSlider.maximumValue = maxValue
         defenseSlider.isUserInteractionEnabled = false
         
         spAttackSlider.maximumTrackTintColor = .clear
         spAttackSlider.minimumTrackTintColor = spAttackLabel.backgroundColor
-        spAttackSlider.thumbTintColor = spAttackSlider.minimumTrackTintColor
+        spAttackSlider.thumbTintColor = spAttackLabel.backgroundColor
         spAttackSlider.maximumValue = maxValue
         spAttackSlider.isUserInteractionEnabled = false
         
         spDefenseSlider.maximumTrackTintColor = .clear
         spDefenseSlider.minimumTrackTintColor = spDefenseLabel.backgroundColor
-        spDefenseSlider.thumbTintColor = spDefenseSlider.minimumTrackTintColor
+        spDefenseSlider.thumbTintColor = spDefenseLabel.backgroundColor
         spDefenseSlider.maximumValue = maxValue
-        spDefenseLabel.isUserInteractionEnabled = false
+        spDefenseSlider.isUserInteractionEnabled = false
         
         speedSlider.maximumTrackTintColor = .clear
         speedSlider.minimumTrackTintColor = speedLabel.backgroundColor
-        speedSlider.thumbTintColor = speedSlider.minimumTrackTintColor
+        speedSlider.thumbTintColor = speedLabel.backgroundColor
         speedSlider.maximumValue = maxValue
         speedSlider.isUserInteractionEnabled = false
     }
