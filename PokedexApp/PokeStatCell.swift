@@ -10,18 +10,29 @@ import UIKit
 
 private let space: CGFloat = 8
 private let margin: CGFloat = 16
-private let labelHeight: CGFloat = 25
+private let labelHeight: CGFloat = 28
 
 /// Use with `PokemonTVC` to display Pokemon's stats.
 class PokeStatCell: UITableViewCell {
     
-    let labelStackView = UIStackView()
+    let totalLabel = RIOUILabel()
+    let minMaxLabel = RIOUILabel()
+    
+    let statStackView = UIStackView()
     let hpLabel = RIOUILabel()
     let attackLabel = RIOUILabel()
     let defenseLabel = RIOUILabel()
     let spAttackLabel = RIOUILabel()
     let spDefenseLabel = RIOUILabel()
     let speedLabel = RIOUILabel()
+    
+    let minMaxStackView = UIStackView()
+    let hpMinMaxLabel = RIOUILabel()
+    let attackMinMaxLabel = RIOUILabel()
+    let defenseMinMaxLabel = RIOUILabel()
+    let spAttackMinMaxLabel = RIOUILabel()
+    let spDefenseMinMaxLabel = RIOUILabel()
+    let speedMinMaxLabel = RIOUILabel()
     
     let sliderStackView = UIStackView()
     let hpSlider = UISlider()
@@ -33,7 +44,7 @@ class PokeStatCell: UITableViewCell {
     
     var pokemon: DBPokemon!
     
-    public static var defaultCellHeight: CGFloat { return (margin * 2) + (labelHeight * 6) + (space * 7) }
+    public static var defaultCellHeight: CGFloat { return (margin * 2) + (labelHeight * 7) + (space * 6) }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -53,11 +64,45 @@ class PokeStatCell: UITableViewCell {
         super.setHighlighted(false, animated: false)
     }
     
+    private func configureCell() {
+        configureStatLabels()
+        configureSliders()
+        configureMinMaxLabels()
+        configureStackViews()
+        configureConstraints()
+        configureCell(pokemon: nil)
+    }
+    
     public func configureCell(pokemon: DBPokemon?) {
 //        self.pokemon = pokemon
-        let pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+        updateStatLabels()
+    }
+    
+    /// Update stat sliders with animation and duration, default is `0.3`.
+    public func updateStatSlides(animated: Bool, duration: TimeInterval = 0.3) {
+        guard let pokemon = pokemon else { return }
+        let maxValue: Float = 200
+        hpSlider.maximumValue = maxValue
+        attackSlider.maximumValue = maxValue
+        defenseSlider.maximumValue = maxValue
+        spAttackSlider.maximumValue = maxValue
+        spDefenseSlider.maximumValue = maxValue
+        speedSlider.maximumValue = maxValue
         
-        // labels
+        let duration = animated ? duration : 0
+        UIView.animate(withDuration: duration) {
+            self.hpSlider.setValue(Float(pokemon.stats.hp), animated: animated)
+            self.attackSlider.setValue(Float(pokemon.stats.attack), animated: animated)
+            self.defenseSlider.setValue(Float(pokemon.stats.defense), animated: animated)
+            self.spAttackSlider.setValue(Float(pokemon.stats.spAttack), animated: animated)
+            self.spDefenseSlider.setValue(Float(pokemon.stats.spDefense), animated: animated)
+            self.speedSlider.setValue(Float(pokemon.stats.speed), animated: animated)
+        }
+    }
+    
+    private func updateStatLabels() {
+        guard let pokemon = pokemon else { return }
         hpLabel.roundLabel.text = "\(pokemon.stats.hp)"
         attackLabel.roundLabel.text = "\(pokemon.stats.attack)"
         defenseLabel.roundLabel.text = "\(pokemon.stats.defense)"
@@ -65,110 +110,72 @@ class PokeStatCell: UITableViewCell {
         spDefenseLabel.roundLabel.text = "\(pokemon.stats.spDefense)"
         speedLabel.roundLabel.text = "\(pokemon.stats.speed)"
         
-        // slider
-        hpSlider.setValue(Float(pokemon.stats.hp), animated: true)
-        attackSlider.setValue(Float(pokemon.stats.attack), animated: true)
-        defenseSlider.setValue(Float(pokemon.stats.defense), animated: true)
-        spAttackSlider.setValue(Float(pokemon.stats.spAttack), animated: true)
-        spDefenseSlider.setValue(Float(pokemon.stats.spDefense), animated: true)
-        speedSlider.setValue(Float(pokemon.stats.speed), animated: true)
+        let stats = pokemon.stats
+        let total = stats.hp + stats.attack + stats.defense + stats.spAttack + stats.spDefense + stats.speed
+        totalLabel.roundLabel.text = "\(total)"
     }
     
-    private func configureCell() {
-        configureLabels()
-        configureSliders()
-        configureStackViews()
-        configureConstraints()
-        configureCell(pokemon: nil)
-    }
-    
-    private func configureLabels() {
+    private func configureStatLabels() {
         hpLabel.text = "HP"
-        hpLabel.textAlignment = .left
-        hpLabel.changeStyle(to: .longInsetRight)
-        hpLabel.roundLabelBorderWidth = 0
-        hpLabel.backgroundColor = DBColor.PokemonStat.hp
+        setupStatLabel(label: hpLabel, backgroundColor: DBColor.PokemonStat.hp)
         
         attackLabel.text = "Attack"
-        attackLabel.textAlignment = .left
-        attackLabel.changeStyle(to: .longInsetRight)
-        attackLabel.roundLabelBorderWidth = 0
-        attackLabel.backgroundColor = DBColor.PokemonStat.attack
+        setupStatLabel(label: attackLabel, backgroundColor: DBColor.PokemonStat.attack)
         
         defenseLabel.text = "Defense"
-        defenseLabel.textAlignment = .left
-        defenseLabel.changeStyle(to: .longInsetRight)
-        defenseLabel.roundLabelBorderWidth = 0
-        defenseLabel.backgroundColor = DBColor.PokemonStat.defense
+        setupStatLabel(label: defenseLabel, backgroundColor: DBColor.PokemonStat.defense)
         
         spAttackLabel.text = "SpAttack"
-        spAttackLabel.textAlignment = .left
-        spAttackLabel.changeStyle(to: .longInsetRight)
-        spAttackLabel.roundLabelBorderWidth = 0
-        spAttackLabel.backgroundColor = DBColor.PokemonStat.spAttack
+        setupStatLabel(label: spAttackLabel, backgroundColor: DBColor.PokemonStat.spAttack)
         
         spDefenseLabel.text = "SpDefense"
-        spDefenseLabel.textAlignment = .left
-        spDefenseLabel.changeStyle(to: .longInsetRight)
-        spDefenseLabel.roundLabelBorderWidth = 0
-        spDefenseLabel.backgroundColor = DBColor.PokemonStat.spDefense
+        setupStatLabel(label: spDefenseLabel, backgroundColor: DBColor.PokemonStat.spDefense)
         
         speedLabel.text = "Speed"
-        speedLabel.textAlignment = .left
-        speedLabel.changeStyle(to: .longInsetRight)
-        speedLabel.roundLabelBorderWidth = 0
-        speedLabel.backgroundColor = DBColor.PokemonStat.speed
+        setupStatLabel(label: speedLabel, backgroundColor: DBColor.PokemonStat.speed)
+    }
+    
+    private func configureMinMaxLabels() {
+        // totalLabel
+        totalLabel.text = "Total"
+        totalLabel.textAlignment = .left
+        totalLabel.changeStyle(to: .longInsetRight)
+        totalLabel.roundLabel.layer.borderWidth = 0
+        totalLabel.backgroundColor = .black
+        
+        // minMaxLabel
+        minMaxLabel.text = "Min"
+        minMaxLabel.roundLabel.text = "Max"
+        setupMinMaxLabel(label: minMaxLabel, backgroundColor: .black)
+        
+        // stats min max label
+        setupMinMaxLabel(label: hpMinMaxLabel, backgroundColor: DBColor.PokemonStat.hp)
+        setupMinMaxLabel(label: attackMinMaxLabel, backgroundColor: DBColor.PokemonStat.attack)
+        setupMinMaxLabel(label: defenseMinMaxLabel, backgroundColor: DBColor.PokemonStat.defense)
+        setupMinMaxLabel(label: spAttackMinMaxLabel, backgroundColor: DBColor.PokemonStat.spAttack)
+        setupMinMaxLabel(label: spDefenseMinMaxLabel, backgroundColor: DBColor.PokemonStat.spDefense)
+        setupMinMaxLabel(label: speedMinMaxLabel, backgroundColor: DBColor.PokemonStat.speed)
     }
     
     private func configureSliders() {
-        let maxValue: Float = 250
-        hpSlider.maximumTrackTintColor = .clear
-        hpSlider.minimumTrackTintColor = hpLabel.backgroundColor
-        hpSlider.thumbTintColor = hpLabel.backgroundColor
-        hpSlider.maximumValue = maxValue
-        hpSlider.isUserInteractionEnabled = false
-        
-        attackSlider.maximumTrackTintColor = .clear
-        attackSlider.minimumTrackTintColor = attackLabel.backgroundColor
-        attackSlider.thumbTintColor = attackLabel.backgroundColor
-        attackSlider.maximumValue = maxValue
-        attackSlider.isUserInteractionEnabled = false
-        
-        defenseSlider.maximumTrackTintColor = .clear
-        defenseSlider.minimumTrackTintColor = defenseLabel.backgroundColor
-        defenseSlider.thumbTintColor = defenseLabel.backgroundColor
-        defenseSlider.maximumValue = maxValue
-        defenseSlider.isUserInteractionEnabled = false
-        
-        spAttackSlider.maximumTrackTintColor = .clear
-        spAttackSlider.minimumTrackTintColor = spAttackLabel.backgroundColor
-        spAttackSlider.thumbTintColor = spAttackLabel.backgroundColor
-        spAttackSlider.maximumValue = maxValue
-        spAttackSlider.isUserInteractionEnabled = false
-        
-        spDefenseSlider.maximumTrackTintColor = .clear
-        spDefenseSlider.minimumTrackTintColor = spDefenseLabel.backgroundColor
-        spDefenseSlider.thumbTintColor = spDefenseLabel.backgroundColor
-        spDefenseSlider.maximumValue = maxValue
-        spDefenseSlider.isUserInteractionEnabled = false
-        
-        speedSlider.maximumTrackTintColor = .clear
-        speedSlider.minimumTrackTintColor = speedLabel.backgroundColor
-        speedSlider.thumbTintColor = speedLabel.backgroundColor
-        speedSlider.maximumValue = maxValue
-        speedSlider.isUserInteractionEnabled = false
+        setupSlider(hpSlider, minTint: hpLabel.backgroundColor, maxTint: hpLabel.backgroundColor)
+        setupSlider(attackSlider, minTint: attackLabel.backgroundColor, maxTint: attackLabel.backgroundColor)
+        setupSlider(defenseSlider, minTint: defenseLabel.backgroundColor, maxTint: defenseLabel.backgroundColor)
+        setupSlider(spAttackSlider, minTint: spAttackLabel.backgroundColor, maxTint: spAttackLabel.backgroundColor)
+        setupSlider(spDefenseSlider, minTint: spDefenseLabel.backgroundColor, maxTint: spDefenseLabel.backgroundColor)
+        setupSlider(speedSlider, minTint: speedLabel.backgroundColor, maxTint: speedLabel.backgroundColor)
     }
     
     private func configureStackViews() {
-        labelStackView.axis = .vertical
-        labelStackView.distribution = .fillEqually
-        labelStackView.spacing = space
-        labelStackView.addArrangedSubview(hpLabel)
-        labelStackView.addArrangedSubview(attackLabel)
-        labelStackView.addArrangedSubview(defenseLabel)
-        labelStackView.addArrangedSubview(spAttackLabel)
-        labelStackView.addArrangedSubview(spDefenseLabel)
-        labelStackView.addArrangedSubview(speedLabel)
+        statStackView.axis = .vertical
+        statStackView.distribution = .fillEqually
+        statStackView.spacing = space
+        statStackView.addArrangedSubview(hpLabel)
+        statStackView.addArrangedSubview(attackLabel)
+        statStackView.addArrangedSubview(defenseLabel)
+        statStackView.addArrangedSubview(spAttackLabel)
+        statStackView.addArrangedSubview(spDefenseLabel)
+        statStackView.addArrangedSubview(speedLabel)
     
         sliderStackView.axis = .vertical
         sliderStackView.distribution = .fillEqually
@@ -179,22 +186,78 @@ class PokeStatCell: UITableViewCell {
         sliderStackView.addArrangedSubview(spAttackSlider)
         sliderStackView.addArrangedSubview(spDefenseSlider)
         sliderStackView.addArrangedSubview(speedSlider)
+    
+        minMaxStackView.axis = .vertical
+        minMaxStackView.distribution = .fillEqually
+        minMaxStackView.spacing = space
+        minMaxStackView.addArrangedSubview(hpMinMaxLabel)
+        minMaxStackView.addArrangedSubview(attackMinMaxLabel)
+        minMaxStackView.addArrangedSubview(defenseMinMaxLabel)
+        minMaxStackView.addArrangedSubview(spAttackMinMaxLabel)
+        minMaxStackView.addArrangedSubview(spDefenseMinMaxLabel)
+        minMaxStackView.addArrangedSubview(speedMinMaxLabel)
     }
     
     private func configureConstraints() {
-        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        statStackView.translatesAutoresizingMaskIntoConstraints = false
         sliderStackView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(labelStackView)
+        minMaxStackView.translatesAutoresizingMaskIntoConstraints = false
+        totalLabel.translatesAutoresizingMaskIntoConstraints = false
+        minMaxLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(statStackView)
         contentView.addSubview(sliderStackView)
+        contentView.addSubview(minMaxStackView)
+        contentView.addSubview(totalLabel)
+        contentView.addSubview(minMaxLabel)
         
-        labelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin).isActive = true
-        labelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin).isActive = true
-        labelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
-        labelStackView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        // use as reference
+        totalLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin).isActive = true
+        totalLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
+        totalLabel.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        totalLabel.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
-        sliderStackView.topAnchor.constraint(equalTo: labelStackView.topAnchor).isActive = true
-        sliderStackView.bottomAnchor.constraint(equalTo: labelStackView.bottomAnchor).isActive = true
-        sliderStackView.leadingAnchor.constraint(equalTo: labelStackView.trailingAnchor, constant: space).isActive = true
-        sliderStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
-    }   
+        minMaxLabel.topAnchor.constraint(equalTo: totalLabel.topAnchor).isActive = true
+        minMaxLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
+        minMaxLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        minMaxLabel.heightAnchor.constraint(equalTo: totalLabel.heightAnchor).isActive = true
+        
+        statStackView.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: space).isActive = true
+        statStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin).isActive = true
+        statStackView.leadingAnchor.constraint(equalTo: totalLabel.leadingAnchor).isActive = true
+        statStackView.trailingAnchor.constraint(equalTo: totalLabel.trailingAnchor).isActive = true
+        
+        sliderStackView.topAnchor.constraint(equalTo: statStackView.topAnchor).isActive = true
+        sliderStackView.bottomAnchor.constraint(equalTo: statStackView.bottomAnchor).isActive = true
+        sliderStackView.leadingAnchor.constraint(equalTo: statStackView.trailingAnchor, constant: space).isActive = true
+        sliderStackView.trailingAnchor.constraint(equalTo: minMaxStackView.leadingAnchor, constant: -space).isActive = true
+        
+        minMaxStackView.topAnchor.constraint(equalTo: statStackView.topAnchor).isActive = true
+        minMaxStackView.bottomAnchor.constraint(equalTo: statStackView.bottomAnchor).isActive = true
+        minMaxStackView.trailingAnchor.constraint(equalTo: minMaxLabel.trailingAnchor).isActive = true
+        minMaxStackView.widthAnchor.constraint(equalTo: minMaxLabel.widthAnchor).isActive = true
+    }
+    
+    // MARKL: - Helper function
+    
+    /// - note: Excludes `totalLabel`
+    private func setupMinMaxLabel(label: RIOUILabel, backgroundColor: UIColor) {
+        label.textAlignment = .center
+        label.changeStyle(to: .halfWidthInsetRight)
+        label.roundLabel.layer.borderWidth = 0
+        label.backgroundColor = backgroundColor
+    }
+    
+    private func setupSlider(_ slider: UISlider, minTint: UIColor?, maxTint: UIColor?) {
+        slider.minimumTrackTintColor = minTint
+        slider.maximumTrackTintColor = maxTint?.withAlphaComponent(0.3)
+        slider.thumbTintColor = minTint
+        slider.isUserInteractionEnabled = false
+    }
+    
+    private func setupStatLabel(label: RIOUILabel, backgroundColor: UIColor) {
+        label.textAlignment = .left
+        label.changeStyle(to: .longInsetRight)
+        label.roundLabelBorderWidth = 0
+        label.backgroundColor = backgroundColor
+    }
 }

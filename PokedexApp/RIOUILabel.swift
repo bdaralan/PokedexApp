@@ -12,12 +12,22 @@ enum RIOUILabelStyle {
     case regular
     case longInsetRight
     case longInsetLeft
+    case halfWidthInsetRight
+    case halfWidthInsetLeft
 }
 
 class RIOUILabel: UILabel {
     
     /// The round label at the right size of `self`, the main label.
     let roundLabel = UILabel()
+    
+    public var roundLabelTopConstraint: NSLayoutConstraint?
+    public var roundLabelBottomConstraint: NSLayoutConstraint?
+    public var roundLabelLeadingConstraint: NSLayoutConstraint?
+    public var roundLabelTailingConstraint: NSLayoutConstraint?
+    public var roundLabelCenterYConstraint: NSLayoutConstraint?
+    public var roundLabelWidthConstraint: NSLayoutConstraint?
+    public var roundLabelHeightConstraint: NSLayoutConstraint?
     
     var textInset: UIEdgeInsets?
     
@@ -78,7 +88,19 @@ class RIOUILabel: UILabel {
         case .regular: configureRegularConstraints()
         case .longInsetRight: configureLongInsetRightConstraints()
         case .longInsetLeft: configureLongInsetLeftConstraints()
+        case .halfWidthInsetRight: configureHalfWidthInsetRightConstraints()
+        case .halfWidthInsetLeft: configureHalfWidthInsetLeftConstraints()
         }
+    }
+    
+    public func toggleRoundLabelConstraints(isActive: Bool) {
+        roundLabelTopConstraint?.isActive = isActive
+        roundLabelBottomConstraint?.isActive = isActive
+        roundLabelLeadingConstraint?.isActive = isActive
+        roundLabelTailingConstraint?.isActive = isActive
+        roundLabelCenterYConstraint?.isActive = isActive
+        roundLabelWidthConstraint?.isActive = isActive
+        roundLabelHeightConstraint?.isActive = isActive
     }
     
     // TODO: - Implement the function to allow roundLabel resize by pass in a change in radius, dr.
@@ -113,10 +135,10 @@ class RIOUILabel: UILabel {
         case .regular:
             leftInset = layer.cornerRadius < 4 ? 4 : layer.cornerRadius
             rightInset = roundLabel.frame.width + spacing
-        case .longInsetRight:
+        case .longInsetRight, .halfWidthInsetRight:
             leftInset = layer.cornerRadius < 4 ? 4: layer.cornerRadius
             rightInset = roundLabel.frame.width + spacing + 4 // margin
-        case .longInsetLeft:
+        case .longInsetLeft, .halfWidthInsetLeft:
             leftInset = roundLabel.frame.width + spacing + 4 // margin
             rightInset = layer.cornerRadius < 4 ? 4 : layer.cornerRadius
         }
@@ -142,27 +164,50 @@ class RIOUILabel: UILabel {
     
     private func configureRegularConstraints() {
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
-        roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        roundLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true
-        roundLabel.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 2).isActive = true
+        roundLabelTailingConstraint =  roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        roundLabelCenterYConstraint = roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        roundLabelHeightConstraint = roundLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 2)
+        roundLabelWidthConstraint = roundLabel.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 2)
+        toggleRoundLabelConstraints(isActive: true)
     }
     
     private func configureLongInsetRightConstraints() {
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
         let margin: CGFloat = 4
-        roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin).isActive = true
-        roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        roundLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -margin * 2).isActive = true
-        roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        roundLabelTailingConstraint = roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin)
+        roundLabelCenterYConstraint = roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        roundLabelHeightConstraint = roundLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -margin * 2)
+        roundLabelWidthConstraint = roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
+        toggleRoundLabelConstraints(isActive: true)
     }
     
     private func configureLongInsetLeftConstraints() {
         roundLabel.translatesAutoresizingMaskIntoConstraints = false
         let margin: CGFloat = 4
-        roundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin).isActive = true
-        roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        roundLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -margin * 2).isActive = true
-        roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        roundLabelLeadingConstraint = roundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin)
+        roundLabelCenterYConstraint = roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        roundLabelHeightConstraint = roundLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -margin * 2)
+        roundLabelWidthConstraint = roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
+        toggleRoundLabelConstraints(isActive: true)
+    }
+    
+    private func configureHalfWidthInsetRightConstraints() {
+        roundLabel.translatesAutoresizingMaskIntoConstraints = false
+        let margin: CGFloat = 4
+        roundLabelTailingConstraint = roundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin)
+        roundLabelCenterYConstraint = roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        roundLabelHeightConstraint = roundLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -margin * 2)
+        roundLabelWidthConstraint = roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
+        toggleRoundLabelConstraints(isActive: true)
+    }
+    
+    private func configureHalfWidthInsetLeftConstraints() {
+        roundLabel.translatesAutoresizingMaskIntoConstraints = false
+        let margin: CGFloat = 4
+        roundLabelLeadingConstraint = roundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin)
+        roundLabelCenterYConstraint = roundLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        roundLabelHeightConstraint = roundLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -margin * 2)
+        roundLabelWidthConstraint = roundLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
+        toggleRoundLabelConstraints(isActive: true)
     }
 }
