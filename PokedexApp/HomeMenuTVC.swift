@@ -34,11 +34,8 @@ class HomeMenuTVC: UITableViewController {
     // MARK: - IBActions
     
     @IBAction func settingBtnPressed(_ sender: Any) {
-//        AudioPlayer.play(audio: .openPC)
-//        performSegue(withIdentifier: "SettingTVC", sender: nil)
-        // TODO: Uncommand the above code; the below is for TEST ONLY
-        let tableview = PokemonInfoTVC()
-        present(tableview, animated: true, completion: nil)
+        AudioPlayer.play(audio: .openPC)
+        performSegue(withIdentifier: "SettingTVC", sender: nil)
     }
     
     private func configureAudioSession(category: String) {

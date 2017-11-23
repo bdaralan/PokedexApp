@@ -23,9 +23,9 @@ class PokeInfoCell: UITableViewCell {
     let secondaryTypeLabel = TypeUILabel()
     
     let abilityLabel = SectionUILabel()
-    let firstAbilityLabel = AbilityUILabel()
-    let secondAbilityLabel = AbilityUILabel()
-    let hiddenAbilityLabel = AbilityUILabel()
+    let firstAbilityLabel = RIOUILabel()
+    let secondAbilityLabel = RIOUILabel()
+    let hiddenAbilityLabel = RIOUILabel()
     let defenseLabel = SectionUILabel()
     
     private var primaryTypeLabelWidthAnchor: NSLayoutConstraint!
@@ -54,13 +54,12 @@ class PokeInfoCell: UITableViewCell {
     }
     
     private func configureCell() {
+        configureAbilityLabels()
         configureConstraints()
-        configureCell(pokemon: nil)
     }
     
-    public func configureCell(pokemon: DBPokemon?) {
-//        self.pokemon = pokemon
-        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+    public func configureCell(pokemon: DBPokemon) {
+        self.pokemon = pokemon
         updateIdLabel()
         updatePokeImageView()
         updateTypeLabels()
@@ -93,16 +92,48 @@ class PokeInfoCell: UITableViewCell {
     
     private func updateAbilityLabels() {
         abilityLabel.text = "Ability"
-        firstAbilityLabel.text = pokemon.abilities.first
-        firstAbilityLabel.isHidden = !pokemon.abilities.hasFirst
-        secondAbilityLabel.text = pokemon.abilities.second
-        secondAbilityLabel.isHidden = !pokemon.abilities.hasSecond
-        hiddenAbilityLabel.text = "\(pokemon.abilities.hidden) (H)"
-        hiddenAbilityLabel.isHidden = !pokemon.abilities.hasHidden
+        let none = "none"
+        let hasFirst = pokemon.abilities.hasFirst
+        let hasSecond = pokemon.abilities.hasSecond
+        let hasHidden = pokemon.abilities.hasHidden
+        firstAbilityLabel.alpha = hasFirst ? 1 : 0.4
+        firstAbilityLabel.roundLabel.alpha = firstAbilityLabel.alpha
+        firstAbilityLabel.text = hasFirst ? pokemon.abilities.first : none
+        firstAbilityLabel.roundLabel.text = "I"
+        
+        secondAbilityLabel.alpha = hasSecond ? 1 : 0.4
+        secondAbilityLabel.roundLabel.alpha = secondAbilityLabel.alpha
+        secondAbilityLabel.text = hasSecond ? pokemon.abilities.second : none
+        secondAbilityLabel.roundLabel.text = "II"
+        
+        hiddenAbilityLabel.alpha = hasHidden ? 1 : 0.4
+        hiddenAbilityLabel.roundLabel.alpha = hiddenAbilityLabel.alpha
+        hiddenAbilityLabel.text = hasHidden ? "\(pokemon.abilities.hidden)" : none
+        hiddenAbilityLabel.roundLabel.text = "H"
     }
     
     private func updateDefenseLabel() {
         defenseLabel.text = "Defense"
+    }
+    
+    private func configureAbilityLabels() {
+        firstAbilityLabel.changeStyle(to: .longInsetRight)
+        firstAbilityLabel.roundLabelBorderWidth = 0
+        firstAbilityLabel.backgroundColor = DBColor.Pokemon.ability
+        firstAbilityLabel.textColor = DBColor.AppObject.sectionText
+        firstAbilityLabel.roundLabel.textColor = DBColor.AppObject.sectionText
+        
+        secondAbilityLabel.changeStyle(to: .longInsetRight)
+        secondAbilityLabel.roundLabelBorderWidth = 0
+        secondAbilityLabel.backgroundColor = DBColor.Pokemon.ability
+        secondAbilityLabel.textColor = DBColor.AppObject.sectionText
+        secondAbilityLabel.roundLabel.textColor = DBColor.AppObject.sectionText
+        
+        hiddenAbilityLabel.changeStyle(to: .longInsetRight)
+        hiddenAbilityLabel.roundLabelBorderWidth = 0
+        hiddenAbilityLabel.backgroundColor = DBColor.Pokemon.ability
+        hiddenAbilityLabel.textColor = DBColor.AppObject.sectionText
+        hiddenAbilityLabel.roundLabel.textColor = DBColor.AppObject.sectionText
     }
     
     private func configureConstraints() {

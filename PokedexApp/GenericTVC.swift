@@ -20,11 +20,11 @@ enum GenericCell: String {
 }
 
 
-class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDelegate {
+class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDelegate { // TODO: fix comments
     
     var genericCell: GenericCell! // will be assigned when perform segue
     
-    var pokemons: [Pokemon]!
+    var pokemons: [DBPokemon]!
     var types: [String]!
     var moves: [Move]!
     var abilities: [Ability]!
@@ -109,7 +109,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
         switch currentGenericCell {
             
         case .PokedexCell:
-            performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
+            let pokemonInfoTVC = PokemonInfoTVC(pokemon: pokemons[indexPath.row])
+            navigationController?.pushViewController(pokemonInfoTVC, animated: true)
             
         case .TypeCell:
             performSegue(withIdentifier: "TypeDetailTVC", sender: types[indexPath.row])
@@ -137,9 +138,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch sender {
             
-        case is Pokemon:
-            guard let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
-            pokemonInfoVC.pokemon = pokemon
+        case is DBPokemon:
+            guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon else { return }
+            pokemonInfoTVC.pokemon = pokemon
             
         case is String: // type
             guard let typeDetailTVC = segue.destination as? TypeDetailTVC, let type = sender as? String else { return }
@@ -173,29 +174,29 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     }
     
     // MARK: - Search
-    
+    // TODO: Search
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.isActive, let searchText = searchController.searchBar.text, searchText != "" {
-            switch currentGenericCell {
-            case .PokedexCell: pokemons = Variable.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
-            case .TypeCell: types = Variable.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
-            case .MoveCell: moves = Variable.allMoves.filter(forName: searchText, options: .caseInsensitive)
-            case .AbilityCell: abilities = Variable.allAbilities.filter(for: searchText, options: .caseInsensitive)
-            case .TMCell: items = Variable.allItems.machines.filter(for: searchText, options: .caseInsensitive)
-            case .ItemCell: items = Variable.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
-            case .BerryCell: items = Variable.allItems.berries.filter(for: searchText, options: .caseInsensitive)
-            }
+//            switch currentGenericCell {
+//            case .PokedexCell: pokemons = Variable.allPokemonsSortedById.filter(for: searchText, options: .caseInsensitive)
+//            case .TypeCell: types = Variable.allTypes.filter({$0.range(of: searchText, options: .caseInsensitive) != nil})
+//            case .MoveCell: moves = Variable.allMoves.filter(forName: searchText, options: .caseInsensitive)
+//            case .AbilityCell: abilities = Variable.allAbilities.filter(for: searchText, options: .caseInsensitive)
+//            case .TMCell: items = Variable.allItems.machines.filter(for: searchText, options: .caseInsensitive)
+//            case .ItemCell: items = Variable.allItems.excludeBerriesMachines.filter(for: searchText, options: .caseInsensitive)
+//            case .BerryCell: items = Variable.allItems.berries.filter(for: searchText, options: .caseInsensitive)
+//            }
             
         } else {
-            switch currentGenericCell {
-            case .PokedexCell: pokemons = segmentControllSelectedIndex == 0 ? Variable.allPokemonsSortedById : Variable.allPokemonsSortedByName
-            case .TypeCell: types = Variable.allTypes
-            case .MoveCell: moves = Variable.allMoves
-            case .AbilityCell: abilities = Variable.allAbilities
-            case .TMCell: items = Variable.allItems.machines
-            case .ItemCell: items = segmentControllSelectedIndex == 0 ? Variable.allItems.excludeBerriesMachines : Variable.allItems.excludeBerriesMachines
-            case .BerryCell: items = Variable.allItems.berries
-            }
+//            switch currentGenericCell {
+//            case .PokedexCell: pokemons = segmentControllSelectedIndex == 0 ? Variable.allPokemonsSortedById : Variable.allPokemonsSortedByName
+//            case .TypeCell: types = Variable.allTypes
+//            case .MoveCell: moves = Variable.allMoves
+//            case .AbilityCell: abilities = Variable.allAbilities
+//            case .TMCell: items = Variable.allItems.machines
+//            case .ItemCell: items = segmentControllSelectedIndex == 0 ? Variable.allItems.excludeBerriesMachines : Variable.allItems.excludeBerriesMachines
+//            case .BerryCell: items = Variable.allItems.berries
+//            }
         }
         tableView.reloadData()
     }
@@ -204,7 +205,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     func prepareNecessaryData() {
         switch currentGenericCell {
-        case .PokedexCell: pokemons = Variable.allPokemonsSortedById
+        case .PokedexCell: pokemons = PokeData.pokemons // Variable.allPokemonsSortedById
         case .TypeCell: types = Variable.allTypes
         case .MoveCell: moves = Variable.allMoves
         case .AbilityCell: abilities = Variable.allAbilities
@@ -260,9 +261,9 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
             
         case .PokedexCell:
             if segmentControllSelectedIndex == 0 {
-                pokemons = Variable.allPokemonsSortedById
+//                pokemons = Variable.allPokemonsSortedById
             } else { //must be 1
-                pokemons = Variable.allPokemonsSortedByName
+//                pokemons = Variable.allPokemonsSortedByName
             }
             
         case .ItemCell:

@@ -47,7 +47,7 @@ class PokeEvolutionCollectionCell: UICollectionViewCell {
     
     private func configureImageView() {
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: Variable.allPokemonsSortedByName.first!.imageName)
+        imageView.image = UIImage(named: "282")
     }
     
     private func configureLabel() {

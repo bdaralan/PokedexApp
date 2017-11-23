@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
+class TypeDetailTVC: UITableViewController, TypeUILabelDelegate { // TODO: fixed comments
     
     var type: String! //will be assigned by segue
-    var pokemons: [Pokemon]!
+    var pokemons: [DBPokemon]!
     var moves: [Move]!
     
     var strongAgainstTypeLbls = [TypeUILabel]()
@@ -34,10 +34,10 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     let cache = NSCache<AnyObject, AnyObject>()
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { // TODO: pokemons and moves
         super.viewDidLoad()
-        pokemons = Variable.allPokemonsSortedById.filter(forType: type)
-        moves = Variable.allMoves.filter(forType: type)
+        pokemons = PokeData.pokemons // Variable.allPokemonsSortedById.filter(forType: type)
+//        moves = Variable.allMoves.filter(forType: type)
         configureHeaderViews()
         updateUI()
     }
@@ -115,8 +115,8 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon {
-            pokemonInfoVC.pokemon = pokemon
+        if let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon {
+            pokemonInfoTVC.pokemon = pokemon
         } else if let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move {
             moveDetailTVC.move = move
         }
@@ -138,7 +138,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
         setDefaultState()
         
         if let _ = cache.object(forKey: type as AnyObject) as? String,
-            let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [Pokemon],
+            let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [DBPokemon],
             let cachedMoves = cache.object(forKey: "cachedMoves\(type)" as AnyObject) as? [Move],
             let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
             let cachedWeakToTypes = cache.object(forKey: "weakToTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
@@ -153,7 +153,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate {
             immuneToTypeLbls = cachedImmuneToTypes
             
         } else {
-            pokemons = Variable.allPokemonsSortedById.filter(forType: type)
+//            pokemons = Variable.allPokemonsSortedById.filter(forType: type)
             moves = Variable.allMoves.filter(forType: type)
             strongAgainstTypeLbls = makeTypeLabels(from: getOffensiveTypes())
             weakToTypeLbls = makeTypeLabels(from: getDefensiveTypes(effective: "2"))

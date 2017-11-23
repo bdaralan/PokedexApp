@@ -8,19 +8,20 @@
 
 import Foundation
 
-struct Variable {
+struct Variable { // TODO: fix comments and variables
     
-    static private let loadData = LoadData()
+//    static private let loadData = LoadData()
     
-    static let allPokemonsSortedById: [Pokemon] = loadData.allPokemons(by: .id)
+//    static let allPokemonsSortedById: [Pokemon] = loadData.allPokemons(by: .id)
     
-    static let allPokemonsSortedByName: [Pokemon] = loadData.allPokemons(by: .name)
+//    static let allPokemonsSortedByName: [Pokemon] = loadData.allPokemons(by: .name)
     
-    static let allTypes: [String] = loadData.allTypes()
+    static let allTypes: [String] = [] //loadData.allTypes()
     
-    static let allMoves: [Move] = loadData.allMoves()
+    static let allMoves: [Move] = [] // loadData.allMoves()
     
-    static let allAbilities: [Ability] = loadData.allAbilities()
+    static let allAbilities: [Ability] = [] // loadData.allAbilities()
     
-    static let allItems: [Item] = loadData.allItems()
+    static let allItems: [Item] = [] // loadData.allItems()
 }
+

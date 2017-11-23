@@ -24,19 +24,19 @@ class PokedexCell: UITableViewCell {
         pokemonImg.contentMode = .scaleAspectFill
     }
     
-    func configureCell(for pokemon: Pokemon) {
+    func configureCell(for pokemon: DBPokemon) {
         
-        pokemonName.text = pokemon.name
-        pokemonID.text = pokemon.id.toPokedexId()
+        pokemonName.text = pokemon.info.name
+        pokemonID.text = pokemon.info.id.toPokedexId()
         
-        if let cachedImage = globalCache.object(forKey: pokemon.imageName as AnyObject) as? UIImage {
+        if let cachedImage = globalCache.object(forKey: pokemon.imageAssetName as AnyObject) as? UIImage {
             self.pokemonImg.image = cachedImage
             
         } else {
             DispatchQueue.main.async {
-                guard let image = UIImage(named: pokemon.imageName) else { return }
+                guard let image = UIImage(named: pokemon.imageAssetName) else { return }
                 self.pokemonImg.image = image
-                globalCache.setObject(image, forKey: pokemon.imageName as AnyObject)
+                globalCache.setObject(image, forKey: pokemon.imageAssetName as AnyObject)
             }
         }
     }

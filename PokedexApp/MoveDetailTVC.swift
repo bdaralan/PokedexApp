@@ -12,10 +12,10 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     var move: Move! // will be assigned during segue
     var moves = [Move]()
-    var pokemons = [Pokemon]()
+    var pokemons = [DBPokemon]()
     var learnMovePokemons = [PokemonLearnMove]()
     
-    var currentPokemons = [Pokemon]()
+    var currentPokemons = [DBPokemon]()
     
     var segmentControl: RoundUISegmentedControl!
     var segmentControllLearnMoveMethodIndex: MoveLearnMethod!
@@ -113,7 +113,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let pokemonInfoTVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
+        guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon else { return }
         pokemonInfoTVC.pokemon = pokemon
     }
     
@@ -126,16 +126,18 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: - Initializer and Handler
     
     func configureAttributes() {
-        moves = Variable.allMoves.filter(forType: move.type)
+        // TODO: All move filter for type
+//        moves = Variable.allMoves.filter(forType: move.type)
         
         guard let moveDic = Constant.pokemonLearnMoveJSON[move.name] as? Dictionary<String, [String]> else { return }
         learnMovePokemons = PokemonLearnMove.initArray(moveName: move.name, moveDictionary: moveDic)
         
-        for learnMovePokemon in learnMovePokemons {
-            pokemons = pokemons + Variable.allPokemonsSortedById.filter(forId: learnMovePokemon.pokemonId)
-        }
-        pokemons = pokemons.sortById()
-        currentPokemons = pokemons
+        // TODO: pokemons sorted by id
+//        for learnMovePokemon in learnMovePokemons {
+//            pokemons = pokemons + Variable.allPokemonsSortedById.filter(forId: learnMovePokemon.pokemonId)
+//        }
+//        pokemons = pokemons.sortById()
+//        currentPokemons = pokemons
     }
     
     func configureSegmentControl() {
@@ -164,18 +166,18 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
         
         updateSegmentControllLearnMoveMethodIndex()
         
-        switch segmentControllLearnMoveMethodIndex {
+        switch segmentControllLearnMoveMethodIndex { // TODO: Pokemon learn move fileter for pokemon id
         case .levelUp:
             currentPokemons = []
-            let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .levelUp })
-            for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
-            currentPokemons = currentPokemons.sortById()
+//            let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .levelUp })
+//            for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
+//            currentPokemons = currentPokemons.sortById()
         
         case .breedOrLevelUp:
             currentPokemons = []
-            let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .breed || $0.learnMethod == .breedOrLevelUp })
-            for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
-            currentPokemons = currentPokemons.sortById()
+//            let learnPokemons = learnMovePokemons.filter({ $0.learnMethod == .breed || $0.learnMethod == .breedOrLevelUp })
+//            for learnPokemon in learnPokemons { currentPokemons += pokemons.filter(forId: learnPokemon.pokemonId) }
+//            currentPokemons = currentPokemons.sortById()
             
         default: currentPokemons = pokemons
         }

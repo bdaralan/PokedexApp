@@ -8,10 +8,10 @@
 
 import UIKit
 
-class AbilityDetailTVC: UITableViewController {
+class AbilityDetailTVC: UITableViewController { // TODO: fixed comments
     
     var ability: Ability! //will be assigned from segue
-    var pokemons: [Pokemon]!
+    var pokemons: [DBPokemon]!
     
     var abilityDetailLbl: SectionUILabel!
     var segmentControl: RoundUISegmentedControl!
@@ -97,14 +97,14 @@ class AbilityDetailTVC: UITableViewController {
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let pokemonInfoVC = segue.destination as? PokemonInfoVC, let pokemon = sender as? Pokemon else { return }
-        pokemonInfoVC.pokemon = pokemon
+        guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon else { return }
+        pokemonInfoTVC.pokemon = pokemon
     }
     
     // MARK: - Initializer and Handler
     
     func prepareNecessaryData() {
-        pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
+//        pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
     }
     
     func configureHeaderViews() {
@@ -125,11 +125,11 @@ class AbilityDetailTVC: UITableViewController {
     }
     
     @objc func segmentControlValueChanged(_ sender: RoundUISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case pokemonWithAbilitySegIndex: pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
-        case pokemonWithAbilityAsHiddenSegIndex: pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
-        default: ()
-        }
+//        switch sender.selectedSegmentIndex {
+//        case pokemonWithAbilitySegIndex: pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name)
+//        case pokemonWithAbilityAsHiddenSegIndex: pokemons = Variable.allPokemonsSortedById.filter(forAbility: ability.name, hiddenOnly: true)
+//        default: ()
+//        }
         tableView.reloadData()
     }
 }

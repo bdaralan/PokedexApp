@@ -41,13 +41,12 @@ class PokeDexEntryCell: UITableViewCell {
         configureEntryTextView()
         configureMeasurementLabel()
         configureConstraints()
-        configureCell(pokemon: nil)
     }
     
-    public func configureCell(pokemon: DBPokemon?) {
-//        self.pokemon = pokemon
-        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
-        let pokemon = self.pokemon!
+    public func configureCell(pokemon: DBPokemon) {
+        self.pokemon = pokemon
+//        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+//        let pokemon = self.pokemon!
         
         entryLabel.roundLabel.text = pokemon.info.id.toPokedexId()
         entryLabel.text = "Pokedex Entry"
@@ -60,7 +59,7 @@ class PokeDexEntryCell: UITableViewCell {
         Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
         Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
         """
-        toggleMeasurementLabel()
+        updateMeasurementLabelToHeight()
     }
     
     private func configureEntryLabel() {
@@ -118,15 +117,21 @@ class PokeDexEntryCell: UITableViewCell {
     @objc private func toggleMeasurementLabel() {
         let roundLabelText = measurementLabel.roundLabel.text ?? "nil"
         switch roundLabelText {
-        case Constant.UnicodeCharacter.weight, "nil":
-            measurementLabel.text = "\(pokemon.measurements.height)"
-            measurementLabel.roundLabel.text = Constant.UnicodeCharacter.angle
-            measurementLabel.roundLabel.backgroundColor = DBColor.PokemonMeasurement.height
-        case Constant.UnicodeCharacter.angle:
-            measurementLabel.text = "\(pokemon.measurements.weight)"
-            measurementLabel.roundLabel.text = Constant.UnicodeCharacter.weight
-            measurementLabel.roundLabel.backgroundColor = DBColor.PokemonMeasurement.weight
-        default: ()
+        case Constant.UnicodeCharacter.angle: updateMeasurementLabelToWeight()
+        case Constant.UnicodeCharacter.weight: updateMeasurementLabelToHeight()
+        default: updateMeasurementLabelToHeight()
         }
+    }
+    
+    private func updateMeasurementLabelToWeight() {
+        measurementLabel.text = "\(pokemon.measurements.weight)"
+        measurementLabel.roundLabel.text = Constant.UnicodeCharacter.weight
+        measurementLabel.roundLabel.backgroundColor = DBColor.PokemonMeasurement.weight
+    }
+    
+    private func updateMeasurementLabelToHeight() {
+        measurementLabel.text = "\(pokemon.measurements.height)"
+        measurementLabel.roundLabel.text = Constant.UnicodeCharacter.angle
+        measurementLabel.roundLabel.backgroundColor = DBColor.PokemonMeasurement.height
     }
 }

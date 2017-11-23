@@ -9,13 +9,29 @@
 import UIKit
 
 class PokemonInfoTVC: UITableViewController {
+    
+    var pokemon: DBPokemon!
 
     var cellIds: [String]!
     
     var pokeStateCell: PokeStatCell!
     
+    override init(style: UITableViewStyle) {
+        super.init(style: style)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    convenience init(pokemon: DBPokemon) {
+        self.init(style: .plain)
+        self.pokemon = pokemon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = pokemon.info.name
         ConfigureTableView()
     }
     
@@ -44,7 +60,20 @@ class PokemonInfoTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIds[indexPath.row], for: indexPath)
-        if cell is PokeStatCell { pokeStateCell = cell as? PokeStatCell }
+        switch cell {
+        case is PokeInfoCell:
+            let cell = cell as! PokeInfoCell
+            cell.configureCell(pokemon: pokemon)
+        case is PokeStatCell:
+            let cell = cell as! PokeStatCell
+            cell.configureCell(pokemon: pokemon)
+            pokeStateCell = cell
+        case is PokeEvolutionCell: ()
+        case is PokeDexEntryCell:
+            let cell = cell as! PokeDexEntryCell
+            cell.configureCell(pokemon: pokemon)
+        default: return UITableViewCell()
+        }
         return cell
     }
     
