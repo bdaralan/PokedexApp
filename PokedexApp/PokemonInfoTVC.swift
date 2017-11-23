@@ -51,9 +51,10 @@ class PokemonInfoTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0: return PokeInfoCell.defaultCellHeight
-        case 1: return PokeStatCell.defaultCellHeight
+        let cellId = cellIds[indexPath.row]
+        switch cellId {
+        case "\(PokeInfoCell.self)": return PokeInfoCell.defaultCellHeight
+        case "\(PokeStatCell.self)": return PokeStatCell.defaultCellHeight
         default: return 300
         }
     }

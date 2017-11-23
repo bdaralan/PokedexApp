@@ -24,6 +24,15 @@ public class DBPokemon: Encodable, Decodable, Equatable {
     let stats: PokeStat
     let measurements: PokeMeasurement
     
+    public static func ==(lhs: DBPokemon, rhs: DBPokemon) -> Bool {
+        return lhs.info.id == rhs.info.id && lhs.info.name == rhs.info.name
+    }
+}
+
+// MARK: - Pokemon Extension
+
+public extension DBPokemon {
+    
     public var key: String {
         return String.init(format: "%04d%@", info.id, info.name)
     }
@@ -32,8 +41,19 @@ public class DBPokemon: Encodable, Decodable, Equatable {
         return "\(info.id)-\(info.form.lowercased())"
     }
     
-    public static func ==(lhs: DBPokemon, rhs: DBPokemon) -> Bool {
-        return lhs.info.id == rhs.info.id && lhs.info.name == rhs.info.name
+    /// Grab Pokedex entry from `PokeData.pokedexEntryJson`.
+    /// - note: `return` An empty `PokeEntry` if entry not found.
+    public var pokedexEntry: PokeEntry {
+        if let dict = PokeData.pokedexEntryJson["\(info.id)"] as? DictionarySA {
+            do {
+                let data = try JSONSerialization.data(withJSONObject: dict, options: [])
+                let entry = try JSONDecoder().decode(PokeEntry.self, from: data)
+                return entry
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return PokeEntry(omega: "", alpha: "")
     }
 }
 
@@ -90,4 +110,24 @@ public struct PokeMeasurement: Encodable, Decodable {
     
     let height: String
     let weight: String
+}
+
+
+/// PokedexEntry
+public struct PokeEntry: Encodable, Decodable {
+    
+    let omega: String
+    let alpha: String
+    
+    var isEmpty: Bool { return omega.isEmpty && alpha.isEmpty }
+    var isSameEntry: Bool { return omega == alpha }
+    
+    static func prettyString(_ pokemon: DBPokemon) -> String {
+        let entry = pokemon.pokedexEntry
+        guard !entry.omega.isEmpty, !entry.omega.isEmpty else { return "\(pokemon.info.name)..." }
+        switch entry.omega == entry.alpha {
+        case true: return "ORAS:\n\(entry.omega)"
+        case false: return "Omega Ruby:\n\(entry.omega)\n\nAlpha Sapphire:\n\(entry.alpha)"
+        }
+    }
 }

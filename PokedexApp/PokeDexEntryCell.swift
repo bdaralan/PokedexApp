@@ -15,6 +15,7 @@ class PokeDexEntryCell: UITableViewCell {
     let measurementLabel = RIOUILabel()
     
     var pokemon: DBPokemon!
+    var pokedexEntry: String! // store pokedex entry to prevent fetching when cell is dequeued
     
     public static var defaultCellHeight: CGFloat { return 90 }
 
@@ -45,21 +46,13 @@ class PokeDexEntryCell: UITableViewCell {
     
     public func configureCell(pokemon: DBPokemon) {
         self.pokemon = pokemon
-//        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
-//        let pokemon = self.pokemon!
-        
-        entryLabel.roundLabel.text = pokemon.info.id.toPokedexId()
-        entryLabel.text = "Pokedex Entry"
-        entryTextView.text =
-        """
-        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
-        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
-        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
-        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
-        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
-        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
-        """
         updateMeasurementLabelToHeight()
+        entryLabel.text = "Pokedex Entry"
+        entryLabel.roundLabel.text = pokemon.info.id.toPokedexId()
+        if pokedexEntry == nil {
+            pokedexEntry = PokeEntry.prettyString(pokemon)
+        }
+        entryTextView.text = pokedexEntry
     }
     
     private func configureEntryLabel() {

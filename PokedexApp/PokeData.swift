@@ -16,6 +16,8 @@ private var pokemonMegaEvolutionJsonFileName: String { return "pokemon-mega-evol
 
 private var pokemonEvolutionTreeJsonFileName: String { return "pokemon-evolution-tree" }
 
+private var pokedexEntryJsonFileName: String { return "pokedex-enteries" }
+
 
 // MARK: - Singleton
 
@@ -24,6 +26,8 @@ private var _pokemonJson: DictionarySA!
 private var _pokemonMegaEvolutionJson: DictionarySA!
 
 private var _pokemonEvolutionTreeJson: DictionarySA!
+
+private var _pokedexEntryJson: DictionarySA!
 
 private var _pokemonMap: Dictionary<String, DBPokemon>!
 
@@ -45,6 +49,8 @@ public struct PokeData {
     /// Dictionary from `json` file `pokemonEvolutionTreeJsonFileName`.
     public static var pokemonEvolutionTreeJson: Dictionary<String, AnyObject> { return _pokemonEvolutionTreeJson }
     
+    public static var pokedexEntryJson: Dictionary<String, AnyObject> { return _pokedexEntryJson }
+    
     /// Pokemon dictionary.
     /// - note: Each dictionary's key is `Pokemon.key`.
     public static var pokemonMap: Dictionary<String, DBPokemon> { return _pokemonMap }
@@ -60,6 +66,7 @@ public struct PokeData {
         _pokemonJson = readPokemonJson()
         _pokemonMegaEvolutionJson = readPokemonMegaEvolutionJson()
         _pokemonEvolutionTreeJson = readPokemonEvolutionTreeJson()
+        _pokedexEntryJson = readPokedexEntryJson()
         
         // create pokemon map
         _pokemons = decodePokemons(from: _pokemonJson) + decodePokemons(from: _pokemonMegaEvolutionJson)
@@ -79,6 +86,11 @@ public struct PokeData {
     /// Read `pokemonEvolutionTreeJsonFileName.json` to `_pokemonEvolutionTreeJson`.
     private static func readPokemonEvolutionTreeJson() -> DictionarySA {
         return readJson(fileName: pokemonEvolutionTreeJsonFileName)
+    }
+    
+    /// Read `pokedexEntryJsonFileName.json` to `_pokedexEntryJson`
+    private static func readPokedexEntryJson() -> DictionarySA {
+        return readJson(fileName: pokedexEntryJsonFileName)
     }
     
     private static func createAllPokemonMap(pokemons: [DBPokemon]) -> Dictionary<String, DBPokemon> {
