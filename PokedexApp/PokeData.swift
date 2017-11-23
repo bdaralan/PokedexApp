@@ -27,6 +27,8 @@ private var _pokemonEvolutionTreeJson: DictionarySA!
 
 private var _pokemonMap: Dictionary<String, DBPokemon>!
 
+private var _pokemons: [DBPokemon]!
+
 
 // MARK: - PokeData
 
@@ -47,6 +49,9 @@ public struct PokeData {
     /// - note: Each dictionary's key is `Pokemon.key`.
     public static var pokemonMap: Dictionary<String, DBPokemon> { return _pokemonMap }
     
+    /// All Pokemon including other forms
+    public static var pokemons: [DBPokemon] { return _pokemons }
+    
     // MARK: - Function
     
     /// Initializes and prepares `PokeData`'s properties.
@@ -57,8 +62,8 @@ public struct PokeData {
         _pokemonEvolutionTreeJson = readPokemonEvolutionTreeJson()
         
         // create pokemon map
-        let allPokemons = decodePokemons(from: _pokemonJson) + decodePokemons(from: _pokemonMegaEvolutionJson)
-        _pokemonMap = createAllPokemonMap(pokemons: allPokemons)
+        _pokemons = decodePokemons(from: _pokemonJson) + decodePokemons(from: _pokemonMegaEvolutionJson)
+        _pokemonMap = createAllPokemonMap(pokemons: _pokemons)
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.
