@@ -44,7 +44,7 @@ class PokeStatCell: UITableViewCell {
     
     var pokemon: DBPokemon!
     
-    public static var defaultCellHeight: CGFloat { return (margin * 2) + (labelHeight * 7) + (space * 6) }
+    public static var defaultCellHeight: CGFloat { return (space * 2) + (labelHeight * 7) + (space * 6) }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -123,10 +123,10 @@ class PokeStatCell: UITableViewCell {
         defenseLabel.text = "Defense"
         setupStatLabel(label: defenseLabel, backgroundColor: DBColor.PokemonStat.defense)
         
-        spAttackLabel.text = "SpAttack"
+        spAttackLabel.text = "SpAtt"
         setupStatLabel(label: spAttackLabel, backgroundColor: DBColor.PokemonStat.spAttack)
         
-        spDefenseLabel.text = "SpDefense"
+        spDefenseLabel.text = "SpDef"
         setupStatLabel(label: spDefenseLabel, backgroundColor: DBColor.PokemonStat.spDefense)
         
         speedLabel.text = "Speed"
@@ -209,10 +209,10 @@ class PokeStatCell: UITableViewCell {
         contentView.addSubview(minMaxLabel)
         
         // use as reference
-        statStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin).isActive = true
+        statStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: space).isActive = true
         statStackView.bottomAnchor.constraint(equalTo: totalLabel.topAnchor, constant: -space).isActive = true
         statStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
-        statStackView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        statStackView.widthAnchor.constraint(equalToConstant: 125).isActive = true
         
         sliderStackView.topAnchor.constraint(equalTo: statStackView.topAnchor).isActive = true
         sliderStackView.bottomAnchor.constraint(equalTo: statStackView.bottomAnchor).isActive = true
@@ -224,7 +224,7 @@ class PokeStatCell: UITableViewCell {
         minMaxStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
         minMaxStackView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
-        totalLabel.topAnchor.constraint(equalTo: statStackView.bottomAnchor, constant: space).isActive = true
+        totalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -space).isActive = true
         totalLabel.leadingAnchor.constraint(equalTo: statStackView.leadingAnchor).isActive = true
         totalLabel.trailingAnchor.constraint(equalTo: statStackView.trailingAnchor).isActive = true
         totalLabel.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
