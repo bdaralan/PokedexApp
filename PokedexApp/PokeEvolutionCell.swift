@@ -11,6 +11,8 @@ import UIKit
 /// Use with PokemonInfoTVC to display Pokemon's evolutions.
 class PokeEvolutionCell: UITableViewCell {
     
+    public static var defualtCellHeight: CGFloat { return 250 } // TODO: needs formula
+    
     var evolutionCV: PokeEvolutionCV!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

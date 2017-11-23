@@ -16,6 +16,8 @@ private let labelHeight: CGFloat = 28
 /// Use with PokemonInfoTVC to display Pokemon's id, types, abilities, and image.
 class PokeInfoCell: UITableViewCell {
     
+    public static var defaultCellHeight: CGFloat { return (labelHeight * 5) + (margin * 2) + (spacing * 4) }
+    
     let idLabel = SectionUILabel()
     let pokeImageView = UIImageView()
     
@@ -30,8 +32,6 @@ class PokeInfoCell: UITableViewCell {
     
     private var primaryTypeLabelWidthAnchor: NSLayoutConstraint!
     private var primaryTypeLabelTrailingAnchor: NSLayoutConstraint!
-    
-    static var defaultCellHeight: CGFloat { return (labelHeight * 5) + (margin * 2) + (spacing * 4) }
     
     var pokemon: DBPokemon!
 

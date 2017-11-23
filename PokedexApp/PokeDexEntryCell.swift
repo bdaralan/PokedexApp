@@ -10,14 +10,14 @@ import UIKit
 
 class PokeDexEntryCell: UITableViewCell {
     
+    public static var defaultCellHeight: CGFloat { return 300 } // TODO: may or may not need formula
+    
     let entryLabel = RIOUILabel()
     let entryTextView = UITextView()
     let measurementLabel = RIOUILabel()
     
     var pokemon: DBPokemon!
     var pokedexEntry: String! // store pokedex entry to prevent fetching when cell is dequeued
-    
-    public static var defaultCellHeight: CGFloat { return 90 }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,7 +52,7 @@ class PokeDexEntryCell: UITableViewCell {
         if pokedexEntry == nil {
             pokedexEntry = PokeEntry.prettyString(pokemon)
         }
-        entryTextView.text = pokedexEntry
+        entryTextView.text = "\n" + pokedexEntry
     }
     
     private func configureEntryLabel() {
@@ -87,8 +87,8 @@ class PokeDexEntryCell: UITableViewCell {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         entryTextView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stackView)
         contentView.addSubview(entryTextView)
+        contentView.addSubview(stackView)
         
         // stackView constraints
         let margin: CGFloat = 16
@@ -99,8 +99,8 @@ class PokeDexEntryCell: UITableViewCell {
         stackView.heightAnchor.constraint(equalToConstant: stackViewHeight).isActive = true
         
         // entryTextView
-        entryTextView.topAnchor.constraint(equalTo: measurementLabel.roundLabel.bottomAnchor, constant: margin / 2).isActive = true
-        entryTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin).isActive = true
+        entryTextView.topAnchor.constraint(equalTo: measurementLabel.bottomAnchor).isActive = true
+        entryTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         entryTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
         entryTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
     }

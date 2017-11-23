@@ -15,6 +15,8 @@ private let labelHeight: CGFloat = 28
 /// Use with `PokemonTVC` to display Pokemon's stats.
 class PokeStatCell: UITableViewCell {
     
+    public static var defaultCellHeight: CGFloat { return (space * 2) + (labelHeight * 7) + (space * 6) }
+    
     let totalLabel = RIOUILabel()
     let minMaxLabel = RIOUILabel()
     
@@ -43,8 +45,6 @@ class PokeStatCell: UITableViewCell {
     let speedSlider = UISlider()
     
     var pokemon: DBPokemon!
-    
-    public static var defaultCellHeight: CGFloat { return (space * 2) + (labelHeight * 7) + (space * 6) }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

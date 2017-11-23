@@ -55,7 +55,9 @@ class PokemonInfoTVC: UITableViewController {
         switch cellId {
         case "\(PokeInfoCell.self)": return PokeInfoCell.defaultCellHeight
         case "\(PokeStatCell.self)": return PokeStatCell.defaultCellHeight
-        default: return 300
+        case "\(PokeEvolutionCell.self)": return PokeEvolutionCell.defualtCellHeight
+        case "\(PokeDexEntryCell.self)": return PokeDexEntryCell.defaultCellHeight
+        default: return 0
         }
     }
     
