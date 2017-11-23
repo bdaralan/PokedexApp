@@ -11,7 +11,7 @@ import UIKit
 private let spacing: CGFloat = 16
 private let margin: CGFloat = 16
 private let typeSpacing: CGFloat = 8
-private let labelHeight: CGFloat = 21
+private let labelHeight: CGFloat = 28
 
 /// Use with PokemonInfoTVC to display Pokemon's id, types, abilities, and image.
 class PokeInfoCell: UITableViewCell {
@@ -147,8 +147,8 @@ class PokeInfoCell: UITableViewCell {
         //secondaryTypeLabel
         secondaryTypeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin).isActive = true
         secondaryTypeLabel.trailingAnchor.constraint(equalTo: idLabel.trailingAnchor).isActive = true
-        secondaryTypeLabel.heightAnchor.constraint(equalTo: idLabel.heightAnchor).isActive = true
-        secondaryTypeLabel.widthAnchor.constraint(equalTo: idLabel.widthAnchor, multiplier: 0.5, constant: -typeSpacing / 2).isActive = true
+        secondaryTypeLabel.heightAnchor.constraint(equalTo: primaryTypeLabel.heightAnchor).isActive = true
+        secondaryTypeLabel.widthAnchor.constraint(equalTo: primaryTypeLabel.widthAnchor).isActive = true
         
         // abilityLabel
         abilityLabel.topAnchor.constraint(equalTo: idLabel.topAnchor).isActive = true

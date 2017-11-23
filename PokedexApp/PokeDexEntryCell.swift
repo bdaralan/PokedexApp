@@ -100,7 +100,7 @@ class PokeDexEntryCell: UITableViewCell {
         
         // stackView constraints
         let margin: CGFloat = 16
-        let stackViewHeight: CGFloat = 25
+        let stackViewHeight: CGFloat = 28
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin + stackViewHeight / 2).isActive = true
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
