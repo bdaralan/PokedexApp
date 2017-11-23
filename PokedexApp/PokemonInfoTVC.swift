@@ -12,9 +12,16 @@ class PokemonInfoTVC: UITableViewController {
 
     var cellIds: [String]!
     
+    var pokeStateCell: PokeStatCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ConfigureTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        pokeStateCell?.updateStatSlides(animated: true)
     }
 
     // MARK: - Table view data source
@@ -37,6 +44,7 @@ class PokemonInfoTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIds[indexPath.row], for: indexPath)
+        if cell is PokeStatCell { pokeStateCell = cell as? PokeStatCell }
         return cell
     }
     

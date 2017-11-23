@@ -39,7 +39,6 @@ struct Constant {
     static let crySoundSepcialCaseName: DictionarySS = loadData.crySoundSpecialCaseName
     
     
-    // Sub Struct
     struct Font {
         
         static let gillSans = UIFont(name: "GillSans", size: 17)
@@ -59,6 +58,13 @@ struct Constant {
             
             static let soundEffectSwitchState = "SettingSoundEffectState"
         }
+    }
+    
+    struct UnicodeCharacter {
+        
+        static let weight = "𐄷"
+        
+        static let angle = "∡"
     }
     
     struct Constrain {

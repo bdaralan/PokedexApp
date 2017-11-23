@@ -12,6 +12,7 @@ class PokeDexEntryCell: UITableViewCell {
     
     let entryLabel = RIOUILabel()
     let entryTextView = UITextView()
+    let measurementLabel = RIOUILabel()
     
     var pokemon: DBPokemon!
     
@@ -38,13 +39,16 @@ class PokeDexEntryCell: UITableViewCell {
     private func configureCell() {
         configureEntryLabel()
         configureEntryTextView()
+        configureMeasurementLabel()
         configureConstraints()
         configureCell(pokemon: nil)
     }
     
     public func configureCell(pokemon: DBPokemon?) {
 //        self.pokemon = pokemon
-        let pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+        self.pokemon = PokeData.pokemonMap["0282Gardevoir"]!
+        let pokemon = self.pokemon!
+        
         entryLabel.roundLabel.text = pokemon.info.id.toPokedexId()
         entryLabel.text = "Pokedex Entry"
         entryTextView.text =
@@ -52,7 +56,11 @@ class PokeDexEntryCell: UITableViewCell {
         Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
         Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
         Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
+        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
+        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
+        Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text Placeholder Text
         """
+        toggleMeasurementLabel()
     }
     
     private func configureEntryLabel() {
@@ -63,26 +71,62 @@ class PokeDexEntryCell: UITableViewCell {
     
     private func configureEntryTextView() {
         entryTextView.isEditable = false
+        entryTextView.font = UIFont.systemFont(ofSize: 17)
+    }
+    
+    private func configureMeasurementLabel() {
+        measurementLabel.roundLabel.textColor = .white
+        measurementLabel.roundLabel.font = UIFont(name: measurementLabel.roundLabel.font.familyName, size: 32)
+
+        // gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleMeasurementLabel))
+        measurementLabel.roundLabel.addGestureRecognizer(tapGesture)
+        measurementLabel.roundLabel.isUserInteractionEnabled = true
     }
     
     private func configureConstraints() {
-        entryLabel.translatesAutoresizingMaskIntoConstraints = false
+        // create a stackView to hold entryLabel and measurementLabel
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 16
+        stackView.addArrangedSubview(entryLabel)
+        stackView.addArrangedSubview(measurementLabel)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         entryTextView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(entryLabel)
+        contentView.addSubview(stackView)
         contentView.addSubview(entryTextView)
         
+        // stackView constraints
         let margin: CGFloat = 16
-        let spacing: CGFloat = 8
-        // entryLabel
-        entryLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin).isActive = true
-        entryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
-        entryLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
-        entryLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
-
+        let stackViewHeight: CGFloat = 25
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin + stackViewHeight / 2).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: stackViewHeight).isActive = true
+        
         // entryTextView
-        entryTextView.topAnchor.constraint(equalTo: entryLabel.bottomAnchor, constant: spacing).isActive = true
+        entryTextView.topAnchor.constraint(equalTo: measurementLabel.roundLabel.bottomAnchor, constant: margin / 2).isActive = true
         entryTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin).isActive = true
-        entryTextView.leadingAnchor.constraint(equalTo: entryLabel.leadingAnchor).isActive = true
+        entryTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin).isActive = true
         entryTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin).isActive = true
+    }
+    
+    // MARK: - Selector
+    
+    @objc private func toggleMeasurementLabel() {
+        let roundLabelText = measurementLabel.roundLabel.text ?? "nil"
+        switch roundLabelText {
+        case Constant.UnicodeCharacter.weight, "nil":
+            measurementLabel.text = "\(pokemon.measurements.height)"
+            measurementLabel.roundLabel.text = Constant.UnicodeCharacter.angle
+            measurementLabel.roundLabel.backgroundColor = DBColor.PokemonMeasurement.height
+        case Constant.UnicodeCharacter.angle:
+            measurementLabel.text = "\(pokemon.measurements.weight)"
+            measurementLabel.roundLabel.text = Constant.UnicodeCharacter.weight
+            measurementLabel.roundLabel.backgroundColor = DBColor.PokemonMeasurement.weight
+        default: ()
+        }
     }
 }

@@ -87,6 +87,13 @@ struct DBColor {
         static let speed = UIColor(red: 249.range, green: 201.range, blue: 14.range, alpha: 1) // F9C90E
     }
     
+    struct PokemonMeasurement {
+        
+        static let weight = UIColor(red: 231.range, green: 73.range, blue: 130.range, alpha: 1) // E74982
+        
+        static let height = UIColor(red: 103.range, green: 217.range, blue: 215.range, alpha: 1) // 67D9D7
+    }
+    
     /// App object color
     struct AppObject {
         
