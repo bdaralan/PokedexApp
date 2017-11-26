@@ -11,6 +11,8 @@ import UIKit
 /// `PokeEvolutionCV`'s cell, use to display Pokemon's evolutions.
 class PokeEvolutionCollectionCell: UICollectionViewCell {
     
+    public static var defaultId: String { return "\(PokeEvolutionCollectionCell.self)" }
+    
     let label: RIOUILabel = RIOUILabel()
     let imageView: UIImageView = UIImageView()
     

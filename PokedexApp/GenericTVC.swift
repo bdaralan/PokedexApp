@@ -205,7 +205,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     func prepareNecessaryData() {
         switch currentGenericCell {
-        case .PokedexCell: pokemons = PokeData.pokemons // Variable.allPokemonsSortedById
+        case .PokedexCell: pokemons = PokeData.instance.pokemons // Variable.allPokemonsSortedById
         case .TypeCell: types = Variable.allTypes
         case .MoveCell: moves = Variable.allMoves
         case .AbilityCell: abilities = Variable.allAbilities

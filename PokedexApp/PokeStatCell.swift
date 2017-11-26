@@ -15,6 +15,7 @@ private let labelHeight: CGFloat = 28
 /// Use with `PokemonTVC` to display Pokemon's stats.
 class PokeStatCell: UITableViewCell {
     
+    public static var defaultId: String { return "\(PokeStatCell.self)" }
     public static var defaultCellHeight: CGFloat { return (space * 2) + (labelHeight * 7) + (space * 6) }
     
     let totalLabel = RIOUILabel()

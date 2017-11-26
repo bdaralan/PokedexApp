@@ -16,6 +16,7 @@ private let labelHeight: CGFloat = 28
 /// Use with PokemonInfoTVC to display Pokemon's id, types, abilities, and image.
 class PokeInfoCell: UITableViewCell {
     
+    public static var defaultId: String { return "\(PokeInfoCell.self)" }
     public static var defaultCellHeight: CGFloat { return (labelHeight * 5) + (margin * 2) + (spacing * 4) }
     
     let idLabel = SectionUILabel()

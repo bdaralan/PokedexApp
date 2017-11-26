@@ -36,7 +36,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate { // TODO: fixed
     
     override func viewDidLoad() { // TODO: pokemons and moves
         super.viewDidLoad()
-        pokemons = PokeData.pokemons // Variable.allPokemonsSortedById.filter(forType: type)
+        pokemons = PokeData.instance.pokemons // Variable.allPokemonsSortedById.filter(forType: type)
 //        moves = Variable.allMoves.filter(forType: type)
         configureHeaderViews()
         updateUI()

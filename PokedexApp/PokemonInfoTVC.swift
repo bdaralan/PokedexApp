@@ -53,10 +53,10 @@ class PokemonInfoTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellId = cellIds[indexPath.row]
         switch cellId {
-        case "\(PokeInfoCell.self)": return PokeInfoCell.defaultCellHeight
-        case "\(PokeStatCell.self)": return PokeStatCell.defaultCellHeight
-        case "\(PokeEvolutionCell.self)": return PokeEvolutionCell.defualtCellHeight
-        case "\(PokeDexEntryCell.self)": return PokeDexEntryCell.defaultCellHeight
+        case PokeInfoCell.defaultId: return PokeInfoCell.defaultCellHeight
+        case PokeStatCell.defaultId: return PokeStatCell.defaultCellHeight
+        case PokeEvolutionCell.defaultId: return PokeEvolutionCell.defualtCellHeight
+        case PokeDexEntryCell.defaultId: return PokeDexEntryCell.defaultCellHeight
         default: return 0
         }
     }
@@ -75,7 +75,7 @@ class PokemonInfoTVC: UITableViewController {
         case is PokeDexEntryCell:
             let cell = cell as! PokeDexEntryCell
             cell.configureCell(pokemon: pokemon)
-        default: return UITableViewCell()
+        default: ()
         }
         return cell
     }
@@ -83,15 +83,18 @@ class PokemonInfoTVC: UITableViewController {
     // MARK: - Function
     
     private func ConfigureTableView() {
-        // register cells
-        cellIds = ["\(PokeInfoCell.self)", "\(PokeStatCell.self)", "\(PokeEvolutionCell.self)", "\(PokeDexEntryCell.self)"]
-        tableView.register(PokeInfoCell.self, forCellReuseIdentifier: "\(PokeInfoCell.self)")
-        tableView.register(PokeStatCell.self, forCellReuseIdentifier: "\(PokeStatCell.self)")
-        tableView.register(PokeEvolutionCell.self, forCellReuseIdentifier: "\(PokeEvolutionCell.self)")
-        tableView.register(PokeDexEntryCell.self, forCellReuseIdentifier: "\(PokeDexEntryCell.self)")
-        
-        // tableview
-        tableView.separatorInset = UIEdgeInsets.zero
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorInset = UIEdgeInsets.zero
+        
+        // register cells
+        cellIds = []
+        tableView.register(PokeInfoCell.self, forCellReuseIdentifier: PokeInfoCell.defaultId)
+        cellIds.append(PokeInfoCell.defaultId)
+        tableView.register(PokeStatCell.self, forCellReuseIdentifier: PokeStatCell.defaultId)
+        cellIds.append(PokeStatCell.defaultId)
+        tableView.register(PokeEvolutionCell.self, forCellReuseIdentifier: PokeEvolutionCell.defaultId)
+        cellIds.append(PokeEvolutionCell.defaultId)
+        tableView.register(PokeDexEntryCell.self, forCellReuseIdentifier: PokeDexEntryCell.defaultId)
+        cellIds.append(PokeDexEntryCell.defaultId)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class PokeDexEntryCell: UITableViewCell {
     
+    public static var defaultId: String { return "\(PokeDexEntryCell.self)" }
     public static var defaultCellHeight: CGFloat { return 300 } // TODO: may or may not need formula
     
     let entryLabel = RIOUILabel()

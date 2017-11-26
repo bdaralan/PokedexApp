@@ -18,59 +18,69 @@ private var pokemonEvolutionTreeJsonFileName: String { return "pokemon-evolution
 
 private var pokedexEntryJsonFileName: String { return "pokedex-enteries" }
 
-
-// MARK: - Singleton
-
-private var _pokemonJson: DictionarySA!
-
-private var _pokemonMegaEvolutionJson: DictionarySA!
-
-private var _pokemonEvolutionTreeJson: DictionarySA!
-
-private var _pokedexEntryJson: DictionarySA!
-
-private var _pokemonMap: Dictionary<String, DBPokemon>!
-
-private var _pokemons: [DBPokemon]!
-
-
 // MARK: - PokeData
 
 public struct PokeData {
     
-    // MARK: - Getter
+    /// PokeData singleton
+    private static var pokeDataInstance: PokeData!
     
     /// Dictionary from `json` file `pokemonJsonFileName`.
-    public static var pokemonJson: Dictionary<String, AnyObject> { return _pokemonJson }
+    public let pokemonJson: Dictionary<String, AnyObject>
     
     /// Dictionary from `json` file `pokemonMegaEvolutionJsonFileName`.
-    public static var pokemonMegaEvolutionJson: Dictionary<String, AnyObject> { return _pokemonMegaEvolutionJson }
+    public let pokemonMegaEvolutionJson: Dictionary<String, AnyObject>
     
     /// Dictionary from `json` file `pokemonEvolutionTreeJsonFileName`.
-    public static var pokemonEvolutionTreeJson: Dictionary<String, AnyObject> { return _pokemonEvolutionTreeJson }
+    public let pokemonEvolutionTreeJson: Dictionary<String, AnyObject>
     
-    public static var pokedexEntryJson: Dictionary<String, AnyObject> { return _pokedexEntryJson }
+    /// Dictionary from `json` file `pokedexEntryJsonFileName`.
+    public let pokedexEntryJson: Dictionary<String, AnyObject>
     
     /// Pokemon dictionary.
     /// - note: Each dictionary's key is `Pokemon.key`.
-    public static var pokemonMap: Dictionary<String, DBPokemon> { return _pokemonMap }
+    public let pokemonMap: Dictionary<String, DBPokemon>
     
     /// All Pokemon including other forms
-    public static var pokemons: [DBPokemon] { return _pokemons }
+    public let pokemons: [DBPokemon]
     
-    // MARK: - Function
+    // MARK: - Getter
     
-    /// Initializes and prepares `PokeData`'s properties.
-    public static func initializes() {
+    /// PokeData instance (singleton).
+    public static var instance: PokeData {
+        if pokeDataInstance == nil { initializes() }
+        return pokeDataInstance
+    }
+}
+
+// MARK: - Initialization
+
+extension PokeData {
+    
+    /// Initializes and prepares `PokeData` instance.
+    /// - note: This method will only initialize once, when `PokeData` instance is `nil`.
+    /// - parameter force: pass in `true` to force a reinitialization.
+    public static func initializes(force: Bool = false) {
+        guard pokeDataInstance == nil || force else { return }
+        
         // read all necessary json
-        _pokemonJson = readPokemonJson()
-        _pokemonMegaEvolutionJson = readPokemonMegaEvolutionJson()
-        _pokemonEvolutionTreeJson = readPokemonEvolutionTreeJson()
-        _pokedexEntryJson = readPokedexEntryJson()
+        let pokemonJson = readPokemonJson()
+        let pokemonMegaEvolutionJson = readPokemonMegaEvolutionJson()
+        let pokemonEvolutionTreeJson = readPokemonEvolutionTreeJson()
+        let pokedexEntryJson = readPokedexEntryJson()
         
         // create pokemon map
-        _pokemons = decodePokemons(from: _pokemonJson) + decodePokemons(from: _pokemonMegaEvolutionJson)
-        _pokemonMap = createAllPokemonMap(pokemons: _pokemons)
+        let pokemons = decodePokemons(from: pokemonJson) + decodePokemons(from: pokemonMegaEvolutionJson)
+        let pokemonMap = createAllPokemonMap(pokemons: pokemons)
+        
+        // initialize pokeDataInstance singleton
+        pokeDataInstance = PokeData(pokemonJson: pokemonJson,
+                                    pokemonMegaEvolutionJson: pokemonMegaEvolutionJson,
+                                    pokemonEvolutionTreeJson: pokemonEvolutionTreeJson,
+                                    pokedexEntryJson: pokedexEntryJson,
+                                    pokemonMap: pokemonMap,
+                                    pokemons: pokemons
+        )
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.

@@ -44,7 +44,7 @@ public extension DBPokemon {
     /// Grab Pokedex entry from `PokeData.pokedexEntryJson`.
     /// - note: `return` An empty `PokeEntry` if entry not found.
     public var pokedexEntry: PokeEntry {
-        if let dict = PokeData.pokedexEntryJson["\(info.id)"] as? DictionarySA {
+        if let dict = PokeData.instance.pokedexEntryJson["\(info.id)"] as? DictionarySA {
             do {
                 let data = try JSONSerialization.data(withJSONObject: dict, options: [])
                 let entry = try JSONDecoder().decode(PokeEntry.self, from: data)
