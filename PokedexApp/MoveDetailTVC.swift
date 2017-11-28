@@ -12,10 +12,10 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     
     var move: Move! // will be assigned during segue
     var moves = [Move]()
-    var pokemons = [DBPokemon]()
+    var pokemons = [Pokemon]()
     var learnMovePokemons = [PokemonLearnMove]()
     
-    var currentPokemons = [DBPokemon]()
+    var currentPokemons = [Pokemon]()
     
     var segmentControl: RoundUISegmentedControl!
     var segmentControllLearnMoveMethodIndex: MoveLearnMethod!
@@ -113,7 +113,7 @@ class MoveDetailTVC: UITableViewController, TypeUILabelDelegate {
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon else { return }
+        guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? Pokemon else { return }
         pokemonInfoTVC.pokemon = pokemon
     }
     

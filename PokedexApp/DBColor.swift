@@ -19,79 +19,79 @@ struct DBColor {
     /// Pokemon type color
     struct PokemonType {
         
-        static let normal = UIColor(red: 168.range, green: 168.range, blue: 120.range, alpha: 1) //A8A878
+        static let normal = UIColor(red: 168.rgbRange, green: 168.rgbRange, blue: 120.rgbRange, alpha: 1) //A8A878
         
-        static let fighting = UIColor(red: 192.range, green: 48.range, blue: 40.range, alpha: 1) //C03028
+        static let fighting = UIColor(red: 192.rgbRange, green: 48.rgbRange, blue: 40.rgbRange, alpha: 1) //C03028
         
-        static let flying = UIColor(red: 168.range, green: 144.range, blue: 240.range, alpha: 1) //A890F0
+        static let flying = UIColor(red: 168.rgbRange, green: 144.rgbRange, blue: 240.rgbRange, alpha: 1) //A890F0
         
-        static let poison = UIColor(red: 160.range, green: 64.range, blue: 160.range, alpha: 1) //A040A0
+        static let poison = UIColor(red: 160.rgbRange, green: 64.rgbRange, blue: 160.rgbRange, alpha: 1) //A040A0
         
-        static let ground = UIColor(red: 224.range, green: 192.range, blue: 104.range, alpha: 1) //E0C068
+        static let ground = UIColor(red: 224.rgbRange, green: 192.rgbRange, blue: 104.rgbRange, alpha: 1) //E0C068
         
-        static let rock = UIColor(red: 184.range, green: 160.range, blue: 56.range, alpha: 1) //B8A038
+        static let rock = UIColor(red: 184.rgbRange, green: 160.rgbRange, blue: 56.rgbRange, alpha: 1) //B8A038
         
-        static let bug = UIColor(red: 168.range, green: 184.range, blue: 32.range, alpha: 1) //A8B820
+        static let bug = UIColor(red: 168.rgbRange, green: 184.rgbRange, blue: 32.rgbRange, alpha: 1) //A8B820
         
-        static let ghost = UIColor(red: 112.range, green: 88.range, blue: 152.range, alpha: 1) //705898
+        static let ghost = UIColor(red: 112.rgbRange, green: 88.rgbRange, blue: 152.rgbRange, alpha: 1) //705898
         
-        static let steel = UIColor(red: 184.range, green: 184.range, blue: 208.range, alpha: 1) //B8B8D0
+        static let steel = UIColor(red: 184.rgbRange, green: 184.rgbRange, blue: 208.rgbRange, alpha: 1) //B8B8D0
         
-        static let fire = UIColor(red: 240.range, green: 128.range, blue: 48.range, alpha: 1) //F08030
+        static let fire = UIColor(red: 240.rgbRange, green: 128.rgbRange, blue: 48.rgbRange, alpha: 1) //F08030
         
-        static let water = UIColor(red: 104.range, green: 144.range, blue: 240.range, alpha: 1) //6890F0
+        static let water = UIColor(red: 104.rgbRange, green: 144.rgbRange, blue: 240.rgbRange, alpha: 1) //6890F0
         
-        static let grass = UIColor(red: 120.range, green: 200.range, blue: 80.range, alpha: 1) //78C850
+        static let grass = UIColor(red: 120.rgbRange, green: 200.rgbRange, blue: 80.rgbRange, alpha: 1) //78C850
         
-        static let electric = UIColor(red: 248.range, green: 208.range, blue: 48.range, alpha: 1) //F8D030
+        static let electric = UIColor(red: 248.rgbRange, green: 208.rgbRange, blue: 48.rgbRange, alpha: 1) //F8D030
         
-        static let psychic = UIColor(red: 248.range, green: 88.range, blue: 136.range, alpha: 1) //F85888
+        static let psychic = UIColor(red: 248.rgbRange, green: 88.rgbRange, blue: 136.rgbRange, alpha: 1) //F85888
         
-        static let ice = UIColor(red: 152.range, green: 216.range, blue: 261.range, alpha: 1) //98D8D8
+        static let ice = UIColor(red: 152.rgbRange, green: 216.rgbRange, blue: 261.rgbRange, alpha: 1) //98D8D8
         
-        static let dragon = UIColor(red: 112.range, green: 56.range, blue: 248.range, alpha: 1) //7038F8
+        static let dragon = UIColor(red: 112.rgbRange, green: 56.rgbRange, blue: 248.rgbRange, alpha: 1) //7038F8
         
-        static let dark = UIColor(red: 112.range, green: 88.range, blue: 72.range, alpha: 1) //705848
+        static let dark = UIColor(red: 112.rgbRange, green: 88.rgbRange, blue: 72.rgbRange, alpha: 1) //705848
         
-        static let fairy = UIColor(red: 238.range, green: 153.range, blue: 172.range, alpha: 1) //EE99AC
+        static let fairy = UIColor(red: 238.rgbRange, green: 153.rgbRange, blue: 172.rgbRange, alpha: 1) //EE99AC
         
-        static let unknown = UIColor(red: 104.range, green: 160.range, blue: 144.range, alpha: 1) //68A090
+        static let unknown = UIColor(red: 104.rgbRange, green: 160.rgbRange, blue: 144.rgbRange, alpha: 1) //68A090
     }
     
     /// Pokemon move color
     struct PokemonMove {
         
-        static let physical = UIColor(red: 255.range, green: 69.range, blue: 0.range, alpha: 1) //FF4500
+        static let physical = UIColor(red: 255.rgbRange, green: 69.rgbRange, blue: 0.rgbRange, alpha: 1) //FF4500
         
-        static let special = UIColor(red: 34.range, green: 102.range, blue: 204.range, alpha: 1) //2266CC
+        static let special = UIColor(red: 34.rgbRange, green: 102.rgbRange, blue: 204.rgbRange, alpha: 1) //2266CC
         
-        static let status = UIColor(red: 153.range, green: 153.range, blue: 153.range, alpha: 1) //999999
+        static let status = UIColor(red: 153.rgbRange, green: 153.rgbRange, blue: 153.rgbRange, alpha: 1) //999999
         
-        static let zMove = UIColor(red: 250.range, green: 202.range, blue: 13.range, alpha: 1) //FACA0D
+        static let zMove = UIColor(red: 250.rgbRange, green: 202.rgbRange, blue: 13.rgbRange, alpha: 1) //FACA0D
     }
     
     /// Pokemon stats color
     
     struct PokemonStat {
         
-        static let hp = UIColor(red: 120.range, green: 200.range, blue: 80.range, alpha: 1) // 78C850
+        static let hp = UIColor(red: 120.rgbRange, green: 200.rgbRange, blue: 80.rgbRange, alpha: 1) // 78C850
         
-        static let attack = UIColor(red: 233.range, green: 64.range, blue: 3.range, alpha: 1) // E94003
+        static let attack = UIColor(red: 233.rgbRange, green: 64.rgbRange, blue: 3.rgbRange, alpha: 1) // E94003
         
-        static let defense = UIColor(red: 176.range, green: 48.range, blue: 0, alpha: 1) // B03000
+        static let defense = UIColor(red: 176.rgbRange, green: 48.rgbRange, blue: 0, alpha: 1) // B03000
         
-        static let spAttack = UIColor(red: 34.range, green: 102.range, blue: 204.range, alpha: 1) // 2266CC
+        static let spAttack = UIColor(red: 34.rgbRange, green: 102.rgbRange, blue: 204.rgbRange, alpha: 1) // 2266CC
         
-        static let spDefense = UIColor(red: 17.range, green: 55.range, blue: 112.range, alpha: 1) //B3770
+        static let spDefense = UIColor(red: 17.rgbRange, green: 55.rgbRange, blue: 112.rgbRange, alpha: 1) //B3770
         
-        static let speed = UIColor(red: 249.range, green: 201.range, blue: 14.range, alpha: 1) // F9C90E
+        static let speed = UIColor(red: 249.rgbRange, green: 201.rgbRange, blue: 14.rgbRange, alpha: 1) // F9C90E
     }
     
     struct PokemonMeasurement {
         
-        static let weight = UIColor(red: 231.range, green: 73.range, blue: 130.range, alpha: 1) // E74982
+        static let weight = UIColor(red: 231.rgbRange, green: 73.rgbRange, blue: 130.rgbRange, alpha: 1) // E74982
         
-        static let height = UIColor(red: 103.range, green: 217.range, blue: 215.range, alpha: 1) // 67D9D7
+        static let height = UIColor(red: 103.rgbRange, green: 217.rgbRange, blue: 215.rgbRange, alpha: 1) // 67D9D7
     }
     
     /// App object color
@@ -99,22 +99,11 @@ struct DBColor {
         
         // For custom objects in app
         
-        static let sectionBackground = UIColor(red: 199.range, green: 222.range, blue: 217.range, alpha: 0.7) //C7DED9
+        static let sectionBackground = UIColor(red: 199.rgbRange, green: 222.rgbRange, blue: 217.rgbRange, alpha: 0.7) //C7DED9
         
-        static let sectionText = UIColor(red: 59.range, green: 77.range, blue: 79.range, alpha: 1) //3B4D4F
+        static let sectionText = UIColor(red: 59.rgbRange, green: 77.rgbRange, blue: 79.rgbRange, alpha: 1) //3B4D4F
         
-        
-        // For default objects in app
-        
-        //static let navigationBar = UIColor.clear
-        
-        //static let barItem = UIColor.clear
-        
-        //static let viewController = UIColor.clear
-        
-        //static let tableViewController = UIColor.clear
-        
-        static let tableViewSeparator = UIColor(red: 199.range, green: 199.range, blue: 204.range, alpha: 1) //C7C7CC
+        static let tableViewSeparator = UIColor(red: 199.rgbRange, green: 199.rgbRange, blue: 204.rgbRange, alpha: 1) //C7C7CC
     }
 }
 
@@ -155,6 +144,6 @@ extension DBColor {
 
 private extension Int {
     
-    /// Devided `self` by 255 to get RBG range 0-1.
-    var range: CGFloat { return CGFloat(self) / 255 }
+    /// Devided `self` by 255 to get RBG range `0-1`.
+    var rgbRange: CGFloat { return CGFloat(self) / 255 }
 }

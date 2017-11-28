@@ -24,7 +24,7 @@ class PokedexCell: UITableViewCell {
         pokemonImg.contentMode = .scaleAspectFill
     }
     
-    func configureCell(for pokemon: DBPokemon) {
+    func configureCell(for pokemon: Pokemon) {
         
         pokemonName.text = pokemon.info.name
         pokemonID.text = pokemon.info.id.toPokedexId()

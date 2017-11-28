@@ -24,12 +24,12 @@ public class PokeEvolutionTree: Encodable, Decodable {
     ///
     convenience init(baseId: Int) {
         let key = String(format: "%04d", baseId)
-        let dictionary = PokeData.instance.pokemonEvolutionTreeJson[key] as? DictionarySA
+        let dictionary = PokeData.instance.pokemonEvolutionTreeJson[key] as? DictionarySO
         self.init(dictionary: dictionary)
     }
     
     /// Decode a pokemon evolution tree dictionary
-    convenience init(dictionary: DictionarySA?) {
+    convenience init(dictionary: DictionarySO?) {
         guard let dictionary = dictionary else {
             self.init()
             return

@@ -10,7 +10,7 @@ import UIKit
 
 class PokemonInfoTVC: UITableViewController {
     
-    var pokemon: DBPokemon!
+    var pokemon: Pokemon!
 
     var cellIds: [String]!
     
@@ -24,7 +24,7 @@ class PokemonInfoTVC: UITableViewController {
         super.init(coder: aDecoder)
     }
     
-    convenience init(pokemon: DBPokemon) {
+    convenience init(pokemon: Pokemon) {
         self.init(style: .plain)
         self.pokemon = pokemon
     }

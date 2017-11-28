@@ -45,7 +45,7 @@ class PokeStatCell: UITableViewCell {
     let spDefenseSlider = UISlider()
     let speedSlider = UISlider()
     
-    var pokemon: DBPokemon!
+    var pokemon: Pokemon!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -73,7 +73,7 @@ class PokeStatCell: UITableViewCell {
         configureConstraints()
     }
     
-    public func configureCell(pokemon: DBPokemon) {
+    public func configureCell(pokemon: Pokemon) {
         self.pokemon = pokemon
         updateStatLabels()
     }

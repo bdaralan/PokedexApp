@@ -24,7 +24,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     
     var genericCell: GenericCell! // will be assigned when perform segue
     
-    var pokemons: [DBPokemon]!
+    var pokemons: [Pokemon]!
     var types: [String]!
     var moves: [Move]!
     var abilities: [Ability]!
@@ -138,8 +138,8 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch sender {
             
-        case is DBPokemon:
-            guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon else { return }
+        case is Pokemon:
+            guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? Pokemon else { return }
             pokemonInfoTVC.pokemon = pokemon
             
         case is String: // type

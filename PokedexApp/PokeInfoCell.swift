@@ -34,7 +34,7 @@ class PokeInfoCell: UITableViewCell {
     private var primaryTypeLabelWidthAnchor: NSLayoutConstraint!
     private var primaryTypeLabelTrailingAnchor: NSLayoutConstraint!
     
-    var pokemon: DBPokemon!
+    var pokemon: Pokemon!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,7 +59,7 @@ class PokeInfoCell: UITableViewCell {
         configureConstraints()
     }
     
-    public func configureCell(pokemon: DBPokemon) {
+    public func configureCell(pokemon: Pokemon) {
         self.pokemon = pokemon
         updateIdLabel()
         updatePokeImageView()

@@ -14,25 +14,25 @@ struct Constant { // fix comments and variables
     
 //    static private let loadData = LoadData()
     
-    static let pokemonsJSON: DictionarySA = [:] // loadData.pokemonsJSON
+    static let pokemonsJSON: DictionarySO = [:] // loadData.pokemonsJSON
     
-    static let pokemonLearnMoveJSON: DictionarySA = [:] // loadData.pokemonLearnMovesJSON
+    static let pokemonLearnMoveJSON: DictionarySO = [:] // loadData.pokemonLearnMovesJSON
     
-    static let movesJSON: DictionarySA = [:] // loadData.movesJSON
+    static let movesJSON: DictionarySO = [:] // loadData.movesJSON
     
-    static let abilitiesJSON: DictionarySA = [:] // loadData.abilitiesJSON
+    static let abilitiesJSON: DictionarySO = [:] // loadData.abilitiesJSON
     
-    static let pokemonAbilitiesJSON: DictionarySA = [:] // loadData.pokemonAbilitiesJSON
+    static let pokemonAbilitiesJSON: DictionarySO = [:] // loadData.pokemonAbilitiesJSON
     
-    static let itemsJSON: DictionarySA = [:] // loadData.itemJSON
+    static let itemsJSON: DictionarySO = [:] // loadData.itemJSON
     
-    static let measurementsJSON: DictionarySA = [:] // loadData.measurementsJSON
+    static let measurementsJSON: DictionarySO = [:] // loadData.measurementsJSON
     
-    static let defensesJSON: DictionarySA = [:] // loadData.defensesJSON
+    static let defensesJSON: DictionarySO = [:] // loadData.defensesJSON
     
-    static let pokedexEntriesJSON: DictionarySA = [:] // loadData.pokedexEntriesJSON
+    static let pokedexEntriesJSON: DictionarySO = [:] // loadData.pokedexEntriesJSON
     
-    static let evolutionsJSON: DictionarySA = [:] // loadData.evolutionJSON
+    static let evolutionsJSON: DictionarySO = [:] // loadData.evolutionJSON
     
     static let evolutionSpecialCaseForm: [String] = [] // loadData.evolutionSpecialCaseForm
     

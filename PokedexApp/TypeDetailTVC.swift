@@ -11,7 +11,7 @@ import UIKit
 class TypeDetailTVC: UITableViewController, TypeUILabelDelegate { // TODO: fixed comments
     
     var type: String! //will be assigned by segue
-    var pokemons: [DBPokemon]!
+    var pokemons: [Pokemon]!
     var moves: [Move]!
     
     var strongAgainstTypeLbls = [TypeUILabel]()
@@ -115,7 +115,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate { // TODO: fixed
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon {
+        if let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? Pokemon {
             pokemonInfoTVC.pokemon = pokemon
         } else if let moveDetailTVC = segue.destination as? MoveDetailTVC, let move = sender as? Move {
             moveDetailTVC.move = move
@@ -138,7 +138,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate { // TODO: fixed
         setDefaultState()
         
         if let _ = cache.object(forKey: type as AnyObject) as? String,
-            let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [DBPokemon],
+            let cachedPokemons = cache.object(forKey: "cachedPokemons\(type)" as AnyObject) as? [Pokemon],
             let cachedMoves = cache.object(forKey: "cachedMoves\(type)" as AnyObject) as? [Move],
             let cachedStrongAgainstTypes = cache.object(forKey: "strongAgainstTypeLbls\(type)" as AnyObject) as? [TypeUILabel],
             let cachedWeakToTypes = cache.object(forKey: "weakToTypeLbls\(type)" as AnyObject) as? [TypeUILabel],

@@ -8,6 +8,8 @@
 
 import Foundation
 
-typealias DictionarySA = Dictionary<String, AnyObject>
+public typealias DictionarySA = Dictionary<String, Any>
 
-typealias DictionarySS = Dictionary<String, String>
+public typealias DictionarySO = Dictionary<String, AnyObject>
+
+public typealias DictionarySS = Dictionary<String, String>

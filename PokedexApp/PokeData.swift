@@ -39,10 +39,10 @@ public struct PokeData {
     
     /// Pokemon dictionary.
     /// - note: Each dictionary's key is `Pokemon.key`.
-    public let pokemonMap: Dictionary<String, DBPokemon>
+    public let pokemonMap: Dictionary<String, Pokemon>
     
     /// All Pokemon including other forms
-    public let pokemons: [DBPokemon]
+    public let pokemons: [Pokemon]
     
     // MARK: - Getter
     
@@ -84,27 +84,27 @@ extension PokeData {
     }
     
     /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.
-    private static func readPokemonJson() -> DictionarySA {
+    private static func readPokemonJson() -> DictionarySO {
         return readJson(fileName: pokemonJsonFileName)
     }
     
     /// Read `pokemonMegaEvolutionJsonFileName.json` to `_allPokemonMegaEvolutionJson`
-    private static func readPokemonMegaEvolutionJson() -> DictionarySA {
+    private static func readPokemonMegaEvolutionJson() -> DictionarySO {
         return readJson(fileName: pokemonMegaEvolutionJsonFileName)
     }
     
     /// Read `pokemonEvolutionTreeJsonFileName.json` to `_pokemonEvolutionTreeJson`.
-    private static func readPokemonEvolutionTreeJson() -> DictionarySA {
+    private static func readPokemonEvolutionTreeJson() -> DictionarySO {
         return readJson(fileName: pokemonEvolutionTreeJsonFileName)
     }
     
     /// Read `pokedexEntryJsonFileName.json` to `_pokedexEntryJson`
-    private static func readPokedexEntryJson() -> DictionarySA {
+    private static func readPokedexEntryJson() -> DictionarySO {
         return readJson(fileName: pokedexEntryJsonFileName)
     }
     
-    private static func createAllPokemonMap(pokemons: [DBPokemon]) -> Dictionary<String, DBPokemon> {
-        var allPokemonsMap = Dictionary<String, DBPokemon>()
+    private static func createAllPokemonMap(pokemons: [Pokemon]) -> Dictionary<String, Pokemon> {
+        var allPokemonsMap = Dictionary<String, Pokemon>()
         for pokemon in pokemons {
             allPokemonsMap.updateValue(pokemon, forKey: pokemon.key)
         }
@@ -114,13 +114,13 @@ extension PokeData {
     /// Decode every Pokemon from `_allPokemonsJson` as `Pokemon`.
     /// Append every `Pokemon` to `_allPokemons`.
     /// - parameter dictionary: `Dictionary` contains Pokemon data that can be decode.
-    private static func decodePokemons(from dictionary: DictionarySA) -> [DBPokemon] {
+    private static func decodePokemons(from dictionary: DictionarySO) -> [Pokemon] {
         do {
-            var allPokemons = [DBPokemon]()
+            var allPokemons = [Pokemon]()
             let decoder = JSONDecoder()
             for (_, pokemonDict) in dictionary {
                 let pokemonData = try JSONSerialization.data(withJSONObject: pokemonDict, options: [])
-                let pokemon = try decoder.decode(DBPokemon.self, from: pokemonData)
+                let pokemon = try decoder.decode(Pokemon.self, from: pokemonData)
                 allPokemons.append(pokemon)
             }
             return allPokemons
@@ -134,7 +134,7 @@ extension PokeData {
     /// Read json file from main bundle.
     /// - parameter fileName: json file name located in main bundle.
     /// - returns: an empty `DictionarySA` if file not found.
-    private static func readJson(fileName: String) -> DictionarySA {
+    private static func readJson(fileName: String) -> DictionarySO {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
             print("File: \(fileName).json is missing or cannot be read!!")
             return [:]
@@ -142,7 +142,7 @@ extension PokeData {
         do {
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySA {
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySO {
                 return json
             }
         } catch {

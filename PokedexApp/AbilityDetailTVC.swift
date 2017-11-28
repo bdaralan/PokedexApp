@@ -11,7 +11,7 @@ import UIKit
 class AbilityDetailTVC: UITableViewController { // TODO: fixed comments
     
     var ability: Ability! //will be assigned from segue
-    var pokemons: [DBPokemon]!
+    var pokemons: [Pokemon]!
     
     var abilityDetailLbl: SectionUILabel!
     var segmentControl: RoundUISegmentedControl!
@@ -97,7 +97,7 @@ class AbilityDetailTVC: UITableViewController { // TODO: fixed comments
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? DBPokemon else { return }
+        guard let pokemonInfoTVC = segue.destination as? PokemonInfoTVC, let pokemon = sender as? Pokemon else { return }
         pokemonInfoTVC.pokemon = pokemon
     }
     

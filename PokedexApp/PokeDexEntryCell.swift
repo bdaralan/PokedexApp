@@ -17,7 +17,7 @@ class PokeDexEntryCell: UITableViewCell {
     let entryTextView = UITextView()
     let measurementLabel = RIOUILabel()
     
-    var pokemon: DBPokemon!
+    var pokemon: Pokemon!
     var pokedexEntry: String! // store pokedex entry to prevent fetching when cell is dequeued
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -45,7 +45,7 @@ class PokeDexEntryCell: UITableViewCell {
         configureConstraints()
     }
     
-    public func configureCell(pokemon: DBPokemon) {
+    public func configureCell(pokemon: Pokemon) {
         self.pokemon = pokemon
         updateMeasurementLabelToHeight()
         entryLabel.text = "Pokedex Entry"
