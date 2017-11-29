@@ -1,24 +1,46 @@
 # PokedexApp
-iOS Pokedex App
 
-## Another version of [PokemonApp](https://github.com/iDara09/PokemonApp)
-The [PokemonApp](https://github.com/iDara09/PokemonApp) is running by a REST API from https://pokeapi.co/.  
-However, the API currently only has 721 Pokemons, so I start this new one which will run locally by `json` data.
+## iOS Pokedex App
 
-## Status:
-* Finished version 1.0.
-* Have not yet to set constains. 
-    + Some are programatically calculated.
-    + Storyboard is set for iPhone 6s/7.
+A beautiful Pokedex app for the latest Pokemon including their essential data:
 
-## ToDo:
-* [ ] Move from frame to NSLayoutConstraint.
-    + [x] ViewLauncher: pokemon weaknesses and pokedex entry
-* [x] Fix Move, Abiliy, and Item retain cycle.
-    + error came from AudioToolBox, simulator only; the actual device is fine.
-* [x] Add animate opacity in AnimatableView
+* Stats
+* Types
+* Abilities
+* Moves
+* Measurements
+* Weaknesses
+* Evolutions
+* Pokedex Entry.
 
-## Preview:
+## Status
+
+* [x] Finished version 1.0.
+* [ ] Revamping UI.
+
+## Future Features
+
+* [ ] Mark caught/favorite Pokemon
+* [ ] Set reminder to catch Pokemon
+* [ ] Create teams
+* [ ] Compare teams
+
+## Data Resources
+
+* [Bulbapedia](http://bulbapedia.bulbagarden.net)
+* [PokemonDB](https://pokemondb.net/)
+* [Official Pokemon Site](http://pokemon.com/us/)
+* [Phasma](https://www.pokecommunity.com/showthread.php?p=9501022#post9501022)
+* [Veekun](https://veekun.com/dex/downloads)
+
+## Disclaimer
+
+* This is for practice and learning purposes only.
+* All contents, arts, assets, and data belong to their respective owners.
+* If you clone this, please give them credits.
+
+## Preview
+
 <div>
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/pokemon-info.png" alt="Pokemon Info" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/home-menu.png" alt="Home Menu" height="360px">
@@ -42,68 +64,3 @@ However, the API currently only has 721 Pokemons, so I start this new one which 
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/setting.png" alt="Setting" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokedexApp/master/Assets/preview/app-icon.png" alt="App Icon" height="360px">
 </div>
-
-## Usage:
-* You can use this for studying purposes or as a reference guide. *Happy learning Swift. :)*
-### Project MVC Files
-* View
-    + PokedexCell.swfit
-    + TypeCell.swfit
-    + ItemCell.swift
-    + MoveCell.swift
-    + AbilityCell.swift
-    + MoveDetailCell.swift
-    + AbilityDetailCell.swift
-    + OffenseDefenseCell.swift
-    + MoveDetailUITextView.swift
-    + SectionUILabel.swift
-    + CircleUILabel.swift
-    + TypeUILabel.swift
-    + AbilityUILabel.swift
-    + MeasurementUILabel.swift
-    + RoundUISegmentedControl.swift
-    + StatsUIProgressView.swift
-    + RIOUILabel.swfit
-    + AnimatableView.swift
-* Model
-    + AppDelegate.swift
-    + ViewLauncher.swift
-    + Pokemon.swift
-    + Ability.swift
-    + Move.swift
-    + Item.swift
-* Controller
-    + SettingTVC.swift
-    + HomeMenuTVC.swift
-    + GenericTVC.swift
-    + PokemonInfoVC.swift
-    + MoveDetailVC.swift
-    + TypeDetailTVC.swift
-    + AbilityDetailVC.swift
-* Utilities
-    + Utilities.swift
-    + LoadData.swift
-    + AudioPlayer.swift
-* Extensions
-    + UILabelExtension.swift
-    + UIColorExtension.swift
-    + AVAudioPlayerExtension.swift
-* Constants
-    + Variable.swift
-    + Constants.swift
-* Resources
-    + data
-    + sound-effect
-    + pokemon-cries
-
-## Disclaimer:
-* This is for practice and learning purposes only.
-* All contents, arts, assets, and data belong to their respective owners.
-* If you clone this, please give them credits.
-
-## Data Resources:
-* [Bulbapedia](http://bulbapedia.bulbagarden.net)
-* [PokemonDB](https://pokemondb.net/)
-* [Official Pokemon Site](http://pokemon.com/us/)
-* [Phasma](https://www.pokecommunity.com/showthread.php?p=9501022#post9501022)
-* [Veekun](https://veekun.com/dex/downloads)
