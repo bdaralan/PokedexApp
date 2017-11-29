@@ -90,7 +90,7 @@ class AbilityDetailTVC: UITableViewController { // TODO: fixed comments
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == pokemonCellSection else { return }
-        AudioPlayer.play(audio: .select)
+        PokeAudioPlayer.instance.play(soundEffect: .select)
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemons[indexPath.row])
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 class AnimatableUIView: UIView {}
 
-/// Add pokemon defenses
+/** Add pokemon defenses */
 extension AnimatableUIView {
     // TODO: defenses labels
 //    func addDefenseTypeLabels(of pokemon: Pokemon) {
@@ -70,7 +70,7 @@ extension AnimatableUIView {
 //    }
 }
 
-/// Add pokemon pokedex entry
+/** Add pokemon pokedex entry */
 extension AnimatableUIView {
     
     func addTextView(text: String) {

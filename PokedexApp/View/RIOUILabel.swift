@@ -18,7 +18,7 @@ enum RIOUILabelStyle {
 
 class RIOUILabel: UILabel {
     
-    /// The round label at the right size of `self`, the main label.
+    /** The round label at the right size of `self`, the main label. */
     let roundLabel = UILabel()
     
     public var roundLabelTopConstraint: NSLayoutConstraint?
@@ -37,7 +37,7 @@ class RIOUILabel: UILabel {
     
     private var roundLabelStyle: RIOUILabelStyle = .regular
     
-    /// The radius of the `roundLabel`. In most cases, its height is hightly prefered
+    /** The radius of the `roundLabel`. In most cases, its height is hightly prefered */
     private var radius: CGFloat {
         return self.roundLabel.frame.height
     }
@@ -78,9 +78,11 @@ class RIOUILabel: UILabel {
         }
     }
     
-    /// Change label style. Check `RIOUILabelStyle` for style options.
-    /// The default style is `.regular`.
-    /// - note: Currently, change style before setup constraints.
+    /**
+     Change label style. Check `RIOUILabelStyle` for style options.
+     The default style is `.regular`.
+     - note: Currently, change style before setup constraints.
+     */
     public func changeStyle(to style: RIOUILabelStyle) {
         roundLabelStyle = style
         guard let _ = superview else { return }

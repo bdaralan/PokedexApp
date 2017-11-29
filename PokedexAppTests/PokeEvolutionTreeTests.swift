@@ -13,7 +13,6 @@ class PokeEvolutionTreeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        PokeData.initializes()
     }
     
     override func tearDown() {

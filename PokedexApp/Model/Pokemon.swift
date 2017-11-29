@@ -15,7 +15,7 @@ import Foundation
 
 // MARK - Main class
 
-/// Pokemon
+/** Pokemon */
 public class Pokemon: Encodable, Decodable, Equatable {
     
     let info: PokeInfo
@@ -41,8 +41,10 @@ public extension Pokemon {
         return "\(info.id)-\(info.form.lowercased())"
     }
     
-    /// Grab Pokedex entry from `PokeData.pokedexEntryJson`.
-    /// - note: `return` An empty `PokeEntry` if entry not found.
+    /**
+     Grab Pokedex entry from `PokeData.pokedexEntryJson`.
+     - note: `return` An empty `PokeEntry` if entry not found.
+     */
     public var pokedexEntry: PokeEntry {
         if let dict = PokeData.instance.pokedexEntryJson["\(info.id)"] as? DictionarySO {
             do {
@@ -59,7 +61,7 @@ public extension Pokemon {
 
 // MARK: - Pokemon attribute class
 
-/// Pokemon info
+/** Pokemon info */
 public struct PokeInfo: Encodable, Decodable {
     
     let id: Int
@@ -70,7 +72,7 @@ public struct PokeInfo: Encodable, Decodable {
 }
 
 
-/// Pokemon abilities
+/** Pokemon abilities */
 public struct PokeAbility: Encodable, Decodable {
     
     let first: String
@@ -83,7 +85,7 @@ public struct PokeAbility: Encodable, Decodable {
 }
 
 
-/// Pokemon types
+/** Pokemon types */
 public struct PokeType: Encodable, Decodable {
     
     let primary: String
@@ -93,7 +95,7 @@ public struct PokeType: Encodable, Decodable {
 }
 
 
-/// Pokemon stats
+/** Pokemon stats */
 public struct PokeStat: Encodable, Decodable {
     
     let hp: Int
@@ -105,7 +107,7 @@ public struct PokeStat: Encodable, Decodable {
 }
 
 
-/// Pokemon measurements
+/** Pokemon measurements */
 public struct PokeMeasurement: Encodable, Decodable {
     
     let height: String
@@ -113,7 +115,7 @@ public struct PokeMeasurement: Encodable, Decodable {
 }
 
 
-/// PokedexEntry
+/** PokedexEntry */
 public struct PokeEntry: Encodable, Decodable {
     
     let omega: String

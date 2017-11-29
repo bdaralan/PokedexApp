@@ -36,8 +36,10 @@ struct PokemonLearnMove {
 
 extension PokemonLearnMove {
     
-    /// Initialize an array of `PokemonLearMove` from `Dictionary`
-    /// - parameter moveDictionary: example: `Dictionaory<PokemonId, [LearnLevel]>`
+    /**
+     Initialize an array of `PokemonLearMove` from `Dictionary`
+     - parameter moveDictionary: example: `Dictionaory<PokemonId, [LearnLevel]>`
+     */
     public static func initArray(moveName: String, moveDictionary: Dictionary<String, [String]>) -> [PokemonLearnMove] {
         
         var learnPokemons = [PokemonLearnMove]()

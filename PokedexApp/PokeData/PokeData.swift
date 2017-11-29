@@ -22,44 +22,47 @@ private var pokedexEntryJsonFileName: String { return "pokedex-enteries" }
 
 public struct PokeData {
     
-    /// PokeData singleton
+    /** PokeData singleton. */
     private static var pokeDataInstance: PokeData!
     
-    /// Dictionary from `json` file `pokemonJsonFileName`.
-    public let pokemonJson: Dictionary<String, AnyObject>
-    
-    /// Dictionary from `json` file `pokemonMegaEvolutionJsonFileName`.
-    public let pokemonMegaEvolutionJson: Dictionary<String, AnyObject>
-    
-    /// Dictionary from `json` file `pokemonEvolutionTreeJsonFileName`.
-    public let pokemonEvolutionTreeJson: Dictionary<String, AnyObject>
-    
-    /// Dictionary from `json` file `pokedexEntryJsonFileName`.
-    public let pokedexEntryJson: Dictionary<String, AnyObject>
-    
-    /// Pokemon dictionary.
-    /// - note: Each dictionary's key is `Pokemon.key`.
-    public let pokemonMap: Dictionary<String, Pokemon>
-    
-    /// All Pokemon including other forms
-    public let pokemons: [Pokemon]
-    
-    // MARK: - Getter
-    
-    /// PokeData instance (singleton).
+    /** PokeData instance. */
     public static var instance: PokeData {
         if pokeDataInstance == nil { initializes() }
         return pokeDataInstance
     }
+    
+    /** Dictionary from `json` file `pokemonJsonFileName`. */
+    public let pokemonJson: DictionarySO
+    
+    /** Dictionary from `json` file `pokemonMegaEvolutionJsonFileName`. */
+    public let pokemonMegaEvolutionJson: DictionarySO
+    
+    /** Dictionary from `json` file `pokemonEvolutionTreeJsonFileName`. */
+    public let pokemonEvolutionTreeJson: DictionarySO
+    
+    /** Dictionary from `json` file `pokedexEntryJsonFileName`. */
+    public let pokedexEntryJson: DictionarySO
+    
+    /**
+     Pokemon dictionary.
+     - note: Each dictionary's key is the same as `Pokemon.key`.
+    */
+    public let pokemonMap: Dictionary<String, Pokemon>
+    
+    /** All Pokemon including other forms. */
+    public let pokemons: [Pokemon]
 }
 
 // MARK: - Initialization
 
 extension PokeData {
     
-    /// Initializes and prepares `PokeData` instance.
-    /// - note: This method will only initialize once, when `PokeData` instance is `nil`.
-    /// - parameter force: pass in `true` to force a reinitialization.
+    /**
+     Initializes and prepares `PokeData` `instance`.
+     - note: This method will only initialize once, when `PokeData` instance is `nil`.
+     To force a reinitialization, pass `true` into the parameter.
+     - parameter force: pass in `true` to force a reinitialization.
+    */
     public static func initializes(force: Bool = false) {
         guard pokeDataInstance == nil || force else { return }
         
@@ -83,22 +86,22 @@ extension PokeData {
         )
     }
     
-    /// Read `pokemonJsonFileName.json` to `_allPokemonsJson`.
+    /** Read `pokemonJsonFileName.json` to `_allPokemonsJson`. */
     private static func readPokemonJson() -> DictionarySO {
         return readJson(fileName: pokemonJsonFileName)
     }
     
-    /// Read `pokemonMegaEvolutionJsonFileName.json` to `_allPokemonMegaEvolutionJson`
+    /** Read `pokemonMegaEvolutionJsonFileName.json` to `_allPokemonMegaEvolutionJson` */
     private static func readPokemonMegaEvolutionJson() -> DictionarySO {
         return readJson(fileName: pokemonMegaEvolutionJsonFileName)
     }
     
-    /// Read `pokemonEvolutionTreeJsonFileName.json` to `_pokemonEvolutionTreeJson`.
+    /** Read `pokemonEvolutionTreeJsonFileName.json` to `_pokemonEvolutionTreeJson`. */
     private static func readPokemonEvolutionTreeJson() -> DictionarySO {
         return readJson(fileName: pokemonEvolutionTreeJsonFileName)
     }
     
-    /// Read `pokedexEntryJsonFileName.json` to `_pokedexEntryJson`
+    /** Read `pokedexEntryJsonFileName.json` to `_pokedexEntryJson` */
     private static func readPokedexEntryJson() -> DictionarySO {
         return readJson(fileName: pokedexEntryJsonFileName)
     }
@@ -111,9 +114,10 @@ extension PokeData {
         return allPokemonsMap
     }
     
-    /// Decode every Pokemon from `_allPokemonsJson` as `Pokemon`.
-    /// Append every `Pokemon` to `_allPokemons`.
-    /// - parameter dictionary: `Dictionary` contains Pokemon data that can be decode.
+    /**
+     Decode every Pokemon from `_allPokemonsJson` as `Pokemon`.
+     - parameter dictionary: `Dictionary` contains Pokemon data that can be decode.
+     */
     private static func decodePokemons(from dictionary: DictionarySO) -> [Pokemon] {
         do {
             var allPokemons = [Pokemon]()
@@ -131,9 +135,11 @@ extension PokeData {
         }
     }
     
-    /// Read json file from main bundle.
-    /// - parameter fileName: json file name located in main bundle.
-    /// - returns: an empty `DictionarySA` if file not found.
+    /**
+     Read json file from main bundle.
+     - parameter fileName: json file name located in main bundle.
+     - returns: an empty `DictionarySO` if file not found.
+     */
     private static func readJson(fileName: String) -> DictionarySO {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
             print("File: \(fileName).json is missing or cannot be read!!")

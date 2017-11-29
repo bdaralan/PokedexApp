@@ -126,7 +126,7 @@ class TypeDetailTVC: UITableViewController, TypeUILabelDelegate { // TODO: fixed
     
     func typeUILabel(didTap tapGesture: UITapGestureRecognizer) {
         guard let typeLbl = tapGesture.view as? TypeUILabel, type != typeLbl.text else { return }
-        AudioPlayer.play(audio: .select)
+        PokeAudioPlayer.instance.play(soundEffect: .select)
         type = typeLbl.text
         updateUI()
     }

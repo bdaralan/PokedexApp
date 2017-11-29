@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Use with PokeEvolutionCell. Will be fill into its `contentView` to display Pokemon's evolutions.
+/** Use with PokeEvolutionCell. Will be fill into its `contentView` to display Pokemon's evolutions. */
 class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private var numberOfItemPerColmn = 3
@@ -46,7 +46,7 @@ class PokeEvolutionCV: UICollectionView, UICollectionViewDataSource, UICollectio
         return layout
     }
     
-    /// Call to update `itemSize` when change `numberOfItemPerRow` or `numberOfItemPerColumn`.
+    /** Call to update `itemSize` when change `numberOfItemPerRow` or `numberOfItemPerColumn`. */
     public func updateSizeForItem() {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let hInsetSpace = layout.sectionInset.left + layout.sectionInset.right

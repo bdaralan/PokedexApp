@@ -10,7 +10,7 @@ import UIKit
 
 class DBUIInsetLabel: UILabel {
     
-    /// Custom text insets. If this value is `nil`, the label will use the default insets.
+    /** Custom text insets. If this value is `nil`, the label will use the default insets. */
     var textInsets: UIEdgeInsets?
 
     override init(frame: CGRect) {

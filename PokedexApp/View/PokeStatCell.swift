@@ -12,7 +12,7 @@ private let space: CGFloat = 8
 private let margin: CGFloat = 16
 private let labelHeight: CGFloat = 28
 
-/// Use with `PokemonTVC` to display Pokemon's stats.
+/** Use with `PokemonTVC` to display Pokemon's stats. */
 class PokeStatCell: UITableViewCell {
     
     public static var defaultId: String { return "\(PokeStatCell.self)" }
@@ -78,7 +78,7 @@ class PokeStatCell: UITableViewCell {
         updateStatLabels()
     }
     
-    /// Update stat sliders with animation and duration, default is `0.3`.
+    /** Update stat sliders with animation and duration, default is `0.3`. */
     public func updateStatSlides(animated: Bool, duration: TimeInterval = 0.3) {
         guard let pokemon = pokemon else { return }
         let maxValue: Float = 200
@@ -238,7 +238,7 @@ class PokeStatCell: UITableViewCell {
     
     // MARKL: - Helper function
     
-    /// - note: Excludes `totalLabel`
+    /** - note: Excludes `totalLabel` */
     private func setupMinMaxLabel(label: RIOUILabel, backgroundColor: UIColor) {
         label.textAlignment = .center
         label.changeStyle(to: .halfWidthInsetRight)

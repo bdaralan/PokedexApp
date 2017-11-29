@@ -42,7 +42,7 @@ class SettingTVC: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        AudioPlayer.play(audio: .save)
+        PokeAudioPlayer.instance.play(soundEffect: .save)
         disclaimerViewLauncher.removeFromSuperview()
         creditViewLauncher.removeFromSuperview()
     }
@@ -65,10 +65,10 @@ class SettingTVC: UITableViewController {
             guard let url = URL(string: "https://github.com/iDara09/PokedexApp") else { return }
             UIApplication.shared.open(url)
         case.disclaimer:
-            AudioPlayer.play(audio: .select)
+            PokeAudioPlayer.instance.play(soundEffect: .select)
             disclaimerViewLauncher.launch()
         case .credits:
-            AudioPlayer.play(audio: .select)
+            PokeAudioPlayer.instance.play(soundEffect: .select)
             creditViewLauncher.launch()
         default: ()
         }
@@ -82,7 +82,7 @@ class SettingTVC: UITableViewController {
     
     @IBAction func soundEffectSwitchToggled(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: Constant.Key.Setting.soundEffectSwitchState)
-        if sender.isOn { AudioPlayer.play(audio: .select) }
+        if sender.isOn { PokeAudioPlayer.instance.play(soundEffect: .select) }
     }
     
     // MARK: - Initializer and Handler

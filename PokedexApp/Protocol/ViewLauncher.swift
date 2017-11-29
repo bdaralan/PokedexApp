@@ -71,7 +71,7 @@ class ViewLauncher: UIView, CAAnimationDelegate {
         if isDismissing { alpha = 0 }
     }
     
-    /// Send `launchView` to the center of `self.superview` and fade-in `dimView`
+    /** Send `launchView` to the center of `self.superview` and fade-in `dimView` */
     func launch() {
     
         // flag isLaunching
@@ -95,7 +95,7 @@ class ViewLauncher: UIView, CAAnimationDelegate {
         self.dimView.layer.add(fadeInAnimation, forKey: "opacity")
     }
     
-    /// Send `launchView` off screen self and fade-out `dimView`
+    /** Send `launchView` off screen self and fade-out `dimView` */
     func dismiss(animated: Bool) { 
         
         // flag isLaunching
@@ -139,7 +139,7 @@ extension ViewLauncher {
         dismissValue = NSValue(cgPoint: CGPoint(x: superview.center.x * 3, y: self.launchView.center.y))
     }
     
-    /// Add dimiss gestures to `launchView` and `dimView`
+    /** Add dimiss gestures to `launchView` and `dimView` */
     func addLaunchViewDimViewDismissGestures() {
         let swipeToDismiss = UISwipeGestureRecognizer(target: self, action: #selector(handleDismissCalledBySelector))
         swipeToDismiss.direction = .right
@@ -149,12 +149,12 @@ extension ViewLauncher {
         dimView.addGestureRecognizer(tapToDimiss)
     }
     
-    /// Dismiss function used by selector
+    /** Dismiss function used by selector */
     @objc func handleDismissCalledBySelector() {
         dismiss(animated: true)
     }
     
-    /// Applying constraints to `launchView` and `dimView`
+    /** Applying constraints to `launchView` and `dimView` */
     func addLaunchViewDimViewConstraints() {
         launchView.translatesAutoresizingMaskIntoConstraints = false
         dimView.translatesAutoresizingMaskIntoConstraints = false

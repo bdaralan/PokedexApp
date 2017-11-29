@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main class
 
-/// PokemonEvolutionTree
+/** PokemonEvolutionTree */
 public class PokeEvolutionTree: Encodable, Decodable {
     
     let basePokemon: String
@@ -21,14 +21,13 @@ public class PokeEvolutionTree: Encodable, Decodable {
         self.pokemonNodes = pokemons
     }
     
-    ///
     convenience init(baseId: Int) {
         let key = String(format: "%04d", baseId)
         let dictionary = PokeData.instance.pokemonEvolutionTreeJson[key] as? DictionarySO
         self.init(dictionary: dictionary)
     }
     
-    /// Decode a pokemon evolution tree dictionary
+    /** Decode a pokemon evolution tree dictionary */
     convenience init(dictionary: DictionarySO?) {
         guard let dictionary = dictionary else {
             self.init()
@@ -52,7 +51,7 @@ public class PokeEvolutionTree: Encodable, Decodable {
 
 // MARK: - PokemonEvolutionTree attribute class
 
-/// PokemonNode
+/** PokemonNode */
 public struct PokemonNode: Encodable, Decodable {
     
     let condition: [String]
@@ -62,7 +61,7 @@ public struct PokemonNode: Encodable, Decodable {
     let stage: Int
 }
 
-/// PokeEvolutionStage
+/** PokeEvolutionStage */
 public enum PokeEvolutionStage: Int {
     case first = 1
     case second

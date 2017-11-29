@@ -13,7 +13,7 @@ private let margin: CGFloat = 16
 private let typeSpacing: CGFloat = 8
 private let labelHeight: CGFloat = 28
 
-/// Use with PokemonInfoTVC to display Pokemon's id, types, abilities, and image.
+/** Use with PokemonInfoTVC to display Pokemon's id, types, abilities, and image. */
 class PokeInfoCell: UITableViewCell {
     
     public static var defaultId: String { return "\(PokeInfoCell.self)" }

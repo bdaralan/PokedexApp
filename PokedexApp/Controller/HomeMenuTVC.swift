@@ -19,7 +19,7 @@ class HomeMenuTVC: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AudioPlayer.play(audio: .select)
+        PokeAudioPlayer.instance.play(soundEffect: .select)
         let genericCell = GenericCell(rawValue: "\(indexPath.section)\(indexPath.row)")
         let title = tableView.cellForRow(at: indexPath)?.textLabel?.text
         performSegue(withIdentifier: "GenericTVC", sender: (genericCell, title))
@@ -34,7 +34,7 @@ class HomeMenuTVC: UITableViewController {
     // MARK: - IBActions
     
     @IBAction func settingBtnPressed(_ sender: Any) {
-        AudioPlayer.play(audio: .openPC)
+        PokeAudioPlayer.instance.play(soundEffect: .openPC)
         performSegue(withIdentifier: "SettingTVC", sender: nil)
     }
     

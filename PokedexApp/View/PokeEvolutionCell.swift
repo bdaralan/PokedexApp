@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Use with PokemonInfoTVC to display Pokemon's evolutions.
+/** Use with PokemonInfoTVC to display Pokemon's evolutions. */
 class PokeEvolutionCell: UITableViewCell {
     
     public static var defaultId: String { return "\(PokeEvolutionCell.self)" }

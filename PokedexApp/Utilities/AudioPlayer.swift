@@ -8,9 +8,9 @@
 
 import AVFoundation
 
-struct AudioPlayer {
+class PokeAudioPlayer {
     
-    enum ResourceAudioFile: String {
+    enum PokeSoundEffect: String {
         case error = "error.m4a"
         case openPC = "open-pc.m4a"
         case save = "save.m4a"
@@ -20,57 +20,55 @@ struct AudioPlayer {
         var fileType: String { return rawValue.components(separatedBy: ".")[1] }
     }
     
-    /// The main audio player
-    static private var player = AVAudioPlayer()
+    /** Audio player singleton. */
+    private static var pokeAudioPlayerInstance = PokeAudioPlayer()
     
-    static let error = load(resource: .error)
+    /** `AudioPlayer` instance. */
+    static var instance: PokeAudioPlayer { return pokeAudioPlayerInstance }
     
-    static let openPC = load(resource: .openPC)
+    /** The main player used to play audio. */
+    var mainPlayer = AVAudioPlayer()
     
-    static let save = load(resource: .save)
+    static let errorPlayer = load(audio: PokeSoundEffect.error.fileName, ofType: PokeSoundEffect.error.fileType)
     
-    static let select = load(resource: .select)
+    static let openPCPlayer = load(audio: PokeSoundEffect.openPC.fileName, ofType: PokeSoundEffect.openPC.fileType)
+    
+    static let savePlayer = load(audio: PokeSoundEffect.save.fileName, ofType: PokeSoundEffect.save.fileType)
+    
+    static let selectPlayer = load(audio: PokeSoundEffect.select.fileName, ofType: PokeSoundEffect.select.fileType)
     
     static var isSoundEffectSettingOn: Bool {
         return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState)
     }
     
-    static func play(audio: ResourceAudioFile) {
-        guard isSoundEffectSettingOn || audio == .save else { return }
-        switch audio {
-        case .select: player = select
-        case .openPC: player = openPC
-        case .save: player = save
-        case .error: player = error
+    func play(soundEffect: PokeSoundEffect) {
+        guard PokeAudioPlayer.isSoundEffectSettingOn || soundEffect == .save else { return }
+        switch soundEffect {
+        case .select: mainPlayer = PokeAudioPlayer.selectPlayer
+        case .openPC: mainPlayer = PokeAudioPlayer.openPCPlayer
+        case .save: mainPlayer = PokeAudioPlayer.savePlayer
+        case .error: mainPlayer = PokeAudioPlayer.errorPlayer
         }
-        player.prepareToPlay()
-        player.play()
+        mainPlayer.prepareToPlay()
+        mainPlayer.play()
     }
     
-    static func play(audio: String, ofType type: String) {
-        guard isSoundEffectSettingOn else { return }
-        player = error // default to error in case of fail try or no file
-        if let path = Bundle.main.path(forResource: audio, ofType: type) {
-            do {
-                let url = URL(fileURLWithPath: path)
-                let pokemonCry = try AVAudioPlayer(contentsOf: url)
-                player = pokemonCry
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        player.prepareToPlay()
-        player.play()
+    func play(audio: String, ofType type: String) {
+        guard PokeAudioPlayer.isSoundEffectSettingOn else { return }
+        mainPlayer = PokeAudioPlayer.load(audio: audio, ofType: type)
+        mainPlayer.prepareToPlay()
+        mainPlayer.play()
     }
     
-    static func load(resource: ResourceAudioFile) -> AVAudioPlayer {
-        guard let path = Bundle.main.path(forResource: resource.fileName, ofType: resource.fileType) else { return AVAudioPlayer() }
+    static func load(audio: String, ofType type: String) -> AVAudioPlayer {
+        guard let path = Bundle.main.path(forResource: audio, ofType: type) else { return AVAudioPlayer() }
         do {
             let audioUrl = URL(fileURLWithPath: path)
             let audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
             return audioPlayer
         } catch {
             print(error.localizedDescription)
+            print("PokeAudioPlayer fail to load audio \(audio).\(type)!!")
             return AVAudioPlayer()
         }
     }

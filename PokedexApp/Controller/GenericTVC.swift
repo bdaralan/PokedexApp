@@ -105,7 +105,7 @@ class GenericTVC: UITableViewController, UISearchResultsUpdating, ViewLauncherDe
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AudioPlayer.play(audio: .select)
+        PokeAudioPlayer.instance.play(soundEffect: .select)
         switch currentGenericCell {
             
         case .PokedexCell:

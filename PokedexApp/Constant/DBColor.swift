@@ -10,13 +10,13 @@ import UIKit
 
 struct DBColor {
     
-    /// Pokemon mix color
+    /** Pokemon mix color */
     struct Pokemon {
         
         static let ability = AppObject.sectionBackground.withAlphaComponent(0.35)
     }
     
-    /// Pokemon type color
+    /** Pokemon type color */
     struct PokemonType {
         
         static let normal = UIColor(red: 168.rgbRange, green: 168.rgbRange, blue: 120.rgbRange, alpha: 1) //A8A878
@@ -58,7 +58,7 @@ struct DBColor {
         static let unknown = UIColor(red: 104.rgbRange, green: 160.rgbRange, blue: 144.rgbRange, alpha: 1) //68A090
     }
     
-    /// Pokemon move color
+    /** Pokemon move color */
     struct PokemonMove {
         
         static let physical = UIColor(red: 255.rgbRange, green: 69.rgbRange, blue: 0.rgbRange, alpha: 1) //FF4500
@@ -70,8 +70,7 @@ struct DBColor {
         static let zMove = UIColor(red: 250.rgbRange, green: 202.rgbRange, blue: 13.rgbRange, alpha: 1) //FACA0D
     }
     
-    /// Pokemon stats color
-    
+    /** Pokemon stats color */
     struct PokemonStat {
         
         static let hp = UIColor(red: 120.rgbRange, green: 200.rgbRange, blue: 80.rgbRange, alpha: 1) // 78C850
@@ -87,6 +86,7 @@ struct DBColor {
         static let speed = UIColor(red: 249.rgbRange, green: 201.rgbRange, blue: 14.rgbRange, alpha: 1) // F9C90E
     }
     
+    /** Pokemon measurement color */
     struct PokemonMeasurement {
         
         static let weight = UIColor(red: 231.rgbRange, green: 73.rgbRange, blue: 130.rgbRange, alpha: 1) // E74982
@@ -94,7 +94,7 @@ struct DBColor {
         static let height = UIColor(red: 103.rgbRange, green: 217.rgbRange, blue: 215.rgbRange, alpha: 1) // 67D9D7
     }
     
-    /// App object color
+    /** App object color */
     struct AppObject {
         
         // For custom objects in app
@@ -144,6 +144,6 @@ extension DBColor {
 
 private extension Int {
     
-    /// Devided `self` by 255 to get RBG range `0-1`.
+    /** Devided `self` by 255 to get RBG range `0-1`. */
     var rgbRange: CGFloat { return CGFloat(self) / 255 }
 }

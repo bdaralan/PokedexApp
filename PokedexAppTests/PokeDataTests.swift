@@ -13,7 +13,6 @@ class PokeDataTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -24,16 +23,16 @@ class PokeDataTests: XCTestCase {
     func testInitilizes() {
         // check if all data are parsed
         PokeData.initializes()
-        XCTAssertNotNil(PokeData.pokemonJson)
-        XCTAssertNotNil(PokeData.pokemonEvolutionTreeJson)
-        XCTAssertNotNil(PokeData.pokemonMegaEvolutionJson)
-        XCTAssertNotNil(PokeData.pokemonMap)
+        XCTAssertNotNil(PokeData.instance.pokemonJson)
+        XCTAssertNotNil(PokeData.instance.pokemonEvolutionTreeJson)
+        XCTAssertNotNil(PokeData.instance.pokemonMegaEvolutionJson)
+        XCTAssertNotNil(PokeData.instance.pokemonMap)
         
         // check if any data missing
-        let pokemonJsonKeyCount = PokeData.pokemonJson.keys.count
-        let pokemonMegaEvolutionKeyCount = PokeData.pokemonMegaEvolutionJson.keys.count
+        let pokemonJsonKeyCount = PokeData.instance.pokemonJson.keys.count
+        let pokemonMegaEvolutionKeyCount = PokeData.instance.pokemonMegaEvolutionJson.keys.count
         let allPokemonKeyCount = pokemonJsonKeyCount + pokemonMegaEvolutionKeyCount
-        let allPokemonMapKeyCount = PokeData.pokemonMap.keys.count
+        let allPokemonMapKeyCount = PokeData.instance.pokemonMap.keys.count
         XCTAssertEqual(allPokemonKeyCount, allPokemonMapKeyCount)
     }
 }
