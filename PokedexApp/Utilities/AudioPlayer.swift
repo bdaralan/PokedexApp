@@ -27,18 +27,19 @@ struct AudioPlayer {
     
     static var isSoundEffectSettingOn: Bool { return UserDefaults.standard.bool(forKey: Constant.Key.Setting.soundEffectSwitchState) }
     
+    static var mainPlayer: AVAudioPlayer!
+    
     static func play(audio: ResourceAudioFile) {
         
         if isSoundEffectSettingOn || audio == .save {
-            let audioPlayer: AVAudioPlayer
             switch audio {
-            case .select: audioPlayer = select
-            case .openPC: audioPlayer = openPC
-            case .save: audioPlayer = save
-            case .error: audioPlayer = error
+            case .select: mainPlayer = select
+            case .openPC: mainPlayer = openPC
+            case .save: mainPlayer = save
+            case .error: mainPlayer = error
             }
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
+            mainPlayer.prepareToPlay()
+            mainPlayer.play()
         }
     }
     
@@ -46,10 +47,13 @@ struct AudioPlayer {
         
         guard isSoundEffectSettingOn, let path = Bundle.main.path(forResource: audio, ofType: type) else { return }
         do {
-            let pokemonCry = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            pokemonCry.prepareToPlay()
-            pokemonCry.play()
-        } catch { print(error) }
+            mainPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+        } catch {
+            print(error.localizedDescription)
+            mainPlayer = AudioPlayer.error
+        }
+        mainPlayer.prepareToPlay()
+        mainPlayer.play()
     }
     
     static func load(resourceAudio: ResourceAudioFile) -> AVAudioPlayer {
